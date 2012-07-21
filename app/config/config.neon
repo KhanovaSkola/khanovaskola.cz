@@ -27,11 +27,14 @@ common:
 
 
 	services:
+		user: NetteUser
+
 		database: @Nette\Database\Connection
-		authenticator: Authenticator
+		authenticator: Authenticator(@users)
 
 		categories: Categories('category')
 		videos: Videos('video')
+		users: Users('user')
 
 	factories:
 

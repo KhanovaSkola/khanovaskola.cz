@@ -15,13 +15,13 @@ class SignPresenter extends BasePresenter
 	protected function createComponentSignInForm()
 	{
 		$form = new UI\Form;
-		$form->addText('username', 'Username:')
+		$form->addText('username')
 			->setRequired('Please provide a username.');
 
-		$form->addPassword('password', 'Password:')
+		$form->addPassword('password')
 			->setRequired('Please provide a password.');
 
-		$form->addCheckbox('remember', 'Remember me on this computer');
+		$form->addCheckbox('remember');
 
 		$form->addSubmit('send', 'Sign in');
 
@@ -36,12 +36,17 @@ class SignPresenter extends BasePresenter
 		try {
 			$values = $form->getValues();
 			if ($values->remember) {
-				$this->getUser()->setExpiration('+ 14 days', FALSE);
+				$this->user->setExpiration('+ 14 days', FALSE);
 			} else {
-				$this->getUser()->setExpiration('+ 20 minutes', TRUE);
+				$this->user->setExpiration('+ 20 minutes', TRUE);
 			}
-			$this->getUser()->login($values->username, $values->password);
-			$this->redirect('Homepage:');
+			$this->user->login($values->username, $values->password);
+			
+			if ($this->user->isInRole('moderator')) {
+				$this->redirect(':Moderator:Dashboard:');
+			} else {
+				$this->redirect(':Front:Homepage:');
+			}
 
 		} catch (NS\AuthenticationException $e) {
 			$form->addError($e->getMessage());

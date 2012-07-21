@@ -31,7 +31,7 @@ class Category extends Entity
 	
 	public function getParent()
 	{
-		return $this->contenxt->categories->findOneBy(['id' => $this->parent_id]);
+		return $this->context->categories->findOneBy(['id' => $this->parent_id]);
 	}
 	
 	

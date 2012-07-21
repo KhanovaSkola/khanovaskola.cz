@@ -1,4 +1,61 @@
 {#content}
-<h1 n:block=title>Sign in</h1>
 
-{control signInForm}
+<article id="page-root">
+	<div class="login-container card-case vertical-shadow">
+    <div class="providers">
+		{*
+        <h3>Přihlášení do Khan Academy</h3>
+        <div id="login-google" class="action-gradient provider">
+    <div class="img-container">
+        <a href="https://www.google.com/accounts/ServiceLogin?service=ah&amp;passive=true&amp;continue=https://appengine.google.com/_ah/conflogin%3Fcontinue%3Dhttp://www.khanacademy.org/postlogin%253Fcontinue%253Dhttp%25253A%25252F%25252Fwww.khanacademy.org%25252Fmath%25252Farithmetic%25252Faddition-subtraction%25252Fv%25252Fbasic-addition&amp;ltmpl=gm&amp;shdf=ChgLEgZhaG5hbWUaDEtoYW4gQWNhZGVteQwSAmFoIhTMq42QqbUbvMh16rW9D7-Lf3SzOCgBMhQrvbl1Mkj1Std6tQBjHYN41-PNWQ">
+            <img width="180" height="61" alt="Google" src="/images/google-logo-large.png">
+        </a>
+    </div>
+</div>
+        <br>
+
+        
+    <div id="login-facebook" class="action-gradient provider">
+        <div class="img-container">
+        <img width="180" height="61" alt="Facebook" src="/images/facebook-logo-large.png">
+        </div>
+    </div>
+    </div>
+
+    <div class="vertical-separator">
+        <span class="separator-text">Nebo</span>
+    </div>
+	*}
+    <div class="pw-login">
+        <h3>Přihlášení do Khanovy školy:</h3>
+        <div class="pw-login-contents">
+		{form signInForm}
+			{control signInForm errors}
+			
+            <div class="field-error" id="error-text">&nbsp;</div>
+
+            <img src="/images/hand-tree.png" width="75" height="75" class="tree">
+            <div class="field-container">
+				{label username, class => "field-label"}Email{/label}
+				{input username, class => "simple-input ui-corner-all"}
+            </div>
+
+            <div class="field-container">
+                {label password, class => "field-label"}Heslo{/label}
+				{input password, class => "simple-input ui-corner-all"}
+                <div>
+                    <a id="forgot-hint" n:href=":Front:Sign:forgotten" target="_top">Zapomenuté heslo?</a>
+                </div>
+            </div>
+
+			{input send, value => "Přihlásit", class => "simple-button green"}
+            <div class="signup-prompt-container">
+                <span class="signup-prompt">Nemáte ještě účet?</span>
+                <a class="signup-link" target="_top" n:href=":Front:Registration:">Registrace</a>
+            </div>
+        {/form}
+    </div>
+    </div>
+
+    </div>
+</article>

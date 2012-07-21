@@ -35,3 +35,5 @@ a[href^="error:"] {
 	background: red;
 	color: white;
 }
+
+footer .legal {float: right; margin-right: 10px;}

@@ -1,0 +1,35 @@
+<div class="prerendered" data-id="algebra">
+<div>
+  <div data-role="header" class="main-header clearfix">
+    <div class="topic-video thumbnail_td">
+      <a href="/math/algebra/ck12-algebra-1/v/the-beauty-of-algebra" data-tag="Topic Page Root Featured" data-youtube-id="kpCJyQ2usJ4" class="thumbnail_link modal-video">
+        <div class="thumb" style="background-image:url('http://img.youtube.com/vi/kpCJyQ2usJ4/hqdefault.jpg')"></div>
+        <div class="thumbnail_container">
+          <div class="thumbnail_label"><div class="thumbnail_desc"><span class='vid-progress v563207734'>The Beauty of Algebra</span></div><div class="thumbnail_teaser">Why the abstraction of mathematics is so fundamental</div></div>
+        </div>
+      </a>
+    </div>
+    <div class="topic-info">
+      <div class='topic-title'>{$leaf->label}</div>
+      <div class='topic-desc'>{$leaf->description}</div>
+    </div>
+  </div>
+  <div class="videos-list">
+	<div class="videos-header">Videa</div>
+	<div class="videos-table">
+	  <ol class="first" n:inner-foreach="$leaf->getVideos() as $video">
+		  {#video_link}
+			  <li class="video-link">
+				  <a n:href=":Front:Watch:, id => $video->id" data-tag="Topic Page Subtopic Library">
+					  <span class="indent"><span>{$video->label}</span></span>
+				  </a>
+			  </li>
+		  {/#}
+	  </ol>
+	  <ol>
+
+	  </ol>
+	</div>
+	</div>
+</div>
+</div>

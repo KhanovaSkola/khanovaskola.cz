@@ -7,14 +7,14 @@
     <div class="nav-pane">
       <ul>
 		<li data-id="">
-		  <a class="subtopic-link" data-tag="Topic Page Nav Root Topic" href="/math/algebra?k" data-id="">
+		  <a class="subtopic-link" data-tag="Topic Page Nav Root Topic" n:href=":Front:Browse:, id => $category->id" data-id="">
 			<h2 class='topic-heading'>{$category->label}</h2>
 			<div class="right-arrow"></div>
 		  </a>
 		</li>
 		<li class="subheading"><span>Témata</span></li>
 		<li n:foreach="$category->getSubcategories() as $subcat" data-id="introduction-to-algebra">
-		  <a class="subtopic-link" data-tag="Topic Page Nav Subtopic" href="/math/algebra/introduction-to-algebra?k" data-id="introduction-to-algebra">
+		  <a class="subtopic-link" data-tag="Topic Page Nav Subtopic" n:href=":Front:Browse:, id => $subcat->id" data-id="">
 			{$subcat->label}
 			<div class="right-arrow"></div>
 		  </a>
@@ -24,51 +24,13 @@
     </div>
     
 	<div class="content-pane indent">
-      <div class="prerendered" data-id="algebra">
-        <div>
-  <div data-role="header" class="main-header clearfix">
-    <div class="topic-video thumbnail_td">
-      <a href="/math/algebra/ck12-algebra-1/v/the-beauty-of-algebra" data-tag="Topic Page Root Featured" data-youtube-id="kpCJyQ2usJ4" class="thumbnail_link modal-video">
-        <div class="thumb" style="background-image:url('http://img.youtube.com/vi/kpCJyQ2usJ4/hqdefault.jpg')"></div>
-        <div class="thumbnail_container">
-          <div class="thumbnail_label"><div class="thumbnail_desc"><span class='vid-progress v563207734'>The Beauty of Algebra</span></div><div class="thumbnail_teaser">Why the abstraction of mathematics is so fundamental</div></div>
-        </div>
-      </a>
+		{ifset $leaf}
+			{include '_pane_leaf.latte'}
+		{else}
+			{include '_pane_topic.latte'}
+		{/ifset}
     </div>
-    <div class="topic-info">
-      <div class='topic-title'>{$category->label}</div>
-      <div class='topic-desc'>{$category->description}</div>
-    </div>
-  </div>
-  <div class="subtopic-header">Témata</div>
-  <div class="subtopic-list-container">
-	<div class="subtopics-list first">
-		<div n:foreach="$category->getSubcategoriesHalf() as $subcat" class="subtopic thumbnail_td first">
-		  {#topic_preview}
-			  <a class="subtopic-link-and-scroll" data-tag="Topic Page Root Subtopic" href="/math/algebra/introduction-to-algebra" data-id="introduction-to-algebra">
-				<div class="thumb" style="background-image:url('http://img.youtube.com/vi/kpCJyQ2usJ4/hqdefault.jpg')"></div>
-				<div class="topic-info">
-				  <div class="topic-title">{$subcat->label}</div>
-				  <div class="topic-description">{$subcat->description}</div>
-				  <div class="topic-video-count">Prohlédnout {$subcat->getVideos()->count()} videí</div>
-				</div>  
-			  </a>
-		  {/#}
-		</div>
-	</div>
-	<div class="subtopics-list second">
-		<div n:foreach="$category->getSubcategoriesHalf($secondHalf = TRUE) as $subcat" class="subtopic thumbnail_td first">
-			{include #topic_preview}
-		</div>
-	</div>
   </div>
 </div>
 
-      </div>
-    </div>
-	  
-  </div>
-</div>
-
-	
 </article>
