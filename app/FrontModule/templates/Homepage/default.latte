@@ -1,0 +1,186 @@
+{#content}
+<article id="homepage">
+	<div id="main-video">
+            <iframe width="640" height="400" src="http://www.youtube.com/embed/OowviZi0o30" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div id="homepage-text" class="visited-no-recolor">
+        <h1 class="section-headline pulls"><a n:href=":Front:Browse:" data-tag="Homepage Headline">Sleduj.</a> <a n:href=":Front:Exercise:" data-tag="Homepage Headline">Cvič.</a></h1>
+        <h1>Nauč se zdarma skoro všechno.</h1>
+        <p>
+            With over <a n:href=":Front:Browse:" data-tag="Homepage Description">3,200 videos</a> on
+            everything from arithmetic to physics, finance, and history and <a n:href=":Front:Exercise:" data-tag="Homepage Description">hundreds of skills to practice</a>,
+            <a n:href=":Front:About:" data-tag="Homepage Description">we're on a mission</a> to help you learn what you want, when you want, at your own pace.
+        </p>
+        <div>
+            <a n:href=":Front:Browse:" data-tag="Homepage C2A" class="call-to-action simple-button green watch-a-video">Podívat se na video</a>
+            <a n:href=":Front:Exercise" data-tag="Homepage C2A" class="call-to-action simple-button blue">Splnit cvičení</a>
+        </div>
+        <p class="try-teacher-toolkit">Jste učitel? Projděte si naše <a n:href=":Front:Coach:resources">materiály pro učitele</a>.</p>
+        <div class="homepage-mailing">
+           	{*
+           	<span><span class="subscription">
+        <div class="dropdown">
+            <span class="dropdown-toggle" style="display:none"></span>
+
+            <span class="already-subscribed-container" style="display:none;">
+                <p>Nice! You're subscribed to receive <a class="already-subscribed" href="#">emails about new content</a>.</p>
+            </span>
+
+            <span class="not-subscribed-container" >
+                <input type="email" name="email" class="email" placeholder="Enter your email to learn about new courses." value="">
+            </span>
+
+            <div class="subscription-dropdown-placeholder"></div>
+        </div>
+    </span></span>
+	    	*}
+        </div>
+    </div>
+    <h2>
+        Nové a zajímavé
+    </h2>
+    
+    <div id="thumbnails_container">
+        <table width="100%">
+            <tr>
+                <td width="3%">
+                    <div class="thumbnails_arrow action-gradient" id="arrow-left">
+                        <div class="arrow-left"></div>
+                    </div>
+                </td>
+                <td width="94%">
+                    <div id="thumbnails" class="visited-no-recolor">
+                        
+                            
+                            <div ><table style="width:100%"><tr>
+                            
+                            <td style="width:25%" class="thumbnail_td video-thumb " data-key="ag5zfmtoYW4tYWNhZGVteXIPCxIFVmlkZW8Y6tzf-wIM" data-youtube-id="lA3sjWwu5-s">
+
+                                <a href="/video/financial-crisis-in-thailand-caused-by-speculative-attack" data-tag="Homepage Featured" class="thumbnail_link"><div
+                                        
+                                        class="thumb" style="background-image:url('http://img.youtube.com/vi/lA3sjWwu5-s/hqdefault.jpg')"
+                                        
+                                        ></div></a>
+
+                                    <a href="/video/financial-crisis-in-thailand-caused-by-speculative-attack" data-tag="Homepage Featured" class="thumbnail_link"><div class="thumbnail_label"><div class="thumbnail_desc"><span class='vid-progress v796388970'>Financial Crisis in Thailand Caused by Speculative Attack</span></div><div class="thumbnail_teaser">How a currency crisis in Thailand led to a banking crisis in&hellip;</div></div></a>
+                                </td>
+                            
+                            <td style="width:25%" class="thumbnail_td video-thumb " data-key="ag5zfmtoYW4tYWNhZGVteXIPCxIFVmlkZW8Y__ubpwMM" data-youtube-id="8nW9L7cSop4">
+
+                                <a href="/video/ppaca--or--obamacare" data-tag="Homepage Featured" class="thumbnail_link"><div
+                                        
+                                        class="thumb pending" data-src="http://img.youtube.com/vi/8nW9L7cSop4/hqdefault.jpg"
+                                        
+                                        ></div></a>
+
+                                    <a href="/video/ppaca--or--obamacare" data-tag="Homepage Featured" class="thumbnail_link"><div class="thumbnail_label"><div class="thumbnail_desc"><span class='vid-progress v887553535'>PPACA  or "Obamacare"</span></div><div class="thumbnail_teaser">Basic overview of what is sometimes referred to as "Obamacar&hellip;</div></div></a>
+                                </td>
+                            
+                            </tr></table></div>
+                        
+                    </div>
+                </td>
+                <td width="3%">
+                    <div class="thumbnails_arrow action-gradient" id="arrow-right">
+                        <div class="arrow-right"></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+
+    <div class="clear"></div>
+
+<div data-role="page" data-theme="b" >
+    <div data-role="content">
+        <div id="mobile-homepage" class="mobile-only">
+            <img data-src="http://khan-academy.appspot.com/images/logo-horizontal-large.png" id="mobile-logo" />
+        </div>
+        <h2 class="main-headline">Prozkoumejte naši knihovnu čítající přes 3&thinsp;200 výukových videí&hellip;</h2>
+        
+            <div id="browse-control-anchor"></div>
+            <div id="browse" class="topic_browser pulled" >
+<div id="topic-jump">
+<span class="topic_browser_text desktop-only">Přejít na téma:</span>
+<nav class="css-menu" id="page_main_nav">
+<ul data-role="listview" data-inset="true">
+	<li n:foreach="$categories as $category" class="topline">
+		{$category->label}{?$category->getSubCategories()}
+		<ul>
+			<li n:foreach="$category->getSubCategories() as $subcat" {*class="topline"*}><a href="#arithmetic" data-tag="TopicBrowser">{$subcat->label}</a></li>
+		</ul>
+	</li>
+</ul>
+</nav>
+</div>
+<div class="clear"></div>
+</div>
+        
+    </div>
+</div>
+<div class="clear"></div>
+
+
+<div id="library">
+        <div id="library-content" >
+            <style>
+    #library-content .library-content-list a {
+        width: 30%;
+        height: 18.0px;   
+    }
+    
+    .m0 {
+        margin-left: 0%;
+    }
+    
+    .m1 {
+        margin-left: 33%;
+    }
+    
+    .m2 {
+        margin-left: 66%;
+    }
+    
+</style>
+            <div id="library-content-main">
+            
+            
+                <div class="clear desktop-only"><a name="algebra" id="algebra">&nbsp;</a></div>
+            
+			
+			{foreach $categories as $maincat}
+				{foreach $maincat->getSubCategories() as $category}
+					<div data-role="page" id="container-{$category->id}" data-theme="b">
+						<div data-role="header" class="library-content-header">
+							<h2 class="topic-heading topic-heading-first"><a n:href=":Front:Browse:, id => $category->id">{$category->label}</a></h2>
+						</div>
+						<div data-role="content" class="library-content-list">
+							<p class='topic-desc'>{$category->description}</p>
+						</div>
+					</div>
+
+					{foreach $category->getSubCategories() as $subcat}
+						<div data-role="page" id="container-{$subcat}" data-theme="b">
+							<div data-role="header" class="library-content-header">
+								<h2 class='subtopic-1-heading topic-heading-first'><a n:href=":Front:Browse:, id => $subcat->id">{$category->label}: {$subcat->label}</a></h2>
+							</div>
+							<div data-role="content" class="library-content-list">
+								<p class='topic-desc'>{$subcat->description}</p>
+								<div style="height:36.0px;" data-role="listview" data-inset="true">
+									<a n:foreach="$subcat->getVideos() as $video" class="m0 vl vid-progress" n:href=":Front:Watch:, id => $video->id" data-tag="Homepage Library">{$video->label}</a>
+								</div>
+								<div class="clear desktop-only subtopic-jump-fix">
+									<a name="solving-linear-equations">&nbsp;</a>
+								</div>
+							</div>
+
+						</div>
+					{/foreach}
+				{/foreach}
+			{/foreach}
+            
+		</div>
+	</div>
+</div>
+</article>
