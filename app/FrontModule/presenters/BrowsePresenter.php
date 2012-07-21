@@ -33,6 +33,7 @@ class BrowsePresenter extends BaseFrontPresenter
 	
 	public function renderDefault()
 	{
+		$this->template->selected = $this->id;
 		if ($this->category->isLeaf()) {
 			$this->template->category = $this->category->getParent();
 			$this->template->leaf = $this->category;
