@@ -40,7 +40,27 @@
                             <span id="goals-container"></span>
                                 <span id="user-info" class="badge-target">
 									{if $user->loggedIn}
-										{$user->entity->mail}
+										<span id="user-info" class="badge-target">
+											<span id="badge-count-container" class="badge_count_container">
+											</span>
+											<span id="user-points-container">
+												<span title="0 energy points" class="energy-points-badge" onclick="location.href='/profile/_kag5zfmtoYW4tYWNhZGVteXJPCxIIVXNlckRhdGEiQXVzZXJfaWRfa2V5X2h0dHA6Ly9nb29nbGVpZC5raGFuYWNhZGVteS5vcmcvMTA4Mzc3MzUxNTkxNjQxNDk2MjM3DA/'" style="display: none">0</span>
+											</span>
+											<span class="dropdown">
+												<span class="username_and_notification dropdown-toggle">
+													<a href="/profile/_kag5zfmtoYW4tYWNhZGVteXJPCxIIVXNlckRhdGEiQXVzZXJfaWRfa2V5X2h0dHA6Ly9nb29nbGVpZC5raGFuYWNhZGVteS5vcmcvMTA4Mzc3MzUxNTkxNjQxNDk2MjM3DA/">
+														<img class="user-avatar" src="{$baseUrl}/images/avatars/leaf-green.png">
+														<span class="user-name">{$user->entity->mail}</span>
+														<span class="caret"></span>
+													</a>
+												</span>
+												<ul class="dropdown-menu no-submenus">
+													<li><a class="dropdown-link" href="/profile/_kag5zfmtoYW4tYWNhZGVteXJPCxIIVXNlckRhdGEiQXVzZXJfaWRfa2V5X2h0dHA6Ly9nb29nbGVpZC5raGFuYWNhZGVteS5vcmcvMTA4Mzc3MzUxNTkxNjQxNDk2MjM3DA/">Visit profile</a></li>
+													<!-- Facebook's JS logout requires the page_logout ID -->
+													<li><a id="page_logout" href="/logout?continue=http%3A%2F%2Fwww.khanacademy.org%2F">Logout</a></li>
+												</ul>
+											</span>
+										</span>
 									{else}
 										<a n:href=":Sign:in">Přihlášení</a>
 									{/if}
@@ -58,7 +78,7 @@
                                 <nav>
                                     <span class="links nav-subheader">
                                         <span class="dropdown topic-browser-dropdown">
-                                            <a n:href=":Front:Browse:" data-tag="Header" class="watch-link dropdown-toggle">Sledovat <span class="caret"></span></a>
+                                            <a n:href=":Front:Homepage:#browse" data-tag="Header" class="watch-link dropdown-toggle">Sledovat <span class="caret"></span></a>
                                             <a n:href=":Front:Exercise:" data-tag="Header" class=" practice-link">Cvičení</a>
                                             <a n:href=":Front:Coach:" data-tag="Header" class=" coach-link">Učitelé</a>
                                             <a n:href=":Front:Contribute:" data-tag="Header" class=" contribute-link">Dobrovolníci</a>
