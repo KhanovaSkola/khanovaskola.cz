@@ -1,0 +1,9 @@
+{#content}
+
+<article>
+	<ul>
+		<li n:foreach="$files as $file">
+			<a n:href="Translate:, file => $file">{$file}</a>
+		</li>
+	</ul>
+</article>

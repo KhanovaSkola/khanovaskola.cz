@@ -1,0 +1,17 @@
+{#content}
+
+<article>
+	<h2>Překlad cvičení</h2>
+	{form translateForm}
+		<table n:inner-foreach="$translate['tid'] as $i => $tid">
+			<tr>
+				<td rowspan="2">{$tid}</td>
+				<td>{$translate['text'][$i]}</td>
+			</tr>
+			<tr>
+				<td>{input translations-$tid-$tid, style => "width: 100%; height: 8ex;"}</td>
+			</tr>
+		</table>
+		{input send}
+	{/form}
+</article>

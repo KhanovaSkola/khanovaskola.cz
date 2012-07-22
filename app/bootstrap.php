@@ -9,7 +9,6 @@ use Nette\Application\Routers\Route;
 // Load Nette Framework
 require LIBS_DIR . '/Nette/loader.php';
 
-
 // Configure application
 $configurator = new Nette\Config\Configurator;
 
@@ -23,6 +22,8 @@ $configurator->createRobotLoader()
 	->addDirectory(APP_DIR)
 	->addDirectory(LIBS_DIR)
 	->register();
+
+Kdyby\Forms\Containers\Replicator::register();
 
 // Create Dependency Injection container from config.neon file
 $configurator->addConfig(__DIR__ . '/config/config.neon');
