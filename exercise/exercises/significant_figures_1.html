@@ -2,7 +2,7 @@
 <html data-require="math">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Significant figures 1</title>
+    <title data-tid="328.1">Significant figures 1</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -29,28 +29,28 @@
     </div>
     <div class="problems">
         <div>
-            <p class="question">How many significant figures does <code><var>TOTAL</var></code> have?</p>
+            <p class="question" data-tid="328.2">How many significant figures does <code><var>TOTAL</var></code> have?</p>
             <p class="solution" data-forms="integer"><var>SOLUTION</var></p>
         </div>
     </div>
     <div class="hints">
         <div>
-            <p>Identify the non-zero digits and any zeros between them. These are all significant.</p>
+            <p data-tid="328.4">Identify the non-zero digits and any zeros between them. These are all significant.</p>
             <p><code><var>PROPER_LEADING</var>\color{blue}{<var>INBETWEEN</var>}<var>TRAILING</var></code></p>
         </div>
         <div data-if="PROPER_LEADING.length > 0">
-            <p>Leading zeros are not significant.</p>
+            <p data-tid="328.6">Leading zeros are not significant.</p>
             <p><code>\color{orange}{<var>PROPER_LEADING</var>}\color{blue}{<var>INBETWEEN</var>}<var>TRAILING</var></code></p>
         </div>
         <div data-if="TRAILING.length > 0 && HAS_DOT">
-            <p>Since there is a decimal, trailing zeros are significant.</p>
+            <p data-tid="328.8">Since there is a decimal, trailing zeros are significant.</p>
             <p><code>\color{orange}{<var>PROPER_LEADING</var>}\color{blue}{<var>INBETWEEN</var><var>TRAILING</var>}</code></p>
         </div>
         <div data-if="TRAILING.length > 0 && !HAS_DOT">
-            <p>Since there is no decimal, trailing zeros are not significant.</p>
+            <p data-tid="328.10">Since there is no decimal, trailing zeros are not significant.</p>
             <p><code>\color{orange}{<var>PROPER_LEADING</var>}\color{blue}{<var>INBETWEEN</var>}\color{orange}{<var>TRAILING</var>}</code></p>
         </div>
-        <p>Counting all the significant digits gives us <var>SOLUTION</var>.</p>
+        <p data-tid="328.12">Counting all the significant digits gives us <var>SOLUTION</var>.</p>
     </div>
 </div>
 </body>

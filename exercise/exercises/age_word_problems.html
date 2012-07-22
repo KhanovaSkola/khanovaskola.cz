@@ -2,7 +2,7 @@
 <html data-require="math math-format word-problems spin">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Age word problems</title>
+    <title data-tid="24.1">Age word problems</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -16,44 +16,44 @@
             </div>
 
             <div class="question">
-                <p class="spin">
+                <p class="spin" data-tid="24.2">
                 {<var>person(1)</var> is <var>A</var> years older than <var>person(2)</var>|<var>person(2)</var> is <var>A</var> years younger than <var>person(1)</var>}.
                 {For the last {four|3|two} years, <var>person(1)</var> and <var>person(2)</var> have been going to the same school.|<var>person(1)</var> and <var>person(2)</var> first met 3 years ago.|}
                 <var>Cardinal(B)</var> years ago, <var>person(1)</var> was <var>C</var> times {as old as|older than} <var>person(2)</var>.</p>
 
-                <p>How old is <var>person(1)</var> now?</p>
+                <p data-tid="24.3">How old is <var>person(1)</var> now?</p>
             </div>
             <div class="solution"><var>(C * (B + A) - B) / (C - 1)</var></div>
 
             <div class="hints">
-                <p>Let <var>person(1)</var>'s current age be <code><var>personVar(1)</var></code>.</p>
-                <p>That means that <var>B</var> years ago, <var>person(1)</var> was <code><var>personVar(1)</var> - <var>B</var></code> years old.</p>
-                <p><var>person(2)</var> is <code><var>personVar(1)</var> - <var>A</var></code> years old right now, so <var>B</var> years ago, <var>he(2)</var> was <code>(<var>personVar(1)</var> - <var>A</var>) - <var>B</var> = <var>personVar(1)</var> - <var>A + B</var></code> years old.</p>
-                <p><var>person(1)</var> was <var>C</var> times as old as <var>person(2)</var>, so that means <code><var>personVar(1)</var> - <var>B</var> = <var>C</var> (<var>personVar(1)</var> - <var>A + B</var>)</code>.</p>
-                <p>Expand: <code><var>personVar(1)</var> - <var>B</var> = <var>C</var> <var>personVar(1)</var> - <var>C * (A + B)</var></code>.</p>
-                <p>Solve for <code><var>personVar(1)</var></code> to get <code><var>C - 1</var> <var>personVar(1)</var> = <var>C * (A + B) - B</var></code>.</p>
-				<p><code><var>personVar(1)</var> = <var>(C * (B + A) - B) / (C - 1)</var></code>.</p>
+                <p data-tid="24.4">Let <var>person(1)</var>'s current age be <code><var>personVar(1)</var></code>.</p>
+                <p data-tid="24.5">That means that <var>B</var> years ago, <var>person(1)</var> was <code><var>personVar(1)</var> - <var>B</var></code> years old.</p>
+                <p data-tid="24.6"><var>person(2)</var> is <code><var>personVar(1)</var> - <var>A</var></code> years old right now, so <var>B</var> years ago, <var>he(2)</var> was <code>(<var>personVar(1)</var> - <var>A</var>) - <var>B</var> = <var>personVar(1)</var> - <var>A + B</var></code> years old.</p>
+                <p data-tid="24.7"><var>person(1)</var> was <var>C</var> times as old as <var>person(2)</var>, so that means <code><var>personVar(1)</var> - <var>B</var> = <var>C</var> (<var>personVar(1)</var> - <var>A + B</var>)</code>.</p>
+                <p data-tid="24.8">Expand: <code><var>personVar(1)</var> - <var>B</var> = <var>C</var> <var>personVar(1)</var> - <var>C * (A + B)</var></code>.</p>
+                <p data-tid="24.9">Solve for <code><var>personVar(1)</var></code> to get <code><var>C - 1</var> <var>personVar(1)</var> = <var>C * (A + B) - B</var></code>.</p>
+				<p data-tid="24.10"><code><var>personVar(1)</var> = <var>(C * (B + A) - B) / (C - 1)</var></code>.</p>
             </div>
         </div>
 
         <div id="solve-younger-1" data-type="solve-older-1">
             <div class="question">
-                <p><var>person(1)</var> is <var>A</var> years older than
+                <p data-tid="24.11"><var>person(1)</var> is <var>A</var> years older than
                 <var>person(2)</var>. <var>Cardinal(B)</var> years ago, <var>person(1)</var>
                 was <var>C</var> times as old as <var>person(2)</var>.</p>
 
-                <p>How old is <var>person(2)</var> now?</p>
+                <p data-tid="24.12">How old is <var>person(2)</var> now?</p>
             </div>
             <div class="solution"><var>(A - B + C * B) / (C - 1)</var></div>
 
             <div class="hints">
-                <p>Let <var>person(2)</var>'s current age be <code><var>personVar(2)</var></code>.</p>
-                <p>That means that <var>person(1)</var> is currently <code><var>personVar(2)</var> + <var>A</var></code> years old and <var>B</var> years ago, <var>person(1)</var> was <code>(<var>personVar(2)</var> + <var>A</var>) - <var>B</var> = <var>personVar(2)</var> + <var>A - B</var></code> years old.</p>
-                <p><var>Cardinal(B)</var> years ago, <var>person(2)</var> was <code><var>personVar(2)</var> - <var>B</var></code> years old.</p>
-                <p><var>person(1)</var> was <var>C</var> times as old as <var>person(2)</var>, so that means <code><var>personVar(2)</var> + <var>A - B</var> = <var>C</var> (<var>personVar(2)</var> - <var>B</var>)</code>.</p>
-                <p>Expand: <code><var>personVar(2)</var> + <var>A - B</var> = <var>C</var> <var>personVar(2)</var> - <var>C * B</var></code>.</p>
-                <p>Solve for <code><var>personVar(2)</var></code> to get <code><var>C - 1</var> <var>personVar(2)</var> = <var>A - B + C * B</var></code>.</p>
-				<p><code><var>personVar(2)</var> = <var>(A - B + C * B) / (C - 1)</var></code>.</p>
+                <p data-tid="24.13">Let <var>person(2)</var>'s current age be <code><var>personVar(2)</var></code>.</p>
+                <p data-tid="24.14">That means that <var>person(1)</var> is currently <code><var>personVar(2)</var> + <var>A</var></code> years old and <var>B</var> years ago, <var>person(1)</var> was <code>(<var>personVar(2)</var> + <var>A</var>) - <var>B</var> = <var>personVar(2)</var> + <var>A - B</var></code> years old.</p>
+                <p data-tid="24.15"><var>Cardinal(B)</var> years ago, <var>person(2)</var> was <code><var>personVar(2)</var> - <var>B</var></code> years old.</p>
+                <p data-tid="24.16"><var>person(1)</var> was <var>C</var> times as old as <var>person(2)</var>, so that means <code><var>personVar(2)</var> + <var>A - B</var> = <var>C</var> (<var>personVar(2)</var> - <var>B</var>)</code>.</p>
+                <p data-tid="24.17">Expand: <code><var>personVar(2)</var> + <var>A - B</var> = <var>C</var> <var>personVar(2)</var> - <var>C * B</var></code>.</p>
+                <p data-tid="24.18">Solve for <code><var>personVar(2)</var></code> to get <code><var>C - 1</var> <var>personVar(2)</var> = <var>A - B + C * B</var></code>.</p>
+				<p data-tid="24.19"><code><var>personVar(2)</var> = <var>(A - B + C * B) / (C - 1)</var></code>.</p>
             </div>
         </div>
 
@@ -64,42 +64,42 @@
             </div>
 
             <div class="question">
-                <p><var>person(1)</var> is <var>C</var> times as old as
+                <p data-tid="24.20"><var>person(1)</var> is <var>C</var> times as old as
                 <var>person(2)</var> and is also <var>A</var>
                 years older than <var>person(2)</var>.</p>
 
-                <p>How old is <var>person(1)</var>?</p>
+                <p data-tid="24.21">How old is <var>person(1)</var>?</p>
             </div>
             <div class="solution"><var>A * C / (C - 1)</var></div>
 
             <div class="hints">
-                <p>Let <var>person(1)</var>'s age be <code><var>personVar(1)</var></code>.</p>
-                <p>We know <var>person(2)</var> is <code>1/<var>C</var></code> as old as <var>person(1)</var>, so <var>person(2)</var>'s age can be written as <code><var>personVar(1)</var> / <var>C</var></code>.</p>
-                <p><var>His(2)</var> age can also be written as <code><var>personVar(1)</var> - <var>A</var></code>.</p>
-                <p>Set the two expressions for <var>person(2)</var>'s age equal to each other: <code><var>personVar(1)</var> / <var>C</var> = <var>personVar(1)</var> - <var>A</var></code>.</p>
-                <p>Multiply both sides by <code><var>C</var></code> to get <code><var>personVar(1)</var> = <var>C</var> <var>personVar(1)</var> - <var>A * C</var></code>.</p>
-                <p>Solve for <code><var>personVar(1)</var></code> to get <code><var>C - 1</var> <var>personVar(1)</var> = <var>A * C</var></code>.</p>
-				<p><code><var>personVar(1)</var> = <var>A * C / (C - 1)</var></code>.</p>
+                <p data-tid="24.22">Let <var>person(1)</var>'s age be <code><var>personVar(1)</var></code>.</p>
+                <p data-tid="24.23">We know <var>person(2)</var> is <code>1/<var>C</var></code> as old as <var>person(1)</var>, so <var>person(2)</var>'s age can be written as <code><var>personVar(1)</var> / <var>C</var></code>.</p>
+                <p data-tid="24.24"><var>His(2)</var> age can also be written as <code><var>personVar(1)</var> - <var>A</var></code>.</p>
+                <p data-tid="24.25">Set the two expressions for <var>person(2)</var>'s age equal to each other: <code><var>personVar(1)</var> / <var>C</var> = <var>personVar(1)</var> - <var>A</var></code>.</p>
+                <p data-tid="24.26">Multiply both sides by <code><var>C</var></code> to get <code><var>personVar(1)</var> = <var>C</var> <var>personVar(1)</var> - <var>A * C</var></code>.</p>
+                <p data-tid="24.27">Solve for <code><var>personVar(1)</var></code> to get <code><var>C - 1</var> <var>personVar(1)</var> = <var>A * C</var></code>.</p>
+				<p data-tid="24.28"><code><var>personVar(1)</var> = <var>A * C / (C - 1)</var></code>.</p>
             </div>
         </div>
 
         <div id="solve-younger-2" data-type="solve-older-2">
             <div class="question">
-                <p><var>person(1)</var> is <var>C</var> times as old as
+                <p data-tid="24.29"><var>person(1)</var> is <var>C</var> times as old as
                 <var>person(2)</var> and is also <var>A</var>
                 years older than <var>person(2)</var>.</p>
 
-                <p>How old is <var>person(2)</var>?</p>
+                <p data-tid="24.30">How old is <var>person(2)</var>?</p>
             </div>
             <div class="solution"><var>A / (C - 1)</var></div>
 
             <div class="hints">
-                <p>Let <var>person(2)</var>'s age be <code><var>personVar(2)</var></code>.</p>
-                <p>We know <var>person(1)</var> is <var>C</var> times as old as <var>person(2)</var>, so <var>person(1)</var>'s age can be written as <code><var>C</var> <var>personVar(2)</var></code>.</p>
-                <p><var>His(1)</var> age can also be written as <code><var>personVar(2)</var> + <var>A</var></code>.</p>
-                <p>Set the two expressions for <var>person(1)</var>'s age equal to each other: <code><var>C</var> <var>personVar(2)</var> = <var>personVar(2)</var> + <var>A</var></code>.</p>
-                <p>Solve for <code><var>personVar(2)</var></code> to get <code><var>C - 1</var> <var>personVar(2)</var> = <var>A</var></code>.</p>
-				<p><code><var>personVar(2)</var> = <var>A / (C - 1)</var></code>.</p>
+                <p data-tid="24.31">Let <var>person(2)</var>'s age be <code><var>personVar(2)</var></code>.</p>
+                <p data-tid="24.32">We know <var>person(1)</var> is <var>C</var> times as old as <var>person(2)</var>, so <var>person(1)</var>'s age can be written as <code><var>C</var> <var>personVar(2)</var></code>.</p>
+                <p data-tid="24.33"><var>His(1)</var> age can also be written as <code><var>personVar(2)</var> + <var>A</var></code>.</p>
+                <p data-tid="24.34">Set the two expressions for <var>person(1)</var>'s age equal to each other: <code><var>C</var> <var>personVar(2)</var> = <var>personVar(2)</var> + <var>A</var></code>.</p>
+                <p data-tid="24.35">Solve for <code><var>personVar(2)</var></code> to get <code><var>C - 1</var> <var>personVar(2)</var> = <var>A</var></code>.</p>
+				<p data-tid="24.36"><code><var>personVar(2)</var> = <var>A / (C - 1)</var></code>.</p>
             </div>
         </div>
 
@@ -111,38 +111,38 @@
             </div>
 
             <div class="question">
-                <p><var>person(1)</var> is <var>A</var> times as old as <var>person(2)</var>. <var>Cardinal(B)</var> years ago, <var>person(1)</var> was <var>C</var> times as old as <var>person(2)</var>.</p>
+                <p data-tid="24.37"><var>person(1)</var> is <var>A</var> times as old as <var>person(2)</var>. <var>Cardinal(B)</var> years ago, <var>person(1)</var> was <var>C</var> times as old as <var>person(2)</var>.</p>
 
-                <p>How old is <var>person(1)</var> now?</p>
+                <p data-tid="24.38">How old is <var>person(1)</var> now?</p>
             </div>
             <div class="solution"><var>A * B * (C - 1) / (C - A)</var></div>
 
             <div class="hints">
-                <p>Let <var>person(1)</var>'s age be <code><var>personVar(1)</var></code>.</p>
-                <p>We know <var>person(2)</var> is <code>1/<var>A</var></code> as old as <var>person(1)</var>, so <var>person(2)</var>'s age can be written as <code><var>personVar(1)</var> / <var>A</var></code>.</p>
-                <p><var>B</var> years ago, <var>person(1)</var> was <code><var>personVar(1)</var> - <var>B</var></code> years old and <var>person(2)</var> was <code><var>personVar(1)</var> / <var>A</var> - <var>B</var></code> years old.</p>
-                <p>At that time, <var>person(1)</var> was <var>C</var> times as old as <var>person(2)</var>, so we can write <code><var>personVar(1)</var> - <var>B</var> = <var>C</var> (<var>personVar(1)</var> / <var>A</var> - <var>B</var>)</code>.</p>
-                <p>Expand: <code><var>personVar(1)</var> - <var>B</var> = <var>fractionReduce(C, A)</var> <var>personVar(1)</var> - <var>C * B</var></code>.</p>
-                <p>Solve for <code><var>personVar(1)</var></code> to get <code><var>fractionReduce(C - A, A)</var> <var>personVar(1)</var> = <var>B * (C - 1)</var></code>.</p>
-				<p><code><var>personVar(1)</var> = <var>fractionReduce(A, C - A)</var> \cdot <var>B * (C - 1)</var> = <var>A * B * (C - 1) / (C - A)</var></code>.</p>
+                <p data-tid="24.39">Let <var>person(1)</var>'s age be <code><var>personVar(1)</var></code>.</p>
+                <p data-tid="24.40">We know <var>person(2)</var> is <code>1/<var>A</var></code> as old as <var>person(1)</var>, so <var>person(2)</var>'s age can be written as <code><var>personVar(1)</var> / <var>A</var></code>.</p>
+                <p data-tid="24.41"><var>B</var> years ago, <var>person(1)</var> was <code><var>personVar(1)</var> - <var>B</var></code> years old and <var>person(2)</var> was <code><var>personVar(1)</var> / <var>A</var> - <var>B</var></code> years old.</p>
+                <p data-tid="24.42">At that time, <var>person(1)</var> was <var>C</var> times as old as <var>person(2)</var>, so we can write <code><var>personVar(1)</var> - <var>B</var> = <var>C</var> (<var>personVar(1)</var> / <var>A</var> - <var>B</var>)</code>.</p>
+                <p data-tid="24.43">Expand: <code><var>personVar(1)</var> - <var>B</var> = <var>fractionReduce(C, A)</var> <var>personVar(1)</var> - <var>C * B</var></code>.</p>
+                <p data-tid="24.44">Solve for <code><var>personVar(1)</var></code> to get <code><var>fractionReduce(C - A, A)</var> <var>personVar(1)</var> = <var>B * (C - 1)</var></code>.</p>
+				<p data-tid="24.45"><code><var>personVar(1)</var> = <var>fractionReduce(A, C - A)</var> \cdot <var>B * (C - 1)</var> = <var>A * B * (C - 1) / (C - A)</var></code>.</p>
             </div>
         </div>
 
         <div id="solve-younger-3" data-type="solve-older-3">
             <div class="question">
-                <p><var>person(1)</var> is <var>A</var> times as old as <var>person(2)</var>. <var>Cardinal(B)</var> years ago, <var>person(1)</var> was <var>C</var> times as old as <var>person(2)</var>.</p>
+                <p data-tid="24.46"><var>person(1)</var> is <var>A</var> times as old as <var>person(2)</var>. <var>Cardinal(B)</var> years ago, <var>person(1)</var> was <var>C</var> times as old as <var>person(2)</var>.</p>
 
-                <p>How old is <var>person(2)</var> now?</p>
+                <p data-tid="24.47">How old is <var>person(2)</var> now?</p>
             </div>
             <div class="solution"><var>B * (C - 1) / (C - A)</var></div>
 
             <div class="hints">
-                <p>Let <var>person(2)</var>'s age be <code><var>personVar(2)</var></code>.</p>
-                <p>We know <var>person(1)</var> is <var>A</var> times as old as <var>person(2)</var>, so <var>person(1)</var>'s age can be written as <code><var>A</var> <var>personVar(2)</var></code>.</p>
-                <p><var>Cardinal(B)</var> years ago, <var>person(1)</var> was <code><var>A</var> <var>personVar(2)</var> - <var>B</var></code> years old and <var>person(2)</var> was <code><var>personVar(2)</var> - <var>B</var></code> years old.</p>
-                <p>At that time, <var>person(1)</var> was <var>C</var> times as old as <var>person(2)</var>, so we can write <code><var>A</var> <var>personVar(2)</var> - <var>B</var> = <var>C</var> (<var>personVar(2)</var> - <var>B</var>)</code>.</p>
-                <p>Expand: <code><var>A</var> <var>personVar(2)</var> - <var>B</var> = <var>C</var> <var>personVar(2)</var> - <var>B * C</var></code>.</p>
-                <p>Solve for <code><var>personVar(2)</var></code> to get <code><var>C - A</var> <var>personVar(2)</var> = <var>B * (C - 1)</var></code>
+                <p data-tid="24.48">Let <var>person(2)</var>'s age be <code><var>personVar(2)</var></code>.</p>
+                <p data-tid="24.49">We know <var>person(1)</var> is <var>A</var> times as old as <var>person(2)</var>, so <var>person(1)</var>'s age can be written as <code><var>A</var> <var>personVar(2)</var></code>.</p>
+                <p data-tid="24.50"><var>Cardinal(B)</var> years ago, <var>person(1)</var> was <code><var>A</var> <var>personVar(2)</var> - <var>B</var></code> years old and <var>person(2)</var> was <code><var>personVar(2)</var> - <var>B</var></code> years old.</p>
+                <p data-tid="24.51">At that time, <var>person(1)</var> was <var>C</var> times as old as <var>person(2)</var>, so we can write <code><var>A</var> <var>personVar(2)</var> - <var>B</var> = <var>C</var> (<var>personVar(2)</var> - <var>B</var>)</code>.</p>
+                <p data-tid="24.52">Expand: <code><var>A</var> <var>personVar(2)</var> - <var>B</var> = <var>C</var> <var>personVar(2)</var> - <var>B * C</var></code>.</p>
+                <p data-tid="24.53">Solve for <code><var>personVar(2)</var></code> to get <code><var>C - A</var> <var>personVar(2)</var> = <var>B * (C - 1)</var></code>
 				<p><code><var>personVar(2)</var> = <var>B * (C - 1) / (C - A)</var></code>.</p>
             </div>
         </div>
@@ -154,19 +154,19 @@
             </div>
 
             <div class="question">
-                <p>In <var>B</var> years, <var>person(1)</var> will be <var>A</var> times as old as <var>he(1)</var> is right now.</p>
+                <p data-tid="24.54">In <var>B</var> years, <var>person(1)</var> will be <var>A</var> times as old as <var>he(1)</var> is right now.</p>
 
-                <p>How old is <var>he(1)</var> right now?</p>
+                <p data-tid="24.55">How old is <var>he(1)</var> right now?</p>
             </div>
             <div class="solution"><var>B / (A - 1)</var></div>
 
             <div class="hints">
-                <p>Let <var>person(1)</var>'s age be <code><var>personVar(1)</var></code>.</p>
-                <p>In <var>B</var> years, <var>he(1)</var> will be <code><var>personVar(1)</var> + <var>B</var></code> years old.</p>
-                <p>At that time, <var>he(1)</var> will also be <code><var>A</var> <var>personVar(1)</var></code> years old.</p>
-                <p>We write <code><var>personVar(1)</var> + <var>B</var> = <var>A</var> <var>personVar(1)</var></code>.</p>
-                <p>Solve for <code><var>personVar(1)</var></code> to get <code><var>A - 1</var> <var>personVar(1)</var> = <var>B</var></code></p>
-				<p><code><var>personVar(1)</var> = <var>B / (A - 1)</var></code>.</p>
+                <p data-tid="24.56">Let <var>person(1)</var>'s age be <code><var>personVar(1)</var></code>.</p>
+                <p data-tid="24.57">In <var>B</var> years, <var>he(1)</var> will be <code><var>personVar(1)</var> + <var>B</var></code> years old.</p>
+                <p data-tid="24.58">At that time, <var>he(1)</var> will also be <code><var>A</var> <var>personVar(1)</var></code> years old.</p>
+                <p data-tid="24.59">We write <code><var>personVar(1)</var> + <var>B</var> = <var>A</var> <var>personVar(1)</var></code>.</p>
+                <p data-tid="24.60">Solve for <code><var>personVar(1)</var></code> to get <code><var>A - 1</var> <var>personVar(1)</var> = <var>B</var></code></p>
+				<p data-tid="24.61"><code><var>personVar(1)</var> = <var>B / (A - 1)</var></code>.</p>
             </div>
         </div>
 
@@ -178,20 +178,20 @@
             </div>
 
             <div class="question">
-                <p><var>person(1)</var> is <var>A</var> years old and <var>person(2)</var> is <var>B</var> years old.</p>
+                <p data-tid="24.62"><var>person(1)</var> is <var>A</var> years old and <var>person(2)</var> is <var>B</var> years old.</p>
 
-                <p>How many years will it take until <var>person(1)</var> is only <var>C</var> times as old as <var>person(2)</var>?</p>
+                <p data-tid="24.63">How many years will it take until <var>person(1)</var> is only <var>C</var> times as old as <var>person(2)</var>?</p>
             </div>
             <div class="solution"><var>(A - B * C) / (C - 1)</var></div>
 
             <div class="hints">
-                <p>Let <code>y</code> be the number of years that it will take.</p>
-                <p>In <code>y</code> years, <var>person(1)</var> will be <code><var>A</var> + y</code> years old and <var>person(2)</var> will be <code><var>B</var> + y</code> years old.</p>
-                <p>At that time, <var>person(1)</var> will be <var>C</var> times as old as <var>person(2)</var>.</p>
-                <p>We write <code><var>A</var> + y = <var>C</var> (<var>B</var> + y)</code>.</p>
-                <p>Expand to get <code><var>A</var> + y = <var>C * B</var> + <var>C</var> y</code>.</p>
-                <p>Solve for <code>y</code> to get <code><var>C - 1</var> y = <var>A - C * B</var></code></p>
-				<p><code>y = <var>(A - C * B) / (C - 1)</var></code>.</p>
+                <p data-tid="24.64">Let <code>y</code> be the number of years that it will take.</p>
+                <p data-tid="24.65">In <code>y</code> years, <var>person(1)</var> will be <code><var>A</var> + y</code> years old and <var>person(2)</var> will be <code><var>B</var> + y</code> years old.</p>
+                <p data-tid="24.66">At that time, <var>person(1)</var> will be <var>C</var> times as old as <var>person(2)</var>.</p>
+                <p data-tid="24.67">We write <code><var>A</var> + y = <var>C</var> (<var>B</var> + y)</code>.</p>
+                <p data-tid="24.68">Expand to get <code><var>A</var> + y = <var>C * B</var> + <var>C</var> y</code>.</p>
+                <p data-tid="24.69">Solve for <code>y</code> to get <code><var>C - 1</var> y = <var>A - C * B</var></code></p>
+				<p data-tid="24.70"><code>y = <var>(A - C * B) / (C - 1)</var></code>.</p>
             </div>
         </div>
     </div>

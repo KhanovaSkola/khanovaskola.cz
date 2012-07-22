@@ -2,7 +2,7 @@
 <html data-require="math math-format graphie graphie-helpers">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>One-step inequalities</title>
+    <title data-tid="255.1">One-step inequalities</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -39,10 +39,10 @@
                     <var id="SOLUTION_REAL">RIGHT_INT * DEN / NUM</var>
                 </div>
 
-                <p class="question">Solve for <code>x</code>:</p>
+                <p class="question" data-tid="255.2">Solve for <code>x</code>:</p>
                 <div><code><var>COEF</var>x <var>COMP</var> <var>RIGHT_INT</var></code></div>
 
-                <p class="solution" data-type="multiple">
+                <p class="solution" data-type="multiple" data-tid="255.3">
                     <code>x</code>
                     <span class="sol" data-type="list" data-choices="[ '', '&lt;', '&gt;', '&le;', '&ge;' ]">
                         <var>COMP_SOLUTION</var>
@@ -56,21 +56,21 @@
                 </p>
 
                 <div class="hints">
-                    <p data-if ="NUM < 0">When multiplying or dividing both sides of an inequality by a negative number you have to flip the inequality. Therefore <code><var>COMP</var></code> becomes <code><var>COMP_SOLUTION</var></code>.</p>
+                    <p data-if ="NUM < 0" data-tid="255.4">When multiplying or dividing both sides of an inequality by a negative number you have to flip the inequality. Therefore <code><var>COMP</var></code> becomes <code><var>COMP_SOLUTION</var></code>.</p>
                     <div>
-                        <p>Multiply both sides by <code><var>ONE_OVER_COEF</var></code>.</p>
+                        <p data-tid="255.5">Multiply both sides by <code><var>ONE_OVER_COEF</var></code>.</p>
                         <p><code>(<var>ONE_OVER_COEF</var>) \cdot (<var>COEF</var>x) <var>COMP_SOLUTION</var> (<var>ONE_OVER_COEF</var>) \cdot (<var>RIGHT_INT</var>)</code></p>
                     </div>
                     <div>
-                        <p>Simplify.</p>
+                        <p data-tid="255.7">Simplify.</p>
                         <p><code>x <var>COMP_SOLUTION</var> <var>SOLUTION_NOT_REDUCED</var></code></p>
                     </div>
                     <div data-if="SOLUTION_NOT_REDUCED !== SOLUTION">
-                        <p>Reduce.</p>
+                        <p data-tid="255.9">Reduce.</p>
                         <p><code>x <var>COMP_SOLUTION</var> <var>SOLUTION</var></code></p>
                     </div>
                     <div>
-                        <p>We can see that all values of <code>x <var>COMP_SOLUTION</var> <var>SOLUTION</var></code> satisfy the original inequality.</p>
+                        <p data-tid="255.11">We can see that all values of <code>x <var>COMP_SOLUTION</var> <var>SOLUTION</var></code> satisfy the original inequality.</p>
                         <div class="graphie">
                             init({
                                 range: [ [-1, 11], [-1, 1] ],

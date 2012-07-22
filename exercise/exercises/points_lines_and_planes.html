@@ -2,7 +2,7 @@
 <html data-require="math graphie word-problems subhints">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Points, lines, and planes</title>
+    <title data-tid="275.1">Points, lines, and planes</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -19,7 +19,7 @@
         <var id="R">randFromArray(["R", "S", "T", "P"])</var>
     </div>
 
-    <p class="question"></p>
+    <p class="question" data-tid="275.2"></p>
 
     <div class="problem">
         <div class="graphie">
@@ -86,7 +86,7 @@
 
     <div class="problems">
         <div id="name-plane">
-            <p class="question">
+            <p class="question" data-tid="275.3">
                 What is another way to name plane <code>\mathcal{<var>R</var>}</code>?
             </p>
 
@@ -111,21 +111,21 @@
                 <div class="set-sol" data-type="text"><var>E + C + B</var></div>
 
                 <div class="input-format">
-                    <p>Plane <span class="entry"></span></p>
+                    <p data-tid="275.4">Plane <span class="entry"></span></p>
                 </div>
             </div>
             <div class="hints">
                 <div>
-                    <p>Planes can be named with three <a href="#" class="show-definition" data-definition="noncollinear">noncollinear</a> points.</p>
+                    <p data-tid="275.5">Planes can be named with three <a href="#" class="show-definition" data-definition="noncollinear">noncollinear</a> points.</p>
                     <div class="definition" id="noncollinear">
                         Noncollinear points are points that are not on the same line.
                     </div>
                 </div>
-                <p>
+                <p data-tid="275.6">
                     Find any three points in the plane <code>\mathcal{<var>R</var>}</code> that are
                     not on the same line and list them in any order.
                 </p>
-                <p>
+                <p data-tid="275.7">
                     For example, we can write <code>\mathcal{<var>R</var>}</code> as plane
                     <code><var>A + B + E</var></code>, plane <code><var>A + C + E</var></code>,
                     or plane <code><var>B + E + C</var></code>.
@@ -166,7 +166,7 @@
                 ])</var>
             </div>
 
-            <p class="question">What is another way to name line <code>\ell</code>?</p>
+            <p class="question" data-tid="275.8">What is another way to name line <code>\ell</code>?</p>
 
             <div class="solution"><code><var>SOLUTION</var></code></div>
 
@@ -178,10 +178,10 @@
             </ul>
 
             <div class="hints">
-                <p>Lines are named using any two points on the line. The order doesn't matter.</p>
-                <p>The points must have the <code>\leftrightarrow</code> above because we're
+                <p data-tid="275.9">Lines are named using any two points on the line. The order doesn't matter.</p>
+                <p data-tid="275.10">The points must have the <code>\leftrightarrow</code> above because we're
                 naming a line, not a ray or a segment.</p>
-                <p>Another way to name line <code>\ell</code> is <code><var>SOLUTION</var></code>.</p>
+                <p data-tid="275.11">Another way to name line <code>\ell</code> is <code><var>SOLUTION</var></code>.</p>
             </div>
         </div>
 
@@ -204,7 +204,7 @@
                 ])</var>
             </div>
 
-            <p class="question">Are the points <var>toSentence(POINTS)</var> collinear?</p>
+            <p class="question" data-tid="275.12">Are the points <var>toSentence(POINTS)</var> collinear?</p>
 
             <div class="solution"><var>SOLUTION</var></div>
             <ul class="choices" data-category="true">
@@ -213,10 +213,10 @@
             </ul>
 
             <div class="hints">
-                <p>Collinear means that they lie on the same line.</p>
-                <p>Can you draw a straight line through points <var>toSentence(POINTS)</var>?</p>
-                <p data-if="SOLUTION === 'Yes'">Yes, points <var>toSentence(POINTS)</var> are collinear.</p>
-                <p data-else>No, points <var>toSentence(POINTS)</var> are not collinear.</p>
+                <p data-tid="275.13">Collinear means that they lie on the same line.</p>
+                <p data-tid="275.14">Can you draw a straight line through points <var>toSentence(POINTS)</var>?</p>
+                <p data-if="SOLUTION === 'Yes'" data-tid="275.15">Yes, points <var>toSentence(POINTS)</var> are collinear.</p>
+                <p data-else data-tid="275.16">No, points <var>toSentence(POINTS)</var> are not collinear.</p>
             </div>
         </div>
 
@@ -226,7 +226,7 @@
                 <var id="POINTS">shuffle([A, B, C, D, E], 2)</var>
             </div>
 
-            <p class="question">Are the points <var>toSentence(POINTS)</var> collinear?</p>
+            <p class="question" data-tid="275.17">Are the points <var>toSentence(POINTS)</var> collinear?</p>
 
             <div class="solution">Yes</div>
             <ul class="choices" data-category="true">
@@ -235,11 +235,11 @@
             </ul>
 
             <div class="hints">
-                <p>Through any two points, there is exactly one line.</p>
-                <p>Points can be collinear even if the line isn't drawn in the figure.</p>
-                <p>Can you draw a straight line through points <var>toSentence(POINTS)</var>?
+                <p data-tid="275.18">Through any two points, there is exactly one line.</p>
+                <p data-tid="275.19">Points can be collinear even if the line isn't drawn in the figure.</p>
+                <p data-tid="275.20">Can you draw a straight line through points <var>toSentence(POINTS)</var>?
                 Actually, can you draw a straight line through any two points?</p>
-                <p>Yes, points <var>toSentence(POINTS)</var> are collinear.</p>
+                <p data-tid="275.21">Yes, points <var>toSentence(POINTS)</var> are collinear.</p>
             </div>
         </div>
 
@@ -261,7 +261,7 @@
                 ])</var>
             </div>
 
-            <p class="question">Are the points <var>toSentence(POINTS)</var> coplanar?</p>
+            <p class="question" data-tid="275.22">Are the points <var>toSentence(POINTS)</var> coplanar?</p>
 
             <p class="solution"><var>SOLUTION</var></p>
 
@@ -271,18 +271,18 @@
             </ul>
 
             <div class="hints">
-                <p>Coplanar points are points that all lie on the same plane.</p>
-                <p>Can a flat surface pass through all the points without bending?</p>
-                <p data-if="SOLUTION === 'No'">
+                <p data-tid="275.24">Coplanar points are points that all lie on the same plane.</p>
+                <p data-tid="275.25">Can a flat surface pass through all the points without bending?</p>
+                <p data-if="SOLUTION === 'No'" data-tid="275.26">
                     No, any flat surface that includes three of the points won't include the fourth.
                     For example, points <var>toSentence(COPLANAR)</var> are in plane
                     <code>\mathcal{<var>R</var>}</code>, but point <var>D</var> is not.
                 </p>
-                <p data-else-if="POINTS.length === 4">
+                <p data-else-if="POINTS.length === 4" data-tid="275.27">
                     Yes, points <var>toSentence(POINTS)</var> all lie within a single
                     flat surface. In this case, plane <code>\mathcal{<var>R</var>}</code>.
                 </p>
-                <p data-else>
+                <p data-else data-tid="275.28">
                     Yes, there is always at least one flat surface that passes through
                     any three points.
                 </p>

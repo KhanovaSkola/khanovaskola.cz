@@ -2,7 +2,7 @@
 <html data-require="math graphie graphie-geometry word-problems interactive subhints">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Perimeter 1</title>
+    <title data-tid="269.1">Perimeter 1</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -22,7 +22,7 @@
                 <var id="S">randRange(2, 9)</var>
             </div>
 
-            <p class="question">
+            <p class="question" data-tid="269.2">
                 What is the perimeter of the square?
             </p>
             <div class="problem">
@@ -39,7 +39,7 @@
             </div>
 
             <div class="hints">
-                <p>
+                <p data-tid="269.3">
                     The perimeter is the total length of all the sides of the shape added together.
                 </p>
                 <div>
@@ -49,7 +49,7 @@
                         path([[S, S], [S, 0]], { strokeWidth: 4, stroke: "purple" });
                         path([[S, 0], [0, 0]], { strokeWidth: 4, stroke: GREEN });
                     </div>
-                    <p>
+                    <p data-tid="269.4">
                         Add up the lengths of the sides:
                     </p>
                     <p><code>\qquad\text{perimeter} =
@@ -66,7 +66,7 @@
                 <var id="W">randRange(2, 9)</var>
             </div>
 
-            <p class="question">
+            <p class="question" data-tid="269.7">
                 What is the perimeter of the rectangle?
             </p>
 
@@ -84,7 +84,7 @@
             </div>
 
             <div class="hints">
-                <p>
+                <p data-tid="269.8">
                     The perimeter is the total length of all the sides of the shape added together.
                 </p>
                 <div>
@@ -94,7 +94,7 @@
                         path([[L, W], [L, 0]], { strokeWidth: 4, stroke: "purple" });
                         path([[L, 0], [0, 0]], { strokeWidth: 4, stroke: GREEN });
                     </div>
-                    <p>
+                    <p data-tid="269.9">
                         Add up the lengths of the sides:
                     </p>
                     <p><code>\qquad\text{perimeter} =
@@ -112,7 +112,7 @@
                 <var id="Y">sqrt(B * B - X * X)</var>
             </div>
 
-            <p class="question">
+            <p class="question" data-tid="269.12">
                 What is the perimeter of the triangle?
             </p>
 
@@ -131,7 +131,7 @@
             </div>
 
             <div class="hints">
-                <p>
+                <p data-tid="269.13">
                     The perimeter is the total length of all the sides of the shape added together.
                 </p>
                 <div>
@@ -140,7 +140,7 @@
                         path([[A, 0], [X, Y]], { strokeWidth: 4, stroke: BLUE });
                         path([[0, 0], [A, 0]], { strokeWidth: 4, stroke: GREEN });
                     </div>
-                    <p>
+                    <p data-tid="269.14">
                         Add up the lengths of the sides:
                     </p>
                     <p><code>\qquad\text{perimeter} =
@@ -164,7 +164,7 @@
                 <var id="APOTHEM">S / (2 * tan(PI / SIDES))</var>
             </div>
 
-            <p class="question">
+            <p class="question" data-tid="269.17">
                 What is the perimeter of the regular <var>POLYGON</var>?
             </p>
 
@@ -187,7 +187,7 @@
             </div>
 
             <div class="hints">
-                <p>
+                <p data-tid="269.18">
                     The perimeter is the total length of all the sides of the shape added together.
                 </p>
                 <div>
@@ -199,7 +199,7 @@
                                 {color: GREEN});
                         });
                     </div>
-                    <p>
+                    <p data-tid="269.19">
                         All of the sides of a
                         <a href="#" class="show-definition" data-definition="regular-polygon">regular</a>
                         <var>POLYGON</var> are the same length.
@@ -209,7 +209,7 @@
                     </div>
                 </div>
                 <div>
-                    <p>
+                    <p data-tid="269.20">
                         Since there are <span class="hint_blue"><code><var>SIDES</var></code> sides</span>
                         that are all <span class="hint_green"><code><var>S</var></code>
                         <var>plural(UNIT_TEXT)</var></span> long, we can multiply:
@@ -236,7 +236,7 @@
                 <var id="SIDES">SHAPE.sides</var>
             </div>
 
-            <p class="question">
+            <p class="question" data-tid="269.23">
                 What is the perimeter of the shape? Each square in the grid is
                 a <code>1 \times 1</code> <var>UNIT_TEXT</var> square.
             </p>
@@ -267,7 +267,7 @@
             </div>
 
             <div class="hints">
-                <p>
+                <p data-tid="269.24">
                     The perimeter is the total length of all the sides of the
                     shape added together.
                 </p>
@@ -275,7 +275,7 @@
                     <div class="graphie" data-update="perimeter">
                         SHAPE.labelSides();
                     </div>
-                    <p>
+                    <p data-tid="269.25">
                         Add up the lengths of all <var>SHAPE.numSides</var>
                         sides.
                     </p>
@@ -288,7 +288,7 @@
                         = \text{ ?}
                     </code></p>
                 </div>
-                <p>
+                <p data-tid="269.27">
                     The perimeter is <code><var>SHAPE.perimeter</var></code>
                     <var>plural(UNIT_TEXT)</var>.
                 </p>

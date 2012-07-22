@@ -2,7 +2,7 @@
 <html data-require="math math-format interactive">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Ordering numbers</title>
+    <title data-tid="260.1">Ordering numbers</title>
     <script src="../khan-exercise.js"></script>
     <style>
         .sort-key {
@@ -82,7 +82,7 @@
 
             <div>
                 <div class="question">
-                    <p>Order the following numbers from least to greatest:</p>
+                    <p data-tid="260.2">Order the following numbers from least to greatest:</p>
                     <ul id="sortable">
                         <li data-each="NUMS as NUM">
                             <span class="sort-key"><var>NUM[2]</var></span>
@@ -107,12 +107,12 @@
                 </div>
 
                 <div class="hints">
-                    <p>Convert each number to a decimal.</p>
+                    <p data-tid="260.4">Convert each number to a decimal.</p>
                     <p><code>\begin{align*}
                         <span data-each="NUMS as NUM"><var>NUM[4] || NUM[2]</var> &amp; <var>NUM[3]</var> \\</span>
                     \end{align*}</code></p>
-                    <p>Sort the decimals: <code><var>NUMS_SORT_DECS</var></code>.</p>
-                    <p>Convert back: <code>\Large{<var>NUMS_SORT_TEX</var>}</code>.</p>
+                    <p data-tid="260.6">Sort the decimals: <code><var>NUMS_SORT_DECS</var></code>.</p>
+                    <p data-tid="260.7">Convert back: <code>\Large{<var>NUMS_SORT_TEX</var>}</code>.</p>
                 </div>
             </div>
         </div>

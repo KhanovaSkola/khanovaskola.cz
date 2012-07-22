@@ -2,7 +2,7 @@
 <html data-require="math word-problems math-format expressions">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Place value</title>
+    <title data-tid="271.1">Place value</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -47,7 +47,7 @@
                     <var id="SOLUTION">PLACES[ DIGITS.length - 1 - POWER ]</var>
                 </div>
 
-                <p class="question">What is the place value of <var>DIGIT</var> in <var>NUMBER</var>?</p>
+                <p class="question" data-tid="271.2">What is the place value of <var>DIGIT</var> in <var>NUMBER</var>?</p>
                 <p class="solution"><var>SOLUTION</var></p>
                 <ul class="choices" data-category="true">
                     <li data-each="PLACES as place"><var>place</var></li>
@@ -55,11 +55,11 @@
 
                 <div class="hints">
                     <div>
-                        <p><var>NUMBER</var> can be represented as follows.</p>
+                        <p data-tid="271.4"><var>NUMBER</var> can be represented as follows.</p>
                         <p><code>= <var>HINT_IN_NUMBERS</var></code></p>
                     </div>
-                    <p><code>= </code> <var>HINT_IN_WORDS</var></p>
-                    <p class="final_hint">Thus, <var>DIGIT</var> is in the <var>SOLUTION</var> place.</p>
+                    <p data-tid="271.6"><code>= </code> <var>HINT_IN_WORDS</var></p>
+                    <p class="final_hint" data-tid="271.7">Thus, <var>DIGIT</var> is in the <var>SOLUTION</var> place.</p>
                 </div>
             </div>
 
@@ -100,15 +100,15 @@
                     </var>
                 </div>
 
-                <p class="question">What is <var>cardinal( NUMBER )</var> in standard form?</p>
+                <p class="question" data-tid="271.8">What is <var>cardinal( NUMBER )</var> in standard form?</p>
                 <p class="solution"><var>NUMBER</var></p>
                 <div class="hints">
                     <p data-each="HINT as hint"><var>hint</var></p>
                     <div>
-                        <p>Add all these parts up:</p>
+                        <p data-tid="271.11">Add all these parts up:</p>
                         <p><var>ADDENDS.join( " + " )</var></p>
                     </div>
-                    <p>= <var>NUMBER</var></p>
+                    <p data-tid="271.13">= <var>NUMBER</var></p>
                 </div>
 
             </div>

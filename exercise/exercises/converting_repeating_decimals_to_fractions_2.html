@@ -2,7 +2,7 @@
 <html data-require="math math-format">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Converting repeating decimals to fractions 2</title>
+    <title data-tid="89.1">Converting repeating decimals to fractions 2</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -25,7 +25,7 @@
 
     <div class="problems">
         <div id="onedigit">
-            <p class="question">Rewrite as a simplified fraction.</p>
+            <p class="question" data-tid="89.2">Rewrite as a simplified fraction.</p>
             <p><code>\large{<var>N1</var>.\overline{<var>N2</var>} = {?}}</code></p>
             <p class="solution" data-type="rational"><var>N4</var></p>
         </div>
@@ -34,7 +34,7 @@
                 <var id="N4">N1 + N3 / 99</var>
                 <var id="D2">2</var>
             </div>
-            <p class="question">Rewrite as a simplified fraction.</p>
+            <p class="question" data-tid="89.5">Rewrite as a simplified fraction.</p>
             <p><code>\large{<var>N1</var>.\overline{<var>N3</var>} = {?}}</code></p>
             <p class="solution" data-type="rational"><var>N4</var></p>
         </div>
@@ -45,7 +45,7 @@
                 <var id="D1">1</var>
                 <var id="D2">2</var>
             </div>
-            <p class="question">Rewrite as a simplified fraction.</p>
+            <p class="question" data-tid="89.8">Rewrite as a simplified fraction.</p>
             <p><code>\large{<var>N1</var>.<var>N2</var>\overline{<var>N3</var>} = {?}}</code></p>
             <p class="solution" data-type="rational"><var>N4</var></p>
         </div>
@@ -56,7 +56,7 @@
                 <var id="D1">1</var>
                 <var id="D2">3</var>
             </div>
-            <p class="question">Rewrite as a simplified fraction.</p>
+            <p class="question" data-tid="89.11">Rewrite as a simplified fraction.</p>
             <p><code>\large{<var>N1</var>.<var>N2</var>\overline{<var>N3</var>} = {?}}</code></p>
             <p class="solution" data-type="rational"><var>N4</var></p>
         </div>
@@ -67,18 +67,18 @@
                 <var id="D1">2</var>
                 <var id="D2">3</var>
             </div>
-            <p class="question">Rewrite as a simplified fraction.</p>
+            <p class="question" data-tid="89.14">Rewrite as a simplified fraction.</p>
             <p><code>\large{<var>N1</var>.<var>N3</var>\overline{<var>N2</var>} = {?}}</code></p>
             <p class="solution" data-type="rational"><var>N4</var></p>
         </div>
     </div>
 
     <div class="hints">
-        <p>Let <code>x</code> equal the decimal. Set up two equations such that the digits after the decimal point are identical.</p>
+        <p data-tid="89.17">Let <code>x</code> equal the decimal. Set up two equations such that the digits after the decimal point are identical.</p>
         <p><code>\large{\begin{align*}<var>MULT1</var>x &= <var>RES1</var>...\\
         <var>MULT2</var>x &= <var>RES2</var>...\end{align*}}</code></p>
         <div>
-            <p>Subtracting the two equations, we have:</p>
+            <p data-tid="89.19">Subtracting the two equations, we have:</p>
             <p><code>\large{<var>(MULT1 - MULT2)</var>x = <var>DIFF</var>}</code></p>
         </div>
         <p><code>\large{x = <var>fraction( DIFF, MULT1 - MULT2 )</var>}\quad<span data-if="getGCD( DIFF, MULT1 - MULT2 ) === 1 && DIFF > ( MULT1 - MULT2 )"> \text{or} \quad\large{<var>mixedFractionFromImproper( DIFF, MULT1 - MULT2 )</var>}</span></code></p>

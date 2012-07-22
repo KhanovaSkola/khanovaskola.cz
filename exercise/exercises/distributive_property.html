@@ -2,7 +2,7 @@
 <html data-require="math graphie graphie-helpers math-format word-problems">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Distributive property</title>
+    <title data-tid="107.1">Distributive property</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -13,12 +13,12 @@
                 <var id="A, B, C">randRangeUnique( 2, 10, 3 )</var>
                 <var id="RESULT">A * ( B + C )</var>
             </div>
-            <p class="question">Use distribution to solve:</p>
+            <p class="question" data-tid="107.2">Use distribution to solve:</p>
             <p><code><var>A</var>\times(<var>B</var> + <var>C</var>)</code></p>
             <p class="solution" data-forms="integer"><var>RESULT</var></p>
             <div class="hints">
                 <div>
-                <p>Each row has <code><var>B</var> + <var>C</var> = <var>B+C</var></code> rectangles, and there are <code><var>A</var></code> rows.</p>
+                <p data-tid="107.5">Each row has <code><var>B</var> + <var>C</var> = <var>B+C</var></code> rectangles, and there are <code><var>A</var></code> rows.</p>
                 <div class="graphie" id="distrib">
                     init({
                         range: [ [ 0, 1 ], [ 0, A ] ],
@@ -30,16 +30,16 @@
                     }
                 </div>
                 </div>
-                <p style="font-weight: bold">Counting by color:</p>
-                <p>Number of orange rectangles: <code><var>A</var> \times <var>B</var> = <var>A * B</var></code></p>
-                <p>Number of blue rectangles: <code><var>A</var> \times <var>C</var> = <var>A* C</var></code></p>
-                <p>Total number of rectangles: <code><var>A * B</var> + <var>A * C</var> = <var>RESULT</var></code></p>
-                <p style="font-weight: bold">Counting by row:</p>
-                <p>Number of rows: <code><var>A</var></code></p>
-                <p>Number of rectangles in a row: <code><var>B</var> + <var>C</var> = <var>B + C</var></code></p>
-                <p>Total number of rectangles: <code><var>A</var> \times <var>B + C</var> = <var>RESULT</var></code></p>
+                <p style="font-weight: bold" data-tid="107.6">Counting by color:</p>
+                <p data-tid="107.7">Number of orange rectangles: <code><var>A</var> \times <var>B</var> = <var>A * B</var></code></p>
+                <p data-tid="107.8">Number of blue rectangles: <code><var>A</var> \times <var>C</var> = <var>A* C</var></code></p>
+                <p data-tid="107.9">Total number of rectangles: <code><var>A * B</var> + <var>A * C</var> = <var>RESULT</var></code></p>
+                <p style="font-weight: bold" data-tid="107.10">Counting by row:</p>
+                <p data-tid="107.11">Number of rows: <code><var>A</var></code></p>
+                <p data-tid="107.12">Number of rectangles in a row: <code><var>B</var> + <var>C</var> = <var>B + C</var></code></p>
+                <p data-tid="107.13">Total number of rectangles: <code><var>A</var> \times <var>B + C</var> = <var>RESULT</var></code></p>
                 <div>
-                <p>Both ways of counting result in the same number, and this is known as the distributive property.</p>
+                <p data-tid="107.14">Both ways of counting result in the same number, and this is known as the distributive property.</p>
                 <p><code>(<var>A</var> \times <var>B</var>) + (<var>A</var> \times <var>C</var>) = <var>A</var>\times(<var>B</var> + <var>C</var>)</code></p>
                 </div>
             </div>
@@ -64,7 +64,7 @@
                 </var>
                 <var id="MISSING">NUMS[ SWAP_INDEX ]</var>
             </div>
-            <p class="question">Using the picture below as a guide, what number could replace <code><var>SYMBOL</var></code>?</p>
+            <p class="question" data-tid="107.16">Using the picture below as a guide, what number could replace <code><var>SYMBOL</var></code>?</p>
             <p><code><var>A</var>\times(<var>B</var> + <var>C</var>) = ( <var>SYM_A</var> \times <var>SYM_B</var> ) + ( <var>SYM_A</var> \times <var>SYM_C</var> )</code></p>
             <div class="graphie" id="distrib">
                 init({
@@ -76,21 +76,21 @@
                     rectchart( [ B, C ],  [ "#FFCF22", "#85B7FF" ], i);
                 }
             </div>
-            <p>There are <code><var>A</var></code> rows, and each row has <code><var>B</var> + <var>C</var> = <var>B+C</var></code> rectangles.</p>
+            <p data-tid="107.18">There are <code><var>A</var></code> rows, and each row has <code><var>B</var> + <var>C</var> = <var>B+C</var></code> rectangles.</p>
             <p class="solution" data-forms="integer"><var>MISSING</var></p>
             <div class="hints">
-                <p style="font-weight: bold">Counting by color:</p>
-                <p>Number of orange rectangles: <code><var>A</var> \times <var>B</var> = <var>A * B</var></code></p>
-                <p>Number of blue rectangles: <code><var>A</var> \times <var>C</var> = <var>A* C</var></code></p>
-                <p>Total number of rectangles: <code><var>A * B</var> + <var>A * C</var> = <var>RESULT</var></code></p>
-                <p style="font-weight: bold">Counting by row:</p>
-                <p>Number of rows: <code><var>A</var></code></p>
-                <p>Number of rectangles in a row: <code><var>B</var> + <var>C</var> = <var>B + C</var></code></p>
-                <p>Total number of rectangles: <code><var>A</var> \times <var>B + C</var> = <var>RESULT</var></code></p>
+                <p style="font-weight: bold" data-tid="107.20">Counting by color:</p>
+                <p data-tid="107.21">Number of orange rectangles: <code><var>A</var> \times <var>B</var> = <var>A * B</var></code></p>
+                <p data-tid="107.22">Number of blue rectangles: <code><var>A</var> \times <var>C</var> = <var>A* C</var></code></p>
+                <p data-tid="107.23">Total number of rectangles: <code><var>A * B</var> + <var>A * C</var> = <var>RESULT</var></code></p>
+                <p style="font-weight: bold" data-tid="107.24">Counting by row:</p>
+                <p data-tid="107.25">Number of rows: <code><var>A</var></code></p>
+                <p data-tid="107.26">Number of rectangles in a row: <code><var>B</var> + <var>C</var> = <var>B + C</var></code></p>
+                <p data-tid="107.27">Total number of rectangles: <code><var>A</var> \times <var>B + C</var> = <var>RESULT</var></code></p>
                 <div>
-                <p>Both ways of counting result in the same number, and this is known as the distributive property.</p>
+                <p data-tid="107.28">Both ways of counting result in the same number, and this is known as the distributive property.</p>
                 <p><code>(<var>A</var> \times <var>B</var>) + (<var>A</var> \times <var>C</var>) = <var>A</var>\times(<var>B</var> + <var>C</var>)</code></p>
-                <p>Thus the symbol <code><var>SYMBOL</var></code> could be replaced with <code><var>MISSING</var></code>.</p>
+                <p data-tid="107.30">Thus the symbol <code><var>SYMBOL</var></code> could be replaced with <code><var>MISSING</var></code>.</p>
                 </div>
             </div>
         </div>

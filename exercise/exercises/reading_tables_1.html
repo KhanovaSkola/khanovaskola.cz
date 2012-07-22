@@ -2,7 +2,7 @@
 <html data-require="math word-problems graphie">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Reading tables 1</title>
+    <title data-tid="309.1">Reading tables 1</title>
     <script src="../khan-exercise.js"></script>
     <style>
         .reading span {
@@ -66,7 +66,7 @@
                     [ "There are " + ANSWER + " " + COLUMNS[ COL_INDEX ].toLowerCase() + " students at " + ROWS[ ROW_INDEX ] + ".", ROWS[ ROW_INDEX ] + " sold " + ANSWER + " chicken" + ( ANSWER === 1 ? "" : "s" ) + " in " + ( COL_INDEX === COLUMNS.length - 1 ? "total" : COLUMNS[ COL_INDEX ] )  + ".", ROWS[ ROW_INDEX ] + " scored " + ANSWER + " points in " +( COL_INDEX === COLUMNS.length - 1 ? "total" : "the " + COLUMNS[ COL_INDEX ] )  + ".", "There were " + ANSWER + " solar panels installed in " + ROWS[ ROW_INDEX ] + ( COL_INDEX === COLUMNS.length - 1 ? " last year" : " in " + COLUMNS[ COL_INDEX ] ) + "."][ INDEX ]
                 </var>
             </div>
-            <p>The table below <var>PROBLEM</var>.</p>
+            <p data-tid="309.2">The table below <var>PROBLEM</var>.</p>
             <p class="question"><var>QUESTION</var></p>
             <div class="fake_header reading">
                 <span><var>HEADER</var></span><span data-each="COLUMNS as i, column"><var>column</var></span>
@@ -80,14 +80,14 @@
 
             <div class="hints">
                 <div>
-                    <p>The blue row shows <var>ROW_HINT</var>.</p>
+                    <p data-tid="309.4">The blue row shows <var>ROW_HINT</var>.</p>
                     <div class="graphie">
                         $( ".fake_row" ).eq( ROW_INDEX ).find( "span" )
                             .css( "background", KhanUtil.BLUE );
                     </div>
                 </div>
                 <div>
-                    <p>The orange column shows <var>COL_HINT</var>.</p>
+                    <p data-tid="309.5">The orange column shows <var>COL_HINT</var>.</p>
                     <div class="graphie">
                         var nth = ":nth-child(" + ( COL_INDEX + 2 ) + ")";
                         $( ".fake_row span" + nth )

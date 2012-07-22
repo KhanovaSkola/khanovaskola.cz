@@ -2,7 +2,7 @@
 <html data-require="math graphie graphie-helpers">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Representing numbers</title>
+    <title data-tid="315.1">Representing numbers</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -17,7 +17,7 @@
     <div class="problems">
         <div>
             <div class="question">
-                <p>What number is represented by the blocks shown?</p>
+                <p data-tid="315.2">What number is represented by the blocks shown?</p>
             </div>
 
             <div class="graphie" data-if="C !== 0" id="ones-graph">
@@ -82,7 +82,7 @@
 
     <div class="hints">
         <div data-if="A !== 0">
-            <p>By counting the number of hundreds blocks, we see that the hundreds digit of the number is <code><var>A</var></code>.</p>
+            <p data-tid="315.3">By counting the number of hundreds blocks, we see that the hundreds digit of the number is <code><var>A</var></code>.</p>
             <div class="graphie" data-update="hundreds-graph">
                 for ( var i = 0; i &lt; A; i++ ) {
                     label( [10.5 * i + 5, 5], "\\large{\\mathbf{100}}", { color: "black", background: "#a2bff4" } );
@@ -90,9 +90,9 @@
             </div>
         </div>
         <div data-if="A !== 0 || B !== 0" data-unwrap>
-            <p data-if="B === 0">Because there are no tens blocks, the tens digit of the number is <code>0</code>.</p>
+            <p data-if="B === 0" data-tid="315.4">Because there are no tens blocks, the tens digit of the number is <code>0</code>.</p>
             <div data-else>
-                <p>By counting the number of tens blocks, we see that the tens digit of the number is <code><var>B</var></code>.</p>
+                <p data-tid="315.5">By counting the number of tens blocks, we see that the tens digit of the number is <code><var>B</var></code>.</p>
                 <div class="graphie" data-update="tens-graph">
                     for ( var i = 0; i &lt; B; i++ ) {
                         label( [5, -1.5 * i - 0.6], "\\large{\\mathbf{1\\:0}}", { color: "black" } );
@@ -100,16 +100,16 @@
                 </div>
             </div>
         </div>
-        <p data-if="C === 0">Because there are no single unit blocks, the units digit of the number is <code>0</code>.</p>
+        <p data-if="C === 0" data-tid="315.6">Because there are no single unit blocks, the units digit of the number is <code>0</code>.</p>
         <div data-else>
-            <p>By counting the number of single unit blocks, we see that the units digit of the number is <code><var>C</var></code>.</p>
+            <p data-tid="315.7">By counting the number of single unit blocks, we see that the units digit of the number is <code><var>C</var></code>.</p>
             <div class="graphie" data-update="ones-graph">
                 for ( var i = 0; i &lt; C; i++ ) {
                     label( [1.5 * i + 0.5, 0.5], "\\mathbf{1}", { color: "black" } );
                 }
             </div>
         </div>
-        <p>The number is <code><var>N</var></code>.</p>
+        <p data-tid="315.8">The number is <code><var>N</var></code>.</p>
     </div>
     </div>
 </body>

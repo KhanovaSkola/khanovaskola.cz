@@ -2,7 +2,7 @@
 <html data-require="math math-format expressions">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Systems of equations with substitution</title>
+    <title data-tid="366.1">Systems of equations with substitution</title>
     <script src="../khan-exercise.js"></script>
     <style type="text/css">
         #answer_area input[type=text] {
@@ -28,22 +28,22 @@
                     <var id="SIGN_1">B1 * C2 &gt; 0 ? "-" : "+"</var>
                     <var id="SIGN_2">A1 * X &gt; 0 ? "-" : "+"</var>
                 </div>
-                <p class="problem">Solve for <code>x</code> and <code>y</code> using substitution.</p>
+                <p class="problem" data-tid="366.2">Solve for <code>x</code> and <code>y</code> using substitution.</p>
                 <div class="question">
                     <p><code>\color{<var>BLUE</var>}{<var>expr(["+", ["*", A1, "x"], ["*", B1, "y"]])</var> = <var>C1</var>}</code><br />
                     <code class="hint_green">y = <var>expr(["+", ["*", -A2, "x"], C2])</var></code></p>
                 </div>
                 <div class="solution" data-type="multiple">
-                    <p><code>x</code> = <span class="sol"><var>X</var></span></p>
-                    <p><code>y</code> = <span class="sol"><var>Y</var></span></p>
+                    <p data-tid="366.4"><code>x</code> = <span class="sol"><var>X</var></span></p>
+                    <p data-tid="366.5"><code>y</code> = <span class="sol"><var>Y</var></span></p>
                 </div>
                 <div class="hints">
                     <div>
-                        <p>Since <code>y</code> has already been solved for, substitute <code class="hint_green"><var>expr(["+", ["*", -A2, "x"], C2])</var></code> for <code>y</code> in the first equation.</p>
+                        <p data-tid="366.6">Since <code>y</code> has already been solved for, substitute <code class="hint_green"><var>expr(["+", ["*", -A2, "x"], C2])</var></code> for <code>y</code> in the first equation.</p>
                         <p><code>\color{<var>BLUE</var>}{<var>expr(["*", A1, "x"])</var> + <span data-if="abs( B1 ) !== 1"><var>B1</var></span><span data-if="B1 === -1">-</span>}\color{<var>GREEN</var>}{(<var>expr(["+", ["*", -A2, "x"], C2])</var>)}\color{<var>BLUE</var>}{= <var>C1</var>}</code></p>
                     </div>
                     <div>
-                        <p>Simplify and solve for <code>x</code>.</p>
+                        <p data-tid="366.8">Simplify and solve for <code>x</code>.</p>
                     </div>
                     <div>
                         <p><code><var>expr(["+", ["*", A1, "x"], ["*", B1 * -A2, "x"]])</var> + <var>B1 * C2</var> = <var>C1</var></code></p>
@@ -54,15 +54,15 @@
                         <p><code>\color{red}{x = <var>X</var>}</code></p>
                     </div>
                     <div>
-                        <p>Now that you know <code>\color{red}{x = <var>X</var>}</code>, plug it back into <code>\thinspace \color{<var>GREEN</var>}{y = <var>expr(["+", ["*", -A2, "x"], C2])</var>}\thinspace</code> to find <code>y</code>.</p>
+                        <p data-tid="366.15">Now that you know <code>\color{red}{x = <var>X</var>}</code>, plug it back into <code>\thinspace \color{<var>GREEN</var>}{y = <var>expr(["+", ["*", -A2, "x"], C2])</var>}\thinspace</code> to find <code>y</code>.</p>
                     </div>
                     <div>
                         <p><code>\color{<var>GREEN</var>}{y = <span data-if="abs( A2 ) !== 1"><var>-A2</var></span><span data-if="A2 === 1">-</span>}\color{red}{(<var>X</var>)}\color{<var>GREEN</var>}{ + <var>C2</var>}</code></p>
                         <p data-if="A2 !== -1"><code>y = <var>-A2 * X</var> + <var>C2</var></code></p>
-                        <p><code class="hint_orange">y = <var>Y</var></code></p>
+                        <p data-tid="366.18"><code class="hint_orange">y = <var>Y</var></code></p>
                     </div>
                     <div>
-                        <p>You can also plug <code>\color{red}{x = <var>X</var>}</code> into <code>\thinspace \color{<var>BLUE</var>}{<var>expr(["+", ["*", A1, "x"], ["*", B1, "y"]])</var> = <var>C1</var>}\thinspace</code> and get the same answer for <code>y</code>:</p>
+                        <p data-tid="366.19">You can also plug <code>\color{red}{x = <var>X</var>}</code> into <code>\thinspace \color{<var>BLUE</var>}{<var>expr(["+", ["*", A1, "x"], ["*", B1, "y"]])</var> = <var>C1</var>}\thinspace</code> and get the same answer for <code>y</code>:</p>
                         <p><code>\color{<var>BLUE</var>}{<span data-if="abs( A1 ) !== 1"><var>A1</var></span><span data-if="A1 === -1">-</span>}\color{red}{(<var>X</var>)}\color{<var>BLUE</var>}{ + <var>expr(["*", B1, "y"])</var> = <var>C1</var>}</code></p>
                         <p><code>\color{<var>ORANGE</var>}{y = <var>Y</var>}</code></p>
                     </div>
@@ -81,22 +81,22 @@
                     <var id="SIGN_1">A1 * C2 &gt; 0 ? "-" : "+"</var>
                     <var id="SIGN_2">B1 * Y &gt; 0 ? "-" : "+"</var>
                 </div>
-                <p class="problem">Solve for <code>x</code> and <code>y</code> using substitution.</p>
+                <p class="problem" data-tid="366.22">Solve for <code>x</code> and <code>y</code> using substitution.</p>
                 <div class="question">
                     <p><code>\color{<var>BLUE</var>}{<var>expr(["+", ["*", A1, "x"], ["*", B1, "y"]])</var> = <var>C1</var>}</code><br />
                     <code class="hint_green">x = <var>expr(["+", ["*", -B2, "y"], C2])</var></code></p>
                 </div>
                 <div class="solution" data-type="multiple">
-                    <p><code>x</code> = <span class="sol"><var>X</var></span></p>
-                    <p><code>y</code> = <span class="sol"><var>Y</var></span></p>
+                    <p data-tid="366.24"><code>x</code> = <span class="sol"><var>X</var></span></p>
+                    <p data-tid="366.25"><code>y</code> = <span class="sol"><var>Y</var></span></p>
                 </div>
                 <div class="hints">
                     <div>
-                        <p>Since <code>x</code> has already been solved for, substitute <code class="hint_green"><var>expr(["+", ["*", -B2, "y"], C2])</var></code> for <code>x</code> in the first equation.</p>
+                        <p data-tid="366.26">Since <code>x</code> has already been solved for, substitute <code class="hint_green"><var>expr(["+", ["*", -B2, "y"], C2])</var></code> for <code>x</code> in the first equation.</p>
                         <p><code>\color{<var>BLUE</var>}{<span data-if="abs( A1 ) !== 1"><var>A1</var></span><span data-if="A1 === -1">-</span>}\color{<var>GREEN</var>}{(<var>expr(["+", ["*", -B2, "y"], C2])</var>)}\color{<var>BLUE</var>}{+ <var>expr(["*", B1, "y"])</var> = <var>C1</var>}</code></p>
                     </div>
                     <div>
-                        <p>Simplify and solve for <code>y</code>.</p>
+                        <p data-tid="366.28">Simplify and solve for <code>y</code>.</p>
                     </div>
                     <div>
                         <p><code><var>expr(["+", ["*", A1 * -B2, "y"], A1 * C2])</var> + <var>expr(["*", B1, "y"])</var> = <var>C1</var></code></p>
@@ -107,7 +107,7 @@
                         <p><code>\color{<var>ORANGE</var>}{y = <var>Y</var>}</code></p>
                     </div>
                     <div>
-                        <p>Now that you know <code>\color{<var>ORANGE</var>}{y = <var>Y</var>}</code>, plug it back into <code>\thinspace \color{<var>GREEN</var>}{x = <var>expr(["+", ["*", -B2, "y"], C2])</var>}\thinspace</code> to find <code>x</code>.</p>
+                        <p data-tid="366.35">Now that you know <code>\color{<var>ORANGE</var>}{y = <var>Y</var>}</code>, plug it back into <code>\thinspace \color{<var>GREEN</var>}{x = <var>expr(["+", ["*", -B2, "y"], C2])</var>}\thinspace</code> to find <code>x</code>.</p>
                     </div>
                     <div>
                         <p><code>\color{<var>GREEN</var>}{x = <span data-if="abs( B2 ) !== 1"><var>-B2</var></span><span data-if="B2 === 1">-</span>}\color{<var>ORANGE</var>}{(<var>Y</var>)}\color{<var>GREEN</var>}{ + <var>C2</var>}</code></p>
@@ -115,7 +115,7 @@
                         <p><code>\color{red}{x = <var>X</var>}</code></p>
                     </div>
                     <div>
-                        <p>You can also plug <code>\color{<var>ORANGE</var>}{y = <var>Y</var>}</code> into <code>\thinspace \color{<var>BLUE</var>}{<var>expr(["+", ["*", A1, "x"], ["*", B1, "y"]])</var> = <var>C1</var>}\thinspace</code> and get the same answer for <code>x</code>:</p>
+                        <p data-tid="366.39">You can also plug <code>\color{<var>ORANGE</var>}{y = <var>Y</var>}</code> into <code>\thinspace \color{<var>BLUE</var>}{<var>expr(["+", ["*", A1, "x"], ["*", B1, "y"]])</var> = <var>C1</var>}\thinspace</code> and get the same answer for <code>x</code>:</p>
                         <p><code>\color{<var>BLUE</var>}{<var>expr(["*", A1, "x"])</var> + <span data-if="abs( B1 ) !== 1"><var>B1</var></span><span data-if="B1 === -1">-</span>}\color{<var>ORANGE</var>}{(<var>Y</var>)}\color{<var>BLUE</var>}{= <var>C1</var>}</code></p>
                         <p><code>\color{red}{x = <var>X</var>}</code></p>
                     </div>

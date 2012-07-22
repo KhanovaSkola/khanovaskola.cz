@@ -2,7 +2,7 @@
 <html data-require="math graphie interactive congruency">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Congruent angles</title>
+    <title data-tid="74.1">Congruent angles</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -44,7 +44,7 @@
                 <var id="MYALT">(ORIGALT ? ALTINTERIOR[GIVEN] : ALTINTERIOR[MYVERT])</var>
                 <var id="MYALTVERT">VERTICAL[MYALT]</var>
             </div>
-            <p class="question">
+            <p class="question" data-tid="74.2">
                 Lines <code>p</code> and <code>q</code> are parallel.
                 Which angles must be congruent to the
                 <span class="hint_orange">given angle</span>?
@@ -120,27 +120,27 @@
                 </div>
             </div>
             <div class="hints">
-                <p>Three angles are congruent to the given angle.</p>
+                <p data-tid="74.3">Three angles are congruent to the given angle.</p>
                 <div>
-                    <p>Vertical angles are congruent, so the angle <span class="hint_red">vertical</span> to the <span class="hint_orange">given</span> is congruent.</p>
+                    <p data-tid="74.4">Vertical angles are congruent, so the angle <span class="hint_red">vertical</span> to the <span class="hint_orange">given</span> is congruent.</p>
                     <div class="graphie" data-update="main">
                         graph.hint(MYVERT, RED);
                     </div>
                 </div>
                 <div data-if="ORIGALT">
-                    <p>Opposite interior angles are congruent, so the angle <span class="hint_purple">opposite</span> of the <span class="hint_orange">given</span> is congruent</p>
+                    <p data-tid="74.5">Opposite interior angles are congruent, so the angle <span class="hint_purple">opposite</span> of the <span class="hint_orange">given</span> is congruent</p>
                     <div class="graphie" data-update="main">
                         graph.hint(MYALT, PURPLE);
                     </div>
                 </div>
                 <div data-else>
-                    <p>Opposite interior angles are congruent, so the angle <span class="hint_purple">opposite</span> of the <span class="hint_red">vertical angle</span> is congruent</p>
+                    <p data-tid="74.6">Opposite interior angles are congruent, so the angle <span class="hint_purple">opposite</span> of the <span class="hint_red">vertical angle</span> is congruent</p>
                     <div class="graphie" data-update="main">
                         graph.hint(MYALT, PURPLE);
                     </div>
                 </div>
                 <div>
-                    <p>Vertical angles are congruent, so the angle <span class="hint_pink">vertical</span> to the <span class="hint_purple">opposite interior angle</span> is congruent.</p>
+                    <p data-tid="74.7">Vertical angles are congruent, so the angle <span class="hint_pink">vertical</span> to the <span class="hint_purple">opposite interior angle</span> is congruent.</p>
                     <div class="graphie" data-update="main">
                         graph.hint(MYALTVERT, PINK);
                     </div>

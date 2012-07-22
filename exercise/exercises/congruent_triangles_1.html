@@ -2,7 +2,7 @@
 <html data-require="math graphie graphie-helpers graphie-geometry math-format">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Congruent triangles 1</title>
+    <title data-tid="76.1">Congruent triangles 1</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -36,9 +36,9 @@
             </var>
         </div>
         <div class="hints">
-                <p>Triangles are congruent when all corresponding sides and interior angles are congruent. </p>
-                <p>However, we do not need to know all the values in order to determine whether two triangles are congruent. </p>
-                <p>The rules we use for determining congruency are SSS, ASA, SAS and AAS</p>
+                <p data-tid="76.2">Triangles are congruent when all corresponding sides and interior angles are congruent. </p>
+                <p data-tid="76.3">However, we do not need to know all the values in order to determine whether two triangles are congruent. </p>
+                <p data-tid="76.4">The rules we use for determining congruency are SSS, ASA, SAS and AAS</p>
         </div>
         <div class="problem">
             Are these two triangles congruent?
@@ -83,9 +83,9 @@
                     <var id="A_SIDES">[ 0, 1, 2 ]</var>
                 </div>
                 <div class="hints" data-apply="appendContents">
-                    <p>In this problem we are given the sides of the triangles, so we can compare them easily.</p>
-                    <p data-if="IS_B">Triangle B has 3 sides the same as triangle A, so they are congruent.</p>
-                    <p data-else>Because the sides do not match, triangle B is not congruent with triangle A.</p>
+                    <p data-tid="76.5">In this problem we are given the sides of the triangles, so we can compare them easily.</p>
+                    <p data-if="IS_B" data-tid="76.6">Triangle B has 3 sides the same as triangle A, so they are congruent.</p>
+                    <p data-else data-tid="76.7">Because the sides do not match, triangle B is not congruent with triangle A.</p>
                 </div>
             </div>
 
@@ -95,9 +95,9 @@
                     <var id="A_SIDES">[ 0, 1 ]</var>
                 </div>
                 <div class="hints" data-apply="appendContents">
-                    <p>In this problem we are given two sides and an angle between them, so we can use the SAS rule.</p>
-                    <p data-if="IS_B">Triangle B has those two sides and the angle the same as triangle A, so they are congruent.</p>
-                    <p data-else>Because the sides and the angle do not match, triangle A is not congruent with triangle B.</p>
+                    <p data-tid="76.8">In this problem we are given two sides and an angle between them, so we can use the SAS rule.</p>
+                    <p data-if="IS_B" data-tid="76.9">Triangle B has those two sides and the angle the same as triangle A, so they are congruent.</p>
+                    <p data-else data-tid="76.10">Because the sides and the angle do not match, triangle A is not congruent with triangle B.</p>
                 </div>
             </div>
 
@@ -107,9 +107,9 @@
                     <var id="A_SIDES">[ 1 ]</var>
                 </div>
                 <div class="hints" data-apply="appendContents">
-                    <p>In this problem we are given two angles and as side between them, so we can use the ASA rule.</p>
-                    <p data-if="IS_B">Triangle B has those two angles and the side the same as triangle A, so they are congruent.</p>
-                    <p data-else>Because the angles and the side do not match, triangle A is not congruent with triangle B.</p>
+                    <p data-tid="76.11">In this problem we are given two angles and as side between them, so we can use the ASA rule.</p>
+                    <p data-if="IS_B" data-tid="76.12">Triangle B has those two angles and the side the same as triangle A, so they are congruent.</p>
+                    <p data-else data-tid="76.13">Because the angles and the side do not match, triangle A is not congruent with triangle B.</p>
                 </div>
             </div>
 
@@ -119,9 +119,9 @@
                     <var id="A_SIDES">randRange( 0, 1 ) === 1 ? [ 2 ] : [ 1 ]</var>
                 </div>
                 <div class="hints" data-apply="appendContents">
-                    <p>In this problem we are given two angles and another side so we can use the AAS rule.</p>
-                    <p data-if="IS_B">Triangle B has those two angles and the side the same as triangle A, so they are congruent.</p>
-                    <p data-else>Because the angles and the side do not match, triangle A is not congruent with triangle B.</p>
+                    <p data-tid="76.14">In this problem we are given two angles and another side so we can use the AAS rule.</p>
+                    <p data-if="IS_B" data-tid="76.15">Triangle B has those two angles and the side the same as triangle A, so they are congruent.</p>
+                    <p data-else data-tid="76.16">Because the angles and the side do not match, triangle A is not congruent with triangle B.</p>
                 </div>
             </div>
 
@@ -132,9 +132,9 @@
                     <var id="ANSWER">IS_B ? "There is not enough information to say" : "No"</var>
                 </div>
                 <div class="hints" data-apply="appendContents">
-                    <p>In this problem we know all three triangle angles.</p>
-                    <p data-if="IS_B">However, having all three angles the same is not a property we can use to conclude that two triangles are congruent. We can only say that they are similar. They are not congruent because they might be different size, yet have same angles.</p>
-                    <p data-else>Because the angles do not match, triangle A is not congruent with triangle B.</p>
+                    <p data-tid="76.17">In this problem we know all three triangle angles.</p>
+                    <p data-if="IS_B" data-tid="76.18">However, having all three angles the same is not a property we can use to conclude that two triangles are congruent. We can only say that they are similar. They are not congruent because they might be different size, yet have same angles.</p>
+                    <p data-else data-tid="76.19">Because the angles do not match, triangle A is not congruent with triangle B.</p>
                 </div>
             </div>
         </div>

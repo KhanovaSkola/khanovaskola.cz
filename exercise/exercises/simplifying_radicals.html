@@ -2,7 +2,7 @@
 <html data-require="math math-format">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Simplifying radicals</title>
+    <title data-tid="335.1">Simplifying radicals</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -13,14 +13,14 @@
                 <var id="NUM">randFromArray([30, 42, 66, 70, 105, 110, 154, 165, 210])</var>
             </div>
 
-            <p class="question">
+            <p class="question" data-tid="335.2">
                 Simplify <code>\sqrt{<var>NUM</var>}</code>.</p>
             </p>
 
             <div class="solution" data-type="radical"><var>NUM</var></div>
 
             <div class="hints">
-                <p class="final_answer">The number <code><var>NUM</var></code> has no perfect-square factors, so <code>\sqrt{<var>NUM</var>}</code> is already the simplest form.</p>
+                <p class="final_answer" data-tid="335.3">The number <code><var>NUM</var></code> has no perfect-square factors, so <code>\sqrt{<var>NUM</var>}</code> is already the simplest form.</p>
             </div>
         </div>
 
@@ -31,14 +31,14 @@
                 <var id="COEFFICIENT">SPLIT[0] === 1 ? "" : SPLIT[0]</var>
             </div>
 
-            <p class="question">
+            <p class="question" data-tid="335.4">
                 Simplify <code>\sqrt{<var>NUM</var>}</code>.
             </p>
 
             <div class="solution" data-type="radical"><var>NUM</var></div>
 
             <div class="hints">
-                <p class="final_answer">The number <code><var>NUM</var></code> is a perfect square, so <code>\sqrt{<var>NUM</var>} = <var>COEFFICIENT</var></code>.</p>
+                <p class="final_answer" data-tid="335.5">The number <code><var>NUM</var></code> is a perfect square, so <code>\sqrt{<var>NUM</var>} = <var>COEFFICIENT</var></code>.</p>
             </div>
         </div>
 
@@ -50,16 +50,16 @@
                 <var id="RADICAL">SPLIT[1] === 1 ? "" : SPLIT[1]</var>
             </div>
 
-            <p class="question">
+            <p class="question" data-tid="335.6">
                 Simplify <code>\sqrt{<var>NUM</var>}</code>.
             </p>
 
             <div class="solution" data-type="radical"><var>NUM</var></div>
 
             <div class="hints">
-                <p>The largest perfect square that divides <code><var>NUM</var></code> is <code><var>COEFFICIENT * COEFFICIENT</var></code>.</p>
-                <p>Factoring it out, we have <code><var>NUM</var> = <var>COEFFICIENT</var>^2 \cdot <var>RADICAL</var></code>.</p>
-                <p class="final_answer">Thus, <code>\sqrt{<var>NUM</var>} = <var>COEFFICIENT</var>\sqrt{<var>RADICAL</var>}</code>.</p>
+                <p data-tid="335.7">The largest perfect square that divides <code><var>NUM</var></code> is <code><var>COEFFICIENT * COEFFICIENT</var></code>.</p>
+                <p data-tid="335.8">Factoring it out, we have <code><var>NUM</var> = <var>COEFFICIENT</var>^2 \cdot <var>RADICAL</var></code>.</p>
+                <p class="final_answer" data-tid="335.9">Thus, <code>\sqrt{<var>NUM</var>} = <var>COEFFICIENT</var>\sqrt{<var>RADICAL</var>}</code>.</p>
             </div>
         </div>
     </div>

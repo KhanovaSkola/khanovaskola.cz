@@ -2,7 +2,7 @@
 <html data-require="math graphie">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Functions 1</title>
+    <title data-tid="169.1">Functions 1</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -40,7 +40,7 @@
 
         <div class="problems">
             <div>
-                <p class="question">The function <code>f(x)</code> is graphed. Find <code>f(<var>CORRECT_X</var>)</code>.</p>
+                <p class="question" data-tid="169.2">The function <code>f(x)</code> is graphed. Find <code>f(<var>CORRECT_X</var>)</code>.</p>
 
                 <div id="graph" class="graphie">
                     graphInit({
@@ -56,7 +56,7 @@
                     path( FUNCTION_PATH, { stroke: "#6495ed" } );
                 </div>
                 <div class="solution" data-type="multiple">
-                    <p><code>f(<var>CORRECT_X</var>)=</code> <span class="sol"><var>CORRECT_Y</var></span></p>
+                    <p data-tid="169.3"><code>f(<var>CORRECT_X</var>)=</code> <span class="sol"><var>CORRECT_Y</var></span></p>
                 </div>
 
             </div>
@@ -64,7 +64,7 @@
 
         <div class="hints">
             <div>
-                <p>At what point does <code>f(x)</code> intersect <code>x = <var>CORRECT_X</var></code>?</p>
+                <p data-tid="169.4">At what point does <code>f(x)</code> intersect <code>x = <var>CORRECT_X</var></code>?</p>
                 <div class="graphie" data-update="graph">
                     graph.vert = line( [CORRECT_X, -10], [CORRECT_X, 10], {
                         stroke: "#28ae7b",
@@ -78,10 +78,10 @@
                 </div>
             </div>
 
-            <p>They intersect at <code>(<var>CORRECT_X</var>, <var>CORRECT_Y</var>)</code>.</p>
+            <p data-tid="169.5">They intersect at <code>(<var>CORRECT_X</var>, <var>CORRECT_Y</var>)</code>.</p>
 
             <div>
-                <p>Thus, <code>f(<var>CORRECT_X</var>) = <var>CORRECT_Y</var></code>.</p>
+                <p data-tid="169.6">Thus, <code>f(<var>CORRECT_X</var>) = <var>CORRECT_Y</var></code>.</p>
                 <div class="graphie" data-update="graph">
                     graph.vert.remove();
                 </div>

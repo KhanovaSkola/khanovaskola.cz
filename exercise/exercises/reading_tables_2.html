@@ -2,7 +2,7 @@
 <html data-require="math graphie word-problems">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Reading tables 2</title>
+    <title data-tid="310.1">Reading tables 2</title>
     <script src="../khan-exercise.js"></script>
     <style>
         .reading span {
@@ -64,8 +64,8 @@
     </div>
     <div class="problems">
         <div>
-            <p>The table below <var>PROBLEM</var>, except one entry is missing.</p>
-            <p class="question">What number should go in the empty cell?</p>
+            <p data-tid="310.2">The table below <var>PROBLEM</var>, except one entry is missing.</p>
+            <p class="question" data-tid="310.3">What number should go in the empty cell?</p>
             <div class="fake_header reading">
                 <span><var>HEADER</var></span><span data-each="COLUMNS as i, column"><var>column</var></span>
             </div>
@@ -77,10 +77,10 @@
             </div>
 
             <div class="hints">
-                <p>The table is missing <var>HINT1</var>.</p>
+                <p data-tid="310.4">The table is missing <var>HINT1</var>.</p>
                 <div data-if="COL_INDEX === COLUMNS.length - 1" data-unwrap>
                     <div>
-                        <p>The table accounts for <span class="hint_orange"><var>ENROLLMENTS[ ROW_INDEX ].slice( 0, COL_INDEX ).join( "+" )</var></span> <var>UNIT</var>.</p>
+                        <p data-tid="310.5">The table accounts for <span class="hint_orange"><var>ENROLLMENTS[ ROW_INDEX ].slice( 0, COL_INDEX ).join( "+" )</var></span> <var>UNIT</var>.</p>
                         <div class="graphie">
                             $.each( COLUMNS, function( i, c ) {
                                 if ( i !== 0 ) {
@@ -91,7 +91,7 @@
                         </div>
                     </div>
                     <div>
-                        <p><var>HINT2</var> is simply the sum, or <span class="hint_pink"><var>ANSWER</var></span>.</p>
+                        <p data-tid="310.6"><var>HINT2</var> is simply the sum, or <span class="hint_pink"><var>ANSWER</var></span>.</p>
                         <div class="graphie">
                             fillInCorrectAnswer( ROW_INDEX, COL_INDEX, ANSWER, KhanUtil.PINK );
                         </div>
@@ -99,14 +99,14 @@
                 </div>
                 <div data-else data-unwrap>
                 <div>
-                    <p><var>HINT2</var> is <span class="hint_blue"><var>ENROLLMENTS[ ROW_INDEX ][ COLUMNS.length - 1 ]</var></span>.</p>
+                    <p data-tid="310.7"><var>HINT2</var> is <span class="hint_blue"><var>ENROLLMENTS[ ROW_INDEX ][ COLUMNS.length - 1 ]</var></span>.</p>
                     <div class="graphie">
                         $( ".fake_row" ).eq( ROW_INDEX ).find( "span" ).eq( COLUMNS.length )
                             .css( "color", KhanUtil.BLUE );
                     </div>
                 </div>
                 <div>
-                    <p>The table already accounts for <span class="hint_orange"><var>ENROLLMENTS[ ROW_INDEX ].slice( 0, COL_INDEX ).concat( ENROLLMENTS[ ROW_INDEX ].slice( COL_INDEX + 1, COLUMNS.length - 1 ) ).join( "+" )</var> =
+                    <p data-tid="310.8">The table already accounts for <span class="hint_orange"><var>ENROLLMENTS[ ROW_INDEX ].slice( 0, COL_INDEX ).concat( ENROLLMENTS[ ROW_INDEX ].slice( COL_INDEX + 1, COLUMNS.length - 1 ) ).join( "+" )</var> =
                     <var>ENROLLMENTS[ ROW_INDEX ][ COLUMNS.length - 1 ] - ANSWER</var></span> <var>UNIT</var>.</p>
                     <div class="graphie">
                         $.each( COLUMNS, function( i, c ) {
@@ -117,9 +117,9 @@
                         });
                     </div>
                 </div>
-                <p>The missing number must be the difference between <var>HINT2.slice( 0, 1 ).toLowerCase() + HINT2.slice( 1 )</var>, <span class="hint_blue"><var>ENROLLMENTS[ ROW_INDEX ][ COLUMNS.length - 1 ]</var></span>, and the values already accounted for, <span class="hint_orange"><var>ENROLLMENTS[ ROW_INDEX ][ COLUMNS.length - 1 ] - ANSWER</var></span>.</p>
+                <p data-tid="310.9">The missing number must be the difference between <var>HINT2.slice( 0, 1 ).toLowerCase() + HINT2.slice( 1 )</var>, <span class="hint_blue"><var>ENROLLMENTS[ ROW_INDEX ][ COLUMNS.length - 1 ]</var></span>, and the values already accounted for, <span class="hint_orange"><var>ENROLLMENTS[ ROW_INDEX ][ COLUMNS.length - 1 ] - ANSWER</var></span>.</p>
                 <div>
-                    <p><span class="hint_blue"><var>ENROLLMENTS[ ROW_INDEX ][ COLUMNS.length - 1 ]</var></span> - <span class="hint_orange"><var>ENROLLMENTS[ ROW_INDEX ][ COLUMNS.length - 1 ] - ANSWER</var></span> = <span class="hint_pink"><var>ANSWER</var></span></p>
+                    <p data-tid="310.10"><span class="hint_blue"><var>ENROLLMENTS[ ROW_INDEX ][ COLUMNS.length - 1 ]</var></span> - <span class="hint_orange"><var>ENROLLMENTS[ ROW_INDEX ][ COLUMNS.length - 1 ] - ANSWER</var></span> = <span class="hint_pink"><var>ANSWER</var></span></p>
                     <div class="graphie">
                         fillInCorrectAnswer( ROW_INDEX, COL_INDEX, ANSWER, KhanUtil.PINK );
                     </div>

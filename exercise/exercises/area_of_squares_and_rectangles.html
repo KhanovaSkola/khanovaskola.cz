@@ -2,7 +2,7 @@
 <html data-require="math graphie word-problems">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Area of squares and rectangles</title>
+    <title data-tid="39.1">Area of squares and rectangles</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -22,7 +22,7 @@
                 <var id="S">randRange(2, 8)</var>
             </div>
 
-            <p class="question">
+            <p class="question" data-tid="39.2">
                 One side of a square is <code><var>S</var></code>
                 <var>plural(UNIT_TEXT, S)</var> long. What is its area?
             </p>
@@ -40,7 +40,7 @@
                     label([S / 2, S], S + "\\text{ " + UNIT + "}", "above");
                     label([0, S / 2], S + "\\text{ " + UNIT + "}", "left");
                 </div>
-                <p>
+                <p data-tid="39.3">
                     The area is the length times the width.
                 </p>
                 <div>
@@ -56,7 +56,7 @@
                             });
                         });
                     </div>
-                    <p>
+                    <p data-tid="39.4">
                         The length is <var>plural(S, UNIT_TEXT)</var> and
                         the width is <var>plural(S, UNIT_TEXT)</var>, so the
                         area is <code><var>S</var>\times<var>S</var></code>
@@ -68,7 +68,7 @@
                         \qquad\text{area} = <var>S</var> \times <var>S</var>
                         = <var>S * S</var>
                     </code></p>
-                    <p>
+                    <p data-tid="39.6">
                         We can also count <var>S * S</var>
                         square <var>plural(UNIT_TEXT)</var>.
                     </p>
@@ -88,7 +88,7 @@
                 <var id="S">randRange(2, 8)</var>
             </div>
 
-            <p class="question">
+            <p class="question" data-tid="39.7">
                 The area of a square is <code><var>S * S</var></code>
                 square <var>plural(UNIT_TEXT)</var>. How long is each side?
             </p>
@@ -117,7 +117,7 @@
                         path([[0, 5], [5, 5]],
                             { strokeWidth: 4, stroke: PINK });
                     </div>
-                    <p>
+                    <p data-tid="39.8">
                         The area is the length times the width.
                     </p>
                     <p><code>\qquad \pink{\text{?}} \times \pink{\text{?}} =
@@ -129,7 +129,7 @@
                         \pink{<var>S</var>} =
                         <var>S * S</var>\text{ <var>UNIT</var>}
                     </code></p>
-                    <p>
+                    <p data-tid="39.11">
                         The sides of a square are all the same length, so each
                         side must be <code><var>S</var></code>
                         <var>plural(UNIT_TEXT, S)</var> long.
@@ -144,7 +144,7 @@
                 <var id="W">randRange(2, 9)</var>
             </div>
 
-            <p class="question">
+            <p class="question" data-tid="39.12">
                 A rectangle is
                 <code><var>L</var></code> <var>plural(UNIT_TEXT, L)</var>
                 long and
@@ -165,7 +165,7 @@
                     label([L / 2, W], L + "\\text{ " + UNIT + "}", "above");
                     label([L, W / 2], W + "\\text{ " + UNIT + "}", "right");
                 </div>
-                <p>
+                <p data-tid="39.13">
                     The area is the length times the width.
                 </p>
                 <div>
@@ -183,7 +183,7 @@
                             });
                         });
                     </div>
-                    <p>
+                    <p data-tid="39.14">
                         The length is <var>plural(L, UNIT_TEXT)</var> and
                         the width is <var>plural(W, UNIT_TEXT)</var>, so the
                         area is <code><var>L</var>\times<var>W</var></code>
@@ -195,7 +195,7 @@
                         \qquad\text{area} = <var>L</var> \times <var>W</var>
                         = <var>L * W</var>
                     </code></p>
-                    <p>
+                    <p data-tid="39.16">
                         We can also count <var>L * W</var>
                         square <var>plural(UNIT_TEXT)</var>.
                     </p>

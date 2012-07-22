@@ -2,7 +2,7 @@
 <html data-require="math graphie expressions">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Segment addition</title>
+    <title data-tid="325.1">Segment addition</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -41,14 +41,14 @@
                     label( [ 10 * ( COEF_1 * X + CONST_1 ) / TOTAL, 0 ], POINTS[ 1 ], "below" );
                     label( [ 10, 0 ], POINTS[ 2 ], "below" );
                 </div>
-                <p>
+                <p data-tid="325.2">
                     If:<br />
                     <span id="given0"><code>\qquad <var>GIVEN[ 0 ][ 1 ]</var></code></span>,<br />
                     <span id="given1"><code>\qquad <var>GIVEN[ 1 ][ 1 ]</var></code></span>, and<br />
                     <span id="given2"><code>\qquad <var>GIVEN[ 2 ][ 1 ]</var></code></span>,
                 </p>
             </div>
-            <p class="question">Find <code><var>SEG_2</var></code>.</p>
+            <p class="question" data-tid="325.3">Find <code><var>SEG_2</var></code>.</p>
             <div class="solution" data-forms="integer"><var>COEF_2 * X + CONST_2</var></div>
             <div class="hints">
                 <div>
@@ -62,35 +62,35 @@
                         $( "#given1" ).css({ "color": GIVEN[ 1 ][ 0 ] });
                         $( "#given2" ).css({ "color": GIVEN[ 2 ][ 0 ] });
                     </div>
-                    <p>From the diagram, we can see that the total length of <code>\purple{<var>SEG_TOTAL</var>}</code> is the sum of <code>\blue{<var>SEG_1</var>}</code> and <code>\green{<var>SEG_2</var>}</code>:</p>
+                    <p data-tid="325.4">From the diagram, we can see that the total length of <code>\purple{<var>SEG_TOTAL</var>}</code> is the sum of <code>\blue{<var>SEG_1</var>}</code> and <code>\green{<var>SEG_2</var>}</code>:</p>
                     <p><code>\qquad \blue{<var>SEG_1</var>} + \green{<var>SEG_2</var>} = \purple{<var>SEG_TOTAL</var>}</code></p>
                 </div>
                 <div>
-                    <p>Substitute in the expressions that were given for each length:</p>
+                    <p data-tid="325.6">Substitute in the expressions that were given for each length:</p>
                     <p><code>\qquad \blue{<var>COEF_1</var>x + <var>CONST_1</var>} + \green{<var>COEF_2</var>x + <var>CONST_2</var>} = \purple{<var>TOTAL</var>}</code></p>
                 </div>
                 <div>
-                    <p>Combine like terms:</p>
+                    <p data-tid="325.8">Combine like terms:</p>
                     <p><code>\qquad<var>COEF_1 + COEF_2</var>x + <var>CONST_1 + CONST_2</var> = \purple{<var>TOTAL</var>}</code></p>
                 </div>
                 <div>
-                    <p>Subtract <code><var>CONST_1 + CONST_2</var></code> from both sides:</p>
+                    <p data-tid="325.10">Subtract <code><var>CONST_1 + CONST_2</var></code> from both sides:</p>
                     <p><code>\qquad<var>COEF_1 + COEF_2</var>x  = <var>TOTAL - CONST_1 - CONST_2</var></code></p>
                 </div>
                 <div>
-                    <p>Divide both sides by <code><var>COEF_1 + COEF_2</var></code> to find <code class="hint_pink">x</code>:</p>
-                    <p><code class="hint_pink">\qquad x  = <var>X</var></code></p>
+                    <p data-tid="325.12">Divide both sides by <code><var>COEF_1 + COEF_2</var></code> to find <code class="hint_pink">x</code>:</p>
+                    <p data-tid="325.13"><code class="hint_pink">\qquad x  = <var>X</var></code></p>
                 </div>
                 <div>
-                    <p>Substitute <code class="hint_pink"><var>X</var></code> for <code class="hint_pink">x</code> in the expression that was given for <code><var>SEG_2</var></code>:
+                    <p data-tid="325.14">Substitute <code class="hint_pink"><var>X</var></code> for <code class="hint_pink">x</code> in the expression that was given for <code><var>SEG_2</var></code>:
                     <p><code class="hint_green">\qquad <var>SEG_2</var> = <var>COEF_2</var>(\pink{<var>X</var>}) + <var>CONST_2</var></code></p>
                 </div>
                 <div>
-                    <p>Simplify:</p>
+                    <p data-tid="325.15">Simplify:</p>
                     <p><code>\qquad \green{<var>SEG_2</var> = <var>COEF_2 * X</var> + <var>CONST_2</var>}</code></p>
                 </div>
                 <div>
-                    <p class="final_answer">Simplify to find <code>\green{<var>SEG_2</var>}</code>:</p>
+                    <p class="final_answer" data-tid="325.17">Simplify to find <code>\green{<var>SEG_2</var>}</code>:</p>
                     <p><code>\qquad \green{<var>SEG_2</var> = <var>COEF_2 * X + CONST_2</var>}</code></p>
                 </div>
             </div>

@@ -2,7 +2,7 @@
 <html data-require="math math-format graphie interactive ast math-model subhints">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Graphing parabolas 2</title>
+    <title data-tid="181.1">Graphing parabolas 2</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -14,7 +14,7 @@
         <var id="A_DISP">A === 1 ? "" : A === -1 ? "-" : A</var>
     </div>
 
-    <p class="question">Graph the following equation:</p>
+    <p class="question" data-tid="181.2">Graph the following equation:</p>
 
     <div class="problem">
         <div class="graphie" id="grid">
@@ -220,21 +220,21 @@
                 </p>
             </div>
             <div class="hints">
-                <p>
+                <p data-tid="181.4">
                     We could try plugging in some different <code>x</code>-values, but instead of guessing it might be easier to
                     convert the equation to vertex form.
                 </p>
 
                 <div>
-                    <p>Convert the equation to vertex form by completing the square. [<a href="#" class="show-subhint" data-subhint="complete-square">Show me how</a>]</p>
+                    <p data-tid="181.5">Convert the equation to vertex form by completing the square. [<a href="#" class="show-subhint" data-subhint="complete-square">Show me how</a>]</p>
                     <div class="subhint" id="complete-square">
-                        <p>First, move the constant term to the left side of the equation:</p>
+                        <p data-tid="181.6">First, move the constant term to the left side of the equation:</p>
                         <p><code>\qquad <var>formatGroup( COMP_SQR1, [ 0, 1 ] )</var></code></p>
                         <div data-if="A !== 1">
-                            <p>Next, we can factor out a <code><var>A</var></code> from the right side:</p>
+                            <p data-tid="181.8">Next, we can factor out a <code><var>A</var></code> from the right side:</p>
                             <p><code>\qquad <var>formatGroup( COMP_SQR2, [ 0 ] )</var></code></p>
                         </div>
-                        <p>
+                        <p data-tid="181.10">
                             We can complete the square by taking half of the coefficient of our x term, squaring it, and adding it to both sides of the equation.
                             The coefficient of our x term is <code><var>-2 * H</var></code>, so half of it would be <code><var>-H</var></code>,
                             and squaring that gives us <code class="hint_blue"><var>H * H</var></code>. <span data-if="A !== 1">Because we're adding the <code><var>H * H</var></code>
@@ -242,22 +242,22 @@
                             to the left side to make sure we're adding the same thing to both sides.</span>
                         </p>
                         <p><code>\qquad <var>formatGroup( COMP_SQR3, [ 0, 1, 2 ] )</var></code></p>
-                        <p>Now we can rewrite the expression in parentheses as a squared term:</p>
+                        <p data-tid="181.12">Now we can rewrite the expression in parentheses as a squared term:</p>
                         <p><code>\qquad <var>formatGroup( COMP_SQR4, [ 0 ] )</var></code></p>
-                        <p>Move the constant term to the right side of the equation. Now the equation is in vertex form:</p>
+                        <p data-tid="181.14">Move the constant term to the right side of the equation. Now the equation is in vertex form:</p>
                         <p><code>\qquad <var>formatGroup( COMP_SQR5, [ 0 ] )</var></code></p>
                     </div>
                     <p><code>\qquad y = <var>A_DISP</var>(x - <var>H</var>)^2 + <var>K</var></code></p>
                 </div>
 
                 <div>
-                    <p>When the equation is written in vertex form like this, the vertex is the point <code class="hint_green">(h, k)</code>:
+                    <p data-tid="181.17">When the equation is written in vertex form like this, the vertex is the point <code class="hint_green">(h, k)</code>:
                     <p><code>\qquad <var>formatGroup( GROUP1, [ 0 ] )</var></code></p>
                 </div>
 
                 <div>
                     <p><code>\qquad <var>formatGroup( GROUP1, [ 1 ] )</var></code></p>
-                    <p>Examining our equation, we can see the vertex of the parabola is at <code class="hint_green">(<var>H</var>, <var>K</var>)</code>.</p>
+                    <p data-tid="181.19">Examining our equation, we can see the vertex of the parabola is at <code class="hint_green">(<var>H</var>, <var>K</var>)</code>.</p>
                     <div class="graphie" data-update="grid">
                         style({
                             stroke: GREEN,
@@ -269,15 +269,15 @@
                     </div>
                 </div>
 
-                <p>To find another point on the parabola, we can try plugging an <code>x</code> value into the equation.</p>
+                <p data-tid="181.20">To find another point on the parabola, we can try plugging an <code>x</code> value into the equation.</p>
 
                 <div>
-                    <p>
+                    <p data-tid="181.21">
                         Since the vertex is at <code class="hint_green">x = <var>H</code></code>, let's try one unit to the right and evaluate
                         the equation at <code class="hint_pink">x = <var>X1</var></code>.
                     </p>
                     <p><code>\qquad <var>formatGroup( GROUP2, [ 0, 1 ] )</var></code></p>
-                    <p>Another point on the parabola is <code class="hint_pink">(<var>X1</var>, <var>Y1</var>)</code>
+                    <p data-tid="181.23">Another point on the parabola is <code class="hint_pink">(<var>X1</var>, <var>Y1</var>)</code>
                     <div class="graphie" data-update="grid">
                         style({
                             stroke: PINK,
@@ -302,7 +302,7 @@
                 </div>
 
                 <div>
-                    <p>
+                    <p data-tid="181.24">
                         Because the parabola is symmetric, we can reflect the point <code class="hint_pink">(<var>X1</var>, <var>Y1</var>)</code>
                         across the <span class="hint_green">axis of symmetry</span> to get another point,
                         <code class="hint_orange">(<var>X2</var>, <var>Y2</var>)</code>, that must
@@ -320,7 +320,7 @@
                 </div>
 
                 <div>
-                    <p class="final_answer">
+                    <p class="final_answer" data-tid="181.25">
                         There is only one graph of a parabola that passes through all three points we found.
                         <br /><input type="button" value="Show me" onClick="javascript:KhanUtil.currentGraph.graph.showSolution();" />
                     </p>

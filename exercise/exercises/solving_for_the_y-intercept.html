@@ -2,7 +2,7 @@
 <html data-require="math graphie math-format">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Solving for the y-intercept</title>
+    <title data-tid="344.1">Solving for the y-intercept</title>
     <script src="../khan-exercise.js"></script>
 
     <script type="text/javascript">
@@ -45,26 +45,26 @@
         <div class="problems">
             <div>
                 <div class="problem">
-                    <p>The following line passes through point <code>(<var>X1</var>, <var>Y1</var>)</code>:</p>
+                    <p data-tid="344.2">The following line passes through point <code>(<var>X1</var>, <var>Y1</var>)</code>:</p>
                     <p><code>y = <var>fractionReduce( SLOPE_NUMERATOR, SLOPE_DENOMINATOR )</var> x + b</code></p>
                 </div>
-                <p class="question">What is the value of the <code>y</code>-intercept <code>b</code>?</p>
+                <p class="question" data-tid="344.4">What is the value of the <code>y</code>-intercept <code>b</code>?</p>
 
                 <div class="solution" data-type="multiple">
-                    <p><code>b =</code> <span class="sol"><var>(Y1 * SLOPE_DENOMINATOR - X1 * SLOPE_NUMERATOR) / SLOPE_DENOMINATOR</var></span></p>
+                    <p data-tid="344.5"><code>b =</code> <span class="sol"><var>(Y1 * SLOPE_DENOMINATOR - X1 * SLOPE_NUMERATOR) / SLOPE_DENOMINATOR</var></span></p>
                 </div>
             </div>
         </div>
 
         <div class="hints">
-            <p>Substituting <code>(<var>X1</var>, <var>Y1</var>)</code> into the equation gives:</p>
+            <p data-tid="344.6">Substituting <code>(<var>X1</var>, <var>Y1</var>)</code> into the equation gives:</p>
             <p><code><var>Y1</var> = <var>fractionReduce( SLOPE_NUMERATOR, SLOPE_DENOMINATOR )</var> \cdot <var>X1</var> + b</code></p>
             <p><code><var>Y1</var> = <var>fractionReduce( X1*SLOPE_NUMERATOR , SLOPE_DENOMINATOR )</var> + b</code></p>
             <p><code>b = <var>Y1</var> - <var>fractionReduce( X1*SLOPE_NUMERATOR , SLOPE_DENOMINATOR )</var></code></p>
             <p><code>b = <var>fractionReduce( Y1 * SLOPE_DENOMINATOR - X1 * SLOPE_NUMERATOR, SLOPE_DENOMINATOR )</var></code></p>
 
             <div>
-                <p>Plugging in <code><var>fractionReduce( Y1 * SLOPE_DENOMINATOR - X1 * SLOPE_NUMERATOR, SLOPE_DENOMINATOR )</var></code> for <code>b</code>, we get <code>y = <var>fractionReduce( SLOPE_NUMERATOR, SLOPE_DENOMINATOR )</var> x + <var>fractionReduce(Y1*SLOPE_DENOMINATOR-X1*SLOPE_NUMERATOR,SLOPE_DENOMINATOR)</var></code>.</p>
+                <p data-tid="344.11">Plugging in <code><var>fractionReduce( Y1 * SLOPE_DENOMINATOR - X1 * SLOPE_NUMERATOR, SLOPE_DENOMINATOR )</var></code> for <code>b</code>, we get <code>y = <var>fractionReduce( SLOPE_NUMERATOR, SLOPE_DENOMINATOR )</var> x + <var>fractionReduce(Y1*SLOPE_DENOMINATOR-X1*SLOPE_NUMERATOR,SLOPE_DENOMINATOR)</var></code>.</p>
                 <div class="graphie">
                     graphInit({
                         range: max( abs(B) + 4 , 11 ),

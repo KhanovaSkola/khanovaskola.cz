@@ -2,7 +2,7 @@
 <html data-require="math math-format probability word-problems nba">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Free throw probability</title>
+    <title data-tid="193.1">Free throw probability</title>
     <script src="../khan-exercise.js"></script>
     <style>
         .fake_header span, .fake_row span {
@@ -38,12 +38,12 @@
                 <var>Khan.scratchpad.disable()</var>
             </div>
 
-            <p class="question">
+            <p class="question" data-tid="193.2">
                 What is the percent probability of <var>PLAYER</var> making ALL of his next
                 <var>STREAK</var> free throw attempts?
             </p>
             <div class="problem">
-                <p>
+                <p data-tid="193.3">
                     Round your answer to one decimal place.<br />
                     Use the information in the following table to help answer the question:
                 </p>
@@ -61,35 +61,35 @@
 
             <div class="solution" data-forms="percent"><var>SOLUTION</var></div>
             <div class="hints">
-                <p>
+                <p data-tid="193.4">
                     By looking through the table, we know that the probability of
                     <var>PLAYER</var> making <b>one</b> free throw is
                     <span class="hint_blue"><var>SINGLE_PCT</var>%</span>.
                 </p>
-                <p>
+                <p data-tid="193.5">
                     So <span class="hint_blue"><var>SINGLE_PCT</var>%</span> of the time, he'll make
                     his first shot. Then <span class="hint_blue"><var>SINGLE_PCT</var>%</span> of
                     the time he makes the first shot, he will also make his second shot.
                 </p>
-                <p>
+                <p data-tid="193.6">
                     So the chance of making <b>two</b> free throws in a row is
                     <code>\blue{<var>SINGLE_PCT</var>\%} \times \blue{<var>SINGLE_PCT</var>\%}</code>, or
                     <code>\blue{<var>PROB</var>} \times \blue{<var>PROB</var>}</code>.
                 </p>
-                <p>
+                <p data-tid="193.7">
                     The chance of making <b>three</b> free throws in a row is
                     <code>\blue{<var>PROB</var>} \times \blue{<var>PROB</var>} \times \blue{<var>PROB</var>}</code>,
                     and so on.
                 </p>
-                <p>
+                <p data-tid="193.8">
                     So the chance of <var>PLAYER</var> making all <code class="hint_green"><var>STREAK</var></code>
                     free throw attempts in a row is <code>\blue{<var>PROB</var>}^{\green{<var>STREAK</var>}}</code>.
                 </p>
-                <p>
+                <p data-tid="193.9">
                     <code>\blue{<var>PROB</var>}^{\green{<var>STREAK</var>}} \approx
                     <var>roundTo(3, pow(PROB, STREAK))</var></code>.
                 </p>
-                <p class="final_answer">
+                <p class="final_answer" data-tid="193.10">
                     The chance of <var>PLAYER</var> making his next <var>STREAK</var> free throw
                     attempts is approximately <var>SOLUTION</var>%.
                 </p>

@@ -2,7 +2,7 @@
 <html data-require="math graphie interactive ast math-model">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Graphing parabolas 1</title>
+    <title data-tid="180.1">Graphing parabolas 1</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -14,7 +14,7 @@
         <var id="A_DISP">A === 1 ? "" : A === -1 ? "-" : A</var>
     </div>
 
-    <p class="question">Graph the following equation:</p>
+    <p class="question" data-tid="180.2">Graph the following equation:</p>
 
     <div class="problem">
         <div class="graphie" id="grid">
@@ -203,16 +203,16 @@
                 </p>
             </div>
             <div class="hints">
-                <p>The equation is in vertex form, so we can use the vertex as one of the points.</p>
+                <p data-tid="180.4">The equation is in vertex form, so we can use the vertex as one of the points.</p>
 
                 <div>
-                    <p>When the equation is written in vertex form like this, the vertex is the point <code class="hint_green">(h, k)</code>:
+                    <p data-tid="180.5">When the equation is written in vertex form like this, the vertex is the point <code class="hint_green">(h, k)</code>:
                     <p><code>\qquad <var>formatGroup( GROUP1, [ 0 ] )</var></code></p>
                 </div>
 
                 <div>
                     <p><code>\qquad <var>formatGroup( GROUP1, [ 1 ] )</var></code></p>
-                    <p>Examining our equation, we can see the vertex of the parabola is at <code class="hint_green">(<var>H</var>, <var>K</var>)</code>.</p>
+                    <p data-tid="180.7">Examining our equation, we can see the vertex of the parabola is at <code class="hint_green">(<var>H</var>, <var>K</var>)</code>.</p>
                     <div class="graphie" data-update="grid">
                         style({
                             stroke: GREEN,
@@ -224,15 +224,15 @@
                     </div>
                 </div>
 
-                <p>To find another point on the parabola, we can try plugging an <code>x</code> value into the equation.</p>
+                <p data-tid="180.8">To find another point on the parabola, we can try plugging an <code>x</code> value into the equation.</p>
 
                 <div>
-                    <p>
+                    <p data-tid="180.9">
                         Since the vertex is at <code class="hint_green">x = <var>H</code></code>, let's try one unit to the right and evaluate
                         the equation at <code class="hint_pink">x = <var>X1</var></code>.
                     </p>
                     <p><code>\qquad <var>formatGroup( GROUP2, [ 0, 1 ] )</var></code></p>
-                    <p>Another point on the parabola is <code class="hint_pink">(<var>X1</var>, <var>Y1</var>)</code>
+                    <p data-tid="180.11">Another point on the parabola is <code class="hint_pink">(<var>X1</var>, <var>Y1</var>)</code>
                     <div class="graphie" data-update="grid">
                         style({
                             stroke: PINK,
@@ -257,7 +257,7 @@
                 </div>
 
                 <div>
-                    <p>
+                    <p data-tid="180.12">
                         Because the parabola is symmetric, we can reflect the point <code class="hint_pink">(<var>X1</var>, <var>Y1</var>)</code>
                         across the <span class="hint_green">axis of symmetry</span> to get another point,
                         <code class="hint_orange">(<var>X2</var>, <var>Y2</var>)</code>, that must
@@ -275,7 +275,7 @@
                 </div>
 
                 <div>
-                    <p class="final_answer">
+                    <p class="final_answer" data-tid="180.13">
                         There is only one graph of a parabola that passes through all three points we found.
                         <br /><input type="button" value="Show me" onClick="javascript:KhanUtil.currentGraph.graph.showSolution();" />
                     </p>

@@ -2,7 +2,7 @@
 <html data-require="math graphie graphie-helpers graphie-geometry math-format interactive triangle-congruence">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Congruency Postulates</title>
+    <title data-tid="73.1">Congruency Postulates</title>
     <script src="../khan-exercise.js"></script>
     <style>
         div#triangles {
@@ -44,7 +44,7 @@
                     <var id="TRIANGLE">new Triangle( [ 0, 0 ], ANGLES, SCALE, {} )</var>
                     <var id="ROTATION">randRange( 0, 360 )</var>
                 </div>
-                <p class="problem">
+                <p class="problem" data-tid="73.2">
                     <strong>Is <em><var>NAME</var></em> a triangle congruency postulate?</strong><br />
                     Answer the question by clicking and dragging the points below to see how many different triangles you can construct.<br />
                     If you can only construct congruent triangles, then the <var>NAME</var> postulate is true. The <var>NAME</var> postulate is not true if you can construct two or more different triangles using the given information.
@@ -131,23 +131,23 @@
                 </div>
 
                 <div class="hints">
-                    <p>
+                    <p data-tid="73.3">
                         To be a congruency postulate, there must be one, <em>and only one</em>, way to make a triangle
                         that's the same as the original triangle&mdash;except for being moved, rotated, or reflected.
                     </p>
-                    <p data-if="ANSWER === 'Yes'">
+                    <p data-if="ANSWER === 'Yes'" data-tid="73.4">
                         With the constraints of <var>NAME</var>, there is exactly one way to make a triangle.
                     </p>
-                    <p data-if="ANSWER === 'Yes'">
+                    <p data-if="ANSWER === 'Yes'" data-tid="73.5">
                         <strong><var>NAME</var> is a congruency postulate.</strong> Be sure to construct the congruent triangle and think
                         about why you're only able to construct the triangle in one way.
                     </p>
 
-                    <p data-if="TYPE === 'SSA'">
+                    <p data-if="TYPE === 'SSA'" data-tid="73.6">
                         With the constraints of <var>NAME</var>, there is more than one way to construct a triangle. See if you can find both ways.
                     </p>
                     <div data-if="TYPE === 'SSA'">
-                        <p>Both of these triangles have the same adjacent Side, Side, and Angle, but they are not congruent:
+                        <p data-tid="73.7">Both of these triangles have the same adjacent Side, Side, and Angle, but they are not congruent:
                         <div class="graphie">
                             var triangle = new Triangle( [ 0, 0 ], ANGLES, SCALE, {} );
                             triangle.rotate( -ANGLES[1] );
@@ -181,11 +181,11 @@
                         <strong>Side-Side-Angle is not a congruency postulate.</strong> Be sure to construct the incongruent triangle above to prove it.
                     </p>
 
-                    <p data-if="TYPE === 'AAA'">
+                    <p data-if="TYPE === 'AAA'" data-tid="73.8">
                         With the constraints of <var>NAME</var>, there is more than one way to construct a triangle. See if you can find some different ways.
                     </p>
                     <div data-if="TYPE === 'AAA'">
-                        <p>Both of these triangles have the same three angles, but they are not congruent (just similar):
+                        <p data-tid="73.9">Both of these triangles have the same three angles, but they are not congruent (just similar):
                         <div class="graphie" style="float: left">
                             style({ stroke: "#b1c9f5", "stroke-width": 5 });
                             init({ range: TRIANGLE.boundingRange( 0.4 ) });

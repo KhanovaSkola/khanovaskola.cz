@@ -2,7 +2,7 @@
 <html data-require="math word-problems">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Conditional Statements and Truth Value</title>
+    <title data-tid="72.1">Conditional Statements and Truth Value</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -102,11 +102,11 @@
                 <var id="ANS">STATEMENT_TYPE === "contrapositive" ? MUST : MIGHT</var>
             </div>
             <div class="problem">
-                <p>Assume this first statement is true:</p>
+                <p data-tid="72.2">Assume this first statement is true:</p>
                 <p class="question"><var>PROBLEM.original</var></p>
             </div>
             <div class="question">
-                <p>Logically, can you deduce that this second statement must be true from the first one?</p>
+                <p data-tid="72.4">Logically, can you deduce that this second statement must be true from the first one?</p>
                 <p class="question"><var>STATEMENT</var></p>
             </div>
             <p class="solution"><var>ANS</var></p>
@@ -115,10 +115,10 @@
                 <li><var>MIGHT</var></li>
             </ul>
             <div class="hints">
-                <p>Is the second statement the converse, inverse, or contrapositive of the original statement?</p>
-                <p>The second statement is the <var>STATEMENT_TYPE</var> of the original statement.</p>
-                <p data-if="STATEMENT_TYPE === 'contrapositive'">The <var>STATEMENT_TYPE</var> is logically equivalent to the original statement, so yes, the second statement can be deduced from the first statement.</p>
-                <p data-else>The <var>STATEMENT_TYPE</var> is not logically equivalent to the original statement, so no, the second statement cannot be deduced from the first statement.</p>
+                <p data-tid="72.7">Is the second statement the converse, inverse, or contrapositive of the original statement?</p>
+                <p data-tid="72.8">The second statement is the <var>STATEMENT_TYPE</var> of the original statement.</p>
+                <p data-if="STATEMENT_TYPE === 'contrapositive'" data-tid="72.9">The <var>STATEMENT_TYPE</var> is logically equivalent to the original statement, so yes, the second statement can be deduced from the first statement.</p>
+                <p data-else data-tid="72.10">The <var>STATEMENT_TYPE</var> is not logically equivalent to the original statement, so no, the second statement cannot be deduced from the first statement.</p>
             </div>
         </div>
 
@@ -129,18 +129,18 @@
                 <var id="OPTIONS">[PROBLEM.converse, PROBLEM.inverse]</var>
             </div>
             <div class="question">
-                <p>Assume this original statement below is true:</p>
+                <p data-tid="72.11">Assume this original statement below is true:</p>
                 <p class="question"><var>PROBLEM.original</var></p>
             </div>
-            <p class="problem">Choose the statement that must also be true logically:</p>
+            <p class="problem" data-tid="72.13">Choose the statement that must also be true logically:</p>
             <p class="solution"><var>ANS</var></p>
             <ul class="choices">
                 <li data-each="OPTIONS as option"><var>option</var></li>
             </ul>
             <div class="hints">
-                <p>Only the contrapositive of the original statement must be true.</p>
-                <p>Find the contrapositive. In other words, find the statement that reverses and negates both the hypothesis and conclusion.</p>
-                <p>In this case, the contrapositive is <strong>"<var>PROBLEM.contrapositive</var>"</strong></p>
+                <p data-tid="72.15">Only the contrapositive of the original statement must be true.</p>
+                <p data-tid="72.16">Find the contrapositive. In other words, find the statement that reverses and negates both the hypothesis and conclusion.</p>
+                <p data-tid="72.17">In this case, the contrapositive is <strong>"<var>PROBLEM.contrapositive</var>"</strong></p>
             </div>
         </div>
 
@@ -151,15 +151,15 @@
                 <var id="ANS">NAMES[3-CASE]</var>
                 <var id="OPTIONS">shuffle((function(){var opt = NAMES.slice(); opt.splice(CASE, 1); return opt;})())</var>
             </div>
-            <p class="question">If the <var>NAMES[CASE]</var> is true, then which other statement must be true logically?</p>
-            <p class="solution">the <var>ANS</var></p>
+            <p class="question" data-tid="72.18">If the <var>NAMES[CASE]</var> is true, then which other statement must be true logically?</p>
+            <p class="solution" data-tid="72.19">the <var>ANS</var></p>
             <ul class="choices" data-category="true">
                 <li data-each="OPTIONS as option">the <var>option</var></li>
             </ul>
             <div class="hints">
-                <p>The <span class="hint_blue">original</span> conditional statement and its <span class="hint_blue">contrapositive</span> are logically equivalent, and the <span class="hint_green">converse</span> and the <span class="hint_green">inverse</span> are logically equivalent.</p>
-                <p>Logically equivalent statements have the same truth-value.</p>
-                <p>Because the <var>NAMES[CASE]</var> is true, the <strong><var>NAMES[3-CASE]</var></strong> is also logically true.</p>
+                <p data-tid="72.20">The <span class="hint_blue">original</span> conditional statement and its <span class="hint_blue">contrapositive</span> are logically equivalent, and the <span class="hint_green">converse</span> and the <span class="hint_green">inverse</span> are logically equivalent.</p>
+                <p data-tid="72.21">Logically equivalent statements have the same truth-value.</p>
+                <p data-tid="72.22">Because the <var>NAMES[CASE]</var> is true, the <strong><var>NAMES[3-CASE]</var></strong> is also logically true.</p>
             </div>
         </div>
     </div>

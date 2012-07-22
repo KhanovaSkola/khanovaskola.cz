@@ -2,7 +2,7 @@
 <html data-require="math graphie math-format interactive">
 <head>
     <meta charset="UTF-8" />
-    <title>The complex plane</title>
+    <title data-tid="371.1">The complex plane</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -17,7 +17,7 @@
 
     <div class="problems">
         <div>
-            <p class="question">Move the orange dot to <code><var>REP</var></code>.</p>
+            <p class="question" data-tid="371.2">Move the orange dot to <code><var>REP</var></code>.</p>
             <div class="graphie" id="gauss-plane">
                 graphInit({
                     range: [ [ LOWER_BOUND - 1, UPPER_BOUND + 1], [ LOWER_BOUND - 1, UPPER_BOUND + 1 ] ],
@@ -44,11 +44,11 @@
                 <span class="sol" id="imaginary-part" style="display: none"><var>IMAG</var></span>
             </div>
             <div class="hints">
-                <p>
+                <p data-tid="371.3">
                     Complex numbers can be visualized as points on a plane. The coordinates on the
                     real and imaginary axes correspond to the real and imaginary parts of the complex number.
                 </p>
-                <p>
+                <p data-tid="371.4">
                     <code><var>REP</var></code> has real part <code><var>REAL</var></code> and imaginary part <code><var>IMAG</var></code>.
                 </p>
                 <div>
@@ -57,7 +57,7 @@
                         line( [ REAL, LOWER_BOUND - 1 ], [ REAL, UPPER_BOUND + 1 ] );
                         movablePoint.visibleShape().toFront();
                     </div>
-                    <p>The vertical <strong class="hint_orange">orange</strong> line represents all complex numbers with real part <code><var>REAL</var></code> (including <code><var>REP</var></code>).
+                    <p data-tid="371.5">The vertical <strong class="hint_orange">orange</strong> line represents all complex numbers with real part <code><var>REAL</var></code> (including <code><var>REP</var></code>).
                 </div>
                 <div>
                     <div class="graphie" data-update="gauss-plane">

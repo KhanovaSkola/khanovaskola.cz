@@ -2,7 +2,7 @@
 <html data-require="math math-format expressions graphie interactive word-problems stat">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Creating bar charts 1</title>
+    <title data-tid="94.1">Creating bar charts 1</title>
     <script src="../khan-exercise.js"></script>
     <style>
         span.rotate  {
@@ -34,7 +34,7 @@
                 return "&lt;code&gt;" + num + "&lt;/code&gt; " + plural( RESPONDENT, num ) + " said " + CATEGORIES[ i ];
             }) ) )</var>.
 
-            <p class="question">Create a bar chart showing everyone's favorite <var>plural( SUBJECT )</var>:</p>
+            <p class="question" data-tid="94.2">Create a bar chart showing everyone's favorite <var>plural( SUBJECT )</var>:</p>
 
             <div class="problem">
 
@@ -116,7 +116,7 @@
 
     <div class="hints">
         <div data-each="DATA as INDEX, NUM">
-            <p>
+            <p data-tid="94.3">
                 <code><var>NUM</var></code> <var>plural( RESPONDENT, NUM )</var> said <var>plural( randFromArray([ "his", "her" ]), "their", NUM )</var>
                 favorite <var>SUBJECT</var> was <var>CATEGORIES[ INDEX ]</var>.
                 <span data-if="NUM > 0">

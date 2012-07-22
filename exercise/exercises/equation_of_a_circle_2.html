@@ -2,7 +2,7 @@
 <html data-require="math math-format expressions">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Equation of a circle 2</title>
+    <title data-tid="131.1">Equation of a circle 2</title>
     <script src="../khan-exercise.js"></script>
     <style type="text/css">
         #answer_area .short input[type=text] {
@@ -28,7 +28,7 @@
     <div class="problems">
         <div>
             <div class="question">
-                <p>The equation of a circle <code>C</code> is
+                <p data-tid="131.2">The equation of a circle <code>C</code> is
                     <code><var>expr(["+",
                         "x^2",
                         "y^2",
@@ -37,23 +37,23 @@
                         F === 0 ? null : F
                     ])</var> = 0</code>.</p>
 
-                <p>What is its center <code>(h, k)</code> and its radius <code>r</code>?</p>
+                <p data-tid="131.3">What is its center <code>(h, k)</code> and its radius <code>r</code>?</p>
 
             </div>
 
             <div class="solution" data-type="multiple">
                 <p class="short"><code>(h, k) = (</code><span class="sol"><var>H</var></span><code>,</code> <span class="sol"><var>K</var></span><code>)</code></p>
-                <p><code>r</code> = <span class="sol"><var>R</var></span></p>
+                <p data-tid="131.5"><code>r</code> = <span class="sol"><var>R</var></span></p>
             </div>
         </div>
     </div>
 
     <div class="hints">
-        <p>To find the equation in standard form, complete the square.</p>
+        <p data-tid="131.6">To find the equation in standard form, complete the square.</p>
         <p><code>(<var>expr(["+", "x^2", ["*", D, "x"]])</var>) + (<var>expr(["+", "y^2", ["*", E, "y"]])</var>) = <var>-F</var></code></p>
         <p><code>(<var>expr(["+", "x^2", ["*", D, "x"], H * H])</var>) + (<var>expr(["+", "y^2", ["*", E, "y"], K * K])</var>) = <var>-F</var> + <var>H * H</var> + <var>K * K</var></code></p>
         <p><code><var>X2T</var> + <var>Y2T</var> = <var>R * R</var> = <var>R</var>^2</code></p>
-        <p>Thus, <code>(h, k) = (<var>H</var>, <var>K</var>)</code> and <code>r = <var>R</var></code>.</p>
+        <p data-tid="131.10">Thus, <code>(h, k) = (<var>H</var>, <var>K</var>)</code> and <code>r = <var>R</var></code>.</p>
     </div>
     </div>
 </body>

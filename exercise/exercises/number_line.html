@@ -2,7 +2,7 @@
 <html data-require="math graphie word-problems interactive">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Number line</title>
+    <title data-tid="249.1">Number line</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -15,7 +15,7 @@
     <div class="problems">
         <div>
             <div class="question">
-                <p>Drag the orange dot to <strong><var>NUMBER</var></strong>. The distance between tick marks is 1.</p>
+                <p data-tid="249.2">Drag the orange dot to <strong><var>NUMBER</var></strong>. The distance between tick marks is 1.</p>
                 <div class="graphie" id="number-line">
                     init({
                         range: [[LOWER_BOUND - 1, UPPER_BOUND + 1], [-1, 1]]
@@ -56,22 +56,22 @@
             </div>
 
             <div class="hints">
-                <p>We know where 0 is on the number line because it is labeled.</p>
-                <p>As you move to the right, the numbers get bigger.</p>
+                <p data-tid="249.3">We know where 0 is on the number line because it is labeled.</p>
+                <p data-tid="249.4">As you move to the right, the numbers get bigger.</p>
                 <div>
                     <div class="graphie" data-update="number-line">
                         style({ stroke: "#6495ED", fill: "#6495ED", strokeWidth: 3.5, arrows: "-&gt;" });
                         line([0, 0], [NUMBER, 0]);
                         graph.movablePoint.visibleShape.toFront();
                     </div>
-                    <p>The orange dot should be <var>plural(abs(NUMBER), "tick mark")</var> to the <span data-if="NUMBER &lt; 0">left</span><span data-else>right</span> of 0.</p>
+                    <p data-tid="249.5">The orange dot should be <var>plural(abs(NUMBER), "tick mark")</var> to the <span data-if="NUMBER &lt; 0">left</span><span data-else>right</span> of 0.</p>
                 </div>
                 <div>
                     <div class="graphie" data-update="number-line">
                         label([NUMBER, -0.53], NUMBER, "center", {color: "#FFA500"});
                         graph.movablePoint.moveTo(NUMBER, 0);
                     </div>
-                    <p>The orange number shows where <var>NUMBER</var> is on the number line.</p>
+                    <p data-tid="249.6">The orange number shows where <var>NUMBER</var> is on the number line.</p>
                 </div>
             </div>
         </div>

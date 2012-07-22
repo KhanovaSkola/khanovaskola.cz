@@ -2,7 +2,7 @@
 <html data-require="math graphie graphie-3d math-format interactive">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Solid geometry</title>
+    <title data-tid="340.1">Solid geometry</title>
     <script src="../khan-exercise.js"></script>
     <script type="text/javascript">
         var makeSquare = function(left, width, bottom, height, color) {
@@ -81,7 +81,7 @@
                 <var id="UNWRAPGRAPH">{}</var>
             </div>
 
-            <p class="question">
+            <p class="question" data-tid="340.2">
                 What is the volume of this object?
                 Drag on the object to rotate it.
             </p>
@@ -152,14 +152,14 @@
             </div>
 
             <div class="hints">
-                <p>The volume of a prism is the area of the base
+                <p data-tid="340.3">The volume of a prism is the area of the base
                     <code>\times</code> depth.</p>
-                <p>In this object, one of the triangles is the base.</p>
-                <p>We know the area of a triangle is
+                <p data-tid="340.4">In this object, one of the triangles is the base.</p>
+                <p data-tid="340.5">We know the area of a triangle is
                     <code>\frac{1}{2}\ \text{base} \times \text{height}</code>.
                 </p>
                 <div>
-                    <p>Orient the triangle like this, and find the
+                    <p data-tid="340.6">Orient the triangle like this, and find the
                         base and height from the object:</p>
                     <div class="graphie" id="triangle">
                         init({ range: [[-2, 2], [-1.2, 1.2]], scale: [100, 100] });
@@ -175,7 +175,7 @@
                     </div>
                 </div>
                 <div>
-                    <p>
+                    <p data-tid="340.7">
                         From the object, we find that the base of the triangle
                         is <code><var>BASE</var></code> and the height is
                         <code><var>HEIGHT</var></code>.
@@ -188,16 +188,16 @@
                         label([-0.4, -0.75], BASE, "below");
                     </div>
                 </div>
-                <p>
+                <p data-tid="340.8">
                     The area of the triangle is then
                     <code>\frac{1}{2}<var>BASE</var> \times <var>HEIGHT</var>
                         = <var>BASE * HEIGHT / 2</var></code>.
                 </p>
-                <p>
+                <p data-tid="340.9">
                     From the object, we can then find that the depth is
                     <code><var>DEPTH</var></code>.
                 </p>
-                <p>
+                <p data-tid="340.10">
                     Then, the final volume is
                     <code><var>BASE * HEIGHT / 2</var> \times <var>DEPTH</var>
                         = <var>BASE * HEIGHT * DEPTH / 2</var>.</code>
@@ -258,7 +258,7 @@
                 ]</var>
             </div>
 
-            <p class="question">
+            <p class="question" data-tid="340.11">
                 What is the volume of this box? Drag on the box to rotate it.
             </p>
 
@@ -267,16 +267,16 @@
             </div>
 
             <div class="hints">
-                <p>The volume of a box is the
+                <p data-tid="340.12">The volume of a box is the
                     length <code>\times</code>
                     width <code>\times</code>
                     height.</p>
-                <p>From the figure, we can find that the
+                <p data-tid="340.13">From the figure, we can find that the
                     lengths of the sides are
                     <code><var>LENGTH</var></code>,
                     <code><var>WIDTH</var></code>,
                     and <code><var>HEIGHT</var></code>.</p>
-                <p>To find the volume, we just multiply
+                <p data-tid="340.14">To find the volume, we just multiply
                     these side lengths together.</p>
                 <p>
                     <code><var>LENGTH</var> \times
@@ -286,13 +286,13 @@
                 <p>
                     <code>\qquad= <var>LENGTH * WIDTH * HEIGHT</var></code>
                 </p>
-                <p>Thus, the volume of the box is
+                <p data-tid="340.17">Thus, the volume of the box is
                     <code><var>LENGTH * WIDTH * HEIGHT</var></code>.</p>
             </div>
         </div>
 
         <div id="int-box-T" data-type="int-box-V">
-            <p class="question">
+            <p class="question" data-tid="340.18">
                 What is the surface area of this box?
                 Drag on the box to rotate it.
             </p>
@@ -304,10 +304,10 @@
             </div>
 
             <div class="hints">
-                <p>To find the surface area, find the areas
+                <p data-tid="340.19">To find the surface area, find the areas
                 of each of the faces, and add all the areas up.</p>
                 <div>
-                    <p>To see this better, let's try unwrapping the box:
+                    <p data-tid="340.20">To see this better, let's try unwrapping the box:
                     <input type="submit" value="Unwrap!"
                         onclick="KhanUtil.tmpl.getVAR('UNWRAPGRAPH.unwrap()')"
                     /></p>
@@ -450,7 +450,7 @@
                 </div>
                 <div id="unwrapped" data-unwrap>
                     <div>
-                        <p>We can group the faces together
+                        <p data-tid="340.21">We can group the faces together
                             based on size and color:</p>
                         <div class="graphie">
                             var width = WIDTH + 2 + LENGTH + 2 + HEIGHT + 2;
@@ -481,7 +481,7 @@
                         </div>
                     </div>
                     <div>
-                        <p>We can calculate the area of each
+                        <p data-tid="340.22">We can calculate the area of each
                             of the pieces now:</p>
                         <code>
                             2 \left(<var>WIDTH</var> \times
@@ -505,7 +505,7 @@
                         2 * HEIGHT * LENGTH</var>
                     </code>
                     </p>
-                    <p>
+                    <p data-tid="340.25">
                         Thus, the total surface area of the box is
                         <code><var>2 * WIDTH * HEIGHT +
                                 2 * LENGTH * WIDTH +
@@ -522,19 +522,19 @@
                 <var id="HEIGHT">LENGTH</var>
             </div>
 
-            <p class="question">
+            <p class="question" data-tid="340.26">
                 What is the volume of this cube? Drag on the cube to rotate it.
             </p>
 
             <div class="hints">
-                <p>The volume of a box is the
+                <p data-tid="340.27">The volume of a box is the
                     length <code>\times</code>
                     width <code>\times</code>
                     height.</p>
-                <p>Since this is a cube, all the sides are the same length.</p>
-                <p>From the figure, we can find that the side length is
+                <p data-tid="340.28">Since this is a cube, all the sides are the same length.</p>
+                <p data-tid="340.29">From the figure, we can find that the side length is
                     <code><var>WIDTH</var></code>.</p>
-                <p>To find the volume, we just cube this side length.</p>
+                <p data-tid="340.30">To find the volume, we just cube this side length.</p>
                 <p>
                     <code><var>WIDTH</var>^3 =
                         <var>WIDTH</var> \times
@@ -544,7 +544,7 @@
                 <p>
                     <code>\qquad= <var>WIDTH * WIDTH * WIDTH</var></code>
                 </p>
-                <p>Thus, the volume of the cube is
+                <p data-tid="340.33">Thus, the volume of the cube is
                     <code><var>WIDTH * WIDTH * WIDTH</var></code>.</p>
             </div>
         </div>
@@ -556,14 +556,14 @@
                 <var id="HEIGHT">LENGTH</var>
             </div>
 
-            <p class="question">
+            <p class="question" data-tid="340.34">
                 What is the surface area of this cube?
                 Drag on the cube to rotate it.
             </p>
 
             <div class="hints" data-apply="appendContents">
                 <div id="unwrapped" data-unwrap>
-                    <p>Here, we can see that all of the
+                    <p data-tid="340.35">Here, we can see that all of the
                         six sides have the same size.</p>
                     <div>
                         <div class="graphie">
@@ -582,7 +582,7 @@
                         </div>
                     </div>
                     <div>
-                        <p>We can now calculate the total area:</p>
+                        <p data-tid="340.36">We can now calculate the total area:</p>
                         <code>6 \left(<var>WIDTH</var> \times
                             <var>WIDTH</var>\right)</code>
                     </div>
@@ -592,7 +592,7 @@
                     <p>
                         <code>\qquad= <var>6 * WIDTH * WIDTH</var></code>
                     </p>
-                    <p>
+                    <p data-tid="340.39">
                         Thus, the total surface area of the cube is
                         <code><var>6 * WIDTH * WIDTH</var></code>.
                     </p>
@@ -607,7 +607,7 @@
             </div>
 
             <div class="question">
-                <p>What is the volume of a cylinder with base radius
+                <p data-tid="340.40">What is the volume of a cylinder with base radius
                     <code><var>r</var></code> and height
                     <code><var>h</var></code>?</p>
 
@@ -632,7 +632,7 @@
             </div>
 
             <div class="solution" data-type="multiple">
-                <p>
+                <p data-tid="340.41">
                     <span class="sol" data-forms="pi">
                         <var>Math.PI * r * r * h</var>
                     </span>
@@ -641,12 +641,12 @@
             </div>
 
             <div class="hints">
-                <p>
+                <p data-tid="340.42">
                     The area of the base is simply the area of a circle:
                     <code>\pi r^2 = \pi \cdot <var>r</var>^2 =
                         <var>r * r</var> \pi</code>.
                 </p>
-                <p>
+                <p data-tid="340.43">
                     The volume of the cylinder is the area of the base
                     times the height:
                     <code>B \cdot h = <var>r * r</var>\pi \cdot <var>h</var>
@@ -662,7 +662,7 @@
             </div>
 
             <div class="question">
-                <p>What is the surface area of a cylinder with
+                <p data-tid="340.44">What is the surface area of a cylinder with
                     base radius <code><var>r</var></code> and
                     height <code><var>h</var></code>?</p>
 
@@ -687,7 +687,7 @@
             </div>
 
             <div class="solution" data-type="multiple">
-                <p>
+                <p data-tid="340.45">
                     <span class="sol" data-forms="pi">
                         <var>Math.PI * 2 * r * ( r + h )</var>
                     </span>
@@ -696,29 +696,29 @@
             </div>
 
             <div class="hints">
-                <p>
+                <p data-tid="340.46">
                     The areas of the top and the base are simply the
                     area of a circle:
                     <code>\pi r^2 = \pi \cdot <var>r</var>^2 =
                         <var>r * r</var> \pi</code>.
                 </p>
-                <p>
+                <p data-tid="340.47">
                     The lateral surface area is the same as the
                     area of a rectangle with height
                     <code><var>h</var></code>
                     and width equal to the circumference of the base.
                 </p>
-                <p>
+                <p data-tid="340.48">
                     That circumference is
                     <code>2 \pi r = 2\pi \cdot <var>r</var> =
                         <var>2 * r</var>\pi</code>.
                 </p>
-                <p>
+                <p data-tid="340.49">
                     Thus, the lateral surface area is
                     <code>wh = <var>2 * r</var> \pi \cdot <var>h</var> =
                         <var>2 * r * h</var> \pi</code>.
                 </p>
-                <p>
+                <p data-tid="340.50">
                     The total surface area is
                     <code><var>r * r</var> \pi + <var>r * r</var> \pi +
                         <var>2 * r * h</var> \pi =

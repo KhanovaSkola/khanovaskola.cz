@@ -2,7 +2,7 @@
 <html data-require="math math-format graphie word-problems interactive">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Fractions on the number line 1</title>
+    <title data-tid="166.1">Fractions on the number line 1</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -26,7 +26,7 @@
     <div class="problems">
         <div>
             <div class="question">
-                <p>Move the <strong><code>\color{orange}{\text{orange dot}}</code></strong> to
+                <p data-tid="166.2">Move the <strong><code>\color{orange}{\text{orange dot}}</code></strong> to
                 <strong><code>\color{orange}{<var>fraction(NUMERATOR, DENOMINATOR)</var>}</code></strong> on the number line.</p>
 
                 <div class="graphie" id="number-line">
@@ -75,8 +75,8 @@
             </div>
 
             <div class="hints">
-                <p>Above we've drawn the number line from 0 to 1, divided into equal pieces.</p>
-                <p>The number line is divided into <code><var>DENOMINATOR</var></code> equal pieces, so each piece represents
+                <p data-tid="166.3">Above we've drawn the number line from 0 to 1, divided into equal pieces.</p>
+                <p data-tid="166.4">The number line is divided into <code><var>DENOMINATOR</var></code> equal pieces, so each piece represents
                 <code><var>fraction(1, DENOMINATOR)</var></code>.</p>
 
                 <div>
@@ -85,7 +85,7 @@
                         line( [ 0, 0 ], [ SOLUTION, 0 ] );
                         graph.movablePoint.visibleShape.toFront();
                     </div>
-                    <p>The orange dot should be shifted <span class="hint_blue"><code><strong><var>NUMERATOR</var></strong></code></span>
+                    <p data-tid="166.5">The orange dot should be shifted <span class="hint_blue"><code><strong><var>NUMERATOR</var></strong></code></span>
                     segment<var>plural(NUMERATOR)</var> over, as <code><var>fraction(NUMERATOR, DENOMINATOR)</var> =
                     <var>NUMERATOR</var>*<var>fraction(1, DENOMINATOR)</var></code></p>
                 </div>
@@ -95,7 +95,7 @@
                         label( [ SOLUTION, -0.83 ],  fraction(NUMERATOR, DENOMINATOR), "center", { color: "#FFA500" });
                         graph.movablePoint.moveTo( SOLUTION, 0 );
                     </div>
-                    <p>The orange number shows where <code>\color{orange}{<var>fraction(NUMERATOR, DENOMINATOR)</var>}</code> is on the number line.</p>
+                    <p data-tid="166.6">The orange number shows where <code>\color{orange}{<var>fraction(NUMERATOR, DENOMINATOR)</var>}</code> is on the number line.</p>
                 </div>
             </div>
         </div>

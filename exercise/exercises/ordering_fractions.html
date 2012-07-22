@@ -2,7 +2,7 @@
 <html data-require="math math-format interactive">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Ordering fractions</title>
+    <title data-tid="257.1">Ordering fractions</title>
     <script src="../khan-exercise.js"></script>
 
     <style type="text/css">
@@ -99,7 +99,7 @@
         <div class="problems">
             <div>
                 <div class="question">
-                    <p>Order the following fractions from least to greatest:</p>
+                    <p data-tid="257.2">Order the following fractions from least to greatest:</p>
                     <ul id="sortable">
                         <li data-each="NUMS as NUM">
                             <span class="sort-key"><var>NUM[3]</var></span>
@@ -125,16 +125,16 @@
 
                 <div class="hints">
                     <div>
-                        <p>Let's use different colors for each fraction.</p>
+                        <p data-tid="257.4">Let's use different colors for each fraction.</p>
                         <p class="number-list"><code><var>NUMS_TEX_COLOR</var></code></p>
                     </div>
-                    <p>Find the least common denominator of all the fractions, so that we can compare them more easily.</p>
+                    <p data-tid="257.6">Find the least common denominator of all the fractions, so that we can compare them more easily.</p>
                     <div>
-                        <p>The least common denominator is the least common multiple of all the denominators.</p>
-                        <p>The least common multiple of <code><var>DENOMS_TEX_COLOR</var></code> is <code><var>LCD</var></code>.</p>
+                        <p data-tid="257.7">The least common denominator is the least common multiple of all the denominators.</p>
+                        <p data-tid="257.8">The least common multiple of <code><var>DENOMS_TEX_COLOR</var></code> is <code><var>LCD</var></code>.</p>
                     </div>
                     <div>
-                        <p>Multiply all the fractions <code>\dfrac{a}{b}</code> by <code>\dfrac{\frac{<var>LCD</var>}{b}}{\frac{<var>LCD</var>}{b}}</code>. Then each fraction will have <code><var>LCD</var></code> as its denominator:</p>
+                        <p data-tid="257.9">Multiply all the fractions <code>\dfrac{a}{b}</code> by <code>\dfrac{\frac{<var>LCD</var>}{b}}{\frac{<var>LCD</var>}{b}}</code>. Then each fraction will have <code><var>LCD</var></code> as its denominator:</p>
                         <div>
                             <p data-each="NUMS as I, NUM"><code>
                                 \color{<var>NUM[5]</var>}{<var>NUM[3]</var>} \times \dfrac{\frac{<var>LCD</var>}{<var>NUM[2]</var>}}{\frac{<var>LCD</var>}{<var>NUM[2]</var>}}
@@ -144,15 +144,15 @@
                         </div>
                     </div>
                     <div>
-                        <p>Now all the fractions are in a form where we can compare them by numerator:</p>
+                        <p data-tid="257.11">Now all the fractions are in a form where we can compare them by numerator:</p>
                         <p class="number-list"><code><var>NUMS_LCD_TEX_COLOR</var></code></p>
                     </div>
                     <div>
-                        <p>Sort the fractions from least to greatest by their numerators:</p>
+                        <p data-tid="257.13">Sort the fractions from least to greatest by their numerators:</p>
                         <p class="number-list"><code><var>NUMS_LCD_SORT_COLOR_TEX</var></code></p>
                     </div>
                     <div>
-                        <p>Finally, reduce each fraction again.</p>
+                        <p data-tid="257.15">Finally, reduce each fraction again.</p>
                         <p class="number-list"><code><var>NUMS_SORT_TEX_COLOR</var></code></p>
                     </div>
                 </div>

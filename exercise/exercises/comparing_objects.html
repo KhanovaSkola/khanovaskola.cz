@@ -2,7 +2,7 @@
 <html data-require="math graphie word-problems">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Comparing objects</title>
+    <title data-tid="63.1">Comparing objects</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -14,7 +14,7 @@
         <var id="DRAW">{}</var>
     </div>
 
-    <p class="question">
+    <p class="question" data-tid="63.2">
         Which <var>SHAPE</var> is the <var>QUESTION</var>?
     </p>
 
@@ -45,7 +45,7 @@
         </div>
     </div>
 
-    <p class="solution"><var>capitalize(SHAPE)</var> <code><var>SOLUTION</var></code></p>
+    <p class="solution" data-tid="63.3"><var>capitalize(SHAPE)</var> <code><var>SOLUTION</var></code></p>
     <ul class="choices" data-category="true">
         <li><var>capitalize(SHAPE)</var> <code>A</code></li>
         <li><var>capitalize(SHAPE)</var> <code>B</code></li>
@@ -79,10 +79,10 @@
             </div>
 
             <div class="hints">
-                <p>Bigger things take up more space.</p>
-                <p>Which <var>SHAPE</var> takes up the most space?</p>
+                <p data-tid="63.4">Bigger things take up more space.</p>
+                <p data-tid="63.5">Which <var>SHAPE</var> takes up the most space?</p>
                 <div data-each="COMPARISONS as COMP" data-unwrap>
-                    <p>
+                    <p data-tid="63.6">
                         Which takes up more space? <var>capitalize(SHAPE)</var> <code><var>"ABCD"[COMP.first]</var></code>
                         or <var>SHAPE</var> <code><var>"ABCD"[COMP.second]</var></code>?
                     </p>
@@ -94,7 +94,7 @@
                             label([0, 0], "ABCD"[COMP.smaller]);
                             label([SIZES[COMP.larger] + 2, 0], "ABCD"[COMP.larger]);
                         </div>
-                        <p style="height: 100px;">
+                        <p style="height: 100px;" data-tid="63.7">
                             We can move
                             <var>SHAPE</var> <code><var>"ABCD"[COMP.smaller]</var></code> inside
                             <var>SHAPE</var> <code><var>"ABCD"[COMP.larger]</var></code>, so
@@ -111,7 +111,7 @@
                         });
                         label([_.max(SIZES) + 2, 0], SOLUTION);
                     </div>
-                    <p style="height: 100px;">
+                    <p style="height: 100px;" data-tid="63.8">
                         <var>capitalize(SHAPE)</var> <code><var>SOLUTION</var></code> is the biggest.
                     </p>
                 </div>
@@ -142,10 +142,10 @@
             </div>
 
             <div class="hints">
-                <p>Smaller things take up less space.</p>
-                <p>Which <var>SHAPE</var> takes up the least space?</p>
+                <p data-tid="63.9">Smaller things take up less space.</p>
+                <p data-tid="63.10">Which <var>SHAPE</var> takes up the least space?</p>
                 <div data-each="COMPARISONS as COMP" data-unwrap>
-                    <p>
+                    <p data-tid="63.11">
                         Which takes up less space? <var>capitalize(SHAPE)</var> <code><var>"ABCD"[COMP.first]</var></code>
                         or <var>SHAPE</var> <code><var>"ABCD"[COMP.second]</var></code>?
                     </p>
@@ -156,7 +156,7 @@
                             DRAW[SHAPE](0, 0, SIZES[COMP.smaller], COLORS[COMP.smaller]);
                             label([0, 0], "ABCD"[COMP.smaller]);
                         </div>
-                        <p style="height: 100px;">
+                        <p style="height: 100px;" data-tid="63.12">
                             We can move
                             <var>SHAPE</var> <code><var>"ABCD"[COMP.smaller]</var></code> inside
                             <var>SHAPE</var> <code><var>"ABCD"[COMP.larger]</var></code>, so
@@ -173,7 +173,7 @@
                         });
                         label([0, 0], SOLUTION);
                     </div>
-                    <p style="height: 100px;">
+                    <p style="height: 100px;" data-tid="63.13">
                         <var>capitalize(SHAPE)</var> <code><var>SOLUTION</var></code> is the smallest.
                     </p>
                 </div>

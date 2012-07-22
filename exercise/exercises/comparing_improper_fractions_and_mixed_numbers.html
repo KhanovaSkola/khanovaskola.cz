@@ -2,7 +2,7 @@
 <html data-require="math math-format word-problems">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Comparing improper fractions and mixed numbers</title>
+    <title data-tid="62.1">Comparing improper fractions and mixed numbers</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -49,7 +49,7 @@
                 </div>
 
                 <div class="problem">
-                    <p>Fill in the blank.</p>
+                    <p data-tid="62.2">Fill in the blank.</p>
                     <p>
                         <code><var>WHOLE</var>\ <var>fraction( M_NUM, M_DENOM, false, true )</var></code>
                         ____<code><var>fraction( I_NUM, I_DENOM, false, true )</var></code>
@@ -62,21 +62,21 @@
                     <li><code>&gt;</code></li>
                 </ul>
                 <div class="hints">
-                    <p>First, let's convert the mixed number to an improper fraction with the same denominator.</p>
-                    <p>To get the numerator of the improper fraction, multiply the denominator (<strong><var>M_DENOM_REDUCED</var></strong>) by the whole number (<strong><var>WHOLE</var></strong>) and add the numerator (<strong><var>M_NUM_REDUCED</var></strong>).</p>
-                    <p class="hint_purple"><strong><code><var>M_DENOM_REDUCED</var> \cdot <var>WHOLE</var>+<var>M_NUM_REDUCED</var> = <var>M_AS_I</var></code></strong></p>
-                    <p>We can write the mixed number as an improper fraction with numerator <strong><var>M_AS_I</var></strong> and denominator <strong><var>M_DENOM_REDUCED</var></strong>.</p>
-                    <p>Now we need to compare <code><var>fraction ( M_AS_I, M_DENOM_REDUCED, false, true )</var></code> to <code><var>fraction ( I_NUM, I_DENOM, false, true )</var></code>.</p>
+                    <p data-tid="62.5">First, let's convert the mixed number to an improper fraction with the same denominator.</p>
+                    <p data-tid="62.6">To get the numerator of the improper fraction, multiply the denominator (<strong><var>M_DENOM_REDUCED</var></strong>) by the whole number (<strong><var>WHOLE</var></strong>) and add the numerator (<strong><var>M_NUM_REDUCED</var></strong>).</p>
+                    <p class="hint_purple" data-tid="62.7"><strong><code><var>M_DENOM_REDUCED</var> \cdot <var>WHOLE</var>+<var>M_NUM_REDUCED</var> = <var>M_AS_I</var></code></strong></p>
+                    <p data-tid="62.8">We can write the mixed number as an improper fraction with numerator <strong><var>M_AS_I</var></strong> and denominator <strong><var>M_DENOM_REDUCED</var></strong>.</p>
+                    <p data-tid="62.9">Now we need to compare <code><var>fraction ( M_AS_I, M_DENOM_REDUCED, false, true )</var></code> to <code><var>fraction ( I_NUM, I_DENOM, false, true )</var></code>.</p>
                     <div data-if="M_DENOM_REDUCED !== I_DENOM" data-unwrap>
-                        <p>It is easier to compare these two fractions when they have the same denominator.</p>
-                        <p>Their smallest common denominator is the LCM of <var>M_DENOM_REDUCED</var> and <var>I_DENOM</var>.</p>
+                        <p data-tid="62.10">It is easier to compare these two fractions when they have the same denominator.</p>
+                        <p data-tid="62.11">Their smallest common denominator is the LCM of <var>M_DENOM_REDUCED</var> and <var>I_DENOM</var>.</p>
                         <p><code>\lcm(<var>M_DENOM_REDUCED</var>, <var>I_DENOM</var>) = <var>LCM</var></code></p>
                         <div>
-                            <p>The first fraction <var>BECOMES_1</var> <code>\dfrac{<var>M_AS_I * F1</var>}{<var>LCM</var>}</code>.</p>
-                            <p>The second fraction <var>BECOMES_2</var> <code>\dfrac{<var>I_NUM * F2</var>}{<var>LCM</var>}</code>.</p>
+                            <p data-tid="62.13">The first fraction <var>BECOMES_1</var> <code>\dfrac{<var>M_AS_I * F1</var>}{<var>LCM</var>}</code>.</p>
+                            <p data-tid="62.14">The second fraction <var>BECOMES_2</var> <code>\dfrac{<var>I_NUM * F2</var>}{<var>LCM</var>}</code>.</p>
                         </div>
                     </div>
-                    <p>We see that <code>\dfrac{<var>M_AS_I * F1</var>}{<var>LCM</var>} <var>SOLUTION</var> \dfrac{<var>I_NUM * F2</var>}{<var>LCM</var>}</code>.</p>
+                    <p data-tid="62.15">We see that <code>\dfrac{<var>M_AS_I * F1</var>}{<var>LCM</var>} <var>SOLUTION</var> \dfrac{<var>I_NUM * F2</var>}{<var>LCM</var>}</code>.</p>
                 </div>
             </div>
             <div id="different-whole">
@@ -119,7 +119,7 @@
                 </div>
 
                 <div class="problem">
-                    <p>Fill in the blank.</p>
+                    <p data-tid="62.16">Fill in the blank.</p>
                     <p>
                         <code><var>WHOLE</var>\ <var>fraction( M_NUM, M_DENOM, false, true )</var></code>
                         ____<code><var>fraction( I_NUM, I_DENOM, false, true )</var></code>
@@ -132,21 +132,21 @@
                     <li><code>&gt;</code></li>
                 </ul>
                 <div class="hints">
-                    <p>First, let's convert the mixed number to an improper fraction with the same denominator.</p>
-                    <p>To get the numerator of the improper fraction, multiply the denominator (<strong><var>M_DENOM_REDUCED</var></strong>) by the whole number (<strong><var>WHOLE</var></strong>) and add the numerator (<strong><var>M_NUM_REDUCED</var></strong>).</p>
-                    <p class="hint_purple"><strong><code><var>M_DENOM_REDUCED</var>\cdot<var>WHOLE</var>+<var>M_NUM_REDUCED</var> = <var>M_AS_I</var></code></strong></p>
-                    <p>We can write the mixed number as an improper fraction with numerator <strong><var>M_AS_I</var></strong> and denominator <strong><var>M_DENOM_REDUCED</var></strong>.</p>
-                    <p>Now we need to compare <code><var>fraction ( M_AS_I, M_DENOM_REDUCED, false, true )</var></code> to <code><var>fraction ( I_NUM, I_DENOM, false, true )</var></code>.</p>
+                    <p data-tid="62.19">First, let's convert the mixed number to an improper fraction with the same denominator.</p>
+                    <p data-tid="62.20">To get the numerator of the improper fraction, multiply the denominator (<strong><var>M_DENOM_REDUCED</var></strong>) by the whole number (<strong><var>WHOLE</var></strong>) and add the numerator (<strong><var>M_NUM_REDUCED</var></strong>).</p>
+                    <p class="hint_purple" data-tid="62.21"><strong><code><var>M_DENOM_REDUCED</var>\cdot<var>WHOLE</var>+<var>M_NUM_REDUCED</var> = <var>M_AS_I</var></code></strong></p>
+                    <p data-tid="62.22">We can write the mixed number as an improper fraction with numerator <strong><var>M_AS_I</var></strong> and denominator <strong><var>M_DENOM_REDUCED</var></strong>.</p>
+                    <p data-tid="62.23">Now we need to compare <code><var>fraction ( M_AS_I, M_DENOM_REDUCED, false, true )</var></code> to <code><var>fraction ( I_NUM, I_DENOM, false, true )</var></code>.</p>
                     <div data-if="M_DENOM_REDUCED !== I_DENOM" data-unwrap>
-                        <p>It is easier to compare these two fractions when they have the same denominator.</p>
-                        <p>Their smallest common denominator is the LCM of <var>M_DENOM_REDUCED</var> and <var>I_DENOM</var>.</p>
+                        <p data-tid="62.24">It is easier to compare these two fractions when they have the same denominator.</p>
+                        <p data-tid="62.25">Their smallest common denominator is the LCM of <var>M_DENOM_REDUCED</var> and <var>I_DENOM</var>.</p>
                         <p><code>\lcm(<var>M_DENOM_REDUCED</var>, <var>I_DENOM</var>) = <var>LCM</var></code></p>
                         <div>
-                            <p>The first fraction <var>BECOMES_1</var> <code>\dfrac{<var>M_AS_I * F1</var>}{<var>LCM</var>}</code>.</p>
-                            <p>The second fraction <var>BECOMES_2</var> <code>\dfrac{<var>I_NUM * F2</var>}{<var>LCM</var>}</code>.</p>
+                            <p data-tid="62.27">The first fraction <var>BECOMES_1</var> <code>\dfrac{<var>M_AS_I * F1</var>}{<var>LCM</var>}</code>.</p>
+                            <p data-tid="62.28">The second fraction <var>BECOMES_2</var> <code>\dfrac{<var>I_NUM * F2</var>}{<var>LCM</var>}</code>.</p>
                         </div>
                     </div>
-                    <p>We see that <code>\dfrac{<var>M_AS_I * F1</var>}{<var>LCM</var>} <var>SOLUTION</var> \dfrac{<var>I_NUM * F2</var>}{<var>LCM</var>}</code>.</p>
+                    <p data-tid="62.29">We see that <code>\dfrac{<var>M_AS_I * F1</var>}{<var>LCM</var>} <var>SOLUTION</var> \dfrac{<var>I_NUM * F2</var>}{<var>LCM</var>}</code>.</p>
                 </div>
             </div>
         </div>

@@ -2,7 +2,7 @@
 <html data-require="math math-format interactive">
 <head>
     <meta charset="UTF-8" />
-    <title>Ordering Mixed Numbers and Improper Fractions</title>
+    <title data-tid="258.1">Ordering Mixed Numbers and Improper Fractions</title>
     <script src="../khan-exercise.js"></script>
 
     <style type="text/css">
@@ -120,7 +120,7 @@
         <div class="problems">
             <div>
                 <div class="question">
-                    <p>Order the following fractions from least to greatest. </p>
+                    <p data-tid="258.2">Order the following fractions from least to greatest. </p>
                     <ul id="sortable">
                         <li data-each="NUMS as NUM">
                             <span class="sort-key"><var>NUM[ 5 ]</var></span>
@@ -141,28 +141,28 @@
 
                 <div class="hints">
                     <div>
-                        <p>It's easier to compare fractions if they are all in the same form, so convert mixed numbers and whole numbers into improper fractions.</p>
+                        <p data-tid="258.4">It's easier to compare fractions if they are all in the same form, so convert mixed numbers and whole numbers into improper fractions.</p>
                         <p class="number-list"><code><var>NUMS_TEX_COLOR</var></code></p>
                     </div>
                     <div>
-                        <p>We can compare fractions when they have the same denominator. To make these fractions have the same denominator, we have to find the least common denominator. The least common denominator is the least common multiple of all the denominators. The least common multiple of <code><var>DENOMS_TEX_COLOR</var></code> is <code><var>LCD</var></code>.</p>
+                        <p data-tid="258.6">We can compare fractions when they have the same denominator. To make these fractions have the same denominator, we have to find the least common denominator. The least common denominator is the least common multiple of all the denominators. The least common multiple of <code><var>DENOMS_TEX_COLOR</var></code> is <code><var>LCD</var></code>.</p>
                     </div>
                     <div>
-                        <p>We can change the denominator of fractions by multiplying by a form of <code>1</code>, such as <code>\dfrac{2}{2}</code> or <code>\dfrac{10}{10}</code>. Multiply the improper fractions above by forms of <code>1</code> so that their denominators are all equal to <code><var>LCD</var></code>.</p>
+                        <p data-tid="258.7">We can change the denominator of fractions by multiplying by a form of <code>1</code>, such as <code>\dfrac{2}{2}</code> or <code>\dfrac{10}{10}</code>. Multiply the improper fractions above by forms of <code>1</code> so that their denominators are all equal to <code><var>LCD</var></code>.</p>
                         <div>
                             <p data-each="NUMS as I, NUM"><code>\color{<var>NUM[4]</var>}{<var>NUM[3]</var>}\times \dfrac {<var>LCD / NUM[2] </var>}{<var>LCD / NUM[2]</var>} = <var>NUMS_LCD_COLOR[I]</var></code></p>
                         </div>
                     </div>
                     <div>
-                        <p>Now all the fractions are in a form where we can compare them by numerator.</p>
+                        <p data-tid="258.9">Now all the fractions are in a form where we can compare them by numerator.</p>
                         <p class="number-list"><code><var>NUMS_LCD_TEX_COLOR</var></code></p>
                     </div>
                     <div>
-                        <p>Sort the fractions from least to greatest by their numerators.</p>
+                        <p data-tid="258.11">Sort the fractions from least to greatest by their numerators.</p>
                         <p class="number-list"><code><var>NUMS_LCD_SORT_COLOR_TEX</var></code></p>
                     </div>
                     <div>
-                        <p>Finally, convert the numbers back to their original form.</p>
+                        <p data-tid="258.13">Finally, convert the numbers back to their original form.</p>
                         <p class="number-list"><code><var>MIXED_NUMS_SORT_TEX_COLOR</var></code></p>
                     </div>
                 </div>

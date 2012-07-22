@@ -2,7 +2,7 @@
 <html data-require="math math-format calculus polynomials expressions">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>L'Hôpital's rule</title>
+    <title data-tid="206.1">L'Hôpital's rule</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -72,7 +72,7 @@
 
                 <div class="hints">
                     <!-- Remind them of L'Hopital's rule -->
-                    <p>L'Hopital's rule states that since evaluating
+                    <p data-tid="206.4">L'Hopital's rule states that since evaluating
                         <!-- Original problem -->
                         <code>\displaystyle \lim_{x \to <var>APPROACHES_TEXT</var>} \frac{<var>NUMERATOR</var>}{<var>DENOMINATOR</var>} = <var>INDETERMINATE_FORM</var></code>,<br />
                         <!-- Explanation of rule -->
@@ -82,10 +82,10 @@
                     <!-- Show them the steps of L'Hopital's rule by deriving until the indeterminate form can be resolved -->
                     <div data-each="STEPS as N, STEP" data-unwrap>
                         <div data-if="N !== STEPS.length-1">
-                            <p data-if="N === 0">
+                            <p data-if="N === 0" data-tid="206.5">
                                 Repeat this process until evaluating the limit will not result in an indeterminate form:
                             </p>
-                            <p data-else>
+                            <p data-else data-tid="206.6">
                                 Since evaluating the limit at this point still results in <code><var>INDETERMINATE_FORM</var></code>, we must apply L'Hopital's rule again:
                             </p>
                             <p>
@@ -98,7 +98,7 @@
                     </div>
 
                     <!-- Evaluate the limit and give the solution in both unsimplified and simplified form (if necessary) -->
-                    <p>
+                    <p data-tid="206.8">
                         <!-- Restate the problem using the derived, but unevaluated limit-->
                         Evaluate the limit:
                         <code>

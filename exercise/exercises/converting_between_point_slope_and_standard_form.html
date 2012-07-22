@@ -2,7 +2,7 @@
 <html data-require="math math-format expressions graphie">
 <head>
     <meta charset="UTF-8" />
-    <title>Converting between point-slope and standard form</title>
+    <title data-tid="80.1">Converting between point-slope and standard form</title>
     <script src="../khan-exercise.js"></script>
     <style type="text/css">
         #answer_area input[type=text] {
@@ -26,7 +26,7 @@
                 <var id="SLOPE">-A / B</var>
                 <var id="Y_INTERCEPT">C / B</var>
             </div>
-            <p class="question">Convert the following equation from standard form to point-slope.</p>
+            <p class="question" data-tid="80.2">Convert the following equation from standard form to point-slope.</p>
             <code><var>expr([ '*', A, 'x' ])</var> + <var>expr([ '*', B, 'y' ])</var> = <var>C</var></code>
 
             <!-- Custom validation is used to allow for x to be any value. If we allowed a finite range for x, then we could have a set of solutions.-->
@@ -48,44 +48,44 @@
                     $( '#solution_y' ).val( guess[ 1 ] );
                     $( '#solution_m' ).val( guess[ 2 ] );
                 </div>
-                <p class="example">integers, like <code>6</code></p>
-                <p class="example"><em>simplified proper</em> fractions, like <code>3/5</code></p>
-                <p class="example"><em>simplified improper</em> fractions, like <code>7/4</code></p>
-                <p class="example">and/or <em>exact</em> decimals, like <code>0.75</code></p>
-                <p class="example">pay attention to the sign of each number you enter to be sure the entire equation is correct</p>
+                <p class="example" data-tid="80.4">integers, like <code>6</code></p>
+                <p class="example" data-tid="80.5"><em>simplified proper</em> fractions, like <code>3/5</code></p>
+                <p class="example" data-tid="80.6"><em>simplified improper</em> fractions, like <code>7/4</code></p>
+                <p class="example" data-tid="80.7">and/or <em>exact</em> decimals, like <code>0.75</code></p>
+                <p class="example" data-tid="80.8">pay attention to the sign of each number you enter to be sure the entire equation is correct</p>
             </div>
 
             <div class="hints">
                 <div>
-                    <p>Point-slope form is:</p>
+                    <p data-tid="80.9">Point-slope form is:</p>
                     <p><code>\qquad y - \color{<var>BLUE</var>}{y_{1}} = \color{<var>PINK</var>}{m}(x-\color{<var>BLUE</var>}{x_{1}})</code></p>
-                    <p><code>\qquad</code>where <code class="hint_pink">m</code> is the slope and <code class="hint_blue">(x_{1}, y_{1})</code> is any point on the line.</p>
+                    <p data-tid="80.11"><code>\qquad</code>where <code class="hint_pink">m</code> is the slope and <code class="hint_blue">(x_{1}, y_{1})</code> is any point on the line.</p>
                 </div>
                 <div>
-                    <p>Find the slope of the line:</p>
+                    <p data-tid="80.12">Find the slope of the line:</p>
                     <p><code>\color{<var>PINK</var>}{m} = -\dfrac{A}{B} = -\dfrac{<var>A</var>}{<var>B</var>} = \color{<var>PINK</var>}{<var>SLOPE</var>}</code></p>
                 </div>
-                <p>
+                <p data-tid="80.14">
                     We can pick any point we want on the line by plugging in any value for <code class="hint_blue">x_{1}</code>.
                     For example, let's choose <code class="hint_blue"><var>HINT_X1</var></code>.
                 </p>
                 <div>
-                    <p>
+                    <p data-tid="80.15">
                         Plug in <code class="hint_blue"><var>HINT_X1</var></code> as the value of <code>x</code> in the original equation in order to get
                         <code class="hint_blue">y_{1}</code>.
                     </p>
                     <p><code><var>A</var>\color{<var>BLUE</var>}{(<var>HINT_X1</var>)} <span data-if="B > 0">+</span><span data-else>-</span>
                     <span data-if="abs( B ) !== 1"><var>abs( B )</var></span>\color{<var>BLUE</var>}{y_1} = <var>C</var></code></p>
                 </div>
-                <p><code class="hint_blue">y_1 = <var>( -A * HINT_X1 + C ) / B</var></code></p>
+                <p data-tid="80.17"><code class="hint_blue">y_1 = <var>( -A * HINT_X1 + C ) / B</var></code></p>
                 <div>
-                    <p class="final_answer">Thus, the equation can be written in point-slope form as:</p>
+                    <p class="final_answer" data-tid="80.18">Thus, the equation can be written in point-slope form as:</p>
                     <p><code>\qquad y - \color{<var>BLUE</var>}{(<var>HINT_Y1</var>)} = \color{<var>PINK</var>}{<var>SLOPE</var>}(x - \color{<var>BLUE</var>}{(<var>HINT_X1</var>)})</code></p>
                     <p><code>\qquad <var>plus( "y", -HINT_Y1 )</var> = <span data-if="SLOPE < 0">-</span><span data-if="abs( SLOPE ) !== 1">
                     <var>abs( SLOPE )</var></span>( <var>plus( "x", -HINT_X1 )</var> )</code></p>
                 </div>
                 <div>
-                    <p>Behold the magic of math! The given point <code>(<var>HINT_X1</var>,<var>HINT_Y1</var>)</code> is on the line with slope <code><var>SLOPE</var></code>!</p>
+                    <p data-tid="80.21">Behold the magic of math! The given point <code>(<var>HINT_X1</var>,<var>HINT_Y1</var>)</code> is on the line with slope <code><var>SLOPE</var></code>!</p>
                     <div class="graphie" id="grid">
                         graphInit({
                             range: 10,
@@ -118,16 +118,16 @@
                 <var id="C">SLOPE &lt; 0 ? Y1 - SLOPE * X1 : SLOPE * X1 - Y1</var>
                 <var id="Y_INTERCEPT">C / B</var>
             </div>
-            <p class="question">Convert the following equation from point-slope to standard form.</p>
+            <p class="question" data-tid="80.22">Convert the following equation from point-slope to standard form.</p>
             <p>
                 <code>y - <var>Y1</var> = <span data-if="abs( SLOPE ) !== 1"><var>SLOPE</var></span>
                 <span data-if="SLOPE === -1">-</span>( x - <var>X1</var> )</code>
             </p>
-            <p>
+            <p data-tid="80.24">
                 In other words, rewrite the equation in the form <code>Ax + By = C</code>. Assume <code>A</code> is positive.
             </p>
             <div class="solution" data-type="multiple">
-                <p>
+                <p data-tid="80.25">
                     <span class="sol" data-fallback="1"><var>A</var></span><code>\space x \space + \space </code>
                     <span class="sol" data-fallback="1"><var>B</var></span><code>\space y \quad = \quad </code>
                     <span class="sol"><var>C</var></span>
@@ -137,25 +137,25 @@
             </div>
             <div class="hints">
                 <div data-if="SLOPE !== 1">
-                    <p>Distribute the <code><var>SLOPE</var></code> on the right side of the equation.</p>
+                    <p data-tid="80.26">Distribute the <code><var>SLOPE</var></code> on the right side of the equation.</p>
                     <p><code><var>expr([ '+', "y", -1 * Y1 ])</var> =
                     <var>expr([ '*', SLOPE, "x" ])</var> - <var>SLOPE * X1</var></code></p>
                 </div>
                 <div>
-                    <p>Move the <code><var>expr([ '*', SLOPE, "x" ])</var></code> term to the left side of the equation.</p>
+                    <p data-tid="80.28">Move the <code><var>expr([ '*', SLOPE, "x" ])</var></code> term to the left side of the equation.</p>
                     <p><code><var>expr([ '*', -SLOPE, "x" ])</var> + y - <var>Y1</var> = <var>-SLOPE * X1</var> </code></p>
                 </div>
                 <div>
-                    <p>Move the constant of <code><var>-1 * Y1</var></code> to the right side of the equation.</p>
+                    <p data-tid="80.30">Move the constant of <code><var>-1 * Y1</var></code> to the right side of the equation.</p>
                     <p><code><var>expr([ '*', -SLOPE, "x" ])</var> + y = <var>( -SLOPE * X1 ) + Y1</var> </code></p>
                 </div>
                 <div data-if="SLOPE >= 0">
-                    <p>Multiply both sides by <code>-1</code>.</p>
+                    <p data-tid="80.32">Multiply both sides by <code>-1</code>.</p>
                     <p><code><var>expr([ '*', SLOPE, "x" ])</var> - y = <var>-Y1 + ( SLOPE * X1 )</var></code></p>
                 </div>
-                <p class="final_answer">The equation is now in standard form.</p>
+                <p class="final_answer" data-tid="80.34">The equation is now in standard form.</p>
                 <div>
-                    <p>Behold the magic of math! The line
+                    <p data-tid="80.35">Behold the magic of math! The line
                         <code>
                             <span data-if="SLOPE >= 0">
                                 <var>expr([ '*', SLOPE, "x" ])</var> - y = <var>-Y1 + ( SLOPE * X1 )</var>

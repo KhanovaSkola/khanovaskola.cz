@@ -3,7 +3,7 @@
 <html data-require="math expressions graphie">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Even and odd functions</title>
+    <title data-tid="140.1">Even and odd functions</title>
     <script src="../khan-exercise.js"></script>
     <script type="text/javascript">
         function makeFunc( type, evens, odds ) {
@@ -122,7 +122,7 @@
             <div>
 
                 <div class="problem">
-                    <p><code>f(x)</code> is graphed below.</p>
+                    <p data-tid="140.2"><code>f(x)</code> is graphed below.</p>
                     <div id="graph" class="graphie">
                         graphInit({
                             range: 10,
@@ -145,7 +145,7 @@
                     </div>
                 </div>
 
-                <p class="question">Is <code>f(x)</code> even, odd, or neither?</p>
+                <p class="question" data-tid="140.3">Is <code>f(x)</code> even, odd, or neither?</p>
                 <p class="solution"><var>SOL</var></p>
                 <ul class="choices" data-category="true">
                     <li>Even</li>
@@ -179,11 +179,11 @@
                     label( [ 0, valAt( WIDES, -PT ) ], "f(-a)", "right");
                 </div>
 
-                <p>
+                <p data-tid="140.5">
                     <code>f(-a)\neq f(a)</code>, so <code>f(x)</code> is not even.
                 </p>
 
-                <p>
+                <p data-tid="140.6">
                     <code>f(-a)\neq -f(a)</code>, so <code>f(x)</code> is not odd.
                 </p>
 
@@ -210,15 +210,15 @@
                 </div>
 
                 <div data-unwrap data-if="SOL === 'Odd'">
-                    <p><code>f(-a)=-f(a)</code> for all of these points, so <code>f(x)</code> is... ?</p>
+                    <p data-tid="140.7"><code>f(-a)=-f(a)</code> for all of these points, so <code>f(x)</code> is... ?</p>
 
-                    <p><code>f(-a)=-f(a)</code> for all of these points, so <code>f(x)</code> is <span class="hint_blue">odd</span>.</p>
+                    <p data-tid="140.8"><code>f(-a)=-f(a)</code> for all of these points, so <code>f(x)</code> is <span class="hint_blue">odd</span>.</p>
                 </div>
 
                 <div data-unwrap data-else>
-                    <p><code>f(-a)=f(a)</code> for all of these points, so <code>f(x)</code> is... ?</p>
+                    <p data-tid="140.9"><code>f(-a)=f(a)</code> for all of these points, so <code>f(x)</code> is... ?</p>
 
-                    <p><code>f(-a)=f(a)</code> for all of these points, so <code>f(x)</code> is <span class="hint_blue">even</span>.</p>
+                    <p data-tid="140.10"><code>f(-a)=f(a)</code> for all of these points, so <code>f(x)</code> is <span class="hint_blue">even</span>.</p>
                 </div>
 
             </div>

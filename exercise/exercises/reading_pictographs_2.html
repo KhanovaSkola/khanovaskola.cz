@@ -2,7 +2,7 @@
 <html data-require="math math-format stat word-problems graphie">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Reading pictographs 2</title>
+    <title data-tid="307.1">Reading pictographs 2</title>
     <script src="../khan-exercise.js"></script>
     <style>
         .fake_header span, .fake_row span {
@@ -31,7 +31,7 @@
     </div>
 
     <div class="problem">
-        <p>Use the pictograph to answer the question below:</p>
+        <p data-tid="307.2">Use the pictograph to answer the question below:</p>
         <div class="fake_header">
             <span><span style="text-transform:capitalize"><var>BADGE</var></span> badges earned by each student</span>
         </div>
@@ -51,13 +51,13 @@
                 <var id="ANSWER">DATA[ PERSON ] * VALUE_PER_IMG + HALF[ PERSON ] * VALUE_PER_IMG / 2</var>
             </div>
 
-            <p class="question">How many <var>BADGE</var> badges did <var>person( PERSON + 1 )</var> earn?</p>
+            <p class="question" data-tid="307.3">How many <var>BADGE</var> badges did <var>person( PERSON + 1 )</var> earn?</p>
 
             <div class="solution" data-type="multiple">
-                <p><span style="padding-right: 5px" class="sol" data-forms="integer"><var>ANSWER</var></span> <var>BADGE</var> badges</p>
+                <p data-tid="307.4"><span style="padding-right: 5px" class="sol" data-forms="integer"><var>ANSWER</var></span> <var>BADGE</var> badges</p>
             </div>
             <div class="hints">
-                <p>The key at the bottom of the pictograph shows that each full symbol represents <var>plural( VALUE_PER_IMG, "badge" )</var>.</p>
+                <p data-tid="307.5">The key at the bottom of the pictograph shows that each full symbol represents <var>plural( VALUE_PER_IMG, "badge" )</var>.</p>
                 <div>
                     Find <var>person( PERSON + 1 )</var>'s row in the table:
                     <div class="fake_row">
@@ -66,7 +66,7 @@
                         </span><span data-else></span><span data-each="(7 - DATA[ PERSON ]) times">&nbsp;</span>
                     </div>
                 </div>
-                <p>
+                <p data-tid="307.6">
                     There <var>plural( "is", DATA[PERSON] )</var> <var>plural( DATA[ PERSON ], "full symbol" )</var><span data-if="HALF[ PERSON ]"> and 1 half symbol</span>.
                     <span data-if="HALF[ PERSON ]">The full symbols represent <var>plural( VALUE_PER_IMG, "badge" )</var>, so the half symbol must represent <var>plural( VALUE_PER_IMG/2, "badge" )</var>.</span>
                 </p>
@@ -82,7 +82,7 @@
                         </span>
                     </div>
                 </div>
-                <p><var>person( PERSON + 1 )</var> earned <code><var>ANSWER</var></code> <var>BADGE</var> <var>plural( "badge", ANSWER )</var>.</p>
+                <p data-tid="307.7"><var>person( PERSON + 1 )</var> earned <code><var>ANSWER</var></code> <var>BADGE</var> <var>plural( "badge", ANSWER )</var>.</p>
             </div>
         </div>
 
@@ -93,7 +93,7 @@
                 <var id="NUM_SYMBOLS">mixedFractionFromImproper( toFraction( VALUE / VALUE_PER_IMG, 0.001 )[0], toFraction( VALUE / VALUE_PER_IMG, 0.001 )[1] )</var>
             </div>
 
-            <p class="question">Who earned <code><var>VALUE</var></code> <var>BADGE</var> <var>plural( "badge", VALUE )</var>?</p>
+            <p class="question" data-tid="307.8">Who earned <code><var>VALUE</var></code> <var>BADGE</var> <var>plural( "badge", VALUE )</var>?</p>
 
             <div class="solution"><var>person( PERSON + 1 )</var></div>
             <ul class="choices" data-category="true">
@@ -105,8 +105,8 @@
             </ul>
 
             <div class="hints">
-                <p>The key at the bottom of the pictograph shows that each full symbol represents <var>plural( VALUE_PER_IMG, "badge" )</var>.</p>
-                <p>How many symbols are needed to represent <code><var>VALUE</var></code> <var>plural( "badge", VALUE )</var>?</p>
+                <p data-tid="307.9">The key at the bottom of the pictograph shows that each full symbol represents <var>plural( VALUE_PER_IMG, "badge" )</var>.</p>
+                <p data-tid="307.10">How many symbols are needed to represent <code><var>VALUE</var></code> <var>plural( "badge", VALUE )</var>?</p>
                 <p>
                     <code>
                         \dfrac{<var>VALUE</var> \text{ <var>plural( "badge", VALUE )</var>}}{<var>VALUE_PER_IMG</var> \text{ <var>plural( "symbol", VALUE_PER_IMG )</var> per badge}} =
@@ -121,8 +121,8 @@
                         </span><span data-else></span><span data-each="(7 - DATA[ PERSON ]) times">&nbsp;</span>
                     </div>
                 </div>
-                <p><var>person( PERSON + 1 )</var> has <code><var>NUM_SYMBOLS</var></code> <var>plural( "symbol", VALUE / VALUE_PER_IMG )</var> next to <var>his( PERSON + 1 )</var> name.</p>
-                <p><var>person( PERSON + 1 )</var> earned <code><var>VALUE</var></code> <var>BADGE</var> <var>plural( "badge", VALUE )</var>.</p>
+                <p data-tid="307.12"><var>person( PERSON + 1 )</var> has <code><var>NUM_SYMBOLS</var></code> <var>plural( "symbol", VALUE / VALUE_PER_IMG )</var> next to <var>his( PERSON + 1 )</var> name.</p>
+                <p data-tid="307.13"><var>person( PERSON + 1 )</var> earned <code><var>VALUE</var></code> <var>BADGE</var> <var>plural( "badge", VALUE )</var>.</p>
             </div>
         </div>
 
@@ -138,13 +138,13 @@
                 <var id="PRETTY_SYM_DIFF">mixedFractionFromImproper( toFraction( SYMBOL_DIFF, 0.001 )[0], toFraction( SYMBOL_DIFF, 0.001 )[1] )</var>
             </div>
 
-            <p class="question">How many more <var>BADGE</var> badges did <var>person( PERSON1 + 1 )</var> earn than <var>person( PERSON2 + 1 )</var>?</p>
+            <p class="question" data-tid="307.14">How many more <var>BADGE</var> badges did <var>person( PERSON1 + 1 )</var> earn than <var>person( PERSON2 + 1 )</var>?</p>
 
             <div class="solution" data-type="multiple">
-                <p><span style="padding-right: 5px" class="sol" data-forms="integer"><var>VAL1 - VAL2</var></span> <var>BADGE</var> badges</p>
+                <p data-tid="307.15"><span style="padding-right: 5px" class="sol" data-forms="integer"><var>VAL1 - VAL2</var></span> <var>BADGE</var> badges</p>
             </div>
             <div class="hints">
-                <p>The key at the bottom of the pictograph shows that each full symbol represents <var>plural( VALUE_PER_IMG, "badge" )</var>.</p>
+                <p data-tid="307.16">The key at the bottom of the pictograph shows that each full symbol represents <var>plural( VALUE_PER_IMG, "badge" )</var>.</p>
                 <div>
                     Find <var>person( PERSON1 + 1 )</var>'s and <var>person( PERSON2 + 1 )</var>'s rows in the table:
                     <div class="fake_row">
@@ -158,7 +158,7 @@
                         </span><span data-else></span><span data-each="(7 - DATA[ PERSON2 ]) times">&nbsp;</span>
                     </div>
                 </div>
-                <p>
+                <p data-tid="307.17">
                     <var>person( PERSON1 + 1 )</var> has <code><var>PRETTY_SYM_DIFF</var></code> more <var>plural( "symbol", SYMBOL_DIFF )</var> next to <var>his( PERSON1 + 1 )</var> name than <var>person( PERSON2 + 1 )</var> does.
                 </p>
 
@@ -169,7 +169,7 @@
                         <var>plural( "badge", VAL1 - VAL2 )</var>.
                     </div>
                 </div>
-                <p><var>person( PERSON1 + 1 )</var> earned <code><var>VAL1 - VAL2</var></code> more <var>BADGE</var> <var>plural( "badge", VAL1 - VAL2 )</var> than <var>person( PERSON2 + 1 )</var>.</p>
+                <p data-tid="307.18"><var>person( PERSON1 + 1 )</var> earned <code><var>VAL1 - VAL2</var></code> more <var>BADGE</var> <var>plural( "badge", VAL1 - VAL2 )</var> than <var>person( PERSON2 + 1 )</var>.</p>
             </div>
         </div>
 
@@ -179,15 +179,15 @@
                 <var id="HALF_SYM">sum( HALF )</var>
                 <var id="TOTAL">sum( DATA ) * VALUE_PER_IMG + sum( HALF ) * ( VALUE_PER_IMG / 2 )</var>
             </div>
-            <p class="question">How many <var>BADGE</var> badges were earned by everyone all together?</p>
+            <p class="question" data-tid="307.19">How many <var>BADGE</var> badges were earned by everyone all together?</p>
 
             <div class="solution" data-type="multiple">
-                <p><span style="padding-right: 5px" class="sol" data-forms="integer"><var>TOTAL</var></span> <var>BADGE</var> badges</p>
+                <p data-tid="307.20"><span style="padding-right: 5px" class="sol" data-forms="integer"><var>TOTAL</var></span> <var>BADGE</var> badges</p>
             </div>
             <div class="hints">
-                <p>Start by counting the total number of <var>BADGE</var> symbols.</p>
-                <p>There are <code><var>FULL_SYM</var></code> symbols<span data-if="HALF_SYM !== 0"> and <code><var>HALF_SYM</var></code> half symbols</span>.</p>
-                <p>
+                <p data-tid="307.21">Start by counting the total number of <var>BADGE</var> symbols.</p>
+                <p data-tid="307.22">There are <code><var>FULL_SYM</var></code> symbols<span data-if="HALF_SYM !== 0"> and <code><var>HALF_SYM</var></code> half symbols</span>.</p>
+                <p data-tid="307.23">
                     Each symbol represents <code><var>VALUE_PER_IMG</var></code> <var>BADGE</var> <var>plural( "badge", VALUE_PER_IMG )</var><span data-if="HALF_SYM !== 0">
                     and each half symbol represents <code><var>VALUE_PER_IMG / 2</var></code> <var>BADGE</var> <var>plural( "badge", VALUE_PER_IMG / 2 )</var></span>.
                 </p>
@@ -203,7 +203,7 @@
                         </span>
                     </div>
                 </div>
-                <p>All together, everyone earned <code><var>TOTAL</var></code> <var>BADGE</var> <var>plural( "badge", TOTAL )</var>.</p>
+                <p data-tid="307.24">All together, everyone earned <code><var>TOTAL</var></code> <var>BADGE</var> <var>plural( "badge", TOTAL )</var>.</p>
             </div>
         </div>
 

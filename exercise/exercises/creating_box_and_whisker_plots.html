@@ -2,7 +2,7 @@
 <html data-require="math stat graphie interactive">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Creating box and whisker plots</title>
+    <title data-tid="95.1">Creating box and whisker plots</title>
     <script src="../khan-exercise.js"></script>
     <style>
         .sortable {
@@ -48,7 +48,7 @@
                 <var id="SORTER">createSorter()</var>
             </div>
 
-            <p class="question">Represent the following data using a box-and-whiskers plot. Exclude the median when computing the quartiles:</p>
+            <p class="question" data-tid="95.2">Represent the following data using a box-and-whiskers plot. Exclude the median when computing the quartiles:</p>
 
             <div class="problem">
                 <ul id="sortable">
@@ -56,7 +56,7 @@
                         <code><var>NUM</var></code>
                     </li>
                 </ul>
-                <p>
+                <p data-tid="95.3">
                     If it helps, you may drag the numbers to put them in a different order. The order isn't checked with your answer.
                     <var>SORTER.init( "sortable" )</var>
                 </p>
@@ -177,12 +177,12 @@
 
     <div class="hints">
         <div>
-            <p>Begin by putting the data in order:</p>
+            <p data-tid="95.4">Begin by putting the data in order:</p>
             <p><code>\qquad \large{<var>SORTED_DATA.join( ", " )</var>}</code></p>
         </div>
 
         <div>
-            <p>Plot the sample minimum (smallest number):<p>
+            <p data-tid="95.6">Plot the sample minimum (smallest number):<p>
             <p><code>\qquad \large{\color{<var>PINK</var>}{<var>MIN</var>}, <var>SORTED_DATA.slice( 1 ).join( ", " )</var>}</code></p>
             <div class="graphie" data-update="boxplot">
                 style({ stroke: PINK, fill: PINK }, function() {
@@ -192,7 +192,7 @@
         </div>
 
         <div>
-            <p>Plot the sample maximum (largest number):</p>
+            <p data-tid="95.7">Plot the sample maximum (largest number):</p>
             <p><code>\qquad \large{<var>SORTED_DATA.slice( 0, -1 ).join( ", " )</var>, \color{<var>PINK</var>}{<var>MAX</var>}}</code></p>
             <div class="graphie" data-update="boxplot">
                 style({ stroke: PINK, fill: PINK }, function() {
@@ -202,7 +202,7 @@
         </div>
 
         <div>
-            <p>Plot the median (middle number):</p>
+            <p data-tid="95.9">Plot the median (middle number):</p>
             <p><code>
                 \qquad \large{<var>SORTED_DATA.slice( 0, 7 ).join( ", " )</var>,
                 \color{<var>PINK</var>}{<var>MEDIAN</var>},
@@ -216,7 +216,7 @@
         </div>
 
         <div>
-            <p>Plot the first quartile (halfway between the smallest number and the middle number):</p>
+            <p data-tid="95.11">Plot the first quartile (halfway between the smallest number and the middle number):</p>
             <p><code>
                 \qquad \large{<var>SORTED_DATA.slice( 0, 3 ).join( ", " )</var>,
                 \color{<var>PINK</var>}{<var>SORTED_DATA[3]</var>},
@@ -230,7 +230,7 @@
         </div>
 
         <div>
-            <p>Plot the third quartile (halfway between the middle number and the largest number):</p>
+            <p data-tid="95.13">Plot the third quartile (halfway between the middle number and the largest number):</p>
             <p><code>
                 \qquad \large{<var>SORTED_DATA.slice( 0, 11 ).join( ", " )</var>,
                 \color{<var>PINK</var>}{<var>SORTED_DATA[11]</var>},
@@ -244,7 +244,7 @@
         </div>
 
         <div>
-            <p>Your box-and-whisker plot should look like the example below the number line.</p>
+            <p data-tid="95.15">Your box-and-whisker plot should look like the example below the number line.</p>
             <div class="graphie" data-update="boxplot">
                 style({ stroke: PINK, strokeWidth: 2 }, function() {
                     line( [ MIN, -4.5 ], [ Q1, -4.5 ] );

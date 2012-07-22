@@ -2,7 +2,7 @@
 <html data-require="math math-format graphie graphie-helpers interactive">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Ordering negative numbers</title>
+    <title data-tid="259.1">Ordering negative numbers</title>
     <script src="../khan-exercise.js"></script>
 
     <style type="text/css">
@@ -63,7 +63,7 @@
         <div class="problems">
             <div>
                 <div class="question">
-                    <p>Order the following negative numbers from least to greatest:</p>
+                    <p data-tid="259.2">Order the following negative numbers from least to greatest:</p>
                     <ul id="sortable">
                         <li data-each="NUMS as NUM">
                             <span class="sort-key"><var>NUM[0]</var></span>
@@ -88,10 +88,10 @@
 
                 <div class="hints">
                     <div>
-                        <p>Let's use different colors for each number.</p>
+                        <p data-tid="259.4">Let's use different colors for each number.</p>
                         <p class="number-list"><code><var>NUMS_TEX_COLOR</var></code></p>
                     </div>
-                    <p>Plot these numbers on a number line. Then we can see which ones are lower and which ones are higher.</p>
+                    <p data-tid="259.6">Plot these numbers on a number line. Then we can see which ones are lower and which ones are higher.</p>
                     <div class="graphie" id="number-line">
                         init({
                             range: [ [-1, 101], [-1, 1] ],
@@ -115,8 +115,8 @@
                         } );
                     </div>
                     <div>
-                        <p>Now just read the numbers from left to right on the number line.</p>
-                        <p>The leftmost numbers are least, and the rightmost numbers are greatest.</p>
+                        <p data-tid="259.7">Now just read the numbers from left to right on the number line.</p>
+                        <p data-tid="259.8">The leftmost numbers are least, and the rightmost numbers are greatest.</p>
                     </div>
                     <p class="number-list"><code><var>NUMS_SORT_TEX_COLOR</var></code></p>
                 </div>

@@ -2,7 +2,7 @@
 <html data-require="math word-problems">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Rate problems 1</title>
+    <title data-tid="299.1">Rate problems 1</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -37,64 +37,64 @@
         <div class="problems">
             <div id="original">
                 <div class="problem">
-                    <p><var>person(1)</var> traveled by <var>VEHC1</var> at an average speed of <var>SPEED1</var> miles per hour.</p>
-                    <p>Then, <var>he(1)</var> traveled by <var>VEHC2</var> at an average speed of <var>SPEED2</var> miles per hour.</p>
-                    <p>In total, <var>he(1)</var> traveled <var>DIST</var> miles for <var>plural(TIME, "hour")</var>.</p>
+                    <p data-tid="299.2"><var>person(1)</var> traveled by <var>VEHC1</var> at an average speed of <var>SPEED1</var> miles per hour.</p>
+                    <p data-tid="299.3">Then, <var>he(1)</var> traveled by <var>VEHC2</var> at an average speed of <var>SPEED2</var> miles per hour.</p>
+                    <p data-tid="299.4">In total, <var>he(1)</var> traveled <var>DIST</var> miles for <var>plural(TIME, "hour")</var>.</p>
                 </div>
-                <p class="question">How many miles did <var>person(1)</var> travel by <var>VEHC1</var>? (Round to the nearest mile.)</p>
+                <p class="question" data-tid="299.5">How many miles did <var>person(1)</var> travel by <var>VEHC1</var>? (Round to the nearest mile.)</p>
                 <div class="solution" data-type="multiple">
-                    <p><span class="sol" style="padding-right: 5px" data-forms="integer"><var>round(DIST1)</var></span> miles</p>
+                    <p data-tid="299.6"><span class="sol" style="padding-right: 5px" data-forms="integer"><var>round(DIST1)</var></span> miles</p>
                 </div>
                 <div class="hints" data-apply="appendContents">
-                    <p id="final-hint"><code>d_<var>vehicleVar(1)</var> = <var>round(DIST1)</var></code> miles</p>
+                    <p id="final-hint" data-tid="299.7"><code>d_<var>vehicleVar(1)</var> = <var>round(DIST1)</var></code> miles</p>
                 </div>
             </div>
             <div data-type="original">
-                <p class="question">How many miles did <var>person(1)</var> travel by <var>vehicle(2)</var>? (Round to the nearest mile.)</p>
+                <p class="question" data-tid="299.8">How many miles did <var>person(1)</var> travel by <var>vehicle(2)</var>? (Round to the nearest mile.)</p>
                 <div class="solution" data-type="multiple">
-                    <p><span class="sol" style="padding-right: 5px" data-forms="integer"><var>round(DIST2)</var></span> miles</p>
+                    <p data-tid="299.9"><span class="sol" style="padding-right: 5px" data-forms="integer"><var>round(DIST2)</var></span> miles</p>
                 </div>
                 <div class="hints" data-apply="appendContents">
-                    <p id="final-hint"><code>d_<var>vehicleVar(2)</var> = <var>round(DIST2)</var></code> miles</p>
+                    <p id="final-hint" data-tid="299.10"><code>d_<var>vehicleVar(2)</var> = <var>round(DIST2)</var></code> miles</p>
                 </div>
             </div>
             <div data-type="original">
-                <p class="question">How many minutes did <var>person(1)</var> travel by <var>vehicle(1)</var>? (Round to the nearest minute.)</p>
+                <p class="question" data-tid="299.11">How many minutes did <var>person(1)</var> travel by <var>vehicle(1)</var>? (Round to the nearest minute.)</p>
                 <div class="solution" data-type="multiple">
-                    <p><span class="sol" style="padding-right: 5px" data-forms="integer"><var>round(DIST1 / SPEED1 * 60)</var></span> minutes</p>
+                    <p data-tid="299.12"><span class="sol" style="padding-right: 5px" data-forms="integer"><var>round(DIST1 / SPEED1 * 60)</var></span> minutes</p>
                 </div>
                 <div class="hints" data-apply="appendContents">
-                    <p id="final-hint"><code>t_<var>vehicleVar(1)</var> = <var>round(DIST1 / SPEED1 * 60)</var></code> minutes</p>
+                    <p id="final-hint" data-tid="299.13"><code>t_<var>vehicleVar(1)</var> = <var>round(DIST1 / SPEED1 * 60)</var></code> minutes</p>
                 </div>
             </div>
             <div data-type="original">
-                <p class="question">How many minutes did <var>person(1)</var> travel by <var>vehicle(2)</var>? (Round to the nearest minute.)</p>
+                <p class="question" data-tid="299.14">How many minutes did <var>person(1)</var> travel by <var>vehicle(2)</var>? (Round to the nearest minute.)</p>
                 <div class="solution" data-type="multiple">
-                    <p><span class="sol" style="padding-right: 5px" data-forms="integer"><var>round(DIST2 / SPEED2 * 60)</var></span> minutes</p>
+                    <p data-tid="299.15"><span class="sol" style="padding-right: 5px" data-forms="integer"><var>round(DIST2 / SPEED2 * 60)</var></span> minutes</p>
                 </div>
                 <div class="hints" data-apply="appendContents">
-                    <p id="final-hint"><code>t_<var>vehicleVar(2)</var> = <var>round(DIST2 / SPEED2 * 60)</var></code> minutes</p>
+                    <p id="final-hint" data-tid="299.16"><code>t_<var>vehicleVar(2)</var> = <var>round(DIST2 / SPEED2 * 60)</var></code> minutes</p>
                 </div>
             </div>
         </div>
 
         <div class="hints">
-            <p>Remember that <code>d = r * t</code>, or written another way, <code>t = d / r</code>.</p>
+            <p data-tid="299.17">Remember that <code>d = r * t</code>, or written another way, <code>t = d / r</code>.</p>
             <div>
-                <p><code>d_<var>vehicleVar(1)</var> =</code> distance that <var>person(1)</var> traveled by <var>vehicle(1)</var></p>
-                <p><code>d_<var>vehicleVar(2)</var> =</code> distance that <var>person(1)</var> traveled by <var>vehicle(2)</var></p>
-                <p>Total distance: <code class="hint_orange">d_<var>vehicleVar(1)</var> + d_<var>vehicleVar(2)</var> = <var>DIST</var></code></p>
+                <p data-tid="299.18"><code>d_<var>vehicleVar(1)</var> =</code> distance that <var>person(1)</var> traveled by <var>vehicle(1)</var></p>
+                <p data-tid="299.19"><code>d_<var>vehicleVar(2)</var> =</code> distance that <var>person(1)</var> traveled by <var>vehicle(2)</var></p>
+                <p data-tid="299.20">Total distance: <code class="hint_orange">d_<var>vehicleVar(1)</var> + d_<var>vehicleVar(2)</var> = <var>DIST</var></code></p>
             </div>
-            <p>Total time: <code class="hint_blue">t_<var>vehicleVar(1)</var> + t_<var>vehicleVar(2)</var> = <var>TIME</var></code></p>
-            <p><code class="hint_blue">t_<var>vehicleVar(1)</var> = (d_<var>vehicleVar(1)</var> / <var>SPEED1</var>)</code> and
+            <p data-tid="299.21">Total time: <code class="hint_blue">t_<var>vehicleVar(1)</var> + t_<var>vehicleVar(2)</var> = <var>TIME</var></code></p>
+            <p data-tid="299.22"><code class="hint_blue">t_<var>vehicleVar(1)</var> = (d_<var>vehicleVar(1)</var> / <var>SPEED1</var>)</code> and
                 <code class="hint_blue">t_<var>vehicleVar(2)</var> = (d_<var>vehicleVar(2)</var> / <var>SPEED2</var>)</code></p>
-            <p>Substitute the blue equations for:
+            <p data-tid="299.23">Substitute the blue equations for:
                 <code>(d_<var>vehicleVar(1)</var> / <var>SPEED1</var>) + (d_<var>vehicleVar(2)</var> / <var>SPEED2</var>) = <var>TIME</var></code></p>
-            <p>Multiply the above equation by <var>-1 * SPEED1</var>:
+            <p data-tid="299.24">Multiply the above equation by <var>-1 * SPEED1</var>:
                 <code class="hint_orange">-d_<var>vehicleVar(1)</var> - (<var>SPEED1</var> / <var>SPEED2</var>) * d_<var>vehicleVar(2)</var>  = <var>-SPEED1 * TIME</var></code></p>
-            <p>Add the two orange equations for:
+            <p data-tid="299.25">Add the two orange equations for:
                 <code>(<var>SPEED2 - SPEED1</var> / <var>SPEED2</var>) * d_<var>vehicleVar(2)</var> = <var>DIST - (SPEED1 * TIME)</var></code></p>
-            <p>Calculating all variables (and then rounding to the nearest integer):<br>
+            <p data-tid="299.26">Calculating all variables (and then rounding to the nearest integer):<br>
                 <code>d_<var>vehicleVar(2)</var> =</code> <var>roundTo( 4 , DIST2 )</var> <code>(<var>round(DIST2)</var>)</code> miles<br>
                 <code>d_<var>vehicleVar(1)</var> =</code> <var>roundTo( 4 , DIST1 )</var> <code>(<var>round(DIST1)</var>)</code> miles<br>
                 <code>t_<var>vehicleVar(1)</var> =</code> <var>roundTo( 4 , DIST1 / SPEED1 * 60 )</var> <code>(<var>round(DIST1 / SPEED1 * 60)</var>)</code> minutes<br>

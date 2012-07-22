@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html data-require="math math-format graphie">
     <head>
-        <title>Shaded areas</title>
+        <title data-tid="326.1">Shaded areas</title>
         <script src="../khan-exercise.js"></script>
     </head>
     <body>
@@ -160,14 +160,14 @@
 
             <div class="hints">
                 <div>
-                    <p>First, calculate the area of the <span class="hint_blue">whole figure</span> (including the unshaded area), along with the area of the unshaded inner region.</p>
+                    <p data-tid="326.2">First, calculate the area of the <span class="hint_blue">whole figure</span> (including the unshaded area), along with the area of the unshaded inner region.</p>
                     <div class="graphie" data-update="shapes">
                         OUTER.drawShape(KhanUtil.currentGraph, { fill: BLUE, opacity: 0.5 });
                     </div>
                 </div>
                 <p><code>\text{area of whole figure} = <var>OUTER.hint()</var> = <var>PRETTY_OUTER_AREA</var></code></p>
                 <p><code>\text{area of inner region} = <var>INNER.hint()</var> = <var>PRETTY_INNER_AREA</var></code></p>
-                <p>Then subtract the inner region's area from the whole figure's area to find the area of the shaded region (the difference between the two areas).</p>
+                <p data-tid="326.5">Then subtract the inner region's area from the whole figure's area to find the area of the shaded region (the difference between the two areas).</p>
                 <p><code>\text{area of shaded region} = <var>PRETTY_OUTER_AREA</var> - <var>PRETTY_INNER_AREA</var> = <var>roundTo(2, SHADED_AREA)</var></code></p>
             </div>
         </div>

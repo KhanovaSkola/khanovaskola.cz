@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html data-require="math math-format graphie graphie-helpers">
     <head>
-        <title>Areas of circles and sectors</title>
+        <title data-tid="40.1">Areas of circles and sectors</title>
         <script src="../khan-exercise.js"></script>
     </head>
     <body>
@@ -27,8 +27,8 @@
 
             <div class="problems">
                 <div id="Ac-angle-to-As">
-                    <p class="problem">A circle with area <code class="hint_blue"><var>PRETTY_A_C</var></code> has a <span class="hint_orange">sector</span> with a <code class="hint_purple"><var>ANGLE</var>^\circ</code> central angle.</p>
-                    <p class="question">What is the area of the sector?</p>
+                    <p class="problem" data-tid="40.2">A circle with area <code class="hint_blue"><var>PRETTY_A_C</var></code> has a <span class="hint_orange">sector</span> with a <code class="hint_purple"><var>ANGLE</var>^\circ</code> central angle.</p>
+                    <p class="question" data-tid="40.3">What is the area of the sector?</p>
                     <div class="graphie" id="circle">
                         init({
                             range: [[-R - 2, R + 2], [-R - 2, R + 2]],
@@ -57,7 +57,7 @@
                     <p class="solution" data-forms="integer, proper, improper, mixed, pi"><var>A_S</var></p>
 
                     <div class="hints">
-                        <p>The ratio between the sector's central angle <code class="hint_purple">\theta</code> and <code>360^\circ</code> equals the ratio between the sector's area, <code class="hint_orange">A_s</code>, and the whole circle's area, <code class="hint_blue">A_c</code>.</p>
+                        <p data-tid="40.5">The ratio between the sector's central angle <code class="hint_purple">\theta</code> and <code>360^\circ</code> equals the ratio between the sector's area, <code class="hint_orange">A_s</code>, and the whole circle's area, <code class="hint_blue">A_c</code>.</p>
                         <p><code>\dfrac{\theta}{360^\circ} = \dfrac{A_s}{A_c}</code></p>
                         <p><code>\dfrac{<var>ANGLE</var>^\circ}{360^\circ} = \dfrac{A_s}{<var>PRETTY_A_C</var>}</code></p>
                         <div>
@@ -70,7 +70,7 @@
                 </div>
 
                 <div id="r-angle-to-As" data-type="Ac-angle-to-As">
-                    <p class="problem">A circle with radius <code class="hint_blue"><var>R</var></code> has a sector with a <code class="hint_purple"><var>ANGLE</var>^\circ</code> central angle.</p>
+                    <p class="problem" data-tid="40.9">A circle with radius <code class="hint_blue"><var>R</var></code> has a sector with a <code class="hint_purple"><var>ANGLE</var>^\circ</code> central angle.</p>
                     <div class="graphie" data-update="circle">
                         $(graph.aCL).hide();
 
@@ -79,8 +79,8 @@
                     </div>
 
                     <div class="hints" data-apply="prependContents">
-                        <p>First, calculate the area of the whole circle.</p>
-                        <p>Then the area of the sector is some fraction of the whole circle's area.</p>
+                        <p data-tid="40.10">First, calculate the area of the whole circle.</p>
+                        <p data-tid="40.11">Then the area of the sector is some fraction of the whole circle's area.</p>
                         <p><code>A_c = \pi r^2</code></p>
                         <div>
                             <p><code>A_c = \pi (<var>R</var>)^2</code></p>
@@ -93,8 +93,8 @@
                 </div>
 
                 <div id="As-angle-to-Ac" data-type="Ac-angle-to-As">
-                    <p class="problem">A circle has a <span class="hint_orange">sector</span> with area <code class="hint_orange"><var>PRETTY_A_S</var></code> and central angle <code class="hint_purple"><var>ANGLE</var>^\circ</code>.</p>
-                    <p class="question">What is the area of the circle?</p>
+                    <p class="problem" data-tid="40.15">A circle has a <span class="hint_orange">sector</span> with area <code class="hint_orange"><var>PRETTY_A_S</var></code> and central angle <code class="hint_purple"><var>ANGLE</var>^\circ</code>.</p>
+                    <p class="question" data-tid="40.16">What is the area of the circle?</p>
                     <div class="graphie" data-update="circle">
                         $(graph.aCL).hide();
 
@@ -103,7 +103,7 @@
                     <p class="solution" data-forms="integer, proper, improper, mixed, decimal, pi"><var>A_C</var></p>
 
                     <div class="hints">
-                        <p>The ratio between the sector's central angle <code class="hint_purple">\theta</code> and <code>360^\circ</code> equals the ratio between the sector's area, <code class="hint_orange">A_s</code>, and the whole circle's area, <code class="hint_blue">A_c</code>.</p>
+                        <p data-tid="40.18">The ratio between the sector's central angle <code class="hint_purple">\theta</code> and <code>360^\circ</code> equals the ratio between the sector's area, <code class="hint_orange">A_s</code>, and the whole circle's area, <code class="hint_blue">A_c</code>.</p>
                         <p><code>\dfrac{\theta}{360^\circ} = \dfrac{A_s}{A_c}</code></p>
                         <p><code>\dfrac{<var>ANGLE</var>^\circ}{360^\circ} = \dfrac{<var>PRETTY_A_S</var>}{A_c}</code></p>
                         <div>

@@ -2,7 +2,7 @@
 <html data-require="math graphie graphie-geometry word-problems interactive subhints">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Area 1</title>
+    <title data-tid="36.1">Area 1</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -22,7 +22,7 @@
                 <var id="S">randRange(2, 9)</var>
             </div>
 
-            <p class="question">
+            <p class="question" data-tid="36.2">
                 What is the area of the square?
             </p>
             <div class="problem">
@@ -41,7 +41,7 @@
             </div>
 
             <div class="hints">
-                <p>
+                <p data-tid="36.3">
                     The area is the length times the width.
                 </p>
                 <div>
@@ -57,7 +57,7 @@
                             });
                         });
                     </div>
-                    <p>
+                    <p data-tid="36.4">
                         The length is <var>plural(S, UNIT_TEXT)</var> and
                         the width is <var>plural(S, UNIT_TEXT)</var>, so the
                         area is <code><var>S</var>\times<var>S</var></code>
@@ -69,7 +69,7 @@
                         \qquad\text{area} = <var>S</var> \times <var>S</var>
                         = <var>S*S</var>
                     </code></p>
-                    <p>
+                    <p data-tid="36.6">
                         We can also count <var>S * S</var>
                         square <var>plural(UNIT_TEXT)</var>.
                     </p>
@@ -90,7 +90,7 @@
                 <var id="W">randRange(2, 9)</var>
             </div>
 
-            <p class="question">
+            <p class="question" data-tid="36.7">
                 What is the area of the rectangle?
             </p>
 
@@ -110,7 +110,7 @@
             </div>
 
             <div class="hints">
-                <p>
+                <p data-tid="36.8">
                     The area is the length times the width.
                 </p>
                 <div>
@@ -128,7 +128,7 @@
                             });
                         });
                     </div>
-                    <p>
+                    <p data-tid="36.9">
                         The length is <var>plural(L, UNIT_TEXT)</var> and
                         the width is <var>plural(W, UNIT_TEXT)</var>, so the
                         area is <code><var>L</var>\times<var>W</var></code>
@@ -140,7 +140,7 @@
                         \qquad\text{area} = <var>L</var> \times <var>W</var>
                         = <var>L * W</var>
                     </code></p>
-                    <p>
+                    <p data-tid="36.11">
                         We can also count <var>L * W</var>
                         square <var>plural(UNIT_TEXT)</var>.
                     </p>
@@ -168,7 +168,7 @@
                 </var>
             </div>
 
-            <p class="question">
+            <p class="question" data-tid="36.12">
                 What is the area of the shape? Each square in the grid is a
                 <code>1 \times 1</code> <var>UNIT_TEXT</var> square.
             </p>
@@ -199,7 +199,7 @@
             </div>
 
             <div class="hints">
-                <p>
+                <p data-tid="36.13">
                     The area is the number of <code>1 \times 1</code> squares
                     the shape covers.
                 </p>
@@ -207,9 +207,9 @@
                     <div class="graphie" data-update="area">
                         SHAPE.labelSquares();
                     </div>
-                    <p>Count the number of squares covered.</p>
+                    <p data-tid="36.14">Count the number of squares covered.</p>
                 </div>
-                <p>
+                <p data-tid="36.15">
                     The area is <code><var>SHAPE.area</var></code> square
                     <var>plural(UNIT_TEXT)</var>.
                 </p>

@@ -2,7 +2,7 @@
 <html data-require="math graphie math-model simplify">
 <head>
     <meta charset="UTF-8" />
-    <title>Factoring polynomials 3</title>
+    <title data-tid="160.1">Factoring polynomials 3</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -28,7 +28,7 @@
 
                 </div>
                 <div>
-                    <p class="question">
+                    <p class="question" data-tid="160.2">
                         Factor the following expression:
                     </p>
                     <p>
@@ -52,7 +52,7 @@
                 </div>
                 <div class="hints">
                     <div>
-                        <p>The expression is of the form
+                        <p data-tid="160.4">The expression is of the form
                         <code><var>parseFormat("#{A}x^2+#{B}x+#{C}}", [BLUE, PINK, ORANGE])</var></code>.
                         You can factor this trinomial by grouping. In this case,
                         <code>\blue{A}=\blue{<var>A</var>}</code>, <code>\pink{B}=\pink{<var>B</var>}</code>,
@@ -60,31 +60,31 @@
                         </p>
                     </div>
                     <div>
-                        <p>To do this, the first step is to find two values
+                        <p data-tid="160.5">To do this, the first step is to find two values
                         <code>\green{a}</code> and
                         <code>\green{b}</code>, such that:</p>
                         <p><code><var>parseFormat("#{ab} = #{A}*#{C}", [GREEN, BLUE, ORANGE])</var></code></p>
                         <p><code><var>parseFormat("#{a}+#{b} = #{B}", [GREEN, GREEN, PINK])</var></code></p>
-                        <p>The next step is to rewrite the
+                        <p data-tid="160.8">The next step is to rewrite the
                         expression as <code><var>parseFormat("#{A}x^2 + #{a}x + #{b}x + #{C}", [BLUE, GREEN, GREEN, ORANGE])</var></code> or 
                         <code><var>parseFormat("(#{A}x^2 + #{a}x) + (#{b}x + #{C})", [BLUE, GREEN, GREEN, ORANGE])</var></code>, and factor each term, to
                         find a common factor.</p>
                     </div>
                     <div>
-                        <p>To apply the first step, you need to find 
+                        <p data-tid="160.9">To apply the first step, you need to find 
                         <code>\green{a}</code> and <code>\green{b}</code> such that:</p>
                         <p><code><var>formatGroup(GROUP1, [0,1])</var></code></p>
                     </div>
                     <div>
-                        <p>The following values can be used:</p>
+                        <p data-tid="160.11">The following values can be used:</p>
                         <p><code><var>parseFormat("#{a}=#{" + a + "}", [GREEN, GREEN])</var></code><br>
                         <code><var>parseFormat("#{b}=#{" + b + "}", [GREEN, GREEN])</var></code></p>
                     </div>
                     <div>
-                        <p>For the second step, rewrite the expression as:</p>
+                        <p data-tid="160.13">For the second step, rewrite the expression as:</p>
                         <p><code><var>parseFormat("#{" + A + "}x^2+#{" + a + "}x+#{" + b + "}x+#{" + C + "}}", [BLUE, GREEN, GREEN, ORANGE])</var></code></p>
-                        <p>or</p><p><code><var>parseFormat("(#{" + A + "}x^2+#{" + a + "}x)+(#{" + b + "}x+#{" + C + "})", [BLUE, GREEN, GREEN, ORANGE])</var></code></p>
-                        <p>The next step is to factor both terms of the above expression:</p>
+                        <p data-tid="160.15">or</p><p><code><var>parseFormat("(#{" + A + "}x^2+#{" + a + "}x)+(#{" + b + "}x+#{" + C + "})", [BLUE, GREEN, GREEN, ORANGE])</var></code></p>
+                        <p data-tid="160.17">The next step is to factor both terms of the above expression:</p>
                     </div>
                     <div>
                         <p>
@@ -92,7 +92,7 @@
                         </p>
                     </div>
                     <div class="final_answer">
-                        <p>
+                        <p data-tid="160.19">
                             Redistribute the common term to get the answer:
                         </p>
                         <p>

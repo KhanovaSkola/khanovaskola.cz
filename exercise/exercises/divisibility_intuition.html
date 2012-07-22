@@ -2,7 +2,7 @@
 <html data-require="math word-problems graphie interactive">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Divisibility intuition</title>
+    <title data-tid="119.1">Divisibility intuition</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -14,10 +14,10 @@
                 <var id="FACTORS">getFactors(NUMBER)</var>
             </div>
 
-            <p class="question">What are the factors of <var>NUMBER</var>?</p>
+            <p class="question" data-tid="119.2">What are the factors of <var>NUMBER</var>?</p>
 
             <div class="problem">
-                <p>
+                <p data-tid="119.3">
                     You can resize this box with <var>NUMBER</var> dots to help you find the factors:
                 </p>
                 <div class="graphie">
@@ -97,7 +97,7 @@
             </div>
             <div class="solution" data-type="set">
                 <span class="set-sol" data-each="FACTORS as FACTOR"><var>FACTOR</var></span>
-                <p class="input-format">
+                <p class="input-format" data-tid="119.4">
                     Enter all the different factors you can find (one factor per box):<br/>
                     <span class="entry"></span><br/>
                     <span class="entry"></span><br/>
@@ -115,7 +115,7 @@
 
     <div class="hints">
         <div data-each="FACTORS.reverse() as FACTOR">
-            <p>
+            <p data-tid="119.5">
                 The <var>NUMBER</var> dots can be arranged in <var>plural(NUMBER / FACTOR, "row")</var>
                 with <var>plural(FACTOR, "dot")</var> each, so
                 <code class="hint_pink"><var>NUMBER / FACTOR</var></code> is a factor of <var>NUMBER</var>:
@@ -139,7 +139,7 @@
                 });
             </div>
         </div>
-        <p>
+        <p data-tid="119.6">
             The factors of <code><var>NUMBER</var></code> are
             <var>toSentenceTex(FACTORS.reverse(), "and", function(){return true;}, "hint_pink")</var>.
         </p>

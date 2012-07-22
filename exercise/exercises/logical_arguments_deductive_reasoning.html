@@ -2,7 +2,7 @@
 <html data-require="math word-problems graphie">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Logical arguments and deductive reasoning</title>
+    <title data-tid="220.1">Logical arguments and deductive reasoning</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -40,8 +40,8 @@
                     <var id="CONCLUSION">[IMPLICATION[1], IMPLICATION[0], IMPLICATION[3], IMPLICATION[2]]</var>
                     <var id="SOLUTION">(TYPE === 1 || TYPE === 2) ? "No logical conclusion possible" : capitalize(CONCLUSION[TYPE])</var>
                 </div>
-                <p class="problem">Use the given information to make a logical conclusion, if possible. If a logical conclusion is not possible, choose "no logical conclusion possible."</p>
-                <p class="question">If <span id="if-clause"><var>IF_CLAUSE</var></span>, then <span id="then-clause"><var>THEN_CLAUSE</var></span>. <span id="second-sent"><var>capitalize(IMPLICATION[ TYPE ])</var></span>. </p>
+                <p class="problem" data-tid="220.2">Use the given information to make a logical conclusion, if possible. If a logical conclusion is not possible, choose "no logical conclusion possible."</p>
+                <p class="question" data-tid="220.3">If <span id="if-clause"><var>IF_CLAUSE</var></span>, then <span id="then-clause"><var>THEN_CLAUSE</var></span>. <span id="second-sent"><var>capitalize(IMPLICATION[ TYPE ])</var></span>. </p>
                 <p class="solution"><var>SOLUTION</var></p>
                 <ul class="choices" data-category="true">
                     <li><var>capitalize(CONCLUSION[TYPE])</var></li>
@@ -49,42 +49,42 @@
                 </ul>
                 <div class="hints">
                     <div>
-                        <p>Identify the <span class="hint_blue">hypothesis</span>, the <span class="hint_green">conclusion</span> of the first sentence, and the <span class="hint_purple">second sentence</span>.</p>
+                        <p data-tid="220.5">Identify the <span class="hint_blue">hypothesis</span>, the <span class="hint_green">conclusion</span> of the first sentence, and the <span class="hint_purple">second sentence</span>.</p>
                         <div class="graphie">
                             $("#if-clause").addClass("hint_blue");
                             $("#then-clause").addClass("hint_green");
                             $("#second-sent").addClass("hint_purple");
                         </div>
                     </div>
-                    <p>Does the <span class="hint_purple">second sentence</span> refer to the <span class="hint_blue">hypothesis</span> of the first sentence, or the <span class="hint_green">conclusion</span> of the first sentence?</p>
+                    <p data-tid="220.6">Does the <span class="hint_purple">second sentence</span> refer to the <span class="hint_blue">hypothesis</span> of the first sentence, or the <span class="hint_green">conclusion</span> of the first sentence?</p>
                     <div data-if="TYPE === 0 || TYPE === 2">
-                        <p>The <span class="hint_purple">second sentence</span> refers to the <span class="hint_blue">hypothesis</span> of the first sentence, because they both talk about whether or not <var>IMPLICATION[0]</var>.</p>
-                        <p>Does the <span class="hint_purple">second sentence</span> state the <span class="hint_blue">hypothesis</span>, or the opposite of the <span class="hint_blue">hypothesis</span>?</p>
+                        <p data-tid="220.7">The <span class="hint_purple">second sentence</span> refers to the <span class="hint_blue">hypothesis</span> of the first sentence, because they both talk about whether or not <var>IMPLICATION[0]</var>.</p>
+                        <p data-tid="220.8">Does the <span class="hint_purple">second sentence</span> state the <span class="hint_blue">hypothesis</span>, or the opposite of the <span class="hint_blue">hypothesis</span>?</p>
                     </div>
                     <div data-else>
-                        <p>The <span class="hint_purple">second sentence</span> refers to the <span class="hint_green">conclusion</span> of the first sentence, because they both talk about whether or not <var>IMPLICATION[1]</var>.</p>
-                        <p>Does the <span class="hint_purple">second sentence</span> state the <span class="hint_green">conclusion</span>, or the opposite of the <span class="hint_green">conclusion</span>?</p>
+                        <p data-tid="220.9">The <span class="hint_purple">second sentence</span> refers to the <span class="hint_green">conclusion</span> of the first sentence, because they both talk about whether or not <var>IMPLICATION[1]</var>.</p>
+                        <p data-tid="220.10">Does the <span class="hint_purple">second sentence</span> state the <span class="hint_green">conclusion</span>, or the opposite of the <span class="hint_green">conclusion</span>?</p>
                     </div>
                     <div data-if="TYPE === 0" data-unwrap>
-                        <p>The <span class="hint_purple">second sentence</span> states the <span class="hint_blue">hypothesis</span> of the first sentence.</p>
-                        <p>Because the <span class="hint_purple">second sentence</span> states the <span class="hint_blue">hypothesis</span> of the first sentence, the <span class="hint_purple">second sentence</span> implies the first sentence.</p>
-                        <p>Since we are implying the original statement, we can conclude the <span class="hint_green">conclusion</span> of the first statement.</p>
+                        <p data-tid="220.11">The <span class="hint_purple">second sentence</span> states the <span class="hint_blue">hypothesis</span> of the first sentence.</p>
+                        <p data-tid="220.12">Because the <span class="hint_purple">second sentence</span> states the <span class="hint_blue">hypothesis</span> of the first sentence, the <span class="hint_purple">second sentence</span> implies the first sentence.</p>
+                        <p data-tid="220.13">Since we are implying the original statement, we can conclude the <span class="hint_green">conclusion</span> of the first statement.</p>
                     </div>
                     <div data-if="TYPE === 1" data-unwrap>
-                        <p>The <span class="hint_purple">second sentence</span> states the <span class="hint_green">conclusion</span> of the first sentence.</p>
-                        <p>Because the <span class="hint_purple">second sentence</span> states the <span class="hint_green">conclusion</span> of the first sentence, the <span class="hint_purple">second sentence</span> implies the converse of the first sentence.</p>
-                        <p>Converses are not logically equivalent to their original statements, so we cannot form a logical conclusion.</p>
+                        <p data-tid="220.14">The <span class="hint_purple">second sentence</span> states the <span class="hint_green">conclusion</span> of the first sentence.</p>
+                        <p data-tid="220.15">Because the <span class="hint_purple">second sentence</span> states the <span class="hint_green">conclusion</span> of the first sentence, the <span class="hint_purple">second sentence</span> implies the converse of the first sentence.</p>
+                        <p data-tid="220.16">Converses are not logically equivalent to their original statements, so we cannot form a logical conclusion.</p>
                     </div>
                     <div data-if="TYPE === 2" data-unwrap>
-                        <p>The <span class="hint_purple">second sentence</span> states the opposite of the <span class="hint_blue">hypothesis</span> of the first sentence.</p>
-                        <p>Because the <span class="hint_purple">second sentence</span> states the opposite of the <span class="hint_blue">hypothesis</span> of the first sentence, the <span class="hint_purple">second sentence</span> implies the inverse of the first sentence.</p>
-                        <p>Inverses are not logically equivalent to their original statements, so we cannot form a logical conclusion.</p>
+                        <p data-tid="220.17">The <span class="hint_purple">second sentence</span> states the opposite of the <span class="hint_blue">hypothesis</span> of the first sentence.</p>
+                        <p data-tid="220.18">Because the <span class="hint_purple">second sentence</span> states the opposite of the <span class="hint_blue">hypothesis</span> of the first sentence, the <span class="hint_purple">second sentence</span> implies the inverse of the first sentence.</p>
+                        <p data-tid="220.19">Inverses are not logically equivalent to their original statements, so we cannot form a logical conclusion.</p>
                     </div>
                     <div data-if="TYPE === 3" data-unwrap>
-                        <p>Because the <span class="hint_purple">second sentence</span> states the opposite of the <span class="hint_green">conclusion</span> of the first sentence, the <span class="hint_purple">second sentence</span> implies the contrapositive of the first sentence.</p>
-                        <p>Since the contrapositive is implied by the first sentence, the <span class="hint_purple">second sentence</span> implies the opposite of the <span class="hint_blue">hypothesis</span>.</p>
+                        <p data-tid="220.20">Because the <span class="hint_purple">second sentence</span> states the opposite of the <span class="hint_green">conclusion</span> of the first sentence, the <span class="hint_purple">second sentence</span> implies the contrapositive of the first sentence.</p>
+                        <p data-tid="220.21">Since the contrapositive is implied by the first sentence, the <span class="hint_purple">second sentence</span> implies the opposite of the <span class="hint_blue">hypothesis</span>.</p>
                     </div>
-                    <p>Thus, the answer is "<var>SOLUTION</var>"</p>
+                    <p data-tid="220.22">Thus, the answer is "<var>SOLUTION</var>"</p>
                 </div>
             </div>
             <div id="syllogism">
@@ -107,8 +107,8 @@
                     <var id="CONC_B">QUESTIONS[Q_TYPE][2][3]</var>
                     <var id="SOLUTION">CONC_POSSIBLE ? ("If "+HYP_A+", then "+CONC_B+".") : "No logical conclusion possible."</var>
                 </div>
-                <p class="problem">Use the given information to make a logical conclusion, if possible.</p>
-                <p class="question">If <span id="hyp_a"><var>HYP_A</var></span>, then <span id="conc_a"><var>CONC_A</var></span>. If <span id="hyp_b"><var>HYP_B</var></span>, then <span id="conc_b"><var>CONC_B</var></span>.</p>
+                <p class="problem" data-tid="220.23">Use the given information to make a logical conclusion, if possible.</p>
+                <p class="question" data-tid="220.24">If <span id="hyp_a"><var>HYP_A</var></span>, then <span id="conc_a"><var>CONC_A</var></span>. If <span id="hyp_b"><var>HYP_B</var></span>, then <span id="conc_b"><var>CONC_B</var></span>.</p>
                 <p class="solution"><var>SOLUTION</var></p>
                 <ul class="choices" data-category="true">
                     <li data-if="CONC_POSSIBLE">If <var>HYP_A</var>, then <var>CONC_B</var>.</li>
@@ -118,7 +118,7 @@
                 </ul>
                 <div class="hints">
                     <div>
-                        <p>Identify the <span class="hint_blue">first hypothesis</span>, the <span class="hint_green">first conclusion</span>, the <span class="hint_red">second hypothesis</span>, and the <span class="hint_purple">second conclusion</span>.</p>
+                        <p data-tid="220.26">Identify the <span class="hint_blue">first hypothesis</span>, the <span class="hint_green">first conclusion</span>, the <span class="hint_red">second hypothesis</span>, and the <span class="hint_purple">second conclusion</span>.</p>
                         <div class="graphie">
                             $( "#hyp_a" ).addClass( "hint_blue" );
                             $( "#conc_a" ).addClass( "hint_green" );
@@ -127,14 +127,14 @@
                         </div>
                     </div>
                     <div>
-                        <p>Do the two sentences come in the form "If <span class="hint_blue">P</span>, then <span class="hint_green">Q</span>. If <span class="hint_red">Q</span>, then <span class="hint_purple">R</span>", where <span class="hint_green">first conclusion</span> and <span class="hint_red">second hypothesis</span> are the same?</p>
-                        <p>In other words, do the sentences look like <code>\blue{P}\implies \green{Q}</code>. <code>\red{Q}\implies \purple{R}</code>?</p>
+                        <p data-tid="220.27">Do the two sentences come in the form "If <span class="hint_blue">P</span>, then <span class="hint_green">Q</span>. If <span class="hint_red">Q</span>, then <span class="hint_purple">R</span>", where <span class="hint_green">first conclusion</span> and <span class="hint_red">second hypothesis</span> are the same?</p>
+                        <p data-tid="220.28">In other words, do the sentences look like <code>\blue{P}\implies \green{Q}</code>. <code>\red{Q}\implies \purple{R}</code>?</p>
                     </div>
                     <div data-if="CONC_POSSIBLE" data-unwrap>
-                        <p>Yes. Because the middle two statements both say <span class="hint_green"> <var>HYP_B</var></span>, we can chain the statements together: <code>\blue{P}\implies\green{Q}\implies\purple{R}</code> or <span class="hint_blue">"<var>HYP_A</var>"</span><code>\implies</code><span class="hint_green">"<var>CONC_A</var>"</span><code>\implies</code><span class="hint_purple">"<var>CONC_B</var>"</span>.</p>
-                        <p>We can now remove the middle statement, and arrive at the conclusion <span class="hint_blue">"<var>HYP_A</var>"</span><code>\implies</code><span class="hint_purple">"<var>CONC_B</var>"</span>. So, the answer is "If <span class="hint_blue"> <var>HYP_A</var></span>, then <span class="hint_purple"> <var>CONC_B</var></span>."</p>
+                        <p data-tid="220.29">Yes. Because the middle two statements both say <span class="hint_green"> <var>HYP_B</var></span>, we can chain the statements together: <code>\blue{P}\implies\green{Q}\implies\purple{R}</code> or <span class="hint_blue">"<var>HYP_A</var>"</span><code>\implies</code><span class="hint_green">"<var>CONC_A</var>"</span><code>\implies</code><span class="hint_purple">"<var>CONC_B</var>"</span>.</p>
+                        <p data-tid="220.30">We can now remove the middle statement, and arrive at the conclusion <span class="hint_blue">"<var>HYP_A</var>"</span><code>\implies</code><span class="hint_purple">"<var>CONC_B</var>"</span>. So, the answer is "If <span class="hint_blue"> <var>HYP_A</var></span>, then <span class="hint_purple"> <var>CONC_B</var></span>."</p>
                     </div>
-                    <p data-else>No. So, we cannot form a logical conclusion.</p>
+                    <p data-else data-tid="220.31">No. So, we cannot form a logical conclusion.</p>
                 </div>
             </div>
         </div>

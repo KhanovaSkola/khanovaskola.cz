@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html data-require="math graphie angles interactive">
     <head>
-        <title>Measuring angles</title>
+        <title data-tid="223.1">Measuring angles</title>
         <script src="../khan-exercise.js"></script>
     </head>
     <body>
@@ -40,11 +40,11 @@
             </div>
 
             <div class="hints">
-                <p>
+                <p data-tid="223.2">
                     First, align the origin of the protractor with the vertex of the angle.
                     <button onClick="javascript: KhanUtil.currentGraph.graph.protractor.moveTo( 0, 0 ); ">Show me</button>
                 </p>
-                <p>
+                <p data-tid="223.3">
                     Next, rotate the protractor so that the <code>0^{\circ}</code> mark lines up with one side of the angle.
                     <button onClick="javascript:
                         KhanUtil.currentGraph.graph.protractor.moveTo( 0, 0 );
@@ -57,7 +57,7 @@
                         graph.protractor.rotateTo( 360 - ANGLE_ONE );
                         label( [ 9 * cos( toRadians( ANGLE_ONE + DIFF ) ), 9 * sin( toRadians( ANGLE_ONE + DIFF ) ) ], "\\color{" + PINK + "}{" + DIFF + "^{\\circ}}" );
                     </div>
-                    <p>The angle is <code><var>DIFF</var></code> degrees.</p>
+                    <p data-tid="223.4">The angle is <code><var>DIFF</var></code> degrees.</p>
                 </div>
             </div>
         </div>

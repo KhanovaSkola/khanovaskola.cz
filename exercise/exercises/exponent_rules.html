@@ -2,7 +2,7 @@
 <html data-require="math expressions">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Exponent rules</title>
+    <title data-tid="145.1">Exponent rules</title>
     <script src="../khan-exercise.js"></script>
 
     <style>
@@ -22,8 +22,8 @@
                     <var id="EXP2">randRange(3, 12) * (rand(2) ? 1 : -1)</var>
                 </div>
 
-                <p class="question">What is <code><var>expr(["*", ["^", BASE, EXP1], ["^", BASE, EXP2]])</var></code>?</p>
-                <p class="solution" data-type="multiple">
+                <p class="question" data-tid="145.2">What is <code><var>expr(["*", ["^", BASE, EXP1], ["^", BASE, EXP2]])</var></code>?</p>
+                <p class="solution" data-type="multiple" data-tid="145.3">
                     <code><var>BASE</var></code> <span class="sol exp"><var>EXP1 + EXP2</var></span>
                 </p>
 
@@ -38,8 +38,8 @@
             </div>
 
             <div id="subtracting" data-type="adding">
-                <p class="question">What is <code>\displaystyle <var>expr(["frac", ["^", BASE, EXP1], ["^", BASE, EXP2]])</var></code>?</p>
-                <p class="solution" data-type="multiple">
+                <p class="question" data-tid="145.6">What is <code>\displaystyle <var>expr(["frac", ["^", BASE, EXP1], ["^", BASE, EXP2]])</var></code>?</p>
+                <p class="solution" data-type="multiple" data-tid="145.7">
                     <code><var>BASE</var></code> <span class="sol exp"><var>EXP1 - EXP2</var></span>
                 </p>
 
@@ -54,8 +54,8 @@
             </div>
 
             <div id="multiplying" data-type="adding">
-                <p class="question">What is <code><var>expr(["^", ["^", BASE, EXP1], EXP2])</var></code>?</p>
-                <p class="solution" data-type="multiple">
+                <p class="question" data-tid="145.10">What is <code><var>expr(["^", ["^", BASE, EXP1], EXP2])</var></code>?</p>
+                <p class="solution" data-type="multiple" data-tid="145.11">
                     <code><var>BASE</var></code> <span class="sol exp"><var>EXP1 * EXP2</var></span>
                 </p>
 
@@ -79,8 +79,8 @@
                     <var id="EXP3">randRange(3, 12) * (rand(2) ? 1 : -1)</var>
                 </div>
 
-                <p class="question">What is <code><var>expr(["^", ["*", ["^", BASE1, EXP1], ["^", BASE2, EXP2]], EXP3])</var></code>?</p>
-                <p class="solution" data-type="multiple">
+                <p class="question" data-tid="145.14">What is <code><var>expr(["^", ["*", ["^", BASE1, EXP1], ["^", BASE2, EXP2]], EXP3])</var></code>?</p>
+                <p class="solution" data-type="multiple" data-tid="145.15">
                     <code><var>BASE1</var></code> <span class="sol exp"><var>EXP1 * EXP3</var></span> &middot; <code><var>BASE2</var></code> <span class="sol exp"><var>EXP2 * EXP3</var></span>
                 </p>
 

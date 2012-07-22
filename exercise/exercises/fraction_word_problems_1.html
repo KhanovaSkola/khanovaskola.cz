@@ -2,7 +2,7 @@
 <html data-require="math graphie graphie-helpers word-problems">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Recognizing fractions word problems 1</title>
+    <title data-tid="163.1">Recognizing fractions word problems 1</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -16,16 +16,16 @@
 
         <div class="problems">
             <div id="show-total-want-eaten">
-                <p class="problem">
+                <p class="problem" data-tid="163.2">
                     <var>person( 1 )</var> ate <var>plural( A, "slice" )</var> of <var>pizza( 1 )</var>, and <var>person( 2 )</var>
                     ate <var>plural( B, "slice" )</var>.
                 </p>
-                <p class="question">If there were initially <var>TOTAL</var> slices, what fraction of the <var>pizza( 1 )</var> was eaten?</p>
+                <p class="question" data-tid="163.3">If there were initially <var>TOTAL</var> slices, what fraction of the <var>pizza( 1 )</var> was eaten?</p>
                 <p class="solution" data-type="rational" data-simplify="optional"><var>(A + B) / TOTAL</var></p>
                 <div class="hints">
                     <p><code>\text{fraction of <var>pizza( 1 )</var> eaten} = \dfrac{\text{number of slices eaten}}{\text{number slices total}}</code></p>
                     <div>
-                        <p>They ate <code>\color{#6495ED}{<var>A + B</var>}</code> out of <code><var>TOTAL</var></code> slices.</p>
+                        <p data-tid="163.6">They ate <code>\color{#6495ED}{<var>A + B</var>}</code> out of <code><var>TOTAL</var></code> slices.</p>
                         <div class="graphie">
                             init({
                                 range: [ [-2, 2], [-2, 2] ],
@@ -35,25 +35,25 @@
                             piechart( [ eaten, TOTAL - eaten ], [ "#6495ED", "#FFA500" ], 2 );
                         </div>
                     </div>
-                    <p>They ate <code>\dfrac{<var>A + B</var>}{<var>TOTAL</var>}</code> of the <var>pizza( 1 )</var>.</p>
+                    <p data-tid="163.7">They ate <code>\dfrac{<var>A + B</var>}{<var>TOTAL</var>}</code> of the <var>pizza( 1 )</var>.</p>
                 </div>
             </div>
 
             <div id="show-left-want-eaten">
-                <p class="problem">
+                <p class="problem" data-tid="163.8">
                     <var>person( 1 )</var> ate <var>plural( A, "slice" )</var> of <var>pizza( 1 )</var>, and <var>person( 2 )</var>
                     ate <var>plural( B, "slice" )</var>.
                 </p>
-                <p class="question">If there were <var>plural(LEFT, "slice")</var> remaining, what fraction of the <var>pizza( 1 )</var> was eaten?</p>
+                <p class="question" data-tid="163.9">If there were <var>plural(LEFT, "slice")</var> remaining, what fraction of the <var>pizza( 1 )</var> was eaten?</p>
                 <p class="solution" data-type="rational" data-simplify="optional"><var>(A + B) / TOTAL</var></p>
                 <div class="hints">
                     <p><code>\text{fraction of <var>pizza( 1 )</var> eaten} = \dfrac{\text{number of slices eaten}}{\text{number slices total}}</code></p>
-                    <p>
+                    <p data-tid="163.12">
                         Since they ate <var>A + B</var> slices of <var>pizza( 1 )</var> with <var>plural( LEFT, "slice" )</var> remaining,
                         they must have begun with <var>TOTAL</var> slices.
                     </p>
                     <div>
-                        <p>They ate <code>\color{#6495ED}{<var>A + B</var>}</code> out of <code><var>TOTAL</var></code> slices.</p>
+                        <p data-tid="163.13">They ate <code>\color{#6495ED}{<var>A + B</var>}</code> out of <code><var>TOTAL</var></code> slices.</p>
                         <div class="graphie">
                             init({
                                 range: [ [-2, 2], [-2, 2] ],
@@ -63,29 +63,29 @@
                             piechart( [ eaten, TOTAL - eaten ], [ "#6495ED", "#FFA500" ], 2 );
                         </div>
                     </div>
-                    <p>They ate <code>\dfrac{<var>A + B</var>}{<var>TOTAL</var>}</code> of the <var>pizza( 1 )</var>.</p>
+                    <p data-tid="163.14">They ate <code>\dfrac{<var>A + B</var>}{<var>TOTAL</var>}</code> of the <var>pizza( 1 )</var>.</p>
                 </div>
             </div>
 
             <div id="show-first-want-eaten">
-                <p class="problem">
+                <p class="problem" data-tid="163.15">
                     <var>person( 1 )</var> ate <var>plural( A, "slice" )</var> of <var>pizza( 1 )</var>, and <var>person( 2 )</var>
                     ate <var>plural( B, "slice" )</var>.
                 </p>
-                <p class="question">
+                <p class="question" data-tid="163.16">
                     If <var>person( 1 )</var> ate <code>\dfrac{<var>A</var>}{<var>TOTAL</var>}</code> of the <var>pizza( 1 )</var>,
                     what fraction of the <var>pizza( 1 )</var> was eaten?
                 </p>
                 <p class="solution" data-type="rational" data-simplify="optional"><var>(A + B) / TOTAL</var></p>
                 <div class="hints">
-                    <p>
+                    <p data-tid="163.18">
                         If <var>plural( A, "slice")</var> represent<var>A &gt; 1 ? "" : "s"</var>
                         <code>\dfrac{<var>A</var>}{<var>TOTAL</var>}</code> of the <var>pizza( 1 )</var>, there must have been a total of
                         <var>TOTAL</var> slices.
                     </p>
                     <p><code>\text{fraction of <var>pizza( 1 )</var> eaten} = \dfrac{\text{number of slices eaten}}{\text{number slices total}}</code></p>
                     <div>
-                        <p>They ate <code>\color{#6495ED}{<var>A + B</var>}</code> out of <code><var>TOTAL</var></code> slices.</p>
+                        <p data-tid="163.20">They ate <code>\color{#6495ED}{<var>A + B</var>}</code> out of <code><var>TOTAL</var></code> slices.</p>
                         <div class="graphie">
                             init({
                                 range: [ [-2, 2], [-2, 2] ],
@@ -95,21 +95,21 @@
                             piechart( [ eaten, TOTAL - eaten ], [ "#6495ED", "#FFA500" ], 2 );
                         </div>
                     </div>
-                    <p>They ate <code>\dfrac{<var>A + B</var>}{<var>TOTAL</var>}</code> of the <var>pizza( 1 )</var>.</p>
+                    <p data-tid="163.21">They ate <code>\dfrac{<var>A + B</var>}{<var>TOTAL</var>}</code> of the <var>pizza( 1 )</var>.</p>
                 </div>
             </div>
 
             <div id="show-total-want-left">
-                <p class="problem">
+                <p class="problem" data-tid="163.22">
                     <var>person( 1 )</var> ate <var>plural( A, "slice" )</var> of <var>pizza( 1 )</var>, and
                     <var>person( 2 )</var> ate <var>plural( B, "slice" )</var>.
                 </p>
-                <p class="question">If there were initially <var>TOTAL</var> slices, what fraction of the <var>pizza( 1 )</var> is remaining?</p>
+                <p class="question" data-tid="163.23">If there were initially <var>TOTAL</var> slices, what fraction of the <var>pizza( 1 )</var> is remaining?</p>
                 <p class="solution" data-type="rational" data-simplify="optional"><var>LEFT / TOTAL</var></p>
                 <div class="hints">
                     <p><code>\text{fraction of <var>pizza( 1 )</var> remaining} = \dfrac{\text{number of slices remaining}}{\text{number slices total}}</code></p>
                     <div>
-                        <p>Together they ate <var>A + B</var> slices, which leaves <var>LEFT</var> out of <var>TOTAL</var> slices remaining.</p>
+                        <p data-tid="163.26">Together they ate <var>A + B</var> slices, which leaves <var>LEFT</var> out of <var>TOTAL</var> slices remaining.</p>
                         <div class="graphie">
                             init({
                                 range: [ [-2, 2], [-2, 2] ],
@@ -119,29 +119,29 @@
                             piechart( [ remaining, TOTAL - remaining ], [ "#FFA500", "#6495ED" ], 2 );
                         </div>
                     </div>
-                    <p>There is <code>\dfrac{<var>LEFT</var>}{<var>TOTAL</var>}</code> of the <var>pizza( 1 )</var> remaining.</p>
+                    <p data-tid="163.27">There is <code>\dfrac{<var>LEFT</var>}{<var>TOTAL</var>}</code> of the <var>pizza( 1 )</var> remaining.</p>
                 </div>
             </div>
 
             <div id="show-first-want-left">
-                <p class="problem">
+                <p class="problem" data-tid="163.28">
                     <var>person( 1 )</var> ate <var>plural( A, "slice" )</var> of <var>pizza( 1 )</var>, and
                     <var>person( 2 )</var> ate <var>plural( B, "slice" )</var>.
                 </p>
-                <p class="question">
+                <p class="question" data-tid="163.29">
                     If <var>person( 1 )</var> ate <code>\dfrac{<var>A</var>}{<var>TOTAL</var>}</code> of the <var>pizza( 1 )</var>,
                     what fraction of the <var>pizza( 1 )</var> is remaining?
                 </p>
                 <p class="solution" data-type="rational" data-simplify="optional"><var>LEFT / TOTAL</var></p>
                 <div class="hints">
-                    <p>
+                    <p data-tid="163.31">
                         If <var>plural( A, "slice" )</var> represent<var>A &gt; 1 ? "" : "s"</var>
                         <code>\dfrac{<var>A</var>}{<var>TOTAL</var>}</code> of the <var>pizza( 1 )</var>,
                         there must have been a total of <var>TOTAL</var> slices.
                     </p>
                     <p><code>\text{fraction of <var>pizza( 1 )</var> remaining} = \dfrac{\text{number of slices remaining}}{\text{number slices total}}</code></p>
                     <div>
-                        <p>Together they ate <var>A + B</var> slices, which leaves <var>LEFT</var> out of <var>TOTAL</var> slices remaining.</p>
+                        <p data-tid="163.33">Together they ate <var>A + B</var> slices, which leaves <var>LEFT</var> out of <var>TOTAL</var> slices remaining.</p>
                         <div class="graphie">
                             init({
                                 range: [ [-2, 2], [-2, 2] ],
@@ -151,7 +151,7 @@
                             piechart( [ remaining, TOTAL - remaining ], [ "#FFA500", "#6495ED" ], 2 );
                         </div>
                     </div>
-                    <p>There is <code>\dfrac{<var>LEFT</var>}{<var>TOTAL</var>}</code> of the <var>pizza( 1 )</var> remaining.</p>
+                    <p data-tid="163.34">There is <code>\dfrac{<var>LEFT</var>}{<var>TOTAL</var>}</code> of the <var>pizza( 1 )</var> remaining.</p>
                 </div>
             </div>
         </div>

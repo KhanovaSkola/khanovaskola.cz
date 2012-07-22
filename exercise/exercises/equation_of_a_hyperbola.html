@@ -2,7 +2,7 @@
 <html data-require="math math-format expressions">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Equation of a hyperbola</title>
+    <title data-tid="132.1">Equation of a hyperbola</title>
     <script src="../khan-exercise.js"></script>
     <style type="text/css">
         #answer_area input[type="text"] {
@@ -34,47 +34,47 @@
     <div class="problems">
         <div>
             <div class="question">
-                <p>The equation of hyperbola <code>H</code> is <code><var>WHICH_NEG === 1 ? expr(["-", Y2T, X2T]) : expr(["-", X2T, Y2T])</var> = 1</code>.</p>
-                <p>What are the asymptotes?</p>
+                <p data-tid="132.2">The equation of hyperbola <code>H</code> is <code><var>WHICH_NEG === 1 ? expr(["-", Y2T, X2T]) : expr(["-", X2T, Y2T])</var> = 1</code>.</p>
+                <p data-tid="132.3">What are the asymptotes?</p>
             </div>
 
             <div class="solution" data-type="multiple">
-                <p>
+                <p data-tid="132.4">
                     <code>y = \pm (</code><span class="sol" data-fallback="1"><var>B/A</var></span>
                     <code>)(x + </code><span class="sol" data-fallback="0"><var>-H</var></span>
                     <code>) + </code><span class="sol" data-fallback="0"><var>K</var></span>
                 </p>
 
-                <p class="example">enter integers, <em>simplified</em> fractions, or <em>exact</em> decimals for each term</p>
-                <p class="example">pay attention to the sign of each number you enter to be sure the entire equation is correct</p>
+                <p class="example" data-tid="132.5">enter integers, <em>simplified</em> fractions, or <em>exact</em> decimals for each term</p>
+                <p class="example" data-tid="132.6">pay attention to the sign of each number you enter to be sure the entire equation is correct</p>
             </div>
         </div>
     </div>
 
     <div class="hints">
         <div>
-            <p>We want to rewrite the equation in terms of <code>y</code>, so start off by moving the <code>y</code> terms to one side:</p>
+            <p data-tid="132.7">We want to rewrite the equation in terms of <code>y</code>, so start off by moving the <code>y</code> terms to one side:</p>
             <p><code><var> Y2T</var> = <var>Y_MINUS</var> 1 <var>X_MINUS</var> <var>X2T</var></code></p>
         </div>
 
         <div>
-            <p>Multiply both sides of the equation by <code><var>B * B</var></code>.</p>
+            <p data-tid="132.9">Multiply both sides of the equation by <code><var>B * B</var></code>.</p>
             <p><code><var> Y</var> = { <var>Y_MINUS</var> <var>B*B</var> <var>X_MINUS</var> \dfrac{ <var>X</var> \cdot <var> B*B </var> }{<var> A*A </var>}}</code> </p>
         </div>
         <div>
-            <p>Take the square root of both sides.</p>
+            <p data-tid="132.11">Take the square root of both sides.</p>
             <p><code>\sqrt{<var>Y</var>} = \pm \sqrt { <var>Y_MINUS</var> <var>B*B</var> <var>X_MINUS</var> \dfrac{ <var>X</var> \cdot <var> B*B </var> }{<var> A*A </var>}}</code></p>
             <p><code> <var>plus("y", -K)</var> = \pm \sqrt { <var>Y_MINUS</var> <var>B*B</var> <var>X_MINUS</var> \dfrac{ <var>X</var> \cdot <var> B*B </var> }{<var> A*A </var>}}</code></p>
         </div>
         <div>
-            <p>As <code>x</code> approaches positive or negative infinity, the constant term in the square root matters less and less, so we can just ignore it.</p>
+            <p data-tid="132.14">As <code>x</code> approaches positive or negative infinity, the constant term in the square root matters less and less, so we can just ignore it.</p>
             <p><code><var>plus( "y", -K )</var> \approx \pm \sqrt {\dfrac{ <var>X</var> \cdot <var> B*B </var> }{<var> A*A </var>}}</code></p>
 
             <p><code><var>plus( "y", -K )</var> \approx \pm \left(\dfrac{<var>B</var> \cdot (<var>plus( "x", -H )</var>)}{<var> A </var>}\right)</code></p>
         </div>
 
         <div>
-            <p>
+            <p data-tid="132.17">
                 <span data-if="K > 0">Add <code><var>K</var></code> to both sides and rewrite</span>
                 <span data-else-if="K < 0">Subtract <code><var>-K</var></code> from both sides and rewrite</span>
                 <span data-else>Rewrite</span>

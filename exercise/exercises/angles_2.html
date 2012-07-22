@@ -2,7 +2,7 @@
 <html data-require="math graphie">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Angles 2</title>
+    <title data-tid="34.1">Angles 2</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -26,13 +26,13 @@
                 </div>
 
                 <div class="question">
-                    <p>Given the following:</p>
+                    <p data-tid="34.2">Given the following:</p>
                     <ul>
                         <li><code>\color{green}{\angle{ABC}} = <var>Tri_Y</var>&deg;</code></li>
                         <li><code>\color{purple}{\angle{BAC}} = <var>Tri_Z</var>&deg;</code></li>
                         <li><code>\overline{DE} \parallel \overline{BC}</code></li>
                     </ul>
-                    <p>What is <code>\color{blue}{\angle{<var>RAND_SWITCH2 === 0 ? "DAF" : "CAE"</var>}} {?}</code></p>
+                    <p data-tid="34.3">What is <code>\color{blue}{\angle{<var>RAND_SWITCH2 === 0 ? "DAF" : "CAE"</var>}} {?}</code></p>
                 </div>
 
                 <div class="problem">
@@ -96,14 +96,14 @@
                         }
                     </div>
 
-                    <p style="font-size:70%; color:grey"><strong>NOTE:</strong> Angles not drawn to scale.</p>
+                    <p style="font-size:70%; color:grey" data-tid="34.4"><strong>NOTE:</strong> Angles not drawn to scale.</p>
 
                 </div> <!-- end problem block -->
 
                 <div class="solution"><var>Tri_X</var></div>
 
                 <div class="hints">
-                    <p>
+                    <p data-tid="34.5">
                         Remember that the measure of the angles in a triangle sum to 180&deg;.
                         Solve for <code>\color{orange}{\angle{BCA}}</code> by subtracting the
                         measures of angles <code>\color{purple}{\angle{BAC}}</code> and
@@ -116,7 +116,7 @@
                                 "below left", {color: "orange"});
                         </span>
                     </p>
-                    <p>
+                    <p data-tid="34.6">
                         Solve for
                         <span data-if="RAND_SWITCH2 === 0">
                             <code>\color{blue}{\angle{DAF}}</code> by using the fact
@@ -156,7 +156,7 @@
                 </div>
 
                 <div class="question">
-                    <p>Given the following:</p>
+                    <p data-tid="34.7">Given the following:</p>
                     <ul>
                         <li><code>\overline{AB} \parallel \overline{CD}</code> (line AB is parallel to line CD)</li>
                         <li data-if="RAND_SWITCH3 === 0">
@@ -167,7 +167,7 @@
                             <code>\color{purple}{\angle{BGH}} = <var>180 - X</var>&deg;</code>
                         </li>
                     </ul>
-                    <p>What is <code>\color{blue}{\angle{<var>RAND_SWITCH2 === 0 ? "GHD" : "CHF"</var>}} {?}</code></p>
+                    <p data-tid="34.8">What is <code>\color{blue}{\angle{<var>RAND_SWITCH2 === 0 ? "GHD" : "CHF"</var>}} {?}</code></p>
                 </div>
 
                 <div class="problem">
@@ -235,7 +235,7 @@
                                 "below right");
                         }
                     </div>
-                    <p style="font-size:70%; color:grey"><strong>NOTE:</strong> Angles not drawn to scale.</p>
+                    <p style="font-size:70%; color:grey" data-tid="34.9"><strong>NOTE:</strong> Angles not drawn to scale.</p>
 
 
                 </div> <!-- end problem block -->
@@ -243,12 +243,12 @@
                 <div class="solution"><var>X</var></div>
 
                 <div class="hints">
-                    <p data-if="RAND_COMBO === 0">
+                    <p data-if="RAND_COMBO === 0" data-tid="34.10">
                         <code>\color{blue}{\angle{GHD}} = \color{purple}{\angle{EGB}}</code>.
                         We know this because they are 2 complementary angles of a set of
                         parallel lines bisected by a single line.
                     </p>
-                    <p data-if="RAND_COMBO === 1">
+                    <p data-if="RAND_COMBO === 1" data-tid="34.11">
                         First solve for <code>\color{orange}{\angle{AGH}}</code>.  We know that
                         <code>\color{orange}{\angle{AGH}} = \color{purple}{\angle{EGB}}</code>
                         because opposite angles are equal.
@@ -257,17 +257,17 @@
                             label([0,2], "\\color{orange}{" + X + "&deg;}", "below left");
                         </span>
                     </p>
-                    <p data-else-if="RAND_COMBO === 10">
+                    <p data-else-if="RAND_COMBO === 10" data-tid="34.12">
                         <code>\color{blue}{\angle{GHD}} = \color{purple}{\angle{AGH}}</code>
                         We know this because they are 2 alternate interior angles of a set of
                         parallel lines bisected by a single line.
                     </p>
-                    <p data-if="RAND_COMBO === 11">
+                    <p data-if="RAND_COMBO === 11" data-tid="34.13">
                         <code>\color{blue}{\angle{CHF}} = \color{purple}{\angle{AGH}}</code>.
                         We know this because they are 2 corresponding angles of a set of
                         parallel lines bisected by a single line.
                     </p>
-                    <p data-else-if="RAND_COMBO === 20 || RAND_COMBO === 21">
+                    <p data-else-if="RAND_COMBO === 20 || RAND_COMBO === 21" data-tid="34.14">
                         First solve for  <code>\color{orange}{\angle{AGH}}</code>.  We know that
                         <code>
                             \color{orange}{\angle{AGH}} = 180&deg; - \color{purple}{\angle{BGH}}
@@ -278,17 +278,17 @@
                             label([0,2], "\\color{orange}{" + X + "&deg;}", "below left");
                         </span>
                     </p>
-                    <p data-if="RAND_COMBO === 20">
+                    <p data-if="RAND_COMBO === 20" data-tid="34.15">
                         <code>\color{blue}{\angle{GHD}} = \color{orange}{\angle{AGH}}</code>.
                         We know those 2 angles are equal because they are alternate interior angles
                         of 2 parallel lines.
                     </p>
-                    <p data-else-if="RAND_COMBO === 21 || RAND_COMBO === 1">
+                    <p data-else-if="RAND_COMBO === 21 || RAND_COMBO === 1" data-tid="34.16">
                         <code>\color{blue}{\angle{CHF}} = \color{orange}{\angle{AGH}}</code>.
                         We know those 2 angles are equal because they are corresponding angles
                         formed by parallel lines, and a single bisecting lines.
                     </p>
-                    <p>
+                    <p data-tid="34.17">
                         Therefore,
                         <span data-if="RAND_SWITCH2 === 0">
                             <code>\angle{GHD} = <var>X</var>&deg;</code>
@@ -323,12 +323,12 @@
                 </div>
 
                 <div class="question">
-                    <p>Given the following:</p>
+                    <p data-tid="34.18">Given the following:</p>
                     <ul>
                         <li><code>\color{green}{\angle{BDC}&deg;} = <var>Tri1_Y</var></code></li>
                         <li><code>\color{orange}{\angle{DBE}&deg;} = <var>Tri1_X</var></code></li>
                     </ul>
-                    <p>
+                    <p data-tid="34.19">
                         What is <code>\color{blue}{\angle{<var>RAND_SWITCH3 === 0 ? "CHE" : ( RAND_SWITCH3 === 1 ? "GHC" : "DHE" )</var>}} {?}</code>
                     </p>
                 </div>
@@ -383,18 +383,18 @@
                         }
                     </div>
 
-                    <p style="font-size:70%; color:grey"><strong>NOTE:</strong> Angles not drawn to scale.</p>
+                    <p style="font-size:70%; color:grey" data-tid="34.20"><strong>NOTE:</strong> Angles not drawn to scale.</p>
 
 
                 </div> <!-- end problem block -->
 
-                <p class="solution">
+                <p class="solution" data-tid="34.21">
                     <var data-if="RAND_SWITCH3 === 0">Tri1_Z</var>
                     <var data-else>180-Tri1_Z</var>
                 </p>
 
                 <div class="hints">
-                    <p>
+                    <p data-tid="34.22">
                         <code>
                             \color{purple}{\angle{BHD}} =
                             180&deg; - \color{green}{\angle{BDC}} - \color{orange}{\angle{DBE}} =
@@ -409,7 +409,7 @@
                     </p>
 
                     <div data-if="RAND_SWITCH3 === 0">
-                        <p><code>\color{blue}{\angle{CHE}} = \color{purple}{\angle{BHD}}</code>.
+                        <p data-tid="34.23"><code>\color{blue}{\angle{CHE}} = \color{purple}{\angle{BHD}}</code>.
                         This is because they are opposite each other, and opposite angles are
                         equal.</p>
                         <p><code>\color{blue}{\angle{CHE}} = <var>Tri1_Z</var>&deg;</code></p>
@@ -421,7 +421,7 @@
                         </span>
                     </div>
                     <div data-else>
-                        <p>
+                        <p data-tid="34.25">
                         <span data-if="RAND_SWITCH3 === 1">
                             <code>\color{blue}{\angle{CHG}}</code>
                         </span>
@@ -432,7 +432,7 @@
                         This is because angles along a line add up to
                         180&deg;.
                         </p>
-                        <p>
+                        <p data-tid="34.26">
                         <span data-if="RAND_SWITCH3 === 1">
                             <code>\color{blue}{\angle{GHC}}</code>
                             <span class="graphie" data-update="star1">
@@ -467,7 +467,7 @@
                 </div>
 
                 <div class="question">
-                    <p>Given the following:</p>
+                    <p data-tid="34.27">Given the following:</p>
                     <ul data-if="RAND_SWITCH2 === 0">
                         <li><code>\color{green}{\angle{BDC}&deg;} = <var>Tri2_Y</var>&deg;</code></li>
                         <li><code>\color{orange}{\angle{AIC}&deg;} = <var>180 - Tri2_Z</var>&deg;</code></li>
@@ -475,7 +475,7 @@
                         <li><code>\color{green}{\angle{GCH}&deg;} = <var>Tri2_Y</var>&deg;</code></li>
                         <li><code>\color{orange}{\angle{FGH}&deg;} = <var>180 - Tri2_Z</var>&deg;</code></li>
                     </ul>
-                    <p>What is <code>\color{blue}{\angle{<var>RAND_SWITCH2 === 0 ? "AJF" : "IHE"</var>}} {?}</code></p>
+                    <p data-tid="34.28">What is <code>\color{blue}{\angle{<var>RAND_SWITCH2 === 0 ? "AJF" : "IHE"</var>}} {?}</code></p>
                 </div>
 
                 <div class="problem">
@@ -535,7 +535,7 @@
                             }
                     </div>
 
-                    <p style="font-size:70%; color:grey"><strong>NOTE:</strong> Angles not drawn to scale.</p>
+                    <p style="font-size:70%; color:grey" data-tid="34.29"><strong>NOTE:</strong> Angles not drawn to scale.</p>
 
 
                 </div> <!-- end problem block -->
@@ -543,7 +543,7 @@
                 <div class="solution"><var>Tri2_X</var></div>
 
                 <div class="hints">
-                    <p data-if="RAND_SWITCH2 === 0">
+                    <p data-if="RAND_SWITCH2 === 0" data-tid="34.30">
                         <code>\color{purple}{\angle{DIJ}} = 180&deg; - \color{orange}{\angle{AIC}}</code>.
                         This is because angles along a line total 180&deg;.
                         <span class="graphie" data-update="star2">
@@ -553,7 +553,7 @@
                                 "left");
                         </span>
                     </p>
-                    <p data-else>
+                    <p data-else data-tid="34.31">
                         <code>\color{purple}{\angle{HGC}} = 180&deg; - \color{orange}{\angle{FGH}}</code>.
                         This is because angles along a line or flat plane total 180&deg;.
                         <span class="graphie" data-update="star2">
@@ -564,7 +564,7 @@
                         </span>
                     </p>
 
-                    <p data-if="RAND_SWITCH2 === 0">
+                    <p data-if="RAND_SWITCH2 === 0" data-tid="34.32">
                         <code>\color{teal}{\angle{DJI}} = 180&deg; - \color{green}{\angle{BDC}} -
                             \color{purple}{\angle{DIJ}}</code>.
                         We know this because the sum of angles inside a triangle add up to 180&deg;.
@@ -575,7 +575,7 @@
                                 "below right");
                         </span>
                     </p>
-                    <p data-else>
+                    <p data-else data-tid="34.33">
                         <code>\color{teal}{\angle{CHG}} = 180&deg; - \color{green}{\angle{ACD}} -
                             \color{purple}{\angle{HGC}}</code>.
                         We know this, because the sum of angles inside a triangle add up to 180&deg;.
@@ -588,16 +588,16 @@
                     </p>
 
 
-                    <p data-if="RAND_SWITCH2 === 0">
+                    <p data-if="RAND_SWITCH2 === 0" data-tid="34.34">
                         <code>\color{blue}{\angle{AJF}} = \color{teal}{\angle{DJI}}</code>.
                         We know they are equal because they are opposite angles.
                     </p>
-                    <p data-else>
+                    <p data-else data-tid="34.35">
                         <code>\color{blue}{\angle{IHE}} = \color{teal}{\angle{CHG}}</code>.
                         We know they are equal because they are opposite angles.
                     </p>
 
-                    <p>
+                    <p data-tid="34.36">
                         Therefore,
                         <span data-if="RAND_SWITCH2 === 0">
                             <code>\angle{AJF} = <var>Tri2_X</var>&deg;</code>

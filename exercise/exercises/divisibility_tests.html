@@ -2,7 +2,7 @@
 <html data-require="math math-format word-problems subhints">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Divisibility tests</title>
+    <title data-tid="120.1">Divisibility tests</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -17,7 +17,7 @@
         </var>
     </div>
 
-    <p class="question">
+    <p class="question" data-tid="120.2">
         Is <code>\large{<var>NUMBER</var>}</code> divisible by
         <code><var>FACTOR</var></code>?
     </p>
@@ -35,12 +35,12 @@
             </div>
 
             <div class="hints">
-                <p>Any even number is divisible by <code>2</code>.</p>
-                <p class="final_answer" data-if="DIVISIBLE">
+                <p data-tid="120.4">Any even number is divisible by <code>2</code>.</p>
+                <p class="final_answer" data-if="DIVISIBLE" data-tid="120.5">
                     <code><var>NUMBER</var></code> is even, so yes, it is
                     divisible by <code>2</code>.
                 </p>
-                <p class="final_answer" data-else>
+                <p class="final_answer" data-else data-tid="120.6">
                     <code><var>NUMBER</var></code> is odd, so it is
                     not divisible by <code>2</code>.
                 </p>
@@ -77,7 +77,7 @@
 
             <div class="hints">
                 <div>
-                    <p>
+                    <p data-tid="120.7">
                         A number is divisible by <code><var>FACTOR</var></code>
                         if the sum of its digits is divisible by
                         <code><var>FACTOR</var></code>.
@@ -85,7 +85,7 @@
                         data-subhint="explain-three">Why?</a>]
                     </p>
                     <div class="subhint" id="explain-three">
-                        <p>
+                        <p data-tid="120.8">
                             First, we can break the number up by place value:
                         </p>
                         <code>
@@ -99,7 +99,7 @@
                             }).join("+ \\\\")</var>
                             \end{eqnarray}
                         </code>
-                        <p>
+                        <p data-tid="120.9">
                             Next, we can rewrite each of the place values as
                             <code>1</code> plus a bunch of <code>9</code>s:
                         </p>
@@ -117,7 +117,7 @@
                             }).join("+ \\\\")</var>
                             \end{eqnarray}
                         </code>
-                        <p>
+                        <p data-tid="120.10">
                             Now if we distribute and rearrange, we get this:
                         </p>
                         <code>
@@ -136,14 +136,14 @@
                                 .join("}+\\blue{")</var>}
                             \end{eqnarray}
                         </code>
-                        <p>
+                        <p data-tid="120.11">
                             Any number consisting only of <code>9</code>s is
                             a multiple of <code><var>FACTOR</var></code>, so
                             the first <var>cardinal(integerToDigits(NUMBER)
                             .length - 1)</var> terms must all be multples of
                             <code><var>FACTOR</var></code>.
                         </p>
-                        <p>
+                        <p data-tid="120.12">
                             That means that to figure out whether the original
                             number is divisible by <code><var>FACTOR</var>
                             </code>, all we need to do is add up the digits
@@ -158,25 +158,25 @@
                     </div>
                 </div>
                 <div data-each="STEPS as N, STEP">
-                    <p>Add the digits of <code><var>STEP.num</var></code>:</p>
+                    <p data-tid="120.13">Add the digits of <code><var>STEP.num</var></code>:</p>
                     <p style="margin-left: 20px;"><code>
                         <var>STEP.digits.join("+")</var> =
                         <var>STEP.sum</var>
                     </code></p>
-                    <p style="margin-left: 20px;">
+                    <p style="margin-left: 20px;" data-tid="120.15">
                         If <code><var>STEP.sum</var></code> is
                         divisible by <code><var>FACTOR</var></code>, then
                         <code><var>STEP.num</var></code> must also be
                         divisible by <code><var>FACTOR</var></code>.
                     </p>
                 </div>
-                <p class="final_answer" data-if="DIVISIBLE">
+                <p class="final_answer" data-if="DIVISIBLE" data-tid="120.16">
                     <code><var>_.last(STEPS).sum</var></code> is divisible
                     by <code><var>FACTOR</var></code>, therefore
                     <code>\blue{<var>NUMBER</var>}</code>
                     must also be divisible by <code><var>FACTOR</var></code>.
                 </p>
-                <p class="final_answer" data-else>
+                <p class="final_answer" data-else data-tid="120.17">
                     <code><var>_.last(STEPS).sum</var></code> is not divisible
                     by <code><var>FACTOR</var></code>, therefore
                     <code>\blue{<var>NUMBER</var>}</code>
@@ -192,14 +192,14 @@
 
             <div class="hints">
                 <div>
-                    <p>
+                    <p data-tid="120.18">
                         A number is divisible by <code>4</code> if the last
                         two digits are divisible by <code>4</code>.
                         [<a href="#" class="show-subhint"
                         data-subhint="explain-four">Why?</a>]
                     </p>
                     <div class="subhint" id="explain-four">
-                        <p>
+                        <p data-tid="120.19">
                             We can rewrite the number as a multiple of
                             <code>100</code> plus the last two digits:
                         </p>
@@ -210,12 +210,12 @@
                         \gray{00} +
                         \blue{<var>("00" + (NUMBER % 100)).slice(-2)</var>}
                         </code>
-                        <p>
+                        <p data-tid="120.20">
                             Because <code><var>NUMBER.toString().slice(0, -2)
                             </var>00</code> is a multiple of <code>100</code>,
                             it is also a multiple of <code>4</code>.
                         </p>
-                        <p>
+                        <p data-tid="120.21">
                             So as long as the value of the last two digits,
                             <code>\blue{<var>NUMBER % 100</var>}</code>,
                             is divisible by <code>4</code>, the original
@@ -223,19 +223,19 @@
                         </p>
                     </div>
                 </div>
-                <p>
+                <p data-tid="120.22">
                     Is the value of the last two digits,
                     <code><var>NUMBER % 100</var></code>,
                     divisible by <code>4</code>?
                 </p>
-                <p class="final_answer" data-if="DIVISIBLE">
+                <p class="final_answer" data-if="DIVISIBLE" data-tid="120.23">
                     Yes,
                     <code>\blue{<var>NUMBER % 100</var> \div 4 =
                     <var>NUMBER % 100 / 4</var>}</code>, so
                     <code><var>NUMBER</var></code> must also be divisible by
                     <code>4</code>.
                 </p>
-                <p class="final_answer" data-else>
+                <p class="final_answer" data-else data-tid="120.24">
                     No, <code><var>NUMBER % 100</var></code> is not
                     divisible by <code>4</code>, so
                     <code><var>NUMBER</var></code> is also not divisible by
@@ -250,17 +250,17 @@
             </div>
 
             <div class="hints">
-                <p>
+                <p data-tid="120.25">
                     A number is divisible by <code>5</code> if the last
                     digit is a <code>0</code> or a <code>5</code>.
                 </p>
-                <p class="final_answer" data-if="DIVISIBLE">
+                <p class="final_answer" data-if="DIVISIBLE" data-tid="120.26">
                     The last digit of <code><var>NUMBER</var></code> is
                     <code><var>NUMBER % 10</var></code>, so yes
                     <code><var>NUMBER</var></code> is divisible by
                     <code>5</code>.
                 </p>
-                <p class="final_answer" data-else>
+                <p class="final_answer" data-else data-tid="120.27">
                     The last digit of <code><var>NUMBER</var></code> is
                     <code><var>NUMBER % 10</var></code>, so no
                     <code><var>NUMBER</var></code> is not divisible by
@@ -281,17 +281,17 @@
             </div>
 
             <div class="hints">
-                <p>
+                <p data-tid="120.28">
                     A number is divisible by <code>10</code> if the last
                     digit is a <code>0</code>.
                 </p>
-                <p class="final_answer" data-if="DIVISIBLE">
+                <p class="final_answer" data-if="DIVISIBLE" data-tid="120.29">
                     The last digit of <code><var>NUMBER</var></code> is
                     <code><var>NUMBER % 10</var></code>, so yes
                     <code><var>NUMBER</var></code> is divisible by
                     <code>10</code>.
                 </p>
-                <p class="final_answer" data-else>
+                <p class="final_answer" data-else data-tid="120.30">
                     The last digit of <code><var>NUMBER</var></code> is
                     <code><var>NUMBER % 10</var></code>, so no
                     <code><var>NUMBER</var></code> is not divisible by

@@ -2,7 +2,7 @@
 <html data-require="math graphie expressions">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Congruent segments</title>
+    <title data-tid="75.1">Congruent segments</title>
     <script src="../khan-exercise.js"></script>
     <style>
         .lcol { text-align:left; width:200px; display:inline-block; }
@@ -20,7 +20,7 @@
                 </div>
                 <var id="COLORS">[ BLUE, GREEN, PINK, ORANGE ]</var>
             </div>
-            <p class="question">Are <code>\overline{AB}</code> and <code>\overline{CD}</code> congruent?</p>
+            <p class="question" data-tid="75.2">Are <code>\overline{AB}</code> and <code>\overline{CD}</code> congruent?</p>
             <div class="problem">
                 <div class="graphie" id="number-line">
                     init({
@@ -56,29 +56,29 @@
             </ul>
 
             <div class="hints">
-                <p>Congruent segments have equal lengths.</p>
+                <p data-tid="75.3">Congruent segments have equal lengths.</p>
                 <div>
-                    <p>Find the lengths of <code>\overline{AB}</code> and <code>\overline{CD}</code>:</p>
-                    <p>
+                    <p data-tid="75.4">Find the lengths of <code>\overline{AB}</code> and <code>\overline{CD}</code>:</p>
+                    <p data-tid="75.5">
                     <span class="lcol"><code>AB = |\color{<var>COLORS[ 0 ]</var>}{<var>POINTS[ 0 ]</var>} - \color{<var>COLORS[ 1 ]</var>}{<var>POINTS[ 1 ]</var>}|</code></span>
                     <span class="rcol"><code>CD = |\color{<var>COLORS[ 2 ]</var>}{<var>POINTS[ 2 ]</var>} - \color{<var>COLORS[ 3 ]</var>}{<var>POINTS[ 3 ]</var>}|</code></span>
                     </p>
                 </div>
-                <p>
+                <p data-tid="75.6">
                     <span class="lcol"><code>AB = |<var>POINTS[ 0 ] - POINTS[ 1 ]</var>|</code></span>
                     <span class="rcol"><code>CD = |<var>POINTS[ 2 ] - POINTS[ 3 ]</var>|</code></span>
                 </p>
-                <p>
+                <p data-tid="75.7">
                     <span class="lcol"><code>AB = <var>POINTS[ 1 ] - POINTS[ 0 ]</var></code></span>
                     <span class="rcol"><code>CD = <var>POINTS[ 3 ] - POINTS[ 2 ]</var></code></span>
                 </p>
                 <div data-if="SOLUTION === 'Yes'" data-unwrap>
                     <p><code>AB = CD</code></p>
-                    <p class="final_answer">Yes, <code>\overline{AB}</code> and <code>\overline{CD}</code> are congruent.</p>
+                    <p class="final_answer" data-tid="75.9">Yes, <code>\overline{AB}</code> and <code>\overline{CD}</code> are congruent.</p>
                 </div>
                 <div data-else data-unwrap>
                     <p><code>AB \neq CD</code></p>
-                    <p class="final_answer">No, <code>\overline{AB}</code> and <code>\overline{CD}</code> are not congruent.</p>
+                    <p class="final_answer" data-tid="75.11">No, <code>\overline{AB}</code> and <code>\overline{CD}</code> are not congruent.</p>
                 </div>
             </div>
         </div>

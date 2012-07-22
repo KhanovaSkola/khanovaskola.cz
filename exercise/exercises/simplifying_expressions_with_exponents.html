@@ -2,7 +2,7 @@
 <html data-require="math math-format expressions">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Simplifying expressions with exponents</title>
+    <title data-tid="333.1">Simplifying expressions with exponents</title>
     <script src="../khan-exercise.js"></script>
     <style type="text/css">
     #answer_area input[type=text] {
@@ -40,28 +40,28 @@
                     <var id="ANS">[ "*", [ "^", BASE1, EXP1 ], [ "^", BASE2, EXP2 ] ]</var>
                 </div>
 
-                <p class="question">Simplify; express your answer in exponential form.  Assume <code><var>BASE1</var>\neq 0, <var>BASE2</var>\neq 0</code>.</p>
+                <p class="question" data-tid="333.2">Simplify; express your answer in exponential form.  Assume <code><var>BASE1</var>\neq 0, <var>BASE2</var>\neq 0</code>.</p>
 
                 <p><code>\dfrac{\color{orange}{<var>expr( NUM )</var>}}{\color{green}{<var>expr( DEN )</var>}}</code></p>
 
                 <div class="solution" data-type="multiple">
-                    <p><code><var>BASE1</var></code><span class="sol exp"><var>EXP1</var></span><code><var>BASE2</var></code><span class="sol exp"><var>EXP2</var></span></p>
-                    <p class="example">enter a (possibly negative) integer for each exponent</p>
+                    <p data-tid="333.4"><code><var>BASE1</var></code><span class="sol exp"><var>EXP1</var></span><code><var>BASE2</var></code><span class="sol exp"><var>EXP2</var></span></p>
+                    <p class="example" data-tid="333.5">enter a (possibly negative) integer for each exponent</p>
                 </div>
 
                 <div class="hints">
-                    <p>To start, try simplifying the numerator and the denominator independently.</p>
+                    <p data-tid="333.6">To start, try simplifying the numerator and the denominator independently.</p>
                     <div>
-                        <p>In the numerator, we can use the distributive property of exponents.</p>
-                        <p><code>\color{orange}{<var>expr( NUM )</var> = <var>expr( NUMHINT1 )</var>}</code>.</p>
+                        <p data-tid="333.7">In the numerator, we can use the distributive property of exponents.</p>
+                        <p data-tid="333.8"><code>\color{orange}{<var>expr( NUM )</var> = <var>expr( NUMHINT1 )</var>}</code>.</p>
                     </div>
-                    <p>On the left, we have <code>\color{orange}{<var>expr( [ "^", BASE1, EXPNUM1 ] )</var>}</code> to the exponent <code>\color{orange}{<var>EXPNUM3</var>}</code>.  Now <code>\color{orange}{<var>EXPNUM1</var> \times <var>EXPNUM3</var> = <var>EXPNUM1 * EXPNUM3</var>}</code>, so <code>\color{orange}{<var>expr( [ "^", [ "^", BASE1, EXPNUM1 ], EXPNUM3 ] )</var> = <var>expr( [ "^", BASE1, EXPNUM1 * EXPNUM3 ] )</var>}</code>.</p>
+                    <p data-tid="333.9">On the left, we have <code>\color{orange}{<var>expr( [ "^", BASE1, EXPNUM1 ] )</var>}</code> to the exponent <code>\color{orange}{<var>EXPNUM3</var>}</code>.  Now <code>\color{orange}{<var>EXPNUM1</var> \times <var>EXPNUM3</var> = <var>EXPNUM1 * EXPNUM3</var>}</code>, so <code>\color{orange}{<var>expr( [ "^", [ "^", BASE1, EXPNUM1 ], EXPNUM3 ] )</var> = <var>expr( [ "^", BASE1, EXPNUM1 * EXPNUM3 ] )</var>}</code>.</p>
                     <div>
-                        <p>Apply the ideas above to simplify the equation.<p>
+                        <p data-tid="333.10">Apply the ideas above to simplify the equation.<p>
                         <p><code>\dfrac{\color{orange}{<var>expr( NUM )</var>}}{\color{green}{<var>expr( DEN )</var>}} = \dfrac{\color{orange}{<var>expr( NUMHINT2 )</var>}}{\color{green}{<var>expr( DENHINT2 )</var>}}</code>.</p>
                     </div>
                     <div>
-                        <p>Break up the equation by variable and simplify.</p>
+                        <p data-tid="333.11">Break up the equation by variable and simplify.</p>
                         <p><code>\dfrac{\color{orange}{<var>expr( NUMHINT2 )</var>}}{\color{green}{<var>expr( DENHINT2 )</var>}} = \dfrac{\color{orange}{<var>expr( [ "^", BASE1, EXPNUM1 * EXPNUM3 ] )</var>}}{\color{green}{<var>expr( [ "^", BASE1, EXPDEN1 * EXPDEN3 ] )</var>}} \cdot \dfrac{\color{orange}{<var>expr( [ "^", BASE2, EXPNUM2 * EXPNUM3 ] )</var>}}{\color{green}{<var>expr( [ "^", BASE2, EXPDEN2 * EXPDEN3 ] )</var>}} = <var>BASE1</var>^{\color{orange}{<var>EXPNUM1 * EXPNUM3</var>} - \color{green}{<var>negParens( EXPDEN1 * EXPDEN3 )</var>}} \cdot <var>BASE2</var>^{\color{orange}{<var>EXPNUM2 * EXPNUM3</var>} - \color{green}{<var>negParens( EXPDEN2 * EXPDEN3 )</var>}} = <var>expr( ANS )</var></code></p>
                     </div>
                 </div>
@@ -81,29 +81,29 @@
                     <var id="ANS">[ "*", [ "^", BASE1, EXP1 ], [ "^", BASE2, EXP2 ] ]</var>
                 </div>
 
-                <p class="question">Simplify; express your answer in exponential form.  Assume <code><var>BASE1</var>\neq 0, <var>BASE2</var>\neq 0</code>.</p>
+                <p class="question" data-tid="333.13">Simplify; express your answer in exponential form.  Assume <code><var>BASE1</var>\neq 0, <var>BASE2</var>\neq 0</code>.</p>
 
                 <p><code>\dfrac{\color{orange}{<var>expr( NUM )</var>}}{\color{green}{<var>expr( DEN )</var>}}</code></p>
 
                 <div class="solution" data-type="multiple">
-                    <p><code><var>BASE1</var></code><span class="sol exp"><var>EXP1</var></span><code><var>BASE2</var></code><span class="sol exp"><var>EXP2</var></span></p>
-                    <p class="example">enter a (possibly negative) integer for each exponent</p>
+                    <p data-tid="333.15"><code><var>BASE1</var></code><span class="sol exp"><var>EXP1</var></span><code><var>BASE2</var></code><span class="sol exp"><var>EXP2</var></span></p>
+                    <p class="example" data-tid="333.16">enter a (possibly negative) integer for each exponent</p>
                 </div>
 
                 <div class="hints">
-                    <p>To start, try working on the numerator and the denominator independently.</p>
-                    <p>In the numerator, we have <code>\color{orange}{<var>expr( [ "^", BASE1, EXPNUM1 ] )</var>}</code> to the exponent <code>\color{orange}{<var>EXPNUM3</var>}</code>.  Now <code>\color{orange}{<var>EXPNUM1</var> \times <var>EXPNUM3</var> = <var>EXPNUM1 * EXPNUM3</var>}</code>, so <code>\color{orange}{<var>expr( NUM )</var> = <var>expr( NUMHINT2 )</var>}</code>.</p>
+                    <p data-tid="333.17">To start, try working on the numerator and the denominator independently.</p>
+                    <p data-tid="333.18">In the numerator, we have <code>\color{orange}{<var>expr( [ "^", BASE1, EXPNUM1 ] )</var>}</code> to the exponent <code>\color{orange}{<var>EXPNUM3</var>}</code>.  Now <code>\color{orange}{<var>EXPNUM1</var> \times <var>EXPNUM3</var> = <var>EXPNUM1 * EXPNUM3</var>}</code>, so <code>\color{orange}{<var>expr( NUM )</var> = <var>expr( NUMHINT2 )</var>}</code>.</p>
                     <div>
-                        <p>In the denominator, we can use the distributive property of exponents.</p>
-                        <p><code>\color{green}{<var>expr( DEN )</var> = <var>expr( DENHINT1 )</var>}</code>.</p>
+                        <p data-tid="333.19">In the denominator, we can use the distributive property of exponents.</p>
+                        <p data-tid="333.20"><code>\color{green}{<var>expr( DEN )</var> = <var>expr( DENHINT1 )</var>}</code>.</p>
                     </div>
                     <div>
-                        <p>Simplify using the same method from the numerator and put the entire equation together.</p>
-                        <p><code>\dfrac{\color{orange}{<var>expr( NUM )</var>}}{\color{green}{<var>expr( DEN )</var>}} = \dfrac{\color{orange}{<var>expr( NUMHINT2 )</var>}}{\color{green}{<var>expr( DENHINT2 )</var>}}</code>.</p>
+                        <p data-tid="333.21">Simplify using the same method from the numerator and put the entire equation together.</p>
+                        <p data-tid="333.22"><code>\dfrac{\color{orange}{<var>expr( NUM )</var>}}{\color{green}{<var>expr( DEN )</var>}} = \dfrac{\color{orange}{<var>expr( NUMHINT2 )</var>}}{\color{green}{<var>expr( DENHINT2 )</var>}}</code>.</p>
                     </div>
                     <div>
-                        <p>Break up the equation by variable and simplify.</p>
-                        <p><code>\dfrac{\color{orange}{<var>expr( NUMHINT2 )</var>}}{\color{green}{<var>expr( DENHINT2 )</var>}} = \dfrac{\color{orange}{<var>expr( [ "^", BASE1, EXPNUM1 * EXPNUM3 ] )</var>}}{\color{green}{<var>expr( [ "^", BASE1, EXPDEN1 * EXPDEN3 ] )</var>}} \cdot \dfrac{\color{orange}{1}}{\color{green}{<var>expr( [ "^", BASE2, EXPDEN2 * EXPDEN3 ] )</var>}} = <var>BASE1</var>^{\color{orange}{<var>EXPNUM1 * EXPNUM3</var>} - \color{green}{<var>negParens( EXPDEN1 * EXPDEN3 )</var>}} \cdot <var>BASE2</var>^{- \color{green}{<var>negParens( EXPDEN2 * EXPDEN3 )</var>}} = <var>expr( ANS )</var></code>.</p>
+                        <p data-tid="333.23">Break up the equation by variable and simplify.</p>
+                        <p data-tid="333.24"><code>\dfrac{\color{orange}{<var>expr( NUMHINT2 )</var>}}{\color{green}{<var>expr( DENHINT2 )</var>}} = \dfrac{\color{orange}{<var>expr( [ "^", BASE1, EXPNUM1 * EXPNUM3 ] )</var>}}{\color{green}{<var>expr( [ "^", BASE1, EXPDEN1 * EXPDEN3 ] )</var>}} \cdot \dfrac{\color{orange}{1}}{\color{green}{<var>expr( [ "^", BASE2, EXPDEN2 * EXPDEN3 ] )</var>}} = <var>BASE1</var>^{\color{orange}{<var>EXPNUM1 * EXPNUM3</var>} - \color{green}{<var>negParens( EXPDEN1 * EXPDEN3 )</var>}} \cdot <var>BASE2</var>^{- \color{green}{<var>negParens( EXPDEN2 * EXPDEN3 )</var>}} = <var>expr( ANS )</var></code>.</p>
                     </div>
 
                 </div>

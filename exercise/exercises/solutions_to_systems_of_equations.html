@@ -2,7 +2,7 @@
 <html data-require="math math-format expressions graphie">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Solutions to systems of equations</title>
+    <title data-tid="341.1">Solutions to systems of equations</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -48,7 +48,7 @@
                     <var id="SIGNS_1">[AB_VALS[0].a &gt; 0 ? "+" : "-", AB_VALS[1].a &gt; 0 ? "+" : "-"]</var>
                     <var id="SIGNS_2">[( AB_VALS[0].a * MULT[0] ) &gt; 0 ? "+" : "-", ( AB_VALS[1].a * MULT[1] ) &gt; 0 ? "+" : "-"]</var>
                 </div>
-                <p class="problem">Determine how many solutions exist for the system of equations.</p>
+                <p class="problem" data-tid="341.2">Determine how many solutions exist for the system of equations.</p>
                 <div class="question">
                     <p><code>\color{<var>BLUE</var>}{<var>EQUATIONS[0]</var>}</code><br />
                     <code>\color{<var>GREEN</var>}{<var>EQUATIONS[1]</var>}</code></p>
@@ -59,9 +59,9 @@
                     <li>No solutions</li>
                 </ul>
                 <div class="hints">
-                    <p>Convert both equations to slope-intercept form:</p>
+                    <p data-tid="341.4">Convert both equations to slope-intercept form:</p>
                     <div data-unwrap>
-                        <p data-each="COUNT as INDEX"><code>\color{<span data-if="INDEX === 0"><var>BLUE</var></span><span data-else><var>GREEN</var></span>}{<var>EQUATIONS[INDEX]</var>}</code><br />
+                        <p data-each="COUNT as INDEX" data-tid="341.5"><code>\color{<span data-if="INDEX === 0"><var>BLUE</var></span><span data-else><var>GREEN</var></span>}{<var>EQUATIONS[INDEX]</var>}</code><br />
                         <span data-if="INDICES[INDEX] === 1"><code>\color{<span data-if="INDEX === 0"><var>BLUE</var></span><span data-else><var>GREEN</var></span>}{y = <var>expr(["+", ["*", AB_VALS[INDEX].a, "x"], AB_VALS[INDEX].b])</var>}</code></span>
                         <span data-if="INDICES[INDEX] === 2"><code><var>expr(["*", -AB_VALS[INDEX].a, "x"])</var>\color{<var>PINK</var>}{<var>SIGNS_1[INDEX]</var><var>expr(["*", abs( AB_VALS[INDEX].a ), "x"])</var>} + y = <var>AB_VALS[INDEX].b</var>\color{<var>PINK</var>}{<var>SIGNS_1[INDEX]</var><var>expr(["*", abs( AB_VALS[INDEX].a ), "x"])</var>}</code><br />
                         <code>y = <var>AB_VALS[INDEX].b</var><var>SIGNS_1[INDEX]</var><var>expr(["*", abs( AB_VALS[INDEX].a ), "x"])</var></code><br />
@@ -72,7 +72,7 @@
                         <code>\color{<span data-if="INDEX === 0"><var>BLUE</var></span><span data-else><var>GREEN</var></span>}{y = <var>expr(["+", ["*", AB_VALS[INDEX].a, "x"], AB_VALS[INDEX].b])</var>}</code></span></p>
                     </div>
                     <div>
-                        <p>Just by looking at both equations in slope-intercept form, what can you determine?</p>
+                        <p data-tid="341.6">Just by looking at both equations in slope-intercept form, what can you determine?</p>
                         <p><code>\color{<var>BLUE</var>}{y = <var>expr(["+", ["*", AB_VALS[0].a, "x"], AB_VALS[0].b])</var>}</code><br />
                         <code>\color{<var>GREEN</var>}{y = <var>expr(["+", ["*", AB_VALS[1].a, "x"], AB_VALS[1].b])</var>}</code></p>
                     </div>
@@ -85,7 +85,7 @@
                 <div class="solution">One solution</div>
                 <div class="hints" data-apply="appendContents">
                     <div>
-                        <p>The linear equations have different slopes.</p>
+                        <p data-tid="341.8">The linear equations have different slopes.</p>
                         <div class="graphie" id="grid">
                             graphInit({
                                 range: [[-10, 10], [-10, 10]],
@@ -110,7 +110,7 @@
                             });
                         </div>
                     </div>
-                    <p>When two equations have different slopes, the lines will intersect once with one solution.</p>
+                    <p data-tid="341.9">When two equations have different slopes, the lines will intersect once with one solution.</p>
                 </div>
             </div>
             <div id="infinite_solutions" data-type="original">
@@ -120,7 +120,7 @@
                 <div class="solution">Infinite solutions</div>
                 <div class="hints" data-apply="appendContents">
                     <div>
-                        <p>Both equations have the same slope and the same y-intercept, which means the lines would completely overlap.</p>
+                        <p data-tid="341.10">Both equations have the same slope and the same y-intercept, which means the lines would completely overlap.</p>
                         <div class="graphie" id="grid">
                             graphInit({
                                 range: [[-10, 10], [-10, 10]],
@@ -139,7 +139,7 @@
                             });
                         </div>
                     </div>
-                    <p>Since any solution of <code>\color{<var>BLUE</var>}{<var>EQUATIONS[0]</var>}</code> is also a solution of <code>\color{<var>GREEN</var>}{<var>EQUATIONS[1]</var>}</code>, there are infinitely many solutions.</p>
+                    <p data-tid="341.11">Since any solution of <code>\color{<var>BLUE</var>}{<var>EQUATIONS[0]</var>}</code> is also a solution of <code>\color{<var>GREEN</var>}{<var>EQUATIONS[1]</var>}</code>, there are infinitely many solutions.</p>
                 </div>
             </div>
             <div id="zero_solutions" data-type="original">
@@ -149,7 +149,7 @@
                 <div class="solution">No solutions</div>
                 <div class="hints" data-apply="appendContents">
                     <div>
-                        <p>Both equations have the same slope with different y-intercepts. This means the equations are parallel.</p>
+                        <p data-tid="341.12">Both equations have the same slope with different y-intercepts. This means the equations are parallel.</p>
                         <div class="graphie" id="grid">
                             graphInit({
                                 range: [[-10, 10], [-10, 10]],
@@ -174,7 +174,7 @@
                             });
                         </div>
                     </div>
-                    <p>Parallel lines never intersect, thus there are NO SOLUTIONS.</p>
+                    <p data-tid="341.13">Parallel lines never intersect, thus there are NO SOLUTIONS.</p>
                 </div>
             </div>
         </div>

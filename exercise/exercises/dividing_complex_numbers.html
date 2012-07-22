@@ -2,7 +2,7 @@
 <html data-require="math math-format">
 <head>
     <meta charset="UTF-8" />
-    <title>Dividing complex numbers</title>
+    <title data-tid="109.1">Dividing complex numbers</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -38,7 +38,7 @@
 
     <div class="problems">
         <div>
-            <p class="question">Divide the following complex numbers. You can round the real and imaginary parts of the result to 2 decimal digits.</p>
+            <p class="question" data-tid="109.2">Divide the following complex numbers. You can round the real and imaginary parts of the result to 2 decimal digits.</p>
             <p>
                 <code>\qquad \dfrac{<var>A_REP_COLORED</var>}{<var>B_REP_COLORED</var>}</code>
             </p>
@@ -46,7 +46,7 @@
                 [ <var>ANSWER_REAL_UNROUNDED</var>, <var>ANSWER_IMAG_UNROUNDED</var> ]
             </div>
             <div class="hints">
-                <p>
+                <p data-tid="109.4">
                     Complex number division is converted to complex multiplication using the denominator's complex conjugate.
                 </p>
                 <p>
@@ -56,7 +56,7 @@
                     </code>
                 </p>
                 <div>
-                    <p>
+                    <p data-tid="109.6">
                         The denominator is simplified by <code>(a + b) \cdot (a - b) = a^2 - b^2</code>.
                     </p>
                     <code>
@@ -65,12 +65,12 @@
                         \dfrac{(<var>A_REP_COLORED</var>) \cdot (<var>CONJUGATE_COLORED</var>)}
                         {(<var>B_REAL_COLORED</var>)^2 - (\color{<var>BLUE</var>}{<var>B_IMAG</var>i})^2}
                     </code>
-                    <p>
+                    <p data-tid="109.7">
                         Note that the denominator now doesn't contain any imaginary unit multiples, so it is a real number, simplifying the problem to complex number multiplication.<br />
                     </p>
                 </div>
                 <div>
-                    <p>
+                    <p data-tid="109.8">
                         The squares in the denominator are evaluated and subtracted.
                     </p>
                     <code>
@@ -83,7 +83,7 @@
                     </code>
                 </div>
                 <div>
-                    <p>
+                    <p data-tid="109.9">
                         Afterwards, the numerator is multiplied using the distributive property.
                     </p>
                     <code>
@@ -92,7 +92,7 @@
                         \dfrac{(<var>A_REAL_COLORED</var> \cdot \color{<var>BLUE</var>}{<var>negParens( B_REAL )</var>}) + (<var>A_IMAG_COLORED</var> \cdot \color{<var>BLUE</var>}{<var>negParens( B_REAL )</var>} i) + (<var>A_REAL_COLORED</var> \cdot \color{<var>BLUE</var>}{<var> B_CONJUGATE_IMAG_COLORED </var>}i) + (<var>A_IMAG_COLORED</var> \cdot \color{<var>BLUE</var>}{<var> B_CONJUGATE_IMAG_COLORED </var>} i^2)}
                         {<var>DENOMINATOR</var>}
                     </code>
-                    <p>
+                    <p data-tid="109.10">
                         All multiplications are evaluated.
                     </p>
                     <code>
@@ -101,7 +101,7 @@
                     </code>
                 </div>
                 <div>
-                    <p>
+                    <p data-tid="109.11">
                         Finally, the fraction is simplified.
                     </p>
                     <code>
@@ -113,10 +113,10 @@
                     </code>
                 </div>
                 <div>
-                    <p>
+                    <p data-tid="109.12">
                         The real part of the result is <code><var>REAL_FRACTION</var></code>, which is (rounded to 2 decimal places) <code><var>ANSWER_REAL</var></code>.
                     </p>
-                    <p>
+                    <p data-tid="109.13">
                         The imaginary part of the result is <code><var>IMAG_FRACTION</var></code>, which is (rounded to 2 decimal places) <code><var>ANSWER_IMAG</var></code>.
                     </p>
                 </div>

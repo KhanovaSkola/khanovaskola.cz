@@ -2,7 +2,7 @@
 <html data-require="math graphie graphie-polygon interactive">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Inscribed angles 1</title>
+    <title data-tid="195.1">Inscribed angles 1</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -19,8 +19,8 @@
                 <var id="GIVEN_LABEL">"blue"</var>
                 <var id="ASKED_LABEL">"orange"</var>
             </div>
-            <p class="question">If the <var>GIVEN_LABEL</var> angle measures <var>GIVEN</var> degrees, what does the <var>ASKED_LABEL</var> angle measure?</p>
-            <p>This is a special case where the blue and orange angles' sides share the same line. The blue angle is called a central angle, and the orange angle is called an inscribed angle.</p>
+            <p class="question" data-tid="195.2">If the <var>GIVEN_LABEL</var> angle measures <var>GIVEN</var> degrees, what does the <var>ASKED_LABEL</var> angle measure?</p>
+            <p data-tid="195.3">This is a special case where the blue and orange angles' sides share the same line. The blue angle is called a central angle, and the orange angle is called an inscribed angle.</p>
             <div class="graphie" id="circle">
                 init({
                     range: [ [ -RADIUS - 1, RADIUS + 1 ], [ -RADIUS - 1, RADIUS + 1 ] ]
@@ -45,7 +45,7 @@
             </div>
             <div class="hints">
                 <div>
-                    <p>The green and blue angles are supplementary. Because the blue angle is <var>CENTRAL</var> degrees, the green angle must be <var>180 - CENTRAL</var> degrees.</p>
+                    <p data-tid="195.4">The green and blue angles are supplementary. Because the blue angle is <var>CENTRAL</var> degrees, the green angle must be <var>180 - CENTRAL</var> degrees.</p>
                     <div class="graphie" data-update="circle">
                         style({ stroke: GREEN }, function() {
                             graph.circle.drawCentralArc( START + CENTRAL, SUBTENDED_POINT );
@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div>
-                    <p>We know that the angles in a triangle sum to 180 degrees.</p>
+                    <p data-tid="195.5">We know that the angles in a triangle sum to 180 degrees.</p>
                     <div class="graphie" data-update="circle">
                         style({ stroke: PINK }, function() {
                             graph.circle.drawInscribedArc( START + CENTRAL, SUBTENDED_POINT, START + CENTRAL + 180 );
@@ -62,7 +62,7 @@
                     <p><code>\color{<var>GREEN</var>}{\text{green angle}} + \color{<var>PINK</var>}{\text{pink angle}} + \color{<var>ORANGE</var>}{\text{orange angle}} = 180^{\circ}</code></p>
                 </div>
                 <div>
-                    <p>The pink sides of the triangle are radii, so they must be equal.</p>
+                    <p data-tid="195.7">The pink sides of the triangle are radii, so they must be equal.</p>
                     <div class="graphie" data-update="circle">
                         style({ stroke: PINK }, function() {
                             graph.circle.drawRadius( START + CENTRAL );
@@ -70,7 +70,7 @@
                         });
                     </div>
                 </div>
-                <p>This means that the triangle is isosceles and that the base angles, or the pink and orange angles, are equal.</p>
+                <p data-tid="195.8">This means that the triangle is isosceles and that the base angles, or the pink and orange angles, are equal.</p>
                 <p><code>\color{<var>GREEN</var>}{\text{green angle}} + 2 \cdot \color{<var>ORANGE</var>}{\text{orange angle}} = 180^{\circ}</code></p>
                 <p><code>2 \cdot \color{<var>ORANGE</var>}{\text{orange angle}}  = 180^{\circ} - \color{<var>GREEN</var>}{<var>180 - CENTRAL</var>^{\circ}}</code></p>
                 <p><code>2 \cdot \color{<var>ORANGE</var>}{\text{orange angle}}  = \color{<var>BLUE</var>}{<var>CENTRAL</var>^{\circ}}</code></p>
@@ -90,7 +90,7 @@
 
             <div class="hints">
                 <div>
-                    <p>The pink sides of the triangle are radii, so they must be equal. This means the triangle is isosceles and that the base angles, or the pink and orange angles, are equal.</p>
+                    <p data-tid="195.14">The pink sides of the triangle are radii, so they must be equal. This means the triangle is isosceles and that the base angles, or the pink and orange angles, are equal.</p>
                     <div class="graphie" data-update="circle">
                         style({ stroke: PINK }, function() {
                             graph.circle.drawRadius( START + CENTRAL );
@@ -102,7 +102,7 @@
                     </div>
                 </div>
                 <div>
-                    <p>We know that the angles in a triangle sum to 180 degrees.</p>
+                    <p data-tid="195.15">We know that the angles in a triangle sum to 180 degrees.</p>
                     <div class="graphie" data-update="circle">
                         style({ stroke: GREEN }, function() {
                             graph.circle.drawCentralArc( START + CENTRAL, SUBTENDED_POINT );
@@ -110,7 +110,7 @@
                     </div>
                     <p><code>\color{<var>GREEN</var>}{\text{green angle}} + \color{<var>PINK</var>}{\text{pink angle}} + \color{<var>ORANGE</var>}{\text{orange angle}} = 180^{\circ}</code></p>
                 </div>
-                <p>The green and blue angles are supplementary.</p>
+                <p data-tid="195.17">The green and blue angles are supplementary.</p>
                 <p><code>\color{<var>GREEN</var>}{\text{green angle}} + \color{<var>BLUE</var>}{\text{blue angle}} = 180^{\circ}</code></p>
                 <p><code>\color{<var>BLUE</var>}{\text{blue angle}} = 180^{\circ} - \color{<var>GREEN</var>}{\text{green angle}} </code></p>
                 <p><code>\color{<var>BLUE</var>}{\text{blue angle}} = 180^{\circ} - \color{<var>GREEN</var>}{\text{<var>180 - CENTRAL</var>}^{\circ}} </code></p>

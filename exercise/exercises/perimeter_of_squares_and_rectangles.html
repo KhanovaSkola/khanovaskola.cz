@@ -2,7 +2,7 @@
 <html data-require="math graphie word-problems">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Perimeter of squares and rectangles</title>
+    <title data-tid="270.1">Perimeter of squares and rectangles</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -22,7 +22,7 @@
                 <var id="S">randRange(1, 8)</var>
             </div>
 
-            <p class="question">
+            <p class="question" data-tid="270.2">
                 One side of a square is <code><var>S</var></code>
                 <var>plural(UNIT_TEXT, S)</var> long. What is its perimeter?
             </p>
@@ -41,7 +41,7 @@
                     label([0, 2.5], S + "\\text{ " + UNIT + "}", "left",
                         { "color": PINK });
                 </div>
-                <p>
+                <p data-tid="270.3">
                     The perimeter is the total length of all the sides of the
                     shape added together.
                 </p>
@@ -56,7 +56,7 @@
                         path([[5, 0], [0, 0]],
                             { strokeWidth: 4, stroke: GREEN });
                     </div>
-                    <p>
+                    <p data-tid="270.4">
                         Add up the lengths of the sides:
                     </p>
                     <p><code>\qquad\text{perimeter} =
@@ -75,7 +75,7 @@
                 <var id="S">randRange(1, 8)</var>
             </div>
 
-            <p class="question">
+            <p class="question" data-tid="270.7">
                 The perimeter of a square is <code><var>4 * S</var></code>
                 <var>plural(UNIT_TEXT)</var>. How long is each side?
             </p>
@@ -107,7 +107,7 @@
                         path([[5, 0], [0, 0]],
                             { strokeWidth: 4, stroke: GREEN });
                     </div>
-                    <p>
+                    <p data-tid="270.8">
                         The perimeter is the total length of all the sides of
                         the shape added together.
                     </p>
@@ -121,7 +121,7 @@
                         \purple{<var>S</var>} + \green{<var>S</var>} =
                         <var>4 * S</var>\text{ <var>UNIT</var>}
                     </code></p>
-                    <p>
+                    <p data-tid="270.11">
                         The sides of a square are all the same length, so each
                         side must be <code><var>S</var></code>
                         <var>plural(UNIT_TEXT, S)</var> long.
@@ -136,7 +136,7 @@
                 <var id="W">randRange(1, 8)</var>
             </div>
 
-            <p class="question">
+            <p class="question" data-tid="270.12">
                 A rectangle is
                 <code><var>L</var></code> <var>plural(UNIT_TEXT, L)</var>
                 long and
@@ -158,7 +158,7 @@
                     label([L / 2, W], L + "\\text{ " + UNIT + "}", "above");
                     label([L, W / 2], W + "\\text{ " + UNIT + "}", "right");
                 </div>
-                <p>
+                <p data-tid="270.13">
                     The perimeter is the total length of all the sides of the
                     shape added together.
                 </p>
@@ -173,7 +173,7 @@
                         path([[L, 0], [0, 0]],
                             { strokeWidth: 4, stroke: GREEN });
                     </div>
-                    <p>
+                    <p data-tid="270.14">
                         Add up the lengths of the sides:
                     </p>
                     <p><code>\qquad\text{perimeter} =

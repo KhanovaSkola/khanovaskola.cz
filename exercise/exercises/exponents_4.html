@@ -2,13 +2,13 @@
 <html data-require="math math-format exponents">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Exponents 4</title>
+    <title data-tid="149.1">Exponents 4</title>
     <!-- Note: This exercise does not correspond to anything that is currently live. Instead, it covers material that Sal talks about in his Exponents 3 video, which is currently not tested. -->
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
     <div class="exercise">
-        <p class="summary">This exercise covers exponential arithmemtic with (mainly negative, when possible) rational bases and (mainly nonunit numerator) rational exponents. This exercise covers the last chunk of material from the Level 3 Exponents video.</p>
+        <p class="summary" data-tid="149.2">This exercise covers exponential arithmemtic with (mainly negative, when possible) rational bases and (mainly nonunit numerator) rational exponents. This exercise covers the last chunk of material from the Level 3 Exponents video.</p>
 
         <div class="problems">
             <div>
@@ -65,16 +65,16 @@
                     <p data-if="EXP_N > 1"><code>= \left(<var>fracParens( BASEF_N, BASEF_D )</var>^{<var>fracSmall( 1, EXP_D )</var>}\right)^{<var>EXP_N</var>}</code></p>
 
                     <!-- "To simplify (4/9)^(1/2), figure out whta goes in the blank: ?^2 = 4/9" -->
-                    <p>To simplify <code><var>fracParens( BASEF_N, BASEF_D )</var>^{<var>fracSmall( 1, EXP_D )</var>}</code>, figure out what goes in the blank:<br /> <code>\left(? \right)^{<var>abs( EXP_D )</var>}=<var>frac( BASEF_N, BASEF_D )</var></code></p>
+                    <p data-tid="149.7">To simplify <code><var>fracParens( BASEF_N, BASEF_D )</var>^{<var>fracSmall( 1, EXP_D )</var>}</code>, figure out what goes in the blank:<br /> <code>\left(? \right)^{<var>abs( EXP_D )</var>}=<var>frac( BASEF_N, BASEF_D )</var></code></p>
 
                     <!-- Replace the ? with 2/3 -->
-                    <p>To simplify <code><var>fracParens( BASEF_N, BASEF_D )</var>^{<var>fracSmall( 1, EXP_D )</var>}</code>, figure out what goes in the blank:<br /> <code>\left(\color{blue}{<var>frac( ROOT_N, ROOT_D )</var>}\right)^{<var>abs( EXP_D )</var>}=<var>frac( BASEF_N, BASEF_D )</var></code></p>
+                    <p data-tid="149.8">To simplify <code><var>fracParens( BASEF_N, BASEF_D )</var>^{<var>fracSmall( 1, EXP_D )</var>}</code>, figure out what goes in the blank:<br /> <code>\left(\color{blue}{<var>frac( ROOT_N, ROOT_D )</var>}\right)^{<var>abs( EXP_D )</var>}=<var>frac( BASEF_N, BASEF_D )</var></code></p>
 
                     <!-- "So (4/9)^(1/2)." -->
-                    <p>so <code>\quad<var>fracParens( BASEF_N, BASEF_D )</var>^{<var>fracSmall( 1, EXP_D )</var>}=<var>frac( ROOT_N, ROOT_D )</var></code></p>
+                    <p data-tid="149.9">so <code>\quad<var>fracParens( BASEF_N, BASEF_D )</var>^{<var>fracSmall( 1, EXP_D )</var>}=<var>frac( ROOT_N, ROOT_D )</var></code></p>
 
                     <!-- "So (4/9)^(3/2)=((4/9)^(1/2))^3=(2/3)^3" -->
-                    <p data-if="EXP_N > 1">So <code><var>fracParens( BASEF_N, BASEF_D )</var>^{<var>fracSmall( EXP_N, EXP_D )</var>}=\left(<var>fracParens( BASEF_N, BASEF_D )</var>^{<var>fracSmall( 1, EXP_D )</var>}\right)^{<var>EXP_N</var>}=<var>fracParens( ROOT_N, ROOT_D )</var>^{<var>EXP_N</var>}</code></p>
+                    <p data-if="EXP_N > 1" data-tid="149.10">So <code><var>fracParens( BASEF_N, BASEF_D )</var>^{<var>fracSmall( EXP_N, EXP_D )</var>}=\left(<var>fracParens( BASEF_N, BASEF_D )</var>^{<var>fracSmall( 1, EXP_D )</var>}\right)^{<var>EXP_N</var>}=<var>fracParens( ROOT_N, ROOT_D )</var>^{<var>EXP_N</var>}</code></p>
 
                     <p data-if="EXP_N > 1 && reduces( ROOT_N, ROOT_D )"><code>= <var>fraction( ROOT_N, ROOT_D, true, true, false, true )</var>^{<var>EXP_N</var>}</code></p>
 

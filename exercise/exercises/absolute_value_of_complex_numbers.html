@@ -2,7 +2,7 @@
 <html data-require="math graphie math-format">
 <head>
     <meta charset="UTF-8" />
-    <title>Absolute value of complex numbers</title>
+    <title data-tid="3.1">Absolute value of complex numbers</title>
     <script src="../khan-exercise.js"></script>
 </head>
 <body>
@@ -16,7 +16,7 @@
 
     <div class="problems">
         <div>
-            <p class="question">
+            <p class="question" data-tid="3.2">
                 Determine the absolute value of the following complex number:
             </p>
             <p>
@@ -26,7 +26,7 @@
                 <var>ABS_SQUARE</var>
             </div>
             <div class="hints">
-                <p>
+                <p data-tid="3.4">
                     The absolute value of any number is its distance from zero.
                     As complex numbers can be visualized as points on the complex plane, absolute values
                     of complex numbers can be determined using the distance formula.
@@ -50,7 +50,7 @@
                             labelDistance: 10
                         } );
                     </div>
-                    <p>
+                    <p data-tid="3.5">
                         <code><var>REPRESENTATION</var></code> is plotted as a <strong class="hint_blue">blue</strong> circle above.
                     </p>
                 </div>
@@ -60,7 +60,7 @@
                             stroke: KhanUtil.ORANGE
                         });
                     </div>
-                    <p>
+                    <p data-tid="3.6">
                         The absolute value we need is the length of the <strong class="hint_orange">orange</strong> line segment.
                     </p>
                 </div>
@@ -70,13 +70,13 @@
                             stroke: KhanUtil.BLUE
                         });
                     </div>
-                    <p>
+                    <p data-tid="3.7">
                         The <strong class="hint_orange">orange</strong> line segment is the hypotenuse of a right triangle.
                         Its two legs (shown in <strong class="hint_blue">blue</strong>) have lengths <code><var>abs( REAL )</var></code> and <code><var>abs( IMAG )</var></code>, which corresponds
                         to the absolute values of the real and imaginary parts of the complex number <code><var>REPRESENTATION</var></code>.
                     </p>
                 </div>
-                <p>
+                <p data-tid="3.8">
                     Substituting into the Pythagorean theorem:<br />
                     <code>\qquad |<var>REPRESENTATION</var>|^2 = <var>abs( REAL )</var>^2 + <var>abs( IMAG )</var>^2</code>, so <br />
                     <code>\qquad |<var>REPRESENTATION</var>| = \sqrt{<var>abs( REAL )</var>^2 + <var>abs( IMAG )</var>^2}</code>.
@@ -84,10 +84,10 @@
                 <p>
                     <code>\qquad \sqrt{<var>abs(REAL)</var>^2 + <var>abs(IMAG)</var>^2} = \sqrt{<var>REAL * REAL</var> + <var>IMAG * IMAG</var>} = \sqrt{<var>ABS_SQUARE</var>}</code>
                 </p>
-                <p data-if="squareRootCanSimplify( ABS_SQUARE )">
+                <p data-if="squareRootCanSimplify( ABS_SQUARE )" data-tid="3.10">
                     Simplifying the radical gives <code><var>formattedSquareRootOf( ABS_SQUARE )</var></code>. That is the absolute value of <code><var>REPRESENTATION</var></code>.
                 </p>
-                <p data-else>
+                <p data-else data-tid="3.11">
                     The radical cannot be simplified. The absolute value of <code><var>REPRESENTATION</var></code> is <code>\sqrt{<var>ABS_SQUARE</var>}</code>.
                 </p>
             </div>

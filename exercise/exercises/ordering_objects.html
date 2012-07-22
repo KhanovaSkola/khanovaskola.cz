@@ -2,7 +2,7 @@
 <html data-require="math graphie word-problems interactive">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Ordering objects</title>
+    <title data-tid="261.1">Ordering objects</title>
     <script src="../khan-exercise.js"></script>
     <style>
         .sortable {
@@ -30,7 +30,7 @@
         <var id="SORTER">createSorter()</var>
     </div>
 
-    <p class="question"></p>
+    <p class="question" data-tid="261.2"></p>
 
     <div class="problem">
         <div class="graphie">
@@ -72,7 +72,7 @@
                 })</var>
             </div>
 
-            <p class="question">
+            <p class="question" data-tid="261.3">
                 Order the <var>plural(SHAPE)</var> from smallest to largest:
             </p>
 
@@ -96,7 +96,7 @@
                             $("#unique-" + i).data("graphie").label([0, 0], "ABCD"[i]);
                         });
                     </div>
-                    <p>
+                    <p data-tid="261.4">
                         The
                         <span data-if="I === 0">smallest</span>
                         <span data-else-if="I === SIZES.length - 1">largest</span>
@@ -128,7 +128,7 @@
                 })</var>
             </div>
 
-            <p class="question">
+            <p class="question" data-tid="261.5">
                 Order the <var>plural(SHAPE)</var> from largest to smallest:
             </p>
 
@@ -152,7 +152,7 @@
                             $("#unique-" + i).data("graphie").label([0, 0], "ABCD"[i]);
                         });
                     </div>
-                    <p>
+                    <p data-tid="261.6">
                         The
                         <span data-if="I === 0">largest</span>
                         <span data-else-if="I === SIZES.length - 1">smallest</span>
