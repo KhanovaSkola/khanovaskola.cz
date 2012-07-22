@@ -10,7 +10,12 @@
       </a>
     </div>
     <div class="topic-info">
-      <div class='topic-title'>{$category->label}</div>
+      <div class='topic-title'>
+		{$category->label}
+		{if $user->isInRole('moderator')}
+		  <a n:href="edit">[upravit]</a>
+		{/if}
+	  </div>
       <div class='topic-desc'>{$category->description}</div>
     </div>
   </div>
@@ -22,7 +27,9 @@
 			  <a class="subtopic-link-and-scroll" data-tag="Topic Page Root Subtopic" n:href=":Front:Browse:, id => $subcat->id" data-id="">
 				<div class="thumb" style="background-image:url('http://img.youtube.com/vi/kpCJyQ2usJ4/hqdefault.jpg')"></div>
 				<div class="topic-info">
-				  <div class="topic-title">{$subcat->label}</div>
+				  <div class="topic-title">
+					{$subcat->label}
+				  </div>
 				  <div class="topic-description">{$subcat->description}</div>
 				  <div class="topic-video-count">Prohlédnout {$subcat->getVideos()->count()} videí</div>
 				</div>  

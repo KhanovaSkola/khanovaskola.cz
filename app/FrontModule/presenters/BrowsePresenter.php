@@ -2,7 +2,7 @@
 
 namespace FrontModule;
 
-
+use Nette\Application\UI\Form;
 
 class BrowsePresenter extends BaseFrontPresenter
 {
@@ -41,6 +41,44 @@ class BrowsePresenter extends BaseFrontPresenter
 		} else { // isSubcategory
 			$this->template->category = $this->category;
 		}
+	}
+	
+	
+	
+	public function renderEdit()
+	{
+		$this->template->category = $this->category;
+		
+		$this['editForm']['label']->setValue($this->category->label);
+		$this['editForm']['description']->setValue($this->category->description);
+	}
+	
+	
+	
+	public function createComponentEditForm($name)
+	{
+		$form = new Form($this, $name);
+	
+		$form->addText('label', 'Název');
+		$form->addTextArea('description', 'Popis');
+		
+		$form->addSubmit('send');
+		$form->onSuccess[] = callback($this, 'onSuccessEditForm');
+		
+		return $form;
+	}
+	
+	
+	
+	public function onSuccessEditForm(Form $form)
+	{
+		$v = $form->values;
+		$c = $this->category;
+		$c->label = $v->label;
+		$c->description = $v->description;
+		$c->update();
+		
+		$this->redirect(':Front:Browse:');
 	}
 
 }

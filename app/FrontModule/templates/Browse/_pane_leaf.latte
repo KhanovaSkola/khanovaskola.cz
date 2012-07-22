@@ -10,7 +10,12 @@
       </a>
     </div>
     <div class="topic-info">
-      <div class='topic-title'>{$leaf->label}</div>
+      <div class='topic-title'>
+		{$leaf->label}
+		{if $user->isInRole('moderator')}
+		  <a n:href="edit">[upravit]</a>
+		{/if}
+	  </div>
       <div class='topic-desc'>{$leaf->description}</div>
     </div>
   </div>
@@ -20,7 +25,7 @@
 	  <ol class="first" n:inner-foreach="$leaf->getVideos() as $video">
 		  {#video_link}
 			  <li class="video-link">
-				  <a n:href=":Front:Watch:, id => $video->id" data-tag="Topic Page Subtopic Library">
+				  <a n:href=":Front:Watch:, vid => $video->id" data-tag="Topic Page Subtopic Library">
 					  <span class="indent"><span>{$video->label}</span></span>
 				  </a>
 			  </li>

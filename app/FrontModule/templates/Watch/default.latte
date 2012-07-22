@@ -13,71 +13,38 @@
     <div data-role="content" itemscope itemtype="http://schema.org/VideoObject">
         <div style="min-height: 88px">
           <div id="description" class="video-description">
-            
-<link itemprop="url" href="math/arithmetic/addition-subtraction/v/basic-addition">
-
-
-<a href="/exercise/addition_1" class="practice simple-button green desktop-only" title="Test your understanding with an exercise">Procvičit toto téma</a>
-
-
-<h1 class="title-header">
-    
-    <span itemprop="name" class="title desktop-only">{$video->label}</span><span class="long-description"><span class="desktop-only">: </span><span itemprop="description">{$video->description}</span></span>
-</h1>
-
-
-
-
+			<link itemprop="url" href="math/arithmetic/addition-subtraction/v/basic-addition">
+			<a href="/exercise/addition_1" class="practice simple-button green desktop-only" title="Test your understanding with an exercise">Procvičit toto téma</a>
+			<h1 class="title-header">
+				<span itemprop="name" class="title desktop-only">{$video->label}</span><span class="long-description"><span class="desktop-only">: </span><span itemprop="description">{$video->description}</span></span>
+			</h1>
           </div>
           <div class="video-header" style="min-height: 1px">
             <nav class="prev_next_nav desktop-only">
-    
-      
-    
-    
-    <label id="next_video">
-      <a rel=next class="next-video" href="/math/arithmetic/addition-subtraction/v/addition-2"><b>Další video:</b>  <span class='vid-progress v23800'>DOPLNIT</span> </a>
-    </label>
-    
-    <div class="clear"></div>
-</nav>
-
+				<label id="next_video">
+					<a rel=next class="next-video" href="/math/arithmetic/addition-subtraction/v/addition-2"><b>Další video:</b>  <span class='vid-progress v23800'>DOPLNIT</span> </a>
+				</label>
+				<div class="clear"></div>
+			</nav>
           </div>
         </div>
-
         <div class="video-container">
             <div class="video-overlay desktop-only large-font"></div>
             <div id="youtube_blocked" class="desktop-only"></div>
             <div class="youtube-video">
                 <link itemprop="thumbnailUrl" href="http://img.youtube.com/vi/AuX7nPBqDts/hqdefault.jpg">
-                    
-
-
-
-
 
 <iframe id="iframePlayer"
     type="text/html"
     width="800"
     height="480"
-    data-youtubeid="AuX7nPBqDts"
-    src="http://www.youtube.com/embed/AuX7nPBqDts?enablejsapi=1&wmode=transparent&modestbranding=1&rel=0&origin=http://www.khanacademy.org&fs=1"
+    data-youtubeid="{$video->youtube_id}"
+    src="http://www.youtube.com/embed/{$video->youtube_id}?enablejsapi=1&wmode=transparent&modestbranding=1&rel=0&origin=http://www.khanovaskola.cz&fs=1"
     frameborder="0"
     
     allowfullscreen
     webkitallowfullscreen
-    mozallowfullscreen
-    
-></iframe>
-
-<script>
-    var tag = document.createElement('script');
-    tag.src = "http://www.youtube.com/player_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-    $(function() { VideoStats.startLoggingProgress(null, "AuX7nPBqDts"); });
-</script>
+    mozallowfullscreen></iframe>
                 <div class="socrates-nav"></div>
                 <div class="subtitles-warning desktop-only">
                     &lArr; Use this menu to view and help create subtitles for this video in many different languages.
@@ -86,193 +53,13 @@
             </div>
         </div>
         <div>
-            
-{*
             <span class="video-footer">
-<span class="extra-link-bar desktop-only">
-    <span class="options dropdown">
-        <span class="dropdown-toggle">
-            <i class="icon-cog icon-large"></i>
-            Options
-            <i class="icon-caret-down"></i>
-        </span>
-        <ul class="dropdown-menu no-submenus">
-            <li>
-                <label >
-                    <input type="checkbox" class="transcript-enable" >
-                    Interactive transcript
-                </label>
-            </li>
-            <li>
-                <label>
-                    <input type="checkbox" class="subtitles-enable">
-                    Translated subtitles
-                </label>
-            </li>
-            <li style="display: none">
-                <label>
-                    <input type="checkbox" class="socrates-enable" >
-                    Embedded questions
-                </label>
-            </li>
-            <li>
-                <a  href="http://s3.amazonaws.com/KA-youtube-converted/AuX7nPBqDts.mp4/AuX7nPBqDts.mp4"
-                    title="Download this video"
-                    class="download-icon download-link">
-                        <i class="icon-download-alt icon-large"></i>
-                        Download this video
-                </a>
-            </li>
-            <!--
-            <li>
-                <a  href="javascript:void 0"
-                    title="Continuous Play is OFF"
-                    class="simple-button continuous-play">
-                        Continuous Play is OFF
-                </a>
-            </li>
-            -->
-        </ul>
-    </span>
-
-    <span class="share dropdown">
-        <span class="dropdown-toggle">
-            <i class="icon-share icon-large"></i>
-            Share
-            <i class="icon-caret-down"></i>
-        </span>
-        <ul class="dropdown-menu no-submenus">
-            <li>
-            <a  href="javascript:void 0"
-                class="facebookShare"
-                onclick="_gaq.push(['_trackEvent', 'Click', 'Video-Page-Share-Facebook']);Social.facebookVideo('Basic Addition','Introduction to addition. Multiple visual ways to represent addition.','/video?v=AuX7nPBqDts');">
-                <i class="icon-facebook icon-large"></i>
-                Share
-            </a>
-            </li>
-            <li>
-            <a  href="http://twitter.com/share?url=http%3A%2F%2Fwww.khanacademy.org%2Fvideo%3Fv%3DAuX7nPBqDts&amp;text=Introduction+to+addition.+Multiple+visual+ways+to+represent+addition.&amp;related=khanacademy%3AMaking%20a%20world-class%20education%20available%20to%20anyone%2C%20anywhere.&amp;via=khanacademy"
-                class="twitterShare"
-                onclick="_gaq.push(['_trackEvent', 'Click', 'Video-Page-Share-Twitter']);">
-                <i class="icon-twitter icon-large"></i>
-                Tweet
-            </a>
-            </li>
-            <li>
-            <a  class="emailShare"
-                href="mailto:?Subject=I+just+learnt+about+Basic+Addition+at+Khan+Academy&amp;Body=You+can+learn+about+it+too.+Check+out+http%3A%2F%2Fwww.khanacademy.org%2Fv%2FAuX7nPBqDts"
-                onclick="_gaq.push(['_trackEvent', 'Click', 'Video-Page-Share-Email']);">
-                <i class="icon-envelope icon-large"></i>
-                Email
-            </a>
-            </li>
-        </ul>
-    </span>
-
-    <span id="points-badge-hover">
-        <div class="video-energy-points" title="You're earning points for watching this video. Sign in to keep them"><span class="video-energy-points-current">0</span> of 750</div>
-    </span>
- </span>
-    <div class="video_comments requires_script">
-        <a name="comments"></a>
-        <strong>Comments:</strong>
-
-        <div class="comments_container"><em>Loading...</em> <img class="icon" src="http://khan-academy.appspot.com/images/throbber.gif"/></div>
-
-        
-        <a href="/login?continue=%2Fvideo%3Fv%3DAuX7nPBqDts" class="control">
-            <img class="icon" src="http://khan-academy.appspot.com/images/balloon-plus.png" />
-            Log in to add a comment
-        </a>
-        
-
-        <span class="comments_show_more">
-            <a href="javascript:void(0);" class="comment_show control uses_script">
-                <img class="icon" src="http://khan-academy.appspot.com/images/balloons.png" />
-                Show more
-            </a>
-        </span>
-
-        <div class="comment_form" style="display:none;">
-            <form class="comments" name="comments">
-                <input type="hidden" id="video_key" name="video_key" value="ag5zfmtoYW4tYWNhZGVteXINCxIFVmlkZW8Y9rkBDA" />
-                <textarea name="comment_text" class="comment_text" rows="3" cols="40">
-                </textarea>
-                <br/>
-                <div class="comment_controls_container"
-        
-    >
-        <div class="comment_add_controls feedback_add_controls">
-            <div class="controls">
-                
-
-                <input class="simple-button comment_submit"
-                       type="button"
-                       value="Comment" />
-
-                or <a href="#" class="comment_cancel control">Cancel</a>
-            </div>
-
-            
-                <div class="chars_remaining">
-                    <span class="chars_remaining_count">500</span> characters left
-                </div>
-            
-            <div class="clearFloat">&nbsp;</div>
-
-        </div>
-    </div>
-            </form>
-        </div>
-
-    </div>
- *}
-{*
-    <div class="video_questions requires_script">
-        <a name="qa"></a>
-        <nav class="css-menu" style="float:right;">
-            <ul data-role="listview" data-inset="true">
-                <li style="color:black;">
-                    
-                        Most votes first
-                    
-                    <ul>
-                        <li><a href="/discussion/updateqasort?sort=1&readable_id=basic-addition&topic_title=Addition+and+subtraction#qa">Most votes first</a></li>
-                        <li><a href="/discussion/updateqasort?sort=2&readable_id=basic-addition&topic_title=Addition+and+subtraction#qa">Newest questions first</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-
-        <strong>Questions and answers about basic addition:</strong>
-        <div class="questions_container"><em>Loading...</em> <img class="icon" src="http://khan-academy.appspot.com/images/throbber.gif"/></div>
-
-        <!-- HACK(marcia): Clean up the below id and keys -->
-        <input type="hidden" id="readable_id" value="basic-addition">
-        <input type="hidden" id="video_key" class="video_key_primary" name="video_key" value="ag5zfmtoYW4tYWNhZGVteXINCxIFVmlkZW8Y9rkBDA" />
-        <input type="hidden" id="topic_key" name="topic_key" value="ag5zfmtoYW4tYWNhZGVteXJmCxIFVG9waWMiKHVPM1E3ZFZPLVp2RWN4bG9VMXprYTd3NGZmc1VvZFdYOEFUQ1hzMkYMCxIFVG9waWMiKEtIRHlTUUJjbzRaNUNoSTFVNFVweUhVOTU0WUo4UWFoQ0ZjRHNJbUEM" />
-        <input type="hidden" id="sort" value="1" />
-        <input type="hidden" id="qa_page" value="0" />
-        <input type="hidden" id="qa_expand_key" value="" />
-
-        <div class="info_note note" style="display:none;">
-            <span class="note_desc"></span>
-            <a href="#" class="close_note">Close</a>
-        </div>
-
-        
-            <div class="login_note note" style="display:none;">
-                <a class="login_link" href="/login?continue=%2Fvideo%3Fv%3DAuX7nPBqDts">
-                    Log in first
-                </a>
-                <span class="note_desc"></span>
-                <a href="#" class="close_note">Close</a>
-            </div>
-        
-
-    </div>
-*}
-    <br/>
+				<span class="extra-link-bar desktop-only">
+					{if $user->isInRole('moderator')}
+						<a n:href="edit">[upravit]</a>
+					{/if}
+	
+				</span>
             </span>
         </div>
     </div>
