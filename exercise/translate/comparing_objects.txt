@@ -1,0 +1,36 @@
+63.1 	 Comparing objects
+
+63.2 	 Which <var>SHAPE</var> is the <var>QUESTION</var>?
+
+63.3 	 <var>capitalize(SHAPE)</var> <code><var>SOLUTION</var></code>
+
+63.4 	 Bigger things take up more space.
+
+63.5 	 Which <var>SHAPE</var> takes up the most space?
+
+63.6 	 Which takes up more space? <var>capitalize(SHAPE)</var> <code><var>"ABCD"[COMP.first]</var></code>
+                        or <var>SHAPE</var> <code><var>"ABCD"[COMP.second]</var></code>?
+
+63.7 	 We can move
+                            <var>SHAPE</var> <code><var>"ABCD"[COMP.smaller]</var></code> inside
+                            <var>SHAPE</var> <code><var>"ABCD"[COMP.larger]</var></code>, so
+                            <var>SHAPE</var> <code><var>"ABCD"[COMP.larger]</var></code> is bigger than
+                            <var>SHAPE</var> <code><var>"ABCD"[COMP.smaller]</var></code>.
+
+63.8 	 <var>capitalize(SHAPE)</var> <code><var>SOLUTION</var></code> is the biggest.
+
+63.9 	 Smaller things take up less space.
+
+63.10 	 Which <var>SHAPE</var> takes up the least space?
+
+63.11 	 Which takes up less space? <var>capitalize(SHAPE)</var> <code><var>"ABCD"[COMP.first]</var></code>
+                        or <var>SHAPE</var> <code><var>"ABCD"[COMP.second]</var></code>?
+
+63.12 	 We can move
+                            <var>SHAPE</var> <code><var>"ABCD"[COMP.smaller]</var></code> inside
+                            <var>SHAPE</var> <code><var>"ABCD"[COMP.larger]</var></code>, so
+                            <var>SHAPE</var> <code><var>"ABCD"[COMP.smaller]</var></code> is smaller than
+                            <var>SHAPE</var> <code><var>"ABCD"[COMP.larger]</var></code>.
+
+63.13 	 <var>capitalize(SHAPE)</var> <code><var>SOLUTION</var></code> is the smallest.
+

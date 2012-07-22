@@ -1,0 +1,10 @@
+280.1 	 Prime numbers
+
+280.2 	 Which of these numbers is prime?
+
+280.5 	 A prime number has exactly two factors: 1 and itself.
+
+280.6 	 The factors of <var>CHOICE</var> are <var>toSentence( getFactors( CHOICE ) )</var>.
+
+280.7 	 Thus, <var>PRIME</var> is a prime number.
+

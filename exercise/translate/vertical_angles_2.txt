@@ -1,0 +1,26 @@
+389.1 	 Vertical angles 2
+
+389.2 	 Solve for <code>x</code>:
+
+389.3 	 <code>x=</code>  <span class="sol" data-type="rational"><var>SOLUTION</var></span>
+
+389.4 	 We learned in Vertical angles 1 that vertical angles are equal. <a class="related-video" href="/video/proof-vertical-angles-are-equal" data-youtube-id="wRBMmiNHQaE">Watch this video</a> to understand why.
+
+389.5 	 Set the angle measures equal to one another.
+
+389.7 	 Subtract <code>\color{<var>PINK</var>}{<var>C</var>x}</code> from both sides.
+
+389.10 	 <var>B > 0 ? "Subtract" : "Add"</var> <code>\color{<var>PINK</var>}{<var>abs(B)</var>}</code> <var>B > 0 ? "from" : "to"</var> both sides.
+
+389.13 	 Divide both sides by <code>\color{<var>PINK</var>}{<var>A - C</var>}</code>.
+
+389.15 	 Simplify.
+
+389.17 	 Subtract <code>\color{<var>PINK</var>}{<var>A</var>x}</code> from both sides.
+
+389.20 	 <var>D > 0 ? "Subtract" : "Add"</var> <code>\color{<var>PINK</var>}{<var>abs(D)</var>}</code> <var>D > 0 ? "from" : "to"</var> both sides.
+
+389.23 	 Divide both sides by <code>\color{<var>PINK</var>}{<var>C - A</var>}</code>.
+
+389.25 	 Simplify.
+

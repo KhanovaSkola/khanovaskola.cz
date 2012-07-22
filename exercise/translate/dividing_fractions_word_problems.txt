@@ -1,0 +1,130 @@
+116.1 	 Dividing fractions word problems
+
+116.2 	 <span class="spin">
+                        {Many|All|Several} of <var>person(1)</var>'s friends wanted to try the candy bars
+                        <var>he(1)</var> brought back from <var>his(1)</var> trip, but there were only <var>PIECES</var> candy bars.
+                    </span>
+                    <var>person(1)</var> decided to cut the candy bars into pieces so that each person could have
+                    <code>\frac{<var>N</var>}{<var>D</var>}</code> of a candy bar.
+
+116.3 	 After cutting up the candy bars, how many friends could <var>person(1)</var> share <var>his(1)</var> candy with?
+
+116.4 	 We can divide the number of candy bars (<code><var>PIECES</var></code>) by the amount <var>person(1)</var> gave to each person
+                        (<code>\frac{<var>N</var>}{<var>D</var>}</code> of a bar) to find out how many people <var>he(1)</var> could share with.
+
+116.6 	 Dividing by a fraction is the same as multiplying by the reciprocal.
+
+116.7 	 The reciprocal of <code class="hint_blue">\dfrac{<var>N</var>}{<var>D</var>} \text{ bar per person}</code>
+                        is <code class="hint_green">\dfrac{<var>D</var>}{<var>N</var>} \text{ people per bar}</code>.
+
+116.10 	 <span class="spin">
+                        <var>person(1)</var> just found beautiful yarn {for <var>randFromArray([5,20])</var> percent off }at
+                        <var>his(1)</var> favorite yarn store.
+                    </span>
+                    <var>He(1)</var> can make 1 scarf from <code>\frac{<var>N</var>}{<var>D</var>}</code> of a ball of yarn.
+
+116.11 	 If <var>person(1)</var> buys <var>YARN</var> balls of yarn, how many scarves can <var>he(1)</var> make?
+
+116.12 	 We can divide the balls of yarn (<var>YARN</var>) by the yarn needed per scarf (<code>\frac{<var>N</var>}{<var>D</var>}</code> of
+                        a ball) to find out how many scarves <var>person(1)</var> can make.
+
+116.14 	 Dividing by a fraction is the same as multiplying by the reciprocal.
+
+116.15 	 The reciprocal of <code class="hint_blue">\dfrac{<var>N</var>}{<var>D</var>} \text{ ball per scarf}</code>
+                        is <code class="hint_green">\dfrac{<var>D</var>}{<var>N</var>} \text{ scarves per ball}</code>.
+
+116.18 	 <strong><var>person(1)</var> can make <var>SOLUTION</var> scarves.</strong>
+
+116.19 	 <var>person(1)</var> decided to paint some of the rooms at <var>his(1)</var> <var>ROOM</var>-room inn,
+                    <var>person(1)</var>'s Place. <var>He(1)</var> discovered <var>he(1)</var> needed <code>\frac{<var>N</var>}{<var>D</var>}</code>
+                    of a can of paint per room.
+
+116.20 	 If <var>person(1)</var> had <var>PAINT</var> cans of paint, how many rooms could <var>he(1)</var> paint?
+
+116.21 	 We can divide the cans of paint (<var>PAINT</var>) by the paint needed per room (<code>\frac{<var>N</var>}{<var>D</var>}</code> of
+                        a can) to find out how many rooms <var>person(1)</var> could paint.
+
+116.23 	 Dividing by a fraction is the same as multiplying by the reciprocal.
+
+116.24 	 The reciprocal of <code class="hint_blue">\dfrac{<var>N</var>}{<var>D</var>} \text{ can per room}</code>
+                        is <code class="hint_green">\dfrac{<var>D</var>}{<var>N</var>} \text{ rooms per can}</code>.
+
+116.27 	 <strong><var>person(1)</var> could paint <var>SOLUTION</var> rooms.</strong>
+
+116.28 	 As the swim coach at <var>school(1)</var>, <var>person(1)</var> selects which athletes will participate in the state-wide swim relay.
+
+116.29 	 The relay team swims <code>\frac{<var>A</var>}{<var>B</var>}</code> of a mile in total, with each team
+                        member responsible for swimming <code>\frac{<var>N</var>}{<var>D</var>}</code> of a mile.
+                        The team must complete the swim in <code>\frac{3}{<var>randRange(4,5)</var>}</code> of an hour.
+
+116.30 	 How many swimmers does <var>person(1)</var> need on the relay team?
+
+116.31 	 To find out how many swimmers <var>person(1)</var> needs on the team, divide the total distance
+                        (<code>\frac{<var>A</var>}{<var>B</var>}</code> of a mile) by the distance each team member will swim
+                        (<code>\frac{<var>N</var>}{<var>D</var>}</code> of a mile).
+
+116.33 	 Dividing by a fraction is the same as multiplying by the reciprocal.
+
+116.34 	 The reciprocal of <code class="hint_blue">\dfrac{<var>N</var>}{<var>D</var>} \text{ mile per swimmer}</code>
+                        is <code class="hint_green">\dfrac{<var>D</var>}{<var>N</var>} \text{ swimmers per mile}</code>.
+
+116.37 	 Reduce terms with common factors by dividing the <code><var>A</var></code> in the numerator
+                            and the <code><var>N</var></code> in the denominator by <code><var>GCD1</var></code>:
+
+116.39 	 Reduce terms with common factors by dividing the <code><var>D</var></code> in the numerator
+                            and the <code><var>B</var></code> in the denominator by <code><var>GCD2</var></code>:
+
+116.41 	 Simplify:
+
+116.43 	 <strong><var>person(1)</var> needs <var>SOLUTION</var> swimmers on <var>his(1)</var> team.</strong>
+
+116.44 	 <var>person(1)</var> thought it would be nice to include <code>\frac{<var>N</var>}{<var>D</var>}</code> of a pound of chocolate in each
+                    of the holiday gift bags <var>he(1)</var> made for <var>his(1)</var> friends and family.
+
+116.45 	 How many holiday gift bags could <var>person(1)</var> make with <code>\frac{<var>A</var>}{<var>B</var>}</code> of a pound of chocolate?
+
+116.46 	 To find out how many gift bags <var>person(1)</var> could create, divide the total chocolate
+                        (<code>\frac{<var>A</var>}{<var>B</var>}</code> of a pound) by the amount <var>he(1)</var> wanted to include in each gift bag
+                        (<code>\frac{<var>N</var>}{<var>D</var>}</code> of a pound).
+
+116.48 	 Dividing by a fraction is the same as multiplying by the reciprocal.
+
+116.49 	 The reciprocal of <code class="hint_blue">\dfrac{<var>N</var>}{<var>D</var>} \text{ pound per bag}</code>
+                        is <code class="hint_green">\dfrac{<var>D</var>}{<var>N</var>} \text{ bags per pound}</code>.
+
+116.52 	 Reduce terms with common factors by dividing the <code><var>A</var></code> in the numerator
+                            and the <code><var>N</var></code> in the denominator by <code><var>GCD1</var></code>:
+
+116.54 	 Reduce terms with common factors by dividing the <code><var>D</var></code> in the numerator
+                            and the <code><var>B</var></code> in the denominator by <code><var>GCD2</var></code>:
+
+116.56 	 Simplify:
+
+116.58 	 <strong><var>person(1)</var> could create <var>SOLUTION</var> gift bags.</strong>
+
+116.59 	 <var>person(1)</var> works out for <code>\frac{<var>A</var>}{<var>B</var>}</code> of an hour every day. To keep <var>his(1)</var>
+                    exercise routines interesting, <var>he(1)</var> includes different types of exercises, such as
+                    <var>plural(exercise(1))</var> and <var>plural(exercise(2))</var>, in each workout.
+
+116.60 	 If each type of exercise takes <code>\frac{<var>N</var>}{<var>D</var>}</code> of an hour, how many different types of
+                    exercise can <var>person(1)</var> do in each workout?
+
+116.61 	 To find out how many types of exercise <var>person(1)</var> could do in each workout, divide
+                        the total amount of exercise time (<code>\frac{<var>A</var>}{<var>B</var>}</code> of an hour) by the amount of
+                        time each exercise type takes (<code>\frac{<var>N</var>}{<var>D</var>}</code> of an hour).
+
+116.63 	 Dividing by a fraction is the same as multiplying by the reciprocal.
+
+116.64 	 The reciprocal of <code class="hint_blue">\dfrac{<var>N</var>}{<var>D</var>} \text{ hour per exercise}</code>
+                        is <code class="hint_green">\dfrac{<var>D</var>}{<var>N</var>} \text{ exercises per hour}</code>.
+
+116.67 	 Reduce terms with common factors by dividing the <code><var>A</var></code> in the numerator
+                            and the <code><var>N</var></code> in the denominator by <code><var>GCD1</var></code>:
+
+116.69 	 Reduce terms with common factors by dividing the <code><var>D</var></code> in the numerator
+                            and the <code><var>B</var></code> in the denominator by <code><var>GCD2</var></code>:
+
+116.71 	 Simplify:
+
+116.73 	 <strong><var>person(1)</var> can do <var>SOLUTION</var> different types of exercise per workout.</strong>
+

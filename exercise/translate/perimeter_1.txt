@@ -1,0 +1,44 @@
+269.1 	 Perimeter 1
+
+269.2 	 What is the perimeter of the square?
+
+269.3 	 The perimeter is the total length of all the sides of the shape added together.
+
+269.4 	 Add up the lengths of the sides:
+
+269.7 	 What is the perimeter of the rectangle?
+
+269.8 	 The perimeter is the total length of all the sides of the shape added together.
+
+269.9 	 Add up the lengths of the sides:
+
+269.12 	 What is the perimeter of the triangle?
+
+269.13 	 The perimeter is the total length of all the sides of the shape added together.
+
+269.14 	 Add up the lengths of the sides:
+
+269.17 	 What is the perimeter of the regular <var>POLYGON</var>?
+
+269.18 	 The perimeter is the total length of all the sides of the shape added together.
+
+269.19 	 All of the sides of a
+                        <a href="#" class="show-definition" data-definition="regular-polygon">regular</a>
+                        <var>POLYGON</var> are the same length.
+
+269.20 	 Since there are <span class="hint_blue"><code><var>SIDES</var></code> sides</span>
+                        that are all <span class="hint_green"><code><var>S</var></code>
+                        <var>plural(UNIT_TEXT)</var></span> long, we can multiply:
+
+269.23 	 What is the perimeter of the shape? Each square in the grid is
+                a <code>1 \times 1</code> <var>UNIT_TEXT</var> square.
+
+269.24 	 The perimeter is the total length of all the sides of the
+                    shape added together.
+
+269.25 	 Add up the lengths of all <var>SHAPE.numSides</var>
+                        sides.
+
+269.27 	 The perimeter is <code><var>SHAPE.perimeter</var></code>
+                    <var>plural(UNIT_TEXT)</var>.
+

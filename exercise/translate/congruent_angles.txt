@@ -1,0 +1,16 @@
+74.1 	 Congruent angles
+
+74.2 	 Lines <code>p</code> and <code>q</code> are parallel.
+                Which angles must be congruent to the
+                <span class="hint_orange">given angle</span>?
+
+74.3 	 Three angles are congruent to the given angle.
+
+74.4 	 Vertical angles are congruent, so the angle <span class="hint_red">vertical</span> to the <span class="hint_orange">given</span> is congruent.
+
+74.5 	 Opposite interior angles are congruent, so the angle <span class="hint_purple">opposite</span> of the <span class="hint_orange">given</span> is congruent
+
+74.6 	 Opposite interior angles are congruent, so the angle <span class="hint_purple">opposite</span> of the <span class="hint_red">vertical angle</span> is congruent
+
+74.7 	 Vertical angles are congruent, so the angle <span class="hint_pink">vertical</span> to the <span class="hint_purple">opposite interior angle</span> is congruent.
+

@@ -1,0 +1,34 @@
+277.1 	 Powers of complex numbers 1
+
+277.2 	 Determine the value of the following complex number power. Your answer will be plotted in
+                <strong class="hint_orange">orange</strong>.
+
+277.3 	 All powers of <code>1</code> are <code>1</code>.
+
+277.4 	 Let's express our complex number in Euler form first.
+                        <p>
+                        <code>
+                            \color{<var>BLUE</var>}{<var>BASE_REP</var>} = \color{<var>BLUE</var>}{<var>BASE_EULER_REP</var>}
+                        </code>
+                    </div>
+
+                    <p>
+                        Since <code>(a ^ b) ^ c = a ^ {b \cdot c}</code>,
+                        <code>
+                            (\color{<var>BLUE</var>}{<var>BASE_EULER_REP</var>}) ^ {<var>EXPONENT</var>} =
+                            e ^ {<var>EXPONENT</var> \cdot (<var>BASE_E_EXPONENT</var>)}
+                        </code>
+
+277.5 	 The angle of the result is <code><var>EXPONENT</var> \cdot <var>BASE_ANGLE_REP</var></code>,
+                        which is <code><var>ANGLE_MULTIPLE_REP</var></code>.
+
+277.6 	 <code><var>ANGLE_MULTIPLE_REP</var></code> is more than <code>2 \pi</code>.
+                            It is a common practice to keep complex number angles between <code>0</code> and <code>2 \pi</code>,
+                            because <code>e^{2 \pi i} = (e^{\pi i}) ^ 2 = (-1) ^ 2 = 1</code>.
+                            We will now subtract the nearest multiple of <code>2 \pi</code> from the angle.
+
+277.8 	 Our result is <code><var>ANSWER_EULER</var></code>.
+
+277.9 	 Converting this back from Euler form, we get
+                        <code><var>ANSWER</var></code>.
+

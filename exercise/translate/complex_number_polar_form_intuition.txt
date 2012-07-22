@@ -1,0 +1,7 @@
+68.1 	 Complex number polar form intuition
+
+68.2 	 Adjust the angle and radius of the <span class="hint_orange">orange</span> plotted complex number
+                    to match the <span class="hint_blue">blue</span> plotted complex number <code><var>REP</var></code>.
+
+68.3 	 How do these numbers affect the complex number they represent?
+

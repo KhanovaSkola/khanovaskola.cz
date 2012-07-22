@@ -1,0 +1,12 @@
+69.1 	 Composite numbers
+
+69.2 	 Which of these numbers is composite?
+
+69.5 	 A composite number is a number that has more than two factors (including 1 and itself).
+
+69.6 	 <var>toSentence( _.filter( CHOICES, function( p ) { return p !== COMPOSITE; } ) )</var> each have only two factors.
+
+69.7 	 The factors of <var>COMPOSITE</var> are <var>toSentence( getFactors( COMPOSITE ) )</var>.
+
+69.8 	 Thus, <var>COMPOSITE</var> is the composite number.
+

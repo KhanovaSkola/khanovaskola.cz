@@ -1,0 +1,56 @@
+105.1 	 Distance between point and line
+
+105.2 	 <b>Find the distance between the point <code>\color{red}{(<var>X1</var>, <var>Y1</var>)}</code> and the line <code>\enspace \color{<var>BLUE</var>}{y = <span data-if="abs( M2_FRAC ) !== 1"><var>M2_FRAC</var></span><span data-else><var>M2_SIGN</var></span>x <span data-if="B2 !== 0">+ <var>B2</var></span>}\thinspace</code>.</b>
+
+105.3 	 <span class="sol"><var>DISTANCE</var></span>
+
+105.4 	 First, find the equation of the perpendicular line that passes through <code>\color{red}{(<var>X1</var>, <var>Y1</var>)}</code>.
+
+105.5 	 The slope of the blue line is <code>\color{<var>BLUE</var>}{<var>M2_FRAC</var>}</code>, and its negative reciprocal is <code>\color{<var>GREEN</var>}{<var>M1_FRAC</var>}</code>.
+
+105.6 	 Thus, the equation of our perpendicular line will be of the form <code>\enspace \color{<var>GREEN</var>}{y = <span data-if="abs( M1_FRAC ) !== 1"><var>M1_FRAC</var></span><span data-else><var>M1_SIGN</var></span>x + b}\thinspace</code>.
+
+105.7 	 We can plug our point, <code>\color{red}{(<var>X1</var>, <var>Y1</var>)}</code>, into this equation to solve for <code>\color{<var>GREEN</var>}{b}</code>, the y-intercept.
+
+105.11 	 The equation of the perpendicular line is <code>\enspace \color{<var>GREEN</var>}{y = <span data-if="abs( M1_FRAC ) !== 1"><var>M1_FRAC</var></span><span data-else><var>M1_SIGN</var></span>x<span data-if="B1 !== 0"> + <var>B1</var></span>}\thinspace</code>.
+
+105.12 	 We can see from the graph (or by setting the equations equal to one another) that the two lines intersect at the point <code>\color{red}{(<var>X2</var>, <var>Y2</var>)}</code>. Thus, the distance we're looking for is the distance between the two red points.
+
+105.13 	 The distance formula tells us that the distance between two points is equal to: <code>\sqrt{( x_{1} - x_{2} )^2 + ( y_{1} - y_{2} )^2}</code>
+
+105.14 	 Plugging in our points <code>\color{red}{(<var>X1</var>, <var>Y1</var>)}</code> and <code>\color{red}{(<var>X2</var>, <var>Y2</var>)}</code> gives us: <code>\sqrt{( \color{red}{<var>X1</var>} - \color{red}{<var>X2</var>} )^2 + ( \color{red}{<var>Y1</var>} - \color{red}{<var>Y2</var>} )^2}</code>
+
+105.16 	 The distance between the point <code>\color{red}{(<var>X1</var>, <var>Y1</var>)}</code> and the line <code>\thinspace \color{<var>BLUE</var>}{y = <span data-if="abs( M2_FRAC ) !== 1"><var>M2_FRAC</var></span><span data-else><var>M2_SIGN</var></span>x <span data-if="B2 !== 0">+ <var>B2</var></span>}\enspace</code> is <code>\thinspace<var>formattedSquareRootOf( DISTANCE )</var></code>.
+
+105.17 	 <b>Find the distance between the point <code>\color{red}{(<var>X1</var>, <var>Y1</var>)}</code> and the line <code>\enspace \color{<var>BLUE</var>}{y = <var>B1</var>}\thinspace</code>.</b>
+
+105.18 	 <span class="sol"><var>pow( Y1 - B1, 2 )</var></span>
+
+105.19 	 First, find the equation of the perpendicular line that passes through <code>\color{red}{(<var>X1</var>, <var>Y1</var>)}</code>.
+
+105.20 	 Since the slope of the blue line is <code class="hint_blue">0</code>, the perpendicular line will have an infinite slope and therefore will be a vertical line.
+
+105.21 	 The equation of the vertical line that passes through <code>\color{red}{(<var>X1</var>, <var>Y1</var>)}</code> is <code>\enspace \color{<var>GREEN</var>}{x = <var>X1</var>}\thinspace</code>.
+
+105.22 	 We can see from the graph that the two lines intersect at the point <code>\color{red}{(<var>X1</var>, <var>B1</var>)}</code>. Thus, the distance we're looking for is the distance between the two red points.
+
+105.23 	 Since their <code>x</code> components are the same, the distance between the two points is simply the change in <code>y</code>:
+
+105.25 	 The distance between the point <code>\color{red}{(<var>X1</var>, <var>Y1</var>)}</code> and the line <code>\enspace \color{<var>BLUE</var>}{y = <var>B1</var>}\enspace</code> is <code>\thinspace<var>abs( Y1 - B1 )</var></code>.
+
+105.26 	 <b>Find the distance between the point <code>\color{red}{(<var>X1</var>, <var>Y1</var>)}</code> and the line <code>\enspace \color{<var>BLUE</var>}{x = <var>B1</var>}\thinspace</code>.</b>
+
+105.27 	 <span class="sol"><var>pow( X1 - B1, 2 )</var></span>
+
+105.28 	 First, find the equation of the perpendicular line that passes through <code>\color{red}{(<var>X1</var>, <var>Y1</var>)}</code>.
+
+105.29 	 Since the blue line has an infinite slope, the perpendicular line will have a slope of <code>\color{<var>GREEN</var>}{0}</code> and therefore will be a horizontal line.
+
+105.30 	 The equation of the perpendicular line that passes through <code>\color{red}{(<var>X1</var>, <var>Y1</var>)}</code> is <code>\enspace \color{<var>GREEN</var>}{y = <var>Y1</var>}\thinspace</code>.
+
+105.31 	 We can see from the graph that the two lines intersect at the point <code>\color{red}{(<var>B1</var>, <var>Y1</var>)}</code>. Thus, the distance we're looking for is the distance between the two red points.
+
+105.32 	 Since their <code>y</code> components are the same, the distance between the two points is simply the change in <code>x</code>:
+
+105.34 	 The distance between the point <code>\color{red}{(<var>X1</var>, <var>Y1</var>)}</code> and the line <code>\enspace \color{<var>BLUE</var>}{x = <var>B1</var>}\enspace</code> is <code>\thinspace<var>abs( X1 - B1 )</var></code>.
+

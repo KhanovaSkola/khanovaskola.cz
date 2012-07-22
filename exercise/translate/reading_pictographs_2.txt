@@ -1,0 +1,48 @@
+307.1 	 Reading pictographs 2
+
+307.2 	 Use the pictograph to answer the question below:
+
+307.3 	 How many <var>BADGE</var> badges did <var>person( PERSON + 1 )</var> earn?
+
+307.4 	 <span style="padding-right: 5px" class="sol" data-forms="integer"><var>ANSWER</var></span> <var>BADGE</var> badges
+
+307.5 	 The key at the bottom of the pictograph shows that each full symbol represents <var>plural( VALUE_PER_IMG, "badge" )</var>.
+
+307.6 	 There <var>plural( "is", DATA[PERSON] )</var> <var>plural( DATA[ PERSON ], "full symbol" )</var><span data-if="HALF[ PERSON ]"> and 1 half symbol</span>.
+                    <span data-if="HALF[ PERSON ]">The full symbols represent <var>plural( VALUE_PER_IMG, "badge" )</var>, so the half symbol must represent <var>plural( VALUE_PER_IMG/2, "badge" )</var>.</span>
+
+307.7 	 <var>person( PERSON + 1 )</var> earned <code><var>ANSWER</var></code> <var>BADGE</var> <var>plural( "badge", ANSWER )</var>.
+
+307.8 	 Who earned <code><var>VALUE</var></code> <var>BADGE</var> <var>plural( "badge", VALUE )</var>?
+
+307.9 	 The key at the bottom of the pictograph shows that each full symbol represents <var>plural( VALUE_PER_IMG, "badge" )</var>.
+
+307.10 	 How many symbols are needed to represent <code><var>VALUE</var></code> <var>plural( "badge", VALUE )</var>?
+
+307.12 	 <var>person( PERSON + 1 )</var> has <code><var>NUM_SYMBOLS</var></code> <var>plural( "symbol", VALUE / VALUE_PER_IMG )</var> next to <var>his( PERSON + 1 )</var> name.
+
+307.13 	 <var>person( PERSON + 1 )</var> earned <code><var>VALUE</var></code> <var>BADGE</var> <var>plural( "badge", VALUE )</var>.
+
+307.14 	 How many more <var>BADGE</var> badges did <var>person( PERSON1 + 1 )</var> earn than <var>person( PERSON2 + 1 )</var>?
+
+307.15 	 <span style="padding-right: 5px" class="sol" data-forms="integer"><var>VAL1 - VAL2</var></span> <var>BADGE</var> badges
+
+307.16 	 The key at the bottom of the pictograph shows that each full symbol represents <var>plural( VALUE_PER_IMG, "badge" )</var>.
+
+307.17 	 <var>person( PERSON1 + 1 )</var> has <code><var>PRETTY_SYM_DIFF</var></code> more <var>plural( "symbol", SYMBOL_DIFF )</var> next to <var>his( PERSON1 + 1 )</var> name than <var>person( PERSON2 + 1 )</var> does.
+
+307.18 	 <var>person( PERSON1 + 1 )</var> earned <code><var>VAL1 - VAL2</var></code> more <var>BADGE</var> <var>plural( "badge", VAL1 - VAL2 )</var> than <var>person( PERSON2 + 1 )</var>.
+
+307.19 	 How many <var>BADGE</var> badges were earned by everyone all together?
+
+307.20 	 <span style="padding-right: 5px" class="sol" data-forms="integer"><var>TOTAL</var></span> <var>BADGE</var> badges
+
+307.21 	 Start by counting the total number of <var>BADGE</var> symbols.
+
+307.22 	 There are <code><var>FULL_SYM</var></code> symbols<span data-if="HALF_SYM !== 0"> and <code><var>HALF_SYM</var></code> half symbols</span>.
+
+307.23 	 Each symbol represents <code><var>VALUE_PER_IMG</var></code> <var>BADGE</var> <var>plural( "badge", VALUE_PER_IMG )</var><span data-if="HALF_SYM !== 0">
+                    and each half symbol represents <code><var>VALUE_PER_IMG / 2</var></code> <var>BADGE</var> <var>plural( "badge", VALUE_PER_IMG / 2 )</var></span>.
+
+307.24 	 All together, everyone earned <code><var>TOTAL</var></code> <var>BADGE</var> <var>plural( "badge", TOTAL )</var>.
+

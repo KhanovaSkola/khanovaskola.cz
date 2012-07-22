@@ -1,0 +1,91 @@
+186.1 	 Graphing systems of inequalities 2
+
+186.2 	 Graph the following system of inequalities and determine if the points
+                <code>(<var>POINT_1[0]</var>, <var>POINT_1[1]</var>)</code> or
+                <code>(<var>POINT_2[0]</var>, <var>POINT_2[1]</var>)</code> are solutions:
+
+186.7 	 <label><span class="checkbox">POINT_1_SOLUTION</span><code>(<var>POINT_1[0]</var>, <var>POINT_1[1]</var>)</code> is a solution</label><br />
+                        <label><span class="checkbox">POINT_2_SOLUTION</span><code>(<var>POINT_2[0]</var>, <var>POINT_2[1]</var>)</code> is a solution</label>
+
+186.8 	 Convert the first inequality, <code><var>expr([ "+", [ "*", A_1, "x" ], [ "*", B_1, "y" ] ])</var> <var>STD_FORM_COMP_1</var> <var>C_1</var></code>,
+                to slope-intercept form by solving for <code>y</code>.
+
+186.9 	 <var>A_1 &lt; 0 ? "Add" : "Subtract"</var> <code><var>abs( A_1 )</var>x</code> <var>A_1 &lt; 0 ? "to" : "from"</var> both sides:
+
+186.11 	 Divide both sides by <code><var>B_1</var></code><span data-if="B_1 < 0">. Since you're multiplying or dividing by a negative number, <strong>don't forget</strong> to flip the inequality sign</span>:
+
+186.14 	 The y-intercept is <code class="hint_gray"><var>YINT_1</var></code> and the slope is <code class="hint_purple"><var>decimalFraction( SLOPE_1, true, true )</var></code>.
+                Since the y-intercept is <code class="hint_gray"><var>YINT_1</var></code>, the line must pass through the point <code class="hint_gray">(0, <var>YINT_1</var>)</code>.
+
+186.15 	 The slope is <code class="hint_purple"><var>decimalFraction( SLOPE_1, true, true )</var></code>. Remember that
+                the slope tells you rise over run. So in this case for every
+                <code><var>abs( SLOPE_FRAC_1[0] )</var></code>
+                <var>"position" + ( abs( SLOPE_FRAC_1[0] ) !== 1 ? "s" : "" )</var>
+                you move
+                <span data-if="SLOPE_FRAC_1[0] < 0"><em>down</em> (because it's negative)</span>
+                <span data-else>up</span>
+                you must also move
+                <code><var>SLOPE_FRAC_1[1]</var></code>
+                <var>"position" + ( abs( SLOPE_FRAC_1[1] ) !== 1 ? "s" : "" )</var>
+                to the right. So the line must also pass through <code class="hint_purple">(<var>SLOPE_FRAC_1[1]</var>, <var>YINT_1 + SLOPE_FRAC_1[0]</var>)</code>
+
+186.16 	 Since our inequality has a <var>LESS_THAN_1 ? "less-than" : "greater-than"</var><var>INCLUSIVE_1 ? " or equal to" : ""</var> sign, that means that any point
+            <strong><var>LESS_THAN_1 ? "below" : "above"</var></strong> the line is a solution to the inequality, so the area <var>LESS_THAN_1 ? "below" : "above"</var>
+            the line should be shaded.
+
+186.17 	 Note that since the sign is <var>LESS_THAN_1 ? "less-than" : "greater-than"</var> or <strong>equal to</strong>, any point on the line is also a solution, so the
+                line should be solid.
+
+186.18 	 Note that since the sign is <var>LESS_THAN_1 ? "less-than" : "greater-than"</var> (and not equal to), any point on the line is <strong>not</strong> part of the solution,
+                so the line should be dashed to indicate this.
+
+186.19 	 Convert the second inequality, <code><var>expr([ "+", [ "*", A_2, "x" ], [ "*", B_2, "y" ] ])</var> <var>STD_FORM_COMP_2</var> <var>C_2</var></code>,
+                to slope-intercept form by solving for <code>y</code>.
+
+186.20 	 <var>A_2 &lt; 0 ? "Add" : "Subtract"</var> <code><var>abs( A_2 )</var>x</code> <var>A_2 &lt; 0 ? "to" : "from"</var> both sides:
+
+186.22 	 Divide both sides by <code><var>B_2</var></code><span data-if="B_2 < 0">. Since you're multiplying or dividing by a negative number, <strong>don't forget</strong> to flip the inequality sign</span>:
+
+186.25 	 The y-intercept is <code class="hint_gray"><var>YINT_2</var></code> and the slope is <code class="hint_purple"><var>decimalFraction( SLOPE_2, true, true )</var></code>.
+                Since the y-intercept is <code class="hint_gray"><var>YINT_2</var></code>, the line must pass through the point <code class="hint_gray">(0, <var>YINT_2</var>)</code>.
+
+186.26 	 The slope is <code class="hint_purple"><var>decimalFraction( SLOPE_2, true, true )</var></code>. Remember that
+                the slope tells you rise over run. So in this case for every
+                <code><var>abs( SLOPE_FRAC_2[0] )</var></code>
+                <var>"position" + ( abs( SLOPE_FRAC_2[0] ) !== 1 ? "s" : "" )</var>
+                you move
+                <span data-if="SLOPE_FRAC_2[0] < 0"><em>down</em> (because it's negative)</span>
+                <span data-else>up</span>
+                you must also move
+                <code><var>SLOPE_FRAC_2[1]</var></code>
+                <var>"position" + ( abs( SLOPE_FRAC_2[1] ) !== 1 ? "s" : "" )</var>
+                to the right. So the line must also pass through <code class="hint_purple">(<var>SLOPE_FRAC_2[1]</var>, <var>YINT_2 + SLOPE_FRAC_2[0]</var>)</code>
+
+186.27 	 Since our inequality has a <var>LESS_THAN_2 ? "less-than" : "greater-than"</var><var>INCLUSIVE_2 ? " or equal to" : ""</var> sign, that means that any point
+            <strong><var>LESS_THAN_2 ? "below" : "above"</var></strong> the line is a solution to the inequality, so the area <var>LESS_THAN_2 ? "below" : "above"</var>
+            the line should be shaded.
+
+186.28 	 Note that since the sign is <var>LESS_THAN_2 ? "less-than" : "greater-than"</var> or <strong>equal to</strong>, any point on the line is also a solution, so the
+                line should be solid.
+
+186.29 	 Note that since the sign is <var>LESS_THAN_2 ? "less-than" : "greater-than"</var> (and not equal to), any point on the line is <strong>not</strong> part of the solution,
+                so the line should be dashed to indicate this.
+
+186.30 	 Plot each of the points to determine which are solutions:
+                <code class="hint_pink">(<var>POINT_1[0]</var>, <var>POINT_1[1]</var>)</code> and
+                <code class="hint_pink">(<var>POINT_2[0]</var>, <var>POINT_2[1]</var>)</code>
+
+186.31 	 <code class="hint_pink">(<var>POINT_1[0]</var>, <var>POINT_1[1]</var>)</code> is a solution because it's inside both shaded areas, but
+                <code class="hint_pink">(<var>POINT_2[0]</var>, <var>POINT_2[1]</var>)</code> is not.
+
+186.32 	 <code class="hint_pink">(<var>POINT_1[0]</var>, <var>POINT_1[1]</var>)</code> is outside both shaded areas, so it's not a solution, but
+                <code class="hint_pink">(<var>POINT_2[0]</var>, <var>POINT_2[1]</var>)</code> is a solution.
+
+186.33 	 Both
+                <code class="hint_pink">(<var>POINT_1[0]</var>, <var>POINT_1[1]</var>)</code> and
+                <code class="hint_pink">(<var>POINT_2[0]</var>, <var>POINT_2[1]</var>)</code> are solutions because they're inside both shaded areas.
+
+186.34 	 Neither
+                <code class="hint_pink">(<var>POINT_1[0]</var>, <var>POINT_1[1]</var>)</code> nor
+                <code class="hint_pink">(<var>POINT_2[0]</var>, <var>POINT_2[1]</var>)</code> are solutions because they are not within both shaded areas.
+

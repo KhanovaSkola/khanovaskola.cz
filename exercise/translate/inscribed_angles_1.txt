@@ -1,0 +1,20 @@
+195.1 	 Inscribed angles 1
+
+195.2 	 If the <var>GIVEN_LABEL</var> angle measures <var>GIVEN</var> degrees, what does the <var>ASKED_LABEL</var> angle measure?
+
+195.3 	 This is a special case where the blue and orange angles' sides share the same line. The blue angle is called a central angle, and the orange angle is called an inscribed angle.
+
+195.4 	 The green and blue angles are supplementary. Because the blue angle is <var>CENTRAL</var> degrees, the green angle must be <var>180 - CENTRAL</var> degrees.
+
+195.5 	 We know that the angles in a triangle sum to 180 degrees.
+
+195.7 	 The pink sides of the triangle are radii, so they must be equal.
+
+195.8 	 This means that the triangle is isosceles and that the base angles, or the pink and orange angles, are equal.
+
+195.14 	 The pink sides of the triangle are radii, so they must be equal. This means the triangle is isosceles and that the base angles, or the pink and orange angles, are equal.
+
+195.15 	 We know that the angles in a triangle sum to 180 degrees.
+
+195.17 	 The green and blue angles are supplementary.
+

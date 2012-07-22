@@ -1,0 +1,26 @@
+196.1 	 Inscribed angles 2
+
+196.2 	 If the <var>GIVEN_LABEL</var> angle measures <var>GIVEN</var> degrees, what does the <var>ASKED_LABEL</var> angle measure?
+
+196.3 	 This is a special case where the center of the circle is inside the inscribed orange angle. The blue angle is called a central angle.
+
+196.4 	 What do we know about the sub-angles formed by the dashed diameter shown above?
+
+196.5 	 If we only look at the sub-angles drawn now, we see that this is the special case from the previous inscribed angles exercise!
+
+196.6 	 We know that the orange sub-angle is one half the measure of the blue sub-angle.
+
+196.7 	 Likewise, the other orange sub-angle is one half the measure of the other blue sub-angle, as shown.
+
+196.8 	 If both orange sub-angles are one half both blue sub-angles, then we know that the original orange angle is one half the original blue angle.
+
+196.12 	 What do we know about the sub-angles formed by the dashed diameter shown above?
+
+196.13 	 If we only look at the sub-angles drawn now, we see that this is the special case from the previous inscribed angles exercise!
+
+196.14 	 We know that the orange sub-angle is one half the measure of the blue sub-angle.
+
+196.15 	 Likewise, the other orange sub-angle is one half the measure of the other blue sub-angle, as shown.
+
+196.16 	 If both blue sub-angles are twice both blue sub-angles, then we know that the blue is twice the orange angle.
+

@@ -1,0 +1,34 @@
+187.1 	 Graphs of sine and cosine
+
+187.2 	 <code>f(x)</code> is graphed below.
+
+187.3 	 What is <code>f(x)</code>?
+
+187.5 	 The function starts at its maximum value (ie, <code>f(0)=<var>VSCALE</var></code>), so what kind of function is it?
+
+187.6 	 The cosine function, <code>\cos(x)</code>, starts at 1 (ie, <code>\cos(0)=1</code>), so <code>f(x)</code> must be a scaled version of the cosine function.
+
+187.7 	 The function starts at zero (ie, <code>f(0)=0</code>), so what kind of function is it?
+
+187.8 	 The sine function, <code>\sin(x)</code>, starts at 0 (ie, <code>\sin(0)=0</code>), so <code>f(x)</code> must be a scaled version of the sine function.
+
+187.9 	 The distance from peak to peak is <code><var>piFraction( PERIOD )</var></code>, so the period of <code>f(x)</code> is <code><var>piFraction( PERIOD )</var></code>.
+
+187.10 	 The distance between every other zero is <code><var>piFraction( PERIOD )</var></code>, so the period of <code>f(x)</code> is <code><var>piFraction( PERIOD )</var></code>.
+
+187.11 	 The period of a normal <var>FNS</var> function is <code>2\pi</code>, and the period we want is <code><var>piFraction( PERIOD )</var></code>, so we don't need to worry about scaling the function horizontally.
+
+187.12 	 The period of a normal <var>FNS</var> function is <code>2\pi</code>, and the period we want is <code><var>piFraction( PERIOD )</var></code>, so we need to scale the <var>FNS</var> function horizontally by <code><var>decFrac( PERIOD / 2 / PI )</var></code>.
+
+187.13 	 To horizontally scale <code>\<var>FN</var>(x)</code> by <code><var>decFrac( PERIOD / 2 / PI )</var></code>, we need to substitute <code><var>decFrac( 2 * PI / PERIOD )</var>x</code> in for <code>x</code> to get <code>\<var>FN</var>(<var>decFrac( 2 * PI / PERIOD )</var>x)</code>.
+
+187.14 	 The height of <code>f(x)</code> is <code><var>decFrac( VSCALE )</var></code>, so the amplitude of <code>f(x)</code> is <code><var>decFrac( VSCALE )</var></code>.
+
+187.15 	 The amplitude of <code>f(x)</code> is 1, so we don't need to worry about scaling the function vertically.
+
+187.16 	 The amplitude of <code>f(x)</code> is <code><var>decFrac( VSCALE )</var></code>, so we need to scale <var>FNS</var> function vertically by <code><var>decFrac( VSCALE )</var></code>.
+
+187.17 	 To scale the function vertically, multiply the whole thing by <code><var>decFrac( VSCALE )</var></code>.
+
+187.18 	 So the resulting function (after we perform all these manipulations) is <code><var>plus( toFractionTex( VSCALE ) + "\\" + FN + "(" + plus( toFractionTex( 1 / HSCALE ) + "x" ) + ")" )</var></code>.
+

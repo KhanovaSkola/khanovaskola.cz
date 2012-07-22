@@ -1,0 +1,20 @@
+267.1 	 Percentage word problems 1
+
+267.2 	 What is <var>A_SIMPLE</var>% of <var>B_SIMPLE</var>? (Round to nearest whole number.)
+
+267.5 	 <var>B_SIMPLE</var> is <var>A_SIMPLE</var>% of what number? (Round to the hundredths place.)
+
+267.7 	 Let <code>x</code> be the number that <var>B_SIMPLE</var> is <var>A_SIMPLE</var>% of.
+
+267.11 	 <var>person(1)</var> has <var>BANK_MORE</var> dollars in the bank today. Yesterday, <var>he(1)</var> had <var>BANK_FEWER</var> dollars in the bank. By what percentage did <var>person(1)</var>'s bank account increase over the past day? (Round your answer to the nearest hundredth of a percent.)
+
+267.13 	 The bank account grew by <code><var>BANK_MORE</var> - <var>BANK_FEWER</var> = <var>BANK_MORE - BANK_FEWER</var></code> dollars
+
+267.15 	 <var>person(1)</var> has <var>BANK_FEWER</var> dollars in the bank today. Yesterday, <var>he(1)</var> had <var>BANK_MORE</var> dollars in the bank. By what percentage did <var>person(1)</var>'s bank account decrease over the past day? (Round your answer to the nearest hundredth of a percent.)
+
+267.17 	 The bank account decreased by <code><var>BANK_MORE</var> - <var>BANK_FEWER</var> = <var>BANK_MORE - BANK_FEWER</var></code> dollars
+
+267.19 	 <var>person(1)</var> has <var>YEAR_PERCENT_MORE</var>% more money today than <var>he(1)</var> did this time last year. If <var>person(1)</var> has <var>YEAR_THIS</var> dollars today, how many dollars did <var>he(1)</var> have this time last year? (Round to the nearest penny, which is 1/100 of a dollar.)
+
+267.21 	 Let <code>x</code> be the amount of money that <var>he(1)</var> had last year.
+

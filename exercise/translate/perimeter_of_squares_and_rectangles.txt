@@ -1,0 +1,31 @@
+270.1 	 Perimeter of squares and rectangles
+
+270.2 	 One side of a square is <code><var>S</var></code>
+                <var>plural(UNIT_TEXT, S)</var> long. What is its perimeter?
+
+270.3 	 The perimeter is the total length of all the sides of the
+                    shape added together.
+
+270.4 	 Add up the lengths of the sides:
+
+270.7 	 The perimeter of a square is <code><var>4 * S</var></code>
+                <var>plural(UNIT_TEXT)</var>. How long is each side?
+
+270.8 	 The perimeter is the total length of all the sides of
+                        the shape added together.
+
+270.11 	 The sides of a square are all the same length, so each
+                        side must be <code><var>S</var></code>
+                        <var>plural(UNIT_TEXT, S)</var> long.
+
+270.12 	 A rectangle is
+                <code><var>L</var></code> <var>plural(UNIT_TEXT, L)</var>
+                long and
+                <code><var>W</var></code> <var>plural(UNIT_TEXT, W)</var>
+                wide. What is its perimeter?
+
+270.13 	 The perimeter is the total length of all the sides of the
+                    shape added together.
+
+270.14 	 Add up the lengths of the sides:
+

@@ -1,0 +1,74 @@
+212.1 	 Linear equation word problems
+
+212.2 	 {<var>person( 1 )</var> hopes to one day play professional baseball. |}{During the first few months of baseball season|In the first 100 games of the baseball season}, <var>person( 1 )</var> hit <var>X</var> home runs.
+
+212.3 	 {If <var>person( 1 )</var> wants to hit a total of <var>Q</var> home runs by the end of the season, how many more runs will <var>he( 1 )</var> need to hit in the remaining games|How many more home runs will <var>he( 1 )</var> need to hit to get a total of <var>Q</var> home runs by the end of the season}?
+
+212.4 	 Home runs already hit + Home runs <var>he( 1 )</var> needs to hit = Total home runs wanted
+
+212.5 	 Home runs already hit = <code><var>X</var></code>
+
+212.6 	 Total home runs wanted = <code><var>Q</var></code>
+
+212.7 	 Home runs he needs to hit = <code>x</code>
+
+212.11 	 <strong><var>person( 1 )</var> needs to hit <code><var>P</var></code> home runs in the remaining games.</strong>
+
+212.12 	 <var>person( 1 )</var> {earned $<var>Q</var> by babysitting his neighbors for <var>X</var> hours.|babysat <var>his( 1 )</var> neighbors for <var>X</var> hours and earned $<var>Q</var>.}
+
+212.13 	 What is <var>person( 1 )</var>’s hourly wage ?
+
+212.14 	 (Extra Info: Round to the nearest hundredth of a dollar.)
+
+212.15 	 Number of hours <var>he( 1 )</var> babysat x Amount of money earned per hour = Total amount of money earned.
+
+212.16 	 Number of hours <var>he( 1 )</var> babysat = <code><var>X</var></code>
+
+212.17 	 Total amount of money earned = <code><var>Q</var></code>
+
+212.18 	 Amount of money earned per hour = <code>y</code>
+
+212.22 	 <strong><var>person( 1 )</var> earned <code>$<var>P</var></code> per hour while babysitting.</strong>
+
+212.23 	 {<var>person( 1 )</var> paid $<var>X</var> for a t-shirt and received $<var>Q</var> in change.|When buying a t-shirt at a clothing store, <var>person( 1 )</var> gave the cashier $<var>X</var> and received $<var>Q</var> in change.}
+
+212.24 	 How much did the t-shirt cost?
+
+212.25 	 Total t-shirt cost + Change received = Amount given to cashier
+
+212.26 	 Change received = <code><var>Q</var></code>
+
+212.27 	 Amount given to cashier = <code><var>X</var></code>
+
+212.28 	 Total t-shirt cost = <code>x</code>
+
+212.32 	 <strong>The t-shirt cost $<code><var>P</var></code>.</strong>
+
+212.33 	 <var>person( 1 )</var> works as a cashier at the grocery store in <var>his( 1 )</var> town. {Milk is one of the fastest selling items, and right at the start of <var>his( 1 )</var> shift someone|A customer came in and} bought <var>X</var> gallons of milk for a total of $<var>Q</var>.
+
+212.34 	 How much did each gallon of milk cost?
+
+212.35 	 Gallons of milk bought x Cost per gallon of milk = Total cost
+
+212.36 	 Gallons of milk bought = <code><var>Q</var></code>
+
+212.37 	 Total cost = <code><var>X</var></code>
+
+212.38 	 Cost per gallon of milk = <code>y</code>
+
+212.42 	 <strong>Each gallon of milk cost <code>$<var>P</var></code>.</strong>
+
+212.43 	 <var>person( 1 )</var> {ran the final leg of a|was the final runner of a 3 leg} <var>Q</var>-mile relay race. {When <var>person( 1 )</var>’s teammate handed <var>him( 1 )</var> the baton|Right before starting his leg of the race}, the team had already completed <var>X</var> miles of the race.
+
+212.44 	 How far did <var>person( 1 )</var> run to complete the race?
+
+212.45 	 Miles <var>he( 1 )</var> ran + Miles already completed = Total Miles
+
+212.46 	 Miles already completed = <code><var>X</var></code>
+
+212.47 	 Total miles = <code><var>Q</var></code>
+
+212.48 	 Miles <var>he( 1 )</var> ran = <code>x</code>
+
+212.52 	 <strong><var>person( 1 )</var> ran <code><var>P</var></code> miles to finish the race.</strong>
+

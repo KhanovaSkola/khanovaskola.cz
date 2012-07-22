@@ -1,0 +1,18 @@
+54.1 	 Circles and arcs
+
+54.2 	 A circle with circumference <code class="hint_blue"><var>PRETTY_C</var></code> has an arc with a <code class="hint_pink"><var>ANGLE</var>^\circ</code> central angle.
+
+54.3 	 What is the length of the arc?
+
+54.5 	 The ratio between the arc's central angle <code class="hint_pink">\theta</code> and <code>360^\circ</code> is equal to the ratio between the arc length <code class="hint_red">s</code> and the circle's circumference <code class="hint_blue">c</code>.
+
+54.9 	 A circle has a radius of <code class="hint_blue"><var>R</var></code>. An arc in this circle has a central angle of <code class="hint_pink"><var>ANGLE</var>^\circ</code>.
+
+54.10 	 First, calculate the circumference of the circle.
+
+54.12 	 A circle has a circumference of <code class="hint_blue"><var>PRETTY_C</var></code>. It has an arc of length <code class="hint_red"><var>PRETTY_A</var></code>.
+
+54.13 	 What is the central angle of the arc, in degrees?
+
+54.14 	 The ratio between the arc's central angle <code class="hint_pink">\theta</code> and <code>360^\circ</code> is equal to the ratio between the arc length <code class="hint_red">s</code> and the circle's circumference <code class="hint_blue">c</code>.
+

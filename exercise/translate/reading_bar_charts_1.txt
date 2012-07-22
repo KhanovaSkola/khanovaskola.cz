@@ -1,0 +1,12 @@
+302.1 	 Reading bar charts 1
+
+302.2 	 At Hogwarts, there are four houses: <var>toSentence( HOUSES )</var>. The bar chart below shows the number of house points that each house received today.
+
+302.3 	 How many house points did <var>HOUSES[ INDEX ]</var> receive?
+
+302.4 	 Find the bar for <var>HOUSES[ INDEX ]</var> by looking at the letter under each bar.
+
+302.5 	 Compare how tall the bar is with the numbers to the left.
+
+302.6 	 <var>HOUSES[ INDEX ]</var> received <var>plural( VALUES[ INDEX ], "house point" )</var>.
+

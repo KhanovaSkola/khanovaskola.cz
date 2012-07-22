@@ -1,0 +1,10 @@
+260.1 	 Ordering numbers
+
+260.2 	 Order the following numbers from least to greatest:
+
+260.4 	 Convert each number to a decimal.
+
+260.6 	 Sort the decimals: <code><var>NUMS_SORT_DECS</var></code>.
+
+260.7 	 Convert back: <code>\Large{<var>NUMS_SORT_TEX</var>}</code>.
+

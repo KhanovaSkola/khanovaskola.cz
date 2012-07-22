@@ -1,0 +1,16 @@
+258.1 	 Ordering Mixed Numbers and Improper Fractions
+
+258.2 	 Order the following fractions from least to greatest.
+
+258.4 	 It's easier to compare fractions if they are all in the same form, so convert mixed numbers and whole numbers into improper fractions.
+
+258.6 	 We can compare fractions when they have the same denominator. To make these fractions have the same denominator, we have to find the least common denominator. The least common denominator is the least common multiple of all the denominators. The least common multiple of <code><var>DENOMS_TEX_COLOR</var></code> is <code><var>LCD</var></code>.
+
+258.7 	 We can change the denominator of fractions by multiplying by a form of <code>1</code>, such as <code>\dfrac{2}{2}</code> or <code>\dfrac{10}{10}</code>. Multiply the improper fractions above by forms of <code>1</code> so that their denominators are all equal to <code><var>LCD</var></code>.
+
+258.9 	 Now all the fractions are in a form where we can compare them by numerator.
+
+258.11 	 Sort the fractions from least to greatest by their numerators.
+
+258.13 	 Finally, convert the numbers back to their original form.
+

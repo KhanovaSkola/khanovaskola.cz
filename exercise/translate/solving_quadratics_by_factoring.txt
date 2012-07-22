@@ -1,0 +1,36 @@
+345.1 	 Solving quadratics by factoring
+
+345.2 	 Determine where <code>f(x)</code> intersects the <code>x</code>-axis.
+
+345.4 	 <code>x = \quad</code><span class="entry"></span><code>\quad \text{and} \quad x = \quad</code><span class="entry"></span>
+
+345.5 	 The two numbers <code class="hint_pink"><var>-A</var></code> and <code class="hint_pink"><var>-B</var></code> satisfy both conditions:
+
+345.8 	 So <code>(x <var>A &lt; 0 ? "+" : ""</var> \color{<var>PINK</var>}{<var>-A</var>})
+                    (x <var>B &lt; 0 ? "+" : ""</var> \color{<var>PINK</var>}{<var>-B</var>}) = 0</code>.
+
+345.9 	 Since <code>(x <var>A &lt; 0 ? "+" : ""</var> <var>-A</var>)
+                    (x <var>B &lt; 0 ? "+" : ""</var> <var>-B</var>) = 0</code>,
+                    we know that one or both quantities must equal zero for the equation to be true.
+
+345.11 	 <b>Thus, <code>x = <var>A</var></code> and <code>x = <var>B</var></code> are the solutions.</b>
+
+345.12 	 Determine where <code>f(x)</code> intersects the x-axis.
+
+345.14 	 <code>x = \quad</code><span class="sol"><var>A</var></span>
+
+345.15 	 The number <code class="hint_pink"><var>-A</var></code> used twice satisfies both conditions:
+
+345.18 	 So <code>(x <var>A &lt; 0 ? "+" : ""</var> \color{<var>PINK</var>}{<var>-A</var>})^2 = 0</code>.
+
+345.20 	 <b>Thus, <code>x = <var>A</var></code> is the solution.</b>
+
+345.21 	 The function intersects the <code>x</code>-axis where <code>f(x) = 0</code>, so solve the equation:
+
+345.23 	 Dividing both sides by <var>SQUARE</var> gives:
+
+345.25 	 The coefficient on the <code>x</code> term is <code class="hint_green"><var>SIMPLELINEAR</var></code>
+            and the constant term is <code class="hint_blue"><var>SIMPLECONSTANT</var></code>, so we need to find two numbers
+            that <span class="hint_green">add up to <code><var>SIMPLELINEAR</var></code></span> and <span class="hint_blue">multiply to
+            <code><var>SIMPLECONSTANT</var></code></span>.
+

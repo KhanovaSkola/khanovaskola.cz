@@ -1,0 +1,63 @@
+275.1 	 Points, lines, and planes
+
+275.2 	 
+
+275.3 	 What is another way to name plane <code>\mathcal{<var>R</var>}</code>?
+
+275.4 	 Plane <span class="entry"></span>
+
+275.5 	 Planes can be named with three <a href="#" class="show-definition" data-definition="noncollinear">noncollinear</a> points.
+
+275.6 	 Find any three points in the plane <code>\mathcal{<var>R</var>}</code> that are
+                    not on the same line and list them in any order.
+
+275.7 	 For example, we can write <code>\mathcal{<var>R</var>}</code> as plane
+                    <code><var>A + B + E</var></code>, plane <code><var>A + C + E</var></code>,
+                    or plane <code><var>B + E + C</var></code>.
+
+275.8 	 What is another way to name line <code>\ell</code>?
+
+275.9 	 Lines are named using any two points on the line. The order doesn't matter.
+
+275.10 	 The points must have the <code>\leftrightarrow</code> above because we're
+                naming a line, not a ray or a segment.
+
+275.11 	 Another way to name line <code>\ell</code> is <code><var>SOLUTION</var></code>.
+
+275.12 	 Are the points <var>toSentence(POINTS)</var> collinear?
+
+275.13 	 Collinear means that they lie on the same line.
+
+275.14 	 Can you draw a straight line through points <var>toSentence(POINTS)</var>?
+
+275.15 	 Yes, points <var>toSentence(POINTS)</var> are collinear.
+
+275.16 	 No, points <var>toSentence(POINTS)</var> are not collinear.
+
+275.17 	 Are the points <var>toSentence(POINTS)</var> collinear?
+
+275.18 	 Through any two points, there is exactly one line.
+
+275.19 	 Points can be collinear even if the line isn't drawn in the figure.
+
+275.20 	 Can you draw a straight line through points <var>toSentence(POINTS)</var>?
+                Actually, can you draw a straight line through any two points?
+
+275.21 	 Yes, points <var>toSentence(POINTS)</var> are collinear.
+
+275.22 	 Are the points <var>toSentence(POINTS)</var> coplanar?
+
+275.24 	 Coplanar points are points that all lie on the same plane.
+
+275.25 	 Can a flat surface pass through all the points without bending?
+
+275.26 	 No, any flat surface that includes three of the points won't include the fourth.
+                    For example, points <var>toSentence(COPLANAR)</var> are in plane
+                    <code>\mathcal{<var>R</var>}</code>, but point <var>D</var> is not.
+
+275.27 	 Yes, points <var>toSentence(POINTS)</var> all lie within a single
+                    flat surface. In this case, plane <code>\mathcal{<var>R</var>}</code>.
+
+275.28 	 Yes, there is always at least one flat surface that passes through
+                    any three points.
+

@@ -1,0 +1,30 @@
+306.1 	 Reading pictographs 1
+
+306.2 	 Use the pictograph to answer the question below:
+
+306.3 	 Who earned the most <var>BADGE</var> badges?
+
+306.4 	 Who has the largest number of <var>BADGE</var> symbols next to <var>his( MOST + 1 )</var> name in the chart?
+
+306.5 	 <var>person( MOST + 1 )</var> has the largest number of symbols next to <var>his( MOST + 1)</var> name.
+
+306.6 	 <var>person( MOST + 1 )</var> earned the most <var>BADGE</var> badges.
+
+306.7 	 Who earned the fewest <var>BADGE</var> badges?
+
+306.8 	 Who has the smallest number of <var>BADGE</var> symbols next to <var>his( LEAST + 1 )</var> name in the chart?
+
+306.9 	 <var>person( LEAST + 1 )</var> has the smallest number of symbols next to <var>his( LEAST + 1)</var> name.
+
+306.10 	 <var>person( LEAST + 1 )</var> earned the fewest <var>BADGE</var> badges.
+
+306.11 	 How many <var>BADGE</var> badges did <var>person( PERSON + 1 )</var> earn?
+
+306.12 	 <span style="padding-right: 5px" class="sol" data-forms="integer"><var>ANSWER</var></span> <var>BADGE</var> badge(s)
+
+306.13 	 The key at the bottom of the pictograph shows that each symbol represents <var>plural( VALUE_PER_IMG, "badge" )</var>.
+
+306.14 	 There <var>plural( "is", DATA[PERSON] )</var> <var>plural( DATA[ PERSON ], "symbol" )</var>.
+
+306.15 	 <var>person( PERSON + 1 )</var> earned <code><var>ANSWER</var></code> <var>BADGE</var> <var>plural( "badge", ANSWER )</var>.
+

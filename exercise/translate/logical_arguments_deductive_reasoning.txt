@@ -1,0 +1,58 @@
+220.1 	 Logical arguments and deductive reasoning
+
+220.2 	 Use the given information to make a logical conclusion, if possible. If a logical conclusion is not possible, choose "no logical conclusion possible."
+
+220.3 	 If <span id="if-clause"><var>IF_CLAUSE</var></span>, then <span id="then-clause"><var>THEN_CLAUSE</var></span>. <span id="second-sent"><var>capitalize(IMPLICATION[ TYPE ])</var></span>.
+
+220.5 	 Identify the <span class="hint_blue">hypothesis</span>, the <span class="hint_green">conclusion</span> of the first sentence, and the <span class="hint_purple">second sentence</span>.
+
+220.6 	 Does the <span class="hint_purple">second sentence</span> refer to the <span class="hint_blue">hypothesis</span> of the first sentence, or the <span class="hint_green">conclusion</span> of the first sentence?
+
+220.7 	 The <span class="hint_purple">second sentence</span> refers to the <span class="hint_blue">hypothesis</span> of the first sentence, because they both talk about whether or not <var>IMPLICATION[0]</var>.
+
+220.8 	 Does the <span class="hint_purple">second sentence</span> state the <span class="hint_blue">hypothesis</span>, or the opposite of the <span class="hint_blue">hypothesis</span>?
+
+220.9 	 The <span class="hint_purple">second sentence</span> refers to the <span class="hint_green">conclusion</span> of the first sentence, because they both talk about whether or not <var>IMPLICATION[1]</var>.
+
+220.10 	 Does the <span class="hint_purple">second sentence</span> state the <span class="hint_green">conclusion</span>, or the opposite of the <span class="hint_green">conclusion</span>?
+
+220.11 	 The <span class="hint_purple">second sentence</span> states the <span class="hint_blue">hypothesis</span> of the first sentence.
+
+220.12 	 Because the <span class="hint_purple">second sentence</span> states the <span class="hint_blue">hypothesis</span> of the first sentence, the <span class="hint_purple">second sentence</span> implies the first sentence.
+
+220.13 	 Since we are implying the original statement, we can conclude the <span class="hint_green">conclusion</span> of the first statement.
+
+220.14 	 The <span class="hint_purple">second sentence</span> states the <span class="hint_green">conclusion</span> of the first sentence.
+
+220.15 	 Because the <span class="hint_purple">second sentence</span> states the <span class="hint_green">conclusion</span> of the first sentence, the <span class="hint_purple">second sentence</span> implies the converse of the first sentence.
+
+220.16 	 Converses are not logically equivalent to their original statements, so we cannot form a logical conclusion.
+
+220.17 	 The <span class="hint_purple">second sentence</span> states the opposite of the <span class="hint_blue">hypothesis</span> of the first sentence.
+
+220.18 	 Because the <span class="hint_purple">second sentence</span> states the opposite of the <span class="hint_blue">hypothesis</span> of the first sentence, the <span class="hint_purple">second sentence</span> implies the inverse of the first sentence.
+
+220.19 	 Inverses are not logically equivalent to their original statements, so we cannot form a logical conclusion.
+
+220.20 	 Because the <span class="hint_purple">second sentence</span> states the opposite of the <span class="hint_green">conclusion</span> of the first sentence, the <span class="hint_purple">second sentence</span> implies the contrapositive of the first sentence.
+
+220.21 	 Since the contrapositive is implied by the first sentence, the <span class="hint_purple">second sentence</span> implies the opposite of the <span class="hint_blue">hypothesis</span>.
+
+220.22 	 Thus, the answer is "<var>SOLUTION</var>"
+
+220.23 	 Use the given information to make a logical conclusion, if possible.
+
+220.24 	 If <span id="hyp_a"><var>HYP_A</var></span>, then <span id="conc_a"><var>CONC_A</var></span>. If <span id="hyp_b"><var>HYP_B</var></span>, then <span id="conc_b"><var>CONC_B</var></span>.
+
+220.26 	 Identify the <span class="hint_blue">first hypothesis</span>, the <span class="hint_green">first conclusion</span>, the <span class="hint_red">second hypothesis</span>, and the <span class="hint_purple">second conclusion</span>.
+
+220.27 	 Do the two sentences come in the form "If <span class="hint_blue">P</span>, then <span class="hint_green">Q</span>. If <span class="hint_red">Q</span>, then <span class="hint_purple">R</span>", where <span class="hint_green">first conclusion</span> and <span class="hint_red">second hypothesis</span> are the same?
+
+220.28 	 In other words, do the sentences look like <code>\blue{P}\implies \green{Q}</code>. <code>\red{Q}\implies \purple{R}</code>?
+
+220.29 	 Yes. Because the middle two statements both say <span class="hint_green"> <var>HYP_B</var></span>, we can chain the statements together: <code>\blue{P}\implies\green{Q}\implies\purple{R}</code> or <span class="hint_blue">"<var>HYP_A</var>"</span><code>\implies</code><span class="hint_green">"<var>CONC_A</var>"</span><code>\implies</code><span class="hint_purple">"<var>CONC_B</var>"</span>.
+
+220.30 	 We can now remove the middle statement, and arrive at the conclusion <span class="hint_blue">"<var>HYP_A</var>"</span><code>\implies</code><span class="hint_purple">"<var>CONC_B</var>"</span>. So, the answer is "If <span class="hint_blue"> <var>HYP_A</var></span>, then <span class="hint_purple"> <var>CONC_B</var></span>."
+
+220.31 	 No. So, we cannot form a logical conclusion.
+

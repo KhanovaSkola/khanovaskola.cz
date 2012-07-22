@@ -1,0 +1,16 @@
+271.1 	 Place value
+
+271.2 	 What is the place value of <var>DIGIT</var> in <var>NUMBER</var>?
+
+271.4 	 <var>NUMBER</var> can be represented as follows.
+
+271.6 	 <code>= </code> <var>HINT_IN_WORDS</var>
+
+271.7 	 Thus, <var>DIGIT</var> is in the <var>SOLUTION</var> place.
+
+271.8 	 What is <var>cardinal( NUMBER )</var> in standard form?
+
+271.11 	 Add all these parts up:
+
+271.13 	 = <var>NUMBER</var>
+

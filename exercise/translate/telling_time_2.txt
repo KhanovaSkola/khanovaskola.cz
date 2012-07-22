@@ -1,0 +1,53 @@
+370.1 	 Telling time 2
+
+370.2 	 Set the clock to <var>TIME</var>.
+
+370.3 	 The <span class="hint_blue" style="font-weight: bold">hour</span> hand is the short
+                        <span class="hint_blue" style="font-weight: bold">blue</span> bar and the
+                        <span class="hint_orange" style="font-weight: bold">minute</span> hand is the long
+                        <span class="hint_orange" style="font-weight: bold">orange</span> bar.
+
+370.4 	 The number after the <code>\Large{:}</code> symbol represents the number of minutes past
+                        the hour. So <code><var>TIME</var></code> represents <code><var>MINUTE</var></code>
+                        minutes past hour <code><var>HOUR</var></code>.
+
+370.5 	 First, let's set the <span class="hint_orange" style="font-weight: bold">minute</span> hand.
+
+370.6 	 Each long tick mark is an increment of 5 minutes, because
+                            60 minutes / 12 tick marks = 5 minutes per tick mark.
+
+370.7 	 Since we are <code><var>MINUTE</var></code> minutes past the hour,
+                            <span data-if="MINUTE_IS_ZERO">
+                                the minute hand should be at the mark numbered
+                                <code class="hint_orange">12</code>, which is the first tick mark on the clock
+                                and represents <code>0</code> minutes past the hour
+                            </span><span data-else>
+                                and there are 5 minutes per tick mark, the minute hand should be at the mark numbered
+                                <code class="hint_orange"><var>fraction(MINUTE, 5)</var> = <var>MINUTE/5</var></code>
+                            </span>.
+
+370.8 	 Next, let's set the <span class="hint_blue" style="font-weight: bold">hour</span> hand.
+
+370.9 	 The 12 long tick marks correspond to the hours in the day (assuming AM/PM time).
+
+370.10 	 If it is <code>0</code> minutes past the hour, the hour hand belongs directly on the
+                            corresponding hour mark. But, over the hour, the hour hand must travel so it reaches
+                            the next hour by the time the hour changes.
+
+370.11 	 Since it's <code>0</code> minutes past the hour, the hour hand should be right on the
+                            <code class="hint_blue"><var>HOUR</var></code> hour mark.
+
+370.12 	 Since it's <code><var>MINUTE</var></code> minutes past the hour, the hour hand will have
+                                traveled <code class="hint_blue"><var>fraction(MINUTE, 60)</var> =
+                                <var>fraction(MINUTE, 60, false, true)</var></code> of the way to the
+                                <code><span data-if="HOUR + 1 ===13">1</span><span data-else><var>HOUR + 1</var></span>
+                                </code> hour mark.
+
+370.13 	 So the hour hand needs to be placed
+                                <span data-if="MINUTE === 20">just before the second
+                                </span><span data-else-if="MINUTE === 40">just past the third
+                                </span><span data-else-if="MINUTE === 15">just past the first
+                                </span><span data-else-if="MINUTE === 30">between the second and third
+                                </span><span data-else>just before the fourth </span>
+                                small tick mark past the <code class="hint_blue"><var>HOUR</var></code> hour mark.
+

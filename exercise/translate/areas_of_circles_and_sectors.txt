@@ -1,0 +1,20 @@
+40.1 	 Areas of circles and sectors
+
+40.2 	 A circle with area <code class="hint_blue"><var>PRETTY_A_C</var></code> has a <span class="hint_orange">sector</span> with a <code class="hint_purple"><var>ANGLE</var>^\circ</code> central angle.
+
+40.3 	 What is the area of the sector?
+
+40.5 	 The ratio between the sector's central angle <code class="hint_purple">\theta</code> and <code>360^\circ</code> equals the ratio between the sector's area, <code class="hint_orange">A_s</code>, and the whole circle's area, <code class="hint_blue">A_c</code>.
+
+40.9 	 A circle with radius <code class="hint_blue"><var>R</var></code> has a sector with a <code class="hint_purple"><var>ANGLE</var>^\circ</code> central angle.
+
+40.10 	 First, calculate the area of the whole circle.
+
+40.11 	 Then the area of the sector is some fraction of the whole circle's area.
+
+40.15 	 A circle has a <span class="hint_orange">sector</span> with area <code class="hint_orange"><var>PRETTY_A_S</var></code> and central angle <code class="hint_purple"><var>ANGLE</var>^\circ</code>.
+
+40.16 	 What is the area of the circle?
+
+40.18 	 The ratio between the sector's central angle <code class="hint_purple">\theta</code> and <code>360^\circ</code> equals the ratio between the sector's area, <code class="hint_orange">A_s</code>, and the whole circle's area, <code class="hint_blue">A_c</code>.
+

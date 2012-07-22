@@ -1,0 +1,34 @@
+37.1 	 Area of a circle
+
+37.2 	 Suppose the radius of a circle is <code>\color{<var>R_COLOR</var>}{<var>R</var>}</code>. What is its area?
+
+37.3 	 We know <code>K = \pi r^2</code>, so <code>K = \pi \cdot \color{<var>R_COLOR</var>}{<var>R</var>}^2 = \color{<var>K_COLOR</var>}{<var>R * R</var>\pi}</code>.
+
+37.4 	 Suppose the area of a circle is <code>\color{<var>K_COLOR</var>}{<var>R === 1 ? "" : R * R</var>\pi}</code>. What is its radius?
+
+37.5 	 We know <code>K = \pi r^2</code>, so <code>r = \sqrt{K / \pi} = \sqrt{\color{<var>K_COLOR</var>}{<var>R * R</var>\pi} / \pi} = \color{<var>R_COLOR</var>}{<var>R</var>}</code>.
+
+37.6 	 Suppose the diameter of a circle is <code>\color{<var>D_COLOR</var>}{<var>2 * R</var>}</code>. What is its area?
+
+37.7 	 First, find the radius: <code>r = d/2 = \color{<var>D_COLOR</var>}{<var>2 * R</var>}/2 = \color{<var>R_COLOR</var>}{<var>R</var>}</code>.
+
+37.8 	 Now find the area: <code>K = \pi r^2</code>, so <code>K = \pi \cdot \color{<var>R_COLOR</var>}{<var>R</var>}^2 = \color{<var>K_COLOR</var>}{<var>R * R</var>\pi}</code>.
+
+37.9 	 Suppose the area of a circle is <code>\color{<var>K_COLOR</var>}{<var>R === 1 ? "" : R * R</var>\pi}</code>. What is its diameter?
+
+37.10 	 First, find the radius: <code>K = \pi r^2</code>, so <code>r = \sqrt{K / \pi} = \sqrt{\color{<var>K_COLOR</var>}{<var>R * R</var>\pi} / \pi} = \color{<var>R_COLOR</var>}{<var>R</var>}</code>.
+
+37.11 	 Now find the diameter: <code>d = 2r = 2\cdot \color{<var>R_COLOR</var>}{<var>R</var>} = \color{<var>D_COLOR</var>}{<var>2*R</var>}</code>.
+
+37.12 	 Suppose the circumference of a circle is <code>\color{<var>C_COLOR</var>}{<var>2 * R</var>\pi}</code>. What is its area?
+
+37.13 	 First, find the radius: <code>r = c/2\pi = \color{<var>C_COLOR</var>}{<var>2 * R</var>\pi}/2\pi = \color{<var>R_COLOR</var>}{<var>R</var>}</code>.
+
+37.14 	 Now find the area: <code>K = \pi r^2</code>, so <code>K = \pi \cdot \color{<var>R_COLOR</var>}{<var>R</var>}^2 = \color{<var>K_COLOR</var>}{<var>R * R</var>\pi}</code>.
+
+37.15 	 Suppose the area of a circle is <code>\color{<var>K_COLOR</var>}{<var>R === 1 ? "" : R * R</var>\pi}</code>. What is its circumference?
+
+37.16 	 First, find the radius: <code>K = \pi r^2</code>, so <code>r = \sqrt{K / \pi} = \sqrt{\color{<var>K_COLOR</var>}{<var>R * R</var>\pi} / \pi} = \color{<var>R_COLOR</var>}{<var>R</var>}</code>.
+
+37.17 	 Now find the circumference: <code>c = 2\pi r = 2\pi \cdot \color{<var>R_COLOR</var>}{<var>R</var>} = \color{<var>C_COLOR</var>}{<var>2*R</var>\pi}</code>.
+

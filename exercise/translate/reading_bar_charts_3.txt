@@ -1,0 +1,87 @@
+304.1 	 Reading bar charts 3
+
+304.2 	 What was the average student score for the <var>TEST</var>?
+
+304.3 	 Use the key to figure out which of the two bars shows the scores for the <var>TEST</var>.
+
+304.4 	 Find each of the <var>TEST</var> scores represented by the <span data-if="COLUMN === 0">blue</span><span data-else>orange</span> bars.
+
+304.5 	 To find the average student score, add up the individual scores and divide by the number of students.
+
+304.7 	 The average student score on the <var>TEST</var> was <code><var>AVERAGE</var></code>.
+
+304.8 	 On average, did the students do better on the midterm or the final exam?
+
+304.9 	 Find each of the <span class="hint_blue">midterm scores</span> represented by the <span class="hint_blue">blue bars</span>.
+
+304.10 	 To find the average student score on the midterm, add up the individual scores and divide by the number of students.
+
+304.12 	 The average student score on the midterm was <code class="hint_blue"><var>MIDTERM_AVG</var></code>.
+
+304.13 	 Find each of the <span class="hint_orange">final exam scores</span> represented by the <span class="hint_orange">orange bars</span>.
+
+304.14 	 To find the average student score on the final exam, add up the individual scores and divide by the number of students.
+
+304.16 	 The average student score on the final exam was <code class="hint_orange"><var>FINAL_AVG</var></code>.
+
+304.17 	 The average student score was higher on the <span class="hint_blue">midterm</span>
+                        than on the <span class="hint_orange">final exam</span>.
+
+304.18 	 The average student score was higher on the <span class="hint_orange">final exam</span>
+                        than the <span class="hint_blue">midterm</span>.
+
+304.19 	 The average student score was the same on both the <span class="hint_blue">midterm</span>
+                        and the <span class="hint_orange">final exam</span>.
+
+304.20 	 What was the median score for the <var>TEST</var>?
+
+304.21 	 Use the key to figure out which of the two bars shows the scores for the <var>TEST</var>.
+
+304.22 	 Find each of the <var>TEST</var> scores represented by the <span data-if="COLUMN === 0">blue</span><span data-else>orange</span> bars.
+
+304.24 	 Put the <var>TEST</var> scores in order from least to greatest.
+
+304.26 	 Since there are an odd number of scores, the median score is just the middle score.
+
+304.27 	 Since there are an even number of scores, the median score is the average of the two middle scores.
+
+304.29 	 The median score on the <var>TEST</var> was <code><var>MEDIAN</var></code>.
+
+304.30 	 What was the mode for the <var>TEST</var> scores?
+
+304.31 	 Use the key to figure out which of the two bars shows the scores for the <var>TEST</var>.
+
+304.32 	 Find each of the <var>TEST</var> scores represented by the <span data-if="COLUMN === 0">blue</span><span data-else>orange</span> bars.
+
+304.33 	 The mode is the most frequently occurring score.
+
+304.34 	 <code><var>MODE</var></code> is the most frequently occurring score.
+
+304.35 	 What is the range of the <var>TEST</var> scores?
+
+304.36 	 The range is the difference between the largest value and the smallest value.
+
+304.37 	 Use the key to figure out which of the two bars shows the scores for the <var>TEST</var>.
+
+304.38 	 Find the largest and smallest <var>TEST</var> scores represented by the <span data-if="COLUMN === 0">blue</span><span data-else>orange</span> bars.
+
+304.39 	 The smallest <var>TEST</var> score is <code><var>MIN</var></code>. The largest <var>TEST</var> score is <code><var>MAX</var></code>.
+
+304.40 	 Find the range by subtracting the smallest score from the largest score.
+
+304.42 	 The range of <var>TEST</var> scores is <code><var>RANGE</var></code>.
+
+304.43 	 What is the midrange of the <var>TEST</var> scores?
+
+304.44 	 The midrange is halfway between the largest value and the smallest value.
+
+304.45 	 Use the key to figure out which of the two bars shows the scores for the <var>TEST</var>.
+
+304.46 	 Find the largest and smallest <var>TEST</var> scores represented by the <span data-if="COLUMN === 0">blue</span><span data-else>orange</span> bars.
+
+304.47 	 The smallest <var>TEST</var> score is <code><var>MIN</var></code>. The largest <var>TEST</var> score is <code><var>MAX</var></code>.
+
+304.48 	 Find the midrange by averaging the smallest and largest scores.
+
+304.50 	 The midrange of <var>TEST</var> scores is <code><var>MIDRANGE</var></code>.
+

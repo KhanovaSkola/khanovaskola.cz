@@ -1,0 +1,6 @@
+38.1 	 Area of parallelograms
+
+38.2 	 By moving a slice of the parallelogram, we can see that its area is equal to that of a rectangle with the same base and height.
+
+38.3 	 area of rectangle <code> = b \times h</code>
+

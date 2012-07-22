@@ -1,0 +1,28 @@
+164.1 	 Fractions cut and copy 1
+
+164.2 	 The starting block below is <code><var>CODE_PARENT</var></code> units long. Use the tools to the right to convert the starting block into the goal block that is <code><var>CODE_OFFSPRING</var></code> units long. You can see your progress as the current block.
+
+164.3 	 Starting Block:
+
+164.4 	 Current Block:
+
+164.5 	 Goal Block:
+
+164.6 	 The starting block of length <code><var>CODE_PARENT</var></code> units
+                    can be rewritten as <code><var>fraction( N_PARENT_EXPANDED, D )</var></code>.
+
+164.7 	 The goal block of length <code><var>CODE_OFFSPRING</var></code> units
+                    can be rewritten as <code><var>fraction( N_OFFSPRING_EXPANDED, D )</var></code>.
+
+164.8 	 Cutting the starting block into <code>x</code> pieces is the same as dividing it by <code>x</code>.
+
+164.9 	 Therefore cutting the starting block into <code><var>N_PARENT_EXPANDED</var></code> pieces is the same as:
+
+164.11 	 Copying the resulting block <code>y</code> times is the same as multiplying it by <code>y</code>.
+
+164.12 	 Therefore copying the resulting block <code><var>N_OFFSPRING_EXPANDED</var></code> times is the same as:
+
+164.14 	 Notice that we end up with a block the same size as the goal block.
+
+164.15 	 <strong>Therefore the solution is to cut the starting block into <code><var>N_PARENT_EXPANDED</var></code> pieces and copy the resulting block <code><var>N_OFFSPRING_EXPANDED</var></code> times.</strong>
+

@@ -1,0 +1,34 @@
+72.1 	 Conditional Statements and Truth Value
+
+72.2 	 Assume this first statement is true:
+
+72.4 	 Logically, can you deduce that this second statement must be true from the first one?
+
+72.7 	 Is the second statement the converse, inverse, or contrapositive of the original statement?
+
+72.8 	 The second statement is the <var>STATEMENT_TYPE</var> of the original statement.
+
+72.9 	 The <var>STATEMENT_TYPE</var> is logically equivalent to the original statement, so yes, the second statement can be deduced from the first statement.
+
+72.10 	 The <var>STATEMENT_TYPE</var> is not logically equivalent to the original statement, so no, the second statement cannot be deduced from the first statement.
+
+72.11 	 Assume this original statement below is true:
+
+72.13 	 Choose the statement that must also be true logically:
+
+72.15 	 Only the contrapositive of the original statement must be true.
+
+72.16 	 Find the contrapositive. In other words, find the statement that reverses and negates both the hypothesis and conclusion.
+
+72.17 	 In this case, the contrapositive is <strong>"<var>PROBLEM.contrapositive</var>"</strong>
+
+72.18 	 If the <var>NAMES[CASE]</var> is true, then which other statement must be true logically?
+
+72.19 	 the <var>ANS</var>
+
+72.20 	 The <span class="hint_blue">original</span> conditional statement and its <span class="hint_blue">contrapositive</span> are logically equivalent, and the <span class="hint_green">converse</span> and the <span class="hint_green">inverse</span> are logically equivalent.
+
+72.21 	 Logically equivalent statements have the same truth-value.
+
+72.22 	 Because the <var>NAMES[CASE]</var> is true, the <strong><var>NAMES[3-CASE]</var></strong> is also logically true.
+

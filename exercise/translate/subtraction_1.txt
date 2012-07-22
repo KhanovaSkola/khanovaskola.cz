@@ -1,0 +1,4 @@
+358.1 	 Subtraction 1
+
+358.2 	 We began with <var>plural( A, "dot" )</var> and crossed out <var>B</var> of them, so we are left with <var>plural( A - B, "dot" )</var>.
+

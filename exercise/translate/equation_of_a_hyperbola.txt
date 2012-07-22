@@ -1,0 +1,27 @@
+132.1 	 Equation of a hyperbola
+
+132.2 	 The equation of hyperbola <code>H</code> is <code><var>WHICH_NEG === 1 ? expr(["-", Y2T, X2T]) : expr(["-", X2T, Y2T])</var> = 1</code>.
+
+132.3 	 What are the asymptotes?
+
+132.4 	 <code>y = \pm (</code><span class="sol" data-fallback="1"><var>B/A</var></span>
+                    <code>)(x + </code><span class="sol" data-fallback="0"><var>-H</var></span>
+                    <code>) + </code><span class="sol" data-fallback="0"><var>K</var></span>
+
+132.5 	 enter integers, <em>simplified</em> fractions, or <em>exact</em> decimals for each term
+
+132.6 	 pay attention to the sign of each number you enter to be sure the entire equation is correct
+
+132.7 	 We want to rewrite the equation in terms of <code>y</code>, so start off by moving the <code>y</code> terms to one side:
+
+132.9 	 Multiply both sides of the equation by <code><var>B * B</var></code>.
+
+132.11 	 Take the square root of both sides.
+
+132.14 	 As <code>x</code> approaches positive or negative infinity, the constant term in the square root matters less and less, so we can just ignore it.
+
+132.17 	 <span data-if="K > 0">Add <code><var>K</var></code> to both sides and rewrite</span>
+                <span data-else-if="K < 0">Subtract <code><var>-K</var></code> from both sides and rewrite</span>
+                <span data-else>Rewrite</span>
+                as an equality in terms of <code>y</code> to get the equation of the asymptotes:
+

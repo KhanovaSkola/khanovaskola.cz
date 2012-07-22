@@ -1,0 +1,25 @@
+372.1 	 The fundamental theorem of arithmetic
+
+372.2 	 Find the prime factorization of <code><var>NUMBER</var></code>.
+
+372.3 	 Use the arrows to change the exponent on each prime number below to see if you can find the
+                    prime factorization.
+
+372.5 	 We can use a factor tree to break <code><var>NUMBER</var></code> into its prime
+            factorization. Which of the prime numbers divides into <code><var>NUMBER</var></code>?
+
+372.6 	 <code><var>REMAINING[I]</var></code> is divisible by <code class="hint_blue"><var>FACTOR</var></code>,
+                leaving us with <code><var>REMAINING[I] / FACTOR</var></code>.
+
+372.7 	 <code class="hint_blue"><var>FACTORIZATION[FACTORIZATION.length-1]</var></code>
+                is prime, so we're done factoring.
+
+372.8 	 The prime factorization of <code><var>NUMBER</var></code> is:
+
+372.9 	 <code class="hint_blue">
+                \qquad<var>FACTORIZATION.join("\\space\\color{black}{\\cdot}\\space")</var>
+            </code>
+
+372.10 	 Because there <var>FACTORIZATION[0] === FACTORIZATION[1] ? "are" : "is"</var>
+                    <var>toSentence(EXPONENT_HINT)</var>, we can use exponents to write the prime factorization as:
+

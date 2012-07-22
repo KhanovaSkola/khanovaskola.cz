@@ -1,0 +1,74 @@
+363.1 	 Systems of equations
+
+363.2 	 Solve for <code>x</code> and <code>y</code> using elimination.
+
+363.4 	 <code>x</code> = <span class="sol"><var>X_NUMER / X_DENOM</var></span>
+
+363.5 	 <code>y</code> = <span class="sol"><var>Y_NUMER / Y_DENOM</var></span>
+
+363.6 	 We can eliminate <code><var>( XY_FLAG ? "x" : "y" )</var></code> when its corresponding coefficients are negative inverses.
+
+363.7 	 Recalling our knowledge of least common multiples, multiply the top equation by <code><var>MULT_1</var></code> and the bottom equation by <code><var>MULT_2</var></code>.
+
+363.9 	 Add the top and bottom equations.
+
+363.11 	 Divide both sides by <code><var>B1*MULT_1+B2*MULT_2</var></code> and reduce as necessary.
+
+363.13 	 Substitute <code><var>fractionReduce( Y_NUMER, Y_DENOM )</var></code> for <code>y</code> in the top equation.
+
+363.17 	 <code data-if="A1 !== 1">x = <var>fractionReduce(X_NUMER,X_DENOM)</var></code>
+
+363.18 	 The solution is<code>\enspace x = <var>fractionReduce( X_NUMER, X_DENOM )</var>, \enspace y = <var>fractionReduce( Y_NUMER, Y_DENOM )</var></code>.
+
+363.19 	 Recalling our knowledge of least common multiples, multiply the top equation by <code><var>MULT_3</var></code> and the bottom equation by <code><var>MULT_4</var></code>.
+
+363.21 	 Add the top and bottom equations.
+
+363.23 	 Divide both sides by <code><var>A1*MULT_3+A2*MULT_4</var></code> and reduce as necessary.
+
+363.25 	 Substitute <code><var>fractionReduce( X_NUMER, X_DENOM )</var></code> for <code>x</code> in the top equation.
+
+363.29 	 <code data-if="A1 !== 1">y = <var>fractionReduce( Y_NUMER, Y_DENOM )</var></code>
+
+363.30 	 The solution is<code>\enspace x = <var>fractionReduce( X_NUMER, X_DENOM )</var>, \enspace y = <var>fractionReduce( Y_NUMER, Y_DENOM )</var></code>.
+
+363.31 	 Solve for <code>x</code> and <code>y</code> by deriving an expression for <code>y</code> from the second equation, and substituting it back into the first equation.
+
+363.33 	 <code>x</code> = <span class="sol"><var>X_NUMER / X_DENOM</var></span>
+
+363.34 	 <code>y</code> = <span class="sol"><var>Y_NUMER / Y_DENOM</var></span>
+
+363.35 	 Begin by moving the <code>x</code>-term in the second equation to the right side of the equation.
+
+363.37 	 Divide both sides by <code><var>B2</var></code> to isolate <code>y</code>.
+
+363.39 	 Substitute this expression for <code>y</code> in the first equation.
+
+363.42 	 Simplify by combining terms, then solve for <code>x</code>.
+
+363.46 	 Substitute <code><var>fractionReduce( X_NUMER, X_DENOM )</var></code> for <code>x</code> back into the top equation.
+
+363.50 	 <code data-if="A1 !== 1">y = <var>fractionReduce( Y_NUMER, Y_DENOM )</var></code>
+
+363.51 	 The solution is<code>\enspace x = <var>fractionReduce( X_NUMER, X_DENOM )</var>, \enspace y = <var>fractionReduce( Y_NUMER, Y_DENOM )</var></code>.
+
+363.52 	 Solve for <code>x</code> and <code>y</code> by deriving an expression for <code>x</code> from the second equation, and substituting it back into the first equation.
+
+363.54 	 <code>x</code> = <span class="sol"><var>X_NUMER / X_DENOM</var></span>
+
+363.55 	 <code>y</code> = <span class="sol"><var>Y_NUMER / Y_DENOM</var></span>
+
+363.56 	 Begin by moving the <code>y</code>-term in the second equation to the right side of the equation.
+
+363.58 	 Divide both sides by <code><var>A2</var></code> to isolate <code>x</code>.
+
+363.60 	 Substitute this expression for <code>x</code> in the first equation.
+
+363.63 	 Simplify by combining terms, then solve for <code>y</code>.
+
+363.67 	 Substitute <code><var>fractionReduce( Y_NUMER, Y_DENOM )</var></code> for <code>y</code> in the top equation.
+
+363.71 	 <code data-if="A1 !== 1">x = <var>fractionReduce(X_NUMER,X_DENOM)</var></code>
+
+363.72 	 The solution is<code>\enspace x = <var>fractionReduce( X_NUMER, X_DENOM )</var>, \enspace y = <var>fractionReduce( Y_NUMER, Y_DENOM )</var></code>.
+

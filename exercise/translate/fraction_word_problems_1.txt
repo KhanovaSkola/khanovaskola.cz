@@ -1,0 +1,60 @@
+163.1 	 Recognizing fractions word problems 1
+
+163.2 	 <var>person( 1 )</var> ate <var>plural( A, "slice" )</var> of <var>pizza( 1 )</var>, and <var>person( 2 )</var>
+                    ate <var>plural( B, "slice" )</var>.
+
+163.3 	 If there were initially <var>TOTAL</var> slices, what fraction of the <var>pizza( 1 )</var> was eaten?
+
+163.6 	 They ate <code>\color{#6495ED}{<var>A + B</var>}</code> out of <code><var>TOTAL</var></code> slices.
+
+163.7 	 They ate <code>\dfrac{<var>A + B</var>}{<var>TOTAL</var>}</code> of the <var>pizza( 1 )</var>.
+
+163.8 	 <var>person( 1 )</var> ate <var>plural( A, "slice" )</var> of <var>pizza( 1 )</var>, and <var>person( 2 )</var>
+                    ate <var>plural( B, "slice" )</var>.
+
+163.9 	 If there were <var>plural(LEFT, "slice")</var> remaining, what fraction of the <var>pizza( 1 )</var> was eaten?
+
+163.12 	 Since they ate <var>A + B</var> slices of <var>pizza( 1 )</var> with <var>plural( LEFT, "slice" )</var> remaining,
+                        they must have begun with <var>TOTAL</var> slices.
+
+163.13 	 They ate <code>\color{#6495ED}{<var>A + B</var>}</code> out of <code><var>TOTAL</var></code> slices.
+
+163.14 	 They ate <code>\dfrac{<var>A + B</var>}{<var>TOTAL</var>}</code> of the <var>pizza( 1 )</var>.
+
+163.15 	 <var>person( 1 )</var> ate <var>plural( A, "slice" )</var> of <var>pizza( 1 )</var>, and <var>person( 2 )</var>
+                    ate <var>plural( B, "slice" )</var>.
+
+163.16 	 If <var>person( 1 )</var> ate <code>\dfrac{<var>A</var>}{<var>TOTAL</var>}</code> of the <var>pizza( 1 )</var>,
+                    what fraction of the <var>pizza( 1 )</var> was eaten?
+
+163.18 	 If <var>plural( A, "slice")</var> represent<var>A &gt; 1 ? "" : "s"</var>
+                        <code>\dfrac{<var>A</var>}{<var>TOTAL</var>}</code> of the <var>pizza( 1 )</var>, there must have been a total of
+                        <var>TOTAL</var> slices.
+
+163.20 	 They ate <code>\color{#6495ED}{<var>A + B</var>}</code> out of <code><var>TOTAL</var></code> slices.
+
+163.21 	 They ate <code>\dfrac{<var>A + B</var>}{<var>TOTAL</var>}</code> of the <var>pizza( 1 )</var>.
+
+163.22 	 <var>person( 1 )</var> ate <var>plural( A, "slice" )</var> of <var>pizza( 1 )</var>, and
+                    <var>person( 2 )</var> ate <var>plural( B, "slice" )</var>.
+
+163.23 	 If there were initially <var>TOTAL</var> slices, what fraction of the <var>pizza( 1 )</var> is remaining?
+
+163.26 	 Together they ate <var>A + B</var> slices, which leaves <var>LEFT</var> out of <var>TOTAL</var> slices remaining.
+
+163.27 	 There is <code>\dfrac{<var>LEFT</var>}{<var>TOTAL</var>}</code> of the <var>pizza( 1 )</var> remaining.
+
+163.28 	 <var>person( 1 )</var> ate <var>plural( A, "slice" )</var> of <var>pizza( 1 )</var>, and
+                    <var>person( 2 )</var> ate <var>plural( B, "slice" )</var>.
+
+163.29 	 If <var>person( 1 )</var> ate <code>\dfrac{<var>A</var>}{<var>TOTAL</var>}</code> of the <var>pizza( 1 )</var>,
+                    what fraction of the <var>pizza( 1 )</var> is remaining?
+
+163.31 	 If <var>plural( A, "slice" )</var> represent<var>A &gt; 1 ? "" : "s"</var>
+                        <code>\dfrac{<var>A</var>}{<var>TOTAL</var>}</code> of the <var>pizza( 1 )</var>,
+                        there must have been a total of <var>TOTAL</var> slices.
+
+163.33 	 Together they ate <var>A + B</var> slices, which leaves <var>LEFT</var> out of <var>TOTAL</var> slices remaining.
+
+163.34 	 There is <code>\dfrac{<var>LEFT</var>}{<var>TOTAL</var>}</code> of the <var>pizza( 1 )</var> remaining.
+

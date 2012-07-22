@@ -1,0 +1,52 @@
+291.1 	 Quadrilateral Types
+
+291.2 	 This figure has two parallel sides.
+
+291.3 	 It also has 2 pairs of adjacent angles which are supplementary.
+
+291.4 	 It is a trapezoid.
+
+291.5 	 This figure has two parallel sides.
+
+291.6 	 It also has 2 pairs of adjacent angles which are supplementary.
+
+291.7 	 It is a trapezoid.
+
+291.8 	 However, its legs are equal, so it is an isosceles trapezoid.
+
+291.9 	 Opposite angles of this  quadrilateral are equal.
+
+291.10 	 Adjacent angles are supplementary.
+
+291.11 	 It has 2 pairs of parallel sides.
+
+291.12 	 Parallel sides are equal.
+
+291.13 	 Therefore it is a parallelogram.
+
+291.14 	 This quadrilateral has 2 pairs of parallel sides.
+
+291.15 	 Its angles are equal to 90.
+
+291.16 	 Therefore it is a rectangle.
+
+291.17 	 This quadrilateral has 2 pairs of parallel sides.
+
+291.18 	 Its angles are equal to 90.
+
+291.19 	 All sides are equal.
+
+291.20 	 Therefore it is a square.
+
+291.21 	 This quadrilateral has two pairs of equal sides.
+
+291.22 	 Those sides are adjacent.
+
+291.23 	 It also has a pair of equal angles, positioned between the non-equal sides.
+
+291.24 	 It is a kite.
+
+291.25 	 This quadrilateral has all sides equal.
+
+291.26 	 Therefore it is a rhombus.
+

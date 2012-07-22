@@ -1,0 +1,30 @@
+192.1 	 Imaginary unit powers
+
+192.2 	 Simplify.
+
+192.4 	 Anything to the first power is the number itself.
+
+192.5 	 The most important property of the imaginary unit <code>i</code> is
+                    that <code>\color{<var>BLUE</var>}{i ^ 2} = \color{<var>ORANGE</var>}{-1}</code>.
+
+192.9 	 Simplify.
+
+192.11 	 The most important property of the imaginary unit <code>i</code> is
+                    that <code>\color{<var>BLUE</var>}{i ^ 2} = \color{<var>ORANGE</var>}{-1}</code>.
+
+192.12 	 When this property is plugged into <code>i ^ 4</code>, we get:
+                    <code>i ^ 4 = (\color{<var>BLUE</var>}{i ^ 2}) ^ 2 = (\color{<var>ORANGE</var>}{-1}) ^ 2 = 1</code>
+
+192.13 	 So, we can reduce the exponent by multiples of 4 and have the same result.
+
+192.14 	 The remainder after dividing <var>EXP</var> by 4 is <var>EXP % 4</var>, <!-- maybe add a reference to mod here... probably after a mod module is made -->
+                    so <code>i ^ {<var>EXP</var>} = i ^ {<var>EXP % 4</var>}</code>.
+
+192.15 	 Any number but zero to the zeroth power is one.
+
+192.17 	 Anything to the first power is the number itself.
+
+192.19 	 As stated above, <code>\color{<var>BLUE</var>}{i ^ 2} = \color{<var>ORANGE</var>}{-1}</code>.
+
+192.21 	 <code>i ^ {<var>EXP</var>} = i ^ {<var>EXP % 4</var>} = <var>SOLUTION</var></code>.
+

@@ -1,0 +1,27 @@
+371.1 	 The complex plane
+
+371.2 	 Move the orange dot to <code><var>REP</var></code>.
+
+371.3 	 Complex numbers can be visualized as points on a plane. The coordinates on the
+                    real and imaginary axes correspond to the real and imaginary parts of the complex number.
+
+371.4 	 <code><var>REP</var></code> has real part <code><var>REAL</var></code> and imaginary part <code><var>IMAG</var></code>.
+
+371.5 	 The vertical <strong class="hint_orange">orange</strong> line represents all complex numbers with real part <code><var>REAL</var></code> (including <code><var>REP</var></code>).
+                </div>
+                <div>
+                    <div class="graphie" data-update="gauss-plane">
+                        style({ stroke: KhanUtil.BLUE, strokeWidth: 2.0 });
+                        line( [ LOWER_BOUND - 1, IMAG ], [ UPPER_BOUND + 1, IMAG ] );
+                        movablePoint.visibleShape.toFront();
+                    </div>
+                    <p>The horizontal <strong class="hint_blue">blue</strong> line represents all complex numbers with imaginary part <code><var>IMAG</var></code>, also including <code><var>REP</var></code>.
+                </div>
+                <div>
+                    <div class="graphie" data-update="gauss-plane">
+                        movablePoint.moveTo( REAL, IMAG );
+                    </div>
+                    <p>
+                        The only complex number with real part <code><var>REAL</var></code> and imaginary part <code><var>IMAG</var></code> is <code><var>REP</var></code>,
+                        so it lies on the intersection of the vertical <strong class="hint_orange">orange</strong> line and the horizontal <strong class="hint_blue">blue</strong> line.
+

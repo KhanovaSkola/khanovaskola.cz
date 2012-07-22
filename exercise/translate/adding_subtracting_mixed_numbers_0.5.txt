@@ -1,0 +1,32 @@
+16.1 	 Adding and subtracting mixed numbers with like denominators
+
+16.2 	 Express your answer as a mixed number simplified to lowest terms.
+
+16.4 	 Separate the whole numbers from the fractional parts:
+
+16.6 	 Bring the whole numbers together and the fractions together:
+
+16.8 	 <span data-if="PM === 1">Add</span><span data-else>Subtract</span> the whole numbers:
+
+16.10 	 <span data-if="PM === 1">Add</span><span data-else>Subtract</span> the fractions:
+
+16.12 	 Combine the whole and fractional parts into a mixed number:
+
+16.14 	 Simplify to lowest terms:
+
+16.16 	 Express your answer as a mixed number simplified to lowest terms.
+
+16.18 	 Convert <code><var>W1+1</var></code> into<code>=\blue{<var>W1</var>} + \blue{<var>fraction( N1, D1)</var>}</code> before subtracting. So the problem becomes:
+
+16.20 	 Separate the whole numbers from the fractional parts:
+
+16.22 	 Bring the whole numbers together and the fractions together:
+
+16.24 	 <span data-if="PM === 1">Add</span><span data-else>Subtract</span> the whole numbers:
+
+16.26 	 <span data-if="PM === 1">Add</span><span data-else>Subtract</span> the fractions:
+
+16.28 	 Combine the whole and fractional parts into a mixed number:
+
+16.30 	 Simplify to lowest terms:
+

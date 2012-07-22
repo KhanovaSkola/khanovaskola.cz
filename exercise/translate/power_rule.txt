@@ -1,0 +1,4 @@
+276.1 	 Power rule
+
+276.6 	 Let's find the derivative of each term and then add them together.
+

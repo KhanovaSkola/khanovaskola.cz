@@ -1,0 +1,6 @@
+138.1 	 Evaluating expressions 1
+
+138.2 	 Evaluate the following expressions when <code>x = <var>X</var></code>
+
+138.5 	 Plug in <code class="hint_orange"><var>X</var></code> for <code>x</code>.
+

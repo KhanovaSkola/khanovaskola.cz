@@ -1,0 +1,4 @@
+57.1 	 Common factors of a polynomial 1
+
+57.2 	 Factor the following expression by finding the common factors of its terms:
+

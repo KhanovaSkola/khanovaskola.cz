@@ -1,0 +1,12 @@
+393.1 	 Z-scores 1
+
+393.2 	 Find the z-score for <var>person( 1 )</var>'s exam grade. Round to two decimal places.
+
+393.3 	 A z-score is defined as the number of <span class="hint_green">standard deviations</span> a specific point is away from the <span class="hint_pink">mean</span>.
+
+393.4 	 We can calculate the z-score for <var>person( 1 )</var>'s exam grade by subtracting the <span class="hint_pink">mean <code>(\mu)</code></span> from
+                        <var>his( 1 )</var> grade and then dividing by the <span class="hint_green">standard deviation <code>(\sigma)</code></span>.
+
+393.8 	 The z-score is <code><var>ZSCORE</var></code>. In other words, <var>person( 1 )</var>'s score was <code><var>abs( ZSCORE )</var></code>
+                        standard deviation<var>plural( abs( ZSCORE ) )</var> <span data-if="ZSCORE > 0">above</span><span data-else>below</span> the mean.
+

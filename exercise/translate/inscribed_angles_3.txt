@@ -1,0 +1,34 @@
+197.1 	 Inscribed angles 3
+
+197.2 	 If the <var>GIVEN_LABEL</var> angle measures <var>GIVEN</var> degrees, what does the <var>ASKED_LABEL</var> angle measure?
+
+197.3 	 This is a special case where the center of the circle is outside the inscribed orange angle. The blue angle is called a central angle.
+
+197.4 	 What do we know about the angles formed by the dashed diameter shown above?
+
+197.5 	 From the previous inscribed angles exercises, we know the following about the green and pink angles.
+
+197.7 	 We can see another pair of these special case inscribed and central angles, with the same relationship between green and pink angles.
+
+197.8 	 Looking at the picture, we can see the following is true:
+
+197.10 	 Substituting what we know about green and pink angles, we get the following:
+
+197.13 	 We can see from the picture that the following is also true:
+
+197.16 	 Combining what we know about blue and orange angles:
+
+197.20 	 What do we know about the angles formed by the dashed diameter shown above?
+
+197.21 	 From the previous inscribed angles exercises, we know the following about the green and pink angles.
+
+197.23 	 We can see another pair of these special case inscribed and central angles, with the same relationship between green and pink angles.
+
+197.24 	 Looking at the picture, we can see the following is true:
+
+197.26 	 Substituting what we know about green and pink angles, we get the following:
+
+197.29 	 We can see from the picture that the following is also true:
+
+197.32 	 Combining what we know about blue and orange angles:
+

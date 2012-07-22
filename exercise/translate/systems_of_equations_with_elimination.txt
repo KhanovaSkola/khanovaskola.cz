@@ -1,0 +1,36 @@
+364.1 	 Systems of equations with elimination
+
+364.2 	 Solve for <code>x</code> and <code>y</code> using elimination.
+
+364.4 	 <code>x</code> = <span class="sol"><var>X</var></span>
+
+364.5 	 <code>y</code> = <span class="sol"><var>Y</var></span>
+
+364.6 	 We can eliminate <code>x</code> by adding the equations together when the <code>x</code> coefficients have opposite signs.
+
+364.7 	 Multiply the <span data-if="INDEX === 2">bottom</span><span data-else>top</span> equation by <span data-if="INDEX === 2"><code><var>MULT2</var></code></span><span data-else><code><var>MULT1</var></code></span><span data-if="INDEX === 3"> and the bottom equation by <code><var>MULT2</var></code></span>.
+
+364.9 	 Add the top and bottom equations together.
+                        <p data-if="( B1 * MULT1 + B2 * MULT2 ) !== 1"><code><var>expr(["*", B1 * MULT1 + B2 * MULT2, "y"])</var> = <var>C1 * MULT1 + C2 * MULT2</var></code>
+
+364.12 	 Now that you know <code>\color{<var>ORANGE</var>}{y = <var>Y</var>}</code>, plug it back into <code>\thinspace \color{<var>BLUE</var>}{<var>expr(["+", ["*", A1, "x"], ["*", B1, "y"]])</var> = <var>C1</var>}\thinspace</code> to find <code>x</code>.
+
+364.19 	 You can also plug <code>\color{<var>ORANGE</var>}{y = <var>Y</var>}</code> into <code>\thinspace \color{<var>GREEN</var>}{<var>expr(["+", ["*", A2, "x"], ["*", B2, "y"]])</var> = <var>C2</var>}\thinspace</code> and get the same answer for <code>x</code>:
+
+364.22 	 Solve for <code>x</code> and <code>y</code> using elimination.
+
+364.24 	 <code>x</code> = <span class="sol"><var>X</var></span>
+
+364.25 	 <code>y</code> = <span class="sol"><var>Y</var></span>
+
+364.26 	 We can eliminate <code>y</code> by adding the equations together when the <code>y</code> coefficients have opposite signs.
+
+364.27 	 Multiply the <span data-if="INDEX === 2">bottom</span><span data-else>top</span> equation by <span data-if="INDEX === 2"><code><var>MULT2</var></code></span><span data-else><code><var>MULT1</var></code></span><span data-if="INDEX === 3"> and the bottom equation by <code><var>MULT2</var></code></span>.
+
+364.29 	 Add the top and bottom equations together.
+                        <p data-if="( A1 * MULT1 + A2 * MULT2 ) !== 1"><code><var>expr(["*", A1 * MULT1 + A2 * MULT2, "x"])</var> = <var>C1 * MULT1 + C2 * MULT2</var></code>
+
+364.32 	 Now that you know <code>\color{red}{x = <var>X</var>}</code>, plug it back into <code>\thinspace \color{<var>BLUE</var>}{<var>expr(["+", ["*", A1, "x"], ["*", B1, "y"]])</var> = <var>C1</var>}\thinspace</code> to find <code>y</code>.
+
+364.39 	 You can also plug <code>\color{red}{x = <var>X</var>}</code> into <code>\thinspace \color{<var>GREEN</var>}{<var>expr(["+", ["*", A2, "x"], ["*", B2, "y"]])</var> = <var>C2</var>}\thinspace</code> and get the same answer for <code>y</code>:
+

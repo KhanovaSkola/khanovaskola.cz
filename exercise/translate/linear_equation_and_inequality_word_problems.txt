@@ -1,0 +1,149 @@
+211.1 	 Linear equation and inequality word problems
+
+211.2 	 {Before skateboarding camp <var>person( 1 )</var> knew how to do|<var>person( 1 )</var> already knows how to do} <var>Q</var> skateboarding tricks. {<var>person( 1 )</var> hopes to one day be able to do <var>randRange( 25, 50 )</var> tricks. |}{Every week, <var>person( 1 )</var> will be taught <var>P</var> tricks.|At skateboarding camp, <var>person( 1 )</var> will learn <var>P</var> tricks per week.}
+
+211.3 	 If <var>person( 1 )</var> spends <var>X</var> weeks at camp, how many skateboarding tricks will <var>he( 1 )</var> know at the end of camp?
+
+211.4 	 Skateboarding tricks <var>he( 1 )</var> learns per week x Number of weeks at the camp + Skateboarding tricks <var>he( 1 )</var> already knows = Number of tricks known at the end of camp
+
+211.5 	 Skateboarding tricks <var>he( 1 )</var> learns per week = <code><var>P</var></code>
+
+211.6 	 Number of weeks at the camp = <code><var>X</var></code>
+
+211.7 	 Skateboarding tricks <var>he( 1 )</var> already knows = <code><var>Q</var></code>
+
+211.8 	 Number of tricks known at the end of camp = <code>r</code>
+
+211.11 	 <strong><var>person( 1 )</var> will know <var>R</var> tricks at the end of camp.</strong>
+
+211.12 	 <var>person( 1 )</var> has run <var>plural( Q, "marathon" )</var>{ and {plans|has commited to} to run <var>P</var> marathons per year.|. <var>He( 1 )</var> {plans|is commited} to run <var>P</var> marathons per year.}{ <var>person( 1 )</var> has been training for <var>randRange(2, 3)</var> months for this upcoming commitment.|}
+
+211.13 	 After <var>X</var> years, how many marathons will <var>person( 1 )</var> have run?
+
+211.14 	 Number of marathons planned per year x Number of years + Number of marathons <var>he( 1 )</var> already ran = Total number of marathons
+
+211.15 	 Number of marathons planned per year = <code><var>P</var></code>
+
+211.16 	 Number of years = <code><var>X</var></code>
+
+211.17 	 Number of marathons <var>he( 1 )</var> already ran = <code><var>Q</var></code>
+
+211.18 	 Total number of marathons = <code>r</code>
+
+211.21 	 <strong><var>person( 1 )</var> will have run <var>R</var> marathons at the end of <var>X</var> years.</strong>
+
+211.22 	 {<var>person( 1 )</var> has a coupon for shipping from Amazon.com|<var>person( 1 )</var> has decided to purchase some books from Amazon.com}. {No matter how much <var>he( 1 )</var> purchases, shipping will cost $<var>Q</var>.|Shipping is set at a flat-rate of $<var>Q</var>, regardless of the number of books purchased.}
+
+211.23 	 If <var>person( 1 )</var> buys <var>X</var> books for $<var>P</var> each, how much will the total bill be (assuming no sales tax)?
+
+                <div class="solution" data-forms="dollar"><var>R</var></div>
+
+                <div class="hints">
+                    <p>Cost of each book x Number of books bought + Cost of shipping = Bill total
+
+211.24 	 Cost of each book = <code><var>P</var></code>
+
+211.25 	 Number of books bought = <code><var>X</var></code>
+
+211.26 	 Cost of shipping = <code><var>Q</var></code>
+
+211.27 	 Bill total = <code>r</code>
+
+211.30 	 <strong><var>person( 1 )</var> will spend $<var>R</var> on <var>his(1)</var> Amazon purchase.</strong>
+
+211.31 	 {<var>Q</var> articles have been published by <var>person( 1 )</var> in <i>The New York Times</i>|<var>person( 1 )</var> has written <var>Q</var> articles for <i>The New York Times</i>}{ (<var>Q - randRange(2, 8)</var> of them in the last year)|}{. <var>He( 1 )</var> has a new contract| and <var>he( 1 )</var> has a new contract} to write <var>plural( P, "article" )</var> per month for the next <var>X</var> months.
+
+211.32 	 At the end of <var>X</var> months, how many articles will <var>he( 1 )</var> have had published in <i>The New York Times</i>?
+
+211.33 	 Number of articles to be written per month x Number of months writing articles + Number of articles already written = Total number of articles
+
+211.34 	 Number of articles to be written per month = <code><var>P</var></code>
+
+211.35 	 Number of months writing articles = <code><var>X</var></code>
+
+211.36 	 Number of articles already written = <code><var>Q</var></code>
+
+211.37 	 Total number of articles = <code>r</code>
+
+211.40 	 <strong><var>person( 1 )</var> will have written <var>R</var> articles at the end of <var>X</var> months.</strong>
+
+211.41 	 {After practicing for <var>randRange( 2, 5 )</var> months, |}<var>person( 1 )</var> {has reached proficiency|is proficient} in <var>Q</var> exercises on Khan Academy.
+
+211.42 	 If <var>person( 1 )</var> completes <var>P</var> exercises per week for the next <var>X</var> weeks, how many exercises will <var>he( 1 )</var> have completed in total?
+
+211.43 	 Number of exercises to complete per week x Number of weeks completing exercises + Number of exercises already proficient in = Total number of exercises completed
+
+211.44 	 Number of exercises to complete per week = <code><var>P</var></code>
+
+211.45 	 Number of weeks completing exercises = <code><var>X</var></code>
+
+211.46 	 Number of exercises already proficient in = <code><var>Q</var></code>
+
+211.47 	 Total number of exercises completed = <code>r</code>
+
+211.50 	 <strong><var>person( 1 )</var> will have completed <var>R</var> exercises at the end of <var>X</var> weeks.</strong>
+
+211.51 	 <var>person( 1 )</var> sells magazine subscriptions and earns $<var>P</var> for every new subscriber <var>he( 1 )</var> signs up. <var>person( 1 )</var> also earns a $<var>Q</var> weekly bonus regardless of how many magazine subscriptions <var>he( 1 )</var> sells.
+
+211.52 	 If <var>person( 1 )</var> wants to earn more than $<var>R</var> this week, what is the minimum number of subscriptions <var>he( 1 )</var> needs to sell?
+
+211.53 	 Dollars per subscription x Number of subscriptions sold + Weekly bonus > Minimum dollar amount to earn this week
+
+211.54 	 Dollars per subscription = <code><var>P</var></code>
+
+211.55 	 Weekly bonus = <code><var>Q</var></code>
+
+211.56 	 Minimum dollar amount to earn this week = <code><var>R</var></code>
+
+211.57 	 Number of subscriptions sold = <code>x</code>
+
+211.62 	 <strong><var>person( 1 )</var> must sell at least <var>X</var> subscriptions this week.</strong>
+
+211.63 	 For every level <var>person( 1 )</var> completes in <var>his( 1 )</var> favorite game, <var>he( 1 )</var> earns <var>P</var> points. At the end of each hour spent playing the game, <var>he( 1 )</var> earns a bonus of <var>Q</var> points. <var>person(1)</var> already has <var>10 * randRange( 500 / 10, 5000 / 10 )</var> points in the game and wants to earn more than <var>R</var> additional points in the next hour.
+
+211.64 	 What is the minimum number of levels that <var>person( 1 )</var> needs to complete in the next hour to meet <var>his( 1 )</var> goal?
+
+211.65 	 Points per level x Number of levels completed + Bonus points > Points goal
+
+211.66 	 Points per level = <code><var>P</var></code>
+
+211.67 	 Bonus points = <code><var>X</var></code>
+
+211.68 	 Points goal = <code><var>R</var></code>
+
+211.69 	 Number of levels completed = <code>x</code>
+
+211.74 	 <strong><var>person( 1 )</var> needs to complete at least <var>X</var> levels in the next hour.</strong>
+
+211.75 	 A bear named <var>person( 1 )</var> is preparing to hibernate for the winter. <var>He( 1 )</var> has already stored up <var>Q</var> units of energy and needs to store up at least <var>R</var> total units of energy before winter.
+
+211.76 	 If there are <var>X</var> months left before winter, what is the minimum units of energy the bear needs to store up per month?
+
+211.77 	 Months left before winter x Units of energy stored per month + Units of energy already stored > Units of energy needed
+
+211.78 	 Months left before winter = <code><var>X</var></code>
+
+211.79 	 Units of energy already stored = <code><var>Q</var></code>
+
+211.80 	 Units of energy needed = <code><var>R</var></code>
+
+211.81 	 Units of energy stored per month = <code>p</code>
+
+211.86 	 <strong><var>person( 1 )</var> needs to store up at least <var>P</var> units of energy before the winter.</strong>
+
+211.87 	 To move up to the maestro level in <var>his( 1 )</var> piano school, <var>person( 1 )</var> needs to master at least <var>R</var> songs. <var>person( 1 )</var> has already mastered <var>Q</var> songs.
+
+211.88 	 If <var>person( 1 )</var> can typically master <var>P</var> songs per month, what is the minimum number of months it will take <var>him( 1 )</var> to move to the maestro level?
+
+211.89 	 Songs to master per month x Number of months practicing + Songs already mastered > Songs needed for maestro level
+
+211.90 	 Songs to master per month = <code><var>P</var></code>
+
+211.91 	 Songs already mastered = <code><var>X</var></code>
+
+211.92 	 Songs needed for maestro level = <code><var>R</var></code>
+
+211.93 	 Number of months practicing = <code>x</code>
+
+211.98 	 <strong>It will take <var>person( 1 )</var> at least <var>X</var> months to move to the maestro level.</strong>
+

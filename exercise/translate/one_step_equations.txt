@@ -1,0 +1,32 @@
+253.1 	 One-step equations
+
+253.2 	 Solve for <code><var>X</var></code>.
+
+253.4 	 <code><var>X</var>=</code> <span class="sol"><var>Z - Y</var></span>
+
+253.5 	 <span data-if="Y &lt; 0">Add <var>Y * -1</var> to</span><span data-else>Subtract <var>Y</var> from</span> both sides.
+
+253.8 	 Simplify.
+
+253.10 	 Solve for <code><var>X</var></code>.
+
+253.12 	 <code><var>X</var>=</code> <span class="sol" data-type="rational"><var>Z / Y</var></span>
+
+253.13 	 Divide both sides by <var>Y</var>.
+
+253.16 	 Divide both sides by <var>Y</var>.
+
+253.19 	 Simplify.
+
+253.21 	 <b>Solve for <code><var>X</var></code>.</b>
+
+253.23 	 <code><var>X</var>=</code> <span class="sol" data-type="rational"><var>Z * Y</var></span>
+
+253.24 	 Multiply both sides by <var>Y</var>.
+
+253.26 	 Simplify.
+
+253.29 	 Multiply both sides by <var>Y</var>.
+
+253.31 	 Simplify.
+

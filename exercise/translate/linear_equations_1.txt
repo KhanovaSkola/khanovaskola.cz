@@ -1,0 +1,10 @@
+213.1 	 Linear equations 1
+
+213.2 	 Solve for <code>x</code>:
+
+213.3 	 <code>x =</code> <span class="sol"><var> D /  A </var></span>
+
+213.4 	 Multiply both sides by <code><var>ONE_OVER_A</var></code>.
+
+213.6 	 Simplify.
+

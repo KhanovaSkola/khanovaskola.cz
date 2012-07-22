@@ -1,0 +1,8 @@
+85.1 	 Converting fractions to decimals
+
+85.2 	 Express the fraction as a decimal, rounded to the thousandth.
+
+85.5 	 This fraction represents the result of dividing <code><var>NUMERATOR</var></code> by <code><var>DENOMINATOR</var></code>.
+
+85.6 	 Rounding <code><var>DECIMAL_4.toFixed( 4 )</var></code> to the thousandths place gives <code><var>DECIMAL.toFixed( 3 )</var></code>.
+

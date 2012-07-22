@@ -1,0 +1,18 @@
+335.1 	 Simplifying radicals
+
+335.2 	 Simplify <code>\sqrt{<var>NUM</var>}</code>.
+
+335.3 	 The number <code><var>NUM</var></code> has no perfect-square factors, so <code>\sqrt{<var>NUM</var>}</code> is already the simplest form.
+
+335.4 	 Simplify <code>\sqrt{<var>NUM</var>}</code>.
+
+335.5 	 The number <code><var>NUM</var></code> is a perfect square, so <code>\sqrt{<var>NUM</var>} = <var>COEFFICIENT</var></code>.
+
+335.6 	 Simplify <code>\sqrt{<var>NUM</var>}</code>.
+
+335.7 	 The largest perfect square that divides <code><var>NUM</var></code> is <code><var>COEFFICIENT * COEFFICIENT</var></code>.
+
+335.8 	 Factoring it out, we have <code><var>NUM</var> = <var>COEFFICIENT</var>^2 \cdot <var>RADICAL</var></code>.
+
+335.9 	 Thus, <code>\sqrt{<var>NUM</var>} = <var>COEFFICIENT</var>\sqrt{<var>RADICAL</var>}</code>.
+

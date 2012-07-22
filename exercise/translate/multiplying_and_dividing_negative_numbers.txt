@@ -1,0 +1,18 @@
+234.1 	 Multiplying and dividing negative numbers
+
+234.2 	 <code><var>A</var> \times <var>B</var> = </code> ?
+
+234.3 	 A negative times a negative is a positive.
+
+234.4 	 A negative times a positive is a negative.
+
+234.5 	 A positive times a negative is a negative.
+
+234.7 	 <code><var>C</var> \div <var>B</var> = </code> ?
+
+234.8 	 A negative divided by a negative is a positive.
+
+234.9 	 A negative divided by a positive is a negative.
+
+234.10 	 A positive divided by a negative is a negative.
+

@@ -1,0 +1,28 @@
+216.1 	 Linear equations 4
+
+216.2 	 Solve for <code>x</code>:
+
+216.3 	 <code>x =</code> <span class="sol"><var>ANSWER</var></span>
+
+216.4 	 Multiply both sides by <code><var>expr(["*", C, "x"])</var> + <var>D</var></code>:
+
+216.7 	 Now <var>A * D &lt; 0 ? "add" : "subtract"</var> <code><var>abs( A * D )</var></code> <var>A * D &lt; 0 ? "to" : "from"</var> both sides:
+
+216.10 	 Divide by <code><var>A * C</var></code>:
+
+216.12 	 Reduce the fraction:
+
+216.14 	 Solve for <code>x</code>:
+
+216.15 	 <code>x =</code> <span class="sol"><var> ANSWER </var></span>
+
+216.16 	 Multiply both sides by <code><var>expr(["*", C, "x"])</var> + <var>D</var></code>:
+
+216.19 	 Now <var>E * C &lt; 0 ? "add" : "subtract"</var> <code><var>abs( E * C )</var>x</code> <var>E * C &lt; 0 ? "to" : "from"</var> both sides:
+
+216.22 	 Now <var>B &lt; 0 ? "add" : "subtract"</var> <code><var>abs( B )</var></code>:
+
+216.25 	 Divide by <code><var>A - E * C</var></code>:
+
+216.27 	 Reduce the fraction:
+

@@ -1,0 +1,24 @@
+352.1 	 Square roots 2
+
+352.2 	 The value of <code>\sqrt{<var>Q</var>}</code> lies between which two <a href="#" class="show-definition" data-definition="consecutive-integers">consecutive integers</a>?
+
+352.4 	 <span class="sol short"><var>N</var></span> <code>&lt; \sqrt{<var>Q</var>} &lt;</code> <span class="sol short"><var>N + 1</var></span>
+
+352.5 	 Consider the perfect squares near <code><var>Q</var></code>.
+                            [<a href="#" class="show-subhint"
+                            data-subhint="explain-perfect-square">What are perfect squares?</a>]
+
+352.6 	 Perfect squares are integers which can be obtained by squaring an integer.
+
+352.7 	 The first 13 perfect squares are:
+
+352.8 	 <code><var>N * N</var></code> is the nearest perfect square less than <code><var>Q</var></code>.
+
+352.9 	 <code><var>(N + 1) * (N + 1)</var></code> is the nearest perfect square more than <code><var>Q</var></code>.
+
+352.10 	 So, we know <code><var>N * N</var> &lt; <var>Q</var> &lt; <var>(N + 1) * (N + 1)</var></code>.
+
+352.11 	 So, <code>\sqrt{<var>N * N</var>} &lt; \sqrt{<var>Q</var>} &lt; \sqrt{<var>(N + 1)*(N + 1)</var>}</code>.
+
+352.12 	 So <code>\sqrt{<var>Q</var>}</code> is between <code><var>N</var></code> and <code><var>N + 1</var></code>.
+

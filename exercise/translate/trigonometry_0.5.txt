@@ -1,0 +1,50 @@
+377.1 	 Trigonometry 0.5
+
+377.2 	 <code>\overline{AC}</code> is <code><var>AC</var></code> units long
+
+377.3 	 <code>\overline{BC}</code> is <code><var>BC</var></code> units long
+
+377.4 	 <code>\overline{AB}</code> is <code><var>AB</var></code> units long
+
+377.5 	 What is <code>\sin(\angle <var>ANGLE</var>)</code> ?
+
+377.6 	 <b>SOH</b> CAH TOA
+
+377.7 	 <b>S</b>in = <b>O</b>pposite over <b>H</b>ypotenuse
+
+377.8 	 opposite <code>= \overline{<var>OPPOSITE_NAME</var>} = <var>OPPOSITE_VALUE</var></code>
+
+377.9 	 hypotenuse <code>= \overline{<var>HYPOTENUSE_NAME</var>} = <var>AB</var></code>
+
+377.11 	 <code>\overline{AC}</code> is <code><var>AC</var></code> units long
+
+377.12 	 <code>\overline{BC}</code> is <code><var>BC</var></code> units long
+
+377.13 	 <code>\overline{AB}</code> is <code><var>AB</var></code> units long
+
+377.14 	 What is <code>\cos(\angle <var>ANGLE</var>)</code> ?
+
+377.15 	 SOH <b>CAH</b> TOA
+
+377.16 	 <b>C</b>os = <b>A</b>djacent over <b>H</b>ypotenuse
+
+377.17 	 adjacent <code>= \overline{<var>ADJACENT_NAME</var>} = <var>ADJACENT_VALUE</var></code>
+
+377.18 	 hypotenuse <code>= \overline{<var>HYPOTENUSE_NAME</var>} = <var>AB</var></code>
+
+377.20 	 <code>\overline{AC}</code> is <code><var>AC</var></code> units long
+
+377.21 	 <code>\overline{BC}</code> is <code><var>BC</var></code> units long
+
+377.22 	 <code>\overline{AB}</code> is <code><var>AB</var></code> units long
+
+377.23 	 What is <code>\tan(\angle <var>ANGLE</var>)</code> ?
+
+377.24 	 SOH CAH <b>TOA</b>
+
+377.25 	 <b>T</b>an = <b>O</b>pposite over <b>A</b>djacent
+
+377.26 	 opposite <code>= \overline{<var>OPPOSITE_NAME</var>} = <var>OPPOSITE_VALUE</var></code>
+
+377.27 	 adjacent <code>= \overline{<var>ADJACENT_NAME</var>} = <var>ADJACENT_VALUE</var></code>
+

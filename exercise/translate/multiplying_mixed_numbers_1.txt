@@ -1,0 +1,31 @@
+243.1 	 Multiplying mixed numbers 1
+
+243.3 	 <span class="sol" data-type="mixed"><var>(WHOLE_3 + (NUM_3_SIMP/DENOM_3_SIMP))</var></span>
+
+243.4 	 a mixed number, like <code>1</code> <code>3/4</code>
+
+243.5 	 Turn the mixed numbers into improper fractions to make it easier to multiply them.
+
+243.6 	 Let's start with the first mixed number: To find the numerator of the improper fraction, multiply the denominator (<strong><var>DENOM_1</var></strong>) by the whole number (<strong><var>WHOLE_1</var></strong>) and add the numerator (<strong><var>NUM_1</var></strong>). <strong><var>DENOM_1</var></strong>*<strong><var>WHOLE_1</var></strong>+<strong><var>NUM_1</var></strong> = <strong><code><var>I_NUM_1</var></code></strong>.
+
+243.7 	 So the first mixed number can be written as <code><var>fraction( I_NUM_1, I_DENOM_1, false, true )</var></code>.
+
+243.8 	 Now let's turn the second mixed number into an improper fraction: To find the numerator, multiply the denominator (<strong><var>DENOM_2</var></strong>) by the whole number (<strong><var>WHOLE_2</var></strong>) and add the numerator (<strong><var>NUM_2</var></strong>). <strong><var>DENOM_2</var></strong>*<strong><var>WHOLE_2</var></strong>+<strong><var>NUM_2</var></strong> = <strong><code><var>I_NUM_2</var></code></strong>.
+
+243.9 	 So the second mixed number can be written as <code><var>fraction( I_NUM_2, I_DENOM_2, false, true )</var></code>.
+
+243.10 	 Multiply the two improper fractions: <code><var>fraction( I_NUM_1, I_DENOM_1, false, true )</var></code> * <code><var>fraction(  I_NUM_2, I_DENOM_2, false, true )</var></code><code>\displaystyle {} = <var>fraction( I_NUM, I_DENOM )</var></code>
+
+243.11 	 Turn the improper fraction into a mixed number:
+
+243.12 	 First, divide the numerator by the denominator.
+                    <code><var>I_NUM</var> \div <var>I_DENOM</var> = \color{#28AE7B}{<var>WHOLE_3</var>}\ \text{ R } \color{purple}{<var>NUM_3</var>}</code>
+
+243.13 	 So the improper fraction has <code class="hint_green"><var>WHOLE_3</var></code> wholes in it.
+
+243.14 	 This quotient <code class="hint_green"><var>WHOLE_3</var></code> is the whole number part of the mixed number.
+
+243.15 	 We also have a remainder of <code class="hint_purple"><var>NUM_3</var></code>, though. That represents the <code>\dfrac{\color{purple}{<var>NUM_3</var>}}{<var>DENOM_3</var>}</code> remaining from the improper fraction; it wasn't enough to be another whole number.
+
+243.16 	 The converted mixed fraction is <code>\color{#28AE7B}{<var>WHOLE_3</var>}\ \color{purple}{<var>fraction( NUM_3, DENOM_3, false, true )</var>}.</code>
+

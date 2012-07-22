@@ -1,0 +1,22 @@
+261.1 	 Ordering objects
+
+261.2 	 
+
+261.3 	 Order the <var>plural(SHAPE)</var> from smallest to largest:
+
+261.4 	 The
+                        <span data-if="I === 0">smallest</span>
+                        <span data-else-if="I === SIZES.length - 1">largest</span>
+                        <span data-else>next smallest</span>
+                        is <var>SHAPE</var> <code><var>"ABCD"[_.indexOf(SIZES, SIZE)]</var>
+                        </code><span data-if="I === 0">, so it goes on the left</span><span data-else-if="I === SIZES.length - 1">, so it goes on the right</span>.
+
+261.5 	 Order the <var>plural(SHAPE)</var> from largest to smallest:
+
+261.6 	 The
+                        <span data-if="I === 0">largest</span>
+                        <span data-else-if="I === SIZES.length - 1">smallest</span>
+                        <span data-else>next largest</span>
+                        is <var>SHAPE</var> <code><var>"ABCD"[_.indexOf(SIZES, SIZE)]</var>
+                        </code><span data-if="I === 0">, so it goes on the left</span><span data-else-if="I === SIZES.length - 1">, so it goes on the right</span>.
+

@@ -1,0 +1,26 @@
+313.1 	 Basic Fractions 0.5
+
+313.2 	 What fraction of this circle is shaded red?
+
+313.4 	 Count the red slices for the numerator.
+
+313.5 	 There <var>plural( "is", NUM_1 )</var> <var>plural( NUM_1, "red slice")</var>.
+
+313.6 	 Count the total slices (<code>\color{#e00}{\text{Red Slices}}</code> + <code>\color{#999}{\text{Gray Slices}}</code>) for the denominator.
+
+313.7 	 There are <var>DEN_1</var> slices total.
+
+313.8 	 So your answer should be <code>\dfrac{\color{#e00}{<var>NUM_1</var>}}{\color{#666}{\text{<var>DEN_1</var>}}}</code>.
+
+313.9 	 What fraction of the bar is shaded red?
+
+313.11 	 Count the red blocks for the numerator.
+
+313.12 	 There <var>plural( "is", NUM_1 )</var> <var>plural( NUM_1, "red block")</var>.
+
+313.13 	 Count the total blocks (<code>\color{#e00}{\text{Red Blocks}}</code> + <code>\color{#999}{\text{Gray Blocks}}</code>) for the denominator.
+
+313.14 	 There are <var>DEN_1</var> blocks total.
+
+313.15 	 So your answer should be <code>\dfrac{\color{#e00}{<var>NUM_1</var>}}{\color{#666}{\text{<var>DEN_1</var>}}}</code>.
+

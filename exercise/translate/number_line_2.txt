@@ -1,0 +1,26 @@
+250.1 	 Number line 2
+
+250.2 	 Drag the orange dot to <strong><var>NUMBER</var></strong>. The distance between tick marks is 1.
+
+250.3 	 We know where 0 is on the number line because it is labeled.
+
+250.4 	 Numbers to the left are smaller, and numbers to the right are bigger.
+
+250.5 	 Numbers smaller than 0 are negative, and numbers bigger than 0 are positive.
+
+250.6 	 The orange dot should be <var>plural( abs( NUMBER ), "position")</var> to the <span data-if="NUMBER &lt; 0">left</span><span data-else>right</span> of 0.
+
+250.7 	 The orange number shows where <var>NUMBER</var> is on the number line.
+
+250.8 	 What number does the orange dot represent? The distance between tick marks is 1.
+
+250.9 	 We know where 0 is on the number line because it is labeled.
+
+250.10 	 Numbers to the left are smaller, and numbers to the right are bigger.
+
+250.11 	 Numbers smaller than 0 are negative, and numbers bigger than 0 are positive.
+
+250.12 	 The orange dot is <var>plural( abs( NUMBER ), "position")</var> to the <span data-if="NUMBER < 0">left</span><span data-else>right</span> of 0.
+
+250.13 	 The orange dot represents the number <var>NUMBER</var>.
+

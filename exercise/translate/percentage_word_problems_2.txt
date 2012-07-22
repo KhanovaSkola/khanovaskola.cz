@@ -1,0 +1,17 @@
+268.1 	 Percentage word problems 2
+
+268.2 	 <var>person(1)</var> has <var>YEAR_PERCENT_MORE</var>% more money today than <var>he(1)</var> did this time last year. If <var>person(1)</var> has $<var>YEAR_THIS</var> today, how much money did <var>he(1)</var> make over this past year? (Round to the nearest cent, or hundredth of a dollar.)
+
+268.4 	 Let <code>x</code> be the amount of money that <var>he(1)</var> had last year.
+
+268.8 	 <code>x = $<var>YEAR_LAST</var></code> (rounding to the nearest penny in this step)
+
+268.9 	 So, <var>he(1)</var> had $<var>YEAR_LAST</var> last year, but we want to know how much <var>he(1)</var> has made <b>over the past year!</b>
+
+268.12 	 <code>\qquad \approx $<var>round((YEAR_THIS - YEAR_LAST) * 100) / 100</var></code>
+                <p>So, the answer is $<var>round((YEAR_THIS - YEAR_LAST) * 100) / 100</var>.
+
+268.13 	 <var>person(1)</var> has $<var>DOLLARS</var> to spend at a store. The store currently has a sale where the sale price is <var>PERCENT_OFF</var>% off the marked price. What is the highest marked price that <var>person(1)</var> can afford? (Round to the nearest cent, or hundredth of a dollar.)
+
+268.15 	 Let <code>x</code> be the highest marked price that <var>person(1)</var> can afford.
+

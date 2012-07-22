@@ -1,0 +1,54 @@
+108.1 	 Distributive property with variables
+
+108.3 	 Use the distributive property to simplify the expression.
+
+108.5 	 Distribute across the parenthesis.
+
+108.7 	 A negative sign before an expression is the same as -1 times that expression.
+
+108.11 	 You're done!
+
+108.12 	 Remember that the <em>distributive property</em> shows that multiplying an expression involving addition (or subtraction) by <code>x</code> is the same thing as multiplying each term of the expression by <code>x</code> before performing the addition.
+                        <p><code>x(y + z) = xy + xz</code>
+
+108.14 	 Using the distributive property, simplify the expression as much as possible.
+
+108.16 	 The first and last numbers here can be combined to simplify the expression.
+
+108.19 	 A negative sign before an expression is the same as -1 times that expression.
+
+108.25 	 You're done!
+
+108.26 	 Remember that the <em>distributive property</em> shows that multiplying an expression involving addition (or subtraction) by <code>x</code> is the same thing as multiplying each term of the expression by <code>x</code> before performing the addition.
+                        <p><code>x(y + z) = xy + xz</code>
+
+108.28 	 Using the distributive property, simplify the expression as much as possible.
+
+108.30 	 Distribute across the first parenthesis.
+
+108.32 	 A negative sign before an expression is the same as -1 times that expression.
+
+108.35 	 Distribute across the second parenthesis.
+
+108.37 	 A negative sign before an expression is the same as -1 times that expression.
+
+108.40 	 Combine like terms.
+
+108.44 	 You're done! Make sure you simplify as much as possible.
+
+108.45 	 Remember that the <em>distributive property</em> shows that multiplying an expression involving addition (or subtraction) by <code>x</code> is the same thing as multiplying each term of the expression by <code>x</code> before performing the addition.
+                        <p><code>x(y + z) = xy + xz</code>
+
+108.47 	 Using the distributive property, simplify the expression as much as possible.
+
+108.49 	 Distribute across the parenthesis.
+
+108.51 	 A negative sign before an expression is the same as -1 times that expression.
+
+108.54 	 Combine like terms.
+
+108.57 	 You're done!
+
+108.58 	 Remember that the <em>distributive property</em> shows that multiplying an expression involving addition (or subtraction) by <code>x</code> is the same thing as multiplying each term of the expression by <code>x</code> before performing the addition.
+                        <p><code>x(y + z) = xy + xz</code>
+

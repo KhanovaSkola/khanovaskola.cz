@@ -1,0 +1,16 @@
+146.1 	 Exponents 1
+
+146.2 	 This exercise covers exponential arithmetic with, in general, integer bases raised to nonnegative integer exponents. Handles three specific cases: integers raised to positive integers (this is the most common case); nonzero integers raised to 0; and -1, 0, and 1 raised to arbitrarily large positive integers. This exercise covers all the material presented in the Level 1 Exponents video.
+
+146.5 	 Anything to the 0th power equals... ?
+
+146.6 	 Anything to the 0th power equals <span class="hint_blue">1</span>.
+
+146.7 	 Anything to the 1st power equals... ?
+
+146.8 	 <code>x^{1}=x</code>, no matter what <code>x</code> is.
+
+146.9 	 <var>Cardinal( BASE )</var> to any <var>NEG_ONE_HINT</var> power equals... ?
+
+146.10 	 <var>Cardinal( BASE )</var> to any <var>NEG_ONE_HINT</var> power equals <span class="hint_blue"><var>cardinal( round( pow( BASE, EXP ) ) )</var></span>.
+

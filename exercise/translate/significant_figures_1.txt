@@ -1,0 +1,14 @@
+328.1 	 Significant figures 1
+
+328.2 	 How many significant figures does <code><var>TOTAL</var></code> have?
+
+328.4 	 Identify the non-zero digits and any zeros between them. These are all significant.
+
+328.6 	 Leading zeros are not significant.
+
+328.8 	 Since there is a decimal, trailing zeros are significant.
+
+328.10 	 Since there is no decimal, trailing zeros are not significant.
+
+328.12 	 Counting all the significant digits gives us <var>SOLUTION</var>.
+

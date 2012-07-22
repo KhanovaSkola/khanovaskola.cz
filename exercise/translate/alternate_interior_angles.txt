@@ -1,0 +1,12 @@
+28.1 	 Alternate interior angles
+
+28.2 	 The two horizontal lines are parallel, and there is a third line that intersects them as shown below.
+
+28.3 	 If we know that the <span class="hint_blue">blue angle is <var>MEASURE</var> degrees</span>, what is the <span class="hint_orange">measure of the orange angle</span>?
+
+28.5 	 Opposite angles are equal, so the pink angle measures <var>MEASURE</var> degrees.
+
+28.6 	 The pink and orange angles are corresponding angles, so they are also equal.
+
+28.7 	 The orange angle measures <var>MEASURE</var> degrees.
+

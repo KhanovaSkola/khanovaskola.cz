@@ -1,0 +1,62 @@
+342.1 	 Solving for a variable
+
+342.3 	 Solve for <code><var>X</var></code>.
+
+342.5 	 Combine constant terms on the right.
+
+342.8 	 Combine <code><var>Z</var></code> terms on the right.
+
+342.11 	 Combine <code><var>Y</var></code> terms on the right.
+
+342.14 	 Isolate <code><var>X</var></code>.
+
+342.17 	 All of these terms are divisible by <code><var>GCD</var></code>.
+
+342.18 	 Divide by the common factor and swap signs so the denominator isn't negative.
+
+342.19 	 Divide by the common factor.
+
+342.20 	 Swap the signs so the denominator isn't negative.
+
+342.23 	 Solve for <code><var>X</var></code>.
+
+342.25 	 Combine constant terms on the right.
+
+342.28 	 Notice that all the terms on the left-hand side of the equation have <code><var>X</var></code> in them.
+
+342.30 	 Factor out the <code><var>X</var></code>.
+
+342.32 	 Isolate the <code><var>X</var></code>.
+
+342.35 	 We can simplify this by multiplying the top and bottom by <code>-1</code>.
+
+342.38 	 Solve for <code><var>X</var></code>.
+
+342.40 	 Notice that the left- and right- denominators are <span data-if="C === F">the same</span><span data-else>opposite</span>.
+
+342.42 	 So we can multiply both sides by <code><var>C</var></code>.
+
+342.45 	 Distribute the negative sign on the right side.
+
+342.48 	 Multiply both sides by the left denominator.
+
+342.52 	 Reduce the right side.
+
+342.55 	 Multiply both sides by the right denominator.
+
+342.59 	 Distribute <span data-if="C % F === 0">the right side</span><span data-else>both sides</span>.
+
+342.64 	 Combine <code><var>X</var></code> terms on the left.
+
+342.67 	 Move the <code><var>Y</var></code> term to the right.
+
+342.70 	 Isolate <code><var>X</var></code> by dividing both sides by its coefficient.
+
+342.73 	 All of these terms are divisible by <code><var>GCD</var></code>.
+
+342.74 	 Divide by the common factor and swap signs so the denominator isn't negative.
+
+342.75 	 Divide by the common factor.
+
+342.76 	 Swap signs so the denominator isn't negative.
+

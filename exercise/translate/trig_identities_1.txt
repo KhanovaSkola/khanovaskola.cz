@@ -1,0 +1,4 @@
+376.1 	 Trig identities 1
+
+376.2 	 Given that x is in the first quadrant and <code> \<var>FUN_NAME</var> x </code> is <code><var>FUN_VALUE</var></code>, what is <code> \<var>END_NAME</var> x</code> ?
+

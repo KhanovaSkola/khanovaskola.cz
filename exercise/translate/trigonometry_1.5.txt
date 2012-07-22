@@ -1,0 +1,60 @@
+378.1 	 Trigonometry 1.5
+
+378.6 	 <code>\overline{AB}</code> is the <b>hypotenuse</b>
+
+378.8 	 SOH CAH TOA
+
+378.9 	 We know the hypotenuse and need to solve for the opposite side so we can use the sine function (SOH)
+
+378.11 	 Since we have already been given <code>\sin( \angle <var>ANGLE</var> )</code>, we can set up a proportion to find <code>\overline{<var>OPPOSITE_NAME</var>}</code>.
+
+378.13 	 Simplify.
+
+378.19 	 <code>\overline{AB}</code> is the <b>hypotenuse</b> (note that it is opposite the right angle).
+
+378.20 	 SOH CAH TOA
+
+378.21 	 We know the opposite side and need to solve for the hypotenuse so we can use the sin function (SOH).
+
+378.23 	 Since we have already been given <code>\sin( \angle <var>ANGLE</var> )</code>, we can set up a proportion to find <code>\overline{AB}</code>.
+
+378.25 	 Simplify.
+
+378.30 	 <code>\overline{AB}</code> is the <b>hypotenuse</b>
+
+378.32 	 SOH CAH TOA
+
+378.33 	 We know the hypotenuse and need to solve for the adjacent side so we can use the cos function (CAH)
+
+378.35 	 Since we have already been given <code>\cos( \angle <var>ANGLE</var> )</code>, we can set up a proportion to find <code>\overline{<var>ADJACENT_NAME</var>}</code>.
+
+378.37 	 Simplify.
+
+378.43 	 <code>\overline{AB}</code> is the <b>hypotenuse</b> (note that it is opposite the right angle)
+
+378.44 	 SOH CAH TOA
+
+378.45 	 We know the adjacent side and need to solve for the hypotenuse so we can use the cos function (CAH)
+
+378.47 	 Since we have already been given <code>\cos( \angle <var>ANGLE</var> )</code>, we can set up a proportion to find <code>\overline{AB}</code>.
+
+378.49 	 Simplify.
+
+378.56 	 SOH CAH TOA
+
+378.57 	 We know the opposite side and need to solve for the adjacent side so we can use the tan function (TOA)
+
+378.59 	 Since we have already been given <code>\tan( \angle <var>ANGLE</var> )</code>, we can set up a proportion to find <code>\overline{<var>ADJACENT_NAME</var>}</code>.
+
+378.61 	 Simplify.
+
+378.64 	 <code>\overline{<var>OPPOSITE_NAME</var>} = </code> ?
+
+378.68 	 SOH CAH TOA
+
+378.69 	 We know the adjacent side and need to solve for the opposite side so we can use the tan function (TOA)
+
+378.71 	 Since we have already been given <code>\tan( \angle <var>ANGLE</var> )</code>, we can set up a proportion to find <code>\overline{<var>OPPOSITE_NAME</var>}</code>.
+
+378.73 	 Simplify.
+

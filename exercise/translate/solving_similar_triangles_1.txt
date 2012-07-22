@@ -1,0 +1,20 @@
+348.1 	 Solving Similar Triangles 1
+
+348.2 	 Triangle <code><var>A_NAME</var></code> is similar to triangle <code><var>B_NAME</var></code>.
+
+348.3 	 Solve for <code><var>X</var></code>.
+
+348.4 	 <code><var>X</var> = \quad</code><span class="entry"></span>
+
+348.5 	 Similar triangles have proportional sides.
+
+348.6 	 Therefore, we can set up equivalent proportions and solve for <code><var>X</var></code>.
+
+348.8 	 Note: As each corresponding <code>\dfrac{\color{red}{side}}{\color{blue}{side}}</code> proportion is equivalent, you could use the other sides (i.e.,  <code>\dfrac{\color{red}{<var>B_LABELS[SOLUTION_INDEX]</var>}}{\color{blue}{<var>A_SIDES[SOLUTION_INDEX]</var>}} = \dfrac{\color{red}{<var>B_LABELS[ALTERNATE_INDEX]</var>}}{\color{blue}{<var>A_SIDES[ALTERNATE_INDEX]</var>}}</code>)
+
+348.9 	 Reduce the proportion on the right hand side.
+
+348.11 	 Multiply each side by <code><var>A_SIDES[SOLUTION_INDEX]</var></code> and simplify.
+
+348.13 	 <code>\color{red}{<var>X</var>}</code> is equal to <code><var>SOLUTION</var></code>.
+

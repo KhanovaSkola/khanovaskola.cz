@@ -1,0 +1,8 @@
+52.1 	 Changing percents to decimals
+
+52.2 	 Express <code><var>PCT</var>\%</code> as a decimal.
+
+52.3 	 <code><var>PCT</var>\%</code> literally means <code><var>PCT</var></code> per 100
+
+52.5 	 To easily divide by 100, you can just move the decimal point two places to the left.
+

@@ -1,0 +1,34 @@
+194.1 	 Inequalities on a number line
+
+194.2 	 Which graph on the number line represents <code class="hint_blue"><var>VARIABLE_NAME</var> <var>REL</var> <var>SIGN + ( INT + FRAC )</var></code>?
+
+194.3 	 First, draw a number line with at least a few numbers on each side of <code><var>SIGN + ( INT + FRAC )</var></code>.
+
+194.4 	 Since <code class="hint_blue"><var>VARIABLE_NAME</var> <var>REL</var> <var>SIGN + ( INT + FRAC )</var></code>, draw a full circle at <code><var>SIGN + ( INT + FRAC )</var></code> to show that the inequality includes <code><var>SIGN + ( INT + FRAC )</var></code>.
+
+194.5 	 Since <code class="hint_blue"><var>VARIABLE_NAME</var> <var>REL</var> <var>SIGN + ( INT + FRAC )</var></code>, draw an empty circle at <code><var>SIGN + ( INT + FRAC )</var></code> to show that the inequality does not include <code><var>SIGN + ( INT + FRAC )</var></code>.
+
+194.6 	 Now draw an arrow to the left of the circle to include all numbers less than <code><var>SIGN + ( INT + FRAC )</var></code>.
+
+194.7 	 Now draw an arrow to the right of the circle to include all numbers greater than <code><var>SIGN + ( INT + FRAC )</var></code>.
+
+194.8 	 This looks like it matches the arrow and circle from Graph <var>LINE_SOLUTION</var> above.
+
+194.9 	 Determine the inequality represented by this graph on the number line:
+
+194.10 	 <code><var>VARIABLE_NAME</var></code>
+                <span class="sol" data-type="list" data-choices="['', '&lt;', '&gt;', '&le;', '&ge;', '&ne;']">
+                    <var>REL</var>
+                </span>
+                <span class="sol"><var>SIGN + INT</var></span>
+
+194.11 	 The arrow is pointing to the left of <code><var>SIGN + INT</var></code>, so everything less than <code><var>SIGN + INT</var></code> is included.
+
+194.12 	 The arrow is pointing to the right of <code><var>SIGN + INT</var></code>, so everything greater than <code><var>SIGN + INT</var></code> is included.
+
+194.13 	 The circle is filled in, so <code><var>SIGN + INT</var></code> itself is also included.
+
+194.14 	 The circle is not filled in, so <code><var>SIGN + INT</var></code> itself is not included.
+
+194.15 	 <code class="hint_blue"><var>VARIABLE_NAME</var> <var>REL</var><var>SIGN + INT</var></code>
+

@@ -1,0 +1,36 @@
+41.1 	 Areas of trapezoids, rhombi, and kites
+
+41.2 	 This figure is a quadrilateral with a pair of parallel sides (the top and bottom sides), so it&#39;s a trapezoid.
+
+41.3 	 area of a trapezoid <code>= \dfrac12 \cdot (b_1 + b_2) \cdot h</code>
+                            [<a href="#" class="show-subhint" data-subhint="area-trapezoid">Show me why</a>]
+
+41.4 	 Let&#39;s draw a line between the opposite ends of the two bases.
+
+41.5 	 Notice that the line divides the trapezoid into two triangles: one triangle with base <code>b_1 = <var>B1</var></code>, and another triangle with base <code>b_2 = <var>B2</var></code>. Both triangles have height <code>h = <var>H</var></code>.
+
+41.6 	 The area of the trapezoid is equal to the sum of the areas of the two trapezoids.
+
+41.8 	 Factor out <code>\dfrac12 \cdot h</code> to get the formula for the area of a trapezoid:
+
+41.10 	 Now use this formula to calculate the trapezoid&#39;s area.
+
+41.15 	 This figure is a quadrilateral with perpendicular diagonals and two pairs of congruent, adjacent sides, so it is a kite.
+
+41.16 	 In fact, because this shape's sides are all congruent, it is also a rhombus.
+
+41.17 	 area of a kite <code>= \dfrac12 \cdot d_1 \cdot d_2</code>
+                            [<a href="#" class="show-subhint" data-subhint="area-kite">Show me why</a>]
+
+41.18 	 The <span data-if="ORIENT === 'h'">horizontal</span><span data-else>vertical</span> diagonal in the center splits the kite into two congruent triangles.
+
+41.19 	 Let <code>d_1 = <var>D1</var></code>, the diagonal that bisects the kite. Then let <code>d_2 = <var>D2</var></code>.
+
+41.20 	 Notice that <code>d_1</code> is the base of both triangles, and <code>d_2</code> is the combined height of the two triangles, so <code>\dfrac{d_2}{2}</code> is the height of each triangle.
+
+41.21 	 So the area of each triangle is:
+
+41.23 	 The area of both triangles combined, <code>2A_T</code>, is the total area of the kite:
+
+41.25 	 Now use this formula to calculate the kite's area.
+

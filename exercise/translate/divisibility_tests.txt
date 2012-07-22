@@ -1,0 +1,118 @@
+120.1 	 Divisibility tests
+
+120.2 	 Is <code>\large{<var>NUMBER</var>}</code> divisible by
+        <code><var>FACTOR</var></code>?
+
+120.4 	 Any even number is divisible by <code>2</code>.
+
+120.5 	 <code><var>NUMBER</var></code> is even, so yes, it is
+                    divisible by <code>2</code>.
+
+120.6 	 <code><var>NUMBER</var></code> is odd, so it is
+                    not divisible by <code>2</code>.
+
+120.7 	 A number is divisible by <code><var>FACTOR</var></code>
+                        if the sum of its digits is divisible by
+                        <code><var>FACTOR</var></code>.
+                        [<a href="#" class="show-subhint"
+                        data-subhint="explain-three">Why?</a>]
+
+120.8 	 First, we can break the number up by place value:
+
+120.9 	 Next, we can rewrite each of the place values as
+                            <code>1</code> plus a bunch of <code>9</code>s:
+
+120.10 	 Now if we distribute and rearrange, we get this:
+
+120.11 	 Any number consisting only of <code>9</code>s is
+                            a multiple of <code><var>FACTOR</var></code>, so
+                            the first <var>cardinal(integerToDigits(NUMBER)
+                            .length - 1)</var> terms must all be multples of
+                            <code><var>FACTOR</var></code>.
+
+120.12 	 That means that to figure out whether the original
+                            number is divisible by <code><var>FACTOR</var>
+                            </code>, all we need to do is add up the digits
+                            and see if the sum is divisible by
+                            <code><var>FACTOR</var></code>. In other words,
+                            <code>\blue{<var>NUMBER</var>}</code> is divisible
+                            by <code><var>FACTOR</var></code> if <code>\blue{
+                            <var>integerToDigits(NUMBER).join("}+\\blue{")
+                            </var>}</code> is divisible by
+                            <code><var>FACTOR</var></code>!
+
+120.13 	 Add the digits of <code><var>STEP.num</var></code>:
+
+120.15 	 If <code><var>STEP.sum</var></code> is
+                        divisible by <code><var>FACTOR</var></code>, then
+                        <code><var>STEP.num</var></code> must also be
+                        divisible by <code><var>FACTOR</var></code>.
+
+120.16 	 <code><var>_.last(STEPS).sum</var></code> is divisible
+                    by <code><var>FACTOR</var></code>, therefore
+                    <code>\blue{<var>NUMBER</var>}</code>
+                    must also be divisible by <code><var>FACTOR</var></code>.
+
+120.17 	 <code><var>_.last(STEPS).sum</var></code> is not divisible
+                    by <code><var>FACTOR</var></code>, therefore
+                    <code>\blue{<var>NUMBER</var>}</code>
+                    must not be divisible by <code><var>FACTOR</var></code>.
+
+120.18 	 A number is divisible by <code>4</code> if the last
+                        two digits are divisible by <code>4</code>.
+                        [<a href="#" class="show-subhint"
+                        data-subhint="explain-four">Why?</a>]
+
+120.19 	 We can rewrite the number as a multiple of
+                            <code>100</code> plus the last two digits:
+
+120.20 	 Because <code><var>NUMBER.toString().slice(0, -2)
+                            </var>00</code> is a multiple of <code>100</code>,
+                            it is also a multiple of <code>4</code>.
+
+120.21 	 So as long as the value of the last two digits,
+                            <code>\blue{<var>NUMBER % 100</var>}</code>,
+                            is divisible by <code>4</code>, the original
+                            number must also be divisible by <code>4</code>!
+
+120.22 	 Is the value of the last two digits,
+                    <code><var>NUMBER % 100</var></code>,
+                    divisible by <code>4</code>?
+
+120.23 	 Yes,
+                    <code>\blue{<var>NUMBER % 100</var> \div 4 =
+                    <var>NUMBER % 100 / 4</var>}</code>, so
+                    <code><var>NUMBER</var></code> must also be divisible by
+                    <code>4</code>.
+
+120.24 	 No, <code><var>NUMBER % 100</var></code> is not
+                    divisible by <code>4</code>, so
+                    <code><var>NUMBER</var></code> is also not divisible by
+                    <code>4</code>.
+
+120.25 	 A number is divisible by <code>5</code> if the last
+                    digit is a <code>0</code> or a <code>5</code>.
+
+120.26 	 The last digit of <code><var>NUMBER</var></code> is
+                    <code><var>NUMBER % 10</var></code>, so yes
+                    <code><var>NUMBER</var></code> is divisible by
+                    <code>5</code>.
+
+120.27 	 The last digit of <code><var>NUMBER</var></code> is
+                    <code><var>NUMBER % 10</var></code>, so no
+                    <code><var>NUMBER</var></code> is not divisible by
+                    <code>5</code>.
+
+120.28 	 A number is divisible by <code>10</code> if the last
+                    digit is a <code>0</code>.
+
+120.29 	 The last digit of <code><var>NUMBER</var></code> is
+                    <code><var>NUMBER % 10</var></code>, so yes
+                    <code><var>NUMBER</var></code> is divisible by
+                    <code>10</code>.
+
+120.30 	 The last digit of <code><var>NUMBER</var></code> is
+                    <code><var>NUMBER % 10</var></code>, so no
+                    <code><var>NUMBER</var></code> is not divisible by
+                    <code>10</code>.
+

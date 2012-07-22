@@ -1,0 +1,17 @@
+207.1 	 Limits 1
+
+207.5 	 Does not exist.
+
+207.6 	 The limit as we approach from the left doesn't match the limit as we approach from the right, so <code>f(x)</code> has no limit as <code>x \to <var>a</var></code>.
+
+207.7 	 If <code>f(x) = \begin{cases}
+                    <var>d_cons</var> & \text{if $x = <var>a</var>$} \\
+                    <var>d_line</var> & \text{otherwise}
+                \end{cases}</code>, find <code>\displaystyle \lim_{x \to <var>a</var>} f(x)</code>.
+
+207.11 	 What happens as we approach <code>x = <var>a</var></code> from the left?
+
+207.12 	 When we approach <code>x = <var>a</var></code> from the right, we get:
+
+207.13 	 So the limit is <code><var>limtoa</var></code>.
+

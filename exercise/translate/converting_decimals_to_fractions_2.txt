@@ -1,0 +1,16 @@
+83.1 	 Changing decimals to fractions 2
+
+83.2 	 Express <code><var>D</var></code> as a fraction. Reduce to lowest terms.
+
+83.4 	 <code><var>D</var></code> can be represented as follows.
+
+83.7 	 You can also skip a few steps by making a fraction with <code><var>NUMERATOR</var></code> as the numerator and <code>10000</code> (because the decimal extends to the ten thousandths place) as the denominator.
+
+83.9 	 Then, reduce the fractional part by dividing the numerator and denominator by <code><var>GCD</var></code>.
+
+83.11 	 Express <code><var>FIXED</var></code> as a mixed number. Reduce to lowest terms.
+
+83.13 	 <code><var>FIXED</var></code> can be represented as follows:
+
+83.16 	 Reduce the fractional part by dividing the numerator and denominator by <code><var>GCD</var></code>.
+

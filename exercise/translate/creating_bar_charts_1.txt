@@ -1,0 +1,15 @@
+94.1 	 Creating bar charts 1
+
+94.2 	 Create a bar chart showing everyone's favorite <var>plural( SUBJECT )</var>:
+
+94.3 	 <code><var>NUM</var></code> <var>plural( RESPONDENT, NUM )</var> said <var>plural( randFromArray([ "his", "her" ]), "their", NUM )</var>
+                favorite <var>SUBJECT</var> was <var>CATEGORIES[ INDEX ]</var>.
+                <span data-if="NUM > 0">
+                    So the top of the bar for "<span style="text-transform: capitalize"><var>CATEGORIES[ INDEX ]</var></span>" should line up with the number
+                    <code><var>NUM</var></code> on the left side of the chart.
+                </span>
+                <span data-else>
+                    So there should be no bar above "<span style="text-transform: capitalize"><var>CATEGORIES[ INDEX ]</var></span>". Drag the top of the bar all
+                    the way to the bottom to get rid of the bar.
+                </span>
+

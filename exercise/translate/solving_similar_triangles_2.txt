@@ -1,0 +1,86 @@
+349.1 	 Solving similar triangles 2
+
+349.2 	 What is the length of side AC? (Round to 1 decimal place)
+
+349.3 	 There aren't any similar triangles in the problem figure, but we can make
+                            a new triangle with a few lines.<br/>
+                            <span style="padding-left:10px;">1. Draw a line parallel to the line
+                            <code>\pink{AC}</code>, through the point <code>B</code>.</span><br/>
+                            <span style="padding-left:10px;">2. Extend the line <code>AD</code> out
+                            to meet it at a new point <code>E</code>.</span>
+
+349.4 	 Now we have a very useful triangle <code class="hint_purple">\triangle BDE</code>
+                        which is similar to <code>\triangle ACD</code>.
+
+349.5 	 Since <code>\pink{AC}</code> and <code>BE</code> are parallel, we
+                            know that <code class="hint_green">\angle CAE</code>
+                            is congruent to <code class="hint_green">\angle AEB</code>.
+
+349.6 	 We can now tell that <code class="hint_green">\text{m}\angle BAE</code>
+                            is equal to <code class="hint_green">\text{m}\angle AEB</code>.
+                            Meaning <code>\triangle ABE</code> is isosceles, and we know the length
+                            of <code class="hint_blue">BE</code>.
+
+349.10 	 What is the length of side AB? (Round to 1 decimal place)
+
+349.11 	 There aren't any similar triangles in the problem figure, but we can make
+                            a new triangle with a few lines.<br/>
+                            <span style="padding-left:10px;">1. Draw a line parallel to the line
+                            <code>\pink{AB}</code>, through the point <code>C</code>.</span><br/>
+                            <span style="padding-left:10px;">2. Extend the line <code>AD</code> out
+                            to meet it at a new point <code>E</code>.</span>
+
+349.12 	 Now we have a very useful triangle <code class="hint_purple">\triangle CDE</code>
+                        which is similar to <code>\triangle ABD</code>.
+
+349.13 	 Since <code>\pink{AB}</code> and <code>CE</code> are parallel, we
+                            know that <code class="hint_green">\angle BAE</code>
+                            is congruent to <code class="hint_green">\angle AEB</code>.
+
+349.14 	 We can now tell that <code class="hint_green">\text{m}\angle CAE</code>
+                            is equal to <code class="hint_green">\text{m}\angle AEC</code>.
+                            Meaning <code>\triangle ACE</code> is isosceles, and we know the length
+                            of <code>\blue{CE}</code>.
+
+349.18 	 What is the length of side CD? (Round to 1 decimal place)
+
+349.19 	 There aren't any similar triangles in the problem figure, but we can make
+                            a new triangle with a few lines.<br/>
+                            <span style="padding-left:10px;">1. Draw a line parallel to the line
+                            <code>AB</code>, through the point <code>C</code>.</span><br/>
+                            <span style="padding-left:10px;">2. Extend the line <code>AD</code> out
+                            to meet it at a new point <code>E</code>.</span>
+
+349.20 	 Now we have a very useful triangle <code class="hint_purple">\triangle CDE</code>
+                        which is similar to <code>\triangle ABD</code>.
+
+349.21 	 Since <code>AB</code> and <code>CE</code> are parallel, we know that
+                            <code class="hint_green">\angle BAE</code>
+                            is congruent to <code class="hint_green">\angle AEC</code>.
+
+349.22 	 We can now see that <code class="hint_green">\text{m}\angle CAE</code>
+                            is equal to <code class="hint_green">\text{m}\angle AEC</code>.
+                            Meaning <code>\triangle ACE</code> is isosceles, and we know the length
+                            of <code>\blue{CE}</code>.
+
+349.26 	 What is the length of the side BD? (Round to 1 decimal place).
+
+349.27 	 There aren't any similar triangles in the problem figure, but we can make
+                            a new triangle with a few lines.<br/>
+                            <span style="padding-left:10px;">1. Draw a line parallel to the line
+                            <code>AC</code>, through the point <code>B</code>.</span><br/>
+                            <span style="padding-left:10px;">2. Extend the line <code>AD</code> out
+                            to meet it at a new point <code>E</code>.</span>
+
+349.28 	 Now we have a very useful triangle <code class="hint_purple">\triangle BDE</code>
+                        which is similar to <code>\triangle ACD</code>.
+
+349.29 	 Since <code>AC</code> and <code>BE</code> are parallel, we know that
+                            <code class="hint_green">\angle CAE</code>
+                            is congruent to <code class="hint_green">\angle AEB</code>.
+
+349.30 	 We can now tell that <code class="hint_green">\text{m}\angle BAE</code>
+                            is equal to <code class="hint_green">\text{m}\angle AEB</code>.
+                            Meaning <code>\triangle ABE</code> is isosceles, and we know the length
+                            of <code>\blue{BE}</code>.
+

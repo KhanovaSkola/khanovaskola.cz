@@ -1,0 +1,20 @@
+311.1 	 Recognizing conic sections
+
+311.2 	 Identify this conic section.
+
+311.3 	 This graph has a vertex and is U-shaped. It extends to infinity on both ends.
+
+311.4 	 That describes a <em>parabola</em>.
+
+311.5 	 You can see that the graph resembles a squished circle.
+
+311.6 	 This shape is an <em>ellipse</em>.
+
+311.7 	 This shape is perfectly round and symmetrical. All the points on it are equidistant from its center.
+
+311.8 	 A <em>circle</em> has those properties.
+
+311.9 	 This graph has two asymptotes which it approaches. It's also U-shaped on each side.
+
+311.10 	 This conic section is therefore a <em>hyperbola</em>.
+

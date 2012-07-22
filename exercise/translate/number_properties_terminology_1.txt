@@ -1,0 +1,104 @@
+252.1 	 Number properties terminology 1
+
+252.2 	 <code>a+(b+c)=(a+b)+c</code> represents which one of the following properties:
+
+252.3 	 Associative
+
+252.4 	 Notice that on the left side of the equation the parentheses indicate to add the <code>b</code> and the <code>c</code> before you add the <code>a</code>.
+
+252.5 	 On the right side of the equation, we first add <code>a</code> and <code>b</code> before adding <code>c</code>.
+
+252.6 	 The order of the variables has not changed but the groupings (what's inside the parentheses) have.
+
+252.7 	 The groups have changed, and another word for a group is <em>association</em>.The above equation demonstrates the Associative Property of addition.
+
+252.8 	 <code><var>A</var>+(<var>B</var>+<var>C</var>)=(<var>A</var>+<var>B</var>)+<var>C</var></code> represents which one of the following properties:
+
+252.9 	 Associative
+
+252.10 	 On the left side of the equation, the parentheses indicate to add the <var>B</var> and the <var>C</var> before you add the <var>A</var>. On the right side of the equation, we first add the <var>A</var> and the <var>B</var> before adding the <var>C</var>.
+
+252.11 	 Notice that the order of the numbers inside the parentheses has not changed but the groupings (what's inside the parentheses) have.
+
+252.12 	 Evaluating the left side:
+
+252.14 	 Evaluating the right side, the result is the same:
+
+252.16 	 The groups have changed, and another word for a group is <em>association</em>. The equation demonstrates the Associative Property.
+
+252.17 	 Which one of the equations on the right represents the Associative Property of addition?
+
+252.19 	 The Associative Property should not be confused with the Commutative Property, in which the sequence or order of numbers is changed.
+
+252.20 	 In contrast to the Commutative Property, the Associative Property justifies rearranging our parentheses. For example, adding <code>(4+2)+3</code> is equivalent to adding <code>4+(2+3)</code> and represents the Associative Property.
+
+252.21 	 <code>a+(b+c)=(a+b)+c</code> demonstrates the Associative Property.
+
+252.22 	 <code>a+b=b+a</code> represents which one of the following properties:
+
+252.23 	 Commutative
+
+252.24 	 As this equation implies, changing the order of <code>a</code> and <code>b</code> will not change the end result.
+
+252.25 	 This property should not be confused with the Associative Property, in which groupings (what's inside the parentheses) are changed.
+
+252.26 	 This equation demonstrates the Commutative Property. The following sentence may help you to remember this property: The <em>commuting</em> distance is the same in either direction, from school to home or home to school.
+
+252.27 	 <code><var>A</var>+<var>B</var>=<var>B</var>+<var>A</var></code> represents which one of the following properties:
+
+252.28 	 Commutative
+
+252.29 	 This property should not be confused with the Associative Property, in which the order of operations is changed.
+
+252.30 	 As this equation implies, changing the order of <var>A</var> and <var>B</var> doesn't change the end result.
+
+252.31 	 Evaluating the left side:
+
+252.33 	 Evaluating the right side, the result is the same:
+
+252.35 	 This equation demonstrates the Commutative Property. The following sentence may help you to remember this property: The <em>commuting</em> distance is the same in either direction, from school to home or home to school.
+
+252.36 	 Which one of the equations on the right represents the Commutative Property of addition?
+
+252.38 	 According to the Commutative Property, the order of the numbers doesn't matter.
+
+252.39 	 The Commutative Property should not be confused with the Associative Property, in which you change the groupings (what is contained inside the parentheses).
+
+252.40 	 The following sentence may help you to remember the Commutative Property: &quot;The <em>commuting</em> distance is the same in either direction, from school to home or home to school.&quot;
+
+252.41 	 <code>a+b=b+a</code> demonstrates the Commutative Property.
+
+252.42 	 
+
+252.43 	 <code>a+b(c+d)=a+bc+bd</code> represents which one of the following properties:
+
+252.44 	 Distributive
+
+252.45 	 On the left side of the equation, <code>b</code> is multiplied by the sum of <code>c</code> and <code>d</code>.
+
+252.46 	 On the right side of the equation, we first multiply <code>b</code> by <code>c</code> and <code>d</code> individually and then add their products.
+
+252.47 	 We say that multiplication <em>distributes</em> <code>b</code> over addition of <code>c</code> and <code>d</code>, and this equation demonstrates the Distributive Property.
+
+252.48 	 <code><var>A</var>+<var>B</var>(<var>C</var>+<var>D</var>)=<var>A</var>+(<var>B</var>)(<var>C</var>)+(<var>B</var>)(<var>D</var>)</code> represents which one of the following properties:
+
+252.49 	 Distributive
+
+252.50 	 On the left side of the equation, <code><var>B</var> </code> is multiplied by the sum of <code><var>C</var></code> and <code><var>D</var></code>. On the right side of the equation, we first multiply <code><var>B</var></code> by <code><var>C</var></code> and  <code><var>D</var></code> individually and then add their products.
+
+252.51 	 Evaluating the left side:
+
+252.53 	 Evaluating the right side, the result is the same:
+
+252.55 	 We say that multiplication <em>distributes</em> <code><var>B</var></code> over addition of <code><var>C</var></code> and <code><var>D</var></code> and so this is called the Distributive Property.
+
+252.56 	 Which one of the equations on the right represents the Distributive Property of addition?
+
+252.58 	 In the correct answer, on the left side the equation <code>b</code> is multiplied by the sum of <code>c</code> and <code>d</code>.
+
+252.59 	 On the right side of this equation, we first multiply <code>b</code> by <code>c</code> and <code>d</code> individually and then add their products.
+
+252.60 	 In this equation, <code>b</code> gets <em>distributed</em> to <code>c</code> and  <code>d</code>, and so we call this the Distributive Property.
+
+252.61 	 <code>a+b(c+d)=a+bc+bd</code> represents the Distributive Property.
+

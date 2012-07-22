@@ -1,0 +1,30 @@
+347.1 	 Solving quadratics by taking the square root
+
+347.2 	 Solve for <code>x</code>:
+
+347.4 	 <code>x = \quad</code><span class="entry"></span><code>\quad \text{or} \quad x = \quad</code><span class="entry"></span>
+
+347.5 	 integers, like <code>6</code>
+
+347.6 	 <em>simplified proper</em> fractions, like <code>3/5</code>
+
+347.7 	 <em>simplified improper</em> fractions, like <code>7/4</code>
+
+347.8 	 and/or <em>exact</em> decimals, like <code>0.75</code>
+
+347.9 	 Add <code><var>abs( K )</var></code> to both sides so we can start isolating <code>x</code> on the left:
+
+347.11 	 Take the square root of both sides to get rid of the exponent.
+
+347.13 	 Be sure to consider both positive and negative <code><var>CONSTANT</var></code>, since squaring either one results
+                        in <code><var>-K</var></code>.
+
+347.15 	 <span data-if="H > 0">Add <code><var>abs( H )</var></code> to both sides to isolate <code>x</code> on the left:</span>
+                        <span data-else>Subtract <code><var>abs( H )</var></code> from both sides to isolate <code>x</code> on the left:</span>
+
+347.17 	 Add and subtract <code><var>CONSTANT</var></code> to find the two possible solutions:
+
+347.19 	 Determine where <code>f(x)</code> intersects the <code>x</code>-axis.
+
+347.21 	 The function intersects the <code>x</code>-axis where <code>f(x) = 0</code>, so solve the equation:
+

@@ -1,0 +1,14 @@
+279.1 	 Prime factorization
+
+279.2 	 What is the prime factorization of <code><var>NUMBER</var></code>?
+
+279.4 	 Let us draw a factor tree.
+
+279.5 	 Because <code><var>NUMBER</var></code> is prime, its prime factorization is simply <code><var>NUMBER</var></code>.
+
+279.6 	 What is the prime factorization of <code><var>NUMBER</var></code>?
+
+279.8 	 Let us draw a factor tree.
+
+279.9 	 The prime factorization of <code><var>NUMBER</var></code> is <code><var>SOLUTION.join(" &times; ")</var></code>.
+

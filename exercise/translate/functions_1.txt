@@ -1,0 +1,12 @@
+169.1 	 Functions 1
+
+169.2 	 The function <code>f(x)</code> is graphed. Find <code>f(<var>CORRECT_X</var>)</code>.
+
+169.3 	 <code>f(<var>CORRECT_X</var>)=</code> <span class="sol"><var>CORRECT_Y</var></span>
+
+169.4 	 At what point does <code>f(x)</code> intersect <code>x = <var>CORRECT_X</var></code>?
+
+169.5 	 They intersect at <code>(<var>CORRECT_X</var>, <var>CORRECT_Y</var>)</code>.
+
+169.6 	 Thus, <code>f(<var>CORRECT_X</var>) = <var>CORRECT_Y</var></code>.
+

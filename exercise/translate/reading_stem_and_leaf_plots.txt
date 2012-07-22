@@ -1,0 +1,61 @@
+308.1 	 Reading stem and leaf plots
+
+308.2 	 {The buyer for|A statistician for|An executive of} a chain of supermarkets created the following stem-and-leaf plot
+            showing the number of <var>plural( ITEM )</var> at each of the stores:
+
+308.3 	 {The buyer for|A statistician for|The regional manager of} a chain of department stores created the following stem-and-leaf plot
+            showing the number of <var>plural( ITEM )</var> at each of the stores:
+
+308.4 	 {The government|A conservation group|A zookeeper} {created|published} the following stem-and-leaf plot
+            showing the number of <var>plural( ITEM )</var> at each major zoo in the country:
+
+308.6 	 The left column of the stem and leaf plot represents the tens place; each number on the right side
+            represents the ones place for the number of <var>plural( ITEM )</var> at a <var>LOCATION</var>.
+
+308.7 	 We can combine the tens and ones places and write out the number of <var>plural( ITEM )</var> at each <var>LOCATION</var> on the right:
+
+308.9 	 Now we know the number of <var>plural( ITEM )</var> at the different <var>plural( LOCATION )</var>:
+
+308.10 	 <code>\qquad</code><var>toSentenceTex( RAW_DATA )</var>
+
+308.11 	 <span data-if="TYPE === 'smallest'">What was the fewest number of <var>plural( ITEM )</var> at any one <var>LOCATION</var>?</span>
+            <span data-else-if="TYPE === 'largest'">What was the largest number of <var>plural( ITEM )</var> at any one <var>LOCATION</var>?</span>
+            <span data-else>
+                How many <var>plural( LOCATION )</var> have
+                <span data-if="TYPE === 'how-many'">exactly</span>
+                <span data-if="TYPE === 'less-than'">fewer than</span>
+                <span data-if="TYPE === 'greater-than'">more than</span>
+                <var>plural( AMOUNT, ITEM )</var>?
+            </span>
+
+308.12 	 <code>\qquad</code><var>toSentenceTex( RAW_DATA, "and", IS_SOLUTION, "hint_pink" )</var>
+
+308.14 	 <strong>
+                <span data-if="TYPE === 'smallest'">The <var>LOCATION</var> with the fewest <var>plural( ITEM )</var> had <var>plural( SOLUTION, ITEM )</var>.</span>
+                <span data-else-if="TYPE === 'largest'">The <var>LOCATION</var> with the most <var>plural( ITEM )</var> had <var>plural( SOLUTION, ITEM)</var>.</span>
+                <span data-else>
+                    <var>plural( SOLUTION, LOCATION )</var> <var>plural( "has", "have", SOLUTION )</var>
+                    <span data-if="TYPE === 'how-many'">exactly</span>
+                    <span data-if="TYPE === 'less-than'">fewer than</span>
+                    <span data-if="TYPE === 'greater-than'">more than</span>
+                    <var>plural( AMOUNT, ITEM )</var>.
+                </span>
+            </strong>
+
+308.15 	 How many <var>plural( LOCATION )</var> have exactly <var>plural( AMOUNT, ITEM )</var>?
+
+308.16 	 <span style="padding-right: 5px" class="sol" data-forms="integer"><var>SOLUTION</var></span> <var>plural( LOCATION )</var>
+
+308.17 	 How many <var>plural( LOCATION )</var> have fewer than <var>plural( AMOUNT, ITEM )</var>?
+
+308.18 	 <span style="padding-right: 5px" class="sol" data-forms="integer"><var>SOLUTION</var></span> <var>plural( LOCATION )</var>
+
+308.19 	 How many <var>plural( LOCATION )</var> have more than <var>plural( AMOUNT, ITEM )</var>?
+
+308.20 	 <span style="padding-right: 5px" class="sol" data-forms="integer"><var>SOLUTION</var></span> <var>plural( LOCATION )</var>
+
+308.21 	 <span data-if="TYPE === 'smallest'">What was the fewest number of <var>plural( ITEM )</var> at any one <var>LOCATION</var>?</span>
+                <span data-if="TYPE === 'largest'">What was the largest number of <var>plural( ITEM )</var> at any one <var>LOCATION</var>?</span>
+
+308.22 	 <span style="padding-right: 5px" class="sol" data-forms="integer"><var>SOLUTION</var></span> <var>plural( ITEM )</var>
+

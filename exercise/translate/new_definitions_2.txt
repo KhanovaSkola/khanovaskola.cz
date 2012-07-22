@@ -1,0 +1,20 @@
+248.1 	 New definitions 2
+
+248.2 	 If <var>TEXTS</var>, find <code><var>X</var> <var>binop(1)</var> (<var>Y</var> <var>binop(2)</var> <var>Z</var>)</code>.
+
+248.3 	 <var>NEED_VALU1 ? "Now, find" : "Find"</var> <code><var>X</var> <var>binop(1)</var> <var>NEED_VALU1 ? VALU2 : "y"</var></code>:
+
+248.5 	 <code>\qquad \hphantom{<var>X</var> <var>binop(1)</var> <var>NEED_VALU1 ? VALU2 : "y"</var>} = <var>VALU1</var></code>.
+
+248.6 	 If <var>TEXTS</var>, find <code>(<var>Y</var> <var>binop(2)</var> <var>Z</var>) <var>binop(1)</var> <var>X</var></code>.
+
+248.7 	 <var>NEED_VALU1 ? "Now, find" : "Find"</var> <code><var>NEED_VALU1 ? VALU2 : "x"</var> <var>binop(1)</var> <var>X</var></code>:
+
+248.9 	 <code>\qquad \hphantom{<var>NEED_VALU1 ? VALU2 : "x"</var> <var>binop(1)</var> <var>X</var>} = <var>VALU1</var></code>.
+
+248.10 	 First, find <code><var>Y</var> <var>binop(2)</var> <var>Z</var></code>:
+
+248.12 	 <code>\qquad \hphantom{<var>Y</var> <var>binop(2)</var> <var>Z</var>} = <var>VALU2</var></code>.
+
+248.13 	 We don't need to find <code><var>Y</var> <var>binop(2)</var> <var>Z</var></code> because <code>x <var>binop(1)</var> y</code> depends only on the <var>NEED_VALU1_ONLY</var> operand.
+

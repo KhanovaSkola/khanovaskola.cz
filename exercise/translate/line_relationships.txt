@@ -1,0 +1,44 @@
+210.1 	 Line relationships
+
+210.2 	 <b>Find the slope and y-intercept of the line that is <code>\color{<var>GREEN</var>}{\text{<var>LINE_TYPE</var>}}</code> to <code>\enspace \color{<var>BLUE</var>}{y = <span data-if="abs( M_FRAC ) !== 1"><var>M_FRAC</var></span><span data-else><var>M_SIGN</var></span>x <span data-if="B !== 0">+ <var>B</var></span>}\enspace</code> and passes through the point <code>\color{red}{(<var>X</var>, <var>Y</var>)}</code>.</b>
+
+210.3 	 <code>m</code> = <span class="sol"><var>-1 / M</var></span>
+
+210.4 	 <code>b</code> = <span class="sol"><var>Y - ( -1 / M * X )</var></span>
+
+210.5 	 Lines are considered perpendicular if their slopes are negative reciprocals of each other.
+                    <div>
+                        <p>The slope of the blue line is <code>\color{<var>BLUE</var>}{<var>M_FRAC</var>}</code>, and its negative reciprocal is <code>\color{<var>GREEN</var>}{<var>M_PERP_FRAC</var>}</code>.
+
+210.6 	 Thus, the equation of our perpendicular line will be of the form <code>\enspace \color{<var>GREEN</var>}{y = <span data-if="abs( M_PERP_FRAC ) !== 1"><var>M_PERP_FRAC</var></span><span data-else><var>M_PERP_SIGN</var></span>x + b}\enspace</code>.
+
+210.7 	 We can plug our point, <code>(<var>X</var>, <var>Y</var>)</code>, into this equation to solve for <code>\color{<var>GREEN</var>}{b}</code>, the y-intercept.
+
+210.11 	 The equation of the perpendicular line is <code>\enspace \color{<var>GREEN</var>}{y = <span data-if="abs( M_PERP_FRAC ) !== 1"><var>M_PERP_FRAC</var></span><span data-else><var>M_PERP_SIGN</var></span>x<span data-if="Y - ( -1 / M * X ) !== 0"> + <var>decimalFraction( Y - ( -1 / M * X ), "true", "true" )</var></span>}\enspace</code>.
+
+210.13 	 <code>m</code> = <span class="sol"><var>M</var></span>
+
+210.14 	 <code>b</code> = <span class="sol"><var>Y - M * X </var></span>
+
+210.15 	 Parallel lines have the same slope.
+
+210.16 	 The slope of the blue line is <code>\color{<var>BLUE</var>}{<var>M_FRAC</var>}</code>, so the equation of our parallel line will be of the form <code>\enspace \color{<var>GREEN</var>}{y = <span data-if="abs( M_FRAC ) !== 1"><var>M_FRAC</var></span><span data-else><var>M_SIGN</var></span>x + b}\enspace</code>.
+
+210.17 	 We can plug our point, <code>(<var>X</var>, <var>Y</var>)</code>, into this equation to solve for <code>\color{<var>GREEN</var>}{b}</code>, the y-intercept.
+
+210.21 	 The equation of the parallel line is <code>\enspace \color{<var>GREEN</var>}{y = <span data-if="abs( M_FRAC ) !== 1"><var>M_FRAC</var></span><span data-else><var>M_SIGN</var></span>x<span data-if="Y - ( M * X ) !== 0"> + <var>decimalFraction( Y - M * X, "true", "true" )</var>}</span>\enspace</code>.
+
+210.23 	 What do the following two equations represent?
+
+210.26 	 Putting the first equation in <code>y = mx + b</code> form gives:
+
+210.30 	 Putting the second equation in <code>y = mx + b</code> form gives:
+
+210.34 	 The slopes are not the same, so the lines are not equivalent or parallel. The slopes are not negative inverses of each other, so the lines are not perpendicular. The correct answer is none of the above.
+
+210.35 	 The above equations turn into the same equation, so they represent equivalent lines.
+
+210.36 	 The slopes are equal, and the y-intercepts are different, so the lines are parallel.
+
+210.37 	 The slopes are negative inverses of each other, so the lines are perpendicular.
+

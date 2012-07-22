@@ -1,0 +1,64 @@
+178.1 	 Graphing linear equations
+
+178.3 	 Solve for <code>y</code> to convert <code><var>expr([ "*", B, "y" ])</var> = <var>C</var></code>
+                        to slope-intercept form.
+
+178.4 	 Divide both sides by <code><var>B</var></code>:
+
+178.6 	 The y-intercept is <code class="hint_green"><var>YINT</var></code>,
+                        and this equation represents a line where <strong class="hint_blue">all</strong> of the points have <code>y = <var>YINT</var></code>.
+
+178.7 	 Let's pick some points where <code>y = <var>YINT</var></code>.
+                        <code class="hint_green">(-<var>X_EXAMPLE</var>, <var>YINT</var>)</code> and <code class="hint_green">(<var>X_EXAMPLE</var>, <var>YINT</var>)</code> are both good choices.
+                        <div class="graphie" data-update="grid">
+                            style({ stroke: GREEN, fill: GREEN }, function() {
+                                graph.exampleA = circle( [ -1 * X_EXAMPLE, YINT ], 0.2 ).toBack();
+                                graph.exampleB = circle( [ X_EXAMPLE, YINT ], 0.2 ).toBack();
+                            });
+                        </div>
+
+178.8 	 We can see that these points line up to form a horizontal line that crosses the y-axis at <code class="hint_green">(0, <var>YINT</var>)</code>.
+
+178.10 	 Notice that there is no <code>y</code> in this equation. Try solving for <code>x</code> and see what happens.
+
+178.11 	 Divide both sides by <code><var>B</var></code>:
+
+178.13 	 This equation represents a line where <strong class="hint_blue">all</strong> of the points have <code>x = <var>XINT</var></code>.
+
+178.14 	 Let's pick some points where <code>x = <var>XINT</var></code>.
+                        <code class="hint_green">(<var>XINT</var>, -<var>Y_EXAMPLE</var>)</code>, <code class="hint_green">(<var>XINT</var>, <var>Y_EXAMPLE_2</var>)</code> and <code class="hint_green">(<var>XINT</var>, <var>Y_EXAMPLE</var>)</code> are all good choices.
+                        <div class="graphie" data-update="grid">
+                            style({ stroke: GREEN, fill: GREEN }, function() {
+                                graph.exampleA = circle( [ XINT, -1 * Y_EXAMPLE ], 0.2 ).toBack();
+                                graph.exampleB = circle( [ XINT, Y_EXAMPLE ], 0.2 ).toBack();
+                                graph.exampleA = circle( [ XINT, Y_EXAMPLE_2 ], 0.2 ).toBack();
+                            });
+                        </div>
+
+178.15 	 We can see that these points line up to form a vertical line that crosses the x-axis at <code class="hint_green">(<var>XINT</var>, 0)</code>.
+
+178.18 	 Convert <code><var>expr([ "+", [ "*", A, "x" ], [ "*", B, "y" ] ])</var> = <var>C</var></code>
+                        to slope-intercept form by solving for <code>y</code>.
+
+178.19 	 <var>A &lt; 0 ? "Add" : "Subtract"</var> <code><var>abs( A )</var>x</code> <var>A &lt; 0 ? "to" : "from"</var> both sides:
+
+178.21 	 Divide both sides by <code><var>B</var></code>:
+
+178.24 	 The y-intercept is <code class="hint_green"><var>YINT</var></code> and the slope is <code class="hint_purple"><var>decimalFraction( SLOPE, true, true )</var></code>.
+
+178.25 	 The y-intercept is <code class="hint_green"><var>YINT</var></code>, so the line must pass through the point <code class="hint_green">(0, <var>YINT</var>)</code>.
+
+178.26 	 The slope is <code class="hint_purple"><var>decimalFraction( SLOPE, true, true )</var></code>. Remember that
+                        the slope tells you rise over run. So in this case for every
+                        <code><var>abs( SLOPE_FRAC[0] )</var></code>
+                        <var>"position" + ( abs( SLOPE_FRAC[0] ) !== 1 ? "s" : "" )</var>
+                        you move
+                        <span data-if="SLOPE_FRAC[0] < 0"><em>down</em> (because it's negative)</span>
+                        <span data-else>up</span>
+                        you must also move
+                        <code><var>SLOPE_FRAC[1]</var></code>
+                        <var>"position" + ( abs( SLOPE_FRAC[1] ) !== 1 ? "s" : "" )</var>
+                        to the right.
+
+178.27 	 So the line must also pass through <code class="hint_purple">(<var>SLOPE_FRAC[1]</var>, <var>YINT + SLOPE_FRAC[0]</var>)</code>
+

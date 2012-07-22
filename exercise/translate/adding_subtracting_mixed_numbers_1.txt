@@ -1,0 +1,42 @@
+17.1 	 Adding and subtracting mixed numbers with unlike denominators
+
+17.2 	 Express your answer as a mixed number simplified to lowest terms.
+
+17.4 	 Separate the whole numbers from the fractional parts:
+
+17.6 	 Bring the whole numbers together and the fractions together:
+
+17.8 	 <span data-if="PM === 1">Add</span><span data-else>Subtract</span> the whole numbers:
+
+17.10 	 Simplify each fraction:
+
+17.12 	 Find a common denominator for the fractions:
+
+17.14 	 <span data-if="PM === 1">Add</span><span data-else>Subtract</span> the fractions:
+
+17.16 	 Combine the whole and fractional parts into a mixed number:
+
+17.18 	 Simplify to lowest terms:
+
+17.20 	 Express your answer as a mixed number simplified to lowest terms.
+
+17.22 	 Simplify each fraction.
+
+17.24 	 Find a common denominator for the fractions:
+
+17.26 	 Convert <code>\blue{<var>W1 + 1</var><var>fraction( SIMP_N1 * LCM / SIMP_D1, LCM)</var>}</code> to <code>\blue{<var> W1</var> + <var>fraction( LCM, LCM)</var> + <var>fraction( SIMP_N1 * LCM / SIMP_D1, LCM)</var>}</code>.
+
+17.27 	 So the problem becomes:
+
+17.29 	 Separate the whole numbers from the fractional parts:
+
+17.31 	 Bring the whole numbers together and the fractions together:
+
+17.33 	 <span data-if="PM === 1">Add</span><span data-else>Subtract</span> the whole numbers:
+
+17.35 	 <span data-if="PM === 1">Add</span><span data-else>Subtract</span> the fractions:
+
+17.37 	 Combine the whole and fractional parts into a mixed number:
+
+17.39 	 Simplify to lowest terms:
+

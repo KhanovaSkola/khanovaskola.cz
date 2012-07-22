@@ -1,0 +1,30 @@
+341.1 	 Solutions to systems of equations
+
+341.2 	 Determine how many solutions exist for the system of equations.
+
+341.4 	 Convert both equations to slope-intercept form:
+
+341.5 	 <code>\color{<span data-if="INDEX === 0"><var>BLUE</var></span><span data-else><var>GREEN</var></span>}{<var>EQUATIONS[INDEX]</var>}</code><br />
+                        <span data-if="INDICES[INDEX] === 1"><code>\color{<span data-if="INDEX === 0"><var>BLUE</var></span><span data-else><var>GREEN</var></span>}{y = <var>expr(["+", ["*", AB_VALS[INDEX].a, "x"], AB_VALS[INDEX].b])</var>}</code></span>
+                        <span data-if="INDICES[INDEX] === 2"><code><var>expr(["*", -AB_VALS[INDEX].a, "x"])</var>\color{<var>PINK</var>}{<var>SIGNS_1[INDEX]</var><var>expr(["*", abs( AB_VALS[INDEX].a ), "x"])</var>} + y = <var>AB_VALS[INDEX].b</var>\color{<var>PINK</var>}{<var>SIGNS_1[INDEX]</var><var>expr(["*", abs( AB_VALS[INDEX].a ), "x"])</var>}</code><br />
+                        <code>y = <var>AB_VALS[INDEX].b</var><var>SIGNS_1[INDEX]</var><var>expr(["*", abs( AB_VALS[INDEX].a ), "x"])</var></code><br />
+                        <code>\color{<span data-if="INDEX === 0"><var>BLUE</var></span><span data-else><var>GREEN</var></span>}{y = <var>expr(["+", ["*", AB_VALS[INDEX].a, "x"], AB_VALS[INDEX].b])</var>}</code></span>
+                        <span data-if="INDICES[INDEX] === 3"><code><var>expr(["*", -AB_VALS[INDEX].a * MULT[INDEX], "x"])</var>\color{<var>PINK</var>}{<var>SIGNS_2[INDEX]</var><var>expr(["*", abs( AB_VALS[INDEX].a * MULT[INDEX] ), "x"])</var>} + <var>expr(["*", MULT[INDEX], "y"])</var> = <var>AB_VALS[INDEX].b * MULT[INDEX]</var>\color{<var>PINK</var>}{<var>SIGNS_2[INDEX]</var><var>expr(["*", abs( AB_VALS[INDEX].a * MULT[INDEX] ), "x"])</var>}</code><br />
+                        <code><var>expr(["*", MULT[INDEX], "y"])</var> = <var>AB_VALS[INDEX].b * MULT[INDEX]</var><var>SIGNS_2[INDEX]</var><var>expr(["*", abs( AB_VALS[INDEX].a * MULT[INDEX] ), "x"])</var></code><br />
+                        <code>y = <var>AB_VALS[INDEX].b</var><var>SIGNS_1[INDEX]</var><var>expr(["*", abs( AB_VALS[INDEX].a ), "x"])</var></code><br />
+                        <code>\color{<span data-if="INDEX === 0"><var>BLUE</var></span><span data-else><var>GREEN</var></span>}{y = <var>expr(["+", ["*", AB_VALS[INDEX].a, "x"], AB_VALS[INDEX].b])</var>}</code></span>
+
+341.6 	 Just by looking at both equations in slope-intercept form, what can you determine?
+
+341.8 	 The linear equations have different slopes.
+
+341.9 	 When two equations have different slopes, the lines will intersect once with one solution.
+
+341.10 	 Both equations have the same slope and the same y-intercept, which means the lines would completely overlap.
+
+341.11 	 Since any solution of <code>\color{<var>BLUE</var>}{<var>EQUATIONS[0]</var>}</code> is also a solution of <code>\color{<var>GREEN</var>}{<var>EQUATIONS[1]</var>}</code>, there are infinitely many solutions.
+
+341.12 	 Both equations have the same slope with different y-intercepts. This means the equations are parallel.
+
+341.13 	 Parallel lines never intersect, thus there are NO SOLUTIONS.
+

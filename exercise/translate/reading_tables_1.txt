@@ -1,0 +1,8 @@
+309.1 	 Reading tables 1
+
+309.2 	 The table below <var>PROBLEM</var>.
+
+309.4 	 The blue row shows <var>ROW_HINT</var>.
+
+309.5 	 The orange column shows <var>COL_HINT</var>.
+

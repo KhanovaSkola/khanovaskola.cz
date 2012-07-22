@@ -1,0 +1,16 @@
+315.1 	 Representing numbers
+
+315.2 	 What number is represented by the blocks shown?
+
+315.3 	 By counting the number of hundreds blocks, we see that the hundreds digit of the number is <code><var>A</var></code>.
+
+315.4 	 Because there are no tens blocks, the tens digit of the number is <code>0</code>.
+
+315.5 	 By counting the number of tens blocks, we see that the tens digit of the number is <code><var>B</var></code>.
+
+315.6 	 Because there are no single unit blocks, the units digit of the number is <code>0</code>.
+
+315.7 	 By counting the number of single unit blocks, we see that the units digit of the number is <code><var>C</var></code>.
+
+315.8 	 The number is <code><var>N</var></code>.
+

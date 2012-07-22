@@ -1,0 +1,32 @@
+331.1 	 Similar Triangles 2
+
+331.2 	 The sides of similar triangles are always proportional. This is known as
+
+331.3 	 <code>\color{orange}{Side-Side-Side (SSS) Similarity}</code>.
+
+331.4 	 First, let's determine whether ABC and DEF are similar.
+
+331.5 	 In triangle <code>DEF</code>, <code>DE = <var>DEF_SIDES[2]</var>, EF = <var>DEF_SIDES[0]</var></code>, and <code>FD = <var>DEF_SIDES[1]</var></code>.
+
+331.6 	 In triangle <code>ABC</code>, <code>AB = <var>ABC_SIDES[2]</var>, BC = <var>ABC_SIDES[0]</var></code>, and <code>CA = <var>ABC_SIDES[1]</var></code>.
+
+331.7 	 In order for <code>ABC</code> and <code>DEF</code> to be similar:
+
+331.9 	 Substitute in the proper values for each side.
+
+331.11 	 Since <span data-if="ANSWER === 'GHI' || ANSWER === 'None'">not</span> all the proportions are equal, <code>ABC</code> is <span data-if="ANSWER === 'GHI' || ANSWER === 'None'">not</span> similar to <code>DEF</code></span>.
+
+331.12 	 Next, let's determine whether <code>ABC</code> and <code>GHI</code> are similar.
+
+331.13 	 In triangle <code>GHI</code>, <code>DE = <var>GHI_SIDES[2]</var>, EF = <var>GHI_SIDES[0]</var></code>, and <code>FD = <var>GHI_SIDES[1]</var></code>.
+
+331.14 	 In triangle <code>ABC</code>, <code>AB = <var>ABC_SIDES[2]</var>, BC = <var>ABC_SIDES[0]</var></code>, and <code>CA = <var>ABC_SIDES[1]</var></code>.
+
+331.15 	 For triangles <code>ABC</code> and <code>GHI</code> to be similar:
+
+331.17 	 Substitute in the proper values for each side.
+
+331.19 	 Since <span data-if="ANSWER === 'DEF' || ANSWER === 'None'">not</span> all the proportions are equal, <code>ABC</code> is <span data-if="ANSWER === 'DEF' || ANSWER === 'None'">not</span> similar to <code>GHI</code></span>.
+
+331.23 	 Neither <code>DEF</code> nor <code>GHI</code> are similar to <code>ABC</code>
+

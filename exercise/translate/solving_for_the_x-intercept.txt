@@ -1,0 +1,12 @@
+343.1 	 Solving for the x-intercept
+
+343.2 	 Given the equation:
+
+343.4 	 What is the <code>x</code>-intercept?
+
+343.5 	 The <code>x</code>-intercept is the point where the line crosses the <code>x</code>-axis.  This happens when <code>y</code> is zero.
+
+343.6 	 Set <code>y</code> to zero and solve for <code>x</code>.
+
+343.11 	 This line intersects the <code>x</code>-axis at <code>(<var>X_INTERCEPT</var>, 0)</code>.
+

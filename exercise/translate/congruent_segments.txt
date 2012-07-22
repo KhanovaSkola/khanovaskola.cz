@@ -1,0 +1,21 @@
+75.1 	 Congruent segments
+
+75.2 	 Are <code>\overline{AB}</code> and <code>\overline{CD}</code> congruent?
+
+75.3 	 Congruent segments have equal lengths.
+
+75.4 	 Find the lengths of <code>\overline{AB}</code> and <code>\overline{CD}</code>:
+
+75.5 	 <span class="lcol"><code>AB = |\color{<var>COLORS[ 0 ]</var>}{<var>POINTS[ 0 ]</var>} - \color{<var>COLORS[ 1 ]</var>}{<var>POINTS[ 1 ]</var>}|</code></span>
+                    <span class="rcol"><code>CD = |\color{<var>COLORS[ 2 ]</var>}{<var>POINTS[ 2 ]</var>} - \color{<var>COLORS[ 3 ]</var>}{<var>POINTS[ 3 ]</var>}|</code></span>
+
+75.6 	 <span class="lcol"><code>AB = |<var>POINTS[ 0 ] - POINTS[ 1 ]</var>|</code></span>
+                    <span class="rcol"><code>CD = |<var>POINTS[ 2 ] - POINTS[ 3 ]</var>|</code></span>
+
+75.7 	 <span class="lcol"><code>AB = <var>POINTS[ 1 ] - POINTS[ 0 ]</var></code></span>
+                    <span class="rcol"><code>CD = <var>POINTS[ 3 ] - POINTS[ 2 ]</var></code></span>
+
+75.9 	 Yes, <code>\overline{AB}</code> and <code>\overline{CD}</code> are congruent.
+
+75.11 	 No, <code>\overline{AB}</code> and <code>\overline{CD}</code> are not congruent.
+

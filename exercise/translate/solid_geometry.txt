@@ -1,0 +1,150 @@
+340.1 	 Solid geometry
+
+340.2 	 What is the volume of this object?
+                Drag on the object to rotate it.
+
+340.3 	 The volume of a prism is the area of the base
+                    <code>\times</code> depth.
+
+340.4 	 In this object, one of the triangles is the base.
+
+340.5 	 We know the area of a triangle is
+                    <code>\frac{1}{2}\ \text{base} \times \text{height}</code>.
+
+340.6 	 Orient the triangle like this, and find the
+                        base and height from the object:
+
+340.7 	 From the object, we find that the base of the triangle
+                        is <code><var>BASE</var></code> and the height is
+                        <code><var>HEIGHT</var></code>.
+
+340.8 	 The area of the triangle is then
+                    <code>\frac{1}{2}<var>BASE</var> \times <var>HEIGHT</var>
+                        = <var>BASE * HEIGHT / 2</var></code>.
+
+340.9 	 From the object, we can then find that the depth is
+                    <code><var>DEPTH</var></code>.
+
+340.10 	 Then, the final volume is
+                    <code><var>BASE * HEIGHT / 2</var> \times <var>DEPTH</var>
+                        = <var>BASE * HEIGHT * DEPTH / 2</var>.</code>
+
+340.11 	 What is the volume of this box? Drag on the box to rotate it.
+
+340.12 	 The volume of a box is the
+                    length <code>\times</code>
+                    width <code>\times</code>
+                    height.
+
+340.13 	 From the figure, we can find that the
+                    lengths of the sides are
+                    <code><var>LENGTH</var></code>,
+                    <code><var>WIDTH</var></code>,
+                    and <code><var>HEIGHT</var></code>.
+
+340.14 	 To find the volume, we just multiply
+                    these side lengths together.
+
+340.17 	 Thus, the volume of the box is
+                    <code><var>LENGTH * WIDTH * HEIGHT</var></code>.
+
+340.18 	 What is the surface area of this box?
+                Drag on the box to rotate it.
+
+340.19 	 To find the surface area, find the areas
+                of each of the faces, and add all the areas up.
+
+340.20 	 To see this better, let's try unwrapping the box:
+                    <input type="submit" value="Unwrap!"
+                        onclick="KhanUtil.tmpl.getVAR('UNWRAPGRAPH.unwrap()')"
+                    />
+
+340.21 	 We can group the faces together
+                            based on size and color:
+
+340.22 	 We can calculate the area of each
+                            of the pieces now:
+
+340.25 	 Thus, the total surface area of the box is
+                        <code><var>2 * WIDTH * HEIGHT +
+                                2 * LENGTH * WIDTH +
+                                2 * HEIGHT * LENGTH</var></code>.
+
+340.26 	 What is the volume of this cube? Drag on the cube to rotate it.
+
+340.27 	 The volume of a box is the
+                    length <code>\times</code>
+                    width <code>\times</code>
+                    height.
+
+340.28 	 Since this is a cube, all the sides are the same length.
+
+340.29 	 From the figure, we can find that the side length is
+                    <code><var>WIDTH</var></code>.
+
+340.30 	 To find the volume, we just cube this side length.
+
+340.33 	 Thus, the volume of the cube is
+                    <code><var>WIDTH * WIDTH * WIDTH</var></code>.
+
+340.34 	 What is the surface area of this cube?
+                Drag on the cube to rotate it.
+
+340.35 	 Here, we can see that all of the
+                        six sides have the same size.
+
+340.36 	 We can now calculate the total area:
+
+340.39 	 Thus, the total surface area of the cube is
+                        <code><var>6 * WIDTH * WIDTH</var></code>.
+
+340.40 	 What is the volume of a cylinder with base radius
+                    <code><var>r</var></code> and height
+                    <code><var>h</var></code>?
+
+340.41 	 <span class="sol" data-forms="pi">
+                        <var>Math.PI * r * r * h</var>
+                    </span>
+                    Cubic Units
+
+340.42 	 The area of the base is simply the area of a circle:
+                    <code>\pi r^2 = \pi \cdot <var>r</var>^2 =
+                        <var>r * r</var> \pi</code>.
+
+340.43 	 The volume of the cylinder is the area of the base
+                    times the height:
+                    <code>B \cdot h = <var>r * r</var>\pi \cdot <var>h</var>
+                        = <var>r * r * h</var>\pi</code>.
+
+340.44 	 What is the surface area of a cylinder with
+                    base radius <code><var>r</var></code> and
+                    height <code><var>h</var></code>?
+
+340.45 	 <span class="sol" data-forms="pi">
+                        <var>Math.PI * 2 * r * ( r + h )</var>
+                    </span>
+                    Square Units
+
+340.46 	 The areas of the top and the base are simply the
+                    area of a circle:
+                    <code>\pi r^2 = \pi \cdot <var>r</var>^2 =
+                        <var>r * r</var> \pi</code>.
+
+340.47 	 The lateral surface area is the same as the
+                    area of a rectangle with height
+                    <code><var>h</var></code>
+                    and width equal to the circumference of the base.
+
+340.48 	 That circumference is
+                    <code>2 \pi r = 2\pi \cdot <var>r</var> =
+                        <var>2 * r</var>\pi</code>.
+
+340.49 	 Thus, the lateral surface area is
+                    <code>wh = <var>2 * r</var> \pi \cdot <var>h</var> =
+                        <var>2 * r * h</var> \pi</code>.
+
+340.50 	 The total surface area is
+                    <code><var>r * r</var> \pi + <var>r * r</var> \pi +
+                        <var>2 * r * h</var> \pi =
+                        <var>2 * r * ( r + h )</var>\pi</code>.
+

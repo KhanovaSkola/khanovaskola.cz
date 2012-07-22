@@ -1,0 +1,38 @@
+290.1 	 Quadrilateral Angles
+
+290.2 	 This figure is a trapezoid.
+
+290.3 	 The angles of a trapezoid side are supplementary.
+
+290.7 	 This figure is an isosceles trapezoid.
+
+290.8 	 The angles of bases of an isosceles trapezoid are equal.
+
+290.9 	 Therefore, the angle x is also <code><var>ANGLES[ SHOWN_POS ]</var></code>
+
+290.10 	 This quadrilateral is a parallelogram.
+
+290.11 	 Opposite angles of a parallelogram are equal.
+
+290.12 	 Therefore, the angle x is also <code><var>ANGLES[ SHOWN_POS ]</var></code>
+
+290.13 	 This quadrilateral is a parallelogram.
+
+290.14 	 Adjacent angles of a parallelogram are supplementary.
+
+290.18 	 This quadrilateral is a rhombus, because it has all sides equal.
+
+290.19 	 Opposite angles of a rhombus are equal.
+
+290.20 	 Therefore, the angle x is also <code><var>ANGLES[ SHOWN_POS ]</var></code>
+
+290.21 	 This quadrilateral is a rhombus, because it has all sides equal.
+
+290.22 	 Adjacent angles of a rhombus are supplementary.
+
+290.26 	 This quadrilateral is a kite, because it has two pairs of adjacent sides equal.
+
+290.27 	 Angles between the non-equal sides of a kite are equal.
+
+290.28 	 Therefore, the angle x is also <code><var>ANGLES[ SHOWN_POS ]</var></code>
+

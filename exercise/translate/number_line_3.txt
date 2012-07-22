@@ -1,0 +1,16 @@
+251.1 	 Number line 3
+
+251.2 	 What number is <strong><var>plural( abs( DISTANCE ), "position")</var> to the <span data-if="DISTANCE < 1">left</span><span data-else>right</span> of the orange dot</strong>? The distance between tick marks is 1.
+
+251.3 	 What number does the orange dot represent? The distance between tick marks is 1.
+
+251.4 	 We know where <code><var>MIDPOINT</var></code> is on this number line because it is labeled.
+
+251.5 	 Numbers to the left are less than <code><var>MIDPOINT</var></code>, while numbers to the right are greater than <code><var>MIDPOINT</var></code>.
+
+251.6 	 We need to find the number represented by the blue dot, which is <var>plural( abs( DISTANCE ), "position")</var> to the <span data-if="DISTANCE < 1">left</span><span data-else>right</span> of the orange dot.
+
+251.7 	 Starting from <code><var>MIDPOINT</var></code>, we move <code><var>abs( NUMBER-MIDPOINT+DISTANCE )</var></code> to the <span data-if="NUMBER-MIDPOINT+DISTANCE < 0">left</span><span data-else>right</span> to reach the <span data-if="DISTANCE !== 0">blue</span><span data-else>orange</span> dot.
+
+251.8 	 Thus, the <span data-if="DISTANCE !== 0">blue</span><span data-else>orange</span> dot represents the number <code><var>NUMBER+DISTANCE</var></code>.
+

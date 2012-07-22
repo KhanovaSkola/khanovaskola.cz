@@ -1,0 +1,22 @@
+282.1 	 Product rule
+
+282.2 	 Find <code>\displaystyle \frac{d}{dx} \bigl((<var>FUNCN.fText</var>)(<var>FUNCD.fText</var>)\bigr)</code>.
+
+282.4 	 We know <code>\displaystyle \frac{d}{dx} \bigl( f(x) g(x) \bigr) = f'(x)g(x) + g'(x)f(x)</code>.
+
+282.5 	 In this case,
+
+282.6 	 <code>\qquad f(x) = <var>FUNCN.fText</var></code>,
+
+282.7 	 <code>\qquad g(x) = <var>FUNCD.fText</var></code>.
+
+282.8 	 Differentiate each function:
+
+282.9 	 <code>\qquad f'(x) = <var>FUNCN.ddxFText</var></code>,
+
+282.10 	 <code>\qquad g'(x) = <var>FUNCD.ddxFText</var></code>.
+
+282.11 	 Thus, the answer is
+
+282.12 	 <code>\qquad {(<var>FUNCN.ddxFText</var>)(<var>FUNCD.fText</var>) + (<var>FUNCD.ddxFText</var>)(<var>FUNCN.fText</var>)}</code>.
+

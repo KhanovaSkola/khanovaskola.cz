@@ -1,0 +1,14 @@
+322.1 	 Scaling vectors
+
+322.2 	 What is <code><var>SA</var> \vec a</code>?
+
+322.4 	 Reading from the graph, we see that <code>\vec a = <var>AX</var> \hat\imath + <var>AY</var> \hat\jmath</code>.
+
+322.5 	 <code><var>SA</var> \vec a = <var>SA</var> \cdot (<var>AX</var> \hat\imath + <var>AY</var> \hat\jmath)</code>.
+
+322.6 	 <code>\hphantom{<var>SA</var> \vec a} = (<var>SA</var> \cdot <var>AX</var>) \hat\imath + (<var>SA</var> \cdot <var>AY</var>) \hat\jmath</code>.
+
+322.7 	 <code>\hphantom{<var>SA</var> \vec a} = <var>SA * AX</var> \hat\imath + <var>SA * AY</var> \hat\jmath</code>.
+
+322.8 	 The vector that matches is <code>\vec <var>ANSL</var></code>.
+

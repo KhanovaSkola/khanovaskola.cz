@@ -1,0 +1,39 @@
+180.1 	 Graphing parabolas 1
+
+180.2 	 Graph the following equation:
+
+180.4 	 The equation is in vertex form, so we can use the vertex as one of the points.
+
+180.5 	 When the equation is written in vertex form like this, the vertex is the point <code class="hint_green">(h, k)</code>:
+                    <p><code>\qquad <var>formatGroup( GROUP1, [ 0 ] )</var></code>
+
+180.7 	 Examining our equation, we can see the vertex of the parabola is at <code class="hint_green">(<var>H</var>, <var>K</var>)</code>.
+
+180.8 	 To find another point on the parabola, we can try plugging an <code>x</code> value into the equation.
+
+180.9 	 Since the vertex is at <code class="hint_green">x = <var>H</code></code>, let's try one unit to the right and evaluate
+                        the equation at <code class="hint_pink">x = <var>X1</var></code>.
+
+180.11 	 Another point on the parabola is <code class="hint_pink">(<var>X1</var>, <var>Y1</var>)</code>
+                    <div class="graphie" data-update="grid">
+                        style({
+                            stroke: PINK,
+                            strokeWidth: 3
+                        }, function() {
+                            line( [ X1 - 0.3, Y1 - 0.3 ], [ X1 + 0.3, Y1 + 0.3 ] ).toBack();
+                            line( [ X1 - 0.3, Y1 + 0.3 ], [ X1 + 0.3, Y1 - 0.3 ] ).toBack();
+                        });
+                    </div>
+                </div>
+
+                <div>
+                    <p>A parabola has an <span class="hint_green">axis of symmetry</span> that passes through its vertex.
+
+180.12 	 Because the parabola is symmetric, we can reflect the point <code class="hint_pink">(<var>X1</var>, <var>Y1</var>)</code>
+                        across the <span class="hint_green">axis of symmetry</span> to get another point,
+                        <code class="hint_orange">(<var>X2</var>, <var>Y2</var>)</code>, that must
+                        also be on the parabola.
+
+180.13 	 There is only one graph of a parabola that passes through all three points we found.
+                        <br /><input type="button" value="Show me" onClick="javascript:KhanUtil.currentGraph.graph.showSolution();" />
+

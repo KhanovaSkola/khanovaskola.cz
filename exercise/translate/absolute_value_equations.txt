@@ -1,0 +1,24 @@
+2.1 	 Absolute value equations
+
+2.2 	 Solve for <code>x</code>:
+
+2.4 	 Subtract <code><var>C</var>|x|</code> from both sides:
+
+2.7 	 <var>B > 0 ? "Subtract" : "Add"</var> <code><var>abs(B)</var></code> <var>B > 0 ? "from" : "to"</var> both sides:
+
+2.10 	 Divide both sides by <code><var>A - C</var></code>.
+
+2.12 	 Simplify.
+
+2.14 	 Subtract <code><var>A</var>|x|</code> from both sides:
+
+2.17 	 <var>D > 0 ? "Subtract" : "Add"</var> <code><var>abs(D)</var></code> <var>D > 0 ? "from" : "to"</var> both sides:
+
+2.20 	 Divide both sides by <code><var>C - A</var></code>.
+
+2.22 	 Simplify.
+
+2.24 	 Thus, the correct answer is <var>SOLUTION</var>.
+
+2.25 	 The absolute value cannot be negative. Therefore, there is no solution.
+

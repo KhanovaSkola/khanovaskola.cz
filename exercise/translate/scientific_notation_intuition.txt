@@ -1,0 +1,27 @@
+324.1 	 Scientific notation intuition
+
+324.2 	 Express the top number in scientific notation by dragging the decimal point in the bottom number:
+
+324.3 	 As you move the decimal point, the exponent will automatically change so both numbers are always equal.
+
+324.4 	 To write <code><var>PRETTY_DECIMAL</var></code> in scientific notation, move the decimal
+                        to the <span data-if="E < 0">right</span><span data-else>left</span> so the number is greater than or equal
+                        to <code>1</code>, but less than <code>10</code>.
+
+324.5 	 Moving the decimal to the <span data-if="E < 0">right</span><span data-else>left</span>
+                        <code><var>abs( E )</var></code> <var>plural( "place", abs( E ) )</var> leaves us with
+                        <code class="hint_pink"><var>BASE</var></code>.
+
+324.6 	 Moving the decimal to the <span data-if="E < 0">right</span><span data-else>left</span>
+                        <code><var>abs( E )</var></code> <var>plural( "place", abs( E ) )</var> is the same as
+                        <span data-if="E < 0">multiplying</span><span data-else>dividing</span> by ten
+                        <code><var>abs( E )</var></code> <var>plural( "time", abs( E ) )</var>. Therefore, to
+                        counteract moving the decimal, we need to <span data-if="E < 0">divide</span><span data-else>multiply</span>
+                        by ten <code><var>abs( E )</var></code> <var>plural( "time", abs( E ) )</var> &mdash; which is the same as
+                        multiplying by <code class="hint_blue">10^{<var>E</var>}</code>.
+
+324.7 	 <strong>
+                            <code><var>PRETTY_DECIMAL</var></code> in scientific notation is
+                            <code>\color{<var>PINK</var>}{<var>BASE</var>}\times \color{<var>BLUE</var>}{10^{<var>E</var>}}</code>.
+                        </strong>
+

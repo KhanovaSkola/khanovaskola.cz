@@ -1,0 +1,40 @@
+81.1 	 Converting between slope intercept and standard form
+
+81.2 	 Convert the following equation from standard form to slope intercept form.
+
+81.3 	 In other words, if the equation is rewritten to look like <code>y = mx + b</code>, what are the values of <code>m</code> and <code>b</code>?
+
+81.5 	 <code>m</code> = <span class="sol"><var>SLOPE</var></span>
+
+81.6 	 <code>b</code> = <span class="sol"><var>Y_INTERCEPT</var></span>
+
+81.7 	 Move the <code>x</code> term to the other side of the equation.
+
+81.9 	 Divide both sides by <code><var>B</var></code>.
+
+81.11 	 Inspecting the equation in slope intercept form, we see the following.
+
+81.13 	 Behold! The magic of math, that both equations could represent the same line!
+
+81.14 	 Convert the following equation from slope intercept form to standard form.
+
+81.15 	 In other words, if the equation is rewritten to look like <code>Ax + By = C</code>, what are the values of <code>A</code>, <code>B</code>, and <code>C</code>?
+
+81.16 	 Assume <code>A</code> is positive.
+
+81.18 	 <code>A</code> = <span class="sol"></span>
+
+81.19 	 <code>B</code> = <span class="sol"></span>
+
+81.20 	 <code>C</code> = <span class="sol"></span>
+
+81.21 	 Move the <code>x</code> term to the same side as the <code>y</code> term.
+
+81.23 	 Since the slope is <code>0</code> and there is no <code>x</code> term, the equation is already in slope intercept form.
+
+81.25 	 Multiply both sides by <code>-1</code> so that <code>A</code> will be positive
+
+81.27 	 Inspecting the equation in standard form, we see the following.
+
+81.29 	 Behold! The magic of math, that both equations could represent the same line!
+

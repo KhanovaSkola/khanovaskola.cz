@@ -1,0 +1,40 @@
+67.1 	 Completing the square 2
+
+67.2 	 Solve for <code>x</code> by completing the square.
+
+67.4 	 <code>x = {}</code><span class="entry short"></span><code>\quad \text{or} \quad x = {}</code><span class="entry short"></span>
+
+67.5 	 integers, like <code>6</code>
+
+67.6 	 <em>simplified proper</em> fractions, like <code>3/5</code>
+
+67.7 	 <em>simplified improper</em> fractions, like <code>7/4</code>
+
+67.8 	 and/or <em>exact</em> decimals, like <code>0.75</code>
+
+67.9 	 <code>x = {}</code><span class="sol"><var>X1</var></span>
+
+67.10 	 integers, like <code>6</code>
+
+67.11 	 <em>simplified proper</em> fractions, like <code>3/5</code>
+
+67.12 	 <em>simplified improper</em> fractions, like <code>7/4</code>
+
+67.13 	 and/or <em>exact</em> decimals, like <code>0.75</code>
+
+67.14 	 First, divide the polynomial by <code><var>MULT</var></code>, the coefficient of the <code>x^2</code> term.
+
+67.16 	 Move the constant term to the right side of the equation.
+
+67.18 	 We complete the square by taking half of the coefficient of our <code>x</code> term, squaring it, and adding it to both sides of the equation. The coefficient of our <code>x</code> term is <code><var>decimalFraction( B, 1, 1 )</var></code>, so half of it would be <code><var>decimalFraction( B / 2, 1, 1 )</var></code>, and squaring it gives us <code>\color{blue}{<var>decimalFraction( pow( B / 2, 2 ), 1, 1 )</var>}</code>.
+
+67.20 	 We can now rewrite the left side of the equation as a squared term.
+
+67.22 	 Note that the left side of the equation is already a perfect square trinomial. The coefficient of our <code>x</code> term is <code><var>decimalFraction( B, 1, 1 )</var></code>, half of it is <code><var>decimalFraction( B / 2, 1, 1 )</var></code>, and squaring it gives us <code>\color{blue}{<var>decimalFraction( pow( B / 2, 2 ), 1, 1 )</var>}</code>, our constant term.
+
+67.23 	 Thus, we can rewrite the left side of the equation as a squared term.
+
+67.25 	 Take the square root of both sides.
+
+67.27 	 Isolate <code>x</code> to find the solution(s).
+

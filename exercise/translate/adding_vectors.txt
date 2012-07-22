@@ -1,0 +1,8 @@
+18.1 	 Adding vectors
+
+18.2 	 What is <code>\vec a + \vec b</code>?
+
+18.4 	 <span class="sol" data-fallback="1"><var>AX + BX</var></span> <code>\hat\imath + {}</code><span class="sol" data-fallback="1"><var>AY + BY</var></span> <code>\hat\jmath</code>
+
+18.5 	 Sum the <code>\hat\imath</code> and <code>\hat\jmath</code> components separately.
+

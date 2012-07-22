@@ -1,0 +1,16 @@
+47.1 	 Axis of symmetry
+
+47.2 	 Is the blue line an axis of symmetry?
+
+47.3 	 Does the blue line split the shape into two parts which look like reflections of each other?
+
+47.4 	 The orange line is one of two parts made by the blue line.
+
+47.5 	 If the blue line were a mirror, what would the orange line's reflection look like?
+
+47.6 	 The pink line is the orange line's reflection.
+
+47.7 	 The blue line splits the shape into two equal halves, so it is an axis of symmetry.
+
+47.8 	 The blue line did not split the shape into two equal halves, so it is not an axis of symmetry.
+

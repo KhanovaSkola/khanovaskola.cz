@@ -1,0 +1,30 @@
+226.1 	 Midpoint of a segment
+
+226.3 	 If:<br />
+                    <span id="given1"><code>\qquad <var>SEG_1</var> = <var>COEF_1</var>x + <var>CONST_1</var></code></span> and<br />
+                    <span id="given2"><code>\qquad <var>SEG_2</var> = <var>COEF_2</var>x + <var>CONST_2</var></code></span><br />
+
+226.4 	 Find <code><var>SEG_TOTAL</var></code>.
+
+226.5 	 A midpoint divides a segment into two segments with equal lengths.
+
+226.7 	 Substitute in the expressions that were given for each length:
+
+226.9 	 Solve for <code class="hint_pink">x</code>:
+
+226.10 	 <code class="hint_pink">\qquad <var>expr([ "*", COEF_1 - COEF_2, "x" ])</var> = <var>CONST_2 - CONST_1</var></code>
+
+226.12 	 Substitute <code class="hint_pink"><var>X</var></code> for <code class="hint_pink">x</code> in the expressions that were given for
+                        <code class="hint_blue"><var>SEG_1</var></code> and <code class="hint_green"><var>SEG_2</var></code>:
+
+226.13 	 <span class="lcol"><code class="hint_blue">\qquad <var>SEG_1</var> = <var>COEF_1</var>(\pink{<var>X</var>}) + <var>CONST_1</var></code></span>
+                        <span class="rcol"><code class="hint_green">\qquad <var>SEG_2</var> = <var>COEF_2</var>(\pink{<var>X</var>}) + <var>CONST_2</var></code></span>
+
+226.14 	 <span class="lcol"><code class="hint_blue">\qquad <var>SEG_1</var> = <var>COEF_1 * X</var> + <var>CONST_1</var></code></span>
+                    <span class="rcol"><code class="hint_green">\qquad <var>SEG_2</var> = <var>COEF_2 * X</var> + <var>CONST_2</var></code></span>
+
+226.15 	 <span class="lcol"><code class="hint_blue">\qquad <var>SEG_1</var> = <var>COEF_1 * X + CONST_1</var></code></span>
+                    <span class="rcol"><code class="hint_green">\qquad <var>SEG_2</var> = <var>COEF_2 * X + CONST_2</var></code></span>
+
+226.16 	 To find the length <code><var>SEG_TOTAL</var></code>, add the lengths <code>\blue{<var>SEG_1</var>}</code> and <code>\green{<var>SEG_2</var>}</code>:
+

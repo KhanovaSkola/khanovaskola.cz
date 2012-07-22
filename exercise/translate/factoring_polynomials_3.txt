@@ -1,0 +1,32 @@
+160.1 	 Factoring polynomials 3
+
+160.2 	 Factor the following expression:
+
+160.4 	 The expression is of the form
+                        <code><var>parseFormat("#{A}x^2+#{B}x+#{C}}", [BLUE, PINK, ORANGE])</var></code>.
+                        You can factor this trinomial by grouping. In this case,
+                        <code>\blue{A}=\blue{<var>A</var>}</code>, <code>\pink{B}=\pink{<var>B</var>}</code>,
+                        <code>\orange{C}=\orange{<var>C</var>}</code>
+
+160.5 	 To do this, the first step is to find two values
+                        <code>\green{a}</code> and
+                        <code>\green{b}</code>, such that:
+
+160.8 	 The next step is to rewrite the
+                        expression as <code><var>parseFormat("#{A}x^2 + #{a}x + #{b}x + #{C}", [BLUE, GREEN, GREEN, ORANGE])</var></code> or 
+                        <code><var>parseFormat("(#{A}x^2 + #{a}x) + (#{b}x + #{C})", [BLUE, GREEN, GREEN, ORANGE])</var></code>, and factor each term, to
+                        find a common factor.
+
+160.9 	 To apply the first step, you need to find 
+                        <code>\green{a}</code> and <code>\green{b}</code> such that:
+
+160.11 	 The following values can be used:
+
+160.13 	 For the second step, rewrite the expression as:
+
+160.15 	 or
+
+160.17 	 The next step is to factor both terms of the above expression:
+
+160.19 	 Redistribute the common term to get the answer:
+

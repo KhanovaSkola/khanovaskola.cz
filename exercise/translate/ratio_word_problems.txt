@@ -1,0 +1,74 @@
+301.1 	 Ratio word problems
+
+301.2 	 In <var>course( 1 )</var> class, the girl to boy ratio is <code><var>RATIO_GIRLS</var></code> to <code><var>RATIO_BOYS</var></code>.
+
+301.3 	 If there are <code><var>NUM_GIRLS</var></code> girls, how many boys are there?
+
+301.5 	 <span style="padding-right: 5px" class="sol" data-forms="integer"><var>NUM_BOYS</var></span> boys
+
+301.6 	 A ratio of <code><var>RATIO_GIRLS</var></code> girls to <code><var>RATIO_BOYS</var></code> boys means that there is a group of <code><var>RATIO_GIRLS</var></code> girls for every group of <code><var>RATIO_BOYS</var></code> boys.
+
+301.7 	 If there are <code><var>NUM_GIRLS</var></code> girls, then there are <code><var>FACTOR</var></code> groups of <code><var>RATIO_GIRLS</var></code> girls each.
+
+301.8 	 Because we know the ratio is <code><var>RATIO_GIRLS</var>:<var>RATIO_BOYS</var></code>, there must be <code><var>FACTOR</var></code> groups of <code><var>RATIO_BOYS</var></code> boys each.
+
+301.9 	 There is a total of <code><var>NUM_BOYS</var></code> boys in <var>course( 1 )</var> class.
+
+301.10 	 If there are <code><var>NUM_BOYS</var></code> boys, how many girls are there?
+
+301.11 	 <span style="padding-right: 5px" class="sol" data-forms="integer"><var>NUM_GIRLS</var></span> girls
+
+301.12 	 A ratio of <code><var>RATIO_GIRLS</var></code> girls to <code><var>RATIO_BOYS</var></code> boys means that there is a group of <code><var>RATIO_GIRLS</var></code> girls for every group of <code><var>RATIO_BOYS</var></code> boys.
+
+301.13 	 If there are <code><var>NUM_BOYS</var></code> boys, then there are <code><var>FACTOR</var></code> groups of <code><var>RATIO_BOYS</var></code> boys each.
+
+301.14 	 Because we know the ratio is <code><var>RATIO_GIRLS</var>:<var>RATIO_BOYS</var></code>, there must be <code><var>FACTOR</var></code> groups of <code><var>RATIO_GIRLS</var></code> girls each.
+
+301.15 	 There is a total of <code><var>NUM_GIRLS</var></code> girls in <var>course( 1 )</var> class.
+
+301.16 	 If there are a total of <code><var>TOTAL</var></code> students, how many girls are there?
+
+301.17 	 <span style="padding-right: 5px" class="sol" data-forms="integer"><var>NUM_GIRLS</var></span> girls
+
+301.18 	 A ratio of <code><var>RATIO_GIRLS</var></code> girls to <code><var>RATIO_BOYS</var></code> boys means that a set of <code><var>RATIO_GIRLS + RATIO_BOYS</var></code> students will have <code><var>RATIO_GIRLS</var></code> girls and <code><var>RATIO_BOYS</var></code> boys.
+
+301.19 	 A class of <code><var>TOTAL</var></code> students has <code><var>FACTOR</var></code> sets of <code><var>RATIO_GIRLS + RATIO_BOYS</var></code> students.
+
+301.20 	 Because we know that there are <code><var>RATIO_GIRLS</var></code> girls in each set of <code><var>RATIO_GIRLS + RATIO_BOYS</var></code> students, the class must have <code><var>FACTOR</var></code> groups of <code><var>RATIO_GIRLS</var></code> girls each.
+
+301.21 	 There is a total of <code><var>NUM_GIRLS</var></code> girls in <var>course( 1 )</var> class.
+
+301.22 	 If there are a total of <code><var>TOTAL</var></code> students, how many boys are there?
+
+301.23 	 <span style="padding-right: 5px" class="sol" data-forms="integer"><var>NUM_BOYS</var></span> boys
+
+301.24 	 A ratio of <code><var>RATIO_GIRLS</var></code> girls to <code><var>RATIO_BOYS</var></code> boys means that a set of <code><var>RATIO_GIRLS + RATIO_BOYS</var></code> students will have <code><var>RATIO_GIRLS</var></code> girls and <code><var>RATIO_BOYS</var></code> boys.
+
+301.25 	 A class of <code><var>TOTAL</var></code> students has <code><var>FACTOR</var></code> sets of <code><var>RATIO_GIRLS + RATIO_BOYS</var></code> students.
+
+301.26 	 Because we know that there are <code><var>RATIO_BOYS</var></code> boys in each set of <code><var>RATIO_GIRLS + RATIO_BOYS</var></code> students, the class must have <code><var>FACTOR</var></code> groups of <code><var>RATIO_BOYS</var></code> boys each.
+
+301.27 	 There is a total of <code><var>NUM_BOYS</var></code> boys in <var>course( 1 )</var> class.
+
+301.28 	 The scale on a map is <var>SCALE_MAP</var>cm : <var>SCALE_REAL</var>km.
+
+301.29 	 If two cities are <var>DISTANCE_MAP</var>cm apart on the map, what is the actual distance in km between the two cities?
+
+301.30 	 <span class="sol" style="padding-right: 5px" data-forms="integer"><var>DISTANCE_REAL</var></span> km
+
+301.31 	 The scale means that every <var>SCALE_MAP</var>cm on the map corresponds to an actual distance of <var>SCALE_REAL</var>km.
+
+301.32 	 A distance of <var>DISTANCE_MAP</var>cm on the map is the same as <var>FACTOR</var> <code>\cdot</code> <var>SCALE_MAP</var>cm.
+
+301.33 	 The actual distance between the two cities is <var>FACTOR</var> <code>\cdot</code> <var>SCALE_REAL</var>km, or <var>DISTANCE_REAL</var>km.
+
+301.34 	 If the distance between two cities is <var>DISTANCE_REAL</var>km, how far apart in cm are the two cities on the map?
+
+301.35 	 <span class="sol" style="padding-right: 5px" data-forms="integer"><var>DISTANCE_MAP</var></span> cm
+
+301.36 	 The scale means that every <var>SCALE_MAP</var>cm on the map corresponds to an actual distance of <var>SCALE_REAL</var>km.
+
+301.37 	 An actual distance of <var>DISTANCE_REAL</var>km is the same as <var>FACTOR</var> <code>\cdot</code> <var>SCALE_REAL</var>km.
+
+301.38 	 The distance between the two cities on the map is <var>FACTOR</var> <code>\cdot</code> <var>SCALE_MAP</var>cm, or <var>DISTANCE_MAP</var>cm.
+

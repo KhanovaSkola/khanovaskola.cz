@@ -1,0 +1,69 @@
+175.1 	 Simple Geometry Proofs
+
+175.2 	 <p>Prove <var> FINISHED </var>.
+
+175.3 	 This figure is not drawn to scale.
+
+175.5 	 <input type="text" id="thing1" maxlength="3"></input> <code> \cong </code> <input type="text" id="thing2" maxlength="3"> </input> because 
+                    <select id="reason">
+                        <option value="">select a reason</option>
+                        <option value="SSS">side-side-side congruence</option>
+                        <option value="ASA">angle-side-angle congruence</option>
+                        <option value="SAS">side-angle-side congruence</option>
+                        <option value="AAS">angle-angle-side congruence</option>
+                        <option value="vertical angles">vertical angles are equal</option>
+                        <option value="alternate angles">alternate interior angles are equal</option>
+                        <option value="CPCTC">corresp. parts of congruent triangles are congruent</option>
+                    </select>
+
+175.6 	 
+
+175.7 	 
+
+175.8 	 
+
+175.9 	 <p>Prove <var> FINISHED </var>.
+
+175.10 	 <code> \overline{AB} </code> is parallel to <code> \overline{DE} </code>. This figure is not drawn to scale.
+
+175.12 	 <input type="text" id="thing1"></input> <code> \cong </code> <input type="text" id="thing2" > </input> because 
+                    <select id="reason">
+                        <option value="">select a reason</option>
+                        <option value="SSS">side-side-side congruence</option>
+                        <option value="ASA">angle-side-angle congruence</option>
+                        <option value="SAS">side-angle-side congruence</option>
+                        <option value="AAS">angle-angle-side congruence</option>
+                        <option value="vertical angles">vertical angles are equal</option>
+                        <option value="alternate angles">alternate interior angles are equal</option>
+                        <option value="CPCTC">corresp. parts of congruent triangles are congruent</option>
+                    </select>
+
+175.13 	 
+
+175.14 	 
+
+175.15 	 
+
+175.16 	 <p>You are given <var> KNOWN </var>.
+
+175.17 	 Prove <var> FINISHED </var>
+
+175.19 	 <input type="text" id="thing1"></input> <code> \cong </code> <input type="text" id="thing2" > </input> because 
+                    <select id="reason">
+                        <option value="">select a reason</option>
+                        <option value="SSS">side-side-side congruence</option>
+                        <option value="ASA">angle-side-angle congruence</option>
+                        <option value="SAS">side-angle-side congruence</option>
+                        <option value="AAS">angle-angle-side congruence</option>
+                        <option value="vertical angles">vertical angles are equal</option>
+                        <option value="alternate angles">alternate interior angles are equal</option>
+                        <option value="CPCTC">corresp. parts of congruent triangles are congruent</option>
+                        <option value="reflexive property">reflexive property</option>
+                    </select>
+
+175.20 	 
+
+175.21 	 
+
+175.22 	 
+

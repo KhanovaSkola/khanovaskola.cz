@@ -1,0 +1,4 @@
+19.1 	 Addition 1
+
+19.2 	 There are <var>plural( A, "blue dot" )</var> and <var>plural( B, "green dot" )</var>, for a total of <var>A + B</var> dots.
+

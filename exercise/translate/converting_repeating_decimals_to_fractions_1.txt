@@ -1,0 +1,8 @@
+88.1 	 Converting repeating decimals to fractions 1
+
+88.2 	 Rewrite as a simplified fraction.
+
+88.5 	 Let <code>x</code> equal the decimal. Set up two equations such that the digits after the decimal point are identical.
+
+88.7 	 Subtracting the two equations, we have:
+

@@ -1,0 +1,30 @@
+77.1 	 Congruent Triangles 2
+
+77.2 	 These two triangles have three sides equal (they share one of them).
+
+77.3 	 Therefore they are congruent.
+
+77.4 	 Congruent triangles also have congruent (equal) angles.
+
+77.5 	 If we superimpose these two triangles, by rotating triangle ABC, we see that angle x corresponds to angle <var>ANGLE_LABELS[ ANG_LEFT ]</var>
+
+77.6 	 Angle x is therefore equal to <var>ANSWER</var>.
+
+77.7 	 These two triangles have three sides equal (they share one of them).
+
+77.8 	 Therefore they are congruent.
+
+77.9 	 Congruent triangles also have congruent (equal) angles.
+
+77.10 	 If we superimpose these two triangles, by rotating triangle ABC, we see that angle x corresponds to angle <var>ANGLE_LABELS[ ANG_LEFT ]</var>.
+
+77.13 	 These two triangles have two sides and an angle equal.
+
+77.14 	 Therefore they are congruent.
+
+77.15 	 Congruent triangles also have congruent (equal) angles.
+
+77.16 	 If we superimpose these two triangles, by flipping triangle <code>EDA</code>, we see that angle x corresponds to angle <var>ANGLE_LABELS[ SHOW_ANGLE ]</var>
+
+77.19 	 Angle x is therefore equal to <var>ANSWER</var>
+

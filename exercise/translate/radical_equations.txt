@@ -1,0 +1,28 @@
+295.1 	 Radical equations
+
+295.2 	 Solve for <code>x</code>:
+
+295.4 	 Subtract <code><var>C</var>\sqrt{x}</code> from both sides:
+
+295.7 	 <var>B > 0 ? "Subtract" : "Add"</var> <code><var>abs(B)</var></code> <var>B > 0 ? "from" : "to"</var> both sides:
+
+295.10 	 Divide both sides by <code><var>A - C</var></code>.
+
+295.12 	 Simplify.
+
+295.14 	 Square both sides.
+
+295.17 	 The principal root of a number cannot be negative. So, there is no solution.
+
+295.18 	 Subtract <code><var>A</var>\sqrt{x}</code> from both sides:
+
+295.21 	 <var>D > 0 ? "Subtract" : "Add"</var> <code><var>abs(D)</var></code> <var>D > 0 ? "from" : "to"</var> both sides:
+
+295.24 	 Divide both sides by <code><var>C - A</var></code>.
+
+295.26 	 Simplify.
+
+295.28 	 Square both sides.
+
+295.31 	 The principal root of a number cannot be negative. So, there is no solution.
+

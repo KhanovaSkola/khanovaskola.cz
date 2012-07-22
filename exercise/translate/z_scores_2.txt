@@ -1,0 +1,25 @@
+394.1 	 Z-scores 2: Reading a z-table
+
+394.2 	 <var>person(1)</var>'s exam grade was higher than what percentage
+            of test-takers? Use the cumulative z-table provided below. Round to two decimal places.
+
+394.3 	 A cumulative z-table shows the probability that a standard normal variable will be
+                    <b>less than</b> a certain value <b>(z)</b>.
+
+394.4 	 In order to use the z-table, we first need to determine the
+                    <span class="hint_blue">z-score</span> of <var>person( 1 )</var>'s exam grade.
+
+394.5 	 Recall that we can calculate <var>his( 1 )</var> z-score by subtracting the
+                        <span class="hint_pink">mean <code>(\mu)</code></span> from <var>his(1)</var>
+                        grade and then dividing by the <span class="hint_green">standard deviation
+                        <code>(\sigma)</code></span>.
+
+394.7 	 Look up <code><var>ZSCORE</var></code> on the z-table. This value,
+                        <code class="hint_blue"><var>ANSWER</var></code>, represents
+                        the portion of the population that scored lower than
+                        <code><var>GRADE</var></code> on the exam.
+
+394.8 	 <var>person( 1 )</var> scored higher than
+                    <code class="hint_blue"><var>roundTo(2, ANSWER * 100)</var>\%</code> of the
+                    test-takers on the <var>course( 1 )</var> exam.
+

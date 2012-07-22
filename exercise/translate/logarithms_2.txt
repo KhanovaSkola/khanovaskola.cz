@@ -1,0 +1,14 @@
+219.1 	 Logarithms 2
+
+219.2 	 Rewrite the following in the form log(c).
+
+219.5 	 Use the rule: <code>\log(a) + \log(b) = \log(a \cdot b)</code>.
+
+219.8 	 Rewrite in the form log(c).
+
+219.11 	 Use the rule: <code>\log(a) - \log(b) = \log(\frac{a}{b})</code>.
+
+219.14 	 Rewrite in the form log(c).
+
+219.17 	 Use the rule: <code>n \cdot \log(a) = \log(a^{n})</code>.
+

@@ -1,0 +1,22 @@
+292.1 	 Quotient rule
+
+292.2 	 Find <code>\displaystyle \frac{d}{dx}\biggl( \frac{<var>FUNCN.fText</var>}{<var>FUNCD.fText</var>} \biggr)</code>.
+
+292.4 	 Using the chain rule and the product rule, we know <code>\displaystyle \frac{d}{dx\strut}\frac{f(x)}{g(x)} = \frac{f'(x)g(x) - g'(x)f(x)}{g(x){}^2}</code>.
+
+292.5 	 In this case,
+
+292.6 	 <code>\qquad f(x) = <var>FUNCN.fText</var></code>,
+
+292.7 	 <code>\qquad g(x) = <var>FUNCD.fText</var></code>.
+
+292.8 	 Differentiate each function:
+
+292.9 	 <code>\qquad f'(x) = <var>FUNCN.ddxFText</var></code>,
+
+292.10 	 <code>\qquad g'(x) = <var>FUNCD.ddxFText</var></code>.
+
+292.11 	 Thus, the answer is
+
+292.12 	 <code>\qquad \dfrac{{(<var>FUNCN.ddxFText</var>)(<var>FUNCD.fText</var>) - (<var>FUNCD.ddxFText</var>)(<var>FUNCN.fText</var>)}}{(<var>FUNCD.fText</var>)^2}</code>.
+

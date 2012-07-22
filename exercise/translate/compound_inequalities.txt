@@ -1,0 +1,31 @@
+70.1 	 Compound inequalities
+
+70.2 	 Solve for <code><var>VARIABLE_NAME</var></code>:
+
+70.3 	 <span data-if="!IS_OR && SINGLE_SOLUTION"><code><var>VARIABLE_NAME</var> = <var>SOLUTION[0]</var></code></span>
+                    <span data-else-if="IS_OR && ALL_NUMBERS">All real numbers.</span>
+                    <span data-else-if="IS_OR && CONTAINS"><code><var>VARIABLE_NAME + COMP_SOLUTION[CONTAINS - 1] + SOLUTION[CONTAINS - 1]</var></code></span>
+                    <span data-else-if="!IS_OR && CONTAINS"><code><var>VARIABLE_NAME + COMP_SOLUTION[IS_CONTAINED - 1] + SOLUTION[IS_CONTAINED - 1]</var></code></span>
+                    <span data-else-if="!IS_OR && NO_SOLUTION">No solution.</span>
+                    <span data-else><code><var>VARIABLE_NAME + COMP_SOLUTION[0] + SOLUTION[0]</var></code> <var>OR</var> <code><var>VARIABLE_NAME + COMP_SOLUTION[1] + SOLUTION[1]</var></code></span>
+
+70.4 	 The <var>FIRST[i]</var> inequality can be simplified into this:
+
+70.6 	 Since this is an "or" inequality, the solution is the part of the number line which is covered by <strong>either</strong> of the graphs of the inequalities.
+
+70.7 	 The combined graphs of the inequalities span the entire number line, therefore the solution is "All real numbers."
+
+70.8 	 Notice how the <var>FIRST[IS_CONTAINED - 1]</var> inequality is completely included by the <var>FIRST[CONTAINS - 1]</var> inequality. Therefore the answer is:
+
+70.10 	 Therefore, since the graphs of the equalities do not intersect, the solution is:
+
+70.12 	 The solution to an inequality with the word "and" is the intersection of the graphs of the inequalities.
+
+70.13 	 Therefore, the solution is:
+
+70.14 	 Since the graphs of the inequalities do not intersect, there is no solution.
+
+70.15 	 Since the <var>FIRST[IS_CONTAINED - 1]</var> inequality is completely included by the <var>FIRST[CONTAINS - 1]</var> inequality, their intersection is the <var>FIRST[IS_CONTAINED -1]</var> inequality. Therefore the answer is:
+
+70.17 	 Therefore, the solution is:
+

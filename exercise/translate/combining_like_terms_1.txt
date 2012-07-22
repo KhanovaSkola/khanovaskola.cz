@@ -1,0 +1,30 @@
+55.1 	 Combining like terms 1
+
+55.2 	 Simplify the expression below.
+
+55.4 	 <span class="sol"></span><code><var>X</var></code><span data-if="INDEX !== 0"><code>\space + \space</code><span class="sol"></span></span>
+
+55.5 	 enter integers for the coefficient and constant terms, such as -3 or 10
+
+55.6 	 Distribute over the first parenthesis.
+
+55.11 	 Distribute over the <span data-if="DIST1">second </span>parenthesis.
+
+55.20 	 Combine the variable terms:
+
+55.29 	 Combine the constant terms:
+
+55.36 	 The simplified expression is <code><var>expr( ["*", A + B, X] )</var></code>.
+
+55.37 	 The simplified expression is <code><var>expr( ["+", ["*", A + B, X], C] )</var></code>.
+
+55.38 	 The simplified expression is <code><var>expr( ["+", ["*", A + B, X], C + D] )</var></code>.
+
+55.39 	 The simplified expression is <code><var>expr( ["+", ["*", A, X], C + D] )</var></code>.
+
+55.40 	 The simplified expression is <code><var>expr( ["+", ["*", A + F * B, X], F * D] )</var></code>.
+
+55.41 	 The simplified expression is <code><var>expr( ["+", ["*", F * B, X], C + F * D] )</var></code>.
+
+55.42 	 The simplified expression is <code><var>expr( ["+", ["*", E * A + F * B, X], E * C + F * D] )</var></code>.
+

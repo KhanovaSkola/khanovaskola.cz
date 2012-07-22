@@ -1,0 +1,44 @@
+288.1 	 Pythagorean theorem 2
+
+288.2 	 In the right triangle shown, <code>AC = BC = <var>AC</var></code>. What is <code>AB</code>?
+
+288.3 	 This is a 45-45-90 triangle because the two legs are congruent.
+
+288.4 	 Thus, the hypotenuse is <code>\sqrt{2}</code> times as long as each of the legs.
+
+288.6 	 In the right triangle shown, <code>AC = BC</code> and <code>AB = <var>AB</var></code>. How long are each of the legs?
+
+288.7 	 This is a 45-45-90 triangle because the two legs are congruent.
+
+288.8 	 Thus, each leg is <code>\frac{1}{\sqrt{2}}</code> times as long as the hypotenuse.
+
+288.10 	 In the right triangle shown, <code>AC = BC</code> and <code>AB = <var>AB</var>\sqrt{2}</code>. How long are each of the legs?
+
+288.11 	 This is a 45-45-90 triangle because the two legs are congruent.
+
+288.12 	 Thus, each leg is <code>\frac{1}{\sqrt{2}}</code> times as long as the hypotenuse.
+
+288.14 	 In the right triangle shown, <code><var>mAB</var></code> and <code>BC = <var>BC + BCrs</var></code>. How long is <code>AB</code>?
+
+288.15 	 This is a 30-60-90 triangle.
+
+288.16 	 Thus, the hypotenuse is twice as long as the shorter leg.
+
+288.18 	 In the right triangle shown, <code><var>mAB</var></code> and <code>AC = <var>AC + ACrs</var></code>. How long is <code>AB</code>?
+
+288.19 	 This is a 30-60-90 triangle.
+
+288.20 	 Thus, the hypotenuse is <code>\frac{2}{\sqrt{3}}</code> times as long as the longer leg.
+
+288.22 	 In the right triangle shown, <code><var>mAB</var></code> and <code>AB = <var>( 2 * BC ) + BCrs</var></code>. How long is <code>BC</code>?
+
+288.23 	 This is a 30-60-90 triangle.
+
+288.24 	 Thus, the shorter leg is half as long as the hypotenuse.
+
+288.26 	 In the right triangle shown, <code><var>mAB</var></code> and <code>AB = <var>ABs</var></code>. How long is <code>AC</code>?
+
+288.27 	 This is a 30-60-90 triangle.
+
+288.28 	 Thus, the longer leg is <code>\frac{\sqrt{3}}{2}</code> times as long as the hypotenuse.
+

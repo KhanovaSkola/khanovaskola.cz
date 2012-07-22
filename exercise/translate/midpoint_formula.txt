@@ -1,0 +1,48 @@
+225.1 	 Midpoint formula
+
+225.2 	 What is the midpoint of the line segment from <code class="hint_blue">(<var>X1</var>, <var>Y1</var>)</code> to <code class="hint_green">(<var>X2</var>, <var>Y2</var>)</code>?
+
+225.3 	 integers, like <code>6</code>
+
+225.4 	 simplified proper fractions, like <code>3/5</code>
+
+225.5 	 simplified improper fractions, like <code>7/4</code>
+
+225.6 	 a mixed number, like <code>1\ 3/4</code>
+
+225.7 	 and/or exact decimals, like <code>0.75</code>
+
+225.8 	 The <span class="hint_orange">x coordinate of the midpoint</span> is the average of the x coordinates <code class="hint_blue"><var>X1</var></code> and <code class="hint_green"><var>X2</var></code>.
+
+225.11 	 <code class="hint_orange">x = <var>XM</var></code>
+
+225.12 	 The <span class="hint_orange">y coordinate of the midpoint</span> is the average of the y coordinates <code class="hint_blue"><var>Y1</var></code> and <code class="hint_green"><var>Y2</var></code>.
+
+225.15 	 <code class="hint_orange">y = <var>YM</var></code>
+
+225.16 	 The midpoint is <code class="hint_orange">(<var>XM</var>, <var>YM</var>)</code>.
+
+225.17 	 The point <code class="hint_orange" >(<var>XM</var>, <var>YM</var>)</code> is the midpoint of <code class="hint_blue">(<var>X1</var>, <var>Y1</var>)</code> and what point?
+
+225.18 	 integers, like <code>6</code>
+
+225.19 	 simplified proper fractions, like <code>3/5</code>
+
+225.20 	 simplified improper fractions, like <code>7/4</code>
+
+225.21 	 a mixed number, like <code>1\ 3/4</code>
+
+225.22 	 and/or exact decimals, like <code>0.75</code>
+
+225.23 	 The average of the desired x coordinate and <code class="hint_blue"><var>X1</var></code> should be <code class="hint_orange"><var>XM</var></code>.
+
+225.25 	 Solving for x:
+
+225.27 	 <code class="hint_green">x = <var>X2</var></code>
+
+225.28 	 The average of the desired y coordinate and <code class="hint_blue"><var>Y1</var></code> should be <code class="hint_orange"><var>YM</var></code>.
+
+225.30 	 Solving for y:
+
+225.32 	 <code class="hint_green">y = <var>Y2</var></code>
+

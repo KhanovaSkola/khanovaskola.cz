@@ -1,0 +1,12 @@
+238.1 	 Multiplying expressions 0.5
+
+238.5 	 Start by distributing the <code><var>parseFormat( "( #{x} " + signOp( B ) + "#{" + B + "})", [ BLUE, BLUE ] )</var></code>:
+
+238.8 	 Next, distribute the <code class="hint_blue">x</code> and the <code class="hint_blue"><var>B</var></code>:
+
+238.10 	 Notice that by distributing you're really just multiplying each term in the first expression by each term in the second expression.
+
+238.11 	 Simplify:
+
+238.13 	 Keep simplifying to get the final answer:
+

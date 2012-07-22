@@ -1,0 +1,12 @@
+214.1 	 Linear equations 2
+
+214.2 	 Solve for <code>x</code>:
+
+214.3 	 <code>x =</code> <span class="sol"><var>( D - B ) /  A </var></span>
+
+214.4 	 <var>B > 0 ? "Subtract" : "Add"</var> <code><var>abs(B)</var></code> <var>B > 0 ? "from" : "to"</var> both sides:
+
+214.7 	 Divide both sides by <code><var>A</var></code>.
+
+214.9 	 Simplify.
+

@@ -1,0 +1,45 @@
+203.1 	 Kinematic equations
+
+203.9 	 Solve for <code><var>UNKNOWN</var></code>. Round to the nearest tenth.
+
+203.10 	 Make sure you select the proper units. You may do arithmetic with a calculator. If there is more than one correct solution, you may enter either one.
+
+203.11 	 <span class="entry" data-type="multiple">
+                            <code><var>UNKNOWN</var> = </code>
+                            <span class="sol" data-type="decimal" data-inexact data-max-error="0.1"></span>
+                            <span class="sol" data-type="list" data-choices="['', 'm', 'm/s', 'm/s&sup2;', 's']"></span>
+                        </span>
+
+203.12 	 a decimal <em>and</em> a unit of measure
+
+203.35 	 By the quadratic formula:
+
+203.38 	 The quadratic has two solutions. Without making any assumptions about the direction of <code>v_i</code>,
+                        either one could be correct. Intuitively, you can imagine throwing an object upward or downward in such a way
+                        that they will both have the same downward velocity at the same point in space, but the one thrown downward
+                        will get there sooner.
+
+203.51 	 By the quadratic formula:
+
+203.54 	 The quadratic has two solutions. Without making any assumptions about the direction of <code>v_f</code>,
+                        either one could be correct. Intuitively, this is because an object moving upward at velocity <code>v</code>
+                        at one point in time will eventually be falling at the same speed (<code>-v</code>) at a different point in time.
+
+203.75 	 Without making any assumptions about <code>t</code>, either direction for <code>v_i</code> could be correct.
+                        Imagine throwing an object upward at velocity <code>v</code> compared to throwing it downward at the same
+                        speed (<code>-v</code>). In both cases it will reach the same final velocity <code>v_f</code> at the same
+                        point in space; it will just take different amounts of time to get there.
+
+203.77 	 However, we also know <code>a = 0 \frac{\text{m}}{\text{s}^2}</code>
+
+203.78 	 We know intuitively that with zero acceleration <code>v_i</code> must equal <code>v_f</code>, so <code>v_i = <var>roundTo(1, V_INIT)</var> \frac{\text{m}}{\text{s}}</code>
+
+203.81 	 Without making any assumptions about <code>t</code>, either direction for <code>v_f</code> could be correct.
+                        Imagine an object traveling upward at velocity <code>v_i</code>. It will reach a particular velocity
+                        <code>v</code> on the way up, then reach the same speed in the opposite direction (<code>-v</code>) on the
+                        way down at the same point in space; it will just take a different amount of time to get there.
+
+203.83 	 However, we also know <code>a = 0 \frac{\text{m}}{\text{s}^2}</code>
+
+203.84 	 We know intuitively that with zero acceleration <code>v_f</code> must equal <code>v_i</code>, so <code>v_f = <var>roundTo(1, V_FINAL)</var> \frac{\text{m}}{\text{s}}</code>
+

@@ -1,0 +1,5 @@
+239.1 	 Multiplying expressions 1
+
+239.2 	 This exercise covers simplifying expressions of the form
+        (Ax + B)(Cx + D)
+

@@ -1,0 +1,14 @@
+137.1 	 Estimation with decimals
+
+137.2 	 <var>person( 1 )</var> has been <var>TYPES[ 0 ]</var> every day for the last <var>VALUES.length</var> days.
+
+137.3 	 Given that <var>person( 1 )</var> <var>TYPES[ 1 ]</var> the following amounts (in <var>plural( TYPES[ 2 ] )</var>) each day, estimate how much <var>he( 1 )</var> <var>TYPES[ 1 ]</var> in total by first rounding each amount to the nearest whole number and then summing all the rounded amounts.
+
+137.4 	 <br />Note that if you first sum the exact amounts (<var>SUM.toFixed( 2 )</var>) and then round, you'll get <var>round( SUM )</var>. For fun, pay attention to how this number compares with your estimate.
+
+137.5 	 <span class="sol" data-forms="integer"><var>ANSWER</var></span> <var>plural( TYPES[ 2 ] )</var>
+
+137.6 	 Round all the numbers to the nearest <var>TYPES[ 2 ]</var> and add them up.
+
+137.7 	 Therefore the estimate is <code><var>ANSWER</var></code> <var>plural( TYPES[ 2 ] )</var>.
+

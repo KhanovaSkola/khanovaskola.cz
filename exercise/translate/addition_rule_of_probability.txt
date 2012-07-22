@@ -1,0 +1,14 @@
+23.1 	 Addition rule of probability
+
+23.3 	 Remember the addition rule of probability: <code>P(A\cup B) = P(A) + P(B) - P(A\cap B)</code>
+
+23.4 	 Because the denominator of the fraction for each probability is the same, for convenience we can also just use cardinality (the number of items in each category) instead of probability:  <code>|A\cup B| = |A|+ |B| - |A\cap B|</code>
+
+23.5 	 Substituting variables, <var>ENFUNC(VARDESC[2])</var> = <var>ENFUNC(VARDESC[0])</var> + <var>ENFUNC(VARDESC[1])</var> - <var>ENFUNC(VARDESC[3])</var>
+
+23.6 	 Rearranging, <var>ENFUNC(VARDESC[0])</var> = <var>ENFUNC(VARDESC[3])</var> + <var>ENFUNC(VARDESC[2])</var> - <var>ENFUNC(VARDESC[1])</var>
+
+23.7 	 Rearranging, <var>ENFUNC(VARDESC[1])</var> = <var>ENFUNC(VARDESC[3])</var> + <var>ENFUNC(VARDESC[2])</var> - <var>ENFUNC(VARDESC[0])</var>
+
+23.8 	 Rearranging, <var>ENFUNC(VARDESC[3])</var> = <var>ENFUNC(VARDESC[0])</var> + <var>ENFUNC(VARDESC[1])</var> - <var>ENFUNC(VARDESC[2])</var>
+

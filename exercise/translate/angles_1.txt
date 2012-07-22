@@ -1,0 +1,285 @@
+33.1 	 Angles 1
+
+33.2 	 <strong>NOTE:</strong>
+                    Angles not necessarily drawn to scale.
+
+33.3 	 Because we know <code>\overline{AB} \perp \overline{CD}</code>, we know
+                        <code>\color{purple}{\angle{CGB}} = 90&deg;</code>
+                        <span class="graphie" data-update="complementary-and-opposite">
+                            label( [2.2, 1.7], "\\color{purple}{90&deg;}",
+                                "above right" );
+                            arc( [0, 0], 3, 0, 90, { stroke: "purple" } );
+                        </span>
+
+33.4 	 <code>\color{orange}{\angle{EGB}} = \color{green}{\angle{AGF}}
+                            = <var>90 - ACCUTEANGLE</var>&deg;</code>,
+                        because they are opposite angles from each other.  Opposite angles
+                        are congruent (equal).
+                        <span class="graphie" data-update="complementary-and-opposite">
+                            label( [1.2, 0], "\\color{orange}{" + (90 - ACCUTEANGLE) + "&deg;}",
+                                "above right" );
+                            arc( [0, 0], 1.2, 0, 68, { stroke: "orange" } );
+                        </span>
+
+33.5 	 Because we know <code>\overline{AB} \perp \overline{CD}</code>, we know
+                        <code>\color{purple}{\angle{AGD}} = 90&deg;</code>
+                        <span class="graphie" data-update="complementary-and-opposite">
+                            label( [-2.2, -1.7], "\\color{purple}{90&deg;}",
+                                "below left" );
+                            arc( [0, 0], 3, 180, 270, { stroke: "purple" } );
+                        </span>
+
+33.6 	 <code>\color{orange}{\angle{EGB}} = \color{purple}{90&deg;}
+                            - \color{green}{\angle{CGE}} = <var>90 - ACCUTEANGLE</var>&deg;</code>
+                        <span class="graphie" data-update="complementary-and-opposite">
+                            label( [1.2, 0], "\\color{orange}{" + (90 - ACCUTEANGLE) + "&deg;}",
+                                "above right" );
+                            arc( [0, 0], 1.2, 0, 68, { stroke: "orange" } );
+                        </span>
+
+33.7 	 Because we know <code>\overline{AB} \perp \overline{CD}</code>, we know
+                        <code>\color{purple}{\angle{CGB}} = 90&deg;</code>
+                        <span class="graphie" data-update="complementary-and-opposite">
+                            label( [2.2, 1.7], "\\color{purple}{90&deg;}",
+                                "above right" );
+                            arc( [0, 0], 3, 0, 90, { stroke: "purple" } );
+                        </span>
+
+33.8 	 <code>\color{orange}{\angle{AGF}} =
+                            \color{purple}{90&deg;} - \color{green}{\angle{DGF}} =
+                            <var>90 - ACCUTEANGLE</var>&deg;</code>
+                        <span class="graphie" data-update="complementary-and-opposite">
+                            label( [-1.2, 0], "\\color{orange}{" + 90 - ACCUTEANGLE + "&deg;}",
+                                "below left" );
+                            arc( [0, 0], 1.2, 180, 248, { stroke: "orange" } );
+                        </span>
+
+33.9 	 <code>\color{blue}{\angle{AGF}} = \color{orange}{\angle{EGB}} =
+                        <var>90 - ACCUTEANGLE</var>&deg;</code>,
+                        because they are opposite from each other.  Opposite angles are
+                        congruent (equal).
+                        <span class="graphie" data-update="complementary-and-opposite">
+                            ORIGINAL_LABEL.remove();
+                            label( [-1.2, -0.75],
+                                "\\color{blue}{\\angle{AGF}}=" + (90 - ACCUTEANGLE) + "&deg;",
+                                "below left" );
+                        </span>
+
+33.10 	 <code>\color{blue}{\angle{CGE}} =
+                            \color{purple}{90&deg;} - \color{orange}{\angle{EGB}} =
+                            <var>ACCUTEANGLE</var>&deg;
+                        </code>
+                        <span class="graphie" data-update="complementary-and-opposite">
+                            ORIGINAL_LABEL.remove();
+                            label( [0.5, 1.8],
+                                "\\color{blue}{\\angle{CGE}} = " + ACCUTEANGLE + "&deg;",
+                                "above" )
+                        </span>
+
+33.11 	 <code>\color{blue}{\angle{BGE}} = \color{orange}{\angle{AGF}} =
+                        <var>90 - ACCUTEANGLE</var>&deg;</code>,
+                        because they are opposite from each other.  Opposite angles are
+                        congruent (equal).
+                        <span class="graphie" data-update="complementary-and-opposite">
+                            ORIGINAL_LABEL.remove();
+                            label( [1.5, 0],
+                                "\\color{blue}{\\angle{BGE}} = " + (90 - ACCUTEANGLE) + "&deg;",
+                                "above right" );
+                        </span>
+
+33.12 	 Given the following:
+
+33.13 	 What is <code>\color{blue}{\angle{DAB}}</code>?
+
+33.14 	 What is <code>\color{blue}{\angle{ACB}}</code>?
+
+33.15 	 <strong>NOTE:</strong>
+                    Angles not necessarily drawn to scale.
+
+33.16 	 <code>
+                            \color{orange}{\angle{BAC}} =
+                                180&deg; - \color{purple}{\angle{ABC}} - \color{green}{\angle{ACB}} =
+                                <var>180 - Tri_Y - Tri_Z</var>&deg;
+                        </code>,
+                            This is because angles inside a triangle add up to 180 degrees.
+                        <span class="graphie" data-update="supplementary-and-triangle">
+                            label( [-3.3, -2], "\\color{orange}{" + Tri_X + "&deg;}",
+                                "above right" );
+                            arc( [-4, -2], 0.75, 0, 49, {stroke: "orange"} );
+                        </span>
+
+33.17 	 <code>
+                            \color{orange}{\angle{BAC}} =
+                                180&deg; - \color{green}{\angle{DAB}} =
+                                <var>180 - Tri_Y - Tri_Z</var>&deg;
+                        </code>,
+                            because supplementary angles along a line add up to
+                            180 degrees.
+                        <span class="graphie" data-update="supplementary-and-triangle">
+                            label( [-3.3, -2], "\\color{orange}{" + Tri_X + "&deg;}",
+                                "above right" );
+                            arc( [-4, -2], 0.75, 0, 49, {stroke: "orange"} );
+                        </span>
+
+33.18 	 <code>
+                            \color{blue}{\angle{DAB}} =
+                                180&deg; - \color{orange}{\angle{BAC}} =
+                                <var>Tri_Y + Tri_Z</var>&deg;
+                        </code>,
+                        because supplementary angles along a line add up to 180&deg;
+                        <span class="graphie" data-update="supplementary-and-triangle">
+                            ORIGINAL_LABEL.remove();
+                            label( [-4.7, -2],
+                                "\\color{blue}{\\angle{DAB}} = " + (Tri_Y + Tri_Z) + "&deg;",
+                                "above left" );
+                        </span>
+
+33.19 	 <code>
+                            \color{blue}{\angle{ACB}} =
+                                180&deg; - \color{orange}{\angle{BAC}} - \color{purple}{\angle{ABC}} =
+                                <var>Tri_Y</var>&deg;
+                        </code>,
+                        because angles inside a triangle add up to 180&deg;.
+                        <span class="graphie" data-update="supplementary-and-triangle">
+                            ORIGINAL_LABEL.remove();
+                            label( [2.80, -2],
+                                "\\color{blue}{\\angle{ACB}} = " + Tri_Y + "&deg;",
+                                "above left" );
+                        </span>
+
+33.20 	 <strong>NOTE:</strong>
+                    Angles not necessarily drawn to scale.
+
+33.21 	 <code>\color{orange}{\angle{AHI}} = \color{green}{\angle{AJK}}</code>,
+                        because they are corresponding angles formed by 2 parallel lines and
+                        a transversal line. Corresponding angles are congruent (equal).
+                        <span class="graphie" data-update="parallel-and-triangle">
+                            label( [-4.60, 0.75], "\\color{orange}{" + Tri_Z + "&deg;}",
+                                "below" );
+                            arc( [-5.07, 1.75], 1, 260, 325, {stroke: "orange"} );
+                        </span>
+
+33.22 	 <code>\color{orange}{\angle{AJK}} = \color{green}{\angle{AHI}}</code>,
+                        because they are corresponding angles formed by 2 parallel lines and
+                        a transversal line. Corresponding angles are congruent (equal).
+                        <span class="graphie" data-update="parallel-and-triangle">
+                            label( [-4.00, 4.25], "\\color{orange}{" + Tri_Z + "&deg;}",
+                                "below" );
+                            arc( [-4.47, 5.25], 1, 257, 325, {stroke: "orange"} );
+                        </span>
+
+33.23 	 <code>
+                            \color{blue}{\angle{AIH}} =
+                                180&deg; - \color{orange}{\angle{AHI}} - \color{purple}{\angle{BAC}} =
+                                <var>180 - Tri_X - Tri_Z</var>&deg;
+                        </code>,
+                        because the 3 angles are contained in <code>\triangle{AHI}</code>.
+                        Angles inside a triangle add up to 180&deg;.
+                        <span class="graphie" data-update="parallel-and-triangle">
+                            ORIGINAL_LABEL.remove();
+                            label( [0, -2.50],
+                                "\\color{blue}{\\angle{AIH}} = " + (180 - Tri_X - Tri_Z) + "&deg;",
+                                "left" );
+                        </span>
+
+33.24 	 <span class="graphie" data-update="parallel-and-triangle">
+                            ORIGINAL_LABEL.remove();
+                            if ( RAND3 === 1 ) {
+                                label( [3.3, -2.6],
+                                    "\\color{blue}{\\angle{AKJ}} = " + Tri_Y + "&deg;",
+                                    "above" );
+                            } else {
+                                label( [-5.5, -3.5],
+                                    "\\color{blue}{\\angle{BAC}} = " + Tri_X + "&deg;",
+                                    "above right" );
+                            }
+                        </span>
+                        <code data-if="RAND3 === 1">
+                            \color{blue}{\angle{AKJ}} =
+                                180&deg; - \color{orange}{\angle{AJK}} - \color{purple}{\angle{BAC}} =
+                                <var>Tri_Y</var>&deg;
+                        </code>
+                        <code data-else>
+                            \color{blue}{\angle{BAC}} =
+                                180&deg; - \color{orange}{\angle{AJK}} - \color{purple}{\angle{AKJ}} =
+                                <var>Tri_X</var>&deg;
+                        </code>,
+                        because the 3 angles are contained in <code>\triangle{AJK}</code>.
+                        Angles inside a triangle add up to 180&deg;.
+
+33.25 	 <strong>NOTE:</strong>
+                    Angles not necessarily drawn to scale.
+
+33.26 	 <code>\color{orange}{\angle{DAI}} = \color{green}{\angle{GCJ}} =
+                        <var>Tri_Y</var>&deg;</code>,
+                        because they are alternate exterior angles, formed by 2 parallel lines
+                        and a transversal line, they are congruent (equal).
+                        <span class="graphie" data-update="alternate-exterior-and-complementary">
+                            label( [-.80, 2], "\\color{orange}{" + Tri_Y + "&deg;}",
+                                "above left" );
+                            arc( [0, 2], 1, 135, 180, {stroke: "orange"} );
+                        </span>
+                        Alternatively, you can pair up using opposite angles and alternate interior
+                        angles to achieve the same result (as seen using
+                        <code>\color{pink}{pink}</code>).
+                        <span class="graphie" data-update="alternate-exterior-and-complementary">
+                            label( [1, 2], "\\color{pink}{" + Tri_Y + "&deg;}",
+                                "below right" );
+                            arc( [0, 2], 1, 315, 360, {stroke: "pink"} );
+                            label( [3, -2], "\\color{pink}{" + Tri_Y + "&deg;}",
+                                "above left" );
+                            arc( [4, -2], 1, 135, 180, {stroke: "pink"} );
+                        </span>
+
+33.27 	 <code>\color{purple}{\angle{DAK}} = 90&deg;</code>,
+                        because angles formed by perpendicular lines are equal to 90&deg;.
+                        <span class="graphie" data-update="alternate-exterior-and-complementary">
+                            label( [-1.68, 2], "\\color{purple}{90&deg;}", "above left" );
+                            arc( [0, 2], 1.65, 90, 180, {stroke: "purple"} );
+                        </span>
+
+33.28 	 <code>\color{blue}{\angle{IAK}} = 90&deg; - \color{orange}{\angle{DAI}} =
+                        <var>90 - Tri_Y</var>&deg;</code>,
+                         because angles <code>\color{blue}{\angle{IAK}}</code>
+                         and <code>\color{orange}{\angle{DAI}}</code> make up angle
+                         <code>\color{purple}{\angle{DAK}}</code>.
+                         <span class="graphie" data-update="alternate-exterior-and-complementary">
+                            ORIGINAL_LABEL.remove();
+                            label( [0, 3.5],
+                                "\\color{blue}{\\angle{IAK}} = " + (90 - Tri_Y) + "&deg;",
+                                "above left" );
+                        </span>
+
+33.29 	 <code>\color{orange}{\angle{IAK}} = 90&deg; - \color{green}{\angle{IAK}} =
+                        <var>90 - Tri_Y</var>&deg;</code>,
+                        because angles <code>\color{green}{\angle{IAK}}</code>
+                        and <code>\color{orange}{\angle{DAI}}</code>, make up angle
+                        <code>\color{purple}{\angle{DAK}}</code>.
+                        <span class="graphie" data-update="alternate-exterior-and-complementary">
+                            label( [-.80, 2], "\\color{orange}{" + (90-Tri_Y) + "&deg;}",
+                                "above left" );
+                            arc( [0, 2], 1, 135, 180, {stroke: "orange"} );
+                        </span>
+
+33.30 	 <code>\color{blue}{\angle{GCJ}} = \color{orange}{\angle{DAI}} =
+                        <var>90 - Tri_Y</var>&deg;</code>,
+                        because they are alternate exterior angles formed by 2 parallel lines
+                        and a transversal line, they are congruent (equal).
+
+                        Alternatively, you can pair up using opposite angles and alternate interior
+                        angles to achieve the same result (as seen using
+                        <code>\color{pink}{pink}</code>).
+                        <span class="graphie" data-update="alternate-exterior-and-complementary">
+                            label( [1, 2], "\\color{pink}{" + (90-Tri_Y) + "&deg;}",
+                                "below right" );
+                            arc( [0, 2], 1, 315, 360, {stroke: "pink"} );
+                            label( [3, -2], "\\color{pink}{" + (90-Tri_Y) + "&deg;}",
+                                "above left" );
+                            arc( [4, -2], 1, 135, 180, {stroke: "pink"} );
+
+                            ORIGINAL_LABEL.remove();
+                            label( [4.75, -2],
+                                "\\color{blue}{\\angle{GCJ} = " + (90-Tri_Y) + "&deg;}",
+                                "below right" );
+                        </span>
+

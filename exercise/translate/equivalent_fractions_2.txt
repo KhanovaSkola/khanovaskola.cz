@@ -1,0 +1,54 @@
+136.1 	 Equivalent fractions 2
+
+136.2 	 What number could replace <code><var>SYMBOL</var></code> below?
+
+136.4 	 To get the right numerator <code><var>C</var></code>, the left numerator <code><var>A</var></code> is multiplied by <code><var>M</var></code>.
+
+136.5 	 To find the right denominator, multiply the left denominator by <code><var>M</var></code> as well.
+
+136.7 	 Notice both the numerator and denominator are being multiplied by <code>{<var>M</var>}</code>.
+
+136.8 	 We can write that as <code>\dfrac{<var>M</var>}{<var>M</var>}</code>, which is equal to <code>1</code> when reduced.
+                    <p>So we can solve this problem by multiplying the fraction on the left by <code>1</code>.
+
+136.9 	 The equation becomes: <code>\dfrac{<var>A</var>}{<var>B</var>} \times \dfrac{<var>M</var>}{<var>M</var>} = \dfrac{<var>C</var>}{<var>D</var>} </code> so our answer is <code><var>D</var></code>.
+
+136.10 	 What number could replace <code><var>SYMBOL</var></code> below?
+
+136.12 	 To get the right denominator <code><var>D</var></code>, the left denominator <code><var>B</var></code> is multiplied by <code><var>M</var></code>.
+
+136.13 	 To find the right numerator, multiply the left numerator by <code><var>M</var></code> as well.
+
+136.15 	 Notice both the numerator and denominator are being multiplied by <code>{<var>M</var>}</code>.
+
+136.16 	 We can write that as <code>\dfrac{<var>M</var>}{<var>M</var>}</code>, which is equal to <code>1</code> when reduced.
+                    <p>So we can solve this problem by multiplying the fraction on the left by <code>1</code>.
+
+136.17 	 The equation becomes: <code>\dfrac{<var>A</var>}{<var>B</var>} \times \dfrac{<var>M</var>}{<var>M</var>} = \dfrac{<var>C</var>}{<var>D</var>} </code> so our answer is <code><var>C</var></code>.
+
+136.18 	 What number could replace <code><var>SYMBOL</var></code> below?
+
+136.20 	 To get the right numerator <code><var>A</var></code>, the left numerator <code><var>C</var></code> is divided by <code><var>M</var></code>.
+
+136.21 	 To find the right denominator, divide the left denominator by <code><var>M</var></code> as well.
+
+136.23 	 Notice both the numerator and denominator are being divided by <code>{<var>M</var>}</code>.
+
+136.24 	 We can write that as <code>\dfrac{<var>M</var>}{<var>M</var>}</code>, which is equal to <code>1</code> when reduced.
+                    <p>So we can solve this problem by dividing the fraction on the left by <code>1</code>.
+
+136.25 	 The equation becomes: <code>\dfrac{<var>C</var>}{<var>D</var>} \div \dfrac{<var>M</var>}{<var>M</var>} = \dfrac{<var>A</var>}{<var>B</var>} </code> so our answer is <code><var>B</var></code>.
+
+136.26 	 What number could replace <code><var>SYMBOL</var></code> below?
+
+136.28 	 To get the right denominator <code><var>B</var></code>, the left denominator <code><var>D</var></code> is divided by <code><var>M</var></code>.
+
+136.29 	 To find the right numerator, divide the left numerator by <code><var>M</var></code> as well.
+
+136.31 	 Notice both the numerator and denominator are being divided by <code>{<var>M</var>}</code>.
+
+136.32 	 We can write that as <code>\dfrac{<var>M</var>}{<var>M</var>}</code>, which is equal to <code>1</code> when reduced.
+                    <p>So we can solve this problem by dividing the fraction on the left by <code>1</code>.
+
+136.33 	 The equation becomes: <code>\dfrac{<var>C</var>}{<var>D</var>} \div \dfrac{<var>M</var>}{<var>M</var>} = \dfrac{<var>A</var>}{<var>B</var>} </code> so our answer is <code><var>A</var></code>.
+

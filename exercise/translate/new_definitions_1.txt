@@ -1,0 +1,12 @@
+247.1 	 New definitions 1
+
+247.2 	 If <code>x <var>binop(1)</var> y = <var>TEXT</var></code>, find <code><var>X</var> <var>binop(1)</var> <var>Y</var></code>.
+
+247.3 	 Substitute in
+            <span data-if="XONLY"><code>x = <var>X</var></code></span>
+            <span data-else data-if="YONLY"><code>y = <var>Y</var></code></span>
+            <span data-else><code>x = <var>X</var></code> and <code>y = <var>Y</var></code></span>
+        to get <code><var>SUBS</var></code>.
+
+247.4 	 Simplify the expression to get <code><var>VALU</var></code>.
+

@@ -1,0 +1,88 @@
+286.1 	 Proportions 2
+
+286.2 	 Multiply both sides by <code><var>hint1Multiplier</var></code>
+                </div>
+
+                <div class="col2 forty-sixty">
+                    <p>
+                    <span class="lfrac">
+                        <code>
+                            \color{red}{ <span data-if="inDenominator">(</span><var>hint1Multiplier</var><span data-if="inDenominator">)</span> \times }
+                            \dfrac{<var>numerator1</var>}{<var>denominator1</var>}
+                            =
+                        </code>
+                    </span>
+                    <span class="rfrac">
+                        <code>
+                            \dfrac{<var>numerator2</var>}{<var>denominator2</var>}
+                            \color{red}{ \times <span data-if="inDenominator">(</span><var>hint1Multiplier</var><span data-if="inDenominator">)</span> }
+                        </code>
+                    </span>
+
+                    <br>
+                    <span class="lfrac arrow">&darr;</span>
+                    <br>
+
+                    <span class="lfrac">
+                        <code><var>hint1Product1</var> = </code>
+                    </span>
+                    <span class="rfrac">
+                        <code><var>hint1Product2</var></code>
+                    </span>
+                </div>
+            </div>
+
+            <div data-if="denominator1 === xExpression || denominator2 === xExpression"  style="margin-left:-20px;" class="spinealign">
+                <div class="col1 forty-sixty">
+                    <p>Multiply both sides by <code><var>hint2Multiplier</var></code>
+                </div>
+                <div class="col2 forty-sixty">
+                    <p>
+                        <span class="lfrac">
+                            <code>
+                                \color{red}{ <var>hint2Multiplier</var> \times }
+                                <var>hint1Product1</var>
+                                =
+                            </code>
+                        </span>
+                        <span class="rfrac">
+                            <code>
+                            <var>hint1Product2</var>
+                            \color{red}{ \times <var>hint2Multiplier</var> }
+                            </code>
+                        </span>
+
+                        <br><span class="lfrac arrow">&darr;</span>
+                        <br>
+
+                        <span class="lfrac">
+                            <code><var>hint2Product1</var> = </code>
+                        </span>
+                        <span class="rfrac">
+                            <code><var>hint2Product2</var></code>
+                        </span>
+
+286.3 	 <span data-if="xConstant < 0">Add</span><span data-else>Subtract</span> <code><var>abs(xConstant)</var></code> <span data-if="xConstant < 0">to</span><span data-else>from</span> each side and simplify to isolate <code>x</code>
+
+286.4 	 <code>x</code> is
+                </div>
+                <div class="col2 forty-sixty">
+                    <p><span class="lfrac"><code>=</code></span>
+                    <span class="rfrac">
+                        <code><var>SOLUTION</var></code>.
+                </div>
+            </div>
+
+        </div>
+
+        <div class="problems">
+            <div class="spinealign">
+                <div class="col1 forty-sixty">
+                    <p>Solve for <code>x</code>.
+
+286.5 	 <span class="lfrac"><code>\dfrac{<var>numerator1</var>}{<var>denominator1</var>} = </code></span>
+                        <span class="rfrac"><code>\dfrac{<var>numerator2</var>}{<var>denominator2</var>}</code></span>
+
+286.6 	 <code>x =</code>
+                <span class="sol" data-simplify="optional"><var>SOLUTION</var></span>
+

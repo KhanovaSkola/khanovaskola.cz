@@ -1,0 +1,16 @@
+32.1 	 Angle types
+
+32.2 	 Is the shown angle acute, right, or obtuse?
+
+32.3 	 The shown angle measures less than <code>90^\circ</code>.
+
+32.4 	 Therefore, it is an acute angle.
+
+32.5 	 The shown angle measures <code>90^\circ</code>.
+
+32.6 	 Therefore, it is a right angle.
+
+32.7 	 The shown angle measures more than <code>90^\circ</code>.
+
+32.8 	 Therefore, it is an obtuse angle.
+

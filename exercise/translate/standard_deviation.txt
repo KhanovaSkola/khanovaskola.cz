@@ -1,0 +1,82 @@
+353.1 	 Standard deviation
+
+353.2 	 You have found the following ages (in years) of all <var>plural( DATA_POINTS, animal( 1 ) )</var> at your local zoo:
+
+353.4 	 What is the average age of the <var>plural( animal( 1 ) )</var> at your zoo? What is the standard deviation?
+                    You may round your answers to the nearest tenth.
+
+353.5 	 Average age:
+                        <span class="sol short" data-type="decimal" data-inexact data-max-error="0.15"><var>mean( DATA )</var></span> years old
+
+353.6 	 Standard deviation:
+                        <span class="sol short" data-type="decimal" data-inexact data-max-error="0.15"><var>stdDevPop( DATA )</var></span> years
+
+353.7 	 Because we have data for all <var>plural( DATA_POINTS, animal( 1 ) )</var> at the zoo, we are able
+                        to calculate the <span class="hint_blue">population mean</span>
+                        <code>(\color{<var>BLUE</var>}{\mu})</code> and
+                        <span class="hint_pink">population standard deviation</span> <code>(\color{<var>PINK</var>}{\sigma})</code>.
+
+353.8 	 To find the <span class="hint_blue">population mean</span>, add up the values of all <code class="hint_green"><var>DATA_POINTS</var></code>
+                            ages and divide by <code class="hint_green"><var>DATA_POINTS</var></code>.
+
+353.11 	 Find the <span class="hint_purple">squared deviations from the mean</span> for each <var>animal(1)</var>.
+
+353.12 	 Because we used the <span class="hint_blue">population mean</span><code>(\color{<var>BLUE</var>}{\mu})</code> to compute the
+                            <span class="hint_purple">squared deviations from the mean</span>, we can find the <span class="hint_red">variance</span>
+                            <code>(\color{red}{\sigma^2})</code>, without introducing any bias, by simply averaging the
+                            <span class="hint_purple">squared deviations from the mean</span>:
+
+353.16 	 As you might guess from the notation, the <span class="hint_pink">population standard deviation</span>
+                            <code>(\color{<var>PINK</var>}{\sigma})</code> is found by taking the square root of the <span class="hint_red">population variance</span>
+                            <code>(\color{red}{\sigma^2})</code>.
+
+353.19 	 <strong>
+                        The average <var>animal( 1 )</var> at the zoo is <var>plural( MEAN, "year" )</var> old with a standard deviation
+                        of <var>plural( STDDEV_POP, "year" )</var>.
+                    </strong>
+
+353.20 	 You have found the following ages (in years) of <var>plural( DATA_POINTS, animal( 1 ) )</var>
+                        randomly selected from the <var>plural( POPULATION, animal( 1 ) )</var> at your local zoo:
+
+353.22 	 Based on your sample, what is the average age of the <var>plural( animal( 1 ) )</var>? What is the standard deviation?
+                    You may round your answers to the nearest tenth.
+
+353.23 	 Average age:
+                        <span class="sol short" data-type="decimal" data-inexact data-max-error="0.15"><var>mean( DATA )</var></span> years old
+
+353.24 	 Standard deviation:
+                        <span class="sol short" data-type="decimal" data-inexact data-max-error="0.15"><var>stdDev( DATA )</var></span> years
+
+353.25 	 Because we only have data for a small sample of the <var>plural( POPULATION, animal( 1 ) )</var>, we are only able
+                        to estimate the population mean and standard deviation by finding the <span class="hint_blue">sample mean</span>
+                        <code>(\color{<var>BLUE</var>}{\overline{x}})</code> and
+                        <span class="hint_pink">sample standard deviation</span> <code>(\color{<var>PINK</var>}{s})</code>.
+
+353.26 	 To find the <span class="hint_blue">sample mean</span>, add up the values of all <code class="hint_green"><var>DATA_POINTS</var></code>
+                            samples and divide by <code class="hint_green"><var>DATA_POINTS</var></code>.
+
+353.29 	 Find the <span class="hint_purple">squared deviations from the mean</span> for each sample. Since we don't know the
+                        population mean, estimate the mean by using the <span class="hint_blue">sample mean</span> we just calculated
+                        <code>(\color{<var>BLUE</var>}{\overline{x}} = \color{<var>BLUE</var>}{<var>MEAN</var>\text{ <var>plural( "year", MEAN )</var>}})</code>.
+
+353.30 	 Normally we can find the variance <code>(\color{red}{s^2})</code> by averaging the
+                            <span class="hint_purple">squared deviations from the mean</span>. But remember we don't know the real
+                            population mean&mdash;we had to estimate it by using the <span class="hint_blue">sample mean</span>.
+
+353.31 	 The age of any particular <var>animal( 1 )</var> in our sample is likely to be closer to the average age
+                            of the <var>plural( DATA_POINTS, animal( 1 ) )</var> we sampled than it is to the average age
+                            of all <var>plural( POPULATION, animal( 1 ) )</var> in the zoo.
+                            Because of that, the <span class="hint_purple">squared deviations from the mean</span> we calculated will
+                            probably underestimate the actual deviations from the population mean.
+
+353.32 	 To compensate for this underestimation, rather than simply averaging the <span class="hint_purple">squared deviations from the mean</span>,
+                            we total them and divide by <code class="hint_green">n - 1</code>.
+
+353.36 	 As you might guess from the notation, the sample standard deviation <code>(\color{<var>PINK</var>}{s})</code> is
+                            found by taking the square root of the sample variance <code>(\color{red}{s^2})</code>.
+
+353.39 	 <strong>
+                        We can estimate that the average <var>animal( 1 )</var> at the zoo is <var>plural( MEAN, "year" )</var> old with a standard deviation
+                        of <var>plural( STDDEV, "year" )</var>.
+                    </strong>
+

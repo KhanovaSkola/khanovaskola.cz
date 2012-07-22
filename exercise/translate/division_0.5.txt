@@ -1,0 +1,8 @@
+121.1 	 Division 0.5
+
+121.2 	 Draw <var>C</var> circles, with <var>B</var> to each row.
+
+121.3 	 How many rows are there?
+
+121.4 	 Dividing any number by 1 equals itself.
+

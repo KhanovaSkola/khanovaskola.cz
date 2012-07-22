@@ -1,0 +1,32 @@
+366.1 	 Systems of equations with substitution
+
+366.2 	 Solve for <code>x</code> and <code>y</code> using substitution.
+
+366.4 	 <code>x</code> = <span class="sol"><var>X</var></span>
+
+366.5 	 <code>y</code> = <span class="sol"><var>Y</var></span>
+
+366.6 	 Since <code>y</code> has already been solved for, substitute <code class="hint_green"><var>expr(["+", ["*", -A2, "x"], C2])</var></code> for <code>y</code> in the first equation.
+
+366.8 	 Simplify and solve for <code>x</code>.
+
+366.15 	 Now that you know <code>\color{red}{x = <var>X</var>}</code>, plug it back into <code>\thinspace \color{<var>GREEN</var>}{y = <var>expr(["+", ["*", -A2, "x"], C2])</var>}\thinspace</code> to find <code>y</code>.
+
+366.18 	 <code class="hint_orange">y = <var>Y</var></code>
+
+366.19 	 You can also plug <code>\color{red}{x = <var>X</var>}</code> into <code>\thinspace \color{<var>BLUE</var>}{<var>expr(["+", ["*", A1, "x"], ["*", B1, "y"]])</var> = <var>C1</var>}\thinspace</code> and get the same answer for <code>y</code>:
+
+366.22 	 Solve for <code>x</code> and <code>y</code> using substitution.
+
+366.24 	 <code>x</code> = <span class="sol"><var>X</var></span>
+
+366.25 	 <code>y</code> = <span class="sol"><var>Y</var></span>
+
+366.26 	 Since <code>x</code> has already been solved for, substitute <code class="hint_green"><var>expr(["+", ["*", -B2, "y"], C2])</var></code> for <code>x</code> in the first equation.
+
+366.28 	 Simplify and solve for <code>y</code>.
+
+366.35 	 Now that you know <code>\color{<var>ORANGE</var>}{y = <var>Y</var>}</code>, plug it back into <code>\thinspace \color{<var>GREEN</var>}{x = <var>expr(["+", ["*", -B2, "y"], C2])</var>}\thinspace</code> to find <code>x</code>.
+
+366.39 	 You can also plug <code>\color{<var>ORANGE</var>}{y = <var>Y</var>}</code> into <code>\thinspace \color{<var>BLUE</var>}{<var>expr(["+", ["*", A1, "x"], ["*", B1, "y"]])</var> = <var>C1</var>}\thinspace</code> and get the same answer for <code>x</code>:
+

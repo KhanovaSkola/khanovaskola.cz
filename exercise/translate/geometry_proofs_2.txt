@@ -1,0 +1,20 @@
+174.1 	 Geometry Proofs 2
+
+174.2 	 What's the first wrong statement in the proof below that <var>FINISHED</var><code> \; ?</code><br><br>
+                        This figure is not drawn to scale.
+
+174.4 	 Try going through the proof yourself: write down the givens, and then see if they justify the next step <em>for the reason given.</em> Then do the same thing for the next step, and the next, until you run into something that you can't justify, or you finish the proof.
+
+174.5 	 <var>WRONG_STATEMENT</var> is the first wrong statement.
+
+174.6 	 There is no wrong statement in this proof.
+
+174.7 	 What's the first wrong statement in the proof below that <var>FINISHED</var><code> \; ?</code></br></br>
+                    <code> \overline{BC} </code> is parallel to <code> \overline{DF} </code>. This diagram is not drawn to scale.
+
+174.9 	 Try going through the proof yourself: write down the givens, and then see if they justify the next step <em>for the reason given.</em> Then do the same thing for the next step, and the next, until you run into something that you can't justify, or you finish the proof.
+
+174.10 	 <var>WRONG_STATEMENT</var> is the first wrong statement.
+
+174.11 	 There is no wrong statement in this proof.
+

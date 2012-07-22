@@ -1,0 +1,24 @@
+154.1 	 Factoring difference of squares 1
+
+154.2 	 Factor the following expression:
+
+154.4 	 The expression is in the form <code>\color{<var>PINK</var>}{a^2} - \color{<var>BLUE</var>}{b^2}</code>,
+                        which is a difference of two squares so we can factor it as
+                        <code>(\color{<var>PINK</var>}{a} + \color{<var>BLUE</var>}{b})
+                        (\color{<var>PINK</var>}{a} - \color{<var>BLUE</var>}{b})</code>.
+
+154.5 	 What are the values of <code class="hint_pink">a</code> and <code class="hint_blue">b</code>?
+
+154.6 	 <code class="hint_pink">\qquad a = x</code>
+
+154.7 	 <code class="hint_blue">\qquad b = \sqrt{<var>A * A</var>} = <var>A</var></code>
+
+154.8 	 Use the values we found for <code class="hint_pink">a</code> and <code class="hint_blue">b</code>
+                        to complete the factored expression,
+                        <code>(\color{<var>PINK</var>}{a} + \color{<var>BLUE</var>}{b})
+                        (\color{<var>PINK</var>}{a} - \color{<var>BLUE</var>}{b})</code>.
+
+154.9 	 So we can factor the expression as:
+                        <code>(\color{<var>PINK</var>}{x} + \color{<var>BLUE</var>}{<var>A</var>})
+                        (\color{<var>PINK</var>}{x} - \color{<var>BLUE</var>}{<var>A</var>})</code>
+

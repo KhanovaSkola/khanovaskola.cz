@@ -1,0 +1,20 @@
+257.1 	 Ordering fractions
+
+257.2 	 Order the following fractions from least to greatest:
+
+257.4 	 Let's use different colors for each fraction.
+
+257.6 	 Find the least common denominator of all the fractions, so that we can compare them more easily.
+
+257.7 	 The least common denominator is the least common multiple of all the denominators.
+
+257.8 	 The least common multiple of <code><var>DENOMS_TEX_COLOR</var></code> is <code><var>LCD</var></code>.
+
+257.9 	 Multiply all the fractions <code>\dfrac{a}{b}</code> by <code>\dfrac{\frac{<var>LCD</var>}{b}}{\frac{<var>LCD</var>}{b}}</code>. Then each fraction will have <code><var>LCD</var></code> as its denominator:
+
+257.11 	 Now all the fractions are in a form where we can compare them by numerator:
+
+257.13 	 Sort the fractions from least to greatest by their numerators:
+
+257.15 	 Finally, reduce each fraction again.
+

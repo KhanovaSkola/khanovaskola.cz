@@ -1,0 +1,30 @@
+183.1 	 Graphing points 2
+
+183.2 	 Plot <code>(<var>X</var>, <var>Y</var>)</code> and select the quadrant in which the point lies.
+
+183.3 	 Coordinates are listed as <code>(\blue{x},\green{y})</code>.
+
+183.4 	 So, for <code>( \blue{<var>X</var>}, \green{<var>Y</var>} )</code> our <span class="hint_blue"><code>x</code>-coordinate</span>
+                        is <code>\blue{<var>X</var>}</code> and our <span class="hint_green"><code>y</code>-coordinate</span> is <code>\green{<var>Y</var>}</code>.
+
+183.5 	 The <span class="hint_blue"><code>x</code>-coordinate</span> tells how far we move to the right from the origin and the
+                        <span class="hint_green"><code>y</code>-coordinate</span> tells us how far we move up from the origin.
+
+183.6 	 Since our <span class="hint_blue"><code>x</code>-coordinate</span> is <span data-if="X > 0">positive</span><span data-else>negative</span>,
+                            we move <code>\blue{<var>abs( X )</var>}</code> to the <span data-if="X > 0">right</span><span data-else>left</span>.
+
+183.7 	 Since our <span class="hint_green"><code>y</code>-coordinate<span> is <span data-if="Y > 0">positive</span><span data-else> negative</span>,
+                            we move <code>\green{<var>abs( Y )</var>}</code> <span data-if="Y > 0">up</span><span data-else> down</span>.
+
+183.8 	 Move the point to <code>( \blue{<var>X</var>}, \green{<var>Y</var>} )</code> at the marked point above.
+                            <input type="button" value="Show me" onClick="javascript:KhanUtil.currentGraph.graph.movablePoint.moveTo( KhanUtil.tmpl.getVAR('X'), KhanUtil.tmpl.getVAR('Y') );" />
+
+183.9 	 Now that we have our point plotted, we can figure out the quadrant.
+
+183.10 	 By convention, quadrants are named with a capital <code>\text{Q}</code> and a roman numeral, starting in the upper right quadrant as <code>\text{QI}</code> and rotating counter-clockwise.
+
+183.11 	 Since our point is in the
+                        <span><span data-if="Y > 0">upper</span><span data-else>lower</span></span>
+                        <span><span data-if="X > 0">right</span><span data-else>left</span></span>
+                        portion of the graph, the quadrant is <code>\purple{\text{<var>QUADRANT</var>}}</code>.
+

@@ -1,0 +1,38 @@
+142.1 	 Exploring Angle Pairs
+
+142.2 	 Name an angle vertical to <code> \angle 
+                    <var> ANGLE_START </var>G<var> ANGLE_END </var> </code>.
+
+142.3 	 <code> \angle </code> <span class="entry"></span>
+
+142.4 	 Vertical angles form two intersecting straight lines.
+
+142.5 	 Name an angle that will combine with the given angle to form a big X of two straight lines.
+
+142.6 	 <code> \angle <var>OPP_START</var>G<var>OPP_END</var> </code> is vertical to 
+                    <code> \angle <var>ANGLE_START</var>G<var>ANGLE_END</var> </code>.
+
+142.7 	 Name an angle adjacent to <code> \angle 
+                    <var> ANGLE_START </var> G <var> ANGLE_END </var> </code>
+
+142.8 	 <code> \angle </code> <span class="entry"></span>
+
+142.9 	 Adjacent angles share a ray and have a common vertex, but do not overlap.
+
+142.10 	 Name an angle that is next to <code> \angle <var> ANGLE_START </var>G<var> ANGLE_END </var> </code>.
+
+142.11 	 <code> \angle <var>ANGLE_START</var>G<var>ADJ_START[0]</var></code> and 
+                    <code> \angle <var>ANGLE_END</var>G<var>ADJ_END[1]</var></code> are two adjacent angles. There are two others, as well.
+
+142.12 	 Name an angle that forms a linear pair with <code> \angle 
+                    <var> ANGLE_START </var> G <var> ANGLE_END </var> </code>
+
+142.13 	 <code> \angle </code> <span class="entry"></span>
+
+142.14 	 A linear pair is two adjacent angles that form a straight angle.
+
+142.15 	 Name an angle that shares a ray with <code> \angle <var> ANGLE_START </var>G<var> ANGLE_END </var> </code> and will add to 180<code>{}^{\circ}</code>
+
+142.16 	 Two such angles are <code> \angle <var>ANGLE_START</var>G<var>OPP_END</var> </code> and 
+                    <code> \angle <var>ANGLE_END</var>G<var>OPP_START</var> </code>.
+

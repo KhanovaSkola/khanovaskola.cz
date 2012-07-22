@@ -1,0 +1,34 @@
+272.1 	 Plotting the line of best fit
+
+272.2 	 Find the line of best fit,
+                or mark that there is no linear correlation.
+
+272.3 	 The line of best fit is the line that best approximates
+                    the data points.
+
+272.4 	 There are three main criteria to use when finding a good
+                        best fit line.
+
+272.5 	 First, make sure that your line passes through the points,
+                        and does not lie completely above or below the points.
+
+272.6 	 Next, make sure that your line alternates between
+                        passing above and then below points, and doesn't simply
+                        go above some points and then below the rest.
+
+272.7 	 Last, make sure that the line goes through the middle
+                        of all the points, so that it is close to all of
+                        the points.
+
+272.8 	 There are several lines that satisfy this.
+                    <input type="submit" value="Click here"
+                        onclick="javascript:KhanUtil.tmpl
+                            .getVAR('GRAPH').showSolution()"/>
+                    to show one of them.
+
+272.9 	 Look at the data, and try to figure out if there is
+                    a linear relationship.
+
+272.10 	 Because these data are mostly random, there is no
+                    correlation, so no good best fit line exists.
+

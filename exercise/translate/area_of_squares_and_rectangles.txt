@@ -1,0 +1,40 @@
+39.1 	 Area of squares and rectangles
+
+39.2 	 One side of a square is <code><var>S</var></code>
+                <var>plural(UNIT_TEXT, S)</var> long. What is its area?
+
+39.3 	 The area is the length times the width.
+
+39.4 	 The length is <var>plural(S, UNIT_TEXT)</var> and
+                        the width is <var>plural(S, UNIT_TEXT)</var>, so the
+                        area is <code><var>S</var>\times<var>S</var></code>
+                        square <var>plural(UNIT_TEXT)</var>.
+
+39.6 	 We can also count <var>S * S</var>
+                        square <var>plural(UNIT_TEXT)</var>.
+
+39.7 	 The area of a square is <code><var>S * S</var></code>
+                square <var>plural(UNIT_TEXT)</var>. How long is each side?
+
+39.8 	 The area is the length times the width.
+
+39.11 	 The sides of a square are all the same length, so each
+                        side must be <code><var>S</var></code>
+                        <var>plural(UNIT_TEXT, S)</var> long.
+
+39.12 	 A rectangle is
+                <code><var>L</var></code> <var>plural(UNIT_TEXT, L)</var>
+                long and
+                <code><var>W</var></code> <var>plural(UNIT_TEXT, W)</var>
+                wide. What is its area?
+
+39.13 	 The area is the length times the width.
+
+39.14 	 The length is <var>plural(L, UNIT_TEXT)</var> and
+                        the width is <var>plural(W, UNIT_TEXT)</var>, so the
+                        area is <code><var>L</var>\times<var>W</var></code>
+                        square <var>plural(UNIT_TEXT)</var>.
+
+39.16 	 We can also count <var>L * W</var>
+                        square <var>plural(UNIT_TEXT)</var>.
+

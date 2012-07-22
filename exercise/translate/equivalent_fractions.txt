@@ -1,0 +1,34 @@
+135.1 	 Equivalent fractions
+
+135.2 	 What number could replace <code><var>SYMBOL</var></code> below?
+
+135.4 	 The fraction on the left represents <var>A</var> out of <var>B</var> slices of a rectangular <var>pizza( 1 )</var>.
+
+135.5 	 What if we cut the <var>pizza( 1 )</var> into <var>D</var> slices instead? How many slices would result in the same amount of <var>pizza( 1 )</var>?
+
+135.6 	 We would need <var>C</var> slices.
+
+135.7 	 <code>\dfrac{<var>A</var>}{<var>B</var>} = \dfrac{<var>C</var>}{<var>D</var>}</code> and so the answer is <code><var>C</var></code>.
+
+135.8 	 Another way to get the answer is to multiply by <code>\dfrac{<var>M</var>}{<var>M</var>}</code>.
+
+135.9 	 <code>\dfrac{<var>M</var>}{<var>M</var>} = \dfrac{1}{1} = 1</code> so really we are multiplying by 1.
+
+135.10 	 The final equation is: <code>\dfrac{<var>A</var>}{<var>B</var>} \times \dfrac{<var>M</var>}{<var>M</var>} = \dfrac{<var>C</var>}{<var>D</var>} </code> so our answer is <code><var>C</var></code>.
+
+135.11 	 What number could replace <code><var>SYMBOL</var></code> below?
+
+135.13 	 The fraction on the left represents <var>A</var> out of <var>B</var> slices of a rectangular <var>pizza( 1 )</var>.
+
+135.14 	 How many total slices would we need if we want the same amount of <var>pizza( 1 )</var> in <var>C</var> slices?
+
+135.15 	 We would need to cut the <var>pizza( 1 )</var> into <var>D</var> slices.
+
+135.16 	 <code>\dfrac{<var>A</var>}{<var>B</var>} = \dfrac{<var>C</var>}{<var>D</var>}</code> and so the answer is <code><var>D</var></code>.
+
+135.17 	 Another way to get the answer is to multiply by <code>\dfrac{<var>M</var>}{<var>M</var>}</code>.
+
+135.18 	 <code>\dfrac{<var>M</var>}{<var>M</var>} = \dfrac{1}{1} = 1</code> so really we are multiplying by 1.
+
+135.19 	 The final equation is: <code>\dfrac{<var>A</var>}{<var>B</var>} \times \dfrac{<var>M</var>}{<var>M</var>} = \dfrac{<var>C</var>}{<var>D</var>} </code> so our answer is <code><var>D</var></code>.
+

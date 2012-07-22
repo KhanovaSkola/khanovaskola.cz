@@ -1,0 +1,15 @@
+99.1 	 Degrees to radians
+
+99.2 	 Convert the angle <var>ANGLE.deg</var>&deg; to radians.
+
+99.3 	 There are <code>360</code> degrees in a circle. There
+                        are also <code>2\pi</code> radians in a circle.
+
+99.4 	 In other words, there are <code>\pi</code> radians per
+                        <code>180</code> degrees. So we can convert from
+                        degrees to radians by multiplying by <code>\pi</code>,
+                        and dividing by <code>180^\circ</code>.
+
+99.6 	 <code>\displaystyle = <var>ANGLE.rad</var></code>
+                        radians
+

@@ -1,0 +1,10 @@
+388.1 	 Vertical angles
+
+388.2 	 If we know that the <span class="hint_blue">blue angle is <var>MEASURE</var> degrees</span>, what is the <span class="hint_orange">measure of the orange angle</span>?
+
+388.4 	 What is the measure of the pink angle?
+
+388.5 	 The pink and blue angles add up to 180 because they are adjacent and form a straight line.
+
+388.7 	 The pink and orange angles also add up to 180 because they are adjacent and form a straight line too.
+

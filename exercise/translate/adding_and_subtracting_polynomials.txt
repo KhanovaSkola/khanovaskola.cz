@@ -1,0 +1,14 @@
+8.1 	 Adding and subtracting polynomials
+
+8.2 	 Simplify the expression.
+
+8.5 	 Since this is subtraction, when removing the parenthesis we must distribute the minus sign to all terms in the second polynomial.
+
+8.7 	 Since this is addition, we can remove the parenthesis without any extra steps.
+
+8.9 	 Identify like terms.
+
+8.11 	 Combine like terms.
+
+8.13 	 Add the coefficients.
+

@@ -1,0 +1,152 @@
+128.1 	 Domain of a function
+
+128.3 	 What is the domain of <code>f(x)</code>?
+
+128.5 	 <code>f(x)</code> is undefined when the denominator is 0.
+
+128.6 	 The denominator is 0 when <code>x=<var>(-1*A)</var></code> or <code>x=<var>B</var></code>.
+
+128.7 	 So we know that <code>x \neq <var>-1*A</var></code> and <code>x \neq <var>B</var></code>.
+
+128.8 	 Expressing this mathematically, the domain is <code><var>CHOICES["two-denom-simplify"]</var></code>.
+
+128.11 	 <code>f(x)</code> is a piecewise function, so we need to examine where each piece is undefined.
+
+128.12 	 The first piecewise definition of <code>f(x)</code>, <code>\frac{ x + <var>A</var> }{ ( x + <var>A</var> )( x - <var>B</var> ) }</code>, is undefined when its denominator is 0.
+
+128.13 	 The denominator is 0 when <code>x=<var>-1*A</var></code> or <code>x=<var>B</var></code>.
+
+128.14 	 So, based on the first piecewise definition, we know that <code>x \neq <var>-1*A</var></code> and <code>x \neq <var>B</var></code>.
+
+128.15 	 However, the second piecewise definition applies when <code>x = <var>B</var></code>, and the second piecewise definition, <code><var>C</var></code>, has no weird gaps or holes, so <code>f(x)</code> is defined at <code>x = <var>B</var></code>.
+
+128.16 	 So the only restriction on the domain is that <code>x \neq <var>-1*A</var></code>.
+
+128.17 	 Expressing this mathematically, the domain is <code><var>CHOICES["two-denom-cond"]</var></code>.
+
+128.20 	 <code>f(x)</code> is undefined when the radicand (the expression under the radical) is less than zero.
+
+128.21 	 So the radicand, <code>x - <var>A</var></code>, must be greater than or equal to zero.
+
+128.22 	 So <code>x - <var>A</var> \geq 0</code>; this means <code>x \geq <var>A</var></code>.
+
+128.23 	 Expressing this mathematically, the domain is <code><var>CHOICES.sqrt</var></code>.
+
+128.26 	 First, we need to consider that <code>f(x)</code> is undefined when the radicand (the expression under the radical) is less than zero.
+
+128.27 	 So the radicand, <code>x - <var>A</var></code>, must be greater than or equal to zero.
+
+128.28 	 So <code>x - <var>A</var> \geq 0</code>; this means <code>x \geq <var>A</var></code>.
+
+128.29 	 Next, we also need to consider that <code>f(x)</code> is undefined when the denominator, <code>\sqrt{ x - <var>A</var> }</code>, is zero.
+
+128.30 	 So <code>\sqrt{ x - <var>A</var> } \neq 0</code>.
+
+128.31 	 <code>\sqrt{ z } = 0</code> only when <code>z = 0</code>, so <code>\sqrt{ x - <var>A</var> } \neq 0</code> means that <code>x - <var>A</var> \neq 0</code>.
+
+128.32 	 So <code>x \neq <var>A</var></code>.
+
+128.33 	 So we have two restrictions: <code>x \geq <var>A</var></code> and <code>x \neq <var>A</var></code>.
+
+128.34 	 Combining these two restrictions, we are left with simply <code>x > <var>A</var></code>.
+
+128.35 	 Expressing this in mathematical notation, the domain is <code><var>CHOICES["inverse-sqrt"]</var></code>.
+
+128.38 	 <code>f(x)</code> is a piecewise function, so we need to examine where each piece is undefined.
+
+128.39 	 The first piecewise definition of <code>f(x)</code>, <code>\frac{ 1 }{ \sqrt{ x - <var>A</var> } }</code>, is undefined where the denominator is zero and where the radicand (the expression under the radical) is less than zero.
+
+128.40 	 The denominator, <code>\sqrt{ x - <var>A</var> }</code>, is zero when <code>x - <var>A</var> = 0</code>, so we know that <code>x \neq <var>A</var></code>.
+
+128.41 	 The radicand, <code>x - <var>A</var></code>, is less than zero when <code>x < <var>A</var></code>, so we know that <code>x \geq <var>A</var></code>.
+
+128.42 	 So the first piecewise definition of <code>f(x)</code> is defined when <code>x \neq <var>A</var></code> and <code>x \geq <var>A</var></code>. Combining these two restrictions, the first piecewise definition is defined when <code>x > <var>A</var></code>. The first piecewise defintion applies when <code>x \geq <var>A</var></code>, so this restriction is relevant.
+
+128.43 	 The second piecewise definition of <code>f(x)</code>, <code>\frac{ 1 }{ \sqrt{ <var>A</var> - x } }</code>, applies when <code>x < <var>A</var></code> and is undefined where the denominator is zero and where the radicand is less than zero.
+
+128.44 	 The denominator, <code>\sqrt{ <var>A</var> - x }</code>, is zero when <code><var>A</var> - x = 0</code>, so we know that <code>x \neq <var>A</var></code>.
+
+128.45 	 The radicand, <code><var>A</var> - x</code>, is less than zero when <code>x > <var>A</var></code>, so we know that <code>x \leq <var>A</var></code>.
+
+128.46 	 So the second piecewise definition of <code>f(x)</code> is defined when <code>x \neq <var>A</var></code> and <code>x \leq <var>A</var></code>. Combining these two restrictions, the second piecewise definition is defined when <code>x < <var>A</var></code>. However, the second piecewise definition of <code>f(x)</code> only applies when <code>x < <var>A</var></code>, so restriction isn't actually relevant to the domain of <code>f(x)</code>.
+
+128.47 	 So the first piecewise definition is defined when <code>x > <var>A</var></code> and applies when <code>x \geq <var>A</var></code>; the second piecewise definition is defined when <code>x < <var>A</var></code> and applies when <code>x < <var>A</var></code>. Putting the restrictions of these two together, the only place where a definition applies and the value is undefined is at <code>x = <var>A</var></code>. So the only restriction on the domain of <code>f(x)</code> is <code>x \neq <var>A</var></code>.
+
+128.48 	 Expressing this mathematically, the domain is <code><var>CHOICES["inverse-sqrt-cond"]</var></code>.
+
+128.51 	 First, we need to consider that <code>f(x)</code> is undefined anywhere where either radical is undefined, so anywhere where either radicand (the expression under the radical symbol) is less than zero.
+
+128.52 	 The top radical is undefined when <code><var>A+B</var> - x < 0</code>.
+
+128.53 	 So the top radical is undefined when <code>x > <var>A+B</var></code>, so we know <code>x \leq <var>A+B</var></code>.
+
+128.54 	 The bottom radical is undefined when <code>x - <var>A</var> < 0</code>.
+
+128.55 	 So the bottom radical is undefined when <code>x < <var>A</var></code>, so we know <code>x \geq <var>A</var></code>.
+
+128.56 	 Next, we need to consider that <code>f(x)</code> is undefined anywhere where the denominator, <code>\sqrt{ x - <var>A</var> }</code>, is zero.
+
+128.57 	 So <code>\sqrt{ x - <var>A</var> } \neq 0</code>, so <code>x - <var>A</var> \neq 0</code>, so <code>x \neq <var>A</var></code>.
+
+128.58 	 So we have three restrictions: <code>x \leq <var>A+B</var></code>, <code>x \geq <var>A</var></code>, and <code>x \neq <var>A</var></code>.
+
+128.59 	 Combining these three restrictions, we know that <code><var>A</var> < x \leq <var>A+B</var></code>.
+
+128.60 	 Expressing this mathematically, the domain is <code><var>CHOICES["sqrt-frac"]</var></code>.
+
+128.63 	 <code>f(x)</code> is a piecewise function, so we need to examine where each piece is undefined.
+
+128.64 	 The first piecewise definition of <code>f(x)</code>, <code>\frac{ x + <var>A</var> }{ ( x + <var>A</var> )( x - <var>C</var> ) }</code>, is undefined where the denominator is zero.
+
+128.65 	 The denominator, <code>(x + <var>A</var>)(x - <var>C</var>)</code>, is zero when <code>x = <var>-1*A</var></code> or <code>x = <var>C</var></code>.
+
+128.66 	 So the first piecewise definition of <code>f(x)</code> is defined when <code>x \neq <var>-1*A</var></code> and <code>x \neq <var>C</var></code>. The first piecewise definition applies when <code>x = <var>-1*A</var></code> and <code>x = <var>C</var></code>, so these restrictions are relevant to the domain of <code>f(x)</code>.
+
+128.67 	 The second piecewise definition of <code>f(x)</code>, <code><var>A</var></code>, is a simple horizontal line function and so has no holes or gaps to worry about, so it is defined everywhere.
+
+128.68 	 So the first piecewise definition is defined when <code>x \neq <var>-1*A</var></code> and <code>x \neq <var>C</var></code> and applies when <code>x \neq <var>B</var></code>; the second piecewise definition is defined always and applies when <code>x = <var>B</var></code>. Putting the restrictions of these two together, the only places where a definition applies and is undefined are at <code>x = <var>-1*A</var></code> and <code>x = <var>C</var></code>. So the restriction on the domain of <code>f(x)</code> is that <code>x \neq <var>-1*A</var></code> and <code>x \neq <var>C</var></code>.
+
+128.69 	 Expressing this mathematically, the domain is <code><var>CHOICES["two-denom-cond-weird"]</var></code>.
+
+128.73 	 First, we need to consider that <code>f(x)</code> is undefined anywhere where the radical is undefined, so the radicand (the expression under the radical) cannot be less than zero.
+
+128.74 	 So <code>x - <var>C</var> \geq 0</code>, which means <code>x \geq <var>C</var></code>.
+
+128.75 	 Next, we also need to consider that <code>f(x)</code> is undefined anywhere where the denominator is zero.
+
+128.76 	 So <code>x \neq <var>-1*A</var></code> and <code>x \neq <var>-1*B</var></code>.
+
+128.77 	 However, these last two restrictions are irrelevant since <code><var>C</var> > <var>-1*A</var></code> and <code><var>C</var> > <var>-1*B</var></code> and so <code>x \geq <var>C</var></code> will ensure that <code>x \neq <var>-1*A</var></code> and <code>x \neq <var>-1*B</var></code>.
+
+128.78 	 Combining these restrictions, then, leaves us with simply <code>x \geq <var>C</var></code>.
+
+128.79 	 Expressing this mathematically, the domain is <code><var>CHOICES["sqrt-poly-frac"]</var></code>.
+
+128.82 	 <code>f(x)</code> is undefined when the radicand (the expression under the radical) is less than zero.
+
+128.83 	 So we know that <code><var>A</var> - \lvert x \rvert \geq 0</code>.
+
+128.84 	 So <code>\lvert x \rvert \leq <var>A</var></code>.
+
+128.85 	 This means <code>x \leq <var>A</var></code> and <code>x \geq <var>-1*A</var></code>; or, equivalently, <code><var>-1*A</var> \leq x \leq <var>A</var></code>.
+
+128.86 	 Expressing this mathematically, the domain is <code><var>CHOICES["sqrt-abs"]</var></code>.
+
+128.89 	 First, we need to consider that <code>f(x)</code> is undefined anywhere where the radicand (the expression under the radical) is less than zero.
+
+128.90 	 So we know that <code><var>A</var> - \lvert x \rvert \geq 0</code>.
+
+128.91 	 This means <code>\lvert x \rvert \leq <var>A</var></code>, which means <code><var>-1*A</var> \leq x \leq <var>A</var></code>.
+
+128.92 	 Next, we need to consider that <code>f(x)</code> is also undefined anywhere where the denominator is zero.
+
+128.93 	 So we know that <code>\sqrt{ <var>A</var> - \lvert x \rvert } \neq 0</code>, so <code>\lvert x \rvert \neq <var>A</var></code>.
+
+128.94 	 This means that <code>x \neq <var>A</var></code> and <code>x \neq <var>-1*A</var></code>.
+
+128.95 	 So we have four restrictions: <code>x \geq <var>-1*A</var></code>, <code>x \leq <var>A</var></code>, <code>x \neq <var>-1*A</var></code>, and <code>x \neq <var>A</var></code>.
+
+128.96 	 Combining these four, we know that <code>x > <var>-1*A</var></code> and <code>x < <var>A</var></code>; alternatively, that <code><var>-1*A</var> < x < <var>A</var></code>.
+
+128.97 	 Expressing this mathematically, the domain is <code><var>CHOICES["inverse-sqrt-abs"]</var></code>.
+

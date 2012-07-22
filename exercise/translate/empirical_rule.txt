@@ -1,0 +1,123 @@
+129.1 	 Empirical rule
+
+129.2 	 Estimate the probability of <var>an( ANIMAL )</var> living longer than
+                    <code><var>roundTo( 1, MEAN + STDDEV * Z )</var></code> years.
+
+129.3 	 We can try to estimate using the empirical rule, also known as the 68-95-99.7 percent rule.
+
+129.4 	 We know the lifespans are normally distributed with an average lifespan of
+                            <code class="hint_pink" id="meanHint"><var>MEAN</var></code> years.
+
+129.5 	 We know the standard deviation is <code><var>STDDEV</var></code> years, so one
+                            standard deviation below the mean is
+                            <code id="zm1Hint" class="hint_pink"><var>roundTo( 1, MEAN - STDDEV )</var></code> years
+                            and one standard deviation above the mean is
+                            <code id="zp1Hint" class="hint_pink"><var>roundTo( 1, MEAN + STDDEV )</var></code> years.
+
+129.6 	 Two standard deviations below the mean is
+                            <code id="zm2Hint" class="hint_pink"><var>roundTo( 1, MEAN - STDDEV * 2 )</var></code> years
+                            and two standard deviations above the mean is
+                            <code id="zp2Hint" class="hint_pink"><var>roundTo( 1, MEAN + STDDEV * 2 )</var></code> years.
+
+129.7 	 Three standard deviations below the mean is
+                            <code id="zm3Hint" class="hint_pink"><var>roundTo( 1, MEAN - STDDEV * 3 )</var></code> years
+                            and three standard deviations above the mean is
+                            <code id="zp3Hint" class="hint_pink"><var>roundTo( 1, MEAN + STDDEV * 3 )</var></code> years.
+
+129.8 	 We are interested in the probability of <var>an( ANIMAL )</var> living longer than
+                            <code class="hint_pink"><var>roundTo( 1, MEAN + STDDEV * Z )</var></code> years.
+
+129.9 	 The empirical rule (or the 68-95-99.7 rule) tells us that
+                            <span style="color: green"><code><var>EMPIRICAL</var>\%</code></span>
+                            of the <var>ANIMALS</var> will have lifespans within
+                            <var>plural( abs( Z ), "standard deviation" )</var> of the average lifespan.
+
+129.10 	 The remaining <code><var>roundTo( 2, 100 - EMPIRICAL )</var>\%</code>
+                            of the <var>ANIMALS</var> will have lifespans that fall outside the shaded area.
+                            Because the normal distribution is symmetrical, half
+                            <code>(\color{green}{<var>roundTo( 2, ( 100 - EMPIRICAL ) / 2 )</var>\%})</code>
+                            will live less than <code><var>roundTo( 2, MEAN - STDDEV * abs( Z ) )</var></code> years
+                            and the other half
+                            <code>(\color{green}{<var>roundTo( 2, ( 100 - EMPIRICAL ) / 2 )</var>\%})</code>
+                            will live longer than <code><var>roundTo( 2, MEAN + STDDEV * abs( Z ) )</var></code> years.
+
+129.11 	 <strong>
+                        The probability of a particular <var>ANIMAL</var> living longer than
+                        <code class="hint_pink"><var>roundTo( 1, MEAN + STDDEV * Z )</var></code> years is
+                        <code>\color{green}{<var>EMPIRICAL</var>\%} +
+                        \color{green}{<var>roundTo( 2, ( 100 - EMPIRICAL ) / 2 )</var>\%}</code>, or
+                        <code><var>ANSWER</var>\%</code>.
+                        </strong>
+
+129.12 	 <strong>
+                        The probability of a particular <var>ANIMAL</var> living longer than
+                        <code class="hint_pink"><var>roundTo( 1, MEAN + STDDEV * Z )</var></code> years is
+                        <code>\color{green}{<var>ANSWER</var>\%}</code>.
+                        </strong>
+
+129.13 	 Estimate the probability of <var>an( ANIMAL )</var> living less than
+                    <code><var>roundTo( 1, MEAN + STDDEV * Z )</var></code> years.
+
+129.14 	 We are interested in the probability of <var>an( ANIMAL )</var> living less than
+                            <code class="hint_pink"><var>roundTo( 1, MEAN + STDDEV * Z )</var></code> years.
+
+129.15 	 <strong>
+                        The probability of a particular <var>ANIMAL</var> living less than
+                        <code class="hint_pink"><var>roundTo( 1, MEAN + STDDEV * Z )</var></code> years is
+                        <code>\color{green}{<var>EMPIRICAL</var>\%} +
+                        \color{green}{<var>roundTo( 2, ( 100 - EMPIRICAL ) / 2 )</var>\%}</code>, or
+                        <code><var>ANSWER</var>\%</code>.
+                        </strong>
+
+129.16 	 <strong>
+                        The probability of a particular <var>ANIMAL</var> living less than
+                        <code class="hint_pink"><var>roundTo( 1, MEAN + STDDEV * Z )</var></code> years is
+                        <code>\color{green}{<var>ANSWER</var>\%}</code>.
+                        </strong>
+
+129.17 	 Estimate the probability of <var>an( ANIMAL )</var> living between
+                    <code><var>roundTo( 1, MEAN + STDDEV * Z1 )</var></code> and <code><var>roundTo( 1, MEAN + STDDEV * Z2 )</var></code> years.
+
+129.18 	 We are interested in the probability of <var>an( ANIMAL )</var> living between
+                            <code class="hint_pink"><var>roundTo( 1, MEAN + STDDEV * Z1 )</var></code> and
+                            <code class="hint_pink"><var>roundTo( 1, MEAN + STDDEV * Z2 )</var></code> years.
+
+129.19 	 The empirical rule (or the 68-95-99.7 rule) tells us that
+                            <span style="color: green"><code><var>EMPIRICAL1</var>\%</code></span>
+                            of the <var>ANIMALS</var> will have lifespans within
+                            <var>plural( abs( Z_MAX ), "standard deviation" )</var> of the average lifespan.
+
+129.20 	 It also tells us that <span style="color: green"><code><var>EMPIRICAL2</var>\%</code></span>
+                            of the <var>ANIMALS</var> will have lifespans within <var>plural( Z_MIN, "standard deviation" )</var>
+                            of the mean. That leaves <code><var>EMPIRICAL1</var>\% - <var>EMPIRICAL2</var>\% =
+                            <var>roundTo( 2, EMPIRICAL1 - EMPIRICAL2 )</var>\%</code> of <var>ANIMALS</var> between
+                            <var>Z_MIN</var> and <var>plural( Z_MAX, "standard deviation" )</var> of the mean, or
+                            <span style="color: orange"><code><var>roundTo( 2, ( EMPIRICAL1 - EMPIRICAL2 ) / 2 )</var>\%</code></span>
+                            on either side of the distribution.
+
+129.21 	 <strong>
+                        The probability of a particular <var>ANIMAL</var> living between
+                        <code class="hint_pink"><var>roundTo( 1, MEAN + STDDEV * Z1 )</var></code> and
+                        <code class="hint_pink"><var>roundTo( 1, MEAN + STDDEV * Z2 )</var></code> years is
+                        <span data-if="Z1 * Z2 > 0"><code>\color{orange}{<var>roundTo( 2, ( EMPIRICAL1 - EMPIRICAL2 ) / 2 )</var>\%}</code>.</span>
+                        <span data-else><code>\color{orange}{<var>roundTo( 2, ( EMPIRICAL1 - EMPIRICAL2 ) / 2 )</var>\%} +
+                        \color{green}{<var>EMPIRICAL2</var>\%}</code>, or <code><var>roundTo( 2, AREA )</var>\%</code>.</span>
+                        </strong>
+
+129.22 	 <strong>
+                        The probability of a particular <var>ANIMAL</var> living between
+                        <code class="hint_pink"><var>roundTo( 1, MEAN + STDDEV * Z1 )</var></code> and
+                        <code class="hint_pink"><var>roundTo( 1, MEAN + STDDEV * Z2 )</var></code> years is
+                        <span data-if="Z1 * Z2 > 0"><code>\color{orange}{<var>roundTo( 2, ( EMPIRICAL1 - EMPIRICAL2 ) / 2 )</var>\%}</code>.</span>
+                        <span data-else><code>\color{green}{<var>EMPIRICAL2</var>\%} +
+                        \color{orange}{<var>roundTo( 2, ( EMPIRICAL1 - EMPIRICAL2 ) / 2 )</var>\%}</code>, or
+                        <code><var>roundTo( 2, AREA )</var>\%</code>.</span>
+                        </strong>
+
+129.23 	 <strong>
+                        The probability of a particular <var>ANIMAL</var> living between
+                        <code class="hint_pink"><var>roundTo( 1, MEAN + STDDEV * Z1 )</var></code> and
+                        <code class="hint_pink"><var>roundTo( 1, MEAN + STDDEV * Z2 )</var></code> years is
+                        <code>\color{green}{<var>roundTo( 2, AREA )</var>\%}</code>.
+                        </strong>
+

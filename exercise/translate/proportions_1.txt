@@ -1,0 +1,79 @@
+285.1 	 Proportions 1
+
+285.2 	 Multiply both sides by <code><var>hint1Multiplier</var></code>
+                </div>
+
+                <div class="col2 forty-sixty">
+                    <p>
+                    <span class="lfrac">
+                        <code>
+                            \color{red}{ <var>hint1Multiplier</var> \times }
+                            \dfrac{<var>numerator1</var>}{<var>denominator1</var>}
+                            =
+                        </code>
+                    </span>
+                    <span class="rfrac">
+                        <code>
+                            \dfrac{<var>numerator2</var>}{<var>denominator2</var>}
+                            \color{red}{ \times <var>hint1Multiplier</var> }
+                        </code>
+                    </span>
+
+                    <br>
+                    <span class="lfrac arrow">&darr;</span>
+                    <br>
+
+                    <span class="lfrac">
+                        <code><var>hint1Product1</var> = </code>
+                    </span>
+                    <span class="rfrac">
+                        <code><var>hint1Product2</var></code>
+                    </span>
+                </div>
+            </div>
+
+            <div data-if="denominator1 === 'x' || denominator2 === 'x'"  style="margin-left:-20px;" class="spinealign">
+                <div class="col1 forty-sixty">
+                    <p>Multiply both sides by <code><var>hint2Multiplier</var></code>
+                </div>
+                <div class="col2 forty-sixty">
+                    <p>
+                        <span class="lfrac">
+                            <code>
+                                \color{red}{ <var>hint2Multiplier</var> \times }
+                                <var>hint1Product1</var> =
+                            </code>
+                        </span>
+                        <span class="rfrac">
+                            <code>
+                            <var>hint1Product2</var>
+                            \color{red}{ \times <var>hint2Multiplier</var> }
+                            </code>
+                        </span>
+
+                        <br><span class="lfrac arrow">&darr;</span>
+                        <br>
+
+                        <span class="lfrac">
+                            <code><var>hint2Product1</var> = </code>
+                        </span>
+                        <span class="rfrac">
+                            <code><var>hint2Product2</var></code>
+                        </span>
+
+285.3 	 <code>x</code> is
+                </div>
+                <div class="col2 forty-sixty">
+                    <p><span class="lfrac"><code>=</code></span>
+                    <span class="rfrac">
+                        <code>\dfrac{<var>solutionNumerator</var>}{<var>solutionDenominator</var>}</code>.
+                    </span>
+
+285.4 	 Solve for <code>x</code>.
+
+285.5 	 <span class="lfrac"><code>\dfrac{<var>numerator1</var>}{<var>denominator1</var>} = </code></span>
+                        <span class="rfrac"><code>\dfrac{<var>numerator2</var>}{<var>denominator2</var>}</code></span>
+
+285.6 	 <code>x =</code>
+                <span class="sol" data-simplify="optional"><var>solutionNumerator / solutionDenominator</var></span>
+

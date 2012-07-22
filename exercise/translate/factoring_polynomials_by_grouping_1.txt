@@ -1,0 +1,37 @@
+161.1 	 Factoring polynomials by grouping 1
+
+161.2 	 Factor the following expression:
+
+161.3 	 <span id="question-a"><code><var>A</var></code></span><code>x^2<span data-if="B > 0">+</span></code>
+                <span id="question-b"><code><var>B</var></code></span><code>x<span data-if="C > 0">+</span></code>
+                <span id="question-c"><code><var>C</var></code></span>
+
+161.4 	 This expression is in the form <code>\blue{A}x^2 + \green{B}x + \pink{C}</code>.
+                        You can factor it by grouping.
+
+161.5 	 First, find two values, <code class="hint_purple">a</code> and
+                        <code class="hint_purple">b</code>, so:
+
+161.6 	 In this case:
+
+161.7 	 In order to find <code>\purple{a}</code> and <code>\purple{b}</code>, list out the factors of
+                    <code><var>A * C</var></code> and add them together.
+                    <span data-if="A * C < 0">
+                        Remember, since <code><var>A * C</var></code> is negative, one of the factors must be
+                        negative.
+                    </span>
+                    The factors that add up to <code>\green{<var>B</var>}</code> will be your
+                    <code>\purple{a}</code> and <code>\purple{b}</code>.
+
+161.8 	 When <code>\purple{a}</code> is <code>\purple{<var>E</var>}</code> and
+                        <code>\purple{b}</code> is <code>\purple{<var>A * F</var>}</code>:
+
+161.9 	 Next, rewrite the expression as <code>\blue{A}x^2 + \purple{a}x + \purple{b}x + \pink{C}</code>:
+
+161.10 	 Group the terms so that there is a common factor in each group:
+
+161.11 	 Factor out the common factors:
+
+161.12 	 Notice how <code>(<var>A</var>x + <var>E</var>)</code> has become a common factor.
+                    Factor this out to find the answer.
+

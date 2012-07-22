@@ -1,0 +1,16 @@
+375.1 	 Triangle Types
+
+375.2 	 We know two angles of this triangle, so we can find the third by subtracting from <code>180</code>
+
+375.4 	 Because all three angles are different, this triangle is scalene.
+
+375.5 	 Two angles are the same, therefore two corresponding sides are as well. Therefore, this triangle is isosceles. Isosceles means a triangle with same (iso) legs (sceles).
+
+375.6 	 All angles equal 60. That means that all the sides are the same and that the triangle is equilateral. (Equilateral means equal(equi) sided(lateral).
+
+375.7 	 Because all three sides are different, this triangle is scalene.
+
+375.8 	 Two sides are the same, therefore, this triangle is isosceles. Isosceles means a triangle with same (iso) legs (sceles).
+
+375.9 	 All sides are the same. That means that all the angles are 60 and that the triangle is equilateral. Equilateral means equal (equi) sided (lateral).
+

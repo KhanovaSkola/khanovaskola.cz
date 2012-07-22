@@ -1,0 +1,8 @@
+31.1 	 Angle Bisector Theorem
+
+31.2 	 Angles <code>DAB</code> and <code>DAC</code> are equal.
+
+31.3 	 Therefore <code>AD</code> is the bisector of <code>CAB</code>
+
+31.4 	 Angle Bisector Theorem states that <code>\dfrac{ AB }{ BD }    = \dfrac{ AC }{ CD }</code>
+

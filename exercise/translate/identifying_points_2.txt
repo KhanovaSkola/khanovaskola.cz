@@ -1,0 +1,22 @@
+191.1 	 Identifying points 2
+
+191.2 	 Which of the following ordered pairs represents a solution to the equation below?
+
+191.6 	 We can try plugging in the x-value of each ordered pair into the equation.
+
+191.7 	 If we evaluate and get the y-value of the ordered pair, then that ordered pair is a solution!
+
+191.8 	 Let's consider <code><var>PAIR( point )</var></code>.
+
+191.9 	 If we plug in <code><var>point[ 0 ]</var></code> for <code>x</code> and evaluate, do we get <code><var>point[ 1 ]</var></code>?
+
+191.11 	 Thus the only ordered pair that is a solution to the equation is <code><var>PAIR( POINTS[ CORRECT ] )</var></code>.
+
+191.12 	 We come to the same answer by plotting the points and the equation.
+
+191.13 	 Which of the following ordered pairs represents a solution to the equation graphed below?
+
+191.16 	 Let's try graphing each of the points.
+
+191.17 	 The only point that falls on the line is <code><var>PAIR( POINTS[ CORRECT ] )</var></code>.
+

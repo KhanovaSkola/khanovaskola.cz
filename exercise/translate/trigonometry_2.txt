@@ -1,0 +1,36 @@
+380.1 	 Trigonometry 2
+
+380.5 	 <code>\overline{AB}</code> is the <b>hypotenuse</b>
+
+380.7 	 SOH CAH TOA
+
+380.8 	 We know the hypotenuse and need to solve for the opposite side so we can use the sine function (SOH)
+
+380.15 	 <code>\overline{AB}</code> is the <b>hypotenuse</b> (note that it is opposite the right angle)
+
+380.16 	 SOH CAH TOA
+
+380.17 	 We know the opposite side and need to solve for the hypotenuse so we can use the sin function (SOH)
+
+380.23 	 <code>\overline{AB}</code> is the <b>hypotenuse</b>
+
+380.25 	 SOH CAH TOA
+
+380.26 	 We know the hypotenuse and need to solve for the adjacent side so we can use the cos function (CAH)
+
+380.33 	 <code>\overline{AB}</code> is the <b>hypotenuse</b> (note that it is opposite the right angle)
+
+380.34 	 SOH CAH TOA
+
+380.35 	 We know the adjacent side and need to solve for the hypotenuse so we can use the cos function (CAH)
+
+380.43 	 SOH CAH TOA
+
+380.44 	 We know the opposite side and need to solve for the adjacent side so we can use the tan function (TOA)
+
+380.48 	 <code>\overline{<var>OPPOSITE_NAME</var>} = </code> ?
+
+380.52 	 SOH CAH TOA
+
+380.53 	 We know the adjacent side and need to solve for the opposite side so we can use the tan function (TOA)
+

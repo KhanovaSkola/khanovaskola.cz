@@ -1,0 +1,22 @@
+95.1 	 Creating box and whisker plots
+
+95.2 	 Represent the following data using a box-and-whiskers plot. Exclude the median when computing the quartiles:
+
+95.3 	 If it helps, you may drag the numbers to put them in a different order. The order isn't checked with your answer.
+                    <var>SORTER.init( "sortable" )</var>
+
+95.4 	 Begin by putting the data in order:
+
+95.6 	 Plot the sample minimum (smallest number):<p>
+            <p><code>\qquad \large{\color{<var>PINK</var>}{<var>MIN</var>}, <var>SORTED_DATA.slice( 1 ).join( ", " )</var>}</code>
+
+95.7 	 Plot the sample maximum (largest number):
+
+95.9 	 Plot the median (middle number):
+
+95.11 	 Plot the first quartile (halfway between the smallest number and the middle number):
+
+95.13 	 Plot the third quartile (halfway between the middle number and the largest number):
+
+95.15 	 Your box-and-whisker plot should look like the example below the number line.
+

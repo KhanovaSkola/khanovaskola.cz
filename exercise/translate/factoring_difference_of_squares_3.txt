@@ -1,0 +1,26 @@
+156.1 	 Factoring difference of squares 3
+
+156.2 	 Factor the following expression:
+
+156.4 	 We can start by factoring a <code>\green{<var>F</var>}</code> out of each term:
+
+156.5 	 The second term is of the form <code>\color{<var>PINK</var>}{a^2} - \color{<var>BLUE</var>}{b^2}</code>,
+                        which is a difference of two squares so we can factor it as
+                        <code>\green{<var>F</var>}(\pink{a} + \blue{b})
+                        (\color{<var>PINK</var>}{a} - \color{<var>BLUE</var>}{b})</code>.
+
+156.6 	 What are the values of <code class="hint_pink">a</code> and <code class="hint_blue">b</code>?
+
+156.7 	 <code class="hint_pink">\qquad a = \sqrt{<var>SQUARE</var>x^2} = <var>A</var>x</code>
+
+156.8 	 <code class="hint_blue">\qquad b = \sqrt{<var>B * B</var>} = <var>B</var></code>
+
+156.9 	 Use the values we found for <code class="hint_pink">a</code> and <code class="hint_blue">b</code>
+                        to complete the factored expression,
+                        <code>\green{<var>F</var>}(\color{<var>PINK</var>}{a} + \color{<var>BLUE</var>}{b})
+                        (\color{<var>PINK</var>}{a} - \color{<var>BLUE</var>}{b})</code>.
+
+156.10 	 So we can factor the expression as:
+                        <code>\green{<var>F</var>}(\color{<var>PINK</var>}{<var>A</var>x} + \color{<var>BLUE</var>}{<var>B</var>})
+                        (\color{<var>PINK</var>}{<var>A</var>x} - \color{<var>BLUE</var>}{<var>B</var>})</code>
+

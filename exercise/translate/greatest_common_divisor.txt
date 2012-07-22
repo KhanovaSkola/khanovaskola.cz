@@ -1,0 +1,18 @@
+188.1 	 Greatest common divisor
+
+188.2 	 What is the greatest common divisor of <var>A</var> and <var>B</var>?
+
+188.3 	 Another way to say this is:
+
+188.6 	 The greatest common divisor is the largest number that is a factor (or divisor) of both <var>A</var> and <var>B</var>.
+
+188.7 	 The only factor (divisor) of 1 is 1.
+
+188.8 	 The factors (divisors) of <var>A</var> are <var>A_FACTORS</var>.
+
+188.9 	 The only factor (divisor) of 1 is 1.
+
+188.10 	 The factors (divisors) of <var>B</var> are <var>B_FACTORS</var>.
+
+188.11 	 Thus, the greatest common divisor of <var>A</var> and <var>B</var> is <var>GCD</var>.
+

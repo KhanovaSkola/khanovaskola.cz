@@ -1,0 +1,16 @@
+48.1 	 Chain rule 1
+
+48.2 	 Let <code><var>NOTATION.f</var> = <var>OUTER.fText</var></code>
+
+48.6 	 The derivative of <code><var>OUTER.fText</var></code> with respect to <code><var>INNER.fText</var></code> is <code><var>OUTER.ddxFText</var></code>.
+
+48.7 	 The derivative of <code><var>INNER.fText</var></code> with respect to <code>x</code> is <code><var>INNER.ddxFText</var></code>.
+
+48.8 	 The derivative at this point is <code><var>expr(UNSIMPLIFIED_DERIVATIVE)</var></code>, but this expression can be simplified.
+
+48.9 	 <code><var>expr( i === 0 ? UNSIMPLIFIED_DERIVATIVE : DERIVATIVE_SIMPLIFICATIONS[i - 1] )</var></code> can be simplified to <code><var>expr(newexpr)</var></code>.
+
+48.10 	 So <code><var>NOTATION.ddxF</var> = <var>DERIVATIVE</var></code>.
+
+48.11 	 Interestingly, if we simplify the function before we take the derivative, we can reach the answer more quickly: <code><var>OUTER.fText</var></code> simplifies to <code><var>expr(PRE_SIMPLIFICATION)</var></code>, and <code>\frac{d}{dx}(<var>expr(PRE_SIMPLIFICATION)</var>)</code> is <code><var>DERIVATIVE</var></code>.
+

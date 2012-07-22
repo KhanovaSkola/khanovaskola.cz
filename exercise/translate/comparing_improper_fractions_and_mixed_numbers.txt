@@ -1,0 +1,46 @@
+62.1 	 Comparing improper fractions and mixed numbers
+
+62.2 	 Fill in the blank.
+
+62.5 	 First, let's convert the mixed number to an improper fraction with the same denominator.
+
+62.6 	 To get the numerator of the improper fraction, multiply the denominator (<strong><var>M_DENOM_REDUCED</var></strong>) by the whole number (<strong><var>WHOLE</var></strong>) and add the numerator (<strong><var>M_NUM_REDUCED</var></strong>).
+
+62.7 	 <strong><code><var>M_DENOM_REDUCED</var> \cdot <var>WHOLE</var>+<var>M_NUM_REDUCED</var> = <var>M_AS_I</var></code></strong>
+
+62.8 	 We can write the mixed number as an improper fraction with numerator <strong><var>M_AS_I</var></strong> and denominator <strong><var>M_DENOM_REDUCED</var></strong>.
+
+62.9 	 Now we need to compare <code><var>fraction ( M_AS_I, M_DENOM_REDUCED, false, true )</var></code> to <code><var>fraction ( I_NUM, I_DENOM, false, true )</var></code>.
+
+62.10 	 It is easier to compare these two fractions when they have the same denominator.
+
+62.11 	 Their smallest common denominator is the LCM of <var>M_DENOM_REDUCED</var> and <var>I_DENOM</var>.
+
+62.13 	 The first fraction <var>BECOMES_1</var> <code>\dfrac{<var>M_AS_I * F1</var>}{<var>LCM</var>}</code>.
+
+62.14 	 The second fraction <var>BECOMES_2</var> <code>\dfrac{<var>I_NUM * F2</var>}{<var>LCM</var>}</code>.
+
+62.15 	 We see that <code>\dfrac{<var>M_AS_I * F1</var>}{<var>LCM</var>} <var>SOLUTION</var> \dfrac{<var>I_NUM * F2</var>}{<var>LCM</var>}</code>.
+
+62.16 	 Fill in the blank.
+
+62.19 	 First, let's convert the mixed number to an improper fraction with the same denominator.
+
+62.20 	 To get the numerator of the improper fraction, multiply the denominator (<strong><var>M_DENOM_REDUCED</var></strong>) by the whole number (<strong><var>WHOLE</var></strong>) and add the numerator (<strong><var>M_NUM_REDUCED</var></strong>).
+
+62.21 	 <strong><code><var>M_DENOM_REDUCED</var>\cdot<var>WHOLE</var>+<var>M_NUM_REDUCED</var> = <var>M_AS_I</var></code></strong>
+
+62.22 	 We can write the mixed number as an improper fraction with numerator <strong><var>M_AS_I</var></strong> and denominator <strong><var>M_DENOM_REDUCED</var></strong>.
+
+62.23 	 Now we need to compare <code><var>fraction ( M_AS_I, M_DENOM_REDUCED, false, true )</var></code> to <code><var>fraction ( I_NUM, I_DENOM, false, true )</var></code>.
+
+62.24 	 It is easier to compare these two fractions when they have the same denominator.
+
+62.25 	 Their smallest common denominator is the LCM of <var>M_DENOM_REDUCED</var> and <var>I_DENOM</var>.
+
+62.27 	 The first fraction <var>BECOMES_1</var> <code>\dfrac{<var>M_AS_I * F1</var>}{<var>LCM</var>}</code>.
+
+62.28 	 The second fraction <var>BECOMES_2</var> <code>\dfrac{<var>I_NUM * F2</var>}{<var>LCM</var>}</code>.
+
+62.29 	 We see that <code>\dfrac{<var>M_AS_I * F1</var>}{<var>LCM</var>} <var>SOLUTION</var> \dfrac{<var>I_NUM * F2</var>}{<var>LCM</var>}</code>.
+

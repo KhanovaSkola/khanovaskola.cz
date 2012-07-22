@@ -1,0 +1,26 @@
+206.1 	 L'Hôpital's rule
+
+206.4 	 L'Hopital's rule states that since evaluating
+                        <!-- Original problem -->
+                        <code>\displaystyle \lim_{x \to <var>APPROACHES_TEXT</var>} \frac{<var>NUMERATOR</var>}{<var>DENOMINATOR</var>} = <var>INDETERMINATE_FORM</var></code>,<br />
+                        <!-- Explanation of rule -->
+                        if <code>\displaystyle \lim_{x \to <var>APPROACHES_TEXT</var>} \frac{\frac{d}{dx} (<var>NUMERATOR</var>)}{\frac{d}{dx} (<var>DENOMINATOR</var>)}</code> exists, evaluating it will give us the actual limit.
+
+206.5 	 Repeat this process until evaluating the limit will not result in an indeterminate form:
+
+206.6 	 Since evaluating the limit at this point still results in <code><var>INDETERMINATE_FORM</var></code>, we must apply L'Hopital's rule again:
+
+206.8 	 <!-- Restate the problem using the derived, but unevaluated limit-->
+                        Evaluate the limit:
+                        <code>
+                            \displaystyle \lim_{x \to <var>APPROACHES_TEXT</var>} \frac{<var>SLN_NUMERATOR_TEXT.text()</var>}{<var>SLN_DENOMINATOR_TEXT.text()</var>}
+                            <!-- Show the evaluation of the limit (only necessary for x->0, otherwise evaluation is obvious because all variables will be gone) -->
+                            <span data-if="APPROACHES === 0">
+                                = \frac{<var>SLN_NUMERATOR_TEXT.text().replace("x", "(0)")</var>}{<var>SLN_DENOMINATOR_TEXT.text().replace("x", "(0)")</var>} =
+                                <!-- Give the unsimplified answer -->
+                                \frac{<var>SLN_NUMERATOR</var>}{<var>SLN_DENOMINATOR</var>}
+                            </span>
+                            <!-- Give the simplified answer, if necessary -->
+                            <span data-if="SLN_SIMPLIFIES">= <var>fractionReduce( SLN_NUMERATOR, SLN_DENOMINATOR )</var></span>
+                        </code>
+

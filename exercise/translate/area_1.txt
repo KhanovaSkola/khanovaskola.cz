@@ -1,0 +1,37 @@
+36.1 	 Area 1
+
+36.2 	 What is the area of the square?
+
+36.3 	 The area is the length times the width.
+
+36.4 	 The length is <var>plural(S, UNIT_TEXT)</var> and
+                        the width is <var>plural(S, UNIT_TEXT)</var>, so the
+                        area is <code><var>S</var>\times<var>S</var></code>
+                        square <var>plural(UNIT_TEXT)</var>.
+
+36.6 	 We can also count <var>S * S</var>
+                        square <var>plural(UNIT_TEXT)</var>.
+
+36.7 	 What is the area of the rectangle?
+
+36.8 	 The area is the length times the width.
+
+36.9 	 The length is <var>plural(L, UNIT_TEXT)</var> and
+                        the width is <var>plural(W, UNIT_TEXT)</var>, so the
+                        area is <code><var>L</var>\times<var>W</var></code>
+                        square <var>plural(UNIT_TEXT)</var>.
+
+36.11 	 We can also count <var>L * W</var>
+                        square <var>plural(UNIT_TEXT)</var>.
+
+36.12 	 What is the area of the shape? Each square in the grid is a
+                <code>1 \times 1</code> <var>UNIT_TEXT</var> square.
+
+36.13 	 The area is the number of <code>1 \times 1</code> squares
+                    the shape covers.
+
+36.14 	 Count the number of squares covered.
+
+36.15 	 The area is <code><var>SHAPE.area</var></code> square
+                    <var>plural(UNIT_TEXT)</var>.
+

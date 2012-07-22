@@ -1,0 +1,8 @@
+1.1 	 Absolute value
+
+1.2 	 What is <code>\lvert <var>SIGN + INT + FRAC</var> \rvert</code>?
+
+1.3 	 The distance from <code>0</code> to <code><var>SIGN + INT + FRAC</var></code> is <code><var>INT + FRAC</var></code>, which equals the absolute value.
+
+1.4 	 In other words, <code><var>INT + FRAC</var></code> is the non-negative version of <code><var>SIGN + INT + FRAC</var></code>.
+

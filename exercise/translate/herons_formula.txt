@@ -1,0 +1,6 @@
+189.1 	 Heron's formula
+
+189.2 	 We know all sides of this triangle, so we can use Heron's formula to calculate the area.
+
+189.3 	 Heron's formula states that the area of a triangle <code>A=\sqrt{s(s-a)(s-b)(s-c)}</code>
+

@@ -1,0 +1,16 @@
+294.1 	 Radians to degrees
+
+294.2 	 Convert the angle <code><var>COMMON_RADIANS</var></code> radians into degrees.
+
+294.3 	 <span class="sol" data-forms="integer"><var>COMMON_DEGREES</var></span><code>\Large{^\circ}</code>
+
+294.4 	 To convert from radians to degrees, you multiply by <code>180^{\circ}</code> and then divide by <code>\pi</code>.
+
+294.7 	 Convert the angle <var>NUM_RADIANS</var> radians into degrees. (Round to the nearest degree.)
+
+294.8 	 <span class="sol" data-forms="integer"><var>NUM_DEGREES</var></span><code>\Large{^\circ}</code>
+
+294.9 	 To convert from radians to degrees, you multiply by <code>180^{\circ}</code> and then divide by <code>\pi</code>.
+
+294.11 	 <code><var>NUM_DEGREES</var>^{\circ}</code> (round to nearest integer here)
+

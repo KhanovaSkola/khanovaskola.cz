@@ -1,0 +1,77 @@
+73.1 	 Congruency Postulates
+
+73.2 	 <strong>Is <em><var>NAME</var></em> a triangle congruency postulate?</strong><br />
+                    Answer the question by clicking and dragging the points below to see how many different triangles you can construct.<br />
+                    If you can only construct congruent triangles, then the <var>NAME</var> postulate is true. The <var>NAME</var> postulate is not true if you can construct two or more different triangles using the given information.
+
+73.3 	 To be a congruency postulate, there must be one, <em>and only one</em>, way to make a triangle
+                        that's the same as the original triangle&mdash;except for being moved, rotated, or reflected.
+
+73.4 	 With the constraints of <var>NAME</var>, there is exactly one way to make a triangle.
+
+73.5 	 <strong><var>NAME</var> is a congruency postulate.</strong> Be sure to construct the congruent triangle and think
+                        about why you're only able to construct the triangle in one way.
+
+73.6 	 With the constraints of <var>NAME</var>, there is more than one way to construct a triangle. See if you can find both ways.
+
+73.7 	 Both of these triangles have the same adjacent Side, Side, and Angle, but they are not congruent:
+                        <div class="graphie">
+                            var triangle = new Triangle( [ 0, 0 ], ANGLES, SCALE, {} );
+                            triangle.rotate( -ANGLES[1] );
+                            init({ range: triangle.boundingRange( 0.4 ) });
+                            addMouseLayer();
+                            style({ stroke: "#b1c9f5", "stroke-width": 5 });
+                            path( [ lineMidpoint( triangle.sides[ 2 ] ), triangle.points[2], triangle.points[1], triangle.points[0], lineMidpoint( triangle.sides[ 2 ] ) ] );
+                            addTriangleDecorations( triangle, TYPE );
+                            KhanUtil.currentGraph = $( "div#triangles" ).data().graphie
+                        </div>
+                        <div class="graphie">
+                            var points = [
+                                [
+                                    TRIANGLE.sideLengths[ 1 ] - cos( ( 180 - ( 180 - ANGLES[ 0 ] ) - ANGLES[ 2 ] ) * PI / 180 ) * TRIANGLE.sideLengths[ 0 ],
+                                    -sin( ( 180 - ( 180 - ANGLES[ 0 ] ) - ANGLES[ 2 ] ) * PI / 180 ) * TRIANGLE.sideLengths[ 0 ]
+                                ],
+                                [ TRIANGLE.sideLengths[ 1 ], 0 ],
+                                [ 0, 0 ]
+                            ];
+                            var triangle = new Triangle( [], [], 0, {}, points );
+                            init({ range: triangle.boundingRange( 0.4 ) });
+                            addMouseLayer();
+                            style({ stroke: "#b1c9f5", "stroke-width": 5 });
+                            path( [ lineMidpoint( triangle.sides[ 2 ] ), triangle.points[2], triangle.points[1], triangle.points[0], lineMidpoint( triangle.sides[ 2 ] ) ] );
+                            addTriangleDecorations( triangle, TYPE );
+                            KhanUtil.currentGraph = $( "div#triangles" ).data().graphie
+                        </div>
+                    </div>
+                    <p data-if="TYPE === 'SSA'">
+                        Because we can create two triangles that are not congruent, we can show by counterexample that
+                        <strong>Side-Side-Angle is not a congruency postulate.</strong> Be sure to construct the incongruent triangle above to prove it.
+
+73.8 	 With the constraints of <var>NAME</var>, there is more than one way to construct a triangle. See if you can find some different ways.
+
+73.9 	 Both of these triangles have the same three angles, but they are not congruent (just similar):
+                        <div class="graphie" style="float: left">
+                            style({ stroke: "#b1c9f5", "stroke-width": 5 });
+                            init({ range: TRIANGLE.boundingRange( 0.4 ) });
+                            addMouseLayer();
+                            style({ stroke: "#b1c9f5", "stroke-width": 5 });
+                            path( [ lineMidpoint( TRIANGLE.sides[ 2 ] ), TRIANGLE.points[2], TRIANGLE.points[1], TRIANGLE.points[0], lineMidpoint( TRIANGLE.sides[ 2 ] ) ] );
+                            addTriangleDecorations( TRIANGLE, TYPE );
+                            KhanUtil.currentGraph = $( "div#triangles" ).data().graphie
+                        </div>
+                        <div class="graphie" style="float: left">
+                            var triangle = new Triangle( [ 0, 0 ], ANGLES, SCALE - 4, {} );
+                            triangle.rotate( ROTATION );
+                            style({ stroke: "#b1c9f5", "stroke-width": 5 });
+                            init({ range: triangle.boundingRange( 0.4 ) });
+                            addMouseLayer();
+                            style({ stroke: "#b1c9f5", "stroke-width": 5 });
+                            path( [ lineMidpoint( triangle.sides[ 2 ] ), triangle.points[2], triangle.points[1], triangle.points[0], lineMidpoint( triangle.sides[ 2 ] ) ] );
+                            addTriangleDecorations( triangle, TYPE );
+                            KhanUtil.currentGraph = $( "div#triangles" ).data().graphie
+                        </div>
+                    </div>
+                    <p data-if="TYPE === 'AAA'" style="clear: left">
+                        Because we can create triangles that are not congruent, we can show by counterexample that
+                        <strong>Angle-Angle-Angle is not a congruency postulate.</strong> Be sure to construct an incongruent triangle above to prove it.
+

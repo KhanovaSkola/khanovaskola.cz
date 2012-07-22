@@ -1,0 +1,13 @@
+223.1 	 Measuring angles
+
+223.2 	 First, align the origin of the protractor with the vertex of the angle.
+                    <button onClick="javascript: KhanUtil.currentGraph.graph.protractor.moveTo( 0, 0 ); ">Show me</button>
+
+223.3 	 Next, rotate the protractor so that the <code>0^{\circ}</code> mark lines up with one side of the angle.
+                    <button onClick="javascript:
+                        KhanUtil.currentGraph.graph.protractor.moveTo( 0, 0 );
+                        KhanUtil.currentGraph.graph.protractor.rotateTo( 360 - KhanUtil.tmpl.getVAR('ANGLE_ONE') );
+                    ">Show me</button>
+
+223.4 	 The angle is <code><var>DIFF</var></code> degrees.
+

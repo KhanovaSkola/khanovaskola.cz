@@ -1,0 +1,10 @@
+179.1 	 Graphing parabolas 0.5
+
+179.2 	 Graph the following equation:
+
+179.4 	 Create a table of <code class="hint_green">x</code> and <code class="hint_pink">y</code> values by plugging different values of
+                        <code class="hint_green">x</code> into the equation and plot each value:
+
+179.5 	 There is only one graph of a parabola that passes through all of the <code>(\color{<var>GREEN</var>}{x}, \color{<var>PINK</var>}{y})</code> points we plotted.
+                        <br /><input type="button" value="Show me" onClick="javascript:KhanUtil.currentGraph.graph.showSolution();" />
+

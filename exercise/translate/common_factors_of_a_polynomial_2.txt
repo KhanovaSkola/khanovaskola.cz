@@ -1,0 +1,4 @@
+58.1 	 Common factors of a polynomial 2
+
+58.2 	 Factor the following expression by finding the common factors of its terms:
+

@@ -1,0 +1,14 @@
+298.1 	 Rate problems 0.5
+
+298.2 	 If <var>person( 1 )</var> can <var>VERB</var> <var>RATE</var> <var>NOUN</var>s per <var>TIME_UNIT</var>, how many <var>TIME_UNIT</var>s will it take <var>him( 1 )</var> to <var>VERB</var> <span data-if="INDEX !== 3">a </span> <var>PROJECT1</var>?
+
+298.3 	 <span class="sol" data-forms="integer"><var>TIME</var></span> <var>TIME_UNIT</var>s
+
+298.9 	 If <var>person( 1 )</var> can <var>VERB</var> <var>RATE</var> <var>NOUN</var>s per <var>TIME_UNIT</var> and it took <var>him( 1 )</var> <var>TIME</var> <var>TIME_UNIT</var>s to <var>VERB</var> <var>his( 1 )</var> <var>PROJECT2</var>, how many <var>NOUN</var>s did the <var>PROJECT3</var> have?
+
+298.10 	 <span class="sol" data-forms="integer"><var>AMOUNT</var></span> <var>NOUN</var>s
+
+298.15 	 If <var>person( 1 )</var> can <var>VERB</var> <span data-if="INDEX !== 3">a </span><var>PROJECT1</var> in <var>TIME</var> <var>TIME_UNIT</var>s, how many <var>NOUN</var>s per <var>TIME_UNIT</var> can <var>he( 1 )</var> <var>VERB</var>?
+
+298.16 	 <span class="sol" data-forms="integer"><var>RATE</var></span> <var>NOUN</var>s per <var>TIME_UNIT</var>
+

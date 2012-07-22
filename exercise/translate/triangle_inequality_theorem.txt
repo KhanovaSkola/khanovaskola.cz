@@ -1,0 +1,24 @@
+374.1 	 Triangle Inequality Theorem
+
+374.2 	 <span class="sol"><var>MIN</var></span> <code>&lt; x &lt;</code> <span class="sol"><var>MAX</var></span>
+
+374.3 	 The triangle inequality theorem states that any side of a triangle is always shorter than the sum of the other two sides.
+
+374.4 	 Therefore the the third side must be less than <code><var>KNOWN[ 0 ]</var> + <var>KNOWN[ 1 ]</var> = <var>MAX</var></code>
+
+374.5 	 By the same theorem, the third side must be also larger than the difference between the other two sides.
+
+374.6 	 Therefore the third side must be larger than <code><var>KNOWN[0] &lt; KNOWN[1] ? KNOWN[1] : KNOWN[0]</var> - <var>KNOWN[0] &lt; KNOWN[1] ? KNOWN[0] : KNOWN[1]</var> = <var>MIN</var></code>
+
+374.7 	 So <code><var>MIN</var> &lt; x &lt; <var>MAX</var></code>
+
+374.8 	 Triangle inequality theorem states that a side must be smaller than the sum of the other two sides.
+
+374.9 	 Let's check for all three sides:
+
+374.11 	 <code><var>MAIN[ 1 ][ ( i + 2 ) % 3 ]</var></code> is <span data-if="parseFloat( MAIN[ 1 ][ ( i + 2 ) % 3 ] ) >= ( parseFloat( MAIN[ 1 ][ i ] ) + parseFloat( MAIN[ 1 ][ ( i + 1 ) % 3  ] ) ) ">not</span> smaller than <code><var>( parseFloat( MAIN[ 1 ][ i ] ) + parseFloat( MAIN[ 1 ][ ( i + 1 ) % 3  ] ) ).toFixed( 1 )</var></code> so the theorem <span data-if="parseFloat( MAIN[ 1 ][ ( i + 2 ) % 3 ] ) >= ( parseFloat( MAIN[ 1 ][ i ] ) + parseFloat( MAIN[ 1 ][ ( i + 1 ) % 3  ] ) )">does not hold</span><span data-else>holds</span>.
+
+374.12 	 All three sides conform to the inequality theorem, so this triangle can exist.
+
+374.13 	 Not all three sides conform to the inequality theorem, so this triangle cannot exist.
+

@@ -1,0 +1,22 @@
+109.1 	 Dividing complex numbers
+
+109.2 	 Divide the following complex numbers. You can round the real and imaginary parts of the result to 2 decimal digits.
+
+109.4 	 Complex number division is converted to complex multiplication using the denominator's complex conjugate.
+
+109.6 	 The denominator is simplified by <code>(a + b) \cdot (a - b) = a^2 - b^2</code>.
+
+109.7 	 Note that the denominator now doesn't contain any imaginary unit multiples, so it is a real number, simplifying the problem to complex number multiplication.<br />
+
+109.8 	 The squares in the denominator are evaluated and subtracted.
+
+109.9 	 Afterwards, the numerator is multiplied using the distributive property.
+
+109.10 	 All multiplications are evaluated.
+
+109.11 	 Finally, the fraction is simplified.
+
+109.12 	 The real part of the result is <code><var>REAL_FRACTION</var></code>, which is (rounded to 2 decimal places) <code><var>ANSWER_REAL</var></code>.
+
+109.13 	 The imaginary part of the result is <code><var>IMAG_FRACTION</var></code>, which is (rounded to 2 decimal places) <code><var>ANSWER_IMAG</var></code>.
+

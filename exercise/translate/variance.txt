@@ -1,0 +1,75 @@
+386.1 	 Variance
+
+386.2 	 You have found the following ages (in years) of all <var>plural( DATA_POINTS, animal( 1 ) )</var> at your local zoo:
+
+386.4 	 What is the average age of the <var>plural( animal( 1 ) )</var> at your zoo? What is the variance?
+                    You may round your answers to the nearest tenth.
+
+386.5 	 Average age:
+                        <span class="sol short" data-type="decimal" data-inexact data-max-error="0.15"><var>mean( DATA )</var></span> years old
+
+386.6 	 Variance:
+                        <span class="sol short" data-type="decimal" data-inexact data-max-error="0.15"><var>sum( SQR_DEV ) / DATA_POINTS</var></span> years<code>^2</code>
+
+386.7 	 Because we have data for all <var>plural( DATA_POINTS, animal( 1 ) )</var> at the zoo, we are able
+                        to calculate the <span class="hint_blue">population mean</span>
+                        <code>(\color{<var>BLUE</var>}{\mu})</code> and
+                        <span class="hint_pink">population variance</span> <code>(\color{<var>PINK</var>}{\sigma^2})</code>.
+
+386.8 	 To find the <span class="hint_blue">population mean</span>, add up the values of all <code class="hint_green"><var>DATA_POINTS</var></code>
+                            ages and divide by <code class="hint_green"><var>DATA_POINTS</var></code>.
+
+386.11 	 Find the <span class="hint_purple">squared deviations from the mean</span> for each <var>animal(1)</var>.
+
+386.12 	 Because we used the <span class="hint_blue">population mean</span><code>(\color{<var>BLUE</var>}{\mu})</code> to compute the
+                            <span class="hint_purple">squared deviations from the mean</span>, we can find the <span class="hint_red">variance</span>
+                            <code>(\color{red}{\sigma^2})</code>, without introducing any bias, by simply averaging the
+                            <span class="hint_purple">squared deviations from the mean</span>:
+
+386.16 	 <strong>
+                        The average <var>animal( 1 )</var> at the zoo is <var>plural( MEAN, "year" )</var> old, and the population variance
+                        is <var>plural( VARIANCE_POP, "year" )</var><code>^2</code>.
+                    </strong>
+
+386.17 	 You have found the following ages (in years) of <var>plural( DATA_POINTS, animal( 1 ) )</var>
+                        randomly selected from the <var>plural( POPULATION, animal( 1 ) )</var> at your local zoo:
+
+386.19 	 Based on your sample, what is the average age of the <var>plural( animal( 1 ) )</var>? What is the variance?
+                    You may round your answers to the nearest tenth.
+
+386.20 	 Average age:
+                        <span class="sol short" data-type="decimal" data-inexact data-max-error="0.15"><var>mean( DATA )</var></span> years old
+
+386.21 	 Variance:
+                        <span class="sol short" data-type="decimal" data-inexact data-max-error="0.15"><var>sum( SQR_DEV ) / ( DATA_POINTS - 1 )</var></span> years<code>^2</code>
+
+386.22 	 Because we only have data for a small sample of the <var>plural( POPULATION, animal( 1 ) )</var>, we are only able
+                        to estimate the population mean and variance by finding the <span class="hint_blue">sample mean</span>
+                        <code>(\color{<var>BLUE</var>}{\overline{x}})</code> and
+                        <span class="hint_pink">sample variance</span> <code>(\color{<var>PINK</var>}{s^2})</code>.
+
+386.23 	 To find the <span class="hint_blue">sample mean</span>, add up the values of all <code class="hint_green"><var>DATA_POINTS</var></code>
+                            samples and divide by <code class="hint_green"><var>DATA_POINTS</var></code>.
+
+386.26 	 Find the <span class="hint_purple">squared deviations from the mean</span> for each sample. Since we don't know the
+                        population mean, estimate the mean by using the <span class="hint_blue">sample mean</span> we just calculated
+                        <code>(\color{<var>BLUE</var>}{\overline{x}} = \color{<var>BLUE</var>}{<var>MEAN</var>\text{ <var>plural( "year", MEAN )</var>}})</code>.
+
+386.27 	 Normally we can find the variance <code>(\color{red}{s^2})</code> by averaging the
+                            <span class="hint_purple">squared deviations from the mean</span>. But remember we don't know the real
+                            population mean&mdash;we had to estimate it by using the <span class="hint_blue">sample mean</span>.
+
+386.28 	 The age of any particular <var>animal( 1 )</var> in our sample is likely to be closer to the average age
+                            of the <var>plural( DATA_POINTS, animal( 1 ) )</var> we sampled than it is to the average age
+                            of all <var>plural( POPULATION, animal( 1 ) )</var> in the zoo.
+                            Because of that, the <span class="hint_purple">squared deviations from the mean</span> we calculated will
+                            probably underestimate the actual deviations from the population mean.
+
+386.29 	 To compensate for this underestimation, rather than simply averaging the <span class="hint_purple">squared deviations from the mean</span>,
+                            we total them and divide by <code class="hint_green">n - 1</code>.
+
+386.33 	 <strong>
+                        We can estimate that the average <var>animal( 1 )</var> at the zoo is <var>plural( MEAN, "year" )</var> old with a variance
+                        of <var>plural( VARIANCE, "year" )</var><code>^2</code>.
+                    </strong>
+
