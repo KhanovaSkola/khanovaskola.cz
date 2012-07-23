@@ -1,0 +1,20 @@
+82.1	 Převádění desetinných čísel na zlomky 1
+
+82.2	 Vyjádřete <code><var>D.toFixed(1)</var></code> jako zlomek.
+
+82.4	 Číslo <code><var>T</var></code> je na místě desetin, máme <var>plural(T, "desetinu", "desetiny", "desetin")</var>.
+
+82.5	 <var>plural(T, "desetinu", "desetiny", "desetin")</var> můžeme zapsat jako <code><var>fraction( T, 10 )</var></code>.
+
+82.6	 Vyjádřete <code><var>D.toFixed( 2 )</var></code> jako zlomek.
+
+82.8	 Číslo <code><var>T</var></code> je na místě desetin, máme <var>plural(T, "desetinu", "desetiny", "desetin")</var>.
+
+82.9	 <var>plural(T, "desetinu", "desetiny", "desetin")</var> můžeme zapsat jako <code><var>fraction( T, 10 )</var></code>.
+
+82.10	 Číslo <code><var>H</var></code> je na místě setin, máme <var>plural(H, "setinu", "setiny", "setin")</var>.
+
+82.11	 <var>plural(H, "setinu", "setiny", "setin")</var> můžeme zapsat jako <code><var>fraction( H, 100 )</var></code>.
+
+82.12	 Sečtěte obě části dohromady.
+

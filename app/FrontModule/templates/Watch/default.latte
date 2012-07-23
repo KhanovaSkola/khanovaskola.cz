@@ -7,6 +7,11 @@
 		<a n:href=":Front:Browse:, id => $video->getCategory()->id">{$video->getCategory()->label}</span>
 	</span>
 {/#}
+{*
+{#head}
+<script type="text/javascript" src="http://s3.www.universalsubtitles.org/js/unisubs-widgetizer.js"></script>
+{/#}
+*}
 {#content}
 <article id="video-page">
 <div class="video" data-role="page" data-theme="b">
@@ -32,19 +37,40 @@
             <div class="video-overlay desktop-only large-font"></div>
             <div id="youtube_blocked" class="desktop-only"></div>
             <div class="youtube-video">
-                <link itemprop="thumbnailUrl" href="http://img.youtube.com/vi/AuX7nPBqDts/hqdefault.jpg">
+                <link itemprop="thumbnailUrl" href="http://img.youtube.com/vi/{$video->youtube_id}/hqdefault.jpg">
+				{*<object width="800" height="480">
+					<param name="movie"
+						   value="https://www.youtube.com/v/{$video->youtube_id}?version=3&autoplay=0&modestbranding=1"></param>
+					<param name="allowScriptAccess" value="always"></param>
+					<embed src="https://www.youtube.com/v/{$video->youtube_id}?version=3&autoplay=0&modestbranding=1"
+						   type="application/x-shockwave-flash"
+						   allowscriptaccess="always"
+						   width="800" height="480"></embed>
+				</object>*}
+				<script type="text/javascript" src="http://s3.www.universalsubtitles.org/embed.js">
+				({
+					video_url: "http://www.youtube.com/watch?v={!$video->youtube_id}",
+					base_state: {"language": "cs"},
+					video_config: {
+						width: "800",
+						height: "480",
+						modestbranding: "1",
+						autoplay: "1",
+					}
+				})
+				</script>
+				{*
+				<iframe id="iframePlayer"
+					type="text/html"
+					width="800"
+					height="480"
+					data-youtubeid="{$video->youtube_id}"
+					src="http://www.youtube.com/embed/{$video->youtube_id}?enablejsapi=1&wmode=transparent&modestbranding=1&rel=0&origin=http://khan.l/&fs=1"
+					frameborder="0"
 
-<iframe id="iframePlayer"
-    type="text/html"
-    width="800"
-    height="480"
-    data-youtubeid="{$video->youtube_id}"
-    src="http://www.youtube.com/embed/{$video->youtube_id}?enablejsapi=1&wmode=transparent&modestbranding=1&rel=0&origin=http://www.khanovaskola.cz&fs=1"
-    frameborder="0"
-    
-    allowfullscreen
-    webkitallowfullscreen
-    mozallowfullscreen></iframe>
+					allowfullscreen
+					webkitallowfullscreen
+					mozallowfullscreen></iframe>*}
                 <div class="socrates-nav"></div>
                 <div class="subtitles-warning desktop-only">
                     &lArr; Use this menu to view and help create subtitles for this video in many different languages.
