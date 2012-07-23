@@ -1,0 +1,4 @@
+19.1	 Sčítání 1
+
+19.2	 Máme <var>plural(A, "modrou tečku", "modré tečky", "modrých teček")</var> a <var>plural(B, "zelenou tečku", "zelené tečky", "zelených teček")</var>, tedy dohromady <var>A + B</var> <var>plural(A+B, "tečku", "tečky", "teček")</var>.
+

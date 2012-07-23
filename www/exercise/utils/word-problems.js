@@ -49,7 +49,17 @@ $.extend(KhanUtil, {
     //        - return "word"
     // - plural(singular, plural, NUMBER):
     //        - return "word"
-    plural: (function() {
+    plural: (function(count, singular, plural24, plural5) {
+		return function(count, singular, plural24, plural5) {
+			if (count == 1) {
+				return count + " " + singular;
+			} else if (count > 1 && count < 5) {
+				return count + " " + plural24;
+			} else {
+				return count + " " + plural5;
+			}
+		};
+		
         var oneOffs = {
             "quiz": "quizzes",
             "shelf": "shelves",

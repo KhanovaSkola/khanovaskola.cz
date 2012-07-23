@@ -19,7 +19,7 @@ class ExercisePresenter extends BaseFrontPresenter
 	{
 		$exercises = [];
 		
-		foreach (scandir(WWW_DIR . '/exercise/exercises') as $file) {
+		foreach (scandir(WWW_DIR . '/exercise/translated') as $file) {
 			if (in_array($file, ['.', '..', 'khan-site.html', 'khan-excercise.html'])) {
 				continue;
 			}

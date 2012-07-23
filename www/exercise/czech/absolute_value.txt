@@ -1,0 +1,8 @@
+1.1	 Absolutní hodnota
+
+1.2	 Kolik je <code>\lvert <var>SIGN + INT + FRAC</var> \rvert</code>?
+
+1.3	 Vzdálenost od <code>0</code> k <code><var>SIGN + INT + FRAC</var></code> je <code><var>INT + FRAC</var></code>, což se rovná absolutní hodnotě.
+
+1.4	 Jinými slovy, <code><var>INT + FRAC</var></code> je nezáporná verze <code><var>SIGN + INT + FRAC</var></code>.
+

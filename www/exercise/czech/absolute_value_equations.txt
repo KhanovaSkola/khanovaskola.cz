@@ -1,0 +1,24 @@
+2.1	 Rovnice s absolutní hodnotou
+
+2.2	 Řešte pro <code>x</code>:
+
+2.4	 Odečtěte <code><var>C</var>|x|</code> od obou stran:
+
+2.7	 <var>B > 0 ? "Odečtěte" : "Přičtěte"</var> <code><var>abs(B)</var></code> <var>B > 0 ? "od" : "k"</var> oběma stranám:
+
+2.10	 Vydělte obě strany <code><var>A - C</var></code>.
+
+2.12	 Zjednodušte.
+
+2.14	 Odečtěte <code><var>A</var>|x|</code> od obou stran:
+
+2.17	 <var>D > 0 ? "Odečtěte" : "Přičtěte"</var> <code><var>abs(D)</var></code> <var>D > 0 ? "od" : "k"</var> oběma stranám:
+
+2.20	 Vydělte obě strany <code><var>C - A</var></code>.
+
+2.22	 Zjednoduště.
+
+2.24	 Správná odpověď je tedy <var>SOLUTION</var>.
+
+2.25	 Absolutní hodnota nemůže být záporná. Řešení tedy neexistuje.
+

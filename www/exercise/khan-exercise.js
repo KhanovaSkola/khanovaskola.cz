@@ -696,7 +696,7 @@ var Khan = (function() {
         },
 
         showSolutionButtonText: function() {
-            return hintsUsed ? "Show next step (" + hints.length + " left)" : "Show Solution";
+            return hintsUsed ? "Ukázat další krok (zbývá " + hints.length + ")" : "Ukázat řešení";
         }
 
     };
@@ -881,14 +881,14 @@ var Khan = (function() {
         $("#check-answer-button")
             .removeAttr("disabled")
             .removeClass("buttonDisabled")
-            .val("Check Answer");
+            .val("Zkontrolovat odpověď");
     }
 
     function disableCheckAnswer() {
         $("#check-answer-button")
             .attr("disabled", "disabled")
             .addClass("buttonDisabled")
-            .val("Please wait...");
+            .val("Prosím počkejte…");
     }
 
     function isExerciseLoaded(exerciseId) {
@@ -1338,15 +1338,15 @@ var Khan = (function() {
 
         if (typeof userExercise !== "undefined" && userExercise.readOnly) {
             if (!userExercise.current) {
-                warn("This exercise may have changed since it was completed", true);
+                warn("Cvičení se od vyplnění mohlo změnit", true);
             }
 
             var timelineEvents, timeline;
 
             var timelinecontainer = $("<div id='timelinecontainer'>")
                 .append("<div>\n" +
-                        "<div id='previous-problem' class='simple-button'>Previous Problem</div>\n" +
-                        "<div id='previous-step' class='simple-button'><span>Previous Step</span></div>\n" +
+                        "<div id='previous-problem' class='simple-button'>Předchozí problém</div>\n" +
+                        "<div id='previous-step' class='simple-button'><span>Předchozí krok</span></div>\n" +
                         "</div>")
                 .insertBefore("#problem-and-answer");
 
@@ -1377,8 +1377,8 @@ var Khan = (function() {
 
             timelinecontainer
                 .append("<div>\n" +
-                        "<div id='next-problem' class='simple-button'>Next Problem</div>\n" +
-                        "<div id='next-step' class='simple-button'><span>Next Step</span></div>\n" +
+                        "<div id='next-problem' class='simple-button'>Další problém</div>\n" +
+                        "<div id='next-step' class='simple-button'><span>Další krok</span></div>\n" +
                         "</div>");
 
             $("<div class='user-activity correct-activity'>Started</div>")
@@ -1404,10 +1404,10 @@ var Khan = (function() {
                     .appendTo(timelineEvents);
 
                 if (value[0] === "hint-activity") {
-                    thissolutionarea.attr("title", "Hint used");
+                    thissolutionarea.attr("title", "Nápověda použita");
                     thissolutionarea
                         .data("hint", hintNumber)
-                        .prepend("Hint #" + (hintNumber + 1));
+                        .prepend("Nápověda #" + (hintNumber + 1));
                     hintNumber += 1;
                 } else { // This panel is a solution (or the first panel)
                     thissolutionarea.data("hint", false);
@@ -1425,9 +1425,9 @@ var Khan = (function() {
                                     .removeClass("incorrect-activity")
                                     .addClass("correct-activity");
 
-                                thissolutionarea.attr("title", "Correct Answer");
+                                thissolutionarea.attr("title", "Správná odpověď");
                             } else {
-                                thissolutionarea.attr("title", "Incorrect Answer");
+                                thissolutionarea.attr("title", "Špatná odpověď");
                             }
                         } else {
                             var thisValidator = Khan.answerTypes[answerType](thissolutionarea, solution);
@@ -1441,12 +1441,12 @@ var Khan = (function() {
                                     .removeClass("incorrect-activity")
                                     .addClass("correct-activity");
 
-                                thissolutionarea.attr("title", "Correct Answer");
+                                thissolutionarea.attr("title", "Správná odpověď");
                             } else {
                                 thissolutionarea
                                     .removeClass("correct-activity")
                                     .addClass("incorrect-activity");
-                                thissolutionarea.attr("title", "Incorrect Answer");
+                                thissolutionarea.attr("title", "Špatná odpověď");
                             }
                         }
 
@@ -1737,16 +1737,16 @@ var Khan = (function() {
 
             if (!Khan.query.activity) {
                 var historyURL = debugURL + "&seed=" + problemSeed + "&activity=";
-                $("<a>Problem history</a>").attr("href", "javascript:").click(function(event) {
+                $("<a>Historie Problémů</a>").attr("href", "javascript:").click(function(event) {
                     window.location.href = historyURL + encodeURIComponent(JSON.stringify(userActivityLog));
                 }).appendTo(links);
             } else {
-                $("<a>Random problem</a>")
+                $("<a>Náhodný problém</a>")
                     .attr("href", window.location.protocol + "//" + window.location.host + window.location.pathname + "?debug")
                     .appendTo(links);
             }
 
-            links.append("<br><b>Problem types:</b><br>");
+            links.append("<br><b>Typy problémů:</b><br>");
 
             exercises.children(".problems").children().each(function(n, prob) {
                 var probID = $(prob).attr("id") || n;
@@ -1770,7 +1770,7 @@ var Khan = (function() {
 
             if (exercise.data("name") != null) {
                 links.append("<br>");
-                links.append("Original exercise: " + exercise.data("name"));
+                links.append("Původní cvičení: " + exercise.data("name"));
             }
 
             if ($.tmpl.DATA_ENSURE_LOOPS > 0) {
@@ -1823,7 +1823,7 @@ var Khan = (function() {
         attempts = 0;
         lastAction = (new Date).getTime();
 
-        $("#hint").val("I'd like a hint");
+        $("#hint").val("Chci poradit");
 
         $(Khan).trigger("newProblem");
 
@@ -1832,7 +1832,7 @@ var Khan = (function() {
         if (answerType === "text" || answerType === "number") {
             var checkAnswerButton = $("#check-answer-button");
             checkAnswerButton.attr("disabled", "disabled").attr(
-                "title", "Type in an answer first.");
+                "title", "Nejdřív napište odpověď.");
             // Enables the check answer button - added so that people who type
             // in a number and hit enter quickly do not have to wait for the
             // button to be enabled by the key up
@@ -2022,7 +2022,7 @@ var Khan = (function() {
             if (pass !== true) {
                 checkAnswerButton
                     .effect("shake", {times: 3, distance: 5}, 80)
-                    .val("Try Again");
+                    .val("Zkusit znovu");
 
                 // Is this a message to be shown?
                 if (typeof pass === "string") {
@@ -2143,8 +2143,8 @@ var Khan = (function() {
 
                 hintsUsed += 1;
 
-                var stepsLeft = hints.length + " step" + (hints.length === 1 ? "" : "s") + " left";
-                $(this).val($(this).data("buttonText") || "I'd like another hint (" + stepsLeft + ")");
+                var stepsLeft = "zbývá " + hints.length;
+                $(this).val($(this).data("buttonText") || "Chci další nápovědu (" + stepsLeft + ")");
 
                 var problem = $(hint).parent();
 								
@@ -2182,7 +2182,7 @@ var Khan = (function() {
 
         // On an exercise page, replace the "Report a Problem" link with a button
         // to be more clear that it won't replace the current page.
-        $("<a>Report a Problem</a>")
+        $("<a>Nahlásit problém</a>")
             .attr("id", "report").addClass("simple-button green")
             .replaceAll($(".footer-links #report"));
 
