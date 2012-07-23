@@ -1,0 +1,21 @@
+3.1	 Absolutní hodnota komplexních čísel
+
+3.2	 Určete absolutní hodnotu následujících komplexních čísel:
+
+3.4	 Absolutní hodnota libovolného čísla je jeho vzdálenost od nuly.
+Jelikož komplexní čísla mohou být zobrazena jako body na komplexní rovině, absolutní hodnota komplexních čísel může být určena pomocí vzorce pro vzdálenost dvou bodů.
+
+3.5	 <code><var>REPRESENTATION</var></code> je v grafu zobrazena jako <strong class="hint_blue">modrý</strong> bod.
+
+3.6	 Absolutní hodna kterou hledáme je délka <strong class="hint_orange">oranžové</strong> úsečky.
+
+3.7	 <strong class="hint_orange">Oranžová</strong> úsečka je přepona pravoúhlého trojúhelníku. Jeho dvě odvěsny (nakreslené <strong class="hint_blue">modře</strong>) mají délky <code><var>abs( REAL )</var></code> a <code><var>abs( IMAG )</var></code>, což odpovídá absolutním hodnotám reálné a imaginární části komplexního čísla <code><var>REPRESENTATION</var></code>.
+
+3.8	 Doplněním do Pythagorovy věty:<br />
+                    <code>\qquad |<var>REPRESENTATION</var>|^2 = <var>abs( REAL )</var>^2 + <var>abs( IMAG )</var>^2</code>, takže <br />
+                    <code>\qquad |<var>REPRESENTATION</var>| = \sqrt{<var>abs( REAL )</var>^2 + <var>abs( IMAG )</var>^2}</code>.
+
+3.10	 Zjednodušením získáme <code><var>formattedSquareRootOf( ABS_SQUARE )</var></code>. To je absolutní hodnota <code><var>REPRESENTATION</var></code>.
+
+3.11	 Dále už výraz nemůžeme zjednodušit. Absolutní hodnota <code><var>REPRESENTATION</var></code> je <code>\sqrt{<var>ABS_SQUARE</var>}</code>.
+

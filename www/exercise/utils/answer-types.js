@@ -1,8 +1,8 @@
 (function() {
 
 var inexactMessages = {
-    unsimplified: "Your answer is almost correct, but it needs to be simplified.",
-    missingPercentSign: "Your answer is almost correct, but it is missing a <code>\\%</code> at the end."
+    unsimplified: "Vaše odpověď je téměř správně, jenom je třeba ji zjednodušit.",
+    missingPercentSign: "Vaše odpověď je téměř správně, jenom ji na konci chybí <code>\\%</code>."
 };
 
 Khan.answerTypes = Khan.answerTypes || {};
@@ -79,7 +79,7 @@ $.extend(Khan.answerTypes, {
             }
             return result;
         };
-        verifier.examples = "An equation of a line, like 3(x+1)/2 or 2x + 1";
+        verifier.examples = "Rovnice přímky jako například <code>3(x+1)/2</code> nebo <code>2x + 1</code>";
         return Khan.answerTypes.text(solutionarea, solution, fallback, verifier);
 
     },
@@ -142,7 +142,7 @@ $.extend(Khan.answerTypes, {
                 transformer: function(text) {
                     return forms.decimal.transformer(text);
                 },
-                example: "an integer, like <code>6</code>"
+                example: "celé číslo, například <code>6</code>"
             },
 
             proper: {
@@ -157,9 +157,9 @@ $.extend(Khan.answerTypes, {
                 },
                 example: (function() {
                     if (options.simplify === "optional") {
-                        return "a <em>proper</em> fraction, like <code>1/2</code> or <code>6/10</code>";
+                        return "zlomek, jako <code>1/2</code> nebo <code>6/10</code>";
                     } else {
-                        return "a <em>simplified proper</em> fraction, like <code>3/5</code>";
+                        return "<em>zjednodušený</em> zlomek, jako <code>3/5</code>";
                     }
                 })()
             },
@@ -176,9 +176,9 @@ $.extend(Khan.answerTypes, {
                 },
                 example: (function() {
                     if (options.simplify === "optional") {
-                        return "an <em>improper</em> fraction, like <code>10/7</code> or <code>14/8</code>";
+                        return "zlomek, jako <code>10/7</code> nebo <code>14/8</code>";
                     } else {
-                        return "a <em>simplified improper</em> fraction, like <code>7/4</code>";
+                        return "<em>zjednodušený</em> zlomek, jako <code>7/4</code>";
                     }
                 })()
             },
@@ -225,7 +225,7 @@ $.extend(Khan.answerTypes, {
                     });
                     return possibilities;
                 },
-                example: "a multiple of pi, like <code>12\\ \\text{pi}</code> or <code>2/3\\ \\text{pi}</code>"
+                example: "násobek pi, jako <code>12\\ \\text{pi}</code> nebo <code>2/3\\ \\text{pi}</code>"
             },
 
             // simple log(c) form
@@ -244,7 +244,7 @@ $.extend(Khan.answerTypes, {
                     }
                     return possibilities;
                 },
-                example: "an expression, like <code>\\log(100)</code>"
+                example: "výraz, například <code>\\log(100)</code>"
             },
 
             percent: {
@@ -263,7 +263,7 @@ $.extend(Khan.answerTypes, {
                     });
                     return transformed;
                 },
-                example: "a percent, like <code>12.34\\%</code>"
+                example: "procenta, například <code>12.34\\%</code>"
             },
 
             dollar: {
@@ -272,7 +272,7 @@ $.extend(Khan.answerTypes, {
 
                     return forms.decimal.transformer(text);
                 },
-                example: "a money amount, like <code>$2.75</code>"
+                example: "obnost, například <code>$2.75</code>"
             },
 
             mixed: {
@@ -302,7 +302,7 @@ $.extend(Khan.answerTypes, {
 
                     return [];
                 },
-                example: "a mixed number, like <code>1\\ 3/4</code>"
+                example: "smíšené číslo, například <code>1\\ 3/4</code>"
             },
 
             decimal: {
@@ -344,9 +344,9 @@ $.extend(Khan.answerTypes, {
                 },
                 example: (function() {
                     if (options.inexact === undefined) {
-                        return "an <em>exact</em> decimal, like <code>0.75</code>";
+                        return "<em>přesné</em> desetinné číslo, jako <code>0.75</code>";
                     } else {
-                        return "a decimal, like <code>0.75</code>";
+                        return "desetinné číslo, například <code>0.75</code>";
                     }
                 })()
             }
@@ -470,9 +470,9 @@ $.extend(Khan.answerTypes, {
             }
         };
         if (options.simplify === "required") {
-            ret.examples = ["a simplified radical, like <code>\\sqrt{2}</code> or <code>3\\sqrt{5}</code>"];
+            ret.examples = ["zjednodušená odmocnina, jako <code>\\sqrt{2}</code> nebo <code>3\\sqrt{5}</code>"];
         } else {
-            ret.examples = ["a radical, like <code>\\sqrt{8}</code> or <code>2\\sqrt{2}</code>"];
+            ret.examples = ["odmocnina, jako <code>\\sqrt{8}</code> nebo <code>2\\sqrt{2}</code>"];
         }
         ret.solution = ans;
         ret.showGuess = function(guess) {
@@ -735,9 +735,9 @@ $.extend(Khan.answerTypes, {
                     });
                 });
                 if (unusedValidators.length == 1) {
-                    $("<span>").text(" is also correct").appendTo(otherSolutions);
+                    $("<span>").text(" je také správně").appendTo(otherSolutions);
                 } else {
-                    $("<span>").text(" are also correct").appendTo(otherSolutions);
+                    $("<span>").text(" josu také správně").appendTo(otherSolutions);
                 }
             }
 
@@ -856,7 +856,7 @@ $.extend(Khan.answerTypes, {
         }
 
         if (showNone) {
-            var none = $("<span>None of the above.</span>");
+            var none = $("<span>Ani jedno.</span>");
 
             if (noneIsCorrect) {
                 none.data("correct", true);
@@ -952,8 +952,8 @@ $.extend(Khan.answerTypes, {
             return guess === correct;
         };
         verifier.examples = [
-            "a product of prime factors, like <code>2 \\times 3</code>",
-            "a single prime number, like <code>5</code>"
+            "násobek prvočíselného dělitele, například <code>2 \\times 3</code>",
+            "prvočíslo, například <code>5</code>"
         ];
 
         return Khan.answerTypes.text(solutionarea, solution, fallback, verifier);
@@ -969,11 +969,11 @@ $.extend(Khan.answerTypes, {
 
         var solutionArray = [];
 
-        var realArea = $("<p />").html("Real part: ");
+        var realArea = $("<p />").html("Celá část: ");
         var realControl = $('<span data-inexact data-max-error="0.01" />').html(correct[0]);
         var realValidator = Khan.answerTypes["number"](realArea, realControl, 0);
 
-        var imagArea = $("<p />").html("Imaginary part: ");
+        var imagArea = $("<p />").html("Imaginární část: ");
         var imagControl = $('<span data-inexact data-max-error="0.01" />').html(correct[1]);
         var imagValidator = Khan.answerTypes["number"](imagArea, imagControl, 0);
 
@@ -1002,7 +1002,7 @@ $.extend(Khan.answerTypes, {
         };
 
         ret.examples = [
-            "the separate parts of a complex number (<code>5.3 - 3i</code> has real part 5.3 and imaginary part -3)"
+			"oddělené části komplexního čísla (<code>5.3 - 3i</code> má reálnou část <code>5.3</code> a imaginární <code>-3</code>)"
         ];
 
         ret.solution = [realValidator.solution, imagValidator.solution];
@@ -1022,7 +1022,7 @@ $.extend(Khan.answerTypes, {
         var table = $("<table />");
         var row = $("<tr />");
         row.append('<td style="width: 100px">\n' +
-            'Radius: <span id="current-radius"><code>1</code></span>\n' +
+            'Poloměr: <span id="current-radius"><code>1</code></span>\n' +
             "</td>")
             .append("<td>\n" +
             '<input type="button" class="simple-button mini-button" value="+" onclick="updateComplexPolarForm( 0, 1 )" />\n' +
@@ -1032,7 +1032,7 @@ $.extend(Khan.answerTypes, {
 
         row = $("<tr />");
         row.append('<td style="width: 100px">\n' +
-            'Angle: <span id="current-angle"><code>0</code></span>\n' +
+            'Úhel: <span id="current-angle"><code>0</code></span>\n' +
             "</td>")
             .append("<td>\n" +
             '<input type="button" class="simple-button mini-button" value="+" onclick="updateComplexPolarForm( 1, 0 )" />\n' +
@@ -1068,7 +1068,7 @@ $.extend(Khan.answerTypes, {
             if (isTimeline) {
                 guessCorrect = validator(guess);
                 $(solutionarea).empty();
-                $(solutionarea).append(guessCorrect === true ? "Answer correct" : "Answer incorrect");
+                $(solutionarea).append(guessCorrect === true ? "Správná odpověď" : "Špatná odpověď");
             } else {
                 redrawComplexPolarForm(guess[0], guess[1]);
             }
@@ -1120,7 +1120,7 @@ $.extend(Khan.answerTypes, {
             if (isTimeline) {
                 guessCorrect = validator(guess);
                 $(solutionarea).empty();
-                $(solutionarea).append(guessCorrect === true ? "Answer correct" : "Answer incorrect");
+                $(solutionarea).append(guessCorrect === true ? "Správná odpověď" : "Špatná odpověď");
             } else {
                 var code = "(function() { var guess = " + (JSON.stringify(guess) || "[]") + ";" + showGuessSolutionCode + "})()";
                 KhanUtil.tmpl.getVAR(code, KhanUtil.currentGraph);

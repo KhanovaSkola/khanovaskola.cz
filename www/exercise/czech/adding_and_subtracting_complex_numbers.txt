@@ -1,0 +1,23 @@
+4.1	 Sčítání a odečítání komplexních čísel
+
+4.2	 <var>OPERATION == "add" ? "Sečtěte" : "Odečtěte"</var> následující komplexní čísla:
+
+4.4	 Komplexní čísla mohou být <var>OPERATION == "add" ? "sečtena" : "odečtena"</var> postupným <var>OPERATION == "add" ? "sčítáním" : "odečítáním"</var> jejich reálných a imaginárních částí.
+
+4.5	 Reálné části dvou komplexních čísel jsou <code class="hint_orange"><var>A_REAL</var></code> a <code class="hint_blue"><var>B_REAL</var></code>, 
+takže jejich výsledná reálná část bude                     
+                    <code>
+                        <var>A_REAL_COLORED</var> <var>OPERATOR</var> \color{<var>BLUE</var>}{<var>negParens(B_REAL)</var>}
+                    </code>,
+                    což se rovná <code><var>ANSWER_REAL</var></code>.
+
+4.6	 Imaginární části dvou komplexních čísel jsou <code class="hint_orange"><var>A_IMAG</var></code> a <code class="hint_blue"><var>B_IMAG</var></code>, 
+takže jejich výsledná imaginární část bude                    
+                    <code>
+                        <var>A_IMAG_COLORED</var> <var>OPERATOR</var>  \color{<var>BLUE</var>}{<var>negParens(B_IMAG)</var>}
+                    </code>,
+                    což se rovná <code><var>ANSWER_IMAG</var></code>.
+
+4.7	 Výsledek je <code><var>complexNumber(ANSWER_REAL, ANSWER_IMAG)</var></code>; jeho reálná část je <code><var>ANSWER_REAL</var></code>
+                    a komplexní část je <code><var>ANSWER_IMAG</var></code>.
+
