@@ -969,7 +969,7 @@ $.extend(Khan.answerTypes, {
 
         var solutionArray = [];
 
-        var realArea = $("<p />").html("Celá část: ");
+        var realArea = $("<p />").html("Reálná část: ");
         var realControl = $('<span data-inexact data-max-error="0.01" />').html(correct[0]);
         var realValidator = Khan.answerTypes["number"](realArea, realControl, 0);
 
