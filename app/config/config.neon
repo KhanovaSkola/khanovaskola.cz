@@ -40,5 +40,10 @@ common:
 
 
 production < common:
+	nette:
+		database:
+			default:
+				user: khan_u
+				password: "Sk4$U8!kBUd5"
 
 development < common:
