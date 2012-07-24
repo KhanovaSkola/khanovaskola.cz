@@ -1,7 +1,11 @@
 {#content}
 <article id="homepage">
 	<div id="main-video">
-            <iframe width="640" height="400" src="http://www.youtube.com/embed/OowviZi0o30" frameborder="0" allowfullscreen></iframe>
+		<a n:href=":Front:Watch:, vid => $featured_video->id">
+			<span class="featured_video" style="background-image:url('http://img.youtube.com/vi/{$featured_video->youtube_id}/hqdefault.jpg')"></span>
+			<span class="featured_header"><span class="label">{$featured_video->label}</span></span>
+			<span class="youtube_play"></span>
+		</a>
     </div>
     <div id="homepage-text" class="visited-no-recolor">
         <h1 class="section-headline pulls"><a n:href=":Front:Homepage:#browse" data-tag="Homepage Headline">Sleduj.</a> <a n:href=":Front:Exercise:" data-tag="Homepage Headline">Cvič.</a></h1>
