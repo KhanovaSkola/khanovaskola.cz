@@ -163,7 +163,7 @@
 							</div>
 							<div data-role="content" class="library-content-list">
 								<p class='topic-desc'>{$subcat->description}</p>
-								<div style="height:36.0px;" data-role="listview" data-inset="true">
+								<div data-role="listview" data-inset="true">
 									<a n:foreach="$subcat->getVideos() as $video" class="m0 vl vid-progress" n:href=":Front:Watch:, vid => $video->id" data-tag="Homepage Library">{$video->label}</a>
 								</div>
 								<div class="clear desktop-only subtopic-jump-fix">
