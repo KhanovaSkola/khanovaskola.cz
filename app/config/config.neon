@@ -35,6 +35,7 @@ common:
 		categories: Categories('category')
 		videos: Videos('video')
 		users: Users('user')
+		exercises: Exercises('exercise')
 
 	factories:
 
