@@ -36,6 +36,16 @@ class Videos extends Table
 	
 	
 	/**
+	 * @return Video
+	 */
+	public function findRandom()
+	{
+		return $this->getTable()->order('Rand()')->limit(1)->fetch();
+	}
+	
+	
+	
+	/**
 	 * @param array $data
 	 * @return \Nette\Database\Table\ActiveRow
 	 */
