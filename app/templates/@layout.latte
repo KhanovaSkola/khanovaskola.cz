@@ -17,9 +17,7 @@
 
 	<script type="text/javascript" src="{$basePath}/js/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="{$basePath}/js/jquery-ui-1.8.21.custom.min.js"></script>
-	{*
-	<script type="text/javascript" src="{$basePath}/js/netteForms.js"></script>
-	*}
+	{*<script type="text/javascript" src="{$basePath}/js/netteForms.js"></script>*}
 	<script type="text/javascript" src="{$basePath}/js/khan.js"></script>
 	{#head}{/#}
 </head>
@@ -86,6 +84,7 @@
                                             <a n:href=":Front:Contribute:" data-tag="Header" class=" contribute-link">Dobrovolníci</a>
                                             <a n:href=":Front:About:" data-tag="Header" class=" about-link">O Škole</a>
                                             <div style="clear: both"></div>
+											{include _dropdown.latte}
                                         </span>
                                     </span>
                                 </nav>
