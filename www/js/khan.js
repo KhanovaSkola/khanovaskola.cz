@@ -2,7 +2,7 @@ $(function() {
 	var timeout = 300;
 	
 	var menu = 0;
-	$('.dropdown-toggle').mouseenter(function() {
+	$('.nav-subheader .dropdown-toggle').mouseenter(function() {
 		menu++;
 		$('.topic-browser-dropdown').addClass('open');
 	});
