@@ -16,79 +16,32 @@
             <a n:href=":Front:Exercise:" data-tag="Homepage C2A" class="call-to-action simple-button blue">Vyplnit cvičení</a>
         </div>
         <p class="try-teacher-toolkit">Jste učitel? Projděte si naše <a n:href=":Front:Coach:resources">materiály pro učitele</a>.</p>
-        <div class="homepage-mailing">
-           	{*
-           	<span><span class="subscription">
-        <div class="dropdown">
-            <span class="dropdown-toggle" style="display:none"></span>
-
-            <span class="already-subscribed-container" style="display:none;">
-                <p>Nice! You're subscribed to receive <a class="already-subscribed" href="#">emails about new content</a>.</p>
-            </span>
-
-            <span class="not-subscribed-container" >
-                <input type="email" name="email" class="email" placeholder="Enter your email to learn about new courses." value="">
-            </span>
-
-            <div class="subscription-dropdown-placeholder"></div>
-        </div>
-    </span></span>
-	    	*}
-        </div>
     </div>
-    <h2>
-        Nové a zajímavé
-    </h2>
-    
+	{*
+    <h2>Nové a zajímavé</h2>
     <div id="thumbnails_container">
         <table width="100%">
             <tr>
-                <td width="3%">
-                    <div class="thumbnails_arrow action-gradient" id="arrow-left">
-                        <div class="arrow-left"></div>
-                    </div>
-                </td>
-                <td width="94%">
+                <td width="100%">
                     <div id="thumbnails" class="visited-no-recolor">
-                        
-                            
-                            <div ><table style="width:100%"><tr>
-                            
-                            <td style="width:25%" class="thumbnail_td video-thumb " data-key="ag5zfmtoYW4tYWNhZGVteXIPCxIFVmlkZW8Y6tzf-wIM" data-youtube-id="lA3sjWwu5-s">
+						<div><table style="width:100%"><tr>
 
-                                <a href="/video/financial-crisis-in-thailand-caused-by-speculative-attack" data-tag="Homepage Featured" class="thumbnail_link"><div
-                                        
-                                        class="thumb" style="background-image:url('http://img.youtube.com/vi/lA3sjWwu5-s/hqdefault.jpg')"
-                                        
-                                        ></div></a>
-
-                                    <a href="/video/financial-crisis-in-thailand-caused-by-speculative-attack" data-tag="Homepage Featured" class="thumbnail_link"><div class="thumbnail_label"><div class="thumbnail_desc"><span class='vid-progress v796388970'>Financial Crisis in Thailand Caused by Speculative Attack</span></div><div class="thumbnail_teaser">How a currency crisis in Thailand led to a banking crisis in&hellip;</div></div></a>
-                                </td>
-                            
-                            <td style="width:25%" class="thumbnail_td video-thumb " data-key="ag5zfmtoYW4tYWNhZGVteXIPCxIFVmlkZW8Y__ubpwMM" data-youtube-id="8nW9L7cSop4">
-
-                                <a href="/video/ppaca--or--obamacare" data-tag="Homepage Featured" class="thumbnail_link"><div
-                                        
-                                        class="thumb pending" data-src="http://img.youtube.com/vi/8nW9L7cSop4/hqdefault.jpg"
-                                        
-                                        ></div></a>
-
-                                    <a href="/video/ppaca--or--obamacare" data-tag="Homepage Featured" class="thumbnail_link"><div class="thumbnail_label"><div class="thumbnail_desc"><span class='vid-progress v887553535'>PPACA  or "Obamacare"</span></div><div class="thumbnail_teaser">Basic overview of what is sometimes referred to as "Obamacar&hellip;</div></div></a>
-                                </td>
-                            
-                            </tr></table></div>
-                        
-                    </div>
-                </td>
-                <td width="3%">
-                    <div class="thumbnails_arrow action-gradient" id="arrow-right">
-                        <div class="arrow-right"></div>
+						{foreach $presenter->context->videos->findAll()->order('id DESC')->limit(5) as $video}
+						<td style="width:25%" class="thumbnail_td video-thumb">
+							<a n:href=":Front:Watch:, vid => $video->id" data-tag="Homepage Featured" class="thumbnail_link">
+								<div class="thumb" style="background-image:url('http://img.youtube.com/vi/{$video->youtube_id}/hqdefault.jpg')"></div>
+								
+							</a>
+						</td>
+						{/foreach}
+						
+						</tr></table></div>
                     </div>
                 </td>
             </tr>
         </table>
     </div>
-    
+    *}
 
     <div class="clear"></div>
 
