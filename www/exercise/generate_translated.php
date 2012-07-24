@@ -34,7 +34,7 @@ foreach (scandir($path) as $name) {
 		~imsx',
 			function ($match) use ($matches) {
 				foreach ($matches['tid'] as $i => $tid) {
-					if ($tid == $match['tid']) {
+					if (strcmp($tid, $match['tid']) === 0) {
 						break;
 					}
 				}

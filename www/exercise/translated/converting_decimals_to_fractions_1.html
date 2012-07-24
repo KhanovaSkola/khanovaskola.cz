@@ -16,8 +16,8 @@
             <p class="question">Vyjádřete <code><var>D.toFixed(1)</var></code> jako zlomek.</p>
             <p class="solution" data-type="rational" data-simplify="optional"><var>D</var></p>
             <div class="hints">
-                <p>Číslo <code><var>T</var></code> je na místě desítek, takže máme <var>plural(T, "desítku", "desítky", "desítek")</var>.</p>
-                <p><var>plural(T, "desítku", "desítky", "desítek")</var> můžeme zapsat jako <code><var>fraction( T, 10 )</var></code>.</p>
+                <p>Číslo <code><var>T</var></code> je na místě desetin, máme <var>plural(T, "desetinu", "desetiny", "desetin")</var>.</p>
+                <p><var>plural(T, "desetinu", "desetiny", "desetin")</var> můžeme zapsat jako <code><var>fraction( T, 10 )</var></code>.</p>
             </div>
         </div>
 
@@ -30,10 +30,10 @@
             <p class="question">Vyjádřete <code><var>D.toFixed( 2 )</var></code> jako zlomek.</p>
             <p class="solution" data-type="rational" data-simplify="optional"><var>D</var></p>
             <div class="hints">
-                <p>Číslo <code><var>T</var></code> je na místě desítek, takže máme <var>plural(T, "desítku", "desítky", "desítek")</var>.</p>
-                <p><var>plural(T, "desítku", "desítky", "desítek")</var> můžeme zapsat jako <code><var>fraction( T, 10 )</var></code>.</p>
-                <p>Převádění desetinných čísel na zlomky 1</p>
-                <p><var>plural(H, "sto", "sta", "set")</var> můžeme zapsat jako <code><var>fraction( H, 100 )</var></code>.</p>
+                <p>Číslo <code><var>T</var></code> je na místě desetin, máme <var>plural(T, "desetinu", "desetiny", "desetin")</var>.</p>
+                <p><var>plural(T, "desetinu", "desetiny", "desetin")</var> můžeme zapsat jako <code><var>fraction( T, 10 )</var></code>.</p>
+                <p>Číslo <code><var>H</var></code> je na místě setin, máme <var>plural(H, "setinu", "setiny", "setin")</var>.</p>
+                <p><var>plural(H, "setinu", "setiny", "setin")</var> můžeme zapsat jako <code><var>fraction( H, 100 )</var></code>.</p>
                 <div>
                     <p>Sečtěte obě části dohromady.</p>
                     <p><code><var>fraction( T, 10 )</var> + <var>fraction( H, 100 )</var></code></p>
