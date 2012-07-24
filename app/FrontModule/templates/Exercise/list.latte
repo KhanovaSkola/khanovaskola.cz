@@ -1,7 +1,9 @@
 {#content}
 
-{foreach $exercises as $ex}
-<div>
-	<a n:href=":Front:Exercise:, id => $ex">{$ex}</a>
-</div>
-{/foreach}
+<article>
+	<ol>
+		<li n:foreach="$exercises as $ex">
+			<a n:href=":Front:Exercise:, eid => $ex->id">{$ex->label}</a>
+		</li>
+	</ol>
+</article>

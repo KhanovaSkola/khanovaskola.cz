@@ -5,28 +5,21 @@ namespace FrontModule;
 class ExercisePresenter extends BaseFrontPresenter
 {
 
-	public function renderDefault($id)
+	public function renderDefault($eid)
 	{
-		if (!$id || !preg_match('~^[a-z0-9_.]+$~ims', $id)) {
+		$exercise = $this->context->exercises->findOneBy(['id' => $eid]);
+		if (!$exercise) {
 			$this->redirect('list');
 		}
-		$this->template->file = $id;
+		
+		$this->template->file = $exercise->file;
 	}
 	
 	
 	
 	public function renderList()
 	{
-		$exercises = [];
-		
-		foreach (scandir(WWW_DIR . '/exercise/translated') as $file) {
-			if (in_array($file, ['.', '..', 'khan-site.html', 'khan-excercise.html'])) {
-				continue;
-			}
-			$exercises[] = substr($file, 0, -5);
-		}
-		
-		$this->template->exercises = $exercises;
+		$this->template->exercises = $this->context->exercises->findAll();
 	}
 
 }

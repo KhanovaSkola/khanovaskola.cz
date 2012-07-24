@@ -41,4 +41,14 @@ class Video extends Entity
 		return $this->context->videos->findOneBy(['category_id' => $this->category_id, 'position' => $this->position + $offset]);
 	}
 	
+	
+	
+	/**
+	 * @return Exercise
+	 */
+	public function getExercise()
+	{
+		return $this->context->exercises->findOneBy(['id' => $this->exercise_id]);
+	}
+	
 }
