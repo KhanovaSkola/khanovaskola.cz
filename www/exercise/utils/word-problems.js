@@ -51,13 +51,15 @@ $.extend(KhanUtil, {
     //        - return "word"
     plural: (function(count, singular, plural24, plural5) {
 		return function(count, singular, plural24, plural5) {
+			var word = "";
 			if (count == 1) {
-				return count + " " + singular;
+				word = singular;
 			} else if (count > 1 && count < 5) {
-				return count + " " + plural24;
+				word = plural24;
 			} else {
-				return count + " " + plural5;
+				word = plural5;
 			}
+			return "<code>" + count + "</code> " + word;
 		};
 		
         var oneOffs = {
