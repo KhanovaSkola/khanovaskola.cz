@@ -33,6 +33,17 @@ abstract class Table extends Nette\Object
 		return new \Selection($this->tableName, $this->connection, $this->context);
         //return $this->connection->table($this->tableName);
     }
+	
+	
+	
+	/**
+	 * @param array $data
+	 * @return \Nette\Database\Table\ActiveRow
+	 */
+	public function insert($data)
+	{
+		return $this->getTable()->insert($data);
+	}
 
 
 

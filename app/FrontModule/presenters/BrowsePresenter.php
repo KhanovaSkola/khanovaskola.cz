@@ -80,5 +80,28 @@ class BrowsePresenter extends BaseFrontPresenter
 		
 		$this->redirect(':Front:Browse:');
 	}
+	
+	
+	
+	public function handleAdd()
+	{
+		$video = $this->context->videos->insert([
+			'category_id' => $this->id,
+		]);
+		$this->redirect(':Front:Watch:edit', ['vid' => $video->id]);
+	}
 
+	
+	
+	public function handleUpdatePositions($videos)
+	{
+		$data = explode(',', $videos);
+		$this->context->videos->updatePositions($data);
+		
+		if ($this->isAjax()) {
+			$this->sendJson(['status' => 'success']);
+		}
+		$this->redirect('this');
+	}
+	
 }

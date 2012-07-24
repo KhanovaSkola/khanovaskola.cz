@@ -20,5 +20,12 @@ class NetteUser extends \Nette\Security\User
 	{
 		return $this->context->users->findOneBy(['id' => $this->id]);
 	}
+	
+	
+	
+	public function isModerator()
+	{
+		return $this->isInRole('moderator');
+	}
 
 }

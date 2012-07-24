@@ -37,3 +37,5 @@ a[href^="error:"] {
 }
 
 footer .legal {float: right; margin-right: 10px;}
+
+.sortable-arrow {font-size: 120%; font-weight: bold; background-color: rgba(120, 160, 240, .5); padding: .1em .5em .2em .5em; border-radius: .3em; color: black;}

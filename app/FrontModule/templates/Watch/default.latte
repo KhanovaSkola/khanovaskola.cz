@@ -7,11 +7,6 @@
 		<a n:href=":Front:Browse:, id => $video->getCategory()->id">{$video->getCategory()->label}</span>
 	</span>
 {/#}
-{*
-{#head}
-<script type="text/javascript" src="http://s3.www.universalsubtitles.org/js/unisubs-widgetizer.js"></script>
-{/#}
-*}
 {#content}
 <article id="video-page">
 <div class="video" data-role="page" data-theme="b">
@@ -26,8 +21,13 @@
           </div>
           <div class="video-header" style="min-height: 1px">
             <nav class="prev_next_nav desktop-only">
-				<label id="next_video">
-					<a rel=next class="next-video" href="/math/arithmetic/addition-subtraction/v/addition-2"><b>Další video:</b>  <span class='vid-progress v23800'>DOPLNIT</span> </a>
+				{var $prev => $video->getPreviousVideo()}
+				<label id="prev_video" n:if="$prev">
+					<a rel="prev" class="previous-video" n:href="this, vid => $prev->id"><b>Předchozí video:</b> {$prev->label}</a>
+				</label>
+				{var $next => $video->getNextVideo()}
+				<label id="next_video" n:if="$next">
+					<a rel="next" class="next-video" n:href="this, vid => $next->id"><b>Další video:</b> {$next->label}</a>
 				</label>
 				<div class="clear"></div>
 			</nav>
@@ -46,7 +46,7 @@
 						width: "800",
 						height: "480",
 						modestbranding: "1",
-						autoplay: "1",
+						autoplay: "0",
 					}
 				})
 				</script>
