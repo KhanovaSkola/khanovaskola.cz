@@ -25,7 +25,8 @@
 		<div n:foreach="$category->getSubcategoriesHalf() as $subcat" class="subtopic thumbnail_td first">
 		  {#topic_preview}
 			  <a class="subtopic-link-and-scroll" data-tag="Topic Page Root Subtopic" n:href=":Front:Browse:, id => $subcat->id" data-id="">
-				<div class="thumb" style="background-image:url('http://img.youtube.com/vi/kpCJyQ2usJ4/hqdefault.jpg')"></div>
+				{var $thumbnail => $subcat->getVideos()->limit(1)->fetch()}
+				<div class="thumb" style="background-image:url('http://img.youtube.com/vi/{$thumbnail ? $thumbnail->youtube_id : '0'}/hqdefault.jpg')"></div>
 				<div class="topic-info">
 				  <div class="topic-title">
 					{$subcat->label}

@@ -2,8 +2,6 @@
 
 namespace FrontModule;
 
-
-
 class HomepagePresenter extends BaseFrontPresenter
 {
 

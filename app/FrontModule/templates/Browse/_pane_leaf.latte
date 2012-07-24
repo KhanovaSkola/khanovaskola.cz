@@ -1,11 +1,12 @@
+{var $thumbnail => $leaf->getVideos()->limit(1)->fetch()}
 <div class="prerendered" data-id="algebra">
 <div>
   <div data-role="header" class="main-header clearfix">
     <div class="topic-video thumbnail_td">
-      <a href="/math/algebra/ck12-algebra-1/v/the-beauty-of-algebra" data-tag="Topic Page Root Featured" data-youtube-id="kpCJyQ2usJ4" class="thumbnail_link modal-video">
-        <div class="thumb" style="background-image:url('http://img.youtube.com/vi/kpCJyQ2usJ4/hqdefault.jpg')"></div>
-        <div class="thumbnail_container">
-          <div class="thumbnail_label"><div class="thumbnail_desc"><span class='vid-progress v563207734'>The Beauty of Algebra</span></div><div class="thumbnail_teaser">Why the abstraction of mathematics is so fundamental</div></div>
+      <a n:tag-if="$thumbnail" n:href=":Front:Watch:, vid => $thumbnail->id" data-tag="Topic Page Root Featured" class="thumbnail_link modal-video">
+        <div class="thumb" style="background-image:url('http://img.youtube.com/vi/{$thumbnail ? $thumbnail->youtube_id : '0'}/hqdefault.jpg')"></div>
+        <div n:if="$thumbnail" class="thumbnail_container">
+          <div class="thumbnail_label"><div class="thumbnail_desc">{$thumbnail->label}</div></div>
         </div>
       </a>
     </div>
