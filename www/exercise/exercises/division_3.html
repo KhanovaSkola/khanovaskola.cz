@@ -23,7 +23,7 @@
                     DUMMY = Array( graph.divider.getNumHints() );
                 </div>
                 <div class="solution" data-type="multiple">
-                    <span class="sol" data-type="regex">^<var>QUOTIENT</var>\s*[rR]\s*<var>FINAL_REMAINDER</var>$</span>
+                    <span class="sol" data-type="regex">^<var>QUOTIENT</var>\s*[zZ][bB]\.?\s*<var>FINAL_REMAINDER</var>$</span>
                     <p class="example" data-tid="125.3">a quotient and remainder, like <code>5 \text{ R } 3</code></p>
                 </div>
             </div>
@@ -34,7 +34,7 @@
             </div>
 
             <div class="graphie" data-update="numbers">
-                drawDigits( [ "\\text{R}" ].concat( integerToDigits( FINAL_REMAINDER ) ), DIVIDEND_DIGITS.length, 1 );
+                drawDigits( [ "\\text{zb}" ].concat( integerToDigits( FINAL_REMAINDER ) ), DIVIDEND_DIGITS.length, 1 );
             </div>
         </div>
     </div>
