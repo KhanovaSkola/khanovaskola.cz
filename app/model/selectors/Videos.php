@@ -53,7 +53,11 @@ class Videos extends Table
 	{
 		if (!isset($data['position'])) {
 			$last = $this->getTable()->where(['category_id' => $data['category_id']])->order('position DESC')->limit(1)->fetch();
-			$data['position'] = $last->position + 1;
+			if ($last) {
+				$data['position'] = $last->position + 1;
+			} else {
+				$data['position'] = 0;
+			}
 		}
 		return $this->getTable()->insert($data);
 	}

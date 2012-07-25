@@ -2,17 +2,36 @@
 
 namespace FrontModule;
 
+use Nette\Application\UI\Form;
+
 class ExercisePresenter extends BaseFrontPresenter
 {
 
-	public function renderDefault($eid)
+	/**
+	 * @persistent
+	 * @var public
+	 */
+	public $eid;
+	
+	/** @var Exercise */
+	protected $exercise;
+	
+	
+	
+	public function startup()
 	{
-		$exercise = $this->context->exercises->findOneBy(['id' => $eid]);
-		if (!$exercise) {
+		parent::startup();
+		$this->exercise = $this->context->exercises->findOneBy(['id' => $this->eid]);
+	}
+	
+	
+	
+	public function renderDefault()
+	{
+		if (!$this->exercise) {
 			$this->redirect('list');
 		}
-		
-		$this->template->file = $exercise->file;
+		$this->template->file = $this->exercise->file;
 	}
 	
 	
@@ -20,6 +39,47 @@ class ExercisePresenter extends BaseFrontPresenter
 	public function renderList()
 	{
 		$this->template->exercises = $this->context->exercises->findAll();
+	}
+	
+	
+	
+	public function renderEdit()
+	{
+		$form = $this['editForm'];
+		$ex = $this->exercise;
+		
+		$form['label']->setValue($ex->label);
+		$form['file']->setValue($ex->file);
+	}
+	
+	
+	
+	public function createComponentEditForm($name)
+	{
+		$form = new Form($this, $name);
+	
+		$form->addText('label', 'Název');
+		$form->addText('file', 'Soubor');
+		
+		$form->addSubmit('send');
+		$form->onSuccess[] = callback($this, 'onSuccessEditForm');
+		
+		return $form;
+	}
+	
+	
+	
+	public function onSuccessEditForm(Form $form)
+	{
+		$v = $form->values;
+		$ex = $this->exercise;
+		
+		$ex->label = $v->label;
+		$ex->file = $v->file;
+		
+		$ex->update();
+		
+		$this->redirect(':Front:Exercise:');
 	}
 
 }
