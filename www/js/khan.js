@@ -1,6 +1,8 @@
 $(function() {
 	var timeout = 300;
 	
+	/** ######### main dropdown #########  */
+	
 	var menu = 0;
 	$('.nav-subheader .dropdown-toggle').mouseenter(function() {
 		menu++;
@@ -21,6 +23,26 @@ $(function() {
 		setTimeout(function() {
 			if (state === menu) {
 				$('.topic-browser-dropdown').removeClass('open');
+			}
+		}, timeout);
+	}
+	
+
+	/** ######### user dropdown #########  */
+
+	var usermenu = 0;
+	$('#user-info .dropdown-toggle').mouseenter(function() {
+		usermenu++;
+		$('#user-info .dropdown').addClass('open');
+	});
+	$('#user-info .dropdown').mouseleave(function() {
+		hideUserMenu(usermenu);
+	});
+	
+	function hideUserMenu(state) {
+		setTimeout(function() {
+			if (state === usermenu) {
+				$('#user-info .dropdown').removeClass('open');
 			}
 		}, timeout);
 	}

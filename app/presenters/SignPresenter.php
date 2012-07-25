@@ -16,14 +16,14 @@ class SignPresenter extends BasePresenter
 	{
 		$form = new UI\Form;
 		$form->addText('username')
-			->setRequired('Please provide a username.');
+			->setRequired('Vyplňte mail.');
 
 		$form->addPassword('password')
-			->setRequired('Please provide a password.');
+			->setRequired('Vyplňte heslo.');
 
 		$form->addCheckbox('remember');
 
-		$form->addSubmit('send', 'Sign in');
+		$form->addSubmit('send', 'Přihlásit');
 
 		$form->onSuccess[] = $this->signInFormSubmitted;
 		return $form;
@@ -59,7 +59,7 @@ class SignPresenter extends BasePresenter
 	public function actionOut()
 	{
 		$this->getUser()->logout();
-		$this->flashMessage('You have been signed out.');
+		$this->flashMessage('Byli jste odhlášeni.');
 		$this->redirect('in');
 	}
 

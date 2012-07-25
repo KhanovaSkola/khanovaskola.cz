@@ -50,9 +50,8 @@
 													</a>
 												</span>
 												<ul class="dropdown-menu no-submenus">
-													<li><a class="dropdown-link" href="/profile/_kag5zfmtoYW4tYWNhZGVteXJPCxIIVXNlckRhdGEiQXVzZXJfaWRfa2V5X2h0dHA6Ly9nb29nbGVpZC5raGFuYWNhZGVteS5vcmcvMTA4Mzc3MzUxNTkxNjQxNDk2MjM3DA/">Visit profile</a></li>
-													<!-- Facebook's JS logout requires the page_logout ID -->
-													<li><a id="page_logout" href="/logout?continue=http%3A%2F%2Fwww.khanacademy.org%2F">Logout</a></li>
+													<li n:if="$user->moderator"><a class="dropdown-link" n:href=":Moderator:Dashboard:">Moderátoři</a></li>
+													<li><a n:href=":Sign:out">Odhlásit se</a></li>
 												</ul>
 											</span>
 										</span>
