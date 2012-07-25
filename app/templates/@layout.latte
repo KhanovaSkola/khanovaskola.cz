@@ -25,8 +25,6 @@
 <body>
 	<script> document.body.className+=' js' </script>
 
-	<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
-	
 <div id="outer-wrapper" class="clearfix">
 <div class="notification-bar" style="display:none;"></div>
 <div class="notification-bar-spacer"></div>
@@ -62,6 +60,12 @@
 										<a n:href=":Sign:in">Přihlášení</a>
 									{/if}
                                 </span>
+							{if !$user->loggedIn}
+							<span class="separator"></span>
+							<span>
+								<a n:href=":Front:Registration:">Registrace</a>
+							</span>
+							{/if}
                             <span class="separator"></span>
                             <span>
                                 <a n:href=':Front:Donate:'>
@@ -104,6 +108,7 @@
                 </nav>
             </header>
 
+<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
 {include #content}
 
 <div id="back-to-top">

@@ -35,23 +35,12 @@ class Authenticator extends Nette\Object implements NS\IAuthenticator
 			throw new NS\AuthenticationException("User '$mail' not found.", self::IDENTITY_NOT_FOUND);
 		}
 
-		if (FALSE && $user->password !== $this->calculateHash($password)) {
+		$hash = (new \Password())->calculateHash($password, $user->salt);
+		if ($user->password !== $hash) {
 			throw new NS\AuthenticationException("Invalid password.", self::INVALID_CREDENTIAL);
 		}
 
 		return new NS\Identity($user->id, explode(';', $user->role), []);
-	}
-
-
-
-	/**
-	 * Computes salted password hash.
-	 * @param  string
-	 * @return string
-	 */
-	public function calculateHash($password)
-	{
-		return md5($password . str_repeat('*random salt*', 10));
 	}
 
 }
