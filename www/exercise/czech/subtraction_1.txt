@@ -1,0 +1,4 @@
+358.1	 Odečítání 1
+
+358.2	 Začali jsme s <var>plural(A, "tečkou", "tečkami", "tečkami")</var> a škrtli jsme <var>plural(B, "tečku", "tečky", "teček")</var>, takže <var>plural(A - B, "tečka zbyla", "tečky zbyly", "teček zbylo")</var>.
+

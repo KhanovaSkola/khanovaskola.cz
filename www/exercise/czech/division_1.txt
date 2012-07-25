@@ -1,0 +1,8 @@
+123.1	 Dělení 1
+
+123.2	 Nakreslete <code><var>C</var></code> kruhů, do každé řádky právě <code><var>B</var></code>.
+
+123.3	 Kolik řádků jste nakreslili?
+
+123.4	 Dělení libovolného čísla <code>1</code> se rovná původnímu číslu.
+

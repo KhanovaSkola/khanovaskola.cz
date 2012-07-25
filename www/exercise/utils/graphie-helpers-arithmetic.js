@@ -115,7 +115,7 @@ function Adder(a, b, digitsA, digitsB) {
                 graph.ellipse([pos.max - Math.max(deciA, deciB) + 0.5, i - 0.2], [0.09, 0.06]);
             });
         }
-        this.showSideLabel("\\text{Make sure the decimals are lined up.}");
+        this.showSideLabel("\\text{Ověřte si, že jsou řády ve správných sloupečkách.}");
     }
 }
 
@@ -257,7 +257,7 @@ function Subtractor(a, b, digitsA, digitsB, decimalPlaces) {
                 graph.ellipse([pos.max - Math.max(deciA, deciB) + 0.5, i - 0.2], [0.09, 0.06]);
             });
         }
-        this.showSideLabel("\\text{Make sure the decimals are lined up.}");
+		this.showSideLabel("\\text{Ověřte si, že jsou řády ve správných sloupečkách.}");
     };
 }
 
@@ -513,13 +513,14 @@ function Multiplier(a, b, digitsA, digitsB, deciA, deciB) {
     this.showDecimalsInProduct = function() {
         var x = -maxNumDigits;
         var y = -digitsB.length * digitsA.length;
+		/** @todo translate with context */
         graph.label([x, y + 2],
-            "\\text{The top number has " + KhanUtil.plural(deciA, "digit") + " to the right of the decimal.}", "right");
+            "\\text{Horní číslo má " + KhanUtil.plural(deciA, "číslici", "čislice", "číslic") + " to the right of the decimal.}", "right");
         graph.label([x, y + 1],
-            "\\text{The bottom number has " + KhanUtil.plural(deciB, "digit") + " to the right of the decimal.}", "right");
+            "\\text{Spodní číslo má " + KhanUtil.plural(deciB, "číslici", "číslice", "číslic") + " to the right of the decimal.}", "right");
         graph.label([x, y],
-            "\\text{The product has " + deciA + " + " + deciB + " = " + (deciA + deciB)
-             + " digits to the right of the decimal.}", "right");
+            "\\text{Součin má " + deciA + " + " + deciB + " = " + (deciA + deciB)
+             + " číslic to the right of the decimal.}", "right");
         graph.style({
             fill: "#000"
         }, function() {
@@ -597,9 +598,9 @@ function Divider(divisor, dividend, deciDivisor, deciDividend) {
             highlights = highlights.concat(drawDigits(totalDigits, index - totalDigits.length + 1, -2 * index, KhanUtil.BLUE));
 
             graph.label([digitsDividend.length + 0.5, -2 * index],
-                "\\text{How many times does }"
+                "\\text{Kolikrát se }"
                 + divisor
-                + "\\text{ go into }"
+                + "\\text{ vejde do }"
                 + "\\color{#6495ED}{" + total + "}"
                 + "\\text{?}", "right");
 
@@ -631,7 +632,7 @@ function Divider(divisor, dividend, deciDivisor, deciDividend) {
                 + "\\div"
                 + divisor + "="
                 + "\\color{#28AE7B}{" + quotient + "}"
-                + "\\text{ or }"
+                + "\\text{ nebo }"
                 + divisor
                 + "\\times"
                 + "\\color{#28AE7B}{" + quotient + "}"
@@ -651,7 +652,7 @@ function Divider(divisor, dividend, deciDivisor, deciDividend) {
         this.addDecimal();
         this.show();
         graph.label([digitsDividend.length, 1],
-                "\\text{Write in a decimal and a zero and continue dividing.}", "right");
+                "\\text{Napište zbytek a nulu a pokračujte v dělení.}", "right");
     };
 
     this.getNumHints = function() {
@@ -680,7 +681,7 @@ function Divider(divisor, dividend, deciDivisor, deciDividend) {
 
         if (deciDivisor !== 0) {
             graph.label([digitsDividend.length + 1 + (deciDiff > 0 ? deciDiff : 0), 1],
-                "\\text{Shift the decimal " + deciDivisor + " to the right.}", "right");
+                "\\text{Posuňte zbytek " + deciDivisor + " do prava.}", "right");
             graph.style({
                 fill: "#000"
             }, function() {
@@ -688,9 +689,9 @@ function Divider(divisor, dividend, deciDivisor, deciDividend) {
             });
         } else {
             graph.label([digitsDividend.length + 0.5, 1.2],
-                "\\text{Bring the decimal up into the}", "right");
+                "\\text{Napište číslo do}", "right");
             graph.label([digitsDividend.length + 0.5, 0.8],
-                "\\text{answer (the quotient).}", "right");
+                "\\text{výsledku.}", "right");
         }
 
         this.addDecimal();
