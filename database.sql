@@ -12,6 +12,7 @@ CREATE TABLE `category` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `parent_id` bigint(20) unsigned DEFAULT NULL,
   `label` varchar(255) COLLATE utf8_czech_ci NOT NULL COMMENT 'titulek',
+  `slug` varchar(255) COLLATE utf8_czech_ci NOT NULL,
   `description` text COLLATE utf8_czech_ci NOT NULL COMMENT 'abstrakt',
   `position` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
@@ -23,6 +24,7 @@ DROP TABLE IF EXISTS `exercise`;
 CREATE TABLE `exercise` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `label` varchar(255) COLLATE utf8_czech_ci NOT NULL COMMENT 'název',
+  `slug` varchar(255) COLLATE utf8_czech_ci NOT NULL,
   `file` varchar(255) COLLATE utf8_czech_ci NOT NULL COMMENT 'soubor',
   PRIMARY KEY (`id`),
   UNIQUE KEY `label` (`label`)
@@ -46,6 +48,7 @@ CREATE TABLE `video` (
   `category_id` bigint(20) unsigned NOT NULL COMMENT 'kategorie',
   `exercise_id` bigint(20) unsigned DEFAULT NULL COMMENT 'cvičení',
   `label` varchar(255) COLLATE utf8_czech_ci NOT NULL COMMENT 'titulek',
+  `slug` varchar(255) COLLATE utf8_czech_ci NOT NULL,
   `description` text COLLATE utf8_czech_ci NOT NULL COMMENT 'abstrakt',
   `youtube_id` varchar(50) COLLATE utf8_czech_ci NOT NULL COMMENT 'youtube_id',
   `position` int(10) unsigned NOT NULL,
@@ -58,4 +61,4 @@ CREATE TABLE `video` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci COMMENT='Videa';
 
 
--- 2012-07-25 17:47:23
+-- 2012-08-04 11:29:58
