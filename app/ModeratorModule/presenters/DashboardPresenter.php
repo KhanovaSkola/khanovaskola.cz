@@ -40,6 +40,7 @@ class DashboardPresenter extends BaseModeratorPresenter
 			$this->context->exercises->insert([
 				'file' => $file,
 				'label' => $label,
+				'slug' => \Nette\Utils\Strings::webalize($label),
 			]);
 		}
 		$this->redirect('this');
