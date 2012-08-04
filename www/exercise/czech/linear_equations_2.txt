@@ -1,0 +1,12 @@
+214.1	 Lineární rovnice 2
+
+214.2	 Vyřeště pro <code>x</code>:
+
+214.3	 <code>x =</code> <span class="sol"><var>( D - B ) /  A </var></span>
+
+214.4	 <var>B > 0 ? "Odečtěte" : "Přičtěte"</var> <code><var>abs(B)</var></code> <var>B > 0 ? "od obou stran" : "k oběma stranám"</var>:
+
+214.7	 Vydělte obě strany <code><var>A</var></code>.
+
+214.9	 Zjednoduště.
+

@@ -1,0 +1,22 @@
+215.1	 Lineární rovnice 3
+
+215.2	 Vyřešte pro <code>x</code>:
+
+215.3	 <code>x =</code> <span class="sol"><var>( D - B ) / ( A - C )</var></span>
+
+215.4	 Odečtěte <code><var>C</var>x</code> od obou stran:
+
+215.7	 <var>B > 0 ? "Odečtěte" : "Přičtěte"</var> <code><var>abs(B)</var></code> <var>B > 0 ? "od obou stran" : "k oběma stranám"</var>:
+
+215.10	 Vydělte obě strany <code><var>A - C</var></code>.
+
+215.12	 Zjednoduště.
+
+215.14	 Odečtěte <code><var>A</var>x</code> od obou stran:
+
+215.17	 <var>D > 0 ? "Odečtěte" : "Přičtěte"</var> <code><var>abs(D)</var></code> <var>D > 0 ? "od obou stran" : "k oběma stranám"</var>:
+
+215.20	 Vydělte obě strany <code><var>C - A</var></code>.
+
+215.22	 Zjednodušte.
+

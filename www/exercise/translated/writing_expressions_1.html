@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html data-require="math expressions">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Tvorba rovnic 1</title>
+    <script src="../khan-exercise.js"></script>
+</head>
+<body>
+    <div class="exercise">
+        <div class="vars">
+            <var id="A">(random() > 0.5 ? -1 : 1) * (rand(9) + 1)</var>
+            <var id="B">(random() > 0.5 ? -1 : 1) * (rand(9) + 1)</var>
+        </div>
+
+        <div class="problems">
+            <div id="original">
+                <div class="problem">
+                    <p>Vyberte výraz, který popisuje následující věta:</p>
+                </div>
+                <p class="question">Součet <code><var>B</var></code> a součinu <code><var>A</var></code> s <code>x</code>.</p>
+                <p class="solution"><code><var>expr(["+", ["*", A, "x"], B])</var></code></p>
+                <ul class="choices" data-show="5" data-none="true">
+                    <li><code><var>expr(["+", ["*", -A, "x"], B])</var></code></li>
+                    <li><code><var>expr(["+", ["*", A, "x"], -B])</var></code></li>
+                    <li><code><var>expr(["+", ["*", B, "x"], A])</var></code></li>
+                    <li><code><var>expr(["+", ["*", -B, "x"], -A])</var></code></li>
+                </ul>
+                <div class="hints" data-apply="appendContents">
+                    <p id="hint1">Jaký je <span class="hint_orange">součin <code><var>A</var></code> a <code>x</code></span>?</p>
+                    <p id="hint2">Co je <span class="hint_blue">součet <code><var>B</var></code></span> a <code class="hint_orange"><var>expr(["*", A, "x"])</var></code>?</p>
+                </div>
+            </div>
+            <div data-type="original">
+                <p class="question">Vezměte <code><var>A</var></code> krát <code>x</code>a poté přidejte <code><var>B</var></code>.</p>
+                <div class="hints" data-apply="appendContents">
+                    <p id="hint1">Co je <span class="hint_orange"><code><var>A</var></code> krát <code>x</code></span>?</p>
+                    <p id="hint2">Co udělá <span class="hint_blue">přičtění <code><var>B</var></code></span>?</p>
+                </div>
+            </div>
+            <div data-type="original">
+                <p class="question"><code><var>B</var></code> plus součin <code><var>A</var></code> a <code>x</code>.</p>
+                <div class="hints" data-apply="appendContents">
+                    <p id="hint1">Co je <span class="hint_orange">součin <code><var>A</var></code> a <code>x</code></span>?</p>
+                    <p id="hint2">Co je <span class="hint_blue"><code><var>B</var></code> plus</span> <code class="hint_orange"><var>expr(["*", A, "x"])</var></code>?</p>
+                </div>
+            </div>
+            <div data-type="original">
+                <p class="question">Součet <code><var>B</var></code> a <code><var>A</var></code> krát <code>x</code>.</p>
+                <div class="hints" data-apply="appendContents">
+                    <p id="hint1">Co je <span class="hint_orange">součin <code><var>A</var></code> krát <code>x</code></span>?</p>
+                    <p id="hint2">Co je <span class="hint_blue">součet <code><var>B</var></code></span> a <code class="hint_orange"><var>expr(["*", A, "x"])</var></code>?</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hints">
+            <p>Rozdělme tento problém na menší a jednodušší části.</p>
+            <p id="hint1">390.19 	 </p>
+            <p><code><var>A</var> \times x = \color{orange}{<var>expr(["*", A, "x"])</var>}</code></p>
+            <p id="hint2">Původní věta ze zadání tedy může být zapsána jako <code><var>expr(["+", ["*", A, "x"], B])</var></code>.</p>
+            <p><code class="hint_orange"><var>A</var>x</code><code class="hint_blue">{} + <var>B</var></code></p>
+            <p>Původní věta ze zadání tedy může být zapsána jako <code><var>expr(["+", ["*", A, "x"], B])</var></code>.</p>
+        </div>
+    </div>
+</body>
+</html>

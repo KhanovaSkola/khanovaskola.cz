@@ -1,0 +1,10 @@
+213.1	 Lineární rovnice 1
+
+213.2	 Vyřešte pro <code>x</code>:
+
+213.3	 <code>x =</code> <span class="sol"><var> D /  A </var></span>
+
+213.4	 Vynásobte obě strany <code><var>ONE_OVER_A</var></code>.
+
+213.6	 Zjednodušte.
+

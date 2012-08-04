@@ -1,0 +1,6 @@
+151.1	 Výrazy s proměnnou
+
+151.2	 Pokud <code><var>ORIGINAL_EXPRESSIONS[ 0 ].join( " + " )</var> = <var>VALUES[ 0 ]</var></code> <span data-if="NUM_EXPRESSIONS === 2">and <code><var>ORIGINAL_EXPRESSIONS[ 1 ].join( " + " )</var> = <var>VALUES[ 1 ]</var></code></span>,
+
+151.3	 čemu se rovná <code><var>QUESTION</var></code>?
+

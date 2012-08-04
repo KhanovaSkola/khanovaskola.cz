@@ -1,0 +1,6 @@
+138.1	 Řešení výrazů 1
+
+138.2	 Vyřešte následující výraz když <code>x = <var>X</var></code>
+
+138.5	 Nahraďte <code class="hint_orange"><var>X</var></code> za <code>x</code>.
+

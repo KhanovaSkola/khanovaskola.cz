@@ -1,0 +1,8 @@
+139.1	 Řešení výrazů 2
+
+139.2	 Vyřešte následující výraz když <code><var>AN</var> = <var>A</var></code> a <code><var>BN</var> = <var>B</var></code>.
+
+139.5	 Nahraďte <code class="hint_orange"><var>A</var></code> za <code><var>AN</var></code> a <code class="hint_blue"><var>B</var></code> za <code><var>BN</var></code>.
+
+139.10	 Nahraďte <code class="hint_orange"><var>A</var></code> za <code><var>AN</var></code> a <code class="hint_blue"><var>B</var></code> za <code><var>BN</var></code>.
+

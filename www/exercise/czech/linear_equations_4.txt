@@ -1,0 +1,28 @@
+216.1	 Lineární rovnice 4
+
+216.2	 Vyřešte pro <code>x</code>:
+
+216.3	 <code>x =</code> <span class="sol"><var>ANSWER</var></span>
+
+216.4	 Vynásobte obě strany <code><var>expr(["*", C, "x"])</var> + <var>D</var></code>:
+
+216.7	 Nyní <var>A * D &lt; 0 ? "přičtěte" : "odečtěte"</var> <code><var>abs( A * D )</var></code> <var>A * D &lt; 0 ? "k oběma stranám" : "od obou stran"</var>:
+
+216.10	 Vydělte <code><var>A * C</var></code>:
+
+216.12	 Zjednodušte zlomek:
+
+216.14	 Vyřešte pro <code>x</code>:
+
+216.15	 <code>x =</code> <span class="sol"><var> ANSWER </var></span>
+
+216.16	 Vynásobte obě strany <code><var>expr(["*", C, "x"])</var> + <var>D</var></code>:
+
+216.19	 Nyní <var>E * C &lt; 0 ? "přičtěte" : "odečtěte"</var> <code><var>abs( E * C )</var>x</code> <var>E * C &lt; 0 ? "k oběma stranám" : "od obou stran"</var>:
+
+216.22	 <var>B &lt; 0 ? "Přičtěte" : "Odečtěte"</var> <code><var>abs( B )</var></code>:
+
+216.25	 Vydělte <code><var>A - E * C</var></code>:
+
+216.27	 Zjednodušte zlomek:
+
