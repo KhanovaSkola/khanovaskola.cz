@@ -38,7 +38,7 @@ a[href^="error:"] {
 
 footer .legal {float: right; margin-right: 10px;}
 .sortable-arrow {font-size: 120%; font-weight: bold; background-color: rgba(120, 160, 240, .5); padding: .1em .5em .2em .5em; border-radius: .3em; color: black;}
-.featured_video {display: block; width: 694px; height: 395px; background-color: black; background-repeat: no-repeat; background-position: center center;}
+.featured_video {display: block; max-width: 694px; height: 395px; background-color: black; background-repeat: no-repeat; background-position: center center;}
 .youtube_play {display: block; position:absolute; left: 293px; top: 160px; background: url('/images/youtube_play.png'); width: 107px; height: 73px; opacity: .6;}
 a:hover .youtube_play {opacity: 1;}
 .featured_header {display: block; position: absolute; width: 100%; top: 0; left: 0; font-size: 16pt; color: white; background-color: rgba(0, 0, 0, .6); height: 25pt;}
