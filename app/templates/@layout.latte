@@ -68,11 +68,11 @@
 							</span>
 							{/if}
                             <span class="separator"></span>
-                            <span>
+                            {*<span>
                                 <a n:href=':Front:Donate:'>
                                 Donate
                                 </a>
-                            </span>
+                            </span>*}
                         </span>
                         <div class="clear"></div>
                         <div id="nav-and-search">
@@ -82,8 +82,8 @@
                                         <span class="dropdown topic-browser-dropdown">
                                             <a n:href=":Front:Homepage:#browse" data-tag="Header" class="watch-link dropdown-toggle">Sledovat <span class="caret"></span></a>
                                             <a n:href=":Front:Exercise:, eid => NULL" data-tag="Header" class=" practice-link">Cvičení</a>
-                                            <a n:href=":Front:Coach:" data-tag="Header" class=" coach-link">Učitelé</a>
-                                            <a n:href=":Front:Contribute:" data-tag="Header" class=" contribute-link">Dobrovolníci</a>
+                                            {*<a n:href=":Front:Coach:" data-tag="Header" class=" coach-link">Učitelé</a>*}
+                                            <a n:href=":Front:Volunteer:" data-tag="Header" class=" contribute-link">Dobrovolníci</a>
                                             <a n:href=":Front:About:" data-tag="Header" class=" about-link">O Škole</a>
                                             <div style="clear: both"></div>
 											{include _dropdown.latte}
@@ -91,11 +91,11 @@
                                     </span>
                                 </nav>
                             </div>
-                            <div id="search-box">
+                            {*<div id="search-box">
                                 <form class="page-search" action="/search">
                                     <input id="search-input" type="text" placeholder="Hledat video nebo téma" name="page_search_query" value='' class="ui-corner-all placeholder simple-input search-input blur-on-esc" /><input type="submit" value=" " class="search-submit" />
                                 </form>
-                            </div>
+                            </div>*}
                             <div class="clear"></div>
                         </div>
                     </div>
@@ -136,16 +136,14 @@
 				<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cz/" id="creative-commons-link"></a>
 			</div>
 			<span class="footer-links">
-				<a n:href="http://khanacademy.desk.com" data-tag="Footer" >Kontakt</a>
-
-				<a n:href="/reportissue?type=Defect&issue_labels=" data-tag="Footer" id="report" >Nahlásit problém</a>
-
+				<a n:href=":Front:Contact:" data-tag="Footer">Kontakt</a>
+				{*<a n:href="/reportissue?type=Defect&issue_labels=" data-tag="Footer" id="report" >Nahlásit problém</a>*}
 				<span class="sep">|</span>
-				<a n:href=":Front:Blog:" data-tag="Footer" >Blog</a>
-				<a href="http://khanacademy.desk.com" id="faq-link" data-tag="Footer" >FAQ</a>
+				{*<a n:href=":Front:Blog:" data-tag="Footer" >Blog</a>*}
+				<a n:href=":Front:About:" id="faq-link" data-tag="Footer">O škole</a>
 				<span class="sep">|</span>
-				<a href=":Front:Contact:tos" title="Pravidla použití" data-tag="Footer" >Pravidla použití</a>
-				<a href=":Front:Contact:privacy" title="Ochrana osobních údajů" data-tag="Footer" >Osobní údaje</a>
+				<a n:href=":Front:Contact:tos" title="Pravidla použití" data-tag="Footer" >Pravidla použití</a>
+				<a n:href=":Front:Contact:privacy" title="Ochrana osobních údajů" data-tag="Footer" >Osobní údaje</a>
 
 				<span class="sep">|</span>
 				<span class="small-social-links">

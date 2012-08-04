@@ -8,18 +8,19 @@
 		</a>
     </div>
     <div id="homepage-text" class="visited-no-recolor">
-        <h1 class="section-headline pulls"><a n:href=":Front:Homepage:#browse" data-tag="Homepage Headline">Sleduj.</a> <a n:href=":Front:Exercise:" data-tag="Homepage Headline">Cvič.</a></h1>
+        <h1 class="section-headline pulls"><a n:href=":Front:Homepage:#browse" data-tag="Homepage Headline">Dívej se.</a> <a n:href=":Front:Exercise:" data-tag="Homepage Headline">Procvičuj.</a></h1>
         <h1>Nauč se zdarma skoro cokoliv.</h1>
-        <p>
-            With over <a n:href=":Front:Homepage:#browse" data-tag="Homepage Description">3,200 videos</a> on
-            everything from arithmetic to physics, finance, and history and <a n:href=":Front:Exercise:" data-tag="Homepage Description">hundreds of skills to practice</a>,
-            <a n:href=":Front:About:" data-tag="Homepage Description">we're on a mission</a> to help you learn what you want, when you want, at your own pace.
+        <p class="justify">
+			Jsme překlad KhanAcademy. Máme už pro vás <a n:href=":Front:Homepage:#browse" data-tag="Homepage Description">{$presenter->context->videos->findAll()->count()} videi</a>,
+			zatím z oblasti základní matematiky. Přidáváme další lekce, co nám síly stačí. Kromě naučích videí pro vás máme i <a n:href=":Front:Exercise:" data-tag="Homepage Description">cvičení</a>,
+			kde si naučenou látku můžete prozkoušet.
+            <a n:href=":Front:About:" data-tag="Homepage Description">Snažíme se</a> pomoci učit co vás zajímá; kdykoliv chcete a vaším tempem.
         </p>
         <div>
             <a n:href=":Front:Homepage:#browse" data-tag="Homepage C2A" class="call-to-action simple-button green watch-a-video">Shlédnout video</a>
             <a n:href=":Front:Exercise:" data-tag="Homepage C2A" class="call-to-action simple-button blue">Vyplnit cvičení</a>
         </div>
-        <p class="try-teacher-toolkit">Jste učitel? Projděte si naše <a n:href=":Front:Coach:resources">materiály pro učitele</a>.</p>
+		<p>Chcete Khanově škole pomoct? Můžete hned <a n:href=":Front:Volunteer:">začít překládat videa</a>.</p>
     </div>
 	{*
     <h2>Nové a zajímavé</h2>

@@ -100,9 +100,17 @@ class Routes
 					'cviceni' => 'Exercise',
 					'registrace' => 'Registration',
 					'o-skole' => 'About',
+					'kontakt' => 'Contact',
+					'dobrovolnici' => 'Volunteer',
 				],
 			],
-			'action' => 'default',
+			'action' => [
+				Route::VALUE => 'default',
+				Route::FILTER_TABLE => [
+					'pravidla-pouziti' => 'tos',
+					'osobni-udaje' => 'privacy',
+				]
+			]
 		]);
 	}
 	
