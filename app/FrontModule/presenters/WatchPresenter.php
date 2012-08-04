@@ -67,6 +67,7 @@ class WatchPresenter extends BaseFrontPresenter
 		$vid = $this->video;
 		
 		$vid->label = $v->label;
+		$vid->slug = \Nette\Utils\Strings::webalize($v->label);
 		$vid->description = $v->description;
 		$vid->youtube_id = $v->youtube_id;
 		

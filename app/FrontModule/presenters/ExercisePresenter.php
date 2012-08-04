@@ -75,6 +75,7 @@ class ExercisePresenter extends BaseFrontPresenter
 		$ex = $this->exercise;
 		
 		$ex->label = $v->label;
+		$ex->slug = \Nette\Utils\Strings::webalize($ex->label);
 		$ex->file = $v->file;
 		
 		$ex->update();
