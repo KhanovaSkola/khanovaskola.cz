@@ -8,17 +8,19 @@
 	
 	<title>{#title|striptags}Khanova Škola{/#}</title>
 
-	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/khan.css" type="text/css">
-	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css" type="text/css">
+	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/khan.css?v=2" type="text/css">
+	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css?v=4" type="text/css">
 	<link rel="stylesheet" media="print" href="{$basePath}/css/print.css" type="text/css">
 
 	<link rel="shortcut icon" href="{$basePath}/favicon.ico" type="image/x-icon">
-	<link rel="apple-touch-icon" href="{$basePath}/images/apple-touch-icon.png"/>
+	<link rel="apple-touch-icon" href="{$basePath}/images/apple-touch-icon.png" sizes=”72x72″/>
+	<link rel="apple-touch-icon" href="{$basePath}/images/apple-touch-icon@2x.png" sizes=”144x144″/>
 
 	<script type="text/javascript" src="{$basePath}/js/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="{$basePath}/js/jquery-ui-1.8.21.custom.min.js"></script>
 	{*<script type="text/javascript" src="{$basePath}/js/netteForms.js"></script>*}
 	<script type="text/javascript" src="{$basePath}/js/khan.js"></script>
+	<script type="text/javascript" src="{$basePath}/js/retina.js"></script> 
 	{#head}{/#}
 </head>
 
@@ -98,7 +100,9 @@
                         </div>
                     </div>
                     <div id="logo">
-                        <a id="logo-image" href="/" title="Zpět na titulku!" data-tag="Header"></a>
+                        <a id="logo-image" href="/" title="Zpět na titulku!" data-tag="Header">
+							<img src="{$basePath}/images/header.png">
+						</a>
                     </div>
                     <div class="clear"></div>
                 </div>
