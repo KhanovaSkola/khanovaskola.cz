@@ -1,0 +1,49 @@
+<?php
+
+use Nette\Utils\Strings;
+
+class SlugRoute extends \Nette\Application\Routers\Route
+{
+
+	protected $context;
+
+	protected $argument;
+
+	protected $table;
+	
+	
+	
+	public function init($context, $argument, $table)
+	{
+		$this->context = $context;
+		$this->argument = $argument;
+		$this->table = $table;
+	}
+	
+	
+	
+	public function match(\Nette\Http\IRequest $request) {
+		/** @var $appRequest \Nette\Application\Request */
+		$appRequest = parent::match($request);
+
+		// doplněno: pokud match vrátí NULL, musíme také vrátit NULL
+		if ($appRequest === NULL) {
+			return NULL;
+		}
+
+		if (!is_numeric($appRequest->parameters[$this->argument])) {
+			$compare = $appRequest->parameters[$this->argument];
+			$category = $this->context->{$this->table}->findOneBy(['slug' => $compare]);
+			if ($category == NULL) {
+				return NULL;
+			}
+			
+			$params = $appRequest->parameters;
+			$params[$this->argument] = $category->id;
+			$appRequest->parameters = $params;
+		}
+
+		return $appRequest;
+
+	}
+}

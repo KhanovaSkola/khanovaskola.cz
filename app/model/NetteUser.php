@@ -27,5 +27,12 @@ class NetteUser extends \Nette\Security\User
 	{
 		return $this->isInRole('moderator');
 	}
+	
+	
+	
+	public function isAdmin()
+	{
+		return $this->isInRole('admin');
+	}
 
 }

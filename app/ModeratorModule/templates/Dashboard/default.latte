@@ -6,7 +6,8 @@
 	<ol>
 		<li><a n:href="Translate:">přeložit cvičení</a></li>
 		<li><a n:href="detachedExercises">cvičení mimo databázi</a></li>
-		<li><a n:href="addExercise!">přidat cvičení do databáze</a></li>
+		<li n:if="$user->admin"><a n:href="addExercise!">přidat cvičení do databáze</a></li>
+		<li n:if="$user->admin"><a n:href="updateSlugs!">přegenerovat slugy</a></li>
 	</ol>
 	
 	<hr>

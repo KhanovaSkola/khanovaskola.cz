@@ -1,9 +1,6 @@
 <?php
 
-/**
- * My Application bootstrap file.
- */
-use Nette\Application\Routers\Route;
+use Nette\Utils\Strings;
 
 
 // Load Nette Framework
@@ -29,9 +26,8 @@ Kdyby\Forms\Containers\Replicator::register();
 $configurator->addConfig(__DIR__ . '/config/config.neon');
 $container = $configurator->createContainer();
 
-// Setup router
-$container->router[] = new Route('index.php', 'Front:Homepage:default', Route::ONE_WAY);
-$container->router[] = new Route('<presenter>/<action>[/<id>]', 'Front:Homepage:default');
+$routes = new Routes();
+$routes->setup($container);
 
 
 // Configure and run the application!

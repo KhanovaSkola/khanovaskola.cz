@@ -47,6 +47,24 @@ class DashboardPresenter extends BaseModeratorPresenter
 	
 	
 	
+	public function handleUpdateSlugs()
+	{
+		foreach ($this->context->categories->findAll() as $category) {
+			$category->slug = \Nette\Utils\Strings::webalize($category->label);
+			$category->update();
+		}
+		foreach ($this->context->videos->findAll() as $video) {
+			$video->slug = \Nette\Utils\Strings::webalize($video->label);
+			$video->update();
+		}
+		foreach ($this->context->exercises->findAll() as $ex) {
+			$ex->slug = \Nette\Utils\Strings::webalize($ex->label);
+			$ex->update();
+		}
+	}
+	
+	
+	
 	private function getDetachedExercises()
 	{
 		$detached = [];
