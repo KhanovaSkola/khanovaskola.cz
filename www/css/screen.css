@@ -46,3 +46,13 @@ a:hover .youtube_play {opacity: 1;}
 a:hover .featured_header .label {text-decoration: underline;}
 .wrap-columns {column-count:3; -moz-column-count:3; -webkit-column-count:3; column-gap:2em; -moz-column-gap:2em; -webkit-column-gap:2em;}
 .wrap-columns .link-wrap {display: block; width: 200pt !important;}
+.ipad-only {display: none;}
+
+/* ----  iPad 3 ---- */
+@media only screen and (max-device-width: 2048px) and (-webkit-min-device-pixel-ratio: 2)
+{
+	.ipad-only {display: block;}
+	.featured_header .label {text-decoration: underline;}
+	.youtube_play {opacity: .9;}
+	footer .legal-english {display: none;}
+}
