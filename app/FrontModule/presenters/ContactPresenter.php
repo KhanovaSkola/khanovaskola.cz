@@ -8,8 +8,10 @@ use Nette\Application\UI\Form;
 class ContactPresenter extends BaseFrontPresenter
 {
 	
-	public function renderReport($url, $time)
+	public function renderReport($url, $time, $title = NULL)
 	{
+		$this['issueForm']['label']->setValue($title); // optional
+		
 		$this['issueForm']['url']->setValue($url);
 		$this['issueForm']['time']->setValue($time);
 		$this['issueForm']['user_id']->setValue($this->user->id);
