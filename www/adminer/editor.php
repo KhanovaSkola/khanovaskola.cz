@@ -25,7 +25,7 @@ function adminer_object() {
         
         function login($login, $password) {
             // validate user submitted credentials
-            return ($login == 'admin' && $password == '');
+            return ($login == 'moderator' && $password == 'khan12');
         }
 
         function tableName($tableStatus) {

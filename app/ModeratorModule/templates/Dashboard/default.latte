@@ -2,12 +2,37 @@
 
 <article>
 	<br>
+
+	<div class="col1 fifty-fifty">
+		<h2>Databáze</h2>
+		<ol>
+			<li n:if="$user->admin"><a href="/adminer/">Adminer</a></li>
+			<li><a href="/adminer/editor.php?username=moderator">Adminer Editor</a> (uživatel: <em><code>moderator</code></em>, heslo: <em><code>khan12</code></em>)</li>
+		</ol>
+	</div>
+	<div class="col2 fifty-fifty">
+		<h2>Statistika</h2>
+		<ol>
+			<li><a href="https://www.google.com/analytics/web/?pli=1#realtime/rt-overview/a33892654w61295030p62747299/">Google Analytics</a></li>
+			<li>
+				{$presenter->context->videos->findAll()->count()} videí,
+				{$presenter->context->exercises->findAll()->count()} cvičení,
+				{$presenter->context->users->findAll()->count()} registrací
+			</li>
+		</ol>
+	</div>
+	<div class="clear"></div>
+
+	<hr>
+
 	<h2>Překlad</h2>
 	<ol>
 		<li><a n:href="Translate:">přeložit cvičení</a></li>
 		<li><a n:href="detachedExercises">cvičení mimo databázi</a></li>
-		<li n:if="$user->admin"><a n:href="addExercise!">přidat cvičení do databáze</a></li>
-		<li n:if="$user->admin"><a n:href="updateSlugs!">přegenerovat slugy</a></li>
+		{if $user->admin}
+			<li><a n:href="addExercise!">přidat cvičení do databáze</a></li>
+			<li><a n:href="updateSlugs!">přegenerovat slugy</a></li>
+		{/if}
 	</ol>
 	
 	<hr>

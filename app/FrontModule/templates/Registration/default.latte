@@ -1,5 +1,42 @@
 {#content}
 
-<article>
-	{control registrationForm}
+<article id="page-root">
+	<div class="login-container card-case vertical-shadow">
+    <div class="providers">
+    <div class="pw-login">
+        <h3>Registrace do Khanovy školy</h3>
+
+		<div>
+			<p>Tato registrace prozatím slouží jenom moderátorům a vyžaduje pozvánkový kód.</p>
+		</div>
+
+        <div class="pw-login-contents">
+			
+		{form registrationForm}
+			{control registrationForm errors}
+			
+            <div class="field-error" id="error-text">&nbsp;</div>
+
+            <img src="/images/hand-tree.png" width="75" height="75" class="tree">
+            <div class="field-container">
+				{label mail, class => "field-label"}Email{/label}
+				{input mail, class => "simple-input ui-corner-all"}
+            </div>
+
+            <div class="field-container">
+                {label password, class => "field-label"}Heslo{/label}
+				{input password, class => "simple-input ui-corner-all"}
+            </div>
+
+			<div class="field-container">
+                {label code, class => "field-label"}Kód{/label}
+				{input code, class => "simple-input ui-corner-all"}
+            </div>
+
+			{input send, value => "Přihlásit", class => "simple-button green"}
+        {/form}
+    </div>
+    </div>
+
+    </div>
 </article>
