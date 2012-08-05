@@ -30,6 +30,8 @@ common:
 				user: root
 				password:
 
+		debugger:
+			email: rullaf@gmail.com
 
 	services:
 		user: NetteUser
@@ -50,5 +52,12 @@ production < common:
 			default:
 				user: khan_u
 				password: "Sk4$U8!kBUd5" # yes it's public! Whatevs
+	
+	diagnostics:
+		loggerUrl: 'http://api.qray.eu/api/log.json'
+		accessLoggerUrl: 'http://api.qray.eu/api/access.json'
+		appId: 501ed6087bbbb402000003a1
+		appSecret: 60LiPqLZSPE8OCWboF6CrCoqPJrcYPz0
+		password: 'khan' # set only if you need enable access to your bluescreen files
 
 development < common:
