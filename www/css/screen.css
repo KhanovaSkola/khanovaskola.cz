@@ -44,3 +44,5 @@ a:hover .youtube_play {opacity: 1;}
 .featured_header {display: block; position: absolute; width: 100%; top: 0; left: 0; font-size: 16pt; color: white; background-color: rgba(0, 0, 0, .6); height: 25pt;}
 .featured_header .label {padding: 8pt; top: 5pt; position: relative;}
 a:hover .featured_header .label {text-decoration: underline;}
+.wrap-columns {column-count:3; -moz-column-count:3; -webkit-column-count:3; column-gap:2em; -moz-column-gap:2em; -webkit-column-gap:2em;}
+.wrap-columns .link-wrap {display: block; width: 200pt !important;}

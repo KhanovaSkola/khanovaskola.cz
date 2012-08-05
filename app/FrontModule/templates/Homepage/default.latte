@@ -12,9 +12,8 @@
         <h1 class="section-headline pulls"><a n:href=":Front:Homepage:#browse" data-tag="Homepage Headline">Dívej se.</a> <a n:href=":Front:Exercise:" data-tag="Homepage Headline">Procvičuj.</a></h1>
         <h1>Nauč se zdarma skoro cokoliv.</h1>
         <p class="justify">
-			Jsme překlad KhanAcademy. Máme už pro vás <a n:href=":Front:Homepage:#browse" data-tag="Homepage Description">{$presenter->context->videos->findAll()->count()} videi</a>,
-			zatím z oblasti základní matematiky. Přidáváme další lekce, co nám síly stačí. Kromě naučích videí pro vás máme i <a n:href=":Front:Exercise:" data-tag="Homepage Description">cvičení</a>,
-			kde si naučenou látku můžete prozkoušet.
+			Jsme překlad Khan Academy. Máme pro vás už <a n:href=":Front:Homepage:#browse" data-tag="Homepage Description">{$presenter->context->videos->findAll()->count()} videi</a>,
+			zatím z oblasti základní matematiky. Všechnu probranou látku si můžete prozkoušet na řadě <a n:href=":Front:Exercise:" data-tag="Homepage Description">cvičení</a>.
             <a n:href=":Front:About:" data-tag="Homepage Description">Snažíme se</a> pomoci učit co vás zajímá; kdykoliv chcete a vaším tempem.
         </p>
         <div>
@@ -53,7 +52,7 @@
 
 <div data-role="page" data-theme="b" >
     <div data-role="content">
-        <h2 class="main-headline">Prozkoumejte naši knihovnu čítající přes 3&thinsp;200 výukových videí&hellip;</h2>
+        <h2 class="main-headline">Máme pro vás přeloženo už {$presenter->context->videos->findAll()->count()} výukových videí&hellip;</h2>
             <div id="browse-control-anchor"></div>
             <div id="browse" class="topic_browser pulled" >
 <div id="topic-jump">
@@ -122,14 +121,13 @@
 							</div>
 							<div data-role="content" class="library-content-list">
 								<p class='topic-desc'>{$subcat->description}</p>
-								<div data-role="listview" data-inset="true">
-									<a n:foreach="$subcat->getVideos() as $video" class="m0 vl vid-progress" n:href=":Front:Watch:, vid => $video->id" data-tag="Homepage Library">{$video->label}</a>
+								<div class="wrap-columns" data-role="listview" data-inset="true">
+									<a n:foreach="$subcat->getVideos() as $video" class="link-wrap" n:href=":Front:Watch:, vid => $video->id" data-tag="Homepage Library">{$video->label}</a>
 								</div>
 								<div class="clear desktop-only subtopic-jump-fix">
 									<a name="solving-linear-equations">&nbsp;</a>
 								</div>
 							</div>
-
 						</div>
 					{/foreach}
 				{/foreach}
