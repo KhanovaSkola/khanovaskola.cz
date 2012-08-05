@@ -55,7 +55,7 @@
 											<span class="dropdown">
 												<span class="username_and_notification dropdown-toggle">
 													<a n:tag-if="$user->moderator" n:href=":Moderator:Dashboard:">
-														<img class="user-avatar" src="{$baseUrl}/images/avatars/leaf-green.png">
+														<img class="user-avatar" src="{$baseUrl}/images/avatars/leaf-{if $user->admin}red{elseif $user->moderator}blue{else}green{/if}.png">
 														<span class="user-name">
 															{$user->entity->mail}
 														</span>
