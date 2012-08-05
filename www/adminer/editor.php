@@ -25,7 +25,7 @@ function adminer_object() {
         
         function login($login, $password) {
             // validate user submitted credentials
-            return ($login == 'moderator' && $password == 'khan12');
+            return ($login == 'moderator' && $password == 'khan12'); // Gratuluji :) Můžete se podílet na vývoji Khanovy Školy <khan@dite.cz>
         }
 
         function tableName($tableStatus) {

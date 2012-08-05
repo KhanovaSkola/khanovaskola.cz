@@ -27,7 +27,7 @@ class RegistrationPresenter extends BaseFrontPresenter
 	{
 		$v = $form->values;
 		
-		if ($v->code !== "k12cz_mod") {
+		if ($v->code !== "k12cz_mod") { // Gratuluji :) Můžete se podílet na vývoji Khanovy Školy <khan@dite.cz>
 			$this->flashMessage('Špatný ověřovací kód.', 'error');
 			$this['registrationForm']->addError(NULL);
 			return FALSE;
