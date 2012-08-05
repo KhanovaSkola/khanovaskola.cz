@@ -22,6 +22,24 @@ class Category extends Entity
 	
 	
 	
+	public function hasVideos()
+	{
+		$count = $this->getVideos()->count();
+		if ($count) {
+			return TRUE;
+		}
+		
+		foreach ($this->getSubCategories() as $subcat) {
+			if ($subcat->hasVideos()) {
+				return TRUE;
+			}
+		}
+		
+		return FALSE;
+	}
+	
+	
+	
 	public function getVideos()
 	{
 		return $this->context->videos->findBy(['category_id' => $this->id]);

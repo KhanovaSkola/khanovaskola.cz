@@ -111,6 +111,7 @@
 			
 			{foreach $categories as $maincat}
 				{foreach $maincat->getSubCategories() as $category}
+					{continueIf !$category->hasVideos()}
 					<div data-role="page" id="container-{$category->id}" data-theme="b">
 						<div data-role="header" class="library-content-header">
 							<h2 class="topic-heading topic-heading-first"><a n:href=":Front:Browse:, id => $category->id">{$category->label}</a></h2>
@@ -121,6 +122,7 @@
 					</div>
 
 					{foreach $category->getSubCategories() as $subcat}
+						{continueIf !$subcat->hasVideos()}
 						<div data-role="page" id="container-{$subcat}" data-theme="b">
 							<div data-role="header" class="library-content-header">
 								<h2 class='subtopic-1-heading topic-heading-first'><a n:href=":Front:Browse:, id => $subcat->id">{$category->label}: {$subcat->label}</a></h2>
