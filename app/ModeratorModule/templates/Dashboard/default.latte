@@ -3,15 +3,17 @@
 <article>
 	<br>
 
-	<div n:if="$user->admin">
+	{if FALSE && $user->admin}
+	<div>
 		<h2>Administrátor</h2>
 		<ol>
-			<li><a n:href="attachToGithub!">propojit Github</a></li>
+			<li n:if="FALSE"><a n:href="attachToGithub!">propojit Github (pouze s parametrem yes)</a></li>
 		</ol>
 	</div>
 	<div class="clear"></div>
 
 	<hr>
+	{/if}
 
 	<div class="col1 fifty-fifty">
 		<h2>Databáze</h2>
