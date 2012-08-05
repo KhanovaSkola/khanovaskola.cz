@@ -6,6 +6,11 @@
 #
 common:
 	parameters:
+		github:
+			url: https://api.github.com
+			id: 599040d80ae76c23968a
+			secret: 6bb0114616800bc8e23a8ecae4e4a885ad265749
+			token: 131b7c8fefaadd1276037f58e784241f14cf0e0c
 
 	php:
 		date.timezone: Europe/Prague
@@ -38,7 +43,6 @@ common:
 		exercises: Exercises('exercise')
 
 	factories:
-
 
 production < common:
 	nette:

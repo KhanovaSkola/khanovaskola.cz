@@ -15,6 +15,9 @@ class DashboardPresenter extends BaseModeratorPresenter
 		$vid['description'] = $this->context->videos->findBy(['description' => '']);
 		$vid['exercise'] = $this->context->videos->findBy(['exercise_id' => NULL]);
 		$this->template->vid = $vid;
+		
+		$github = new \Github($this->context);
+		$this->template->issues = $github->issues;
 	}
 	
 	
@@ -88,4 +91,13 @@ class DashboardPresenter extends BaseModeratorPresenter
 		
 		return $detached;
 	}
+	
+	
+	
+	public function handleAttachToGithub()
+	{
+		$github = new \Github($this->context);
+		$github->redirectAuth($this);
+	}
+
 }

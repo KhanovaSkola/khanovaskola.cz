@@ -3,6 +3,16 @@
 <article>
 	<br>
 
+	<div n:if="$user->admin">
+		<h2>Administrátor</h2>
+		<ol>
+			<li><a n:href="attachToGithub!">propojit Github</a></li>
+		</ol>
+	</div>
+	<div class="clear"></div>
+
+	<hr>
+
 	<div class="col1 fifty-fifty">
 		<h2>Databáze</h2>
 		<ol>
@@ -25,15 +35,26 @@
 
 	<hr>
 
-	<h2>Překlad</h2>
-	<ol>
-		<li><a n:href="Translate:">přeložit cvičení</a></li>
-		<li><a n:href="detachedExercises">cvičení mimo databázi</a></li>
-		{if $user->admin}
-			<li><a n:href="addExercise!">přidat cvičení do databáze</a></li>
-			<li><a n:href="updateSlugs!">přegenerovat slugy</a></li>
-		{/if}
-	</ol>
+	<div class="col1 fifty-fifty">
+		<h2>Překlad</h2>
+		<ol>
+			<li><a n:href="Translate:">přeložit cvičení</a></li>
+			<li><a n:href="detachedExercises">cvičení mimo databázi</a></li>
+			{if $user->admin}
+				<li><a n:href="addExercise!">přidat cvičení do databáze</a></li>
+				<li><a n:href="updateSlugs!">přegenerovat slugy</a></li>
+			{/if}
+		</ol>
+	</div>
+	<div class="col2 fifty-fifty">
+		<h2>Problémy{if $issues} ({count($issues)}){/if}</h2>
+		<p n:if="!$issues">Žádné nahlášené a neopravené problémy :-)</p>
+		<a n:href=":Front:Contact:report, url => $presenter->url, time => time()">✎ Nahlásit problém</a>
+		<ol n:if="$issues">
+			<li n:foreach="$issues as $issue"><a href="{$issue->html_url}">{$issue->title}</a></li>
+		</ol>
+	</div>
+	<div class="clear"></div>
 	
 	<hr>
 	
