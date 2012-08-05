@@ -49,7 +49,11 @@
 		</ol>
 	</div>
 	<div class="col2 fifty-fifty">
-		<h2>Problémy{if $issues} ({count($issues)}){/if}</h2>
+		<h2>
+			<a href="https://github.com/KhanovaSkola/khanovaskola.cz/issues?state=open">
+			Problémy{if $issues} ({count($issues)}){/if}
+			</a>
+		</h2>
 		<p n:if="!$issues">Žádné nahlášené a neopravené problémy :-)</p>
 		<a n:href=":Front:Contact:report, url => $presenter->url, time => time()">✎ Nahlásit problém</a>
 		<ol n:if="$issues">
