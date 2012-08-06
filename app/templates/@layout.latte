@@ -43,7 +43,12 @@
 		<div id="page-container">
 			<div id="page-container-inner">
 				<div id="goals-nav-container" style="display: none" class="ui-corner-bottom"></div>
-				{include '_header.latte'}
+				<header>
+					{include '_header.latte'}
+					<nav id="page_sub_nav" n:ifset="#breadcrumbs">
+						{include #breadcrumbs}
+					</nav>
+				</header>
 
 				<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
 				{include #content}

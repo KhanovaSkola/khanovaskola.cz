@@ -1,11 +1,15 @@
 {var $title = $video->label}
 {#breadcrumbs}
 	<span class="breadcrumbs_nav video-nav">
-		<span>DOPLNIT</span>
-		<span class="breadcrumb-separator">»</span>
-		<a n:href="">DOPLNIT</a>
-		<span class="breadcrumb-separator">»</span>
-		<a n:href=":Front:Browse:, id => $video->getCategory()->id">{$video->getCategory()->label}</span>
+		{var $category = $video->getCategory()}
+		{#breadpath}
+			{if !$category->isSubject()}
+				{include #breadpath, category => $category->getParent()}
+				<span class="breadcrumb-separator">»</span>
+			{/if}
+			<a n:if="!$category->isSubject()" n:href=":Front:Browse:, id => $category->id">{$category->label}</a>
+			<span n:if="$category->isSubject()">{$category->label}</span>
+		{/#}
 	</span>
 {/#}
 {#content}
