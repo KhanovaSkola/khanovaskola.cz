@@ -17,7 +17,7 @@
 					{var $exercise => $video->getExercise()}
 					<a n:if="$exercise" n:href=":Front:Exercise:, eid => $exercise->id" class="practice simple-button green desktop-only" title="Ověřte si pochopení tématu na cvičeních">Procvičit toto téma</a>
 					<h1 class="title-header">
-						<span itemprop="name" class="title desktop-only">{$video->label}</span><span class="long-description"><span class="desktop-only">: </span><span itemprop="description">{$video->description}</span></span>
+						<span itemprop="name" class="title desktop-only">{$video->label}</span><span n:if="$video->description" class="long-description"><span class="desktop-only">: </span><span itemprop="description">{$video->description}</span></span>
 					</h1>
 				</div>
 				<div class="video-header" style="min-height: 1px">
