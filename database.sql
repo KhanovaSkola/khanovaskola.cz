@@ -7,10 +7,19 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 USE `khanacademy`;
 
+DELIMITER ;;
+
+DROP PROCEDURE IF EXISTS `trim_youtube_ids`;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `trim_youtube_ids`()
+UPDATE video SET youtube_id = trim(youtube_id);;
+
+DELIMITER ;
+
 DROP TABLE IF EXISTS `category`;
 CREATE TABLE `category` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `parent_id` bigint(20) unsigned DEFAULT NULL,
+  `is_leaf` tinyint(1) unsigned NOT NULL DEFAULT '1',
   `label` varchar(255) COLLATE utf8_czech_ci NOT NULL COMMENT 'titulek',
   `slug` varchar(255) COLLATE utf8_czech_ci NOT NULL,
   `description` text COLLATE utf8_czech_ci NOT NULL COMMENT 'abstrakt',
@@ -61,4 +70,7 @@ CREATE TABLE `video` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci COMMENT='Videa';
 
 
--- 2012-08-04 11:29:58
+DROP VIEW IF EXISTS `videos_with_error`;
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `videos_with_error` AS select `video`.`id` AS `id`,`video`.`category_id` AS `category_id`,`video`.`exercise_id` AS `exercise_id`,`video`.`label` AS `label`,`video`.`description` AS `description`,`video`.`youtube_id` AS `youtube_id`,`video`.`position` AS `position` from `video` where (`video`.`description` like '%.');
+
+-- 2012-08-06 11:23:11
