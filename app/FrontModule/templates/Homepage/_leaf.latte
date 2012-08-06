@@ -1,0 +1,14 @@
+<div data-role="page" id="container-{$subcat}" data-theme="b">
+	<div data-role="header" class="library-content-header">
+		<h2 class='subtopic-1-heading topic-heading-first'><a n:href=":Front:Browse:, id => $subcat->id">{$category->label}: {$subcat->label}</a></h2>
+	</div>
+	<div data-role="content" class="library-content-list">
+		<p class='topic-desc'>{$subcat->description}</p>
+		<div class="wrap-columns" data-role="listview" data-inset="true">
+			<a n:foreach="$subcat->getVideos() as $video" class="link-wrap" n:href=":Front:Watch:, vid => $video->id" data-tag="Homepage Library">{$video->label}</a>
+		</div>
+		<div class="clear desktop-only subtopic-jump-fix">
+			<a name="solving-linear-equations">&nbsp;</a>
+		</div>
+	</div>
+</div>

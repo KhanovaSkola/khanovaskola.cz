@@ -103,7 +103,7 @@
     }
     
 </style>
-	{cache "library-content", expire => '+2 hours'}
+	{*cache "library-content", expire => '+2 hours'*}
             <div id="library-content-main">
             
             
@@ -113,37 +113,16 @@
 			{foreach $categories as $maincat}
 				{foreach $maincat->getSubCategories() as $category}
 					{continueIf !$category->hasVideos()}
-					<div data-role="page" id="container-{$category->id}" data-theme="b">
-						<div data-role="header" class="library-content-header">
-							<h2 class="topic-heading topic-heading-first"><a n:href=":Front:Browse:, id => $category->id">{$category->label}</a></h2>
-						</div>
-						<div data-role="content" class="library-content-list">
-							<p class='topic-desc'>{$category->description}</p>
-						</div>
-					</div>
-
-					{foreach $category->getSubCategories() as $subcat}
-						{continueIf !$subcat->hasVideos()}
-						<div data-role="page" id="container-{$subcat}" data-theme="b">
-							<div data-role="header" class="library-content-header">
-								<h2 class='subtopic-1-heading topic-heading-first'><a n:href=":Front:Browse:, id => $subcat->id">{$category->label}: {$subcat->label}</a></h2>
-							</div>
-							<div data-role="content" class="library-content-list">
-								<p class='topic-desc'>{$subcat->description}</p>
-								<div class="wrap-columns" data-role="listview" data-inset="true">
-									<a n:foreach="$subcat->getVideos() as $video" class="link-wrap" n:href=":Front:Watch:, vid => $video->id" data-tag="Homepage Library">{$video->label}</a>
-								</div>
-								<div class="clear desktop-only subtopic-jump-fix">
-									<a name="solving-linear-equations">&nbsp;</a>
-								</div>
-							</div>
-						</div>
-					{/foreach}
+					{if $category->isLeaf()}
+						{include '_leaf.latte', subcat => $category, category => $maincat}
+					{else}
+						{include '_topic.latte', category => $category}
+					{/if}
 				{/foreach}
 			{/foreach}
             
 		</div>
-	{/cache}
+	{*/cache*}
 
 	</div>
 </div>

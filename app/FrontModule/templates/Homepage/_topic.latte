@@ -1,0 +1,13 @@
+<div data-role="page" id="container-{$category->id}" data-theme="b">
+	<div data-role="header" class="library-content-header">
+		<h2 class="topic-heading topic-heading-first"><a n:href=":Front:Browse:, id => $category->id">{$category->label}</a></h2>
+	</div>
+	<div data-role="content" class="library-content-list">
+		<p class='topic-desc'>{$category->description}</p>
+	</div>
+</div>
+
+{foreach $category->getSubCategories() as $subcat}
+	{continueIf !$subcat->hasVideos()}
+	{include '_leaf.latte', subcat => $subcat}
+{/foreach}
