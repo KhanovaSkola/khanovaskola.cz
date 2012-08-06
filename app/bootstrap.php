@@ -20,10 +20,9 @@ $configurator->createRobotLoader()
 Kdyby\Forms\Containers\Replicator::register();
 
 // Create Dependency Injection container from config.neon file
+$configurator->addConfig(__DIR__ . '/config/config.neon');
 
 \Nella\NetteAddons\Diagnostics\Config\Extension::register($configurator);
-
-$configurator->addConfig(__DIR__ . '/config/config.neon');
 
 $container = $configurator->createContainer();
 

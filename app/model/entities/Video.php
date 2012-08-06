@@ -51,4 +51,27 @@ class Video extends Entity
 		return $this->context->exercises->findOneBy(['id' => $this->exercise_id]);
 	}
 	
+	
+	
+	public function getMetaData()
+	{
+		$cache = new \Nette\Caching\Cache($this->context->cacheStorage, 'video');
+		if (!isset($cache[$this->id])) {
+			$res = file_get_contents("http://gdata.youtube.com/feeds/api/videos/$this->youtube_id?v=2&alt=jsonc&prettyprint=false");
+			$data = \Nette\Utils\Json::decode($res);
+			$cache->save($this->id, $data, [
+				\Nette\Caching\Cache::EXPIRE => '+ 24 hours',
+			]);
+		}
+		
+		return $cache[$this->id];
+	}
+	
+	
+	
+	public function getDuration()
+	{
+		return $this->getMetaData()->data->duration;
+	}
+	
 }

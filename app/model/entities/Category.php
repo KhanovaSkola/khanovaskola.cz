@@ -76,4 +76,23 @@ class Category extends Entity
 		return !$this->isSubject() && !$this->isLeaf();
 	}
 	
+	
+	
+	public function getDuration()
+	{
+		$cache = new \Nette\Caching\Cache($this->context->cacheStorage, 'category_duration');
+		if (!isset($cache[$this->id])) {
+			$duration = 0;
+			foreach ($this->getVideos() as $video) {
+				$duration += $video->getDuration();
+			}
+
+			$cache->save($this->id, $duration, [
+				\Nette\Caching\Cache::EXPIRE => '+ 6 hours',
+			]);
+		}
+		
+		return $cache[$this->id];
+	}
+	
 }
