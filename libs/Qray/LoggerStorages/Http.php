@@ -49,15 +49,15 @@ class Http extends \Nette\Object implements \Nella\NetteAddons\Diagnostics\ILogg
 			'appSecret' => "X-LoggerAuth-AppSecret: {$this->appSecret}",
 		);
 		if (function_exists('ini_get') && ini_get('allow_url_fopen')) {
-			$req = @stream_context_create(array(
+			$req = stream_context_create(array(
 				'http' => array(
 					'header' => "Content-Type: application/x-www-form-urlencoded\r\n".implode("\r\n", $headers),
 					'method' => 'POST',
 					'content' => http_build_query($data),
 				)
 			));
-			$fp = @fopen($this->url, 'r', FALSE, $req);
-			@fclose($fp);
+			$fp = fopen($this->url, 'r', FALSE, $req);
+			fclose($fp);
 		} else {
 			$ch = curl_init();
 

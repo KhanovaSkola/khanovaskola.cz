@@ -8,7 +8,7 @@
 
 	<title>{ifset $title}{$title} &ndash; {/ifset}Khanova škola</title>
 
-	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/khan.css?v=2" type="text/css">
+	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/khan.css?v={=time()}" type="text/css">
 	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css?v={=time()}" type="text/css">
 	<link rel="stylesheet" media="print" href="{$basePath}/css/print.css" type="text/css">
 
@@ -44,7 +44,9 @@
 			<div id="page-container-inner">
 				<div id="goals-nav-container" style="display: none" class="ui-corner-bottom"></div>
 				<header>
-					{include '_header.latte'}
+					{cache "incomplete", expire => '+2 hours'}
+						{include '_header.latte'}
+					{/cache}
 					<nav id="page_sub_nav" n:ifset="#breadcrumbs">
 						{include #breadcrumbs}
 					</nav>

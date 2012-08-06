@@ -55,7 +55,7 @@ class AccessLogger extends \Nette\Object
 			'time' => isset($_SERVER['REQUEST_TIME_FLOAT']) ? (microtime(TRUE)-$_SERVER['REQUEST_TIME_FLOAT'])*1000 : 0,
 			'memory' => function_exists('memory_get_peak_usage') ? number_format(memory_get_peak_usage() / 1000000, 2, '.', ' ') : 0,
 		);
-
+		
 		$this->storage->save($data);
 	}
 }
