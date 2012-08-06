@@ -32,7 +32,7 @@ class ExercisePresenter extends BaseFrontPresenter
 		if (!$this->exercise) {
 			$this->redirect('list');
 		}
-		$this->template->file = $this->exercise->file;
+		$this->template->exercise = $this->exercise;
 	}
 
 

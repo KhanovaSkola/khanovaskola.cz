@@ -6,7 +6,7 @@
 	<meta name="description" content="">
 	<meta name="robots" content="{$robots}" n:ifset="$robots">
 
-	<title>{#title|striptags}Khanova Škola{/#}</title>
+	<title>{ifset $title}{$title} &ndash; {/ifset}Khanova škola</title>
 
 	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/khan.css?v=2" type="text/css">
 	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css?v={=time()}" type="text/css">
