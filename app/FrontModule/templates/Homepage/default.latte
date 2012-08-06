@@ -32,7 +32,7 @@
 
 	<div class="clear"></div>
 
-	{cache "library-content", expire => '+2 hours'}
+	{*cache "library-content", expire => '+2 hours'*}
 
 		<div data-role="page" data-theme="b">
 			<div data-role="content">
@@ -46,10 +46,12 @@
 			<div id="library-content" >
 				<div id="library-content-main">
 					{foreach $categories as $maincat}
+						{continueIf !$maincat->hasVideos()}
+						<h2>{$maincat->label}</h2>
 						{foreach $maincat->getSubCategories() as $category}
 							{continueIf !$category->hasVideos()}
 							{if $category->isLeaf()}
-								{include '_leaf.latte', subcat => $category, category => $maincat}
+								{include '_leaf.latte', subcat => $category, category => $category->getParent()}
 							{else}
 								{include '_topic.latte', category => $category}
 							{/if}
@@ -58,5 +60,5 @@
 				</div>
 			</div>
 		</div>
-	{/cache}
+	{*/cache*}
 </article>
