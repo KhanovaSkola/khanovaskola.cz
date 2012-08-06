@@ -65,7 +65,7 @@ class Category extends Entity
 	/** @return bool */
 	public function isLeaf()
 	{
-		return $this->getSubCategories()->count() === 0;
+		return $this->is_leaf == 1;
 	}
 	
 	
