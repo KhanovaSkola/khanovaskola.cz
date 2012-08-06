@@ -32,33 +32,33 @@
 
 	<div class="clear"></div>
 
-	<div data-role="page" data-theme="b" >
-		<div data-role="content">
-			<h2 class="main-headline">Máme pro vás přeloženo už {$presenter->context->videos->findAll()->count()} výukových videí&hellip;</h2>
-			<div id="browse-control-anchor"></div>
-			<div id="browse" class="topic_browser pulled" >
-				<div id="topic-jump">
-					<span class="topic_browser_text desktop-only">Přejít na téma:</span>
-					<nav class="css-menu" id="page_main_nav">
-						<ul data-role="listview" data-inset="true">
-							<li n:foreach="$categories as $category" class="topline">
-								{$category->label}{?$category->getSubCategories()}
-								<ul>
-									<li n:foreach="$category->getSubCategories() as $subcat" {*class="topline"*}><a href="#arithmetic" data-tag="TopicBrowser">{$subcat->label}</a></li>
-								</ul>
-							</li>
-						</ul>
-					</nav>
+	{cache "library-content", expire => '+2 hours'}
+		<div data-role="page" data-theme="b" >
+			<div data-role="content">
+				<h2 class="main-headline">Máme pro vás přeloženo už {$presenter->context->videos->findAll()->count()} výukových videí&hellip;</h2>
+				<div id="browse-control-anchor"></div>
+				<div id="browse" class="topic_browser pulled" >
+					<div id="topic-jump">
+						<span class="topic_browser_text desktop-only">Přejít na téma:</span>
+						<nav class="css-menu" id="page_main_nav">
+							<ul data-role="listview" data-inset="true">
+								<li n:foreach="$categories as $category" class="topline">
+									{$category->label}{?$category->getSubCategories()}
+									<ul>
+										<li n:foreach="$category->getSubCategories() as $subcat" {*class="topline"*}><a href="#arithmetic" data-tag="TopicBrowser">{$subcat->label}</a></li>
+									</ul>
+								</li>
+							</ul>
+						</nav>
+					</div>
+					<div class="clear"></div>
 				</div>
-				<div class="clear"></div>
 			</div>
 		</div>
-	</div>
-	<div class="clear"></div>
+		<div class="clear"></div>
 
-	<div id="library">
-		<div id="library-content" >
-			{cache "library-content", expire => '+2 hours'}
+		<div id="library">
+			<div id="library-content" >
 				<div id="library-content-main">
 					{foreach $categories as $maincat}
 						{foreach $maincat->getSubCategories() as $category}
@@ -71,7 +71,7 @@
 						{/foreach}
 					{/foreach}
 				</div>
-			{/cache}
+			</div>
 		</div>
-	</div>
+	{/cache}
 </article>
