@@ -1,7 +1,5 @@
 <?php
 
-use Nette\Utils\Strings;
-
 class SlugRoute extends \Nette\Application\Routers\Route
 {
 
@@ -10,23 +8,22 @@ class SlugRoute extends \Nette\Application\Routers\Route
 	protected $argument;
 
 	protected $table;
-	
-	
-	
+
+
+
 	public function init($context, $argument, $table)
 	{
 		$this->context = $context;
 		$this->argument = $argument;
 		$this->table = $table;
 	}
-	
-	
-	
+
+
+
 	public function match(\Nette\Http\IRequest $request) {
 		/** @var $appRequest \Nette\Application\Request */
 		$appRequest = parent::match($request);
 
-		// doplněno: pokud match vrátí NULL, musíme také vrátit NULL
 		if ($appRequest === NULL) {
 			return NULL;
 		}
@@ -37,7 +34,7 @@ class SlugRoute extends \Nette\Application\Routers\Route
 			if ($category == NULL) {
 				return NULL;
 			}
-			
+
 			$params = $appRequest->parameters;
 			$params[$this->argument] = $category->id;
 			$appRequest->parameters = $params;

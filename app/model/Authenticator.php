@@ -8,6 +8,7 @@ use Nette\Security as NS;
  */
 class Authenticator extends Nette\Object implements NS\IAuthenticator
 {
+
 	/** @var Table */
 	private $selector;
 

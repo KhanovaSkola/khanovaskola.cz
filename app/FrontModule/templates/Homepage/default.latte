@@ -1,4 +1,5 @@
 {#content}
+
 <article id="homepage">
 	<div class="ipad-only">
 		<div class="flash">
@@ -13,117 +14,64 @@
 			</span>
 			<span class="featured_header"><span class="label">{$featured_video->label|truncate:30}</span></span>
 		</a>
-    </div>
-    <div id="homepage-text" class="visited-no-recolor">
-        <h1 class="section-headline pulls"><a n:href=":Front:Homepage:#browse" data-tag="Homepage Headline">Dívej se.</a> <a n:href=":Front:Exercise:" data-tag="Homepage Headline">Procvičuj.</a></h1>
-        <h1>Nauč se zdarma skoro cokoliv.</h1>
-        <p class="justify">
+	</div>
+	<div id="homepage-text" class="visited-no-recolor">
+		<h1 class="section-headline pulls"><a n:href=":Front:Homepage:#browse" data-tag="Homepage Headline">Dívej se.</a> <a n:href=":Front:Exercise:" data-tag="Homepage Headline">Procvičuj.</a></h1>
+		<h1>Nauč se zdarma skoro cokoliv.</h1>
+		<p class="justify">
 			Jsme překlad Khan Academy. Máme pro vás už <a n:href=":Front:Homepage:#browse" data-tag="Homepage Description">{$presenter->context->videos->findAll()->count()} videi</a>,
 			zatím z oblasti základní matematiky. Všechnu probranou látku si můžete prozkoušet na řadě <a n:href=":Front:Exercise:" data-tag="Homepage Description">cvičení</a>.
-            <a n:href=":Front:About:" data-tag="Homepage Description">Snažíme se</a> pomoci učit co vás zajímá; kdykoliv chcete a vaším tempem.
-        </p>
-        <div>
-            <a n:href=":Front:Homepage:#browse" data-tag="Homepage C2A" class="call-to-action simple-button green watch-a-video">Shlédnout video</a>
-            <a n:href=":Front:Exercise:" data-tag="Homepage C2A" class="call-to-action simple-button blue">Vyplnit cvičení</a>
-        </div>
-		<p>Chcete Khanově škole pomoct? Můžete hned <a n:href=":Front:Volunteer:">začít překládat videa</a>.</p>
-    </div>
-	{*
-    <h2>Nové a zajímavé</h2>
-    <div id="thumbnails_container">
-        <table width="100%">
-            <tr>
-                <td width="100%">
-                    <div id="thumbnails" class="visited-no-recolor">
-						<div><table style="width:100%"><tr>
-
-						{foreach $presenter->context->videos->findAll()->order('id DESC')->limit(5) as $video}
-						<td style="width:25%" class="thumbnail_td video-thumb">
-							<a n:href=":Front:Watch:, vid => $video->id" data-tag="Homepage Featured" class="thumbnail_link">
-								<div class="thumb" style="background-image:url('http://img.youtube.com/vi/{$video->youtube_id}/hqdefault.jpg')"></div>
-								
-							</a>
-						</td>
-						{/foreach}
-						
-						</tr></table></div>
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </div>
-    *}
-
-    <div class="clear"></div>
-
-<div data-role="page" data-theme="b" >
-    <div data-role="content">
-        <h2 class="main-headline">Máme pro vás přeloženo už {$presenter->context->videos->findAll()->count()} výukových videí&hellip;</h2>
-            <div id="browse-control-anchor"></div>
-            <div id="browse" class="topic_browser pulled" >
-<div id="topic-jump">
-<span class="topic_browser_text desktop-only">Přejít na téma:</span>
-<nav class="css-menu" id="page_main_nav">
-<ul data-role="listview" data-inset="true">
-	<li n:foreach="$categories as $category" class="topline">
-		{$category->label}{?$category->getSubCategories()}
-		<ul>
-			<li n:foreach="$category->getSubCategories() as $subcat" {*class="topline"*}><a href="#arithmetic" data-tag="TopicBrowser">{$subcat->label}</a></li>
-		</ul>
-	</li>
-</ul>
-</nav>
-</div>
-<div class="clear"></div>
-</div>
-        
-    </div>
-</div>
-<div class="clear"></div>
-
-
-<div id="library">
-        <div id="library-content" >
-            <style>
-    #library-content .library-content-list a {
-        width: 30%;
-        height: 18.0px;   
-    }
-    
-    .m0 {
-        margin-left: 0%;
-    }
-    
-    .m1 {
-        margin-left: 33%;
-    }
-    
-    .m2 {
-        margin-left: 66%;
-    }
-    
-</style>
-	{cache "library-content", expire => '+2 hours'}
-            <div id="library-content-main">
-            
-            
-                <div class="clear desktop-only"><a name="algebra" id="algebra">&nbsp;</a></div>
-            
-			
-			{foreach $categories as $maincat}
-				{foreach $maincat->getSubCategories() as $category}
-					{continueIf !$category->hasVideos()}
-					{if $category->isLeaf()}
-						{include '_leaf.latte', subcat => $category, category => $maincat}
-					{else}
-						{include '_topic.latte', category => $category}
-					{/if}
-				{/foreach}
-			{/foreach}
-            
+			<a n:href=":Front:About:" data-tag="Homepage Description">Snažíme se</a> pomoci učit co vás zajímá; kdykoliv chcete a vaším tempem.
+		</p>
+		<div>
+			<a n:href=":Front:Homepage:#browse" data-tag="Homepage C2A" class="call-to-action simple-button green watch-a-video">Shlédnout video</a>
+			<a n:href=":Front:Exercise:" data-tag="Homepage C2A" class="call-to-action simple-button blue">Vyplnit cvičení</a>
 		</div>
-	{/cache}
-
+		<p>Chcete Khanově škole pomoct? Můžete hned <a n:href=":Front:Volunteer:">začít překládat videa</a>.</p>
 	</div>
-</div>
+
+	<div class="clear"></div>
+
+	<div data-role="page" data-theme="b" >
+		<div data-role="content">
+			<h2 class="main-headline">Máme pro vás přeloženo už {$presenter->context->videos->findAll()->count()} výukových videí&hellip;</h2>
+			<div id="browse-control-anchor"></div>
+			<div id="browse" class="topic_browser pulled" >
+				<div id="topic-jump">
+					<span class="topic_browser_text desktop-only">Přejít na téma:</span>
+					<nav class="css-menu" id="page_main_nav">
+						<ul data-role="listview" data-inset="true">
+							<li n:foreach="$categories as $category" class="topline">
+								{$category->label}{?$category->getSubCategories()}
+								<ul>
+									<li n:foreach="$category->getSubCategories() as $subcat" {*class="topline"*}><a href="#arithmetic" data-tag="TopicBrowser">{$subcat->label}</a></li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>
+
+	<div id="library">
+		<div id="library-content" >
+			{cache "library-content", expire => '+2 hours'}
+				<div id="library-content-main">
+					{foreach $categories as $maincat}
+						{foreach $maincat->getSubCategories() as $category}
+							{continueIf !$category->hasVideos()}
+							{if $category->isLeaf()}
+								{include '_leaf.latte', subcat => $category, category => $maincat}
+							{else}
+								{include '_topic.latte', category => $category}
+							{/if}
+						{/foreach}
+					{/foreach}
+				</div>
+			{/cache}
+		</div>
+	</div>
 </article>

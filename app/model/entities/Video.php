@@ -1,8 +1,17 @@
 <?php
 
+/**
+ * @property int	$category_id
+ * @property int	$exercise_id
+ * @property string	$label
+ * @property string	$slug			Webalized $label
+ * @property string	$description
+ * @property string	$youtube_id
+ * @property int	$position		Unique between siblings
+ */
 class Video extends Entity
 {
-	
+
 	/**
 	 * @return Video
 	 */
@@ -11,38 +20,38 @@ class Video extends Entity
 		return $this->context->categories->findOneBy(['id' => $this->category_id]);
 	}
 
-	
-	
-	/** 
+
+
+	/**
 	 * @return Video
 	 */
 	public function getNextVideo()
 	{
 		return $this->getAdjacentVideo(+1);
 	}
-	
-	
-	
-	/** 
+
+
+
+	/**
 	 * @return Video
 	 */
 	public function getPreviousVideo()
 	{
 		return $this->getAdjacentVideo(-1);
 	}
-	
-	
-	
-	/** 
+
+
+
+	/**
 	 * @return Video
 	 */
 	protected function getAdjacentVideo($offset)
 	{
 		return $this->context->videos->findOneBy(['category_id' => $this->category_id, 'position' => $this->position + $offset]);
 	}
-	
-	
-	
+
+
+
 	/**
 	 * @return Exercise
 	 */
@@ -50,9 +59,12 @@ class Video extends Entity
 	{
 		return $this->context->exercises->findOneBy(['id' => $this->exercise_id]);
 	}
-	
-	
-	
+
+
+
+	/**
+	 * Queues Youtube API
+	 */
 	public function getMetaData()
 	{
 		$cache = new \Nette\Caching\Cache($this->context->cacheStorage, 'video');
@@ -63,15 +75,15 @@ class Video extends Entity
 				\Nette\Caching\Cache::EXPIRE => '+ 24 hours',
 			]);
 		}
-		
+
 		return $cache[$this->id];
 	}
-	
-	
-	
+
+
+
 	public function getDuration()
 	{
 		return $this->getMetaData()->data->duration;
 	}
-	
+
 }

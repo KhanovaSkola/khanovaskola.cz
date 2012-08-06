@@ -9,65 +9,59 @@
 {/#}
 {#content}
 <article id="video-page">
-<div class="video" data-role="page" data-theme="b">
-    <div data-role="content" itemscope itemtype="http://schema.org/VideoObject">
-        <div style="min-height: 88px">
-          <div id="description" class="video-description">
-			{var $exercise => $video->getExercise()}
-			<a n:if="$exercise" n:href=":Front:Exercise:, eid => $exercise->id" class="practice simple-button green desktop-only" title="Ověřte si pochopení tématu na cvičeních">Procvičit toto téma</a>
-			<h1 class="title-header">
-				<span itemprop="name" class="title desktop-only">{$video->label}</span><span class="long-description"><span class="desktop-only">: </span><span itemprop="description">{$video->description}</span></span>
-			</h1>
-          </div>
-          <div class="video-header" style="min-height: 1px">
-            <nav class="prev_next_nav desktop-only">
-				{var $prev => $video->getPreviousVideo()}
-				<label id="prev_video">
-					<a n:if="$prev" rel="prev" class="previous-video" n:href="this, vid => $prev->id"><b>Předchozí video:</b> {$prev->label}</a>
-					<a n:if="!$prev" class="previous-video"></a>
-				</label>
-				{var $next => $video->getNextVideo()}
-				<label id="next_video" n:if="$next">
-					<a rel="next" class="next-video" n:href="this, vid => $next->id"><b>Další video:</b> {$next->label}</a>
-				</label>
-				<div class="clear"></div>
-			</nav>
-          </div>
-        </div>
-        <div class="video-container">
-            <div class="video-overlay desktop-only large-font"></div>
-            <div id="youtube_blocked" class="desktop-only"></div>
-            <div class="youtube-video">
-                <link itemprop="thumbnailUrl" href="http://img.youtube.com/vi/{$video->youtube_id}/hqdefault.jpg">
-				<script type="text/javascript" src="http://s3.www.universalsubtitles.org/embed.js">
-				({
-					video_url: "http://www.youtube.com/watch?v={!$video->youtube_id}",
-					base_state: {"language": "cs"},
-					video_config: {
-						width: "800",
-						height: "480",
-						modestbranding: "1",
-						autoplay: "0",
-					}
-				})
-				</script>
-				<div class="socrates-nav"></div>
-                <div class="subtitles-warning desktop-only">
-                    &lArr; Use this menu to view and help create subtitles for this video in many different languages.
-                    You'll probably want to hide YouTube's captions if using these subtitles.
-                </div>
-            </div>
-        </div>
-        <div>
-            <span class="video-footer">
-				<span class="extra-link-bar desktop-only">
-					{if $user->isInRole('moderator')}
-						<a n:href="edit">[upravit]</a>
-					{/if}
-	
+	<div class="video" data-role="page" data-theme="b">
+		<div data-role="content" itemscope itemtype="http://schema.org/VideoObject">
+			<div style="min-height: 88px">
+				<div id="description" class="video-description">
+					{var $exercise => $video->getExercise()}
+					<a n:if="$exercise" n:href=":Front:Exercise:, eid => $exercise->id" class="practice simple-button green desktop-only" title="Ověřte si pochopení tématu na cvičeních">Procvičit toto téma</a>
+					<h1 class="title-header">
+						<span itemprop="name" class="title desktop-only">{$video->label}</span><span class="long-description"><span class="desktop-only">: </span><span itemprop="description">{$video->description}</span></span>
+					</h1>
+				</div>
+				<div class="video-header" style="min-height: 1px">
+					<nav class="prev_next_nav desktop-only">
+						{var $prev => $video->getPreviousVideo()}
+						<label id="prev_video">
+							<a n:if="$prev" rel="prev" class="previous-video" n:href="this, vid => $prev->id">
+								<b>Předchozí video:</b> {$prev->label}
+							</a>
+							<a n:if="!$prev" class="previous-video"></a>
+						</label>
+						{var $next => $video->getNextVideo()}
+						<label id="next_video" n:if="$next">
+							<a rel="next" class="next-video" n:href="this, vid => $next->id"><b>Další video:</b> {$next->label}</a>
+						</label>
+						<div class="clear"></div>
+					</nav>
+				</div>
+			</div>
+			<div class="video-container">
+				<div class="video-overlay desktop-only large-font"></div>
+				<div id="youtube_blocked" class="desktop-only"></div>
+				<div class="youtube-video">
+					<link itemprop="thumbnailUrl" href="http://img.youtube.com/vi/{$video->youtube_id}/hqdefault.jpg">
+					<script type="text/javascript" src="http://s3.www.universalsubtitles.org/embed.js">
+						({
+							video_url: "http://www.youtube.com/watch?v={!$video->youtube_id}",
+							base_state: {"language": "cs"},
+							video_config: {
+								width: "800",
+								height: "480",
+								modestbranding: "1",
+								autoplay: "0",
+							}
+						})
+					</script>
+				</div>
+			</div>
+			<div>
+				<span class="video-footer">
+					<span class="extra-link-bar desktop-only">
+						<a n:if="$user->moderator" n:href="edit">[upravit]</a>
+					</span>
 				</span>
-            </span>
-        </div>
-    </div>
-</div>
+			</div>
+		</div>
+	</div>
 </article>

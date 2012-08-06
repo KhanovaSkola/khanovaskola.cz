@@ -1,49 +1,47 @@
-<div class="prerendered" data-id="algebra">
-<div>
-  <div data-role="header" class="main-header clearfix">
-	{var $thumbnail => $category->getSubcategories()->limit(1)->fetch()->getVideos()->limit(1)->fetch()}
-    <div class="topic-video thumbnail_td">
-      <a n:tag-if="$thumbnail" n:href=":Front:Watch:, vid => $thumbnail->id" data-tag="Topic Page Root Featured" class="thumbnail_link modal-video">
-        <div class="thumb" style="background-image:url('http://img.youtube.com/vi/{$thumbnail ? $thumbnail->youtube_id : '0'}/hqdefault.jpg')"></div>
-        <div n:if="$thumbnail" class="thumbnail_container">
-          <div class="thumbnail_label"><div class="thumbnail_desc">{$thumbnail->label}</div></div>
-        </div>
-      </a>
-    </div>
-    <div class="topic-info">
-      <div class='topic-title'>
-		{$category->label}
-		{if $user->isInRole('moderator')}
-		  <a n:href="edit">[upravit]</a>
-		{/if}
-	  </div>
-      <div class='topic-desc'>{$category->description}</div>
-    </div>
-  </div>
-  <div class="subtopic-header">Témata</div>
-  <div class="subtopic-list-container">
-	<div class="subtopics-list first">
-		<div n:foreach="$category->getSubcategoriesHalf() as $subcat" class="subtopic thumbnail_td first">
-		  {#topic_preview}
-			  <a class="subtopic-link-and-scroll" data-tag="Topic Page Root Subtopic" n:href=":Front:Browse:, id => $subcat->id" data-id="">
-				{var $thumbnail => $subcat->getVideos()->limit(1)->fetch()}
-				<div class="thumb" style="background-image:url('http://img.youtube.com/vi/{$thumbnail ? $thumbnail->youtube_id : '0'}/hqdefault.jpg')"></div>
-				<div class="topic-info">
-				  <div class="topic-title">
-					{$subcat->label}
-				  </div>
-				  <div class="topic-description">{$subcat->description|truncate:70}</div>
-				  <div class="topic-video-count">Prohlédnout {$subcat->getVideos()->count()} videí</div>
-				</div>  
-			  </a>
-		  {/#}
+<div class="prerendered">
+	<div>
+		<div data-role="header" class="main-header clearfix">
+			{var $thumbnail => $category->getSubcategories()->limit(1)->fetch()->getVideos()->limit(1)->fetch()}
+			<div class="topic-video thumbnail_td">
+				<a n:tag-if="$thumbnail" n:href=":Front:Watch:, vid => $thumbnail->id" data-tag="Topic Page Root Featured" class="thumbnail_link modal-video">
+					<div class="thumb" style="background-image:url('http://img.youtube.com/vi/{$thumbnail ? $thumbnail->youtube_id : '0'}/hqdefault.jpg')"></div>
+					<div n:if="$thumbnail" class="thumbnail_container">
+						<div class="thumbnail_label"><div class="thumbnail_desc">{$thumbnail->label}</div></div>
+					</div>
+				</a>
+			</div>
+			<div class="topic-info">
+				<div class='topic-title'>
+					{$category->label}
+					{if $user->isInRole('moderator')}
+						<a n:href="edit">[upravit]</a>
+					{/if}
+				</div>
+				<div class='topic-desc'>{$category->description}</div>
+			</div>
+		</div>
+		<div class="subtopic-header">Témata</div>
+		<div class="subtopic-list-container">
+			<div class="subtopics-list first">
+				<div n:foreach="$category->getSubcategoriesHalf() as $subcat" class="subtopic thumbnail_td first">
+					{#topic_preview}
+						<a class="subtopic-link-and-scroll" data-tag="Topic Page Root Subtopic" n:href=":Front:Browse:, id => $subcat->id" data-id="">
+							{var $thumbnail => $subcat->getVideos()->limit(1)->fetch()}
+							<div class="thumb" style="background-image:url('http://img.youtube.com/vi/{$thumbnail ? $thumbnail->youtube_id : '0'}/hqdefault.jpg')"></div>
+							<div class="topic-info">
+								<div class="topic-title">{$subcat->label}</div>
+								<div class="topic-description">{$subcat->description|truncate:70}</div>
+								<div class="topic-video-count">Prohlédnout {$subcat->getVideos()->count()} videí</div>
+							</div>
+						</a>
+					{/#}
+				</div>
+			</div>
+			<div class="subtopics-list second">
+				<div n:foreach="$category->getSubcategoriesHalf($secondHalf = TRUE) as $subcat" class="subtopic thumbnail_td first">
+					{include #topic_preview}
+				</div>
+			</div>
 		</div>
 	</div>
-	<div class="subtopics-list second">
-		<div n:foreach="$category->getSubcategoriesHalf($secondHalf = TRUE) as $subcat" class="subtopic thumbnail_td first">
-			{include #topic_preview}
-		</div>
-	</div>
-  </div>
-</div>
 </div>

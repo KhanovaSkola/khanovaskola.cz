@@ -1,8 +1,7 @@
 <?php
 
-use Nette\Application\UI,
-	Nette\Security as NS;
-
+use Nette\Application\UI;
+use Nette\Security as NS;
 
 class SignPresenter extends BasePresenter
 {
@@ -42,7 +41,7 @@ class SignPresenter extends BasePresenter
 				$this->user->setExpiration('+ 7 days', TRUE);
 			}
 			$this->user->login($values->username, $values->password);
-			
+
 			if ($this->user->isInRole('moderator')) {
 				$this->redirect(':Moderator:Dashboard:');
 			} else {

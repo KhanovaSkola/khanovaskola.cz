@@ -2,5 +2,5 @@
 
 class Users extends Table
 {
-	
+
 }

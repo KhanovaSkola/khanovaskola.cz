@@ -4,15 +4,15 @@
 	<br>
 
 	{if FALSE && $user->admin}
-	<div>
-		<h2>Administrátor</h2>
-		<ol>
-			<li n:if="FALSE"><a n:href="attachToGithub!">propojit Github (pouze s parametrem yes)</a></li>
-		</ol>
-	</div>
-	<div class="clear"></div>
+		<div>
+			<h2>Administrátor</h2>
+			<ol>
+				<li n:if="FALSE"><a n:href="attachToGithub!">propojit Github (pouze s parametrem yes)</a></li>
+			</ol>
+		</div>
+		<div class="clear"></div>
 
-	<hr>
+		<hr>
 	{/if}
 
 	<div class="col1 fifty-fifty">
@@ -64,46 +64,46 @@
 		{/cache}
 	</div>
 	<div class="clear"></div>
-	
+
 	<hr>
-	
+
 	<h2>Nekompletní údaje</h2>
 	{cache "incomplete", expire => '+2 hours'}
-	<table>
-		<tr>
-			<th><strong>Kategorie bez popisu:</strong></th>
-			<th><strong>Videa bez popisu:</strong></th>
-			<th><strong>Videa bez cvičení:</strong></th>
-		</tr>
-		<tr>
-			<td>
-				<ol>
-					{var $count => $cat['description']->limit(30)->count()}
-					<li n:foreach="$cat['description']->limit(30)->order('id DESC') as $cat">
-						<a n:href=":Front:Browse:edit, id => $cat->id">{$cat->label}</a>
-					</li>
-					<li n:if="$count == 30">a další&hellip;</li>
-				</ol>
-			</td>
-			<td>
-				<ol>
-					{var $count => $vid['description']->limit(30)->count()}
-					<li n:foreach="$vid['description']->limit(30)->order('id DESC') as $video">
-						<a n:href=":Front:Watch:edit, vid => $video->id">{$video->label}</a>
-					</li>
-					<li n:if="$count == 30">and more&hellip;</li>
-				</ol>
-			</td>
-			<td>
-				<ol>
-					{var $count => $vid['exercise']->limit(30)->count()}
-					<li n:foreach="$vid['exercise']->limit(30)->order('id DESC') as $video">
-						<a n:href=":Front:Watch:edit, vid => $video->id">{$video->label}</a>
-					</li>
-					<li n:if="$count == 30">and more&hellip;</li>
-				</ol>
-			</td>
-		</tr>
-	</table>
+		<table>
+			<tr>
+				<th><strong>Kategorie bez popisu:</strong></th>
+				<th><strong>Videa bez popisu:</strong></th>
+				<th><strong>Videa bez cvičení:</strong></th>
+			</tr>
+			<tr>
+				<td>
+					<ol>
+						{var $count => $cat['description']->limit(30)->count()}
+						<li n:foreach="$cat['description']->limit(30)->order('id DESC') as $cat">
+							<a n:href=":Front:Browse:edit, id => $cat->id">{$cat->label}</a>
+						</li>
+						<li n:if="$count == 30">a další&hellip;</li>
+					</ol>
+				</td>
+				<td>
+					<ol>
+						{var $count => $vid['description']->limit(30)->count()}
+						<li n:foreach="$vid['description']->limit(30)->order('id DESC') as $video">
+							<a n:href=":Front:Watch:edit, vid => $video->id">{$video->label}</a>
+						</li>
+						<li n:if="$count == 30">and more&hellip;</li>
+					</ol>
+				</td>
+				<td>
+					<ol>
+						{var $count => $vid['exercise']->limit(30)->count()}
+						<li n:foreach="$vid['exercise']->limit(30)->order('id DESC') as $video">
+							<a n:href=":Front:Watch:edit, vid => $video->id">{$video->label}</a>
+						</li>
+						<li n:if="$count == 30">and more&hellip;</li>
+					</ol>
+				</td>
+			</tr>
+		</table>
 	{/cache}
 </article>

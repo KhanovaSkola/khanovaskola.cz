@@ -3,34 +3,33 @@
 <article id="topic-page">
 
 <div class="topic-page-content">
-  <div class="container">
-    <div class="nav-pane">
-      <ul>
-		<li data-id="" n:class="$category->id == $selected ? 'selected'">
-		  <a class="subtopic-link" data-tag="Topic Page Nav Root Topic" n:href=":Front:Browse:, id => $category->id" data-id="">
-			<h2 class='topic-heading'>{$category->label}</h2>
-			<div class="right-arrow"></div>
-		  </a>
-		</li>
-		<li class="subheading"><span>Témata</span></li>
-		<li n:foreach="$category->getSubcategories() as $subcat" data-id="" n:class="$subcat->id == $selected ? 'selected'">
-		  <a class="subtopic-link" data-tag="Topic Page Nav Subtopic" n:href=":Front:Browse:, id => $subcat->id" data-id="">
-			{$subcat->label}
-			<div class="right-arrow"></div>
-		  </a>
-		</li>
-	  </ul>
-      <div style="clear: both"></div>
-    </div>
-    
-	<div class="content-pane indent">
-		{ifset $leaf}
-			{include '_pane_leaf.latte'}
-		{else}
-			{include '_pane_topic.latte'}
-		{/ifset}
-    </div>
-  </div>
+	<div class="container">
+		<div class="nav-pane">
+			<ul>
+				<li data-id="" n:class="$category->id == $selected ? 'selected'">
+					<a class="subtopic-link" data-tag="Topic Page Nav Root Topic" n:href=":Front:Browse:, id => $category->id" data-id="">
+						<h2 class='topic-heading'>{$category->label}</h2>
+						<div class="right-arrow"></div>
+					</a>
+				</li>
+				<li class="subheading"><span>Témata</span></li>
+				<li n:foreach="$category->getSubcategories() as $subcat" data-id="" n:class="$subcat->id == $selected ? 'selected'">
+					<a class="subtopic-link" data-tag="Topic Page Nav Subtopic" n:href=":Front:Browse:, id => $subcat->id" data-id="">
+						{$subcat->label}
+						<div class="right-arrow"></div>
+					</a>
+				</li>
+			</ul>
+			<div style="clear: both"></div>
+		</div>
+		<div class="content-pane indent">
+			{ifset $leaf}
+				{include '_pane_leaf.latte'}
+			{else}
+				{include '_pane_topic.latte'}
+			{/ifset}
+		</div>
+	</div>
 </div>
 
 </article>

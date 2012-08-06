@@ -1,82 +1,77 @@
 {var $thumbnail => $leaf->getVideos()->limit(1)->fetch()}
-<div class="prerendered" data-id="algebra">
-<div>
-  <div data-role="header" class="main-header clearfix">
-    <div class="topic-video thumbnail_td">
-      <a n:tag-if="$thumbnail" n:href=":Front:Watch:, vid => $thumbnail->id" data-tag="Topic Page Root Featured" class="thumbnail_link modal-video">
-        <div class="thumb" style="background-image:url('http://img.youtube.com/vi/{$thumbnail ? $thumbnail->youtube_id : '0'}/hqdefault.jpg')"></div>
-        <div n:if="$thumbnail" class="thumbnail_container">
-          <div class="thumbnail_label"><div class="thumbnail_desc">{$thumbnail->label}</div></div>
-        </div>
-      </a>
-    </div>
-    <div class="topic-info">
-      <div class='topic-title'>
-		{$leaf->label}
-	  </div>
-	  <div class='topic-desc'>{$leaf->description}</div>
-	  <div n:if="$user->moderator">
-		  <a n:href="edit">[upravit]</a>
-		  <a n:href="add!">[přivat video]</a>
-	  </div>
-	  Stopáž: {$leaf->getDuration()|time}
-    </div>
-  </div>
-  <div class="videos-list">
-	<div class="videos-header">
-		Videa
+<div class="prerendered">
+	<div>
+		<div data-role="header" class="main-header clearfix">
+			<div class="topic-video thumbnail_td">
+				<a n:tag-if="$thumbnail" n:href=":Front:Watch:, vid => $thumbnail->id" data-tag="Topic Page Root Featured" class="thumbnail_link modal-video">
+					<div class="thumb" style="background-image:url('http://img.youtube.com/vi/{$thumbnail ? $thumbnail->youtube_id : '0'}/hqdefault.jpg')"></div>
+					<div n:if="$thumbnail" class="thumbnail_container">
+						<div class="thumbnail_label"><div class="thumbnail_desc">{$thumbnail->label}</div></div>
+					</div>
+				</a>
+			</div>
+			<div class="topic-info">
+				<div class='topic-title'>{$leaf->label}</div>
+				<div class='topic-desc'>{$leaf->description}</div>
+				<div n:if="$user->moderator">
+					<a n:href="edit">[upravit]</a>
+					<a n:href="add!">[přivat video]</a>
+				</div>
+				<div>Stopáž: {$leaf->getDuration()|time}</div>
+			</div>
+		</div>
+		<div class="videos-list">
+			<div class="videos-header">Videa</div>
+			<div class="videos-table">
+				<ol class="first" n:inner-foreach="$leaf->getVideos() as $video">
+					<li n:block="video_link" class="video-link" id="video-{$video->id}" data-id="{$video->id}">
+						<a n:href=":Front:Watch:, vid => $video->id" data-tag="Topic Page Subtopic Library">
+							<span class="indent">
+								<span n:if="$user->moderator" class="sortable-arrow">↕</span>
+								{$video->label}
+							</span>
+						</a>
+					</li>
+				</ol>
+				<ol>
+					{*/** @todo second column */*}
+				</ol>
+				<script n:if="$user->moderator">
+					$(function() {
+						var prompt_shown = false;
+						var original = null;
+						$(".videos-table ol.first").sortable({
+							items: 'li',
+							create: function() {
+								original = $(this).sortable('serialize');
+							},
+							change: function() {
+								var $that = $(this);
+								$('.videos-header a').show();
+								if (!prompt_shown) {
+									prompt_shown = true;
+									console.log('create');
+									$('.videos-header').append($('<a href="#"/>').text('[Uložit]').click(function() {
+										var data = [];
+										$.each($that.sortable('toArray'), function(p, id) {
+											data.push($("#" + id).data('id'));
+										});
+										$.ajax({plink updatePositions!}, {
+											data: { videos: data.join(',')}
+										});
+										$('.videos-header a').hide();
+									}));
+								}
+							},
+							stop: function() {
+								if (original == $(this).sortable('serialize')) {
+									$('.videos-header a').hide();
+								}
+							}
+						}).disableSelection();
+					});
+				</script>
+			</div>
+		</div>
 	</div>
-	<div class="videos-table">
-	  <ol class="first" n:inner-foreach="$leaf->getVideos() as $video">
-		  {#video_link}
-			  <li class="video-link" id="video-{$video->id}" data-id="{$video->id}">
-				  <a n:href=":Front:Watch:, vid => $video->id" data-tag="Topic Page Subtopic Library">
-					  <span class="indent">
-						<span n:if="$user->moderator" class="sortable-arrow">↕</span>
-						{$video->label}
-					  </span>
-				  </a>
-			  </li>
-		  {/#}
-	  </ol>
-	  <ol>
-	  </ol>
-	  <script n:if="$user->moderator">
-		$(function() {
-			var prompt_shown = false;
-			var original = null;
-			$(".videos-table ol.first").sortable({
-				items: 'li',
-				create: function() {
-					original = $(this).sortable('serialize');
-				},
-				change: function() {
-					var $that = $(this);
-					$('.videos-header a').show();
-					if (!prompt_shown) {
-						prompt_shown = true;
-						console.log('create');
-						$('.videos-header').append($('<a href="#"/>').text('[Uložit]').click(function() {
-							var data = [];
-							$.each($that.sortable('toArray'), function(p, id) {
-								data.push($("#" + id).data('id'));
-							});
-							$.ajax({plink updatePositions!}, {
-								data: { videos: data.join(',')}
-							});
-							$('.videos-header a').hide();
-						}));
-					}
-				},
-				stop: function() {
-					if (original == $(this).sortable('serialize')) {
-						$('.videos-header a').hide();
-					}
-				}
-			}).disableSelection();
-		});
-	  </script>
-	</div>
-  </div>
-</div>
 </div>

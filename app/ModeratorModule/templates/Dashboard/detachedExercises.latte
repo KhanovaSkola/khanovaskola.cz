@@ -4,7 +4,9 @@
 	<br>
 	<h2>Přeložená cvičení, která nejsou v databázi</h2>
 	<a n:if="$user->admin" n:href="populateDb!">nahrát do databáze</a>
+
 	<hr>
+
 	<ol>
 		<li n:foreach="$detached as $file => $label">
 			<a href="#">{$file}: {$label}</a>

@@ -16,20 +16,29 @@ class NetteUser extends \Nette\Security\User
 
 
 
+	/**
+	 * @return User
+	 */
 	public function getEntity()
 	{
 		return $this->context->users->findOneBy(['id' => $this->id]);
 	}
-	
-	
-	
+
+
+
+	/**
+	 * @return bool
+	 */
 	public function isModerator()
 	{
 		return $this->isInRole('moderator');
 	}
-	
-	
-	
+
+
+
+	/**
+	 * @return bool
+	 */
 	public function isAdmin()
 	{
 		return $this->isInRole('admin');

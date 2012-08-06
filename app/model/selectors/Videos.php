@@ -2,39 +2,41 @@
 
 class Videos extends Table
 {
-	
+
 	public function updatePositions(array $data)
 	{
 		$this->connection->beginTransaction();
+
 		foreach ($data as $position => $id) {
 			$this->findOneBy(['id' => $id])->update(['position' => $position]);
 		}
+
 		$this->connection->commit();
 	}
-	
-	
-	
+
+
+
 	/**
-     * @return Selection
-     */
-    public function findAll()
-    {
-        return $this->getTable()->order('position');
-    }
+	 * @return Selection
+	 */
+	public function findAll()
+	{
+		return $this->getTable()->order('position');
+	}
 
 
 
-    /**
-     * @param array $by
-     * @return Selection
-     */
-    public function findBy(array $by)
-    {
-        return $this->getTable()->where($by)->order('position');
-    }
-	
-	
-	
+	/**
+	 * @param array $by
+	 * @return Selection
+	 */
+	public function findBy(array $by)
+	{
+		return $this->getTable()->where($by)->order('position');
+	}
+
+
+
 	/**
 	 * @return Video
 	 */
@@ -42,9 +44,9 @@ class Videos extends Table
 	{
 		return $this->getTable()->order('Rand()')->limit(1)->fetch();
 	}
-	
-	
-	
+
+
+
 	/**
 	 * @param array $data
 	 * @return \Nette\Database\Table\ActiveRow
@@ -59,7 +61,8 @@ class Videos extends Table
 				$data['position'] = 0;
 			}
 		}
+
 		return $this->getTable()->insert($data);
 	}
-	
+
 }

@@ -1,0 +1,75 @@
+{#content}
+
+<header>
+	<div id="top-header">
+		<div class="top-header-links">
+			<span class="page_links" id="page_auth">
+				<span id="goals-container"></span>
+					<span id="user-info" class="badge-target">
+
+						{if $user->loggedIn}
+							<span id="user-info" class="badge-target">
+								<span class="dropdown">
+									<span class="username_and_notification dropdown-toggle">
+										<a n:tag-if="$user->moderator" n:href=":Moderator:Dashboard:">
+											<img class="user-avatar" src="{$baseUrl}/images/avatars/leaf-{if $user->admin}red{elseif $user->moderator}blue{else}green{/if}.png">
+											<span class="user-name">
+												{$user->entity->mail}
+											</span>
+											<span class="caret"></span>
+										</a>
+									</span>
+									<ul class="dropdown-menu no-submenus">
+										<li n:if="$user->moderator"><a class="dropdown-link" n:href=":Moderator:Dashboard:">Moderátoři</a></li>
+										<li><a n:href=":Sign:out">Odhlásit se</a></li>
+									</ul>
+								</span>
+							</span>
+						{else}
+							<a n:href=":Sign:in">Přihlášení</a>
+						{/if}
+
+					</span>
+					{if !$user->loggedIn}
+						<span class="separator"></span>
+						<span>
+							<a n:href=":Front:Registration:">Registrace</a>
+						</span>
+					{/if}
+				<span class="separator"></span>
+			</span>
+			<div class="clear"></div>
+			<div id="nav-and-search">
+				<div class="sitewide-navigation">
+					<nav>
+						<span class="links nav-subheader">
+							<span class="dropdown topic-browser-dropdown">
+								<a n:href=":Front:Homepage:#browse" data-tag="Header" class="watch-link dropdown-toggle">Sledovat <span class="caret"></span></a>
+								<a n:href=":Front:Exercise:, eid => NULL" data-tag="Header" class=" practice-link">Cvičení</a>
+								<a n:href=":Front:Volunteer:" data-tag="Header" class=" contribute-link">Dobrovolníci</a>
+								<a n:href=":Front:About:" data-tag="Header" class=" about-link">O Škole</a>
+								<div style="clear: both"></div>
+								{include _dropdown.latte}
+							</span>
+						</span>
+					</nav>
+				</div>
+				{*<div id="search-box">
+					<form class="page-search" action="/search">
+						<input id="search-input" type="text" placeholder="Hledat video nebo téma" name="page_search_query" value='' class="ui-corner-all placeholder simple-input search-input blur-on-esc" /><input type="submit" value=" " class="search-submit" />
+					</form>
+				</div>*}
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div id="logo">
+			<a id="logo-image" href="/" title="Zpět na titulku!" data-tag="Header">
+				<img src="{$basePath}/images/header.png">
+			</a>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<nav id="page_sub_nav" n:ifset="#breadcrumbs">
+		{include #breadcrumbs}
+	</nav>
+</header>

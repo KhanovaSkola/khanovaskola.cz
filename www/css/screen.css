@@ -1,41 +1,15 @@
-/*
-body {
-	font: 16px/1.5 Georgia, serif;
-	color: #333;
-	background-color: #fff;
-	margin: 20px auto;
-	max-width: 940px;
-	min-width: 770px;
-}
+/* nette */
+#ajax-spinner {margin: 15px 0 0 15px; padding: 13px; background: white url('../images/spinner.gif') no-repeat 50% 50%; font-size: 0; z-index: 123456; display: none;}
+div.flash {color: black; background: #FFF9D7; border: 1px solid #E2C822; padding: 1em; margin: 1em 0;}
+a[href^="error:"] {background: red; color: white;}
 
-h1 {
-	font: bold 47px/1.5 sans-serif;
-	color: #3484D2;
-	margin: .6em 0
-}
-*/
-#ajax-spinner {
-	margin: 15px 0 0 15px;
-	padding: 13px;
-	background: white url('../images/spinner.gif') no-repeat 50% 50%;
-	font-size: 0;
-	z-index: 123456;
-	display: none;
-}
+/* for homepage library */
+#library-content .library-content-list a {width: 30%; height: 18.0px;}
+.m0 {margin-left: 0%;}
+.m1 {margin-left: 33%;}
+.m2 {margin-left: 66%;}
 
-div.flash {
-	color: black;
-	background: #FFF9D7;
-	border: 1px solid #E2C822;
-	padding: 1em;
-	margin: 1em 0;
-}
-
-a[href^="error:"] {
-	background: red;
-	color: white;
-}
-
+/* generic */
 footer .legal {float: right; margin-right: 10px;}
 .sortable-arrow {font-size: 120%; font-weight: bold; background-color: rgba(120, 160, 240, .5); padding: .1em .5em .2em .5em; border-radius: .3em; color: black;}
 .featured_video {display: block; max-width: 694px; height: 395px; background-color: black; background-repeat: no-repeat; background-position: center center;}

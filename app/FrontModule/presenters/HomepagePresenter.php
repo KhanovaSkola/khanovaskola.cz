@@ -2,6 +2,7 @@
 
 namespace FrontModule;
 
+
 class HomepagePresenter extends BaseFrontPresenter
 {
 
@@ -10,10 +11,11 @@ class HomepagePresenter extends BaseFrontPresenter
 		$this->template->categories = $this->context->categories->findRoot();
 		$this->template->featured_video = $this->context->videos->findRandom();
 	}
-	
-	
-	
-	public function actionGithubCallback($code, $access_token)
+
+
+
+	/** @todo rewrite */
+	public function actionGithubCallback($code)
 	{
 		$github = new \Github($this->context);
 		if ($code) {
