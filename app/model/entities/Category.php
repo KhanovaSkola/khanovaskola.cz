@@ -113,8 +113,14 @@ class Category extends Entity
 		$cache = new \Nette\Caching\Cache($this->context->cacheStorage, 'category_duration');
 		if (!isset($cache[$this->id])) {
 			$duration = 0;
-			foreach ($this->getVideos() as $video) {
-				$duration += $video->getDuration();
+			if ($this->isLeaf()) {
+				foreach ($this->getVideos() as $video) {
+					$duration += $video->getDuration();
+				}
+			} else {
+				foreach ($this->getSubCategories() as $subcat) {
+					$duration += $subcat->getDuration();
+				}
 			}
 
 			$cache->save($this->id, $duration, [
