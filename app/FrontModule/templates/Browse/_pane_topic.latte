@@ -1,9 +1,9 @@
 <div class="prerendered">
 	<div>
-		<div data-role="header" class="main-header clearfix">
+		<div class="main-header clearfix">
 			{var $thumbnail => $category->getSubcategories()->limit(1)->fetch()->getVideos()->limit(1)->fetch()}
 			<div class="topic-video thumbnail_td">
-				<a n:tag-if="$thumbnail" n:href=":Front:Watch:, vid => $thumbnail->id" data-tag="Topic Page Root Featured" class="thumbnail_link modal-video">
+				<a n:tag-if="$thumbnail" n:href=":Front:Watch:, vid => $thumbnail->id" class="thumbnail_link modal-video">
 					<div class="thumb" style="background-image:url('http://img.youtube.com/vi/{$thumbnail ? $thumbnail->youtube_id : '0'}/hqdefault.jpg')"></div>
 					<div n:if="$thumbnail" class="thumbnail_container">
 						<div class="thumbnail_label"><div class="thumbnail_desc">{$thumbnail->label}</div></div>
@@ -25,7 +25,7 @@
 			<div class="subtopics-list first">
 				<div n:foreach="$category->getSubcategoriesHalf() as $subcat" class="subtopic thumbnail_td first">
 					{#topic_preview}
-						<a class="subtopic-link-and-scroll" data-tag="Topic Page Root Subtopic" n:href=":Front:Browse:, id => $subcat->id" data-id="">
+						<a class="subtopic-link-and-scroll" n:href=":Front:Browse:, id => $subcat->id">
 							{var $thumbnail => $subcat->getVideos()->limit(1)->fetch()}
 							<div class="thumb" style="background-image:url('http://img.youtube.com/vi/{$thumbnail ? $thumbnail->youtube_id : '0'}/hqdefault.jpg')"></div>
 							<div class="topic-info">

@@ -1,9 +1,9 @@
 {var $thumbnail => $leaf->getVideos()->limit(1)->fetch()}
 <div class="prerendered">
 	<div>
-		<div data-role="header" class="main-header clearfix">
+		<div class="main-header clearfix">
 			<div class="topic-video thumbnail_td">
-				<a n:tag-if="$thumbnail" n:href=":Front:Watch:, vid => $thumbnail->id" data-tag="Topic Page Root Featured" class="thumbnail_link modal-video">
+				<a n:tag-if="$thumbnail" n:href=":Front:Watch:, vid => $thumbnail->id" class="thumbnail_link modal-video">
 					<div class="thumb" style="background-image:url('http://img.youtube.com/vi/{$thumbnail ? $thumbnail->youtube_id : '0'}/hqdefault.jpg')"></div>
 					<div n:if="$thumbnail" class="thumbnail_container">
 						<div class="thumbnail_label"><div class="thumbnail_desc">{$thumbnail->label}</div></div>
@@ -24,8 +24,8 @@
 			<div class="videos-header">Videa</div>
 			<div class="videos-table">
 				<ol class="first" n:inner-foreach="$leaf->getVideos() as $video">
-					<li n:block="video_link" class="video-link" id="video-{$video->id}" data-id="{$video->id}">
-						<a n:href=":Front:Watch:, vid => $video->id" data-tag="Topic Page Subtopic Library">
+					<li n:block="video_link" class="video-link" id="video-{$video->id}">
+						<a n:href=":Front:Watch:, vid => $video->id">
 							<span class="indent">
 								<span n:if="$user->moderator" class="sortable-arrow">↕</span>
 								{$video->label}

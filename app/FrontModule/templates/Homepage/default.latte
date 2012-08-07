@@ -16,16 +16,16 @@
 		</a>
 	</div>
 	<div id="homepage-text" class="visited-no-recolor">
-		<h1 class="section-headline pulls"><a n:href=":Front:Homepage:#browse" data-tag="Homepage Headline">Dívej se.</a> <a n:href=":Front:Exercise:" data-tag="Homepage Headline">Procvičuj.</a></h1>
+		<h1 class="section-headline pulls"><a n:href=":Front:Homepage:#browse">Dívej se.</a> <a n:href=":Front:Exercise:">Procvičuj.</a></h1>
 		<h1>Nauč se zdarma skoro cokoliv.</h1>
 		<p class="justify">
-			Jsme překlad Khan Academy. Máme pro vás už <a n:href=":Front:Homepage:#browse" data-tag="Homepage Description">{$presenter->context->videos->findAll()->count()} videi</a>,
-			zatím z oblasti základní matematiky. Všechnu probranou látku si můžete prozkoušet na řadě <a n:href=":Front:Exercise:" data-tag="Homepage Description">cvičení</a>.
-			<a n:href=":Front:About:" data-tag="Homepage Description">Snažíme se</a> pomoci učit co vás zajímá; kdykoliv chcete a vaším tempem.
+			Jsme překlad Khan Academy. Máme pro vás už <a n:href=":Front:Homepage:#browse">{$presenter->context->videos->findAll()->count()} videi</a>,
+			zatím z oblasti základní matematiky. Všechnu probranou látku si můžete prozkoušet na řadě <a n:href=":Front:Exercise:">cvičení</a>.
+			<a n:href=":Front:About:">Snažíme se</a> pomoci učit co vás zajímá; kdykoliv chcete a vaším tempem.
 		</p>
 		<div>
-			<a n:href=":Front:Homepage:#browse" data-tag="Homepage C2A" class="call-to-action simple-button green watch-a-video">Shlédnout video</a>
-			<a n:href=":Front:Exercise:" data-tag="Homepage C2A" class="call-to-action simple-button blue">Vyplnit cvičení</a>
+			<a n:href=":Front:Homepage:#browse" class="call-to-action simple-button green watch-a-video">Shlédnout video</a>
+			<a n:href=":Front:Exercise:" class="call-to-action simple-button blue">Vyplnit cvičení</a>
 		</div>
 		<p>Chcete Khanově škole pomoct? Můžete hned <a n:href=":Front:Volunteer:">začít překládat videa</a>.</p>
 	</div>
@@ -33,10 +33,8 @@
 	<div class="clear"></div>
 
 	{cache tags => ['categories', 'videos']}
-		<div data-role="page" data-theme="b">
-			<div data-role="content">
-				<h2 class="main-headline">Máme pro vás přeloženo už {$presenter->context->videos->findAll()->count()} výukových videí&hellip;</h2>
-			</div>
+		<div>
+			<h2 class="main-headline">Máme pro vás přeloženo už {$presenter->context->videos->findAll()->count()} výukových videí&hellip;</h2>
 		</div>
 
 		<hr>

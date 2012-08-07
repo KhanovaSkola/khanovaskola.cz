@@ -1,16 +1,16 @@
-<ul class="topic-browser-menu dropdown-menu ne-active none-active" data-role="listview" data-inset="true">
+<ul class="topic-browser-menu dropdown-menu ne-active none-active">
 	<li n:foreach="$presenter->context->categories->findRoot() as $subject" class="level0 {if $subject->getSubCategories()->count()}has-submenu{/if}">
-		<a data-tag="TopicBrowserPulldown" class="menulink">{$subject->label}</a>
+		<a class="menulink">{$subject->label}</a>
 		{if $subject->getSubCategories()->count()}
 			<div class="right-arrow"></div>
 			<ul class="dropdown-menu no-submenus">
 				<li n:foreach="$subject->getSubCategories() as $subcat" class="level1">
-					<a n:href=":Front:Browse:, id => $subcat->id" data-tag="TopicBrowserPulldown" class="menulink">{$subcat->label}</a>
+					<a n:href=":Front:Browse:, id => $subcat->id" class="menulink">{$subcat->label}</a>
 				</li>
 			</ul>
 		{/if}
 	</li>
 	<li class="has-divider">
-		<a n:href=":Front:Homepage:#browse" data-tag="TopicBrowserPulldownBrowse" class="menulink">Projít všechna videa</a>
+		<a n:href=":Front:Homepage:#browse" class="menulink">Projít všechna videa</a>
 	</li>
 </ul>

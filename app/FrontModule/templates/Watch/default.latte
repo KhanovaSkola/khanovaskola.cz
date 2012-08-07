@@ -15,8 +15,8 @@
 {#content}
 <article id="video-page">
 	{cache $video->id, tags => ["video/$video->id"]}
-		<div class="video" data-role="page" data-theme="b">
-			<div data-role="content" itemscope itemtype="http://schema.org/VideoObject">
+		<div class="video">
+			<div itemscope itemtype="http://schema.org/VideoObject">
 				<div style="min-height: 88px">
 					<div id="description" class="video-description">
 						{var $exercise => $video->getExercise()}

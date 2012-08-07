@@ -1,13 +1,13 @@
-<div data-role="page" id="container-{$subcat}" data-theme="b" style="margin-top: 2ex;">
-	<div data-role="header" class="library-content-header">
+<div id="container-{$subcat}" style="margin-top: 2ex;">
+	<div class="library-content-header">
 		<h2 class='subtopic-1-heading topic-heading-first' style="display: inline; margin-left: 2em;">
 			<a n:href=":Front:Browse:, id => $subcat->id">{$category->label}: {$subcat->label}</a>
 		</h2>
 		<span class='topic-desc' n:if="$subcat->description">&ndash; {$subcat->description}</span>
 	</div>
-	<div data-role="content" class="library-content-list" style="margin-left: 6em;">
-		<div class="wrap-columns" data-role="listview" data-inset="true">
-			<a n:foreach="$subcat->getVideos() as $video" class="link-wrap" n:href=":Front:Watch:, vid => $video->id" data-tag="Homepage Library" title="{$video->label}">{$video->label|truncate:45}</a>
+	<div class="library-content-list" style="margin-left: 6em;">
+		<div class="wrap-columns">
+			<a n:foreach="$subcat->getVideos() as $video" class="link-wrap" n:href=":Front:Watch:, vid => $video->id" title="{$video->label}">{$video->label|truncate:45}</a>
 		</div>
 		<div class="clear desktop-only subtopic-jump-fix">
 			<a name="solving-linear-equations">&nbsp;</a>
