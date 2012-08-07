@@ -115,4 +115,13 @@ class DashboardPresenter extends BaseModeratorPresenter
 		$this->redirect('this');
 	}
 
+
+
+	public function handleRefreshIssues()
+	{
+		$cache = new Cache($this->context->cacheStorage);
+		$cache->clean([Cache::TAGS => ['issues']]);
+
+		$this->flashMessage('List problému byl obnoven.');
+	}
 }

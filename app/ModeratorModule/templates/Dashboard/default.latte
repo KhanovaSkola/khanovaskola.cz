@@ -55,8 +55,9 @@
 			{var $issues => $github->getIssues()}
 			<h2>
 				<a href="https://github.com/KhanovaSkola/khanovaskola.cz/issues?state=open">
-				Problémy{if $issues} ({count($issues)}){/if}
+					Problémy{if $issues} ({count($issues)}){/if}
 				</a>
+				<a n:href="refreshIssues!">⟳</a>
 			</h2>
 			<p n:if="!$issues">Žádné nahlášené a neopravené problémy :-)</p>
 			<a n:href=":Front:Contact:report, url => $presenter->url, time => time()">✎ Nahlásit problém</a>
