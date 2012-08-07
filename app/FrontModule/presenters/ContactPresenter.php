@@ -3,6 +3,7 @@
 namespace FrontModule;
 
 use Nette\Application\UI\Form;
+use Nette\Caching\Cache;
 
 
 class ContactPresenter extends BaseFrontPresenter
@@ -43,6 +44,9 @@ class ContactPresenter extends BaseFrontPresenter
 	{
 		$gh = new \Github($this->context);
 		$gh->createIssue($form->values);
+
+		$cache = new Cache($this->context->cacheStorage);
+		$cache->clean([Cache::TAGS => ["issues"]]);
 
 		$this->flashMessage('Moc děkujeme za zpětnou vazbu. Vaši zprávu zpracujeme co nejdříve.');
 		$this->redirect(':Front:Homepage:');

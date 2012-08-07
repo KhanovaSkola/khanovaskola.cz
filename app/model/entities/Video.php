@@ -13,7 +13,7 @@ class Video extends Entity
 {
 
 	/**
-	 * @return Video
+	 * @return Category
 	 */
 	public function getCategory()
 	{
@@ -72,7 +72,7 @@ class Video extends Entity
 			$res = file_get_contents("http://gdata.youtube.com/feeds/api/videos/$this->youtube_id?v=2&alt=jsonc&prettyprint=false");
 			$data = \Nette\Utils\Json::decode($res);
 			$cache->save($this->id, $data, [
-				\Nette\Caching\Cache::EXPIRE => '+ 24 hours',
+				\Nette\Caching\Cache::TAGS => ["video/$this->id"],
 			]);
 		}
 

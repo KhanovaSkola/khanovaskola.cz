@@ -2,6 +2,8 @@
 
 namespace ModeratorModule;
 
+use Nette\Caching\Cache;
+
 
 class DashboardPresenter extends BaseModeratorPresenter
 {
@@ -100,6 +102,17 @@ class DashboardPresenter extends BaseModeratorPresenter
 	{
 		$github = new \Github($this->context);
 		$github->redirectAuth($this);
+	}
+
+
+
+	public function handleClearCache()
+	{
+		$cache = new Cache($this->context->cacheStorage);
+		$cache->clean([Cache::ALL => TRUE]);
+
+		$this->flashMessage('Cache byla smazána.');
+		$this->redirect('this');
 	}
 
 }

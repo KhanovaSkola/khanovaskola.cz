@@ -1,5 +1,8 @@
 <?php
 
+use Nette\Caching\Cache;
+
+
 class Videos extends Table
 {
 
@@ -7,9 +10,15 @@ class Videos extends Table
 	{
 		$this->connection->beginTransaction();
 
+		$cache = new Cache($this->context->cacheStorage);
 		foreach ($data as $position => $id) {
 			$this->findOneBy(['id' => $id])->update(['position' => $position]);
+			$cache->clean([Cache::TAGS => ["video/$id"]]);
 		}
+
+		$video = $this->findOneBy(['id' => $id]);
+		$category = $video->getCategory();
+		$cache->clean([Cache::TAGS => ["category/$category->id"]]);
 
 		$this->connection->commit();
 	}

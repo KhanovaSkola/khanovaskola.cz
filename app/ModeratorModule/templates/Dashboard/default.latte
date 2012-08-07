@@ -4,11 +4,13 @@
 <article>
 	<br>
 
-	{if FALSE && $user->admin}
+	{if $user->admin}
 		<div>
 			<h2>Administrátor</h2>
 			<ol>
-				<li n:if="FALSE"><a n:href="attachToGithub!">propojit Github (pouze s parametrem yes)</a></li>
+				<li n:if="FALSE"><a n:href="attachToGithub!">propojit Github</a></li>
+				<li><a n:href="clearCache!">smazat cache</a></li>
+				<li><a n:href="updateSlugs!">přegenerovat slugy</a></li>
 			</ol>
 		</div>
 		<div class="clear"></div>
@@ -28,9 +30,11 @@
 		<ol>
 			<li><a href="https://www.google.com/analytics/web/?pli=1#realtime/rt-overview/a33892654w61295030p62747299/">Google Analytics</a></li>
 			<li>
-				{$presenter->context->videos->findAll()->count()} videí,
-				{$presenter->context->exercises->findAll()->count()} cvičení,
-				{$presenter->context->users->findAll()->count()} registrací
+				{cache tags => ['videos']}
+					{$presenter->context->videos->findAll()->count()} videí,
+					{$presenter->context->exercises->findAll()->count()} cvičení,
+					{$presenter->context->users->findAll()->count()} registrací
+				{/cache}
 			</li>
 		</ol>
 	</div>
@@ -43,14 +47,11 @@
 		<ol>
 			<li><a n:href="Translate:">přeložit cvičení</a></li>
 			<li><a n:href="detachedExercises">cvičení mimo databázi</a></li>
-			{if $user->admin}
-				<li><a n:href="addExercise!">přidat cvičení do databáze</a></li>
-				<li><a n:href="updateSlugs!">přegenerovat slugy</a></li>
-			{/if}
+			<li n:if="$user->admin"><a n:href="addExercise!">přidat cvičení do databáze</a></li>
 		</ol>
 	</div>
 	<div class="col2 fifty-fifty">
-		{cache "issues", expire => '+2 hours'}
+		{cache tags => ['issues']}
 			{var $issues => $github->getIssues()}
 			<h2>
 				<a href="https://github.com/KhanovaSkola/khanovaskola.cz/issues?state=open">
@@ -69,14 +70,14 @@
 	<hr>
 
 	<h2>Nekompletní údaje</h2>
-	{cache "incomplete", expire => '+2 hours'}
-		<table>
-			<tr>
-				<th><strong>Kategorie bez popisu:</strong></th>
-				<th><strong>Videa bez popisu:</strong></th>
-				<th><strong>Videa bez cvičení:</strong></th>
-			</tr>
-			<tr>
+	<table>
+		<tr>
+			<th><strong>Kategorie bez popisu:</strong></th>
+			<th><strong>Videa bez popisu:</strong></th>
+			<th><strong>Videa bez cvičení:</strong></th>
+		</tr>
+		<tr>
+			{cache tags => ['categories']}
 				<td>
 					<ol>
 						{var $count => $cat['description']->limit(30)->count()}
@@ -86,13 +87,15 @@
 						<li n:if="$count == 30">a další&hellip;</li>
 					</ol>
 				</td>
+			{/cache}
+			{cache tags => ['videos']}
 				<td>
 					<ol>
-						{var $count => $vid['description']->limit(30)->count()}
-						<li n:foreach="$vid['description']->limit(30)->order('id DESC') as $video">
-							<a n:href=":Front:Watch:edit, vid => $video->id">{$video->label}</a>
-						</li>
-						<li n:if="$count == 30">and more&hellip;</li>
+							{var $count => $vid['description']->limit(30)->count()}
+							<li n:foreach="$vid['description']->limit(30)->order('id DESC') as $video">
+								<a n:href=":Front:Watch:edit, vid => $video->id">{$video->label}</a>
+							</li>
+							<li n:if="$count == 30">and more&hellip;</li>
 					</ol>
 				</td>
 				<td>
@@ -104,7 +107,7 @@
 						<li n:if="$count == 30">and more&hellip;</li>
 					</ol>
 				</td>
-			</tr>
-		</table>
-	{/cache}
+			{/cache}
+		</tr>
+	</table>
 </article>

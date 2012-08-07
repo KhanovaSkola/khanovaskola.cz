@@ -3,6 +3,7 @@
 namespace FrontModule;
 
 use Nette\Application\UI\Form;
+use Nette\Caching\Cache;
 
 
 class BrowsePresenter extends BaseFrontPresenter
@@ -80,6 +81,13 @@ class BrowsePresenter extends BaseFrontPresenter
 		$c->description = $v->description;
 		$c->update();
 
+		$cache = new Cache($this->context->cacheStorage);
+		$cache->clean([Cache::TAGS => [
+			"categories",
+			"category/$c->id",
+			"category/" . $c->getParent()->id,
+		]]);
+
 		$this->redirect(':Front:Browse:');
 	}
 
@@ -103,6 +111,7 @@ class BrowsePresenter extends BaseFrontPresenter
 		if ($this->isAjax()) {
 			$this->sendJson(['status' => 'success']);
 		}
+
 		$this->redirect('this');
 	}
 

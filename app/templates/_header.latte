@@ -5,29 +5,29 @@
 		<span class="page_links" id="page_auth">
 			<span id="goals-container"></span>
 				<span id="user-info" class="badge-target">
-
-					{if $user->loggedIn}
-						<span id="user-info" class="badge-target">
-							<span class="dropdown">
-								<span class="username_and_notification dropdown-toggle">
-									<a n:tag-if="$user->moderator" n:href=":Moderator:Dashboard:">
-										<img class="user-avatar" src="{$baseUrl}/images/avatars/leaf-{if $user->admin}red{elseif $user->moderator}blue{else}green{/if}.png">
-										<span class="user-name">
-											{$user->entity->mail}
-										</span>
-										<span class="caret"></span>
-									</a>
+					{cache $user->id, tags => ['user/login']}
+						{if $user->loggedIn}
+							<span id="user-info" class="badge-target">
+								<span class="dropdown">
+									<span class="username_and_notification dropdown-toggle">
+										<a n:tag-if="$user->moderator" n:href=":Moderator:Dashboard:">
+											<img class="user-avatar" src="{$baseUrl}/images/avatars/leaf-{if $user->admin}red{elseif $user->moderator}blue{else}green{/if}.png">
+											<span class="user-name">
+												{$user->entity->mail}
+											</span>
+											<span class="caret"></span>
+										</a>
+									</span>
+									<ul class="dropdown-menu no-submenus">
+										<li n:if="$user->moderator"><a class="dropdown-link" n:href=":Moderator:Dashboard:">Moderátoři</a></li>
+										<li><a n:href=":Sign:out">Odhlásit se</a></li>
+									</ul>
 								</span>
-								<ul class="dropdown-menu no-submenus">
-									<li n:if="$user->moderator"><a class="dropdown-link" n:href=":Moderator:Dashboard:">Moderátoři</a></li>
-									<li><a n:href=":Sign:out">Odhlásit se</a></li>
-								</ul>
 							</span>
-						</span>
-					{else}
-						<a n:href=":Sign:in">Přihlášení</a>
-					{/if}
-
+						{else}
+							<a n:href=":Sign:in">Přihlášení</a>
+						{/if}
+					{/cache}
 				</span>
 				{if !$user->loggedIn}
 					<span class="separator"></span>

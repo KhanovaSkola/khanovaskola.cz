@@ -3,6 +3,7 @@
 namespace FrontModule;
 
 use Nette\Application\UI\Form;
+use Nette\Caching\Cache;
 
 
 class WatchPresenter extends BaseFrontPresenter
@@ -73,6 +74,9 @@ class WatchPresenter extends BaseFrontPresenter
 		$vid->youtube_id = $v->youtube_id;
 
 		$vid->update();
+
+		$cache = new Cache($this->context->cacheStorage);
+		$cache->clean([Cache::TAGS => ["videos", "video/$vid->id"]]);
 
 		$this->redirect(':Front:Watch:');
 	}

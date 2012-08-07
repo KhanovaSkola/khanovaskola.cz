@@ -2,6 +2,8 @@
 
 use Nette\Application\UI;
 use Nette\Security as NS;
+use Nette\Caching\Cache;
+
 
 class SignPresenter extends BasePresenter
 {
@@ -42,6 +44,9 @@ class SignPresenter extends BasePresenter
 			}
 			$this->user->login($values->username, $values->password);
 
+			$cache = new Cache($this->context->cacheStorage);
+			$cache->clean([Cache::TAGS => ['user/login']]);
+
 			if ($this->user->isInRole('moderator')) {
 				$this->redirect(':Moderator:Dashboard:');
 			} else {
@@ -58,6 +63,10 @@ class SignPresenter extends BasePresenter
 	public function actionOut()
 	{
 		$this->getUser()->logout();
+
+		$cache = new Cache($this->context->cacheStorage);
+		$cache->clean([Cache::TAGS => ['user/login']]);
+
 		$this->flashMessage('Byli jste odhlášeni.');
 		$this->redirect('in');
 	}

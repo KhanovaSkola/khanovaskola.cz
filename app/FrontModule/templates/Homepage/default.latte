@@ -32,8 +32,7 @@
 
 	<div class="clear"></div>
 
-	{cache "library-content", expire => '+2 hours'}
-
+	{cache tags => ['categories', 'videos']}
 		<div data-role="page" data-theme="b">
 			<div data-role="content">
 				<h2 class="main-headline">Máme pro vás přeloženo už {$presenter->context->videos->findAll()->count()} výukových videí&hellip;</h2>
@@ -61,4 +60,5 @@
 			</div>
 		</div>
 	{/cache}
+
 </article>

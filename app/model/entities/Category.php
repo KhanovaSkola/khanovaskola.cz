@@ -124,7 +124,7 @@ class Category extends Entity
 			}
 
 			$cache->save($this->id, $duration, [
-				\Nette\Caching\Cache::EXPIRE => '+ 6 hours',
+				\Nette\Caching\Cache::TAGS => ["category/$this->id"],
 			]);
 		}
 
