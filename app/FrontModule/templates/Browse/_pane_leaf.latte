@@ -23,54 +23,60 @@
 		<div class="videos-list">
 			<div class="videos-header">Videa</div>
 			<div class="videos-table">
-				<ol class="first" n:inner-foreach="$leaf->getVideos() as $video">
-					<li n:block="video_link" class="video-link" id="video-{$video->id}">
-						<a n:href=":Front:Watch:, vid => $video->id">
-							<span class="indent">
-								<span n:if="$user->moderator" class="sortable-arrow">↕</span>
-								{$video->label}
-							</span>
-						</a>
-					</li>
-				</ol>
-				<ol>
-					{*/** @todo second column */*}
-				</ol>
-				<script n:if="$user->moderator">
-					$(function() {
-						var prompt_shown = false;
-						var original = null;
-						$(".videos-table ol.first").sortable({
-							items: 'li',
-							create: function() {
-								original = $(this).sortable('serialize');
-							},
-							change: function() {
-								var $that = $(this);
-								$('.videos-header a').show();
-								if (!prompt_shown) {
-									prompt_shown = true;
-									console.log('create');
-									$('.videos-header').append($('<a href="#"/>').text('[Uložit]').click(function() {
-										var data = [];
-										$.each($that.sortable('toArray'), function(p, id) {
-											data.push($("#" + id).data('id'));
-										});
-										$.ajax({plink updatePositions!}, {
-											data: { videos: data.join(',')}
-										});
+				{if !$user->moderator}
+					<ol class="first" n:inner-foreach="$leaf->getVideosHalf() as $video">
+						<li n:block="video_link" class="video-link" id="video-{$video->id}" data-id="{$video->id}">
+							<a n:href=":Front:Watch:, vid => $video->id">
+								<span class="indent">
+									<span n:if="$user->moderator" class="sortable-arrow">↕</span>
+									{$video->label}
+								</span>
+							</a>
+						</li>
+					</ol>
+					<ol class="second" n:inner-foreach="$leaf->getVideosHalf($second = TRUE) as $video">
+						{include #video_link, video => $video}
+					</ol>
+				{else}
+					<ol class="first" n:inner-foreach="$leaf->getVideos() as $video">
+						{include #video_link, video => $video}
+					</ol>
+					<script>
+						$(function() {
+							var prompt_shown = false;
+							var original = null;
+							$(".videos-table ol.first").sortable({
+								items: 'li',
+								create: function() {
+									original = $(this).sortable('serialize');
+								},
+								change: function() {
+									var $that = $(this);
+									$('.videos-header a').show();
+									if (!prompt_shown) {
+										prompt_shown = true;
+										console.log('create');
+										$('.videos-header').append($('<a href="#"/>').text('[Uložit]').click(function() {
+											var data = [];
+											$.each($that.sortable('toArray'), function(p, id) {
+												data.push($("#" + id).data('id'));
+											});
+											$.ajax({plink updatePositions!}, {
+												data: { videos: data.join(',')}
+											});
+											$('.videos-header a').hide();
+										}));
+									}
+								},
+								stop: function() {
+									if (original == $(this).sortable('serialize')) {
 										$('.videos-header a').hide();
-									}));
+									}
 								}
-							},
-							stop: function() {
-								if (original == $(this).sortable('serialize')) {
-									$('.videos-header a').hide();
-								}
-							}
-						}).disableSelection();
-					});
-				</script>
+							}).disableSelection();
+						});
+					</script>
+				{/if}
 			</div>
 		</div>
 	</div>

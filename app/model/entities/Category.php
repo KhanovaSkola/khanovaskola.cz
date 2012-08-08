@@ -72,6 +72,28 @@ class Category extends Entity
 
 
 	/**
+	 * @return Video[]
+	 */
+	public function getVideosHalf($secondHalf = FALSE)
+	{
+		$count = $this->getVideos()->count();
+		if ($count > 10) {
+			$split = ceil($count / 2);
+		} else {
+			$split = 999; // only one column if more than ten videos
+		}
+
+		if (!$secondHalf) {
+			return $this->getVideos()->limit($split);
+
+		} else {
+			return $this->getVideos()->limit($split, $split);
+		}
+	}
+
+
+
+	/**
 	 * @return Category
 	 */
 	public function getParent()
