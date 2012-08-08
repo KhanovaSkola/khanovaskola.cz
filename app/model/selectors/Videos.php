@@ -74,4 +74,11 @@ class Videos extends Table
 		return $this->getTable()->insert($data);
 	}
 
+
+
+	public function trimYoutubeIds()
+	{
+		return $this->connection->exec("UPDATE video SET youtube_id = Trim(youtube_id)");
+	}
+
 }

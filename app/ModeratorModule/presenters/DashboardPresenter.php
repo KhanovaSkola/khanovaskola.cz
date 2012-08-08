@@ -124,4 +124,15 @@ class DashboardPresenter extends BaseModeratorPresenter
 
 		$this->flashMessage('List problému byl obnoven.');
 	}
+
+
+
+	public function handleTrimYoutubeIds()
+	{
+		$count = $this->context->videos->trimYoutubeIds();
+
+		$this->flashMessage('Youtube_id bylo opraveno u ' . $count . ' videí.');
+		$this->redirect('this');
+	}
+
 }
