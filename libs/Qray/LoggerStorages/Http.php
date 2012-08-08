@@ -48,7 +48,7 @@ class Http extends \Nette\Object implements \Nella\NetteAddons\Diagnostics\ILogg
 			'appId' => "X-LoggerAuth-AppId: {$this->appId}",
 			'appSecret' => "X-LoggerAuth-AppSecret: {$this->appSecret}",
 		);
-		if (function_exists('ini_get') && ini_get('allow_url_fopen')) {
+		if (fALSE && function_exists('ini_get') && ini_get('allow_url_fopen')) {
 			$req = stream_context_create(array(
 				'http' => array(
 					'header' => "Content-Type: application/x-www-form-urlencoded\r\n".implode("\r\n", $headers),
@@ -67,7 +67,7 @@ class Http extends \Nette\Object implements \Nella\NetteAddons\Diagnostics\ILogg
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 			curl_setopt($ch, CURLOPT_POST, TRUE);
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-			curl_setopt($ch, CURLOPT_TIMEOUT_MS, 500);
+			curl_setopt($ch, CURLOPT_TIMEOUT_MS, 5000);
 
 			curl_exec($ch);
 		}
