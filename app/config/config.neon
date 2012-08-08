@@ -58,6 +58,6 @@ production < common:
 		accessLoggerUrl: 'http://api.qray.eu/api/access.json'
 		appId: 501ed6087bbbb402000003a1
 		appSecret: 60LiPqLZSPE8OCWboF6CrCoqPJrcYPz0
-		password: 'khan' # set only if you need enable access to your bluescreen files
+		password: 'khan'
 
 development < common:

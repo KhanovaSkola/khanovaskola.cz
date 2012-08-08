@@ -43,4 +43,4 @@ function adminer_object() {
     return new AdminerSoftware;
 }
 
-include "./editor-3.4.0-mysql.php";
+include "./editor-3.5.0-mysql.php";
