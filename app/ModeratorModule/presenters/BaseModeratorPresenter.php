@@ -10,7 +10,7 @@ abstract class BaseModeratorPresenter extends \BasePresenter
 	{
 		parent::startup();
 
-		if (!$this->user->isInRole('moderator')) {
+		if (!$this->user->moderator) {
 			/** @todo or throw error 503? */
 			$this->redirect(':Front:Homepage:');
 		}

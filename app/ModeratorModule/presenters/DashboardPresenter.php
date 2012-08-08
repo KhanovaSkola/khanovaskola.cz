@@ -41,6 +41,10 @@ class DashboardPresenter extends BaseModeratorPresenter
 
 	public function handlePopulateDb()
 	{
+		if (!$this->user->admin) {
+			$this->redirect(':Moderator:Dashboard:');
+		}
+
 		foreach ($this->getDetachedExercises() as $file => $label) {
 			$this->context->exercises->insert([
 				'file' => $file,
@@ -55,6 +59,10 @@ class DashboardPresenter extends BaseModeratorPresenter
 
 	public function handleUpdateSlugs()
 	{
+		if (!$this->user->admin) {
+			$this->redirect(':Moderator:Dashboard:');
+		}
+
 		foreach ($this->context->categories->findAll() as $category) {
 			$category->slug = \Nette\Utils\Strings::webalize($category->label);
 			$category->update();
@@ -100,6 +108,10 @@ class DashboardPresenter extends BaseModeratorPresenter
 
 	public function handleAttachToGithub()
 	{
+		if (!$this->user->admin) {
+			$this->redirect(':Moderator:Dashboard:');
+		}
+
 		$github = new \Github($this->context);
 		$github->redirectAuth($this);
 	}
@@ -108,6 +120,10 @@ class DashboardPresenter extends BaseModeratorPresenter
 
 	public function handleClearCache()
 	{
+		if (!$this->user->admin) {
+			$this->redirect(':Moderator:Dashboard:');
+		}
+
 		$cache = new Cache($this->context->cacheStorage);
 		$cache->clean([Cache::ALL => TRUE]);
 
@@ -129,6 +145,10 @@ class DashboardPresenter extends BaseModeratorPresenter
 
 	public function handleTrimYoutubeIds()
 	{
+		if (!$this->user->admin) {
+			$this->redirect(':Moderator:Dashboard:');
+		}
+
 		$count = $this->context->videos->trimYoutubeIds();
 
 		$this->flashMessage('Youtube_id bylo opraveno u ' . $count . ' videí.');
