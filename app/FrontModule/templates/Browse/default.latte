@@ -3,7 +3,7 @@
 
 <article id="topic-page">
 
-	{cache $selected->id, tags => ["category/$selected->id", "category/$category->id"]}
+	{cache $selected->id . "_" . $user->moderator, tags => ["category/$selected->id", "category/$category->id"]}
 		<div class="topic-page-content">
 			<div class="container">
 				<div class="nav-pane">
