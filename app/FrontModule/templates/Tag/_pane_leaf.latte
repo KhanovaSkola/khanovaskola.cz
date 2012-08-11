@@ -1,0 +1,35 @@
+{var $thumbnail => $tag->getVideos()->limit(1)->fetch()}
+<div class="prerendered">
+	<div>
+		<div class="main-header clearfix">
+			<div class="topic-video thumbnail_td">
+				<a n:tag-if="$thumbnail" n:href=":Front:Watch:, vid => $thumbnail->id" class="thumbnail_link modal-video">
+					<div class="thumb" style="background-image:url('{$thumbnail->getThumbnailHd()}')"></div>
+					<div n:if="$thumbnail" class="thumbnail_container">
+						<div class="thumbnail_label"><div class="thumbnail_desc">{$thumbnail->label}</div></div>
+					</div>
+				</a>
+			</div>
+			<div class="topic-info">
+				<div class='topic-title'>{$tag->label}</div>
+				{*<div class='topic-desc'>{$tag->description}</div>*}
+				{*<div>Stopáž: {$leaf->getDuration()|time}</div>*}
+			</div>
+		</div>
+		<div class="videos-list">
+			<div class="videos-header">Videa</div>
+			<div class="videos-table">
+				<ol class="first" n:inner-foreach="$tag->getVideos() as $video">
+					<li n:block="video_link" class="video-link" id="video-{$video->id}" data-id="{$video->id}">
+						<a n:href=":Front:Watch:, vid => $video->id">
+							<span class="indent">{$video->label}</span>
+						</a>
+					</li>
+				</ol>{*
+				<ol class="second" n:inner-foreach="$leaf->getVideosHalf($second = TRUE) as $video">
+					{include #video_link, video => $video}
+				</ol>*}
+			</div>
+		</div>
+	</div>
+</div>

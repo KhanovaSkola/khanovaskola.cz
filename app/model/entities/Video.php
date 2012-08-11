@@ -126,4 +126,25 @@ class Video extends Entity
 		$db->commit();
 	}
 
+
+
+	public function hasTags()
+	{
+		return count($this->getTagsIds());
+	}
+
+
+
+	public function getThumbnail()
+	{
+		return "http://i.ytimg.com/vi/{$this->youtube_id}/default.jpg";
+	}
+
+
+
+	public function getThumbnailHd()
+	{
+		return "http://i.ytimg.com/vi/{$this->youtube_id}/hqdefault.jpg";
+	}
+
 }

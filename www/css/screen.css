@@ -21,6 +21,7 @@ a:hover .featured_header .label {text-decoration: underline;}
 .wrap-columns {column-count:3; -moz-column-count:3; -webkit-column-count:3; column-gap:2em; -moz-column-gap:2em; -webkit-column-gap:2em;}
 .wrap-columns .link-wrap {display: block; width: 200pt !important;}
 .creative-commons {vertical-align: sub;}
+.breadcrumbs-tags {float: left; font-size: 16px; line-height: 18px;}
 
 /* ----  iPad 3 ---- */
 .ipad-only {display: none;}

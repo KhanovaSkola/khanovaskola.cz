@@ -1,9 +1,31 @@
+{var $title = $selected->label}
 {#content}
 
-<article>
-	<br>
-	<h2>{$tag->label}</h2>
-	<ol>
-		<li n:foreach="$tag->getVideos() as $video">{$video->label}</li>
-	</ol>
+<article id="topic-page">
+	{cache $selected->id, tags => ["tag/$selected->id"]}
+		<div class="topic-page-content">
+			<div class="container">
+				<div class="nav-pane">
+					<ul>
+						{*<li>
+							<a class="subtopic-link">
+								<h2 class='topic-heading'>Tagy</h2>
+							</a>
+						</li>*}
+						<li class="subheading"><span>Tagy</span></li>
+						<li n:foreach="$tags as $tag" n:class="$tag->id == $selected->id ? 'selected'">
+							<a class="subtopic-link" n:href=":Front:Tag:, tid => $tag->id">
+								{$tag->label}
+								<div class="right-arrow"></div>
+							</a>
+						</li>
+					</ul>
+					<div style="clear: both"></div>
+				</div>
+				<div class="content-pane indent">
+					{include '_pane_leaf.latte', tag => $selected}
+				</div>
+			</div>
+		</div>
+	{/cache}
 </article>

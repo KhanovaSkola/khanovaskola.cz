@@ -52,11 +52,7 @@ class Videos extends Table
 	 */
 	public function findByTag(Tag $tag)
 	{
-		$ids = [];
-		foreach ($this->connection->query('SELECT video_id FROM tag_video WHERE tag_id=?', $tag->id) as $row) {
-			$ids = $row['video_id'];
-		}
-		return $this->getTable()->where('id', $ids);
+		return $this->getTable()->where('id', $tag->getVideosIds());
 	}
 
 

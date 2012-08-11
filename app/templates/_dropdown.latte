@@ -10,7 +10,16 @@
 			</ul>
 		{/if}
 	</li>
-	<li class="has-divider">
+	<li class="has-divider level0 has-submenu">
+		<a class="menulink">Tagy</a>
+		<div class="right-arrow"></div>
+		<ul class="dropdown-menu no-submenus">
+			<li n:foreach="$presenter->context->tags->findAll() as $tag" class="level1">
+				<a n:href=":Front:Tag:, tid => $tag->id" class="menulink">{$tag->label}</a>
+			</li>
+		</ul>
+	</li>
+	<li>
 		<a n:href=":Front:Homepage:#browse" class="menulink">Projít všechna videa</a>
 	</li>
 </ul>

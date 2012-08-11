@@ -9,11 +9,22 @@ class TagPresenter extends BaseFrontPresenter
 	/** @persistent */
 	public $tid;
 
+	/** @var Tag */
+	protected $tag;
+
+
+
+	public function startup()
+	{
+		parent::startup();
+		$this->tag = $this->context->tags->findOneBy(['id' => $this->tid]);
+	}
 
 
 	public function renderDefault()
 	{
-		$this->template->tag = $this->context->tags->findOneBy(['id' => $this->tid]);
+		$this->template->tags = $this->context->tags->findAll();
+		$this->template->selected = $this->tag;
 	}
 
 }
