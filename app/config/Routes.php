@@ -12,6 +12,14 @@ class Routes
 		$container->router[] = new Route('index.php', 'Front:Homepage:default', Route::ONE_WAY);
 
 		/**
+		 * API
+		 */
+		$container->router[] = new Route('//api.<domain>.<top l|cz>/[<presenter>[/<id>[/<method>]]]', [
+			'module' => 'Api',
+			'presenter' => 'Category',
+		]);
+
+		/**
 		 * SEO Category
 		 */
 		$categoryRoute = new SlugRoute('<id>[/<action>]', [
