@@ -1,0 +1,9 @@
+{#content}
+
+<article>
+	<br>
+	<h2>{$tag->label}</h2>
+	<ol>
+		<li n:foreach="$tag->getVideos() as $video">{$video->label}</li>
+	</ol>
+</article>

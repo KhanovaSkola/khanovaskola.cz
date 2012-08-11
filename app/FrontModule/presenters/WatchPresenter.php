@@ -43,6 +43,7 @@ class WatchPresenter extends BaseFrontPresenter
 		$form['label']->setValue($vid->label);
 		$form['description']->setValue($vid->description);
 		$form['youtube_id']->setValue($vid->youtube_id);
+		$form['tags']->setValue($vid->getTagsIds());
 	}
 
 
@@ -54,8 +55,9 @@ class WatchPresenter extends BaseFrontPresenter
 		$form->addText('label', 'Název');
 		$form->addTextArea('description', 'Popis');
 		$form->addText('youtube_id', 'Youtube ID');
+		$form->addMultiSelect('tags', 'Tagy', $this->context->tags->getFill());
 
-		$form->addSubmit('send');
+		$form->addSubmit('send', 'Upravit');
 		$form->onSuccess[] = callback($this, 'onSuccessEditForm');
 
 		return $form;
@@ -74,6 +76,8 @@ class WatchPresenter extends BaseFrontPresenter
 		$vid->youtube_id = $v->youtube_id;
 
 		$vid->update();
+
+		$vid->updateTags($v['tags']);
 
 		$cache = new Cache($this->context->cacheStorage);
 		$cache->clean([Cache::TAGS => ["videos", "video/$vid->id"]]);

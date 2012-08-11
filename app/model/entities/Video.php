@@ -86,4 +86,44 @@ class Video extends Entity
 		return $this->getMetaData()->data->duration;
 	}
 
+
+
+	/**
+	 * @return Tag[]
+	 */
+	public function getTags()
+	{
+		return $this->context->tags->findByVideo($this);
+	}
+
+
+
+	/**
+	 * @return int[]
+	 */
+	public function getTagsIds()
+	{
+		$ids = [];
+		foreach ($this->context->database->query('SELECT tag_id FROM tag_video WHERE video_id=?', $this->id) as $row) {
+			$ids = $row['tag_id'];
+		}
+		return $ids;
+	}
+
+
+
+	public function updateTags(array $tags)
+	{
+		$values = [];
+		foreach ($tags as $tag_id) {
+			$values[] = ['video_id' => $this->id, 'tag_id' => $tag_id];
+		}
+
+		$db = $this->context->database;
+		$db->beginTransaction();
+		$db->query('DELETE FROM tag_video WHERE video_id = ?', $this->id);
+		$db->query('INSERT INTO tag_video', $values);
+		$db->commit();
+	}
+
 }

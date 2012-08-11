@@ -43,6 +43,7 @@ common:
 		videos: Videos('video')
 		users: Users('user')
 		exercises: Exercises('exercise')
+		tags: Tags('tag')
 
 	factories:
 

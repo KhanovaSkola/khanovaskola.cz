@@ -32,7 +32,6 @@ abstract class Table extends Nette\Object
 	protected function getTable()
 	{
 		return new \Selection($this->tableName, $this->connection, $this->context);
-		//return $this->connection->table($this->tableName);
 	}
 
 

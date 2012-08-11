@@ -6,7 +6,7 @@
  * @property string	$label
  * @property string	$slug			Webalized $label
  * @property strign	$description
- * @proeprty int	$position		Unique between siblings
+ * @property int	$position		Unique between siblings
  */
 class Category extends Entity
 {
