@@ -50,13 +50,13 @@ CREATE TABLE `tag` (
 
 DROP TABLE IF EXISTS `tag_video`;
 CREATE TABLE `tag_video` (
-  `tag_id` bigint(20) unsigned NOT NULL,
-  `video_id` bigint(20) unsigned NOT NULL,
+  `tag_id` bigint(20) unsigned NOT NULL COMMENT 'Tag',
+  `video_id` bigint(20) unsigned NOT NULL COMMENT 'Video',
   PRIMARY KEY (`tag_id`,`video_id`),
   KEY `video_id` (`video_id`),
   CONSTRAINT `tag_video_ibfk_1` FOREIGN KEY (`tag_id`) REFERENCES `tag` (`id`) ON DELETE CASCADE,
   CONSTRAINT `tag_video_ibfk_2` FOREIGN KEY (`video_id`) REFERENCES `video` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci COMMENT='Video + Tagy';
 
 
 DROP TABLE IF EXISTS `user`;
@@ -92,4 +92,4 @@ CREATE TABLE `video` (
 DROP VIEW IF EXISTS `videos_with_error`;
 CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `videos_with_error` AS select `video`.`id` AS `id`,`video`.`category_id` AS `category_id`,`video`.`exercise_id` AS `exercise_id`,`video`.`label` AS `label`,`video`.`description` AS `description`,`video`.`youtube_id` AS `youtube_id`,`video`.`position` AS `position` from `video` where (`video`.`description` like '%.');
 
--- 2012-08-11 19:23:07
+-- 2012-08-11 20:18:34
