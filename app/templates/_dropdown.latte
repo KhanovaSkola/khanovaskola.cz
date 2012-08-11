@@ -14,7 +14,7 @@
 		<a class="menulink">Tagy</a>
 		<div class="right-arrow"></div>
 		<ul class="dropdown-menu no-submenus">
-			<li n:foreach="$presenter->context->tags->findAll() as $tag" class="level1">
+			<li n:foreach="$presenter->context->tags->findBy(['display' => TRUE]) as $tag" class="level1">
 				<a n:href=":Front:Tag:, tid => $tag->id" class="menulink">{$tag->label}</a>
 			</li>
 		</ul>

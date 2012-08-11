@@ -2,7 +2,7 @@
 {#breadcrumbs}
 	<span class="breadcrumbs-tags">
 		<span n:if="$video->hasTags()">
-			<a n:foreach="$video->getTags() as $tag" n:href=":Front:Tag:, tid => $tag->id">{$tag->label}{sep}, {/sep}</a>
+			<a n:foreach="$video->getTags()->where('display', TRUE) as $tag" n:href=":Front:Tag:, tid => $tag->id">{$tag->label}{sep}, {/sep}</a>
 		</span>
 	</span>
 	<span class="breadcrumbs_nav video-nav">
