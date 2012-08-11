@@ -14,7 +14,11 @@ class Routes
 		/**
 		 * API
 		 */
-		$container->router[] = new Route('//api.<domain>.<top l|cz>/[<presenter>[/<id>[/<method>]]]', [
+		$container->router[] = new Route('//api.<domain>.<top l|cz>/', [
+			'module' => 'Api',
+			'presenter' => 'Documentation',
+		]);
+		$container->router[] = new Route('//api.<domain>.<top l|cz>/<presenter>[/<id>[/<method>]]', [
 			'module' => 'Api',
 			'presenter' => 'Category',
 		]);
