@@ -79,8 +79,12 @@ class WatchPresenter extends BaseFrontPresenter
 
 		$vid->updateTags($v['tags']);
 
+		$invalid = ["videos", "video/$vid->id"];
+		foreach ($v['tags'] as $tag_id) {
+			$invalid[] = "tag/$tag_id";
+		}
 		$cache = new Cache($this->context->cacheStorage);
-		$cache->clean([Cache::TAGS => ["videos", "video/$vid->id"]]);
+		$cache->clean([Cache::TAGS => $invalid]);
 
 		$this->redirect(':Front:Watch:');
 	}

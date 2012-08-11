@@ -22,7 +22,12 @@ class Tag extends Entity
 	 */
 	public function getVideosHalf($secondHalf = FALSE)
 	{
-		$split = ceil($this->getVideosIds()->count() / 2);
+		$count = count($this->getVideosIds());
+		if ($count > 10) {
+			$split = ceil($count / 2);
+		} else {
+			$split = 999; // only one column if more than ten videos
+		}
 
 		if (!$secondHalf) {
 			return $this->getVideos()->limit($split);
@@ -41,7 +46,7 @@ class Tag extends Entity
 	{
 		$ids = [];
 		foreach ($this->context->database->query('SELECT video_id FROM tag_video WHERE tag_id=?', $this->id) as $row) {
-			$ids = $row['video_id'];
+			$ids[] = $row['video_id'];
 		}
 		return $ids;
 	}

@@ -1,6 +1,6 @@
 {var $thumbnail => $tag->getVideos()->limit(1)->fetch()}
 <div class="prerendered">
-	<div>
+	<div n:if="$thumbnail">
 		<div class="main-header clearfix">
 			<div class="topic-video thumbnail_td">
 				<a n:tag-if="$thumbnail" n:href=":Front:Watch:, vid => $thumbnail->id" class="thumbnail_link modal-video">
@@ -19,16 +19,16 @@
 		<div class="videos-list">
 			<div class="videos-header">Videa</div>
 			<div class="videos-table">
-				<ol class="first" n:inner-foreach="$tag->getVideos() as $video">
+				<ol class="first" n:inner-foreach="$tag->getVideosHalf() as $video">
 					<li n:block="video_link" class="video-link" id="video-{$video->id}" data-id="{$video->id}">
 						<a n:href=":Front:Watch:, vid => $video->id">
 							<span class="indent">{$video->label}</span>
 						</a>
 					</li>
-				</ol>{*
-				<ol class="second" n:inner-foreach="$leaf->getVideosHalf($second = TRUE) as $video">
+				</ol>
+				<ol class="second" n:inner-foreach="$tag->getVideosHalf($second = TRUE) as $video">
 					{include #video_link, video => $video}
-				</ol>*}
+				</ol>
 			</div>
 		</div>
 	</div>
