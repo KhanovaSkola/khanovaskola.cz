@@ -39,7 +39,7 @@ class CategoryPresenter extends BaseApiPresenter
 	private function getAll()
 	{
 		$data = [];
-		foreach ($this->context->categories->findAll()->order('parent_id', 'position') as $c) {
+		foreach ($this->context->categories->findAll()->order('parent_id', 'position', 'id') as $c) {
 			$data[] = [
 				'id' => $c->id,
 				'label' => $c->label,
