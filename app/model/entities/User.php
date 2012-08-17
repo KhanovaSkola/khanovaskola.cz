@@ -104,7 +104,7 @@ class User extends Entity
 	 */
 	public function getRecentlyWatched()
 	{
-		return $this->getProgress(['`timestamp` > DATE_SUB(now(), INTERVAL 1 MONTH));']);
+		return $this->getProgress(['`timestamp` > DATE_SUB(now(), INTERVAL 1 MONTH)']);
 	}
 
 
