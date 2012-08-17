@@ -139,6 +139,7 @@ class DashboardPresenter extends BaseModeratorPresenter
 		$cache->clean([Cache::TAGS => ['issues']]);
 
 		$this->flashMessage('List problému byl obnoven.');
+		$this->redirect('this');
 	}
 
 
