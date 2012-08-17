@@ -1,0 +1,10 @@
+{var $title = "Učit"}
+{#content}
+
+<article>
+	{if $user->entity->hasStudents()}
+		{include '_dashboard.latte'}
+	{else}
+		{include '_no_students.latte'}
+	{/if}
+</article>

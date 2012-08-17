@@ -1,0 +1,16 @@
+<div class="center">
+	<h2 class="main-headline">Jak přidat studenty</h2>
+	<div class="col1 fifty-fifty">
+		<h3>Postup I</h3>
+		<p>Nechte své studenty jít na tuto adresu:</p>
+		<strong><code>{plink //:Front:Settings:confirmCoach, $user->id}</code></strong>
+		<p>Zobrazí se jim dialog, ve kterém vás na jedno kliknutí potvrdí jako učitele.</p>
+	</div>
+	<div class="col2 fifty-fifty">
+		<h3>Postup II</h3>
+		<p>Studenti z nabídky vybrerou možnost „Přidat učitele“:</p>
+		<p><img src="{$basePath}/images/add-coach-help.png"></p>
+		<p>Ve formuláři, který se objeví, zadají vaše učitelské ID.</p>
+		<h3>Vaše učitelské ID je <strong>{$user->entity->mail}</strong></h3>
+	</div>
+</div>

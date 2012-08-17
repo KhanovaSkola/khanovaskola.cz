@@ -96,6 +96,14 @@ class Routes
 		$exRoute->init($container, 'eid', 'exercises');
 		$container->router[] = $exRoute;
 
+		/**
+		 * Shortest add teacher url possible
+		 */
+		$container->router[] = new Route('u/<coach_id \d+>', [
+			'module' => 'Front',
+			'presenter' => 'Settings',
+			'action' => 'confirmCoach',
+		]);
 
 		/**
 		 * Direct actions of sign presenter

@@ -23,6 +23,7 @@ a:hover .featured_header .label {text-decoration: underline;}
 .creative-commons {vertical-align: sub;}
 .breadcrumbs-tags {float: left; font-size: 16px; line-height: 18px;}
 .color-error {color: rgb(227, 58, 45);}
+code {font-family: "Monaco", "Courier New";}
 
 /* ----  iPad 3 ---- */
 .ipad-only {display: none;}

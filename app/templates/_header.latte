@@ -20,6 +20,7 @@
 									</span>
 									<ul class="dropdown-menu no-submenus">
 										<li n:if="$user->moderator"><a class="dropdown-link" n:href=":Moderator:Dashboard:">Moderátoři</a></li>
+										<li><a class="dropdown-link" n:href=":Front:Settings:addCoach">Přidat učitele</a></li>
 										<li><a n:href=":Sign:out">Odhlásit se</a></li>
 									</ul>
 								</span>
@@ -45,6 +46,7 @@
 						<span class="dropdown topic-browser-dropdown">
 							<a n:href=":Front:Homepage:#browse" class="watch-link dropdown-toggle">Sledovat <span class="caret"></span></a>
 							<a n:href=":Front:Exercise:, eid => NULL" class=" practice-link">Cvičení</a>
+							<a n:href=":Front:Coach:" class=" coach-link">Učit</a>
 							<a n:href=":Front:Volunteer:" class=" contribute-link">Dobrovolníci</a>
 							<a n:href=":Front:About:" class=" about-link">O Škole</a>
 							<div style="clear: both"></div>

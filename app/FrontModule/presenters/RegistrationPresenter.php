@@ -10,12 +10,12 @@ class RegistrationPresenter extends BaseFrontPresenter
 
 	public function startup()
 	{
-		parent::startup();
-
 		if ($this->user->loggedIn) {
 			$this->flashMessage('Již jste zaregistrovaní, nepotřebujete se registrovat znovu.');
 			$this->redirect(':Front:Homepage:');
 		}
+
+		parent::startup();
 	}
 
 

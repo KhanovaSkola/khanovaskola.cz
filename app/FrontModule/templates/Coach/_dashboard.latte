@@ -1,0 +1,9 @@
+<div>
+	<h2 class="main-headline">Vaši studenti</h2>
+	<a n:href="addStudents">&plus; Přidat další studenty</a>
+	<ol>
+		<li n:foreach="$user->entity->getStudents() as $student">
+			{$student->name}
+		</li>
+	</ol>
+</div>

@@ -1,0 +1,11 @@
+{var $title = "Potvrdit učitele"}
+{#content}
+
+<article>
+	<h2 class="main-headline">Potrvdit učitele</h2>
+	<p>Chcete být žák učitele {$coach->name}?</p>
+	<p>
+		<a n:href="confirmCoach!, $coach->id" class="call-to-action simple-button green watch-a-video">Ano, potvrdit učitele</a>
+		<a style="padding-left: 2em;" n:href=":Front:Settings:">Ne, tohoto učitele nechci přijmout</a>
+	</p>
+</article>
