@@ -24,9 +24,12 @@ class RegistrationPresenter extends BaseFrontPresenter
 	{
 		$form = new Form($this, $name);
 
-		$form->addText('mail', 'Mail');
-		$form->addText('password', 'Heslo');
-		$form->addText('code', 'Kód');
+		$form->addText('name'); // intentionally not required
+		$form->addText('mail')
+			->addRule(Form::EMAIL, 'Zkontrolujte vaší emailovou adresu.')
+			->setRequired('Vyplňte prosím emailovou adresu.');
+		$form->addPassword('password', 'Heslo')
+			->setRequired('Vyplňte vaše heslo.');
 
 		$form->addSubmit('send');
 		$form->onSuccess[] = callback($this, 'onSuccessRegistrationForm');
@@ -40,26 +43,22 @@ class RegistrationPresenter extends BaseFrontPresenter
 	{
 		$v = $form->values;
 
-		if ($v->code !== "k12cz_mod") { // Gratuluji :) Můžete se podílet na vývoji Khanovy Školy <khan@dite.cz>
-			$this->flashMessage('Špatný ověřovací kód.', 'error');
-			$this['registrationForm']->addError(NULL);
-			return FALSE;
-		}
-
 		$p = new \Password();
 		$salt = $p->getRandomSalt();
 		$hash = $p->calculateHash($v->password, $salt);
 
 		$this->context->users->insert([
+			'name' => $v->name,
 			'mail' => $v->mail,
 			'password' => $hash,
 			'salt' => $salt,
-			'role' => 'moderator',
+			'role' => '',
 		]);
 
 		$this->user->login($v->mail, $v->password);
 
-		$this->redirect(':Moderator:Dashboard:');
+		$this->flashMessage('Vítejte, nyní jste člen Khanovy školy. Uvidíte, které lekce jste už prošli.');
+		$this->redirect(':Front:Homepage:');
 	}
 
 }
