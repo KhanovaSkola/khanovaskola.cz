@@ -109,6 +109,18 @@ class User extends Entity
 
 
 
+	/**
+	 * @return bool
+	 */
+	public function canView(User $user)
+	{
+		if ($user->id === $this->id)
+			return TRUE;
 
+		return $this->context->database->table('coach')->where([
+			'coach_id' => $this->id,
+			'user_id' => $user->id,
+		])->count() > 0;
+	}
 
 }

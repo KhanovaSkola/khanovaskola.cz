@@ -3,7 +3,7 @@
 	<a n:href="addStudents">&plus; Přidat další studenty</a>
 	<ol>
 		<li n:foreach="$user->entity->getStudents() as $student">
-			{$student->name}
+			<a n:href=":Front:Profile: pid => $student->id">{$student->name}</a>
 		</li>
 	</ol>
 </div>

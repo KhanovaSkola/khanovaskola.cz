@@ -32,6 +32,15 @@ class ProfilePresenter extends BaseFrontPresenter
 
 
 
+	public function actionDefault()
+	{
+		if (!$this->user->entity->canView($this->profile)) {
+			throw new \Nette\Application\ForbiddenRequestException();
+		}
+	}
+
+
+
 	public function renderDefault()
 	{
 		$this->template->profile = $this->profile;
