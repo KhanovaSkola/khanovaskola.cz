@@ -140,6 +140,8 @@ class Routes
 					'o-skole' => 'About',
 					'kontakt' => 'Contact',
 					'dobrovolnici' => 'Volunteer',
+					'ucit' => 'Coach',
+					'profil' => 'Profile',
 				],
 			],
 			'action' => [
@@ -147,6 +149,7 @@ class Routes
 				Route::FILTER_TABLE => [
 					'pravidla-pouziti' => 'tos',
 					'osobni-udaje' => 'privacy',
+					'pridat-studenty' => 'addStudents',
 				]
 			]
 		]);
