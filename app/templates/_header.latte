@@ -10,7 +10,7 @@
 							<span id="user-info" class="badge-target">
 								<span class="dropdown">
 									<span class="username_and_notification dropdown-toggle">
-										<a href="{plink $user->moderator ? ':Moderator:Dashboard:' : ':Front:Profile:'">
+										<a href="{if $user->moderator}{plink :Moderator:Dashboard:}{else}{plink :Front:Profile:}{/if}">
 											<img class="user-avatar" src="{$baseUrl}/images/avatars/leaf-{if $user->admin}red{elseif $user->moderator}blue{else}green{/if}.png">
 											<span class="user-name">
 												{=trim($user->entity->name) ?: $user->entity->mail}
