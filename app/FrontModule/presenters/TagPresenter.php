@@ -23,7 +23,7 @@ class TagPresenter extends BaseFrontPresenter
 
 	public function renderDefault()
 	{
-		$this->template->tags = $this->context->tags->findAll();
+		$this->template->tags = $this->context->tags->findBy(['display' => TRUE]);
 		$this->template->selected = $this->tag;
 	}
 
