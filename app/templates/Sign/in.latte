@@ -7,9 +7,7 @@
 				<h3>Přihlášení do Khanovy školy</h3>
 				<div class="pw-login-contents">
 					{form signInForm}
-						{control signInForm errors}
-
-						<div class="field-error" id="error-text">&nbsp;</div>
+						<div class="field-error color-error" id="error-text">{control signInForm errors}</div>
 
 						<img src="/images/hand-tree.png" width="75" height="75" class="tree">
 						<div class="field-container">

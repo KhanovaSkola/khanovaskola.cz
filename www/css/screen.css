@@ -22,6 +22,7 @@ a:hover .featured_header .label {text-decoration: underline;}
 .wrap-columns .link-wrap {display: block; width: 200pt !important;}
 .creative-commons {vertical-align: sub;}
 .breadcrumbs-tags {float: left; font-size: 16px; line-height: 18px;}
+.color-error {color: rgb(227, 58, 45);}
 
 /* ----  iPad 3 ---- */
 .ipad-only {display: none;}
