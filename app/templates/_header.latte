@@ -13,7 +13,7 @@
 										<a n:tag-if="$user->moderator" n:href=":Moderator:Dashboard:">
 											<img class="user-avatar" src="{$baseUrl}/images/avatars/leaf-{if $user->admin}red{elseif $user->moderator}blue{else}green{/if}.png">
 											<span class="user-name">
-												{$user->entity->mail}
+												{=trim($user->entity->name) ?: $user->entity->mail}
 											</span>
 											<span class="caret"></span>
 										</a>
