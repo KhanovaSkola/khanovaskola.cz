@@ -24,6 +24,7 @@ a:hover .featured_header .label {text-decoration: underline;}
 .breadcrumbs-tags {float: left; font-size: 16px; line-height: 18px;}
 .color-error {color: rgb(227, 58, 45);}
 code {font-family: "Monaco", "Courier New";}
+.github-tag {color: rgba(255, 255, 255, .8) !important; padding: 2px 5px; text-shadow: 1px 1px 0px rgba(0, 0, 0, .4); margin-right: 1em;}
 
 /* ----  iPad 3 ---- */
 .ipad-only {display: none;}

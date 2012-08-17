@@ -57,15 +57,24 @@
 			{var $issues => $github->getIssues()}
 			<h2>
 				<a href="https://github.com/KhanovaSkola/khanovaskola.cz/issues?state=open">
-					Problémy{if $issues} ({count($issues)}){/if}
+					Problémy a featury{if $issues} ({count($issues)}){/if}
 				</a>
 				<a n:href="refreshIssues!">⟳</a>
 			</h2>
 			<p n:if="!$issues">Žádné nahlášené a neopravené problémy :-)</p>
 			<a n:href=":Front:Contact:report, url => $presenter->url, time => time()">✎ Nahlásit problém</a>
-			<ol n:if="$issues">
-				<li n:foreach="$issues as $issue"><a href="{$issue->html_url}">{$issue->title}</a></li>
-			</ol>
+			<table n:if="$issues">
+				<tr n:foreach="$issues as $issue">
+					<td style="text-align: right;">
+						<a n:foreach="$issue->labels as $label" href="{$label->url}" style="background-color: #{!$label->color};" class="github-tag" >
+							{$label->name}
+						</a>
+					</td>
+					<td>
+						<a href="{$issue->html_url}">{$issue->title}</a>
+					</td>
+				</tr>
+			</table>
 		{/cache}
 	</div>
 	<div class="clear"></div>
