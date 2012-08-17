@@ -3,9 +3,9 @@
 namespace FrontModule;
 
 
-class CoachPresenter extends BaseFrontPresenter
+class CoachPresenter extends AuthenticatedPresenter
 {
 
-	
+
 
 }

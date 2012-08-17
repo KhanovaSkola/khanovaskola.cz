@@ -5,20 +5,8 @@ namespace FrontModule;
 use \Nette\Application\UI\Form;
 
 
-class SettingsPresenter extends BaseFrontPresenter
+class SettingsPresenter extends AuthenticatedPresenter
 {
-
-	public function startup()
-	{
-		if (!$this->user->loggedIn) {
-			$this->flashMessage('Přihlašte se prosím.');
-			$this->redirect(':Front:Sign:in');
-		}
-
-		parent::startup();
-	}
-
-
 
 	public function renderConfirmCoach($coach_id)
 	{

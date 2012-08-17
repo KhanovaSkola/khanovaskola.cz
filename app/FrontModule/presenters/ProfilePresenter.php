@@ -6,21 +6,35 @@ namespace FrontModule;
 class ProfilePresenter extends BaseFrontPresenter
 {
 
+	/** @persistent */
+	public $pid;
+
+	/** @var User */
+	public $profile;
+
+
+
 	public function startup()
 	{
-		if (!$this->user->loggedIn) {
-			$this->flashMessage('Přihlašte se prosím.');
-			$this->redirect(':Front:Sign:in');
-		}
-
 		parent::startup();
+
+		if ($this->pid) {
+			$this->profile = $this->context->users->find($this->pid);
+
+		} elseif ($this->user->loggedIn) {
+			$this->profile = $this->user->entity;
+
+		} else {
+			$this->flashMessage('Přihlaste se prosím.');
+			$this->redirect(':Sign:in:');
+		}
 	}
 
 
 
 	public function renderDefault()
 	{
-		$this->template->profile = FALSE ?: $this->user->entity;
+		$this->template->profile = $this->profile;
 	}
 
 }
