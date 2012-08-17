@@ -61,7 +61,6 @@ class TranslatePresenter extends BaseModeratorPresenter
 	public function onSuccessTranslateForm(Form $form)
 	{
 		$v = $form->values;
-		dump($v);
 
 		$data = "";
 		foreach ($v['translations'] as $tid => $c) {

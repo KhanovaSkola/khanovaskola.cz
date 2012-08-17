@@ -1,0 +1,62 @@
+342.1	 Vyjádření neznámé ze vzorce 1	
+
+342.3	 Vyřeště pro <code><var>X</var></code>.
+
+342.5	 Zkombinujte konstanty na pravé straně.
+
+342.8	 Přesuňte <code><var>Z</var></code> na pravou stranu.
+
+342.11	 Přesuňte <code><var>Y</var></code> na pravou stranu.
+
+342.14	 Oddělte <code><var>X</var></code>.
+
+342.17	 Všechny tyto výrazy jsou dělitelné <code><var>GCD</var></code>.
+
+342.18	 Vydělte společným dělitelem a vyrušte znaménka, aby jmenovatel nebyl záporný.
+
+342.19	 Vydělte společným dělitelem.
+
+342.20	 Vyrušte znaménka tak, aby jmenovatel nebyl záporný.
+
+342.23	 Vyřešte pro <code><var>X</var></code>.
+
+342.25	 Zkombinujte konstanty na pravé straně.
+
+342.28	 Všimněte si, že všechny výrazy na levé straně obsahují  <code><var>X</var></code>.
+
+342.30	 Vytkněte <code><var>X</var></code>.
+
+342.32	 Oddělte <code><var>X</var></code>.
+
+342.35	 Toto můžeme zjednodušit vynásobením horní a dolní části <code>-1</code>.
+
+342.38	 Vyřešte pro <code><var>X</var></code>.
+
+342.40	 Všimněte si, že jmenovatelé na levé a pravé straně jsou <span data-if="C === F">stejné</span><span data-else>rozdílné</span>.
+
+342.42	 Můžeme tedy vynásobit obě strany <code><var>C</var></code>.
+
+342.45	 Přehoďte mínus na pravou stranu.
+
+342.48	 Vynásobte obě části jmenovatelem na levé straně.
+
+342.52	 Zredukujte pravou stranu.
+
+342.55	 Vynásobte obě strany jmenovatelem na pravé straně.
+
+342.59	 Upravte <span data-if="C % F === 0">pravou stranu</span><span data-else>obě strany</span>.
+
+342.64	 Přesuňte <code><var>X</var></code> na levou stranu.
+
+342.67	 Přesuňte <code><var>Y</var></code> na pravou stranu.
+
+342.70	 Oddělte <code><var>X</var></code> tím, že obě strany vydělíte jeho koeficientem.
+
+342.73	 Všechny tyto výrazy jsou dělitelné <code><var>GCD</var></code>.
+
+342.74	 Vydělte společným dělitelem a prohoďte znaménka, aby jmenovatel nebyl záporný.
+
+342.75	 Vydělte společným dělitelem.
+
+342.76	 Vyrušte znaménka, aby jmenovatel nebyl záporný.
+
