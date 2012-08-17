@@ -35,6 +35,18 @@ class WatchPresenter extends BaseFrontPresenter
 
 
 
+	public function handleSetWatched()
+	{
+		if ($this->ajax) {
+			$this->user->entity->setWatched($this->video);
+			$this->sendJson(['status' => 'success']);
+		}
+
+		$this->terminate();
+	}
+
+
+
 	public function renderEdit()
 	{
 		$form = $this['editForm'];

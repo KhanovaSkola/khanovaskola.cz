@@ -61,8 +61,28 @@
 									height: "480",
 									modestbranding: "1",
 									autoplay: "0",
+									enablejsapi: "1",
 								}
 							})
+						</script>
+						<script>
+							function onYouTubePlayerReady() {
+								$("[id$='_ytplayer']")[0].addEventListener("onStateChange", "saveState");
+							}
+
+							function saveState(code) {
+								if (code != 0) { // save only if video ended
+									return FALSE;
+								}
+
+								$.ajax({plink setWatched!}, {
+									success: function(response) {
+										if (response.status !== 'success') {
+											console.error("Error while saving progress: ", response);
+										}
+									}
+								});
+							}
 						</script>
 					</div>
 				</div>

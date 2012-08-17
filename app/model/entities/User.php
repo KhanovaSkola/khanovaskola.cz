@@ -69,4 +69,21 @@ class User extends Entity
 		return $this->context->database->table('coach')->where(['coach_id' => $this->id])->count();
 	}
 
+
+
+	public function setWatched(Video $video)
+	{
+		$data = [
+			'video_id' => $video->id,
+			'user_id' => $this->id,
+		];
+
+		$db = $this->context->database;
+		$db->beginTransaction();
+		$db->table('progress')->where($data)->delete();
+		$data['percent'] = 100;
+		$db->table('progress')->insert($data);
+		$db->commit();
+	}
+
 }
