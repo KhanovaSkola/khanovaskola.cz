@@ -86,4 +86,29 @@ class User extends Entity
 		$db->commit();
 	}
 
+
+
+	protected function getProgress(array $filters = NULL)
+	{
+		$filters = $filters ?: [];
+		$filters['user_id'] = $this->id;
+
+		return $this->context->progress->findBy($filters)->order('timestamp DESC');
+	}
+
+
+
+	/**
+	 * Returns list of progresses in last month
+	 * @return Progress[]
+	 */
+	public function getRecentlyWatched()
+	{
+		return $this->getProgress(['`timestamp` > DATE_SUB(now(), INTERVAL 1 MONTH));']);
+	}
+
+
+
+
+
 }

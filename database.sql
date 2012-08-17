@@ -47,6 +47,7 @@ CREATE TABLE `progress` (
   `video_id` bigint(20) unsigned NOT NULL,
   `user_id` bigint(20) unsigned NOT NULL,
   `percent` double NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `video_id` (`video_id`),
   KEY `user_id` (`user_id`),
@@ -109,4 +110,4 @@ CREATE TABLE `video` (
 DROP VIEW IF EXISTS `videos_with_error`;
 CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `videos_with_error` AS select `video`.`id` AS `id`,`video`.`category_id` AS `category_id`,`video`.`exercise_id` AS `exercise_id`,`video`.`label` AS `label`,`video`.`description` AS `description`,`video`.`youtube_id` AS `youtube_id`,`video`.`position` AS `position` from `video` where (`video`.`description` like '%.');
 
--- 2012-08-17 20:39:58
+-- 2012-08-17 21:12:41

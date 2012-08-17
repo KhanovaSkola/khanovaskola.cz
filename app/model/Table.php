@@ -1,6 +1,6 @@
 <?php
 
-abstract class Table extends Nette\Object
+class Table extends Nette\Object
 {
 
 	/** @var Nette\Database\Connection */

@@ -10,7 +10,7 @@
 							<span id="user-info" class="badge-target">
 								<span class="dropdown">
 									<span class="username_and_notification dropdown-toggle">
-										<a n:tag-if="$user->moderator" n:href=":Moderator:Dashboard:">
+										<a href="{plink $user->moderator ? ':Moderator:Dashboard:' : ':Front:Profile:'">
 											<img class="user-avatar" src="{$baseUrl}/images/avatars/leaf-{if $user->admin}red{elseif $user->moderator}blue{else}green{/if}.png">
 											<span class="user-name">
 												{=trim($user->entity->name) ?: $user->entity->mail}
@@ -20,6 +20,7 @@
 									</span>
 									<ul class="dropdown-menu no-submenus">
 										<li n:if="$user->moderator"><a class="dropdown-link" n:href=":Moderator:Dashboard:">Moderátoři</a></li>
+										<li><a class="dropdown-link" n:href=":Front:Profile:">Profil</a></li>
 										<li><a class="dropdown-link" n:href=":Front:Settings:addCoach">Přidat učitele</a></li>
 										<li><a n:href=":Sign:out">Odhlásit se</a></li>
 									</ul>

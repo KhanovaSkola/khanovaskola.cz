@@ -1,0 +1,17 @@
+{var $title = $profile->name}
+{#content}
+
+<article>
+	<h2 class="main-headline" style="white-space: pre;">Profil &ndash; {$profile->name}</h2>
+
+	<h3>Lekce za poslední měsíc</h3>
+	{var $recentlyWatched = $profile->getRecentlyWatched()}
+	<div n:if="!count($recentlyWatched)">
+		Za poslední měsíc jste neviděli ani jednu celou lekci. Škoda.
+	</div>
+	<ol n:if="count($recentlyWatched)">
+		<li n:foreach="$recentlyWatched as $progress">
+			{$progress->timestamp|date}: <a n:href=":Front:Watch:, vid => $progress->video_id">{$progress->getVideo()->label}</a>
+		</li>
+	</ol>
+</article>
