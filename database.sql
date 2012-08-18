@@ -41,6 +41,28 @@ CREATE TABLE `exercise` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci COMMENT='Cvičení';
 
 
+DROP TABLE IF EXISTS `group`;
+CREATE TABLE `group` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) unsigned NOT NULL,
+  `label` varchar(255) COLLATE utf8_czech_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `group_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+
+
+DROP TABLE IF EXISTS `group_user`;
+CREATE TABLE `group_user` (
+  `group_id` bigint(20) unsigned NOT NULL,
+  `user_id` bigint(20) unsigned NOT NULL,
+  PRIMARY KEY (`group_id`,`user_id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `group_user_ibfk_1` FOREIGN KEY (`group_id`) REFERENCES `group` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `group_user_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+
+
 DROP TABLE IF EXISTS `progress`;
 CREATE TABLE `progress` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -110,4 +132,4 @@ CREATE TABLE `video` (
 DROP VIEW IF EXISTS `videos_with_error`;
 CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `videos_with_error` AS select `video`.`id` AS `id`,`video`.`category_id` AS `category_id`,`video`.`exercise_id` AS `exercise_id`,`video`.`label` AS `label`,`video`.`description` AS `description`,`video`.`youtube_id` AS `youtube_id`,`video`.`position` AS `position` from `video` where (`video`.`description` like '%.');
 
--- 2012-08-17 21:12:41
+-- 2012-08-18 20:34:41
