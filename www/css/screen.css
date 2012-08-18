@@ -43,6 +43,7 @@ a:hover .featured_header .label {text-decoration: underline;}
 code {font-family: "Monaco", "Courier New";}
 .github-tag {color: rgba(255, 255, 255, .8) !important; padding: 2px 5px; text-shadow: 1px 1px 0px rgba(0, 0, 0, .4); margin-right: 1em;}
 .video-progress {display: inline-block; width: 1em; font-family: "FontAwesome";}
+.search-ipad {margin-top: 2px;}
 
 /* ----  iPad 3 ---- */
 .ipad-only {display: none;}

@@ -38,6 +38,12 @@
 					</span>
 				{/if}
 			<span class="separator"></span>
+			<div n:if="$presenter->mobile == 'ipad'" id="search-box" class="search-ipad">
+				{form search, class => "page-search"}
+					{input query, class => "ui-corner-all simple-input search-input blur-on-esc", placeholder => "Vyhledávání"}
+					{input send, class => "search-submit"}
+				{/form}
+			</div>
 		</span>
 		<div class="clear"></div>
 		<div id="nav-and-search">
@@ -58,13 +64,12 @@
 					</nav>
 				</div>
 			{/cache}
-			<div id="search-box">
+			<div n:if="$presenter->mobile != 'ipad'" id="search-box" style="float: left;">
 				{form search, class => "page-search"}
 					{input query, class => "ui-corner-all simple-input search-input blur-on-esc", placeholder => "Vyhledávání"}
 					{input send, class => "search-submit"}
 				{/form}
 			</div>
-			<div class="clear"></div>
 		</div>
 	</div>
 	<div id="logo">
