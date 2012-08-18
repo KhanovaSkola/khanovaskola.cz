@@ -34,5 +34,6 @@ code {font-family: "Monaco", "Courier New";}
 	.ipad-only {display: block;}
 	.featured_header .label {text-decoration: underline;}
 	.youtube_play {opacity: .9;}
-	footer .legal-english {display: none;}
+	.ipad-hide {display: none;}
+	footer.short a {padding: 0 2px;}
 }
