@@ -27,13 +27,15 @@ class DynamicCssPresenter extends \BasePresenter
 
 	protected function generateStyle()
 	{
+		$threshold = 98;
+
 		$watched = [];
-		foreach ($this->user->entity->getAllProgress(['percent' => 100]) as $progress) {
+		foreach ($this->user->entity->getAllProgress(['percent >= ?' => $threshold]) as $progress) {
 			$watched[] = ".v-{$progress->video_id}";
 		}
 
 		$partial = [];
-		foreach ($this->user->entity->getAllProgress(['percent < ?' => 100]) as $progress) {
+		foreach ($this->user->entity->getAllProgress(['percent < ?' => $threshold]) as $progress) {
 			$partial[] = ".v-{$progress->video_id}";
 		}
 

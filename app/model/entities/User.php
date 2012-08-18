@@ -82,9 +82,11 @@ class User extends Entity
 
 		$db = $this->context->database;
 		$db->beginTransaction();
+
 		$db->table('progress')->where($data)->delete();
 		$data['percent'] = $percent;
 		$db->table('progress')->insert($data);
+
 		$db->commit();
 	}
 
