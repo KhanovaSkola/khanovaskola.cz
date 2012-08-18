@@ -1,5 +1,12 @@
+{var $title = $group->label}
+{#breadcrumbs}
+	<span class="breadcrumbs_nav video-nav">
+		<a n:href=":Front:Coach:, gid => NULL">Učit</a>
+		<span class="breadcrumb-separator">»</span>
+		<a n:href="this">{$group->label}</a>
+	</span>
+{/#}
 {#content}
-
 <article>
 	<h2 class="main-headline">{$group->label}</h2>
 	<p>
