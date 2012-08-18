@@ -2,9 +2,19 @@
 {#content}
 
 <article>
-	<ol>
-		<li n:foreach="$exercises as $ex">
-			<a n:href=":Front:Exercise:, eid => $ex->id">{$ex->label}</a>
-		</li>
-	</ol>
+	<h2 class="main-headline">Cvičení</h2>
+
+	<table>
+		<tr n:foreach="$exercises as $ex">
+			<td style="padding-right: .5em; text-align: right;">
+				{var $skill = $user->entity->getExerciseSkill($ex)}
+				{if $skill > 0.05}
+					{=$skill * 100|number}&thinsp;%
+				{/if}
+			</td>
+			<td>
+				<a n:href=":Front:Exercise:, eid => $ex->id">{$ex->label}</a>
+			</td>
+		</tr>
+	</table>
 </article>

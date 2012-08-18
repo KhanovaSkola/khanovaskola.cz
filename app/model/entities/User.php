@@ -168,6 +168,17 @@ class User extends Entity
 
 
 
+	public function getExerciseSkill(Exercise $exercise)
+	{
+		$res = $this->context->database->queryArgs('SELECT Avg(tmp.correct) FROM (
+			SELECT correct FROM answer
+			WHERE exercise_id = ? AND user_id = ?
+			LIMIT 30) tmp', [$exercise->id, $this->id])->fetch();
+		return end($res);
+	}
+
+
+
 	public function saveExerciseAnswer($file, $correct)
 	{
 		$exercise = $this->context->exercises->findOneBy(['file' => $file]);
