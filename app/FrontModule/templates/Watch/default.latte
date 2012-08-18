@@ -19,7 +19,7 @@
 {/#}
 {#content}
 <article id="video-page">
-	{cache $video->id, tags => ["video/$video->id"]}
+	{cache "{$video->id}_{$presenter->mobile}", tags => ["video/$video->id"]}
 		<div class="video">
 			<div itemscope itemtype="http://schema.org/VideoObject">
 				<div style="min-height: 88px">
@@ -47,7 +47,11 @@
 						</nav>
 					</div>
 				</div>
-				<div class="video-container">
+				<div n:if="$presenter->mobile == 'ipad'" class="video-container">
+					<iframe type="text/html" width="800" height="480" src="http://www.youtube.com/embed/{$video->youtube_id}" frameborder="0"></iframe>
+					<p>Na iPadu zatím nemůžeme zobrazovat videa s českými titulky. Na řešení pracujeme.</p>
+				</div>
+				<div n:if="$presenter->mobile != 'ipad'" class="video-container">
 					<div class="video-overlay desktop-only large-font"></div>
 					<div id="youtube_blocked" class="desktop-only"></div>
 					<div class="youtube-video">
