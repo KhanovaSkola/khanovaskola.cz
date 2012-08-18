@@ -6,7 +6,7 @@
 
 	<table>
 		<tr n:foreach="$exercises as $ex">
-			<td style="padding-right: .5em; text-align: right;">
+			<td n:if="$user->loggedIn" style="padding-right: .5em; text-align: right;">
 				{var $skill = $user->entity->getExerciseSkill($ex)}
 				{if $skill > 0.05}
 					{=$skill * 100|number}&thinsp;%
