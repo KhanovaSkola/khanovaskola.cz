@@ -28,8 +28,9 @@ class WatchPresenter extends BaseFrontPresenter
 
 
 
-	public function renderDefault()
+	public function renderDefault($autoplay = 0)
 	{
+		$this->template->autoplay = $autoplay;
 		$this->template->video = $this->video;
 	}
 
