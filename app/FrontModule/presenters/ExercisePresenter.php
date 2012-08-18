@@ -84,4 +84,15 @@ class ExercisePresenter extends BaseFrontPresenter
 		$this->redirect(':Front:Exercise:');
 	}
 
+
+
+	public function handleSaveAnswer($name, $correct)
+	{
+		if (TRUE || $this->ajax) {
+			$this->user->entity->saveExerciseAnswer($name, $correct);
+			$this->sendJson(['status' => 'success']);
+		}
+		$this->terminate();
+	}
+
 }

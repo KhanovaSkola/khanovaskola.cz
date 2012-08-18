@@ -166,4 +166,20 @@ class User extends Entity
 		return $this->context->groups->findBy(['user_id' => $this->id]);
 	}
 
+
+
+	public function saveExerciseAnswer($file, $correct)
+	{
+		$exercise = $this->context->exercises->findOneBy(['file' => $file]);
+		if (!$exercise) {
+			return FALSE;
+		}
+
+		return $this->context->database->table('answer')->insert([
+			'exercise_id' => $exercise->id,
+			'user_id' => $this->id,
+			'correct' => $correct ? 1 : 0
+		]);
+	}
+
 }

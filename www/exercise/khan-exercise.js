@@ -728,7 +728,7 @@ var Khan = (function() {
         }
 
         // Base modules required for every problem
-        Khan.require(["answer-types", "tmpl", "underscore", "jquery.adhesion", "hints"]);
+        Khan.require(["../progress-save", "answer-types", "tmpl", "underscore", "jquery.adhesion", "hints"]);
 
         Khan.require(document.documentElement.getAttribute("data-require"));
 
@@ -2147,7 +2147,7 @@ var Khan = (function() {
                 $(this).val($(this).data("buttonText") || "Chci další nápovědu (" + stepsLeft + ")");
 
                 var problem = $(hint).parent();
-								
+
 				// Append first so MathJax can sense the surrounding CSS context properly
 				$(hint).appendTo("#hintsarea").runModules(problem);
 
@@ -2159,7 +2159,7 @@ var Khan = (function() {
                     $(hint).addClass("final_answer");
 
 					$(Khan).trigger("allHintsUsed");
-					
+
                     $(this).attr("disabled", true);
                 }
             }
