@@ -10,6 +10,7 @@
 
 	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/khan.css?v={=time()}" type="text/css">
 	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css?v={=time()}" type="text/css">
+	<link n:if="$user->loggedIn" rel="stylesheet" media="screen,projection,tv" n:href=":Api:DynamicCss:" type="text/css">
 
 	<link rel="shortcut icon" href="{$basePath}/favicon.ico" type="image/x-icon">
 	<link rel="apple-touch-icon" sizes=”72x72″ href="{$basePath}/images/apple-touch-icon.png"/>

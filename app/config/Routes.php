@@ -22,9 +22,9 @@ class Routes
 			'module' => 'Api',
 			'presenter' => 'Category',
 		]);
-		$container->router[] = new Route('s/<video_id>', [
+		$container->router[] = new Route('css/dynamic.dcss', [
 			'module' => 'Api',
-			'presenter' => 'Image',
+			'presenter' => 'DynamicCss',
 			'action' => 'default',
 		]);
 

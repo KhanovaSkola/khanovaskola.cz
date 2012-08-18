@@ -8,9 +8,7 @@
 	<div class="library-content-list" style="margin-left: 6em;">
 		<div class="wrap-columns">
 			<a n:foreach="$subcat->getVideos() as $video" class="link-wrap" n:href=":Front:Watch:, vid => $video->id" title="{$video->label}">
-				<span class="video-progress">
-					<img src="{plink //:Api:Image:, $video->id}">
-				</span>
+				<span class="video-progress v-{$video->id}"></span>
 				{$video->label|truncate:45}
 			</a>
 		</div>

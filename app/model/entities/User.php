@@ -71,7 +71,7 @@ class User extends Entity
 
 
 
-	public function setWatched(Video $video)
+	public function setProgress(Video $video, $progress)
 	{
 		$data = [
 			'video_id' => $video->id,
@@ -81,14 +81,14 @@ class User extends Entity
 		$db = $this->context->database;
 		$db->beginTransaction();
 		$db->table('progress')->where($data)->delete();
-		$data['percent'] = 100;
+		$data['percent'] = $progress;
 		$db->table('progress')->insert($data);
 		$db->commit();
 	}
 
 
 
-	protected function getAllProgress(array $filters = NULL)
+	public function getAllProgress(array $filters = NULL)
 	{
 		$filters = $filters ?: [];
 		$filters['user_id'] = $this->id;
