@@ -156,6 +156,8 @@ class Routes
 					'osobni-udaje' => 'privacy',
 					'pridat-studenty' => 'addStudents',
 					'jak-to-funguje' => 'aboutFeature',
+					'skupina' => 'group',
+					'upravit' => 'edit',
 				]
 			]
 		]);
