@@ -40,7 +40,12 @@ class DynamicCssPresenter extends \BasePresenter
 		}
 
 		$style = implode(',', $watched) . " {\n\tbackground-image: url('/images/video-indicator-complete.png');\n}\n\n";
-		$style .= implode(',', $partial) . " {\n\tbackground-image: url('/images/video-indicator-started.png');\n}\n";
+		$style .= implode(',', $partial) . " {\n\tbackground-image: url('/images/video-indicator-started.png');\n}\n\n";
+
+		$style .= "@media screen and (-webkit-min-device-pixel-ratio: 2), screen and (max-moz-device-pixel-ratio: 2) {\n";
+		$style .= "\t" . implode(',', $watched) . " {\n\t\tbackground-image: url('/images/video-indicator-complete@2x.png'); background-size: 10px auto;\n\t}\n";
+		$style .= "\t" . implode(',', $partial) . " {\n\t\tbackground-image: url('/images/video-indicator-started@2x.png'); background-size: 10px auto;\n\t}\n\n";
+		$style .= "}\n";
 
 		return $style;
 	}
