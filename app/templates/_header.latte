@@ -4,46 +4,41 @@
 	<div class="top-header-links">
 		<span class="page_links" id="page_auth">
 			<span id="goals-container"></span>
-				<span id="user-info" class="badge-target">
-					{cache $user->id, tags => ['user/login']}
-						{if $user->loggedIn}
-							<span id="user-info" class="badge-target">
-								<span class="dropdown">
-									<span class="username_and_notification dropdown-toggle">
-										<a href="{if $user->moderator}{plink :Moderator:Dashboard:}{else}{plink :Front:Profile:}{/if}">
-											<img class="user-avatar" src="{$baseUrl}/images/avatars/leaf-{if $user->admin}red{elseif $user->moderator}blue{else}green{/if}.png">
-											<span class="user-name">
-												{=trim($user->entity->name) ?: $user->entity->mail}
-											</span>
-											<span class="caret"></span>
-										</a>
+			<span id="user-info" class="badge-target">
+				{cache $user->id, tags => ['user/login']}
+					<span n:if="$user->loggedIn" id="user-info" class="badge-target">
+						<span class="dropdown">
+							<span class="username_and_notification dropdown-toggle">
+								<a href="{if $user->moderator}{plink :Moderator:Dashboard:}{else}{plink :Front:Profile:}{/if}">
+									<img class="user-avatar" src="{$baseUrl}/images/avatars/leaf-{if $user->admin}red{elseif $user->moderator}blue{else}green{/if}.png">
+									<span class="user-name">
+										{=trim($user->entity->name) ?: $user->entity->mail}
 									</span>
-									<ul class="dropdown-menu no-submenus">
-										<li n:if="$user->moderator"><a class="dropdown-link" n:href=":Moderator:Dashboard:">Moderátoři</a></li>
-										<li><a class="dropdown-link" n:href=":Front:Profile:, pid => NULL">Profil</a></li>
-										<li><a class="dropdown-link" n:href=":Front:Settings:addCoach">Přidat učitele</a></li>
-										<li><a n:href=":Sign:out">Odhlásit se</a></li>
-									</ul>
-								</span>
+									<span class="caret"></span>
+								</a>
 							</span>
-						{else}
-							<a n:href=":Sign:in">Přihlášení</a>
-						{/if}
-					{/cache}
-				</span>
-				{if !$user->loggedIn}
-					<span class="separator"></span>
-					<span>
-						<a n:href=":Front:Registration:">Registrace</a>
+							<ul class="dropdown-menu no-submenus">
+								<li n:if="$user->moderator"><a class="dropdown-link" n:href=":Moderator:Dashboard:">Moderátoři</a></li>
+								<li><a class="dropdown-link" n:href=":Front:Profile:, pid => NULL">Profil</a></li>
+								<li><a class="dropdown-link" n:href=":Front:Settings:addCoach">Přidat učitele</a></li>
+								<li><a n:href=":Sign:out">Odhlásit se</a></li>
+							</ul>
+						</span>
 					</span>
-				{/if}
-			<span class="separator"></span>
-			<div n:if="$presenter->mobile == 'ipad'" id="search-box" class="search-ipad">
+				{/cache}
+			</span>
+			{if !$user->loggedIn}
+				<span class="separator"></span>
+				<span><a n:href=":Sign:in">Přihlášení</a></span>
+				<span class="separator"></span>
+				<span><a n:href=":Front:Registration:">Registrace</a></span>
+			{/if}
+			<span n:if="TRUE || $presenter->mobile == 'ipad'" id="search-box" class="search-ipad">
 				{form search, class => "page-search"}
 					{input query, class => "ui-corner-all simple-input search-input blur-on-esc", placeholder => "Vyhledávání"}
 					{input send, class => "search-submit"}
 				{/form}
-			</div>
+			</span>
 		</span>
 		<div class="clear"></div>
 		<div id="nav-and-search">
@@ -64,7 +59,7 @@
 					</nav>
 				</div>
 			{/cache}
-			<div n:if="$presenter->mobile != 'ipad'" id="search-box" style="float: left;">
+			<div n:if="FALSE && $presenter->mobile != 'ipad'" id="search-box" style="float: left;">
 				{form search, class => "page-search"}
 					{input query, class => "ui-corner-all simple-input search-input blur-on-esc", placeholder => "Vyhledávání"}
 					{input send, class => "search-submit"}
