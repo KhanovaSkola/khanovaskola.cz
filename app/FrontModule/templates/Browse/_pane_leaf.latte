@@ -28,7 +28,7 @@
 						<li n:block="video_link" class="video-link" id="video-{$video->id}" data-id="{$video->id}">
 							<a n:href=":Front:Watch:, vid => $video->id">
 								<span class="indent">
-									<span n:if="$user->moderator" class="sortable-arrow">↕</span>
+									<span class="video-progress v-{$video->id}"></span>
 									{$video->label}
 								</span>
 							</a>

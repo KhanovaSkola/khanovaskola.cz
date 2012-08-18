@@ -9,9 +9,16 @@
 	<div n:if="!count($recentlyWatched)">
 		Za poslední měsíc jste neviděli ani jednu celou lekci. Škoda.
 	</div>
-	<ol n:if="count($recentlyWatched)">
-		<li n:foreach="$recentlyWatched as $progress">
-			{$progress->timestamp|date}: <a n:href=":Front:Watch:, vid => $progress->video_id">{$progress->getVideo()->label}</a>
-		</li>
-	</ol>
+	<table n:if="count($recentlyWatched)">
+		<tr n:foreach="$recentlyWatched as $progress">
+			<td style="text-align: right; padding-right: .5em;">
+				{$progress->timestamp|timeAgo}:
+			</td>
+			<td>
+				<span class="video-progress v-{$progress->video_id}"></span>
+				<a n:href=":Front:Watch:, vid => $progress->video_id">{$progress->getVideo()->label}</a>
+				{if $progress->percent < 98}({$progress->percent|number}&thinsp;%){/if}
+			</td>
+		</tr>
+	</table>
 </article>

@@ -26,4 +26,11 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 		return $template;
 	}
 
+
+
+	public function beforeRender()
+	{
+		\Helpers::register($this->template);
+	}
+
 }

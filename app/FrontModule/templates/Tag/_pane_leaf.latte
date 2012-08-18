@@ -22,7 +22,10 @@
 				<ol class="first" n:inner-foreach="$tag->getVideosHalf() as $video">
 					<li n:block="video_link" class="video-link" id="video-{$video->id}" data-id="{$video->id}">
 						<a n:href=":Front:Watch:, vid => $video->id">
-							<span class="indent">{$video->label}</span>
+							<span class="indent">
+								<span class="video-progress v-{$video->id}"></span>
+								{$video->label}
+							</span>
 						</a>
 					</li>
 				</ol>
