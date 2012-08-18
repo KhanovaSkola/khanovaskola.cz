@@ -129,4 +129,14 @@ class CoachPresenter extends BaseFrontPresenter
 		$this->redirect('this');
 	}
 
+
+
+	public function handleRemove()
+	{
+		$this->context->groups->find($this->gid)->delete();
+
+		$this->flashMessage('Skupina byla smazána. Studenti vám zůstali a můžete je přiřadit do jiných kategirií.');
+		$this->redirect('default');
+	}
+
 }
