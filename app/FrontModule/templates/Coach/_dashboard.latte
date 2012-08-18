@@ -1,9 +1,27 @@
 <div>
 	<h2 class="main-headline">Vaši studenti</h2>
-	<a n:href="addStudents">&plus; Přidat další studenty</a>
-	<ol>
-		<li n:foreach="$user->entity->getStudents() as $student">
-			<a n:href=":Front:Profile: pid => $student->id">{$student->name}</a>
-		</li>
-	</ol>
+	<p>
+		<a n:href="addStudents">&plus; Přidat další studenty</a><br>
+		<a n:href="addGroup!">&plus; Přidat další skupinu</a>
+	</p>
+
+	{if $user->entity->getStudentsWithoutGroup()->count()}
+		<h3>Skudenti, které nemáte v žádné skupině</h3>
+		<ol>
+			<li n:foreach="$user->entity->getStudents() as $student">
+				<a n:href=":Front:Profile:, pid => $student->id">{$student->name}</a>
+			</li>
+		</ol>
+	{/if}
+
+	{foreach $user->entity->getGroups() as $group}
+		<h3>
+			<a n:href="group, gid => $group->id">{$group->label}</a>
+		</h3>
+		<ol style="padding-left: 2em;">
+			<li n:foreach="$group->getUsers() as $student">
+				<a n:href=":Front:Profile:, pid => $student->id">{$student->name}</a>
+			</li>
+		</ol>
+	{/foreach}
 </div>

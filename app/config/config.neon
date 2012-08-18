@@ -45,6 +45,7 @@ common:
 		exercises: Exercises('exercise')
 		tags: Tags('tag')
 		progress: Table('progress')
+		groups: Table('group')
 
 	factories:
 

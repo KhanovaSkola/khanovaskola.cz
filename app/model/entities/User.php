@@ -64,6 +64,21 @@ class User extends Entity
 
 
 
+	public function getStudentsWithoutGroup()
+	{
+		$ids = [];
+		foreach ($this->context->database->table('coach')->where(['coach_id' => $this->id]) as $row) {
+			$ids[] = $row['user_id'];
+		}
+		foreach ($this->getGroups() as $group) {
+			$ids = array_diff($ids, $group->getUsersIds());
+		}
+
+		return $this->context->users->findBy(['id' => $ids]);
+	}
+
+
+
 	public function hasStudents()
 	{
 		return $this->context->database->table('coach')->where(['coach_id' => $this->id])->count();
@@ -139,6 +154,16 @@ class User extends Entity
 			'coach_id' => $this->id,
 			'user_id' => $user->id,
 		])->count() > 0;
+	}
+
+
+
+	/**
+	 * @return Group[]
+	 */
+	public function getGroups()
+	{
+		return $this->context->groups->findBy(['user_id' => $this->id]);
 	}
 
 }

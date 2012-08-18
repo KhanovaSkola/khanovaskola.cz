@@ -1,0 +1,22 @@
+{#content}
+
+<article>
+	<h2 class="main-headline">{$group->label}</h2>
+	<p>
+		<a n:href="edit">Upravit skupinu / přidat studenty do skupiny</a>
+	</p>
+
+	<h3>Studenti</h3>
+	<table>
+		<tr n:foreach="$group->getUsers() as $student">
+			<td>
+				&bull;
+				<a n:href=":Front:Profile:, pid => $student->id">{$student->name}</a>
+			</td>
+		</tr>
+	</table>
+
+	<p>
+		<a n:href="default, gid => NULL">zpět na přehled</a>
+	</p>
+</article>
