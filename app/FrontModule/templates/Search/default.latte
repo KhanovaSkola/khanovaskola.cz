@@ -1,0 +1,30 @@
+{var $title = $query}
+{#content}
+
+<article>
+	<h2 class="main-headline" style="white-space: pre;">Vyhledávání &ndash; {$query}</h2>
+
+	{var $count_videos = $videos->count()}
+	{var $count_exercises = $exercises->count()}
+	<div n:if="!$count_videos && !$count_exercises">
+		<h3>Nenašli jsme žádná videa ani cvičení, která jste hledali.</h3>
+	</div>
+
+	<div n:if="$count_videos" class="col1 fifty-fifty">
+		<h3>Videa</h3>
+		<ol>
+			<li n:foreach="$videos as $video">
+				<span class="video-progress v-{$video->id}"></span>
+				<a n:href=":Front:Watch:, vid => $video->id">{$video->label}</a>
+			</li>
+		</ol>
+	</div>
+	<div n:if="$count_exercises" class="col2 fifty-fifty">
+		<h3>Cvičení</h3>
+		<ol>
+			<li n:foreach="$exercises as $exercise">
+				<a n:href=":Front:Exercise:, eid => $exercise->id">{$exercise->label}</a>
+			</li>
+		</ol>
+	</div>
+</article>

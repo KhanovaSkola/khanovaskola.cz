@@ -31,6 +31,32 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 	public function beforeRender()
 	{
 		\Helpers::register($this->template);
+		$this['search']['query']->setValue($this->getParam('q'));
+	}
+
+
+
+	public function createComponentSearch($name)
+	{
+		$form = new \Nette\Application\UI\Form($this, $name);
+
+		$form->addText('query');
+		$form->addSubmit('send');
+		$form->onSuccess[] = callback($this, 'onSuccessSearch');
+
+		return $form;
+	}
+
+
+
+	public function onSuccessSearch($form)
+	{
+		$q = $form['query']->getValue();
+		if (!$q) {
+			$this->redirect('this');
+		}
+
+		$this->redirect(':Front:Search:', ['q' => $q]);
 	}
 
 }

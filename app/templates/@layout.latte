@@ -44,9 +44,7 @@
 			<div id="page-container-inner">
 				<div id="goals-nav-container" style="display: none" class="ui-corner-bottom"></div>
 				<header>
-					{cache $user->id, tags => ['categories']}
-						{include '_header.latte'}
-					{/cache}
+					{include '_header.latte'}
 					<nav id="page_sub_nav" n:ifset="#breadcrumbs">
 						{include #breadcrumbs}
 					</nav>

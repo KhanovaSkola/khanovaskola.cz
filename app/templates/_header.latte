@@ -41,26 +41,29 @@
 		</span>
 		<div class="clear"></div>
 		<div id="nav-and-search">
-			<div class="sitewide-navigation">
-				<nav>
-					<span class="links nav-subheader">
-						<span class="dropdown topic-browser-dropdown">
-							<a n:href=":Front:Homepage:#browse" class="watch-link dropdown-toggle">Sledovat <span class="caret"></span></a>
-							<a n:href=":Front:Exercise:, eid => NULL" class=" practice-link">Cvičení</a>
-							<a n:href=":Front:Coach:" class=" coach-link">Učit</a>
-							<a n:href=":Front:Volunteer:" class=" contribute-link">Dobrovolníci</a>
-							<a n:href=":Front:About:" class=" about-link">O Škole</a>
-							<div style="clear: both"></div>
-							{include _dropdown.latte}
+			{cache tags => ['categories']}
+				<div class="sitewide-navigation">
+					<nav>
+						<span class="links nav-subheader">
+							<span class="dropdown topic-browser-dropdown">
+								<a n:href=":Front:Homepage:#browse" class="watch-link dropdown-toggle">Sledovat <span class="caret"></span></a>
+								<a n:href=":Front:Exercise:, eid => NULL" class=" practice-link">Cvičení</a>
+								<a n:href=":Front:Coach:" class=" coach-link">Učit</a>
+								<a n:href=":Front:Volunteer:" class=" contribute-link">Dobrovolníci</a>
+								<a n:href=":Front:About:" class=" about-link">O Škole</a>
+								<div style="clear: both"></div>
+								{include _dropdown.latte}
+							</span>
 						</span>
-					</span>
-				</nav>
+					</nav>
+				</div>
+			{/cache}
+			<div id="search-box">
+				{form search, class => "page-search"}
+					{input query, class => "ui-corner-all simple-input search-input blur-on-esc", placeholder => "Vyhledávání"}
+					{input send, class => "search-submit"}
+				{/form}
 			</div>
-			{*<div id="search-box">
-				<form class="page-search" action="/search">
-					<input id="search-input" type="text" placeholder="Hledat video nebo téma" name="page_search_query" value='' class="ui-corner-all placeholder simple-input search-input blur-on-esc" /><input type="submit" value=" " class="search-submit" />
-				</form>
-			</div>*}
 			<div class="clear"></div>
 		</div>
 	</div>
