@@ -129,6 +129,29 @@ class User extends Entity
 
 
 	/**
+	 * Returns list of exercises attained in last month
+	 * @return [array, Exercise[]]
+	 */
+	public function getRecentExercises()
+	{
+		$answers = $this->context->database->table('answer')->where([
+			'user_id' => $this->id,
+			'`timestamp` > DATE_SUB(now(), INTERVAL 1 MONTH)',
+		])->group('exercise_id', 'Count(*) > 3');
+
+		$ids = [];
+		$times = [];
+		foreach ($answers as $row) {
+			$ids[] = $row['exercise_id'];
+			$times[] = $row['timestamp'];
+		}
+
+		return (object) ['times' => $times, 'selector' => $this->context->exercises->findBy(['id' => $ids])];
+	}
+
+
+
+	/**
 	 * @param Video $video
 	 * @return Progress
 	 */
