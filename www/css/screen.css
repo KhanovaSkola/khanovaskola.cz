@@ -3,11 +3,28 @@
 div.flash {color: black; background: #FFF9D7; border: 1px solid #E2C822; padding: 1em; margin: 1em 0;}
 a[href^="error:"] {background: red; color: white;}
 
+
 /* for homepage library */
 #library-content .library-content-list a {width: 30%; height: 18.0px;}
 .m0 {margin-left: 0%;}
 .m1 {margin-left: 33%;}
 .m2 {margin-left: 66%;}
+
+
+/*
+ * glyphs
+ * @see http://fortawesome.github.com/Font-Awesome/#all-icons
+ */
+@font-face {
+	font-family: 'FontAwesome';
+	src: url('../font/fontawesome-webfont.eot');
+	src: url('../font/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+	   url('../font/fontawesome-webfont.woff') format('woff'),
+	   url('../font/fontawesome-webfont.ttf') format('truetype'),
+	   url('../font/fontawesome-webfont.svg#FontAwesome') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
 
 /* generic */
 footer .legal {float: right; margin-right: 10px;}
@@ -25,7 +42,7 @@ a:hover .featured_header .label {text-decoration: underline;}
 .color-error {color: rgb(227, 58, 45);}
 code {font-family: "Monaco", "Courier New";}
 .github-tag {color: rgba(255, 255, 255, .8) !important; padding: 2px 5px; text-shadow: 1px 1px 0px rgba(0, 0, 0, .4); margin-right: 1em;}
-.video-progress {display: inline-block; width: 10px; height: 10px;}
+.video-progress {display: inline-block; width: 10px; height: 10px; font-family: "FontAwesome"; vertical-align: 4px;}
 
 /* ----  iPad 3 ---- */
 .ipad-only {display: none;}

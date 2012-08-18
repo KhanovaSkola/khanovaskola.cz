@@ -31,21 +31,16 @@ class DynamicCssPresenter extends \BasePresenter
 
 		$watched = [];
 		foreach ($this->user->entity->getAllProgress(['percent >= ?' => $threshold]) as $progress) {
-			$watched[] = ".v-{$progress->video_id}";
+			$watched[] = ".v-{$progress->video_id}:before";
 		}
 
 		$partial = [];
 		foreach ($this->user->entity->getAllProgress(['percent < ?' => $threshold]) as $progress) {
-			$partial[] = ".v-{$progress->video_id}";
+			$partial[] = ".v-{$progress->video_id}:before";
 		}
 
-		$style = implode(',', $watched) . " {\n\tbackground-image: url('/images/video-indicator-complete.png');\n}\n\n";
-		$style .= implode(',', $partial) . " {\n\tbackground-image: url('/images/video-indicator-started.png');\n}\n\n";
-
-		$style .= "@media screen and (-webkit-min-device-pixel-ratio: 2), screen and (max-moz-device-pixel-ratio: 2) {\n";
-		$style .= "\t" . implode(',', $watched) . " {\n\t\tbackground-image: url('/images/video-indicator-complete@2x.png'); background-size: 10px auto;\n\t}\n";
-		$style .= "\t" . implode(',', $partial) . " {\n\t\tbackground-image: url('/images/video-indicator-started@2x.png'); background-size: 10px auto;\n\t}\n\n";
-		$style .= "}\n";
+		$style = implode(',', $watched) . ' {content: "\f058"; color: rgb(43, 157, 0);}' . "\n";
+		$style .= implode(',', $partial) . ' {content: "\f042"; color: rgb(72, 113, 201);}';
 
 		return $style;
 	}

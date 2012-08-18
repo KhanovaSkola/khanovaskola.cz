@@ -9,7 +9,7 @@
 	<title>{ifset $title}{$title} &ndash; {/ifset}Khanova škola</title>
 
 	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/khan.css" type="text/css">
-	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css" type="text/css">
+	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css?v={=rand()}" type="text/css">
 	<link n:if="$user->loggedIn" rel="stylesheet" media="screen,projection,tv" n:href=":Api:DynamicCss:, v => rand()" type="text/css">
 
 	<link rel="shortcut icon" href="{$basePath}/favicon.ico" type="image/x-icon">
