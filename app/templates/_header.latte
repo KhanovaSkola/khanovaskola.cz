@@ -33,7 +33,7 @@
 				<span class="separator"></span>
 				<span><a n:href=":Front:Registration:">Registrace</a></span>
 			{/if}
-			<span n:if="TRUE || $presenter->mobile == 'ipad'" id="search-box" class="search-ipad">
+			<span n:if="$presenter->mobile == 'ipad'" id="search-box" class="search-ipad">
 				{form search, class => "page-search"}
 					{input query, class => "ui-corner-all simple-input search-input blur-on-esc", placeholder => "Vyhledávání"}
 					{input send, class => "search-submit"}
@@ -59,7 +59,7 @@
 					</nav>
 				</div>
 			{/cache}
-			<div n:if="FALSE && $presenter->mobile != 'ipad'" id="search-box" style="float: left;">
+			<div n:if="$presenter->mobile != 'ipad'" id="search-box" style="float: left;">
 				{form search, class => "page-search"}
 					{input query, class => "ui-corner-all simple-input search-input blur-on-esc", placeholder => "Vyhledávání"}
 					{input send, class => "search-submit"}
