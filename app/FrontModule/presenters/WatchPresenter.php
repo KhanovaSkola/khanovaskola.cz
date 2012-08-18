@@ -35,10 +35,10 @@ class WatchPresenter extends BaseFrontPresenter
 
 
 
-	public function handleSetWatched($percent = 100)
+	public function handleUpdateProgress($seconds)
 	{
 		if ($this->ajax) {
-			$this->user->entity->setProgress($this->video, $percent);
+			$this->user->entity->setProgress($this->video, $seconds);
 
 			$cache = new Cache($this->context->cacheStorage);
 			$cache->clean([Cache::TAGS => "watched/{$this->user->id}"]);

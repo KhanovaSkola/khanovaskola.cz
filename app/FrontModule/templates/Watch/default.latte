@@ -66,17 +66,35 @@
 							})
 						</script>
 						<script>
+							var player = null;
+							var ticker = null;
 							function onYouTubePlayerReady() {
-								$("[id$='_ytplayer']")[0].addEventListener("onStateChange", "saveState");
+								player = $("[id$='_ytplayer']")[0];
+								player.addEventListener("onStateChange", "saveState");
 							}
 
 							function saveState(code) {
-								if (code != 0) { // save only if video ended
-									return FALSE;
+								if (code == 1) {
+									console.log('started ticker');
+									ticker = setInterval(function() {
+										console.log('tick');
+										updateProgress(player.getCurrentTime());
+									}, 5000);
+								} else {
+									console.log('stopped ticker');
+									clearInterval(ticker);
 								}
 
-								$.ajax({plink setWatched!}, {
+								if (code == 0) { // save only if video ended
+									updateProgress(-1);
+								}
+							}
+
+							function updateProgress(progress) {
+								$.ajax({plink updateProgress!}, {
+									data: { seconds: progress},
 									success: function(response) {
+										console.log('response');
 										if (response.status !== 'success') {
 											console.error("Error while saving progress: ", response);
 										}

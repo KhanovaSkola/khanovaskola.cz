@@ -71,17 +71,19 @@ class User extends Entity
 
 
 
-	public function setProgress(Video $video, $progress)
+	public function setProgress(Video $video, $seconds)
 	{
 		$data = [
 			'video_id' => $video->id,
 			'user_id' => $this->id,
 		];
 
+		$percent = $seconds == -1 ? 100 : $seconds / $video->getDuration() * 100;
+
 		$db = $this->context->database;
 		$db->beginTransaction();
 		$db->table('progress')->where($data)->delete();
-		$data['percent'] = $progress;
+		$data['percent'] = $percent;
 		$db->table('progress')->insert($data);
 		$db->commit();
 	}
