@@ -155,6 +155,7 @@ class Routes
 					'pravidla-pouziti' => 'tos',
 					'osobni-udaje' => 'privacy',
 					'pridat-studenty' => 'addStudents',
+					'jak-to-funguje' => 'aboutFeature',
 				]
 			]
 		]);
