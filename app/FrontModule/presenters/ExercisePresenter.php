@@ -89,7 +89,7 @@ class ExercisePresenter extends BaseFrontPresenter
 	public function handleSaveAnswer($name, $correct)
 	{
 		if (TRUE || $this->ajax) {
-			$this->user->entity->saveExerciseAnswer($name, $correct);
+			$this->user->entity->saveExerciseAnswer($name, $correct === 'true');
 			$this->sendJson(['status' => 'success']);
 		}
 		$this->terminate();
