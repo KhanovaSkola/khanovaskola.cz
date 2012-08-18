@@ -22,13 +22,12 @@ Kdyby\Forms\Containers\Replicator::register();
 // Create Dependency Injection container from config.neon file
 $configurator->addConfig(__DIR__ . '/config/config.neon');
 
-\Nella\NetteAddons\Diagnostics\Config\Extension::register($configurator);
+//\Nella\NetteAddons\Diagnostics\Config\Extension::register($configurator);
 
 $container = $configurator->createContainer();
 
 $routes = new Routes();
 $routes->setup($container);
-
 
 // Configure and run the application!
 $container->application->run();
