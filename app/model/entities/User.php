@@ -88,7 +88,7 @@ class User extends Entity
 
 
 
-	protected function getProgress(array $filters = NULL)
+	protected function getAllProgress(array $filters = NULL)
 	{
 		$filters = $filters ?: [];
 		$filters['user_id'] = $this->id;
@@ -104,7 +104,21 @@ class User extends Entity
 	 */
 	public function getRecentlyWatched()
 	{
-		return $this->getProgress(['`timestamp` > DATE_SUB(now(), INTERVAL 1 MONTH)']);
+		return $this->getAllProgress(['`timestamp` > DATE_SUB(now(), INTERVAL 1 MONTH)']);
+	}
+
+
+
+	/**
+	 * @param Video $video
+	 * @return Progress
+	 */
+	public function getProgress(Video $video)
+	{
+		return $this->context->progress->findOneBy([
+			'video_id' => $video->id,
+			'user_id' => $this->id,
+		]);
 	}
 
 

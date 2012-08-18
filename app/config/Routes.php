@@ -22,6 +22,11 @@ class Routes
 			'module' => 'Api',
 			'presenter' => 'Category',
 		]);
+		$container->router[] = new Route('s/<video_id>', [
+			'module' => 'Api',
+			'presenter' => 'Image',
+			'action' => 'default',
+		]);
 
 		/**
 		 * SEO Category
