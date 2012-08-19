@@ -15,14 +15,16 @@
 	</p>
 
 	<h3>Studenti</h3>
-	<table>
-		<tr n:foreach="$group->getUsers() as $student">
-			<td>
-				&bull;
-				<a n:href="Profile:, gid => $group->id, pid => $student->id">{$student->name}</a>
-			</td>
-		</tr>
-	</table>
+	<p>
+		<table>
+			<tr n:foreach="$group->getUsers() as $student">
+				<td>
+					&bull;
+					<a n:href="Profile:, gid => $group->id, pid => $student->id">{$student->name}</a>
+				</td>
+			</tr>
+		</table>
+	</p>
 
 	<h3>Úkoly</h3>
 	<p><a n:href="addTask!">Zadat úkol</a></p>

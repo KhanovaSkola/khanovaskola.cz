@@ -86,7 +86,7 @@ class User extends Entity
 
 
 
-	public function setProgress(Video $video, $seconds)
+	public function setProgress(Video $video, $seconds, $onWatchedCallback = NULL)
 	{
 		$data = [
 			'video_id' => $video->id,
@@ -101,6 +101,10 @@ class User extends Entity
 		$db->table('progress')->where($data)->delete();
 		$data['percent'] = $percent;
 		$db->table('progress')->insert($data);
+
+		if ($percent > $this->context->params['progress']['completed_threshold']) {
+			$onWatchedCallback();
+		}
 
 		$db->commit();
 	}
@@ -211,7 +215,7 @@ class User extends Entity
 
 	public function getExerciseSkill(Exercise $exercise)
 	{
-		$boundary = 30;
+		$boundary = $this->context->params['progress']['completed_threshold'];
 
 		$res = $this->context->database->queryArgs('SELECT Avg(tmp.correct) FROM (
 			SELECT correct FROM answer
@@ -223,18 +227,25 @@ class User extends Entity
 
 
 
-	public function saveExerciseAnswer($file, $correct)
+	public function saveExerciseAnswer($file, $correct, $onMasteryCallback = NULL)
 	{
 		$exercise = $this->context->exercises->findOneBy(['file' => $file]);
 		if (!$exercise) {
 			return FALSE;
 		}
 
-		return $this->context->database->table('answer')->insert([
+		$answer = $this->context->database->table('answer')->insert([
 			'exercise_id' => $exercise->id,
 			'user_id' => $this->id,
 			'correct' => $correct ? 1 : 0
 		]);
+
+		$masteryThreshold = $this->context->params['progress']['completed_threshold'];
+		if ($onMasteryCallback && $this->getExerciseSkill($exercise) > $masteryThreshold) {
+			$onMasteryCallback();
+		}
+
+		return $answer;
 	}
 
 
@@ -263,6 +274,32 @@ class User extends Entity
 	public function getTasksFromCoach(User $coach)
 	{
 		return $this->context->tasks->findByStudentFromCoach($this, $coach);
+	}
+
+
+
+	/**
+	 * @param Video $video
+	 * @return Video
+	 */
+	public function getTaskForVideo(Video $video)
+	{
+		return $this->getTasks()->where([
+			'video_id' => $video->id
+		])->fetch();
+	}
+
+
+
+	/**
+	 * @param Exercise $exercise
+	 * @return Video
+	 */
+	public function getTaskForExercise(Exercise $exercise)
+	{
+		return $this->getTasks()->where([
+			'exercise_id' => $exercise->id
+		])->fetch();
 	}
 
 }

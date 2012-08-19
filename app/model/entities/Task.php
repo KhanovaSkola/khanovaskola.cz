@@ -70,6 +70,14 @@ class Task extends Entity
 
 
 
+	public function setCompleted($value = TRUE)
+	{
+		$this->completed = $value;
+		return $this;
+	}
+
+
+
 	public function getText()
 	{
 		if ($this->isNotInitialized()) {
