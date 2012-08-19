@@ -95,4 +95,29 @@ class Task extends Entity
 		return $task;
 	}
 
+
+
+	public function checkCompleted()
+	{
+		if ($this->isBoundToGroup()) {
+			throw new \Nette\NotImplementedException();
+
+		} else {
+			$student = $this->getStudent();
+			if ($this->isVideo()) {
+				$threshold = $this->context->params['progress']['completed_threshold'];
+				if ($student->getProgress($this->getVideo())->percent >= $threshold) {
+					return TRUE;
+				}
+			} else {
+				$threshold = $this->context->params['progress']['exercise_mastery'];
+				if ($student->getExerciseSkill($this->getExercise()) * 100 >= $threshold) {
+					return TRUE;
+				}
+			}
+		}
+
+		return FALSE;
+	}
+
 }

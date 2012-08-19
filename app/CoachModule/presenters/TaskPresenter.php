@@ -106,6 +106,13 @@ class TaskPresenter extends BaseCoachPresenter
 		}
 
 		$this->task->deadline = $v['deadline'];
+		$this->task->completed = FALSE;
+
+		if (!$this->task->isBoundToGroup()) {
+			if ($this->task->checkCompleted()) {
+				$this->task->setCompleted();
+			}
+		}
 
 		$this->task->update();
 		$this->redirect('this');
