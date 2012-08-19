@@ -9,6 +9,7 @@
  * @property int	$exercise_id	--//--
  * @property bool	$completed
  * @property string	$deadline		mysql date
+ * @property string	$timestamp		last update
  */
 class Task extends Entity
 {

@@ -193,18 +193,18 @@ class User extends Entity
 
 	public function getGroupsBelongingTo(User $coach = NULL)
 	{
-		$filter = ['user_id' => $this->id];
-		if ($coach) {
-			$filter['coach_id'] = $coach->id;
-		}
-
-		$links = $this->context->database->table('group_user')->where($filter);
+		$links = $this->context->database->table('group_user')->where(['user_id' => $this->id]);
 		$ids = [];
 		foreach ($links as $row) {
 			$ids[] = $row['group_id'];
 		}
 
-		return $this->context->groups->findBy(['id' => $ids]);
+		$filter = ['id' => $ids];
+		if ($coach) {
+			$filter['user_id'] = $coach->id;
+		}
+
+		return $this->context->groups->findBy($filter);
 	}
 
 
@@ -272,7 +272,7 @@ class User extends Entity
 
 	public function getTasksFromCoach(User $coach)
 	{
-		return $this->context->tasks->findByStudent($this, $coach);
+		return $this->context->tasks->findByStudentFromCoach($this, $coach);
 	}
 
 }

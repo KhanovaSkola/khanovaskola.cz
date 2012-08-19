@@ -4,5 +4,9 @@
 <article>
 	<h2 class="main-headline" style="white-space: pre;">Profil &ndash; {$profile->name}</h2>
 
+	{if $profile->hasTasks()}
+		{include _tasks.latte}
+	{/if}
+
 	{include _recent.latte}
 </article>
