@@ -45,6 +45,7 @@ code {font-family: "Monaco", "Courier New";}
 .video-progress {display: inline-block; width: 1em; font-family: "FontAwesome";}
 .search-ipad {margin-left: 1em; margin-top: 0; display: inline; float: none !important;}
 .search-ipad form {display: inline;}
+.search-other input[type="search"] {font-size: large; margin-top: 2px;}
 .task.task-completed {text-decoration: line-through; color: gray;}
 
 /* ----  iPad 3 ---- */

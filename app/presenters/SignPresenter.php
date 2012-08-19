@@ -16,8 +16,11 @@ class SignPresenter extends BasePresenter
 	protected function createComponentSignInForm()
 	{
 		$form = new UI\Form;
-		$form->addText('username')
-			->setRequired('Vyplňte mail.');
+		$control = $form->addText('username')
+			->setRequired('Vyplňte mail.')
+			->getControlPrototype();
+		$control->attrs['type'] = 'email';
+		$control->attrs['autofocus'] = TRUE;
 
 		$form->addPassword('password')
 			->setRequired('Vyplňte heslo.');

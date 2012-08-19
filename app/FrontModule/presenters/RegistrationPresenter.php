@@ -24,10 +24,17 @@ class RegistrationPresenter extends BaseFrontPresenter
 	{
 		$form = new Form($this, $name);
 
-		$form->addText('name'); // intentionally not required
-		$form->addText('mail')
+		$control = $form->addText('name')
+			->setRequired('Vyplńte prosím vaše jméno')
+			->getControlPrototype();
+		$control->attrs['autofocus'] = TRUE;
+
+		$control = $form->addText('mail')
 			->addRule(Form::EMAIL, 'Zkontrolujte vaší emailovou adresu.')
-			->setRequired('Vyplňte prosím emailovou adresu.');
+			->setRequired('Vyplňte prosím emailovou adresu.')
+			->getControlPrototype();
+		$control->attrs['type'] = 'email';
+
 		$form->addPassword('password', 'Heslo')
 			->setRequired('Vyplňte vaše heslo.');
 

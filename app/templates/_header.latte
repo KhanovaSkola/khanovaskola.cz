@@ -1,5 +1,3 @@
-{#content}
-
 <div id="top-header">
 	<div class="top-header-links">
 		<span class="page_links" id="page_auth">
@@ -33,12 +31,14 @@
 				<span class="separator"></span>
 				<span><a n:href=":Front:Registration:">Registrace</a></span>
 			{/if}
-			<span n:if="$presenter->mobile == 'ipad'" id="search-box" class="search-ipad">
-				{form search, class => "page-search"}
-					{input query, class => "ui-corner-all simple-input search-input blur-on-esc", placeholder => "Vyhledávání"}
-					{input send, class => "search-submit"}
-				{/form}
-			</span>
+			{if $presenter->mobile === 'ipad'}
+				<span id="search-box" class="search-ipad">
+					{form search, class => "page-search"}
+						{input query, class => "ui-corner-all simple-input search-input blur-on-esc", placeholder => "Vyhledávání"}
+						{input send, class => "search-submit"}
+					{/form}
+				</span>
+			{/if}
 		</span>
 		<div class="clear"></div>
 		<div id="nav-and-search">
@@ -63,12 +63,14 @@
 					</nav>
 				</div>
 			{/cache}
-			<div n:if="$presenter->mobile != 'ipad'" id="search-box" style="float: left;">
-				{form search, class => "page-search"}
-					{input query, class => "ui-corner-all simple-input search-input blur-on-esc", placeholder => "Vyhledávání"}
-					{input send, class => "search-submit"}
-				{/form}
-			</div>
+			{if $presenter->mobile !== 'ipad'}
+				<span id="search-box" class="search-other">
+					{form search, class => "page-search"}
+						{input query, class => "ui-corner-all simple-input search-input blur-on-esc", placeholder => "Vyhledávání"}
+						{input send, class => "search-submit"}
+					{/form}
+				</span>
+			{/if}
 		</div>
 	</div>
 	<div id="logo">

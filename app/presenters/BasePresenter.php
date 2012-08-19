@@ -40,7 +40,11 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 	{
 		$form = new \Nette\Application\UI\Form($this, $name);
 
-		$form->addText('query');
+		$control = $form->addText('query')->getControlPrototype();
+		$control->attrs['type'] = 'search';
+		$control->attrs['results'] = '5';
+		$control->attrs['autosave'] = 'khanovaskola_search';
+
 		$form->addSubmit('send');
 		$form->onSuccess[] = callback($this, 'onSuccessSearch');
 
