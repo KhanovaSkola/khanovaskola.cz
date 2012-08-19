@@ -138,7 +138,23 @@ class Routes
 		 */
 		$container->router[] = new Route('ucit/<presenter>/<action>', [
 			'module' => 'Coach',
-			'presenter' => 'Dashboard',
+			'presenter' => [
+				Route::VALUE => 'Dashboard',
+				Route::FILTER_TABLE => [
+					'prehled' => 'Dashboard',
+					'skupina' => 'Group',
+					'student' => 'Profile',
+					'ukol' => 'Task',
+				],
+			],
+			'action' => [
+				Route::VALUE => 'default',
+				Route::FILTER_TABLE => [
+					'pridat-studenty' => 'addStudents',
+					'nemate-studenty' => 'noStudents',
+					'upravit' => 'edit',
+				],
+			],
 		]);
 
 		/**
@@ -162,8 +178,8 @@ class Routes
 				Route::FILTER_TABLE => [
 					'pravidla-pouziti' => 'tos',
 					'osobni-udaje' => 'privacy',
-				]
-			]
+				],
+			],
 		]);
 	}
 
