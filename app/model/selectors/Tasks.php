@@ -9,13 +9,17 @@ class Tasks extends Table
 	 */
 	public function findByStudent(User $student)
 	{
-		$selections = [];
-		$selections[] = $this->findBy(['user_id' => $student->id]);
+		$ids = [];
+		foreach ($this->findBy(['user_id' => $student->id]) as $task) {
+			$ids[] = $task['id'];
+		}
 		foreach ($student->getGroupsBelongingTo() as $group) {
-			$selections[] = $group->getTasks();
+			foreach ($group->getTasks() as $task) {
+				$ids[] = $task['id'];
+			}
 		}
 
-		return $selections;
+		return $this->findBy(['id' => $ids]);
 	}
 
 
@@ -26,16 +30,21 @@ class Tasks extends Table
 	 */
 	public function findByStudentFromCoach(User $student, User $coach)
 	{
-		$selections = [];
-		$selections[] = $this->findBy([
+		$ids = [];
+		$tasks = $this->findBy([
 			'user_id' => $student->id,
 			'coach_id' => $coach->id,
 		]);
+		foreach ($tasks as $task) {
+			$ids[] = $task['id'];
+		}
 		foreach ($student->getGroupsBelongingTo($coach) as $group) {
-			$selections[] = $group->getTasks();
+			foreach ($group->getTasks() as $task) {
+				$ids[] = $task['id'];
+			}
 		}
 
-		return $selections;
+		return $this->findBy(['id' => $ids]);
 	}
 
 

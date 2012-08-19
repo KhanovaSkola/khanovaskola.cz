@@ -241,24 +241,14 @@ class User extends Entity
 
 	public function hasTasks()
 	{
-		$count = 0;
-		foreach ($this->getTasks() as $sel) {
-			$count += $sel->count();
-		}
-
-		return $count !== 0;
+		return (bool) $this->getTasks()->count();
 	}
 
 
 
 	public function hasTasksFromCoach(User $coach)
 	{
-		$count = 0;
-		foreach ($this->getTasksFromCoach($coach) as $sel) {
-			$count += $sel->count();
-		}
-
-		return $count !== 0;
+		return (bool) $this->getTasksFromCoach($coach)->count();
 	}
 
 

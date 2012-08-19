@@ -1,0 +1,22 @@
+<h3>Úkoly</h3>
+
+<p>
+	<ol>
+		<li n:foreach="$profile->getCoaches() as $coach">
+			{continueIf !$profile->hasTasksFromCoach($coach)}
+			<strong>{$coach->name}</strong>
+			<ol>
+				<li n:foreach="$profile->getTasksFromCoach($coach)->order('completed, Isnull(deadline), deadline') as $task">
+					&bull;
+					<a n:tag-if="$task->isVideo()" n:href="Watch:, vid => $task->video_id">
+					<a n:tag-if="!$task->isVideo()" n:href="Exercise:, eid => $task->exercise_id">
+						<span n:class="task, $task->completed ? task-completed">
+							{$task->getText()}
+						</span>
+					</a>
+					</a>
+				</li>
+			</ol>
+		</li>
+	</ol>
+</p>

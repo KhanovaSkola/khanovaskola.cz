@@ -21,11 +21,9 @@
 			Tento student od vás nemá žádné úkoly.
 		{else}
 			<ol>
-				{foreach $profile->getTasksFromCoach($user->entity) as $tasks}
-					<li n:foreach="$tasks as $task">
-						<a n:href="Task:, tid => $task->id">{$task->getText()}</a>
-					</li>
-				{/foreach}
+				<li n:foreach="$profile->getTasksFromCoach($user->entity)->order('Isnull(deadline), deadline') as $task">
+					<a n:href="Task:, tid => $task->id">{$task->getText()}</a>
+				</li>
 			</ol>
 		{/if}
 	</p>
