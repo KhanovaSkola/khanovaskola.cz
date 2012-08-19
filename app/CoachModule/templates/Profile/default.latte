@@ -21,8 +21,8 @@
 			Tento student od vás nemá žádné úkoly.
 		{else}
 			<ol>
-				<li n:foreach="$profile->getTasksFromCoach($user->entity)->order('Isnull(deadline), deadline') as $task">
-					<a n:href="Task:, tid => $task->id">{$task->getText()}</a>
+				<li n:foreach="$profile->getTasksFromCoach($user->entity)->order('completed, Isnull(deadline), deadline') as $task">
+					<a n:class="task, $task->completed ? task-completed" n:href="Task:, tid => $task->id">{$task->getText()}</a>
 				</li>
 			</ol>
 		{/if}

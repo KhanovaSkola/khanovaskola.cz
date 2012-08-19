@@ -19,7 +19,7 @@
 		<tr n:foreach="$group->getUsers() as $student">
 			<td>
 				&bull;
-				<a n:href="profile, pid => $student->id">{$student->name}</a>
+				<a n:href="Profile:, gid => $group->id, pid => $student->id">{$student->name}</a>
 			</td>
 		</tr>
 	</table>
