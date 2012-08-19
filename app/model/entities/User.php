@@ -215,14 +215,21 @@ class User extends Entity
 
 	public function getExerciseSkill(Exercise $exercise)
 	{
-		$boundary = $this->context->params['progress']['completed_threshold'];
+		$boundary = $this->context->params['progress']['exercise_limit'];
 
-		$res = $this->context->database->queryArgs('SELECT Avg(tmp.correct) FROM (
+		$res = $this->context->database->queryArgs('SELECT Count(*) AS count, Avg(tmp.correct) AS score FROM (
 			SELECT correct FROM answer
-			WHERE exercise_id = ? AND user_id = ? '
-			. str_repeat("UNION ALL SELECT 0 ", $boundary - 1)
-			. 'LIMIT ?) tmp', [$exercise->id, $this->id, $boundary])->fetch();
-		return end($res);
+			WHERE exercise_id = ? AND user_id = ?
+			ORDER BY timestamp DESC
+			) AS tmp LIMIT ?', [$exercise->id, $this->id, $boundary])->fetch();
+
+		$count = $res['count'];
+		$score = $res['score'];
+		if ($count < $boundary) {
+			$score = $score * $count / $boundary;
+		}
+
+		return $score;
 	}
 
 
