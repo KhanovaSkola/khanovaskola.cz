@@ -57,4 +57,21 @@ class Group extends Entity
 		return $ids;
 	}
 
+
+
+	public function hasTasks()
+	{
+		return (bool) $this->getTasks()->count();
+	}
+
+
+
+	/**
+	 * @return Task[]
+	 */
+	public function getTasks()
+	{
+		return $this->context->tasks->findByGroup($this);
+	}
+
 }

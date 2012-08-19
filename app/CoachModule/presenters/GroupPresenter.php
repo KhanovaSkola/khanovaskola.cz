@@ -1,54 +1,42 @@
 <?php
 
-namespace FrontModule;
+namespace CoachModule;
 
 
-class CoachPresenter extends BaseFrontPresenter
+class GroupPresenter extends BaseCoachPresenter
 {
 
 	/** @persistent */
 	public $gid;
 
+	/** @var Group */
+	protected $group;
+
 
 
 	public function startup()
 	{
-		if (!$this->user->loggedIn && $this->action != 'aboutFeature') {
-			$this->redirect('aboutFeature');
-		}
-
 		parent::startup();
+
+		$this->group = $this->context->groups->find($this->gid);
 	}
 
 
 
-	public function handleAddGroup()
+	public function renderDefault()
 	{
-		$group = $this->context->groups->insert([
-			'user_id' => $this->user->id,
-			'label' => 'Nová skupina',
-		]);
-
-		$this->redirect('edit', ['gid' => $group->id]);
-	}
-
-
-
-	public function renderGroup()
-	{
-		$this->template->group = $this->context->groups->find($this->gid);
+		$this->template->group = $this->group;
 	}
 
 
 
 	public function renderEdit()
 	{
-		$group = $this->context->groups->find($this->gid);
-		$this->template->group = $group;
+		$this->template->group = $this->group;
 
 		$f = $this['usersForm'];
-		$f['label']->setValue($group->label);
-		foreach ($group->getUsers() as $student) {
+		$f['label']->setValue($this->group->label);
+		foreach ($this->group->getUsers() as $student) {
 			$f["{$student->id}_student"]->setValue(TRUE);
 		}
 	}
@@ -57,15 +45,13 @@ class CoachPresenter extends BaseFrontPresenter
 
 	public function createComponentUsersForm($name)
 	{
-		$group = $this->context->groups->find($this->gid);
-
 		$form = new \Nette\Application\UI\Form($this, $name);
 
 		$form->addGroup('');
 		$form->addText('label');
 
 		$form->addGroup('V této skupině:');
-		foreach ($group->getUsers() as $student) {
+		foreach ($this->group->getUsers() as $student) {
 			$form->addCheckbox("{$student->id}_student", $student->name);
 		}
 
@@ -79,7 +65,7 @@ class CoachPresenter extends BaseFrontPresenter
 		}
 
 		foreach ($this->user->entity->getGroups() as $g) {
-			if ($g->id == $group->id) {
+			if ($g->id == $this->group->id) {
 				continue;
 			}
 
@@ -111,12 +97,10 @@ class CoachPresenter extends BaseFrontPresenter
 	 */
 	public function onSuccessUsersForm($form)
 	{
-		$group = $this->context->groups->find($this->gid);
-
 		$values = $form->values;
-		$group->label = $values['label'];
+		$this->group->label = $values['label'];
 		unset($values['label']);
-		$group->update();
+		$this->group->update();
 
 		$ids = [];
 		foreach ($values as $key => $value) {
@@ -125,7 +109,7 @@ class CoachPresenter extends BaseFrontPresenter
 			}
 		}
 
-		$group->setUsers($ids);
+		$this->group->setUsers($ids);
 		$this->redirect('this');
 	}
 
@@ -133,10 +117,24 @@ class CoachPresenter extends BaseFrontPresenter
 
 	public function handleRemove()
 	{
-		$this->context->groups->find($this->gid)->delete();
+		$this->group->delete();
 
 		$this->flashMessage('Skupina byla smazána. Studenti vám zůstali a můžete je přiřadit do jiných kategirií.');
-		$this->redirect('default');
+		$this->redirect('Dashboard:');
+	}
+
+
+
+	public function handleAddTask()
+	{
+		$data = [
+			'coach_id' => $this->user->id,
+			'group_id' => $this->group->id,
+		];
+
+		$task = $this->context->tasks->insert($data);
+
+		$this->redirect('Task:', ['tid' => $task->id]);
 	}
 
 }

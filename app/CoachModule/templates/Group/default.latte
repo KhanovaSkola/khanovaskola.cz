@@ -1,7 +1,7 @@
 {var $title = $group->label}
 {#breadcrumbs}
 	<span class="breadcrumbs_nav video-nav">
-		<a n:href=":Front:Coach:, gid => NULL">Učit</a>
+		<a n:href="Dashboard:">Učit</a>
 		<span class="breadcrumb-separator">»</span>
 		<a n:href="this">{$group->label}</a>
 	</span>
@@ -19,12 +19,26 @@
 		<tr n:foreach="$group->getUsers() as $student">
 			<td>
 				&bull;
-				<a n:href=":Front:Profile:, pid => $student->id">{$student->name}</a>
+				<a n:href="profile, pid => $student->id">{$student->name}</a>
 			</td>
 		</tr>
 	</table>
 
+	<h3>Úkoly</h3>
+	<p><a n:href="addTask!">Zadat úkol</a></p>
 	<p>
-		<a n:href="default, gid => NULL">zpět na přehled</a>
+		{if !$group->hasTasks()}
+			Tenta skupina od vás nemá žádné úkoly.
+		{else}
+			<ol>
+				<li n:foreach="$group->getTasks() as $task">
+					<a n:href="Task:, tid => $task->id">{$task->getText()}</a>
+				</li>
+			</ol>
+		{/if}
+	</p>
+
+	<p>
+		<a n:href="Dashboard:">zpět na přehled</a>
 	</p>
 </article>

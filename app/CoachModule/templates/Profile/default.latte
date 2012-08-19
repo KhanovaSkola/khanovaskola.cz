@@ -1,0 +1,39 @@
+{var $title = "Student {$profile->name}"}
+{#breadcrumbs}
+	<span class="breadcrumbs_nav video-nav">
+		<a n:href="Dashboard:">Učit</a>
+		<span class="breadcrumb-separator">»</span>
+		{if $group}
+			<a n:href="Group:, gid => $group->id">{$group->label}</a>
+			<span class="breadcrumb-separator">»</span>
+		{/if}
+		<a n:href="this">{$profile->name}</a>
+	</span>
+{/#}
+{#content}
+<article>
+	<h2 class="main-headline">Student {$profile->name}</h2>
+
+	<h3>Úkoly</h3>
+	<p><a n:href="addTask!">Zadat úkol</a></p>
+	<p>
+		{if !$profile->hasTasksFromCoach($user->entity)}
+			Tento student od vás nemá žádné úkoly.
+		{else}
+			<ol>
+				{foreach $profile->getTasksFromCoach($user->entity) as $tasks}
+					<li n:foreach="$tasks as $task">
+						<a n:href="Task:, tid => $task->id">{$task->getText()}</a>
+					</li>
+				{/foreach}
+			</ol>
+		{/if}
+	</p>
+
+	{include ../../../FrontModule/templates/Profile/_recent.latte}
+
+	<p>
+		<a n:if="$group" n:href="Group:, gid => $group->id">zpět</a>
+		<a n:if="!$group" n:href="Dashboard:">zpět</a>
+	</p>
+</article>

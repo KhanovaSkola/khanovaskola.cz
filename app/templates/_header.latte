@@ -49,7 +49,11 @@
 							<span class="dropdown topic-browser-dropdown">
 								<a n:href=":Front:Homepage:#browse" class="watch-link dropdown-toggle">Sledovat <span class="caret"></span></a>
 								<a n:href=":Front:Exercise:, eid => NULL" class=" practice-link">Cvičení</a>
-								<a n:href=":Front:Coach:" class=" coach-link">Učit</a>
+								{if $user->loggedIn}
+									<a n:href=":Coach:Dashboard:" class=" coach-link">Učit</a>
+								{else}
+									<a n:href=":Front:About:coach" class=" coach-link">Učit</a>
+								{/if}
 								<a n:href=":Front:Volunteer:" class=" contribute-link">Dobrovolníci</a>
 								<a n:href=":Front:About:" class=" about-link">O Škole</a>
 								<div style="clear: both"></div>

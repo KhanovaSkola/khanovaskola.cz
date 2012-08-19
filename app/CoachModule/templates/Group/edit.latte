@@ -1,9 +1,9 @@
 {var $title = 'Úprava ' . $group->label}
 {#breadcrumbs}
 	<span class="breadcrumbs_nav video-nav">
-		<a n:href=":Front:Coach:, gid => NULL">Učit</a>
+		<a n:href="Dashboard:">Učit</a>
 		<span class="breadcrumb-separator">»</span>
-		<a n:href="group">{$group->label}</a>
+		<a n:href="default">{$group->label}</a>
 		<span class="breadcrumb-separator">»</span>
 		<a n:href="this">úprava</a>
 	</span>
@@ -15,5 +15,8 @@
 
 	{control usersForm}
 	<br>
-	<a n:href="group">zpět</a>
+
+	<p>
+		<a n:href="default">zpět</a>
+	</p>
 </article>

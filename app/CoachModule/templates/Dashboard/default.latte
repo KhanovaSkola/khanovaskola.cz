@@ -1,4 +1,11 @@
-<div>
+{var $title = 'Učit'}
+{#breadcrumbs}
+	<span class="breadcrumbs_nav video-nav">
+		<a n:href="Dashboard:">Učit</a>
+	</span>
+{/#}
+{#content}
+<article>
 	<h2 class="main-headline">Vaši studenti</h2>
 	<p>
 		<a n:href="addStudents">&plus; Přidat další studenty</a><br>
@@ -10,7 +17,7 @@
 			<strong>Studenti, které nemáte v žádné skupině</strong>
 			<ol style="padding-left: 2em;">
 				<li n:foreach="$user->entity->getStudents() as $student">
-					&bull; <a n:href=":Front:Profile:, pid => $student->id">{$student->name}</a>
+					&bull; <a n:href="Profile:, pid => $student->id">{$student->name}</a>
 				</li>
 			</ol>
 		</p>
@@ -19,13 +26,13 @@
 	{foreach $user->entity->getGroups() as $group}
 		<p>
 			<strong>
-				<a n:href="group, gid => $group->id">{$group->label}</a>
+				<a n:href="Group:, gid => $group->id">{$group->label}</a>
 			</strong>
 			<ol style="padding-left: 2em;">
 				<li n:foreach="$group->getUsers() as $student">
-					&bull; <a n:href=":Front:Profile:, pid => $student->id">{$student->name}</a>
+					&bull; <a n:href="Profile:, pid => $student->id">{$student->name}</a>
 				</li>
 			</ol>
 		</p>
 	{/foreach}
-</div>
+</article>

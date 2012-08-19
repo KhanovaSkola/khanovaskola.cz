@@ -110,6 +110,7 @@ class Routes
 			'action' => 'confirmCoach',
 		]);
 
+
 		/**
 		 * Direct actions of sign presenter
 		 */
@@ -133,6 +134,14 @@ class Routes
 		]);
 
 		/**
+		 * Coach module
+		 */
+		$container->router[] = new Route('ucit/<presenter>/<action>', [
+			'module' => 'Coach',
+			'presenter' => 'Dashboard',
+		]);
+
+		/**
 		 * Other presenters
 		 */
 		$container->router[] = new Route('<presenter>/<action>[/<id>]', [
@@ -145,7 +154,6 @@ class Routes
 					'o-skole' => 'About',
 					'kontakt' => 'Contact',
 					'dobrovolnici' => 'Volunteer',
-					'ucit' => 'Coach',
 					'profil' => 'Profile',
 				],
 			],
@@ -154,10 +162,6 @@ class Routes
 				Route::FILTER_TABLE => [
 					'pravidla-pouziti' => 'tos',
 					'osobni-udaje' => 'privacy',
-					'pridat-studenty' => 'addStudents',
-					'jak-to-funguje' => 'aboutFeature',
-					'skupina' => 'group',
-					'upravit' => 'edit',
 				]
 			]
 		]);

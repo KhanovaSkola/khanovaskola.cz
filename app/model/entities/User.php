@@ -191,6 +191,24 @@ class User extends Entity
 
 
 
+	public function getGroupsBelongingTo(User $coach = NULL)
+	{
+		$filter = ['user_id' => $this->id];
+		if ($coach) {
+			$filter['coach_id'] = $coach->id;
+		}
+
+		$links = $this->context->database->table('group_user')->where($filter);
+		$ids = [];
+		foreach ($links as $row) {
+			$ids[] = $row['group_id'];
+		}
+
+		return $this->context->groups->findBy(['id' => $ids]);
+	}
+
+
+
 	public function getExerciseSkill(Exercise $exercise)
 	{
 		$boundary = 30;
@@ -217,6 +235,44 @@ class User extends Entity
 			'user_id' => $this->id,
 			'correct' => $correct ? 1 : 0
 		]);
+	}
+
+
+
+	public function hasTasks()
+	{
+		$count = 0;
+		foreach ($this->getTasks() as $sel) {
+			$count += $sel->count();
+		}
+
+		return $count !== 0;
+	}
+
+
+
+	public function hasTasksFromCoach(User $coach)
+	{
+		$count = 0;
+		foreach ($this->getTasksFromCoach($coach) as $sel) {
+			$count += $sel->count();
+		}
+
+		return $count !== 0;
+	}
+
+
+
+	public function getTasks()
+	{
+		return $this->context->tasks->findByStudent($this);
+	}
+
+
+
+	public function getTasksFromCoach(User $coach)
+	{
+		return $this->context->tasks->findByStudent($this, $coach);
 	}
 
 }

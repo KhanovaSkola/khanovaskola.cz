@@ -36,6 +36,9 @@ class ProfilePresenter extends BaseFrontPresenter
 	{
 		if (!$this->user->entity->canView($this->profile)) {
 			throw new \Nette\Application\ForbiddenRequestException();
+
+		} else if ($this->user->id != $this->profile->id) {
+			$this->redirect(':Front:Coach:profile', ['pid' => $this->profile->id]);
 		}
 	}
 
