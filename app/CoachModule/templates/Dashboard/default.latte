@@ -12,27 +12,29 @@
 		<a n:href="addGroup!">&plus; Přidat další skupinu</a>
 	</p>
 
-	{if $user->entity->getStudentsWithoutGroup()->count()}
-		<p>
-			<strong>Studenti, které nemáte v žádné skupině</strong>
-			<ol style="padding-left: 2em;">
-				<li n:foreach="$user->entity->getStudents() as $student">
-					&bull; <a n:href="Profile:, pid => $student->id">{$student->name}</a>
-				</li>
-			</ol>
-		</p>
-	{/if}
+	{cache $user->id, tags => ["coach/groups/{$user->id}"]}
+		{if $user->entity->getStudentsWithoutGroup()->count()}
+			<p>
+				<strong>Studenti, které nemáte v žádné skupině</strong>
+				<ol style="padding-left: 2em;">
+					<li n:foreach="$user->entity->getStudents() as $student">
+						&bull; <a n:href="Profile:, pid => $student->id">{$student->name}</a>
+					</li>
+				</ol>
+			</p>
+		{/if}
 
-	{foreach $user->entity->getGroups() as $group}
-		<p>
-			<strong>
-				<a n:href="Group:, gid => $group->id">{$group->label}</a>
-			</strong>
-			<ol style="padding-left: 2em;">
-				<li n:foreach="$group->getUsers() as $student">
-					&bull; <a n:href="Profile:, pid => $student->id">{$student->name}</a>
-				</li>
-			</ol>
-		</p>
-	{/foreach}
+		{foreach $user->entity->getGroups() as $group}
+			<p>
+				<strong>
+					<a n:href="Group:, gid => $group->id">{$group->label}</a>
+				</strong>
+				<ol style="padding-left: 2em;">
+					<li n:foreach="$group->getUsers() as $student">
+						&bull; <a n:href="Profile:, pid => $student->id">{$student->name}</a>
+					</li>
+				</ol>
+			</p>
+		{/foreach}
+	{/cache}
 </article>

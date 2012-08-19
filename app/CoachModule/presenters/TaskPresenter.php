@@ -2,6 +2,8 @@
 
 namespace CoachModule;
 
+use \Nette\Caching\Cache;
+
 
 class TaskPresenter extends BaseCoachPresenter
 {
@@ -113,6 +115,9 @@ class TaskPresenter extends BaseCoachPresenter
 				$this->task->setCompleted();
 			}
 		}
+
+		$cache = new Cache($this->context->cacheStorage);
+		$cache->clean([Cache::TAGS => $this->task->getTagsToInvalidate()]);
 
 		$this->task->update();
 		$this->redirect('this');

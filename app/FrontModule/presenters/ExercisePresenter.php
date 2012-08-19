@@ -3,6 +3,7 @@
 namespace FrontModule;
 
 use Nette\Application\UI\Form;
+use Nette\Caching\Cache;
 
 
 class ExercisePresenter extends BaseFrontPresenter
@@ -93,9 +94,15 @@ class ExercisePresenter extends BaseFrontPresenter
 				// onAttainedMastery
 				$task = $this->user->entity->getTaskForExercise($this->context->exercises->findOneBy(['file' => $name]));
 				if ($task && !$task->completed) {
+					$cache = new Cache($this->context->cacheStorage);
+					$cache->clean([Cache::TAGS => $this->task->getTagsToInvalidate()]);
 					$task->setCompleted()->update();
 				}
 			});
+
+			$cache = new Cache($this->context->cacheStorage);
+			$cache->clean([Cache::TAGS => ["profile/recent/exercise/{$this->user->id}"]]);
+
 			$this->sendJson(['status' => 'success']);
 		}
 		$this->terminate();

@@ -16,28 +16,32 @@
 
 	<h3>Studenti</h3>
 	<p>
-		<table>
-			<tr n:foreach="$group->getUsers() as $student">
-				<td>
-					&bull;
-					<a n:href="Profile:, gid => $group->id, pid => $student->id">{$student->name}</a>
-				</td>
-			</tr>
-		</table>
+		{cache tags => ["coach/group/{$group->id}"]}
+			<table>
+				<tr n:foreach="$group->getUsers() as $student">
+					<td>
+						&bull;
+						<a n:href="Profile:, gid => $group->id, pid => $student->id">{$student->name}</a>
+					</td>
+				</tr>
+			</table>
+		{/cache}
 	</p>
 
 	<h3>Úkoly</h3>
 	<p><a n:href="addTask!">Zadat úkol</a></p>
 	<p>
-		{if !$group->hasTasks()}
-			Tenta skupina od vás nemá žádné úkoly.
-		{else}
-			<ol>
-				<li n:foreach="$group->getTasks() as $task">
-					<a n:href="Task:, tid => $task->id">{$task->getText()}</a>
-				</li>
-			</ol>
-		{/if}
+		{cache tags => ["coach/group/tasks/{$group->id}"]}
+			{if !$group->hasTasks()}
+				Tenta skupina od vás nemá žádné úkoly.
+			{else}
+				<ol>
+					<li n:foreach="$group->getTasks() as $task">
+						<a n:href="Task:, tid => $task->id">{$task->getText()}</a>
+					</li>
+				</ol>
+			{/if}
+		{/cache}
 	</p>
 
 	<p>

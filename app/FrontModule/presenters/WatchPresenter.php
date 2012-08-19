@@ -43,6 +43,8 @@ class WatchPresenter extends BaseFrontPresenter
 				// onVideoWatched
 				$task = $this->user->entity->getTaskForVideo($this->video);
 				if ($task && !$task->completed) {
+					$cache = new Cache($this->context->cacheStorage);
+					$cache->clean([Cache::TAGS => $this->task->getTagsToInvalidate()]);
 					$task->setCompleted()->update();
 				}
 			});

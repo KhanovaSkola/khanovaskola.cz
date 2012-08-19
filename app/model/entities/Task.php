@@ -120,4 +120,23 @@ class Task extends Entity
 		return FALSE;
 	}
 
+
+
+	public function getTagsToInvalidate()
+	{
+		$invalid = [];
+		if ($this->isBoundToGroup()) {
+			$invalid[] = "coach/group/tasks/{$this->group_id}";
+			foreach ($this->getGroup()->getStudents() as $student) {
+				$invalid[] = "coach/{$this->coach_id}/profile/{$student->id}";
+				$invalid[] = "profile/tasks/{$student->id}";
+			}
+		} else {
+			$invalid[] = "coach/{$this->coach_id}/profile/{$this->user_id}";
+			$invalid[] = "profile/tasks/{$this->user_id}";
+		}
+
+		return $invalid;
+	}
+
 }

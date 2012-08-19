@@ -3,6 +3,7 @@
 namespace FrontModule;
 
 use \Nette\Application\UI\Form;
+use \Nette\Caching\Cache;
 
 
 class SettingsPresenter extends AuthenticatedPresenter
@@ -28,6 +29,10 @@ class SettingsPresenter extends AuthenticatedPresenter
 		}
 
 		$this->user->entity->addCoach($this->context->users->find($coach_id));
+
+		$cache = new Cache($this->context->cacheStorage);
+		$cache->clean([Cache::TAGS => ["coach/groups/{$coach_id}"]]);
+
 		$this->flashMessage('Přidali jste si učitele. Nyní uvidí, jaké lekce a cvičení máte už splněné.');
 		$this->redirect(':Front:Settings:');
 	}

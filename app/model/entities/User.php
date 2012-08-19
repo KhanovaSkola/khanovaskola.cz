@@ -86,6 +86,13 @@ class User extends Entity
 
 
 
+	/**
+	 *
+	 * @param Video $video
+	 * @param type $seconds
+	 * @param type $onWatchedCallback
+	 * @return type
+	 */
 	public function setProgress(Video $video, $seconds, $onWatchedCallback = NULL)
 	{
 		$data = [

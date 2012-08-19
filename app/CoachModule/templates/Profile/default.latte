@@ -14,19 +14,23 @@
 <article>
 	<h2 class="main-headline">Student {$profile->name}</h2>
 
+
 	<h3>Úkoly</h3>
 	<p><a n:href="addTask!">Zadat úkol</a></p>
 	<p>
-		{if !$profile->hasTasksFromCoach($user->entity)}
-			Tento student od vás nemá žádné úkoly.
-		{else}
-			<ol>
-				<li n:foreach="$profile->getTasksFromCoach($user->entity)->order('completed, Isnull(deadline), deadline') as $task">
-					<a n:class="task, $task->completed ? task-completed" n:href="Task:, tid => $task->id">{$task->getText()}</a>
-				</li>
-			</ol>
-		{/if}
+		{cache tags => ["coach/{$user->id}/profile/{$profile->id}"]}
+			{if !$profile->hasTasksFromCoach($user->entity)}
+				Tento student od vás nemá žádné úkoly.
+			{else}
+				<ol>
+					<li n:foreach="$profile->getTasksFromCoach($user->entity)->order('completed, Isnull(deadline), deadline') as $task">
+						<a n:class="task, $task->completed ? task-completed" n:href="Task:, tid => $task->id">{$task->getText()}</a>
+					</li>
+				</ol>
+			{/if}
+		{/cache}
 	</p>
+
 
 	{include ../../../FrontModule/templates/Profile/_recent.latte}
 

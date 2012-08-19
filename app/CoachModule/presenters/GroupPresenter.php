@@ -2,6 +2,8 @@
 
 namespace CoachModule;
 
+use \Nette\Caching\Cache;
+
 
 class GroupPresenter extends BaseCoachPresenter
 {
@@ -108,6 +110,12 @@ class GroupPresenter extends BaseCoachPresenter
 				$ids[] = explode("_", $key)[0];
 			}
 		}
+
+		$cache = new Cache($this->context->cacheStorage);
+		$cache->clean([Cache::TAGS => [
+			"coach/groups/{$this->user->id}",
+			"coach/group/{$this->group->id}",
+		]]);
 
 		$this->group->setUsers($ids);
 		$this->redirect('this');
