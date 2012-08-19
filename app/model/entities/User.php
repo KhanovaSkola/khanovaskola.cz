@@ -193,10 +193,13 @@ class User extends Entity
 
 	public function getExerciseSkill(Exercise $exercise)
 	{
+		$boundary = 30;
+
 		$res = $this->context->database->queryArgs('SELECT Avg(tmp.correct) FROM (
 			SELECT correct FROM answer
-			WHERE exercise_id = ? AND user_id = ?
-			LIMIT 30) tmp', [$exercise->id, $this->id])->fetch();
+			WHERE exercise_id = ? AND user_id = ? '
+			. str_repeat("UNION ALL SELECT 0 ", $boundary - 1)
+			. 'LIMIT ?) tmp', [$exercise->id, $this->id, $boundary])->fetch();
 		return end($res);
 	}
 
