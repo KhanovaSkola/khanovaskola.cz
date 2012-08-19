@@ -178,6 +178,7 @@ class Routes
 				Route::FILTER_TABLE => [
 					'pravidla-pouziti' => 'tos',
 					'osobni-udaje' => 'privacy',
+					'ucit' => 'coach',
 				],
 			],
 		]);
