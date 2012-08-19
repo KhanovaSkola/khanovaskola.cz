@@ -106,7 +106,7 @@ class Routes
 		 */
 		$container->router[] = new Route('u/<coach_id \d+>', [
 			'module' => 'Front',
-			'presenter' => 'Settings',
+			'presenter' => 'Profile',
 			'action' => 'confirmCoach',
 		]);
 
