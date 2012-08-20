@@ -43,10 +43,13 @@ common:
 			email:
 
 	services:
-		user: NetteUser
-
 		database: @Nette\Database\Connection
-		authenticator: Authenticator(@users)
+
+		facebook: Facebook([appId: %facebook.appId%, secret: %facebook.secret%])
+
+		user: NetteUser
+		authenticator_facebook: FacebookAuth
+		authenticator_password: PasswordAuth
 
 		categories: Categories('category')
 		videos: Videos('video')
