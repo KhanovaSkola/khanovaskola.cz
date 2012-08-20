@@ -7,11 +7,17 @@ exercise = exercise.substring(0, exercise.length - 5); // trim .html
 var sent = false;
 $(Khan).bind("newProblem", function(event, result) {
 	sent = false;
+	hint = false;
+});
+
+var hint = false;
+$(Khan).bind("hintUsed", function(event, result) {
+	hint = true;
 });
 
 $(Khan).bind("checkAnswer", function(event, result) {
 	console.log(result.pass, exercise);
-	if (sent)
+	if (sent || hint)
 		return false;
 
 	$.ajax(url, {
