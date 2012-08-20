@@ -1,3 +1,5 @@
+{var $video_count = floor($presenter->context->videos->findAll()->count() / 10) * 10}
+{var $description = "Jsme překlad Khan Academy. Máme pro vás přes $video_count lekcí z matematiky, fyziky, astronomie a humanitních věd a cvičení, na kterých si nabyté znalosti procvičíte."}
 {#content}
 
 <article id="homepage">
@@ -13,7 +15,7 @@
 		<h1 class="section-headline pulls"><a n:href=":Front:Homepage:#browse">Dívej se.</a> <a n:href=":Front:Exercise:">Procvičuj.</a></h1>
 		<h1>Nauč se zdarma skoro cokoliv.</h1>
 		<p class="justify">
-			Jsme překlad Khan Academy. Máme pro vás přes <a n:href=":Front:Homepage:#browse">{floor($presenter->context->videos->findAll()->count() / 10) * 10} videi</a>,
+			Jsme překlad Khan Academy. Máme pro vás přes <a n:href=":Front:Homepage:#browse">{$video_count} videi</a>,
 			už nejenom z oblasti základní matematiky, ale i přírodních a humanitních věd. Probranou látku z matematiky si můžete prozkoušet na řadě <a n:href=":Front:Exercise:">cvičení</a>.
 		</p>
 		<p>

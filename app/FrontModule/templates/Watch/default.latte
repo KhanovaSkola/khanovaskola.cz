@@ -1,4 +1,5 @@
 {var $title = $video->label}
+{var $description = $video->description ? "{$video->description} ({$video->getCategory()->label})" : "Video z kategorie {$video->getCategory()->getParent()->label}, {$video->getCategory()->label}"}
 {#breadcrumbs}
 	<span class="breadcrumbs-tags">
 		<span n:if="$video->hasTags()">

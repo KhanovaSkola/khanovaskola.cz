@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-	<meta name="description" content="">
+	<meta name="description" content="{$description}" n:ifset="$description">
 	<meta name="robots" content="{$robots}" n:ifset="$robots">
 
 	<title>{ifset $title}{$title} &ndash; {/ifset}Khanova škola</title>
@@ -36,7 +36,6 @@
 </head>
 <body>
 	<script> document.body.className+=' js' </script>
-
 	<div id="outer-wrapper" class="clearfix">
 		<div class="notification-bar" style="display:none;"></div>
 		<div class="notification-bar-spacer"></div>
