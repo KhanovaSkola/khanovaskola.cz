@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="cs">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
@@ -9,12 +9,18 @@
 	<title>{ifset $title}{$title} &ndash; {/ifset}Khanova škola</title>
 
 	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/khan.css" type="text/css">
-	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css?v={=rand()}" type="text/css">
+	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css" type="text/css">
 	<link n:if="$user->loggedIn" rel="stylesheet" media="screen,projection,tv" n:href=":Api:DynamicCss:, v => rand()" type="text/css">
 
 	<link rel="shortcut icon" href="{$basePath}/favicon.ico" type="image/x-icon">
-	<link rel="apple-touch-icon" sizes=”72x72″ href="{$basePath}/images/apple-touch-icon.png"/>
-	<link rel="apple-touch-icon" sizes=”144x144″ href="{$basePath}/images/apple-touch-icon@2x.png"/>
+	<link rel="apple-touch-icon" sizes=”72x72″ href="{$baseUrl}/images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes=”144x144″ href="{$baseUrl}/images/apple-touch-icon@2x.png">
+
+	{* Facebook open graph *}
+	<meta property="og:site_name" content="Khanova škola">
+	<meta property="og:image" content="{$baseUrl}/images/apple-touch-icon@2x.png">
+	<meta property="og:type" content="website">
+	<meta property="og:locale" content="cs">
 
 	<script type="text/javascript" src="{$basePath}/js/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="{$basePath}/js/jquery-ui-1.8.21.custom.min.js"></script>

@@ -70,7 +70,7 @@
 								}
 							})
 						</script>
-						<script>
+						<script n:if="$user->loggedIn">
 							var player = null;
 							var ticker = null;
 							function onYouTubePlayerReady() {
