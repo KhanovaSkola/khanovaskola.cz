@@ -8,6 +8,15 @@ use Nette\Caching\Cache;
 class SignPresenter extends BasePresenter
 {
 
+	public function renderIn()
+	{
+		$this->template->loginUrl = $this->context->facebook->getLoginUrl([
+			'scope' => ['email'],
+			'redirect_uri' => $this->link("//fbAuth"),
+		]);
+	}
+
+
 
 	/**
 	 * Sign in form component factory.
@@ -47,9 +56,6 @@ class SignPresenter extends BasePresenter
 			}
 			$this->user->login($values->username, $values->password);
 
-			$cache = new Cache($this->context->cacheStorage);
-			$cache->clean([Cache::TAGS => ['user/login']]);
-
 			if ($this->user->isInRole('moderator')) {
 				$this->redirect(':Moderator:Dashboard:');
 			} else {
@@ -67,11 +73,20 @@ class SignPresenter extends BasePresenter
 	{
 		$this->getUser()->logout();
 
-		$cache = new Cache($this->context->cacheStorage);
-		$cache->clean([Cache::TAGS => ['user/login']]);
-
 		$this->flashMessage('Byli jste odhlášeni.');
 		$this->redirect('in');
+	}
+
+
+
+	public function actionFbAuth()
+	{
+		$info = $this->context->facebook->api('/me');
+		if ($info) {
+			$this->user->login($info);
+		}
+
+		$this->redirect(':Front:Profile:');
 	}
 
 }

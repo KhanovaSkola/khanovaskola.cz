@@ -6,17 +6,17 @@ use Nette\Security as NS;
 /**
  * Users authenticator.
  */
-class Authenticator extends Nette\Object implements NS\IAuthenticator
+class PasswordAuth extends Nette\Object implements NS\IAuthenticator
 {
 
-	/** @var Table */
-	private $selector;
+	/** @var Users */
+	private $users;
 
 
 
-	public function __construct(Table $users)
+	public function __construct(Users $users)
 	{
-		$this->selector = $users;
+		$this->users = $users;
 	}
 
 
@@ -30,10 +30,14 @@ class Authenticator extends Nette\Object implements NS\IAuthenticator
 	public function authenticate(array $credentials)
 	{
 		list($mail, $password) = $credentials;
-		$user = $this->selector->findOneBy(['mail' => $mail]);
+		$user = $this->users->findOneBy(['mail' => $mail]);
 
 		if (!$user) {
 			throw new NS\AuthenticationException("Uživatel „{$mail}“ neexistuje.", self::IDENTITY_NOT_FOUND);
+		}
+
+		if (!$user->password) {
+			throw new NS\AuthenticationException("Nemáte nastavené heslo. Můžete se přihlásit přes Facebook.", self::INVALID_CREDENTIAL);
 		}
 
 		$hash = (new \Password())->calculateHash($password, $user->salt);

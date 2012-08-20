@@ -3,27 +3,25 @@
 		<span class="page_links" id="page_auth">
 			<span id="goals-container"></span>
 			<span id="user-info" class="badge-target">
-				{cache $user->id, tags => ['user/login']}
-					<span n:if="$user->loggedIn" id="user-info" class="badge-target">
-						<span class="dropdown">
-							<span class="username_and_notification dropdown-toggle">
-								<a n:tag-if="!$presenter->mobile" href="{if $user->moderator}{plink :Moderator:Dashboard:}{else}{plink :Front:Profile:}{/if}">
-									<img class="user-avatar" src="{$baseUrl}/images/avatars/leaf-{if $user->admin}red{elseif $user->moderator}blue{else}green{/if}.png">
-									<span class="user-name">
-										{=trim($user->entity->name) ?: $user->entity->mail}
-									</span>
-									<span class="caret"></span>
-								</a>
-							</span>
-							<ul class="dropdown-menu no-submenus">
-								<li n:if="$user->moderator"><a class="dropdown-link" n:href=":Moderator:Dashboard:">Moderátoři</a></li>
-								<li><a class="dropdown-link" n:href=":Front:Profile:, pid => NULL">Profil</a></li>
-								<li><a class="dropdown-link" n:href=":Front:Profile:addCoach">Přidat učitele</a></li>
-								<li><a n:href=":Sign:out">Odhlásit se</a></li>
-							</ul>
+				<span n:if="$user->loggedIn" id="user-info" class="badge-target">
+					<span class="dropdown">
+						<span class="username_and_notification dropdown-toggle">
+							<a n:tag-if="!$presenter->mobile" href="{if $user->moderator}{plink :Moderator:Dashboard:}{else}{plink :Front:Profile:}{/if}">
+								<img class="user-avatar" src="{$baseUrl}/images/avatars/leaf-{if $user->admin}red{elseif $user->moderator}blue{else}green{/if}.png">
+								<span class="user-name">
+									{=trim($user->entity->name) ?: $user->entity->mail}
+								</span>
+								<span class="caret"></span>
+							</a>
 						</span>
+						<ul class="dropdown-menu no-submenus">
+							<li n:if="$user->moderator"><a class="dropdown-link" n:href=":Moderator:Dashboard:">Moderátoři</a></li>
+							<li><a class="dropdown-link" n:href=":Front:Profile:, pid => NULL">Profil</a></li>
+							<li><a class="dropdown-link" n:href=":Front:Profile:addCoach">Přidat učitele</a></li>
+							<li><a n:href=":Sign:out">Odhlásit se</a></li>
+						</ul>
 					</span>
-				{/cache}
+				</span>
 			</span>
 			{if !$user->loggedIn}
 				<span class="separator"></span>

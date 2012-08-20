@@ -3,33 +3,47 @@
 <article id="page-root">
 	<div class="login-container card-case vertical-shadow">
 		<div class="providers">
-			<div class="pw-login">
-				<h3>Přihlášení do Khanovy školy</h3>
-				<div class="pw-login-contents">
-					{form signInForm}
-						<div class="field-error color-error" id="error-text">{control signInForm errors}</div>
+			<h3>Přihlášení do Khanovy školy</h3>
 
-						<img src="/images/hand-tree.png" width="75" height="75" class="tree">
-						<div class="field-container">
-							{label username, class => "field-label"}Email{/label}
-							{input username, class => "simple-input ui-corner-all"}
-						</div>
-
-						<div class="field-container">
-							{label password, class => "field-label"}Heslo{/label}
-							{input password, class => "simple-input ui-corner-all"}
-							<div>
-								<a id="forgot-hint" n:href=":Front:Sign:forgotten" target="_top">Zapomenuté heslo?</a>
-							</div>
-						</div>
-
-						{input send, value => "Přihlásit", class => "simple-button green"}
-						<div class="signup-prompt-container">
-							<span class="signup-prompt">Nemáte ještě účet?</span>
-							<a class="signup-link" target="_top" n:href=":Front:Registration:">Registrace</a>
-						</div>
-					{/form}
+			<div id="login-facebook" class="action-gradient provider">
+				<div class="img-container">
+					<a href="{$loginUrl}">
+						<img width="180" height="61" alt="Facebook" src="{$basePath}/images/facebook-logo-large.png">
+					</a>
 				</div>
+			</div>
+		</div>
+
+		<div class="vertical-separator">
+			<span class="separator-text">NEBO</span>
+		</div>
+
+		<div class="pw-login">
+			<h3>Přihlášení s vaším účtem</h3>
+			<div class="pw-login-contents">
+				{form signInForm}
+					<div class="field-error color-error" id="error-text">{control signInForm errors}</div>
+
+					<img src="/images/hand-tree.png" width="75" height="75" class="tree">
+					<div class="field-container">
+						{label username, class => "field-label"}Email{/label}
+						{input username, class => "simple-input ui-corner-all"}
+					</div>
+
+					<div class="field-container">
+						{label password, class => "field-label"}Heslo{/label}
+						{input password, class => "simple-input ui-corner-all"}
+						<div>
+							<a id="forgot-hint" n:href=":Front:Sign:forgotten" target="_top">Zapomenuté heslo?</a>
+						</div>
+					</div>
+
+					{input send, value => "Přihlásit", class => "simple-button green"}
+					<div class="signup-prompt-container">
+						<span class="signup-prompt">Nemáte ještě účet?</span>
+						<a class="signup-link" target="_top" n:href=":Front:Registration:">Registrace</a>
+					</div>
+				{/form}
 			</div>
 		</div>
 	</div>
