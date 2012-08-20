@@ -40,7 +40,10 @@ class FacebookAuth extends Nette\Object implements \Nette\Security\IAuthenticato
 			]);
 		}
 
-		return new \Nette\Security\Identity($user->id, explode(';', $user->role), []);
+		$roles = explode(';', $user->role);
+		$roles[] = 'facebook';
+
+		return new \Nette\Security\Identity($user->id, $roles, []);
 	}
 
 }

@@ -71,7 +71,19 @@ class SignPresenter extends BasePresenter
 
 	public function actionOut()
 	{
-		$this->getUser()->logout();
+		$withFb = $this->user->isLoggedInWithFacebook();
+
+		$this->user->logout();
+		if ($withFb) {
+			$url = $this->context->facebook->getLogoutUrl([
+				/**
+				 * Facebook does not redirect to it without the final slash
+				 * @see http://stackoverflow.com/a/8363709/326257
+				 */
+				'next' => $this->presenter->link('//:Sign:in') . '/',
+			]);
+			$this->redirectUrl($url);
+		}
 
 		$this->flashMessage('Byli jste odhlášeni.');
 		$this->redirect('in');

@@ -56,6 +56,16 @@ class NetteUser extends \Nette\Security\User
 
 
 	/**
+	 * @return bool
+	 */
+	public function isLoggedInWithFacebook()
+	{
+		return $this->isInRole('facebook');
+	}
+
+
+
+	/**
 	 * Conducts the authentication process. Parameters are optional.
 	 * @param  mixed optional parameter (e.g. username or IIdentity)
 	 * @param  mixed optional parameter (e.g. password)
