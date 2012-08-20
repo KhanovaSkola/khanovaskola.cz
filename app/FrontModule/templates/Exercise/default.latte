@@ -2,8 +2,5 @@
 {var $description = "Cvičení na Khanově škole."}
 {#content}
 
-<article>
-<iframe
-	style="width: 100%; height: 100%; border: none;"
-	src="{$basePath}/exercise/translated/{$exercise->file}.html"></iframe>
-</article>
+<div id="inject-exercise"></div>
+{!$content}

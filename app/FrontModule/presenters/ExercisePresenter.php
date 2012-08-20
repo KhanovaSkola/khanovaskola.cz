@@ -33,7 +33,11 @@ class ExercisePresenter extends BaseFrontPresenter
 		if (!$this->exercise) {
 			$this->redirect('list');
 		}
+
 		$this->template->exercise = $this->exercise;
+		$content = file_get_contents(WWW_DIR . "/exercise/translated/{$this->exercise->file}.html");
+		$content = str_replace('src="../khan-exercise.js"', 'src="/exercise/khan-exercise.js"', $content);
+		$this->template->content = $content;
 	}
 
 
