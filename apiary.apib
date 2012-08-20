@@ -1,0 +1,45 @@
+HOST: http://khan.dite.cz/
+
+--- Khanova škola ---
+
+--
+Categories
+--
+List all categories, ordered by (parent_id, position)
+GET /category
+< 200
+< Content-Type: application/json
+{"categories": [
+    {"id":1,"label":"Matematika","parent_id":null},
+    {"id":2,"label":"Vědy","parent_id":null},
+    {"id":3,"label":"Algebra","parent_id":1},
+],"status":"success"}
+
+Get details about category
+GET /category/{category_id}
+< 200
+< Content-Type: application/json
+{"id":1,"parent_id":null,"is_leaf":"0","label":"Matematika","slug":"matematika","description":"","position":0,"status":"success"}
+
+Get all videos in category, ordered by position
+GET /category/{category_id}/videos
+< 200
+< Content-Type: application/json
+{"videos":[{"id":62,"label":"Krása algebry","thumbnail":{"sqDefault":"http:\/\/i.ytimg.com\/vi\/kpCJyQ2usJ4\/default.jpg","hqDefault":"http:\/\/i.ytimg.com\/vi\/kpCJyQ2usJ4\/hqdefault.jpg"}}],"status":"success"}
+
+--
+Videos
+--
+Get details about video
+GET /video/{video_id}
+< 200
+{
+    "id":1,"category_id":55,"exercise_id":2,"label":"Základy sčítání","slug":"zaklady-scitani",
+    "description":"","youtube_id":"AuX7nPBqDts","position":0,
+    "thumbnail":"http:\/\/i.ytimg.com\/vi\/AuX7nPBqDts\/hqdefault.jpg",
+    "content":{
+        "5":"http:\/\/www.youtube.com\/v\/AuX7nPBqDts?version=3&f=videos&app=youtube_gdata",
+        "1":"rtsp:\/\/v2.cache8.c.youtube.com\/CiILENy73wIaGQnbDmrwnPvlAhMYDSANFEgGUgZ2aWRlb3MM\/0\/0\/0\/video.3gp",
+        "6":"rtsp:\/\/v5.cache6.c.youtube.com\/CiILENy73wIaGQnbDmrwnPvlAhMYESARFEgGUgZ2aWRlb3MM\/0\/0\/0\/video.3gp"
+    },"status":"success"
+}
