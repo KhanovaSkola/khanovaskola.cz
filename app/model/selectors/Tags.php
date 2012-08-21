@@ -19,4 +19,11 @@ class Tags extends Table
 		return $this->findAll()->fetchPairs('id', 'label');
 	}
 
+
+
+	public function findDubTag()
+	{
+		return $this->findOneBy(['label' => 'dabované']);
+	}
+
 }

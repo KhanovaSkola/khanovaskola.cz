@@ -111,7 +111,7 @@ class Videos extends Table
 
 	public function addDubbedTagToVideos()
 	{
-		$tag = $this->connection->table('tag')->select('id')->where(['label' => 'dabované'])->fetch();
+		$tag = $this->context->tags->findDubTag();
 		if (!$tag) {
 			return FALSE;
 		}
