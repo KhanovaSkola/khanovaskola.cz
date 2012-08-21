@@ -28,8 +28,10 @@ class GoogleAuth extends Nette\Object implements \Nette\Security\IAuthenticator
 		// If user with this email exists, link the accounts
 		if (!$user) {
 			$user = $this->users->findOneBy(['mail' => $info->email]);
-			$user->google_id = $info->id;
-			$user->update();
+			if ($user) {
+				$user->google_id = $info->id;
+				$user->update();
+			}
 		}
 
 		// otherwise, register new user
@@ -37,6 +39,8 @@ class GoogleAuth extends Nette\Object implements \Nette\Security\IAuthenticator
 			$user = $this->users->insert([
 				'name' => $info->name,
 				'google_id' => $info->id,
+				'mail' => $info->email,
+				'role' => '',
 			]);
 		}
 

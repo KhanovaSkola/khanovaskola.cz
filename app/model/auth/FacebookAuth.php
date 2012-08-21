@@ -28,8 +28,10 @@ class FacebookAuth extends Nette\Object implements \Nette\Security\IAuthenticato
 		// If user with this email exists, link the accounts
 		if (!$user) {
 			$user = $this->users->findOneBy(['mail' => $info['email']]);
-			$user->facebook_id = $id;
-			$user->update();
+			if ($user) {
+				$user->facebook_id = $id;
+				$user->update();
+			}
 		}
 
 		// otherwise, register new user
@@ -37,6 +39,8 @@ class FacebookAuth extends Nette\Object implements \Nette\Security\IAuthenticato
 			$user = $this->users->insert([
 				'name' => $info['name'],
 				'facebook_id' => (int) $info['id'],
+				'mail' => $info['email'],
+				'role' => '',
 			]);
 		}
 
