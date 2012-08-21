@@ -47,6 +47,8 @@ code {font-family: "Monaco", "Courier New";}
 .search-ipad form {display: inline;}
 .search-other input[type="search"] {font-size: large; margin-top: 2px;}
 .task.task-completed {text-decoration: line-through; color: gray;}
+.video-dubbed .unisubs-videoTab-static {display: none !important;}
+.unisubs-videoTab-static .unisubs-tabTextShare {display: none !important;}
 
 /* ----  iPad 3 ---- */
 .ipad-only {display: none;}

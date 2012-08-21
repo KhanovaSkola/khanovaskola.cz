@@ -107,4 +107,24 @@ class Videos extends Table
 		return $this->connection->exec("UPDATE video SET youtube_id = Trim(youtube_id)");
 	}
 
+
+
+	public function addDubbedTagToVideos()
+	{
+		$tag = $this->connection->table('tag')->select('id')->where(['label' => 'dabované'])->fetch();
+		if (!$tag) {
+			return FALSE;
+		}
+
+		$count = 0;
+		foreach ($this->findAll() as $video) {
+			if ($video->getMetaData()->data->uploader === 'khanacademyczech') {
+				$video->addTag($tag->id);
+				$count++;
+			}
+		}
+
+		return $count;
+	}
+
 }

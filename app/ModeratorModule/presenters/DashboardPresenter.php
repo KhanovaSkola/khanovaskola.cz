@@ -156,4 +156,21 @@ class DashboardPresenter extends BaseModeratorPresenter
 		$this->redirect('this');
 	}
 
+
+
+	public function handleAddDubbedTagToVideos()
+	{
+		if (!$this->user->admin) {
+			$this->redirect(':Moderator:Dashboard:');
+		}
+
+		$count = $this->context->videos->addDubbedTagToVideos();
+		if ($count === FALSE) {
+			$this->flashMessage('Tag pro dabovaná videa neexistuje!');
+		} else {
+			$this->flashMessage('Dabovací tag byl přidán k ' . $count . ' videím.');
+		}
+
+		$this->redirect('this');
+	}
 }

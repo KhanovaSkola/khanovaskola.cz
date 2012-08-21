@@ -89,6 +89,17 @@ class Video extends Entity
 
 
 	/**
+	 * @todo Should this check tags or uploader?
+	 * @return bool
+	 */
+	public function isDubbed()
+	{
+		return $this->getMetaData()->data->uploader === 'khanacademyczech';
+	}
+
+
+
+	/**
 	 * @return Tag[]
 	 */
 	public function getTags()
@@ -124,6 +135,24 @@ class Video extends Entity
 		$db->query('DELETE FROM tag_video WHERE video_id = ?', $this->id);
 		$db->query('INSERT INTO tag_video', $values);
 		$db->commit();
+	}
+
+
+
+	public function addTag($tag_id)
+	{
+		try {
+			return $this->context->database->query('INSERT INTO tag_video', [
+				'tag_id' => $tag_id,
+				'video_id' => $this->id,
+			]);
+		} catch (PDOException $e) {
+			if ($e->getCode() == 23000) {
+				// duplicate
+				return FALSE;
+			}
+			throw $e;
+		}
 	}
 
 
