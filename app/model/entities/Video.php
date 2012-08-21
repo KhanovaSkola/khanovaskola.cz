@@ -125,6 +125,10 @@ class Video extends Entity
 
 	public function updateTags(array $tags)
 	{
+		if (!count($tags)) {
+			return FALSE;
+		}
+
 		$values = [];
 		foreach ($tags as $tag_id) {
 			$values[] = ['video_id' => $this->id, 'tag_id' => $tag_id];
