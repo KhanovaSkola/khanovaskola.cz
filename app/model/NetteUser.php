@@ -69,6 +69,20 @@ class NetteUser extends \Nette\Security\User
 
 
 
+	protected function loginWith(\Nette\Security\IAuthenticator $auth, array $id)
+	{
+		$this->logout(TRUE);
+		if (!$id instanceof IIdentity) {
+			$this->setAuthenticator($auth);
+			$id = $this->getAuthenticator()->authenticate($id);
+		}
+		$this->storage->setIdentity($id);
+		$this->storage->setAuthenticated(TRUE);
+		$this->onLoggedIn($this);
+	}
+
+
+
 	/**
 	 * Conducts the authentication process. Parameters are optional.
 	 * @param  mixed optional parameter (e.g. username or IIdentity)
@@ -78,34 +92,21 @@ class NetteUser extends \Nette\Security\User
 	 */
 	public function login($id = NULL, $password = NULL)
 	{
-		$this->logout(TRUE);
-		if (!$id instanceof IIdentity) {
-			if (func_num_args() === 1) {
-				$this->setAuthenticator($this->facebookAuth);
-				$id = $this->getAuthenticator()->authenticate($id);
-
-			} else {
-				$this->setAuthenticator($this->passwordAuth);
-				$id = $this->getAuthenticator()->authenticate(func_get_args());
-			}
-		}
-		$this->storage->setIdentity($id);
-		$this->storage->setAuthenticated(TRUE);
-		$this->onLoggedIn($this);
+		return $this->loginWith($this->passwordAuth, func_get_args());
 	}
 
 
 
-	public function googleLogin($token)
+	public function facebookLogin($info)
 	{
-		$this->logout(TRUE);
-		if (!$token instanceof IIdentity) {
-			$this->setAuthenticator($this->googleAuth);
-			$id = $this->getAuthenticator()->authenticate(['info' => $token]);
-		}
-		$this->storage->setIdentity($id);
-		$this->storage->setAuthenticated(TRUE);
-		$this->onLoggedIn($this);
+		return $this->loginWith($this->facebookAuth, $info);
+	}
+
+
+
+	public function googleLogin($info)
+	{
+		return $this->loginWith($this->googleAuth, [$info]);
 	}
 
 }
