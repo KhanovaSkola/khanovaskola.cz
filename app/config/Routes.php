@@ -114,7 +114,7 @@ class Routes
 		/**
 		 * Direct actions of sign presenter
 		 */
-		$container->router[] = new Route('<action (prihlaseni|odhlaseni|fb-auth)>', [
+		$container->router[] = new Route('<action (prihlaseni|odhlaseni|fb-auth|google-auth)>', [
 			'presenter' => 'Sign',
 			'action' => [
 				Route::FILTER_TABLE => [

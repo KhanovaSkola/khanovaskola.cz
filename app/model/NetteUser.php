@@ -9,17 +9,21 @@ class NetteUser extends \Nette\Security\User
 	/** @var FacebookAuth */
 	protected $facebookAuth;
 
+	/** @var GoogleAuth */
+	protected $googleAuth;
+
 	/** @var PasswordAuth */
 	protected $passwordAuth;
 
 
 
-	public function __construct(\Nette\Security\IUserStorage $storage, \Nette\DI\Container $context, Users $users, FacebookAuth $facebookAuth, PasswordAuth $passwordAuth)
+	public function __construct(\Nette\Security\IUserStorage $storage, \Nette\DI\Container $context, Users $users, FacebookAuth $facebookAuth, GoogleAuth $googleAuth, PasswordAuth $passwordAuth)
 	{
 		parent::__construct($storage, $context);
 
 		$this->users = $users;
 		$this->facebookAuth = $facebookAuth;
+		$this->googleAuth = $googleAuth;
 		$this->passwordAuth = $passwordAuth;
 	}
 
@@ -84,6 +88,20 @@ class NetteUser extends \Nette\Security\User
 				$this->setAuthenticator($this->passwordAuth);
 				$id = $this->getAuthenticator()->authenticate(func_get_args());
 			}
+		}
+		$this->storage->setIdentity($id);
+		$this->storage->setAuthenticated(TRUE);
+		$this->onLoggedIn($this);
+	}
+
+
+
+	public function googleLogin($token)
+	{
+		$this->logout(TRUE);
+		if (!$token instanceof IIdentity) {
+			$this->setAuthenticator($this->googleAuth);
+			$id = $this->getAuthenticator()->authenticate(['info' => $token]);
 		}
 		$this->storage->setIdentity($id);
 		$this->storage->setAuthenticated(TRUE);

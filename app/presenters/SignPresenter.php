@@ -10,9 +10,14 @@ class SignPresenter extends BasePresenter
 
 	public function renderIn()
 	{
-		$this->template->loginUrl = $this->context->facebook->getLoginUrl([
+		$this->template->facebookAuth = $this->context->facebook->getLoginUrl([
 			'scope' => ['email'],
 			'redirect_uri' => $this->link("//fbAuth"),
+		]);
+
+		$this->template->googleAuth = $this->context->google->getLoginUrl([
+			'scope' => $this->context->params['google']['scope'],
+			'redirect_uri' => $this->link('//googleAuth'),
 		]);
 	}
 
@@ -98,6 +103,22 @@ class SignPresenter extends BasePresenter
 			$this->user->login($info);
 		}
 
+		$this->redirect(':Front:Profile:');
+	}
+
+
+
+	public function actionGoogleAuth($code, $error = NULL)
+	{
+		if ($error) {
+			$this->flashMessage('Povolte prosím Khanově škole přístup, bez toho se nebudete moct přes váš Google účet přihlásit.');
+			$this->redirect('in');
+		}
+
+		$g = $this->context->google;
+		$token = $g->getToken($code, $this->link('//googleAuth'));
+
+		$this->user->googleLogin($g->getInfo($token));
 		$this->redirect(':Front:Profile:');
 	}
 

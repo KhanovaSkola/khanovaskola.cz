@@ -21,6 +21,11 @@ common:
 			appId:
 			secret:
 
+		google:
+			id:
+			secret:
+			scope: []
+
 	php:
 		date.timezone: Europe/Prague
 		# zlib.output_compression: yes
@@ -46,9 +51,11 @@ common:
 		database: @Nette\Database\Connection
 
 		facebook: Facebook([appId: %facebook.appId%, secret: %facebook.secret%])
+		google: Google([id: %google.id%, secret: %google.secret%])
 
 		user: NetteUser
 		authenticator_facebook: FacebookAuth
+		authenticator_google: GoogleAuth
 		authenticator_password: PasswordAuth
 
 		categories: Categories('category')

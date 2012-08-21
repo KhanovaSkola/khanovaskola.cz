@@ -4,10 +4,17 @@
 	<div class="login-container card-case vertical-shadow">
 		<div class="providers">
 			<h3>Přihlášení do Khanovy školy</h3>
-
+			<div id="login-google" class="action-gradient provider">
+				<div class="img-container">
+					<a href={$googleAuth}">
+						<img width="180" height="61" alt="Google" src="{$basePath}/images/google-logo-large.png">
+					</a>
+				</div>
+			</div>
+			<br>
 			<div id="login-facebook" class="action-gradient provider">
 				<div class="img-container">
-					<a href="{$loginUrl}">
+					<a href="{$facebookAuth}">
 						<img width="180" height="61" alt="Facebook" src="{$basePath}/images/facebook-logo-large.png">
 					</a>
 				</div>
