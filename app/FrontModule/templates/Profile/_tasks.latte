@@ -1,4 +1,4 @@
-{cache tags => ["profile/tasks/{$user->id}"]}
+{cache $profile->id, tags => ["profile/tasks/{$profile->id}"]}
 	{if $profile->hasTasks()}
 		<h3>Učitelé a úkoly</h3>
 		<p n:foreach="$profile->getCoaches() as $coach">

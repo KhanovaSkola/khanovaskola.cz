@@ -1,4 +1,4 @@
-{cache tags => ["watched/{$profile->id}"]}
+{cache $profile->id, tags => ["watched/{$profile->id}"]}
 	<div class="col1 fifty-fifty">
 		<h3>Lekce za poslední měsíc</h3>
 		{var $recentlyWatched = $profile->getRecentlyWatched()}
@@ -19,7 +19,7 @@
 		</table>
 	</div>
 {/cache}
-{cache tags => ["profile/recent/exercise/{$profile->id}"]}
+{cache $profile->id, tags => ["profile/recent/exercise/{$profile->id}"]}
 	<div class="col2 fifty-fifty">
 		<h3>Cvičení za poslední měsíc</h3>
 		{var $exs = $profile->getRecentExercises()}
