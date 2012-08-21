@@ -123,6 +123,7 @@ CREATE TABLE `task` (
   `exercise_id` bigint(20) unsigned DEFAULT NULL COMMENT 'video_id OR exercise_id NOT NULL',
   `completed` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `deadline` date DEFAULT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `group_id` (`group_id`),
@@ -145,6 +146,8 @@ CREATE TABLE `user` (
   `password` binary(32) NOT NULL,
   `salt` binary(8) NOT NULL,
   `name` varchar(255) COLLATE utf8_czech_ci NOT NULL,
+  `facebook_id` varchar(255) COLLATE utf8_czech_ci DEFAULT NULL,
+  `google_id` varchar(255) COLLATE utf8_czech_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci COMMENT='Uživatelé';
 
@@ -171,4 +174,4 @@ CREATE TABLE `video` (
 DROP VIEW IF EXISTS `videos_with_error`;
 CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `videos_with_error` AS select `video`.`id` AS `id`,`video`.`category_id` AS `category_id`,`video`.`exercise_id` AS `exercise_id`,`video`.`label` AS `label`,`video`.`description` AS `description`,`video`.`youtube_id` AS `youtube_id`,`video`.`position` AS `position` from `video` where (`video`.`description` like '%.');
 
--- 2012-08-19 12:29:41
+-- 2012-08-21 15:04:30

@@ -22,7 +22,6 @@ class GoogleAuth extends Nette\Object implements \Nette\Security\IAuthenticator
 	public function authenticate(array $data)
 	{
 		$info = end($data);
-
 		$user = $this->users->findOneBy(['google_id' => $info->id]);
 
 		// If user with this email exists, link the accounts

@@ -6,6 +6,8 @@
  * @property string $password	hashed
  * @property string $salt
  * @property string $name
+ * @property string $facebook_id
+ * @property string $google_id
  */
 class User extends Entity
 {
