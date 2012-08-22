@@ -8,4 +8,9 @@
 class Exercise extends Entity
 {
 
+	public function getRelatedVideos()
+	{
+		return $this->context->videos->findByExercise($this);
+	}
+
 }

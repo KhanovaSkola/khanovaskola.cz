@@ -82,6 +82,13 @@ class Videos extends Table
 
 
 
+	public function findByExercise(Exercise $exercise)
+	{
+		return $this->findBy(['exercise_id' => $exercise->id]);
+	}
+
+
+
 	/**
 	 * @param array $data
 	 * @return \Nette\Database\Table\ActiveRow

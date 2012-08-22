@@ -8,6 +8,9 @@ var sent = false;
 $(Khan).bind("newProblem", function(event, result) {
 	sent = false;
 	hint = false;
+
+	var $related = $("#injected-related");
+	$('.info-box.hint-box').append($related);
 });
 
 var hint = false;

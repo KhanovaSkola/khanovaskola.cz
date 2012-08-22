@@ -5,4 +5,31 @@
 <div id="inject-exercise"></div>
 <div style="display: none;">
 	{!$content}
+
+	<div id="injected-related" style="margin-top: 10px;">
+		<div id="related-video-list">
+			<span class="related-content-title">Videa k tématu</span>
+			<ul class="related-video-list">
+				<li n:foreach="$exercise->getRelatedVideos() as $video">
+					<a n:href=":Front:Watch:, vid => $video->id" class="related-video" title="{$video->label}" style="display: none;">
+						<span class="video-title vid-progress v884313452">
+							{$video->label}
+						</span>
+					</a>
+					<div class="thumbnail">
+						<a n:href=":Front:Watch:, vid => $video->id" class="related-video" title="{$video->label}">
+							<div class="thumb" style="background-image: url(http://img.youtube.com/vi/{$video->youtube_id}/hqdefault.jpg); ">
+								<div class="thumbnail_label" style="margin-top: 68px; ">
+									<div class="thumbnail_desc">
+										{$video->label}
+									</div>
+									<div class="thumbnail_teaser" style="height: 0px;">{$video->description}</div>
+								</div>
+							</div>
+						</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
 </div>
