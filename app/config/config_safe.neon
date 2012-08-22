@@ -24,7 +24,16 @@ common:
 		google:
 			id:
 			secret:
-			scope: []
+			scope: ['https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/userinfo.email']
+
+		adminer_editor:
+			role: moderator
+
+		database:
+			host:
+			dbname:
+			user:
+			password:
 
 	php:
 		date.timezone: Europe/Prague
@@ -40,9 +49,9 @@ common:
 
 		database:
 			default:
-				dsn: 'mysql:host=localhost;dbname='
-				user:
-				password:
+				dsn: "mysql:host=%database.host%;dbname=%database.dbname%"
+				user: %database.user%
+				password: %database.password%
 
 		debugger:
 			email:
@@ -70,17 +79,9 @@ common:
 	factories:
 
 production < common:
-	nette:
+	parameters:
 		database:
-			default:
-				user:
-				password:
-
-	#diagnostics:
-	#	loggerUrl: 'http://api.qray.eu/api/log.json'
-	#	accessLoggerUrl: 'http://api.qray.eu/api/access.json'
-	#	appId:
-	#	appSecret:
-	#	password:
+			user:
+			password:
 
 development < common:

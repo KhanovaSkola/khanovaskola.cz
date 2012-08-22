@@ -1,46 +1,95 @@
 <?php
-function adminer_object() {
-    
-    class AdminerSoftware extends Adminer {
-        
-        function name() {
-            // custom name in title and heading
-            return 'Khanova Škola';
-        }
-        
-        function permanentLogin() {
-            // key used for permanent login
-            return "2a014694d0e4f73f8cc8b6fb9aec379d";
-        }
-        
-        function credentials() {
-            // server, username and password for connecting to database
-            return array('localhost', 'root', '');
-        }
-        
-        function database() {
-            // database name, will be escaped by Adminer
-            return 'khanacademy';
-        }
-        
-        function login($login, $password) {
-            // validate user submitted credentials
-            return ($login == 'moderator' && $password == 'khan12'); // Gratuluji :) Můžete se podílet na vývoji Khanovy Školy <khan@dite.cz>
-        }
 
-        function tableName($tableStatus) {
-            // tables without comments would return empty string and will be ignored by Adminer
-            return h($tableStatus["Comment"]);
-        }
-        
-        function fieldName($field, $order = 0) {
-            // only columns with comments will be displayed
+define('WWW_DIR', __DIR__ . '/..');
+define('APP_DIR', WWW_DIR . '/../app');
+define('LIBS_DIR', WWW_DIR . '/../libs');
+
+require LIBS_DIR . '/Nette/loader.php';
+
+$configurator = new Nette\Config\Configurator;
+
+$configurator->setDebugMode();
+$configurator->enableDebugger(APP_DIR . '/../log');
+
+// Enable RobotLoader - this will load all classes automatically
+$configurator->setTempDirectory(APP_DIR . '/../temp');
+$configurator->createRobotLoader()
+	->addDirectory(APP_DIR)
+	->addDirectory(LIBS_DIR)
+	->register();
+
+// Create Dependency Injection container from config.neon file
+$configurator->addConfig(__DIR__ . '/../../app/config/config.neon');
+
+$container = $configurator->createContainer();
+
+$container->user->isLoggedIn();
+$container->user->isInRole($container->params['adminer_editor']['role']);
+
+$_GET['username'] = ''; // triggers autologin
+
+function adminer_object() {
+
+	class AdminerSoftware extends Adminer {
+
+		private $context;
+
+		function __construct($context) {
+			$this->context = $context;
+		}
+
+		function name() {
+			// custom name in title and heading
+			return 'Khanova Škola';
+		}
+
+		function credentials() {
+			// server, username and password for connecting to database
+			$c = $this->context->params['database'];
+			return array($c['host'], $c['user'], $c['password']);
+		}
+
+		function database() {
+			// database name, will be escaped by Adminer
+			return $this->context->params['database']['dbname'];
+		}
+
+		function login() {
+			return $this->isLoggedIn() && $this->isInRole();
+		}
+
+		function tableName($tableStatus) {
+			// only tables with comment will be displayed
+			return h($tableStatus["Comment"]);
+		}
+
+		function fieldName($field, $order = 0) {
+			// only columns with comments will be displayed
+			// table must have at least one column with comment
+			// to select properly
 			return h($field["comment"]);
-        }
-        
-    }
-    
-    return new AdminerSoftware;
+		}
+
+		function loginForm() {
+			if (!$this->isLoggedIn()) {
+				echo "<p>Přihlaste se prosím ke svému účtu přes tradiční formulář.</p>";
+			} else if (!$this->isInRole()) {
+				echo "<p>Váš účet nemá oprávnění k Adminer Editor.</p>";
+			}
+		}
+
+		private function isLoggedIn() {
+			return $this->context->user->isLoggedIn();
+		}
+
+		private function isInRole() {
+			return $this->context->user->isInRole($this->context->params['adminer_editor']['role']);
+		}
+
+	}
+
+	global $container;
+	return new AdminerSoftware($container);
 }
 
 include "./editor-3.5.0-mysql.php";
