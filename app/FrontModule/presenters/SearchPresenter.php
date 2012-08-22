@@ -25,6 +25,13 @@ class SearchPresenter extends BaseFrontPresenter
 	public function renderDefault()
 	{
 		$this->template->query = $this->q;
+	}
+
+
+
+	public function renderCustom()
+	{
+		$this->template->query = $this->q;
 
 		$query = str_replace(['%', '_'], ['\%', '\_'], $this->q);
 		$this->template->videos = $this->context->videos->findInAny([
