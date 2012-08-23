@@ -24,6 +24,9 @@ class WatchPresenter extends BaseFrontPresenter
 	{
 		parent::startup();
 		$this->video = $this->context->videos->findOneBy(['id' => $this->vid]);
+        if (!$this->video) {
+            throw new \Nette\Application\BadRequestException;
+        }
 	}
 
 

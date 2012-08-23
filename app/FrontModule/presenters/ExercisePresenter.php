@@ -24,6 +24,9 @@ class ExercisePresenter extends BaseFrontPresenter
 	{
 		parent::startup();
 		$this->exercise = $this->context->exercises->findOneBy(['id' => $this->eid]);
+        if (!$this->exercise) {
+            throw new \Nette\Application\BadRequestException;
+        }
 	}
 
 

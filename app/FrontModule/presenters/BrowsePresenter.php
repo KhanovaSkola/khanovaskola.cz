@@ -24,6 +24,9 @@ class BrowsePresenter extends BaseFrontPresenter
 	{
 		parent::startup();
 		$this->category = $this->context->categories->findOneBy(['id' => $this->id]);
+        if (!$this->category) {
+            throw new \Nette\Application\BadRequestException;
+        }
 
 		if (!$this->category || $this->category->isSubject()) {
 			// those are not rendered

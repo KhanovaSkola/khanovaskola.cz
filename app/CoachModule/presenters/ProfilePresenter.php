@@ -25,6 +25,9 @@ class ProfilePresenter extends BaseCoachPresenter
 		parent::startup();
 
 		$this->profile = $this->context->users->find($this->pid);
+        if (!$this->profile) {
+            throw new \Nette\Application\BadRequestException;
+        }
 
 		if (!$this->user->entity->canView($this->profile)) {
 			throw new \Nette\Application\ForbiddenRequestException();

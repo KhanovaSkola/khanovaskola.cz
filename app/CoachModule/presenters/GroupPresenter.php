@@ -21,6 +21,9 @@ class GroupPresenter extends BaseCoachPresenter
 		parent::startup();
 
 		$this->group = $this->context->groups->find($this->gid);
+        if (!$this->group) {
+            throw new \Nette\Application\BadRequestException;
+        }
 		if (!$this->group->belongsTo($this->user->entity)) {
 			throw new \Nette\Application\ForbiddenRequestException;
 		}

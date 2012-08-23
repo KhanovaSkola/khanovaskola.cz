@@ -23,6 +23,9 @@ class ProfilePresenter extends BaseFrontPresenter
 
 		if ($this->pid) {
 			$this->profile = $this->context->users->find($this->pid);
+            if (!$this->profile) {
+                throw new \Nette\Application\BadRequestException;
+            }
 
 		} elseif ($this->user->loggedIn) {
 			$this->profile = $this->user->entity;
