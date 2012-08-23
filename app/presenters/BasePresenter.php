@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @property NetteUser $user
+ */
 abstract class BasePresenter extends Nette\Application\UI\Presenter
 {
 

@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @property User $entity
+ */
 class NetteUser extends \Nette\Security\User
 {
 

@@ -94,9 +94,6 @@ class GroupPresenter extends BaseCoachPresenter
 
 
 
-	/**
-	 * @todo prevent users from adding users they cannot view! ie check the ids
-	 */
 	public function onSuccessUsersForm($form)
 	{
 		$values = $form->values;
@@ -107,7 +104,12 @@ class GroupPresenter extends BaseCoachPresenter
 		$ids = [];
 		foreach ($values as $key => $value) {
 			if ($value) {
-				$ids[] = explode("_", $key)[0];
+                $id = explode("_", $key)[0];
+                if (!$this->user->entity->canViewId($id)) {
+                    $form->addError('Nemůžete do skupiny přidat tohoto člena, protože není váš student.');
+                    return FALSE;
+                }
+				$ids[] = $id;
 			}
 		}
 
