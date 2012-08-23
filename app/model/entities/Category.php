@@ -153,4 +153,51 @@ class Category extends Entity
 		return $cache[$this->id];
 	}
 
+
+
+    public function getDescription()
+    {
+        $desc = '';
+
+        $bread = [];
+        $parent = $this;
+        while ($parent) {
+            $bread[] = $parent->label;
+            $parent = $parent->getParent();
+        }
+        if (count($bread)) {
+            $bread = array_reverse($bread);
+            $desc .= implode(" ≫ ", $bread);
+        }
+
+        if ($this->description) {
+            $desc .= ". {$this->description}";
+        }
+
+        if (strlen($desc) > 120) {
+            return $desc;
+        }
+
+        if ($this->isLeaf()) {
+            $videos = [];
+            foreach ($this->getVideos() as $video) {
+                $videos[] = $video->label;
+            }
+            if (count($videos)) {
+                $desc .= ": " . implode(", ", $videos);
+            }
+
+        } else {
+            $subcats = [];
+            foreach ($this->getSubCategories() as $subcat) {
+                $subcats[] = $subcat->label;
+            }
+            if (count($subcats)) {
+                $desc .= ": " . implode(", ", $subcats);
+            }
+        }
+
+        return trim($desc);
+    }
+
 }
