@@ -31,18 +31,13 @@ class ProfilePresenter extends BaseFrontPresenter
 			$this->flashMessage('Přihlaste se prosím.');
 			$this->redirect(':Sign:in:');
 		}
-	}
 
+        if (!$this->user->entity->canView($this->profile)) {
+            throw new \Nette\Application\ForbiddenRequestException();
 
-
-	public function actionDefault()
-	{
-		if (!$this->user->entity->canView($this->profile)) {
-			throw new \Nette\Application\ForbiddenRequestException();
-
-		} else if ($this->user->id != $this->profile->id) {
-			$this->redirect(':Coach:Profile:', ['pid' => $this->profile->id]);
-		}
+        } else if ($this->user->id !== $this->profile->id) {
+            $this->redirect(':Coach:Profile:', ['pid' => $this->profile->id]);
+        }
 	}
 
 

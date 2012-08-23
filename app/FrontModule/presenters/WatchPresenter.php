@@ -38,7 +38,7 @@ class WatchPresenter extends BaseFrontPresenter
 
 	public function handleUpdateProgress($seconds)
 	{
-		if (TRUE || $this->ajax) {
+		if ($this->ajax) {
 			$this->user->entity->setProgress($this->video, $seconds, function() {
 				// onVideoWatched
 				$task = $this->user->entity->getTaskForVideo($this->video);
@@ -62,6 +62,10 @@ class WatchPresenter extends BaseFrontPresenter
 
 	public function renderEdit()
 	{
+        if (!$this->user->moderator) {
+            throw new \Nette\Application\ForbiddenRequestException;
+        }
+
 		$form = $this['editForm'];
 		$vid = $this->video;
 
@@ -92,6 +96,10 @@ class WatchPresenter extends BaseFrontPresenter
 
 	public function onSuccessEditForm(Form $form)
 	{
+        if (!$this->user->moderator) {
+            throw new \Nette\Application\ForbiddenRequestException;
+        }
+
 		$v = $form->values;
 		$vid = $this->video;
 

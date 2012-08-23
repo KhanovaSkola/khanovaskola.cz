@@ -51,6 +51,10 @@ class ExercisePresenter extends BaseFrontPresenter
 
 	public function renderEdit()
 	{
+        if (!$this->user->moderator) {
+            throw new \Nette\Application\ForbiddenRequestException;
+        }
+
 		$form = $this['editForm'];
 		$ex = $this->exercise;
 
@@ -77,6 +81,10 @@ class ExercisePresenter extends BaseFrontPresenter
 
 	public function onSuccessEditForm(Form $form)
 	{
+        if (!$this->user->moderator) {
+            throw new \Nette\Application\ForbiddenRequestException;
+        }
+
 		$v = $form->values;
 		$ex = $this->exercise;
 
@@ -93,7 +101,7 @@ class ExercisePresenter extends BaseFrontPresenter
 
 	public function handleSaveAnswer($name, $correct)
 	{
-		if (TRUE || $this->ajax) {
+		if ($this->ajax) {
 			$this->user->entity->saveExerciseAnswer($name, $correct === 'true', function() use ($name) {
 				// onAttainedMastery
 				$task = $this->user->entity->getTaskForExercise($this->context->exercises->findOneBy(['file' => $name]));

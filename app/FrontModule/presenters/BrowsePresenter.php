@@ -49,6 +49,10 @@ class BrowsePresenter extends BaseFrontPresenter
 
 	public function renderEdit()
 	{
+        if (!$this->user->moderator) {
+            throw new \Nette\Application\ForbiddenRequestException;
+        }
+
 		$this->template->category = $this->category;
 
 		$this['editForm']['label']->setValue($this->category->label);
@@ -74,6 +78,10 @@ class BrowsePresenter extends BaseFrontPresenter
 
 	public function onSuccessEditForm(Form $form)
 	{
+        if (!$this->user->moderator) {
+            throw new \Nette\Application\ForbiddenRequestException;
+        }
+
 		$v = $form->values;
 		$c = $this->category;
 		$c->label = $v->label;
@@ -95,6 +103,10 @@ class BrowsePresenter extends BaseFrontPresenter
 
 	public function handleAdd()
 	{
+        if (!$this->user->moderator) {
+            throw new \Nette\Application\ForbiddenRequestException;
+        }
+
 		$video = $this->context->videos->insert([
 			'category_id' => $this->id,
 		]);
@@ -105,6 +117,10 @@ class BrowsePresenter extends BaseFrontPresenter
 
 	public function handleUpdatePositions($videos)
 	{
+        if (!$this->user->moderator) {
+            throw new \Nette\Application\ForbiddenRequestException;
+        }
+
 		$data = explode(',', $videos);
 		$this->context->videos->updatePositions($data);
 

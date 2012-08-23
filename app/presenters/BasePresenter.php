@@ -2,6 +2,8 @@
 
 /**
  * @property NetteUser $user
+ * @property bool $moderator
+ * @property bool $admin
  */
 abstract class BasePresenter extends Nette\Application\UI\Presenter
 {
