@@ -179,4 +179,24 @@ class DashboardPresenter extends BaseModeratorPresenter
 
 		$this->redirect('this');
 	}
+
+
+
+    public function handleDownloadAutocomplete()
+    {
+        $dir = APP_DIR . '/../temp/autocomplete';
+        @mkdir($dir);
+        $file = "$dir/khanova-skola-autocomplete-" . date('y-m-d') . ".xml";
+
+        $content = "<Autocompletions>\n";
+        foreach ($this->context->database->table('_autocomplete') as $row) {
+            $label = str_replace('"', '\"', $row['label']);
+            $content .= "\t<Autocompletion term=\"$label\" type=\"1\" language=\"\" />\n";
+        }
+        $content .= "</Autocompletions>\n";
+        file_put_contents($file, $content);
+
+        $this->sendResponse(new \Nette\Application\Responses\FileResponse($file));
+    }
+
 }
