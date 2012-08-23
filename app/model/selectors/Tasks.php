@@ -48,11 +48,11 @@ class Tasks extends Table
 	}
 
 
-    /**
-     * @param Group $group
-     * @return Task
-     */
-    public function findByGroup(Group $group)
+	/**
+	 * @param Group $group
+	 * @return Task
+	 */
+	public function findByGroup(Group $group)
 	{
 		return $this->findBy(['group_id' => $group->id]);
 	}

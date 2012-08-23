@@ -45,12 +45,12 @@ class Videos extends Table
 	}
 
 
-    /**
-     * @param array $columns
-     * @param $query
-     * @return Video[]
-     */
-    public function findInAny(array $columns, $query)
+	/**
+	 * @param array $columns
+	 * @param $query
+	 * @return Video[]
+	 */
+	public function findInAny(array $columns, $query)
 	{
 		$filters = [];
 		$args = [];
@@ -85,11 +85,11 @@ class Videos extends Table
 	}
 
 
-    /**
-     * @param Exercise $exercise
-     * @return Video[]
-     */
-    public function findByExercise(Exercise $exercise)
+	/**
+	 * @param Exercise $exercise
+	 * @return Video[]
+	 */
+	public function findByExercise(Exercise $exercise)
 	{
 		return $this->findBy(['exercise_id' => $exercise->id]);
 	}

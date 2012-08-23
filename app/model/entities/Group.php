@@ -7,19 +7,19 @@
 class Group extends Entity
 {
 
-    /**
-     * @return User
-     */
-    public function getCoach()
+	/**
+	 * @return User
+	 */
+	public function getCoach()
 	{
 		return $this->context->users->find($this->user_id);
 	}
 
 
-    /**
-     * @return User[]
-     */
-    public function getUsers()
+	/**
+	 * @return User[]
+	 */
+	public function getUsers()
 	{
 		return $this->context->users->findByGroup($this);
 	}
@@ -63,10 +63,10 @@ class Group extends Entity
 	}
 
 
-    /**
-     * @return bool
-     */
-    public function hasTasks()
+	/**
+	 * @return bool
+	 */
+	public function hasTasks()
 	{
 		return (bool) $this->getTasks()->count();
 	}
@@ -82,21 +82,21 @@ class Group extends Entity
 	}
 
 
-    /**
-     * @param User $coach
-     * @return bool
-     */
-    public function belongsTo(User $coach)
-    {
-        return (int) $coach->id === (int) $this->user_id;
-    }
+	/**
+	 * @param User $coach
+	 * @return bool
+	 */
+	public function belongsTo(User $coach)
+	{
+		return (int) $coach->id === (int) $this->user_id;
+	}
 
 
 
-    public function containsStudent(User $student)
-    {
-        $res = $this->context->database->query('SELECT Count(*) as count FROM group_user WHERE group_id = ? AND user_id = ?', $this->id, $student->id)->fetch();
-        return $res['count'];
-    }
+	public function containsStudent(User $student)
+	{
+		$res = $this->context->database->query('SELECT Count(*) as count FROM group_user WHERE group_id = ? AND user_id = ?', $this->id, $student->id)->fetch();
+		return $res['count'];
+	}
 
 }

@@ -21,6 +21,9 @@ class GroupPresenter extends BaseCoachPresenter
 		parent::startup();
 
 		$this->group = $this->context->groups->find($this->gid);
+		if (!$this->group->belongsTo($this->user->entity)) {
+			throw new \Nette\Application\ForbiddenRequestException;
+		}
 	}
 
 
@@ -104,11 +107,11 @@ class GroupPresenter extends BaseCoachPresenter
 		$ids = [];
 		foreach ($values as $key => $value) {
 			if ($value) {
-                $id = explode("_", $key)[0];
-                if (!$this->user->entity->canViewId($id)) {
-                    $form->addError('Nemůžete do skupiny přidat tohoto člena, protože není váš student.');
-                    return FALSE;
-                }
+				$id = explode("_", $key)[0];
+				if (!$this->user->entity->canViewId($id)) {
+					$form->addError('Nemůžete do skupiny přidat tohoto člena, protože není váš student.');
+					return FALSE;
+				}
 				$ids[] = $id;
 			}
 		}

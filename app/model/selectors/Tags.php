@@ -13,19 +13,19 @@ class Tags extends Table
 	}
 
 
-    /**
-     * @return array
-     */
-    public function getFill()
+	/**
+	 * @return array
+	 */
+	public function getFill()
 	{
 		return $this->findAll()->fetchPairs('id', 'label');
 	}
 
 
-    /**
-     * @return Tag
-     */
-    public function findDubTag()
+	/**
+	 * @return Tag
+	 */
+	public function findDubTag()
 	{
 		return $this->findOneBy(['label' => 'dabované']);
 	}

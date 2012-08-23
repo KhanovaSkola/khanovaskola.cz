@@ -3,12 +3,12 @@
 class Exercises extends Table
 {
 
-    /**
-     * @param array $columns
-     * @param $query
-     * @return Exercise[]
-     */
-    public function findInAny(array $columns, $query)
+	/**
+	 * @param array $columns
+	 * @param $query
+	 * @return Exercise[]
+	 */
+	public function findInAny(array $columns, $query)
 	{
 		$filters = [];
 		$args = [];

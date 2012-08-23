@@ -21,7 +21,7 @@ Kdyby\Forms\Containers\Replicator::register();
 
 // Create Dependency Injection container from config.neon file
 $environment = Nette\Config\Configurator::detectDebugMode(['127.0.0.1', '192.168.100.57'])
-    ? $configurator::DEVELOPMENT : $configurator::PRODUCTION;
+	? $configurator::DEVELOPMENT : $configurator::PRODUCTION;
 $configurator->addConfig(__DIR__ . '/config/config.neon', $environment);
 
 

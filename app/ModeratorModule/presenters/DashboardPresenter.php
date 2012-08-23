@@ -17,10 +17,10 @@ class DashboardPresenter extends BaseModeratorPresenter
 		$vid = [];
 		$vid['description'] = $this->context->videos->findBy(['description' => '']);
 
-        $ids = [];
-        foreach ($this->context->videos->findBy(['exercise_id IS NOT NULL']) as $video) {
-            $ids[] = $video['exercise_id'];
-        }
+		$ids = [];
+		foreach ($this->context->videos->findBy(['exercise_id IS NOT NULL']) as $video) {
+			$ids[] = $video['exercise_id'];
+		}
 		$vid['exercise'] = $this->context->exercises->findBy(['id NOT' => $ids]);
 
 		$this->template->vid = $vid;
@@ -182,21 +182,21 @@ class DashboardPresenter extends BaseModeratorPresenter
 
 
 
-    public function handleDownloadAutocomplete()
-    {
-        $dir = APP_DIR . '/../temp/autocomplete';
-        @mkdir($dir);
-        $file = "$dir/khanova-skola-autocomplete-" . date('y-m-d') . ".xml";
+	public function handleDownloadAutocomplete()
+	{
+		$dir = APP_DIR . '/../temp/autocomplete';
+		@mkdir($dir);
+		$file = "$dir/khanova-skola-autocomplete-" . date('y-m-d') . ".xml";
 
-        $content = "<Autocompletions>\n";
-        foreach ($this->context->database->table('_autocomplete') as $row) {
-            $label = str_replace('"', '\"', $row['label']);
-            $content .= "\t<Autocompletion term=\"$label\" type=\"1\" language=\"\" />\n";
-        }
-        $content .= "</Autocompletions>\n";
-        file_put_contents($file, $content);
+		$content = "<Autocompletions>\n";
+		foreach ($this->context->database->table('_autocomplete') as $row) {
+			$label = str_replace('"', '\"', $row['label']);
+			$content .= "\t<Autocompletion term=\"$label\" type=\"1\" language=\"\" />\n";
+		}
+		$content .= "</Autocompletions>\n";
+		file_put_contents($file, $content);
 
-        $this->sendResponse(new \Nette\Application\Responses\FileResponse($file));
-    }
+		$this->sendResponse(new \Nette\Application\Responses\FileResponse($file));
+	}
 
 }

@@ -52,7 +52,7 @@ class SignPresenter extends BasePresenter
 		try {
 			$values = $form->getValues();
 
-            $this->user->setExpiration('+ 7 days', TRUE);
+			$this->user->setExpiration('+ 7 days', TRUE);
 			$this->user->login($values->username, $values->password);
 
 			if ($this->user->isInRole('moderator')) {

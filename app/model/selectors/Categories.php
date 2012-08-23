@@ -13,10 +13,10 @@ class Categories extends Table
 	}
 
 
-    /**
-     * @return Category[]
-     */
-    public function findLeaves()
+	/**
+	 * @return Category[]
+	 */
+	public function findLeaves()
 	{
 		$ids = [];
 		foreach ($this->context->database->table('video')->select('category_id')->group('category_id') as $row) {

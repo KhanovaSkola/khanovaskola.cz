@@ -37,15 +37,15 @@ class PasswordAuth extends Nette\Object implements NS\IAuthenticator
 		}
 
 		if (!$user->password) {
-            $services = [];
-            if ($user->facebook_id) {
-                $services[] = 'Facebook';
-            }
-            if ($user->google_id) {
-                $services[] = 'Google';
-            }
+			$services = [];
+			if ($user->facebook_id) {
+				$services[] = 'Facebook';
+			}
+			if ($user->google_id) {
+				$services[] = 'Google';
+			}
 
-            throw new NS\AuthenticationException("Nemáte nastavené heslo. Můžete se přihlásit přes " . implode(', ', $services) . ".", self::INVALID_CREDENTIAL);
+			throw new NS\AuthenticationException("Nemáte nastavené heslo. Můžete se přihlásit přes " . implode(', ', $services) . ".", self::INVALID_CREDENTIAL);
 		}
 
 		$hash = (new \Password())->calculateHash($password, $user->salt);

@@ -122,11 +122,11 @@ class Video extends Entity
 	}
 
 
-    /**
-     * @param array $tags
-     * @return bool
-     */
-    public function updateTags(array $tags)
+	/**
+	 * @param array $tags
+	 * @return bool
+	 */
+	public function updateTags(array $tags)
 	{
 		if (!count($tags)) {
 			return FALSE;
@@ -145,12 +145,12 @@ class Video extends Entity
 	}
 
 
-    /**
-     * @param $tag_id
-     * @return bool
-     * @throws PDOException
-     */
-    public function addTag($tag_id)
+	/**
+	 * @param $tag_id
+	 * @return bool
+	 * @throws PDOException
+	 */
+	public function addTag($tag_id)
 	{
 		try {
 			return $this->context->database->query('INSERT INTO tag_video', [
@@ -167,28 +167,28 @@ class Video extends Entity
 	}
 
 
-    /**
-     * @return bool
-     */
-    public function hasTags()
+	/**
+	 * @return bool
+	 */
+	public function hasTags()
 	{
 		return (bool) count($this->getTagsIds());
 	}
 
 
-    /**
-     * @return string url
-     */
-    public function getThumbnail()
+	/**
+	 * @return string url
+	 */
+	public function getThumbnail()
 	{
 		return "http://i.ytimg.com/vi/{$this->youtube_id}/default.jpg";
 	}
 
 
-    /**
-     * @return string url
-     */
-    public function getThumbnailHd()
+	/**
+	 * @return string url
+	 */
+	public function getThumbnailHd()
 	{
 		return "http://i.ytimg.com/vi/{$this->youtube_id}/hqdefault.jpg";
 	}
