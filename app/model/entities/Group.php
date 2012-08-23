@@ -81,4 +81,22 @@ class Group extends Entity
 		return $this->context->tasks->findByGroup($this);
 	}
 
+
+    /**
+     * @param User $coach
+     * @return bool
+     */
+    public function belongsTo(User $coach)
+    {
+        return (int) $coach->id === (int) $this->user_id;
+    }
+
+
+
+    public function containsStudent(User $student)
+    {
+        $res = $this->context->database->query('SELECT Count(*) as count FROM group_user WHERE group_id = ? AND user_id = ?', $this->id, $student->id)->fetch();
+        return $res['count'];
+    }
+
 }
