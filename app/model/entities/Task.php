@@ -14,71 +14,93 @@
 class Task extends Entity
 {
 
-	public function getCoach()
+    /**
+     * @return User
+     */
+    public function getCoach()
 	{
 		return $this->context->users->find($this->coach_id);
 	}
 
 
-
-	public function isBoundToGroup()
+    /**
+     * @return bool
+     */
+    public function isBoundToGroup()
 	{
 		return (bool) $this->group_id;
 	}
 
 
-
-	public function isVideo()
+    /**
+     * @return bool
+     */
+    public function isVideo()
 	{
 		return (bool) $this->video_id;
 	}
 
 
-
-	public function isNotInitialized()
+    /**
+     * @return bool
+     */
+    public function isNotInitialized()
 	{
 		return $this->video_id === NULL && $this->exercise_id === NULL;
 	}
 
 
-
-	public function getStudent()
+    /**
+     * @return User
+     */
+    public function getStudent()
 	{
 		return $this->context->users->find($this->user_id);
 	}
 
 
-
-	public function getGroup()
+    /**
+     * @return Group
+     */
+    public function getGroup()
 	{
 		return $this->context->groups->find($this->group_id);
 	}
 
 
-
-	public function getVideo()
+    /**
+     * @return Video
+     */
+    public function getVideo()
 	{
 		return $this->context->videos->find($this->video_id);
 	}
 
 
-
-	public function getExercise()
+    /**
+     * @return Exercise
+     */
+    public function getExercise()
 	{
 		return $this->context->exercises->find($this->exercise_id);
 	}
 
 
-
-	public function setCompleted($value = TRUE)
+    /**
+     * @param bool $value
+     * @return Task
+     */
+    public function setCompleted($value = TRUE)
 	{
 		$this->completed = $value;
 		return $this;
 	}
 
 
-
-	public function getText()
+    /**
+     * @return string
+     */
+    public function getText()
 	{
 		if ($this->isNotInitialized()) {
 			return 'Nový úkol';
@@ -96,8 +118,10 @@ class Task extends Entity
 	}
 
 
-
-	public function checkCompleted()
+    /**
+     * @return bool
+     */
+    public function checkCompleted()
 	{
 		if ($this->isBoundToGroup()) {
 			throw new \Nette\NotImplementedException();
@@ -121,8 +145,10 @@ class Task extends Entity
 	}
 
 
-
-	public function getTagsToInvalidate()
+    /**
+     * @return array
+     */
+    public function getTagsToInvalidate()
 	{
 		$invalid = [];
 		if ($this->isBoundToGroup()) {

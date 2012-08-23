@@ -5,7 +5,7 @@ class Tags extends Table
 
 	/**
 	 * @param Video $video
-	 * @return Selection
+	 * @return Tag[]
 	 */
 	public function findByVideo(Video $video)
 	{
@@ -13,15 +13,19 @@ class Tags extends Table
 	}
 
 
-
-	public function getFill()
+    /**
+     * @return array
+     */
+    public function getFill()
 	{
 		return $this->findAll()->fetchPairs('id', 'label');
 	}
 
 
-
-	public function findDubTag()
+    /**
+     * @return Tag
+     */
+    public function findDubTag()
 	{
 		return $this->findOneBy(['label' => 'dabované']);
 	}

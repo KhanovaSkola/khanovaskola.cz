@@ -5,7 +5,7 @@ class Tasks extends Table
 
 	/**
 	 * @param User $student
-	 * @return Selection[]
+	 * @return Task[]
 	 */
 	public function findByStudent(User $student)
 	{
@@ -26,7 +26,7 @@ class Tasks extends Table
 
 	/**
 	 * @param User $student
-	 * @return Selection[]
+	 * @return Task[]
 	 */
 	public function findByStudentFromCoach(User $student, User $coach)
 	{
@@ -48,8 +48,11 @@ class Tasks extends Table
 	}
 
 
-
-	public function findByGroup(Group $group)
+    /**
+     * @param Group $group
+     * @return Task
+     */
+    public function findByGroup(Group $group)
 	{
 		return $this->findBy(['group_id' => $group->id]);
 	}

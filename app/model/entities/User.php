@@ -12,7 +12,12 @@
 class User extends Entity
 {
 
-	public function addCoach(User $coach)
+    /**
+     * @param User $coach
+     * @return bool
+     * @throws PDOException
+     */
+    public function addCoach(User $coach)
 	{
 		try {
 			$this->context->database->table('coach')->insert([
@@ -41,8 +46,10 @@ class User extends Entity
 	}
 
 
-
-	public function getCoaches()
+    /**
+     * @return User[]
+     */
+    public function getCoaches()
 	{
 		$ids = [];
 		foreach ($this->context->database->table('coach')->where(['user_id' => $this->id]) as $row) {
@@ -53,8 +60,10 @@ class User extends Entity
 	}
 
 
-
-	public function getStudents()
+    /**
+     * @return User[]
+     */
+    public function getStudents()
 	{
 		$ids = [];
 		foreach ($this->context->database->table('coach')->where(['coach_id' => $this->id]) as $row) {
@@ -65,8 +74,10 @@ class User extends Entity
 	}
 
 
-
-	public function getStudentsWithoutGroup()
+    /**
+     * @return User[]
+     */
+    public function getStudentsWithoutGroup()
 	{
 		$ids = [];
 		foreach ($this->context->database->table('coach')->where(['coach_id' => $this->id]) as $row) {
@@ -80,10 +91,12 @@ class User extends Entity
 	}
 
 
-
-	public function hasStudents()
+    /**
+     * @return bool
+     */
+    public function hasStudents()
 	{
-		return $this->context->database->table('coach')->where(['coach_id' => $this->id])->count();
+		return (bool) $this->context->database->table('coach')->where(['coach_id' => $this->id])->count();
 	}
 
 
@@ -119,8 +132,11 @@ class User extends Entity
 	}
 
 
-
-	public function getAllProgress(array $filters = NULL)
+    /**
+     * @param array $filters
+     * @return Progress[]
+     */
+    public function getAllProgress(array $filters = NULL)
 	{
 		$filters = $filters ?: [];
 		$filters['user_id'] = $this->id;
@@ -203,8 +219,11 @@ class User extends Entity
 	}
 
 
-
-	public function getGroupsBelongingTo(User $coach = NULL)
+    /**
+     * @param User $coach
+     * @return Group[]
+     */
+    public function getGroupsBelongingTo(User $coach = NULL)
 	{
 		$links = $this->context->database->table('group_user')->where(['user_id' => $this->id]);
 		$ids = [];
@@ -221,8 +240,11 @@ class User extends Entity
 	}
 
 
-
-	public function getExerciseSkill(Exercise $exercise)
+    /**
+     * @param Exercise $exercise
+     * @return float 0..1
+     */
+    public function getExerciseSkill(Exercise $exercise)
 	{
 		$boundary = $this->context->params['progress']['exercise_limit'];
 
@@ -242,8 +264,7 @@ class User extends Entity
 	}
 
 
-
-	public function saveExerciseAnswer($file, $correct, $onMasteryCallback = NULL)
+    public function saveExerciseAnswer($file, $correct, $onMasteryCallback = NULL)
 	{
 		$exercise = $this->context->exercises->findOneBy(['file' => $file]);
 		if (!$exercise) {
@@ -265,29 +286,40 @@ class User extends Entity
 	}
 
 
-
-	public function hasTasks()
+    /**
+     * @return bool
+     */
+    public function hasTasks()
 	{
 		return (bool) $this->getTasks()->count();
 	}
 
 
-
-	public function hasTasksFromCoach(User $coach)
+    /**
+     * @param User $coach
+     * @return bool
+     */
+    public function hasTasksFromCoach(User $coach)
 	{
 		return (bool) $this->getTasksFromCoach($coach)->count();
 	}
 
 
 
-	public function getTasks()
+    /**
+     * @return mixed
+     */
+    public function getTasks()
 	{
 		return $this->context->tasks->findByStudent($this);
 	}
 
 
-
-	public function getTasksFromCoach(User $coach)
+    /**
+     * @param User $coach
+     * @return mixed
+     */
+    public function getTasksFromCoach(User $coach)
 	{
 		return $this->context->tasks->findByStudentFromCoach($this, $coach);
 	}

@@ -5,7 +5,7 @@ class Categories extends Table
 
 	/**
 	 * @param array $by
-	 * @return Category
+	 * @return Category[]
 	 */
 	public function findRoot()
 	{
@@ -13,8 +13,10 @@ class Categories extends Table
 	}
 
 
-
-	public function findLeaves()
+    /**
+     * @return Category[]
+     */
+    public function findLeaves()
 	{
 		$ids = [];
 		foreach ($this->context->database->table('video')->select('category_id')->group('category_id') as $row) {

@@ -18,8 +18,11 @@ class GoogleAuth extends Nette\Object implements \Nette\Security\IAuthenticator
 	}
 
 
-
-	public function authenticate(array $data)
+    /**
+     * @param array $data Google::getInfo()
+     * @return Nette\Security\Identity
+     */
+    public function authenticate(array $data)
 	{
 		$info = end($data);
 		$user = $this->users->findOneBy(['google_id' => $info->id]);

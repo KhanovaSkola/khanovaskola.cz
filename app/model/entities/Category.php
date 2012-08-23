@@ -103,7 +103,9 @@ class Category extends Entity
 
 
 
-	/** @return bool */
+	/**
+     * @return bool
+     */
 	public function isSubject()
 	{
 		return $this->parent_id === NULL;
@@ -111,7 +113,9 @@ class Category extends Entity
 
 
 
-	/** @return bool */
+	/**
+     * @return bool
+     */
 	public function isLeaf()
 	{
 		return $this->is_leaf == 1;
@@ -119,7 +123,9 @@ class Category extends Entity
 
 
 
-	/** @return bool */
+	/**
+     * @return bool
+     */
 	public function isSubcategory()
 	{
 		return !$this->isSubject() && !$this->isLeaf();
@@ -154,7 +160,9 @@ class Category extends Entity
 	}
 
 
-
+    /**
+     * @return string
+     */
     public function getDescription()
     {
         $desc = '';

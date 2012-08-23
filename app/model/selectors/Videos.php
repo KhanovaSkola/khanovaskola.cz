@@ -26,7 +26,7 @@ class Videos extends Table
 
 
 	/**
-	 * @return Selection
+	 * @return Video[]
 	 */
 	public function findAll()
 	{
@@ -37,7 +37,7 @@ class Videos extends Table
 
 	/**
 	 * @param array $by
-	 * @return Selection
+	 * @return Video[]
 	 */
 	public function findBy(array $by)
 	{
@@ -45,8 +45,12 @@ class Videos extends Table
 	}
 
 
-
-	public function findInAny(array $columns, $query)
+    /**
+     * @param array $columns
+     * @param $query
+     * @return Video[]
+     */
+    public function findInAny(array $columns, $query)
 	{
 		$filters = [];
 		$args = [];
@@ -63,7 +67,7 @@ class Videos extends Table
 
 	/**
 	 * @param Tag $tag
-	 * @return Selection
+	 * @return Video[]
 	 */
 	public function findByTag(Tag $tag)
 	{
@@ -81,8 +85,11 @@ class Videos extends Table
 	}
 
 
-
-	public function findByExercise(Exercise $exercise)
+    /**
+     * @param Exercise $exercise
+     * @return Video[]
+     */
+    public function findByExercise(Exercise $exercise)
 	{
 		return $this->findBy(['exercise_id' => $exercise->id]);
 	}

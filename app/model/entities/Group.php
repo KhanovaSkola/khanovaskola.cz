@@ -7,14 +7,19 @@
 class Group extends Entity
 {
 
-	public function getCoach()
+    /**
+     * @return User
+     */
+    public function getCoach()
 	{
 		return $this->context->users->find($this->user_id);
 	}
 
 
-
-	public function getUsers()
+    /**
+     * @return User[]
+     */
+    public function getUsers()
 	{
 		return $this->context->users->findByGroup($this);
 	}
@@ -58,8 +63,10 @@ class Group extends Entity
 	}
 
 
-
-	public function hasTasks()
+    /**
+     * @return bool
+     */
+    public function hasTasks()
 	{
 		return (bool) $this->getTasks()->count();
 	}

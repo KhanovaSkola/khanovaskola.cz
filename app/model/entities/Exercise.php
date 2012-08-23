@@ -8,14 +8,19 @@
 class Exercise extends Entity
 {
 
-	public function getRelatedVideos()
+    /**
+     * @return Video[]
+     */
+    public function getRelatedVideos()
 	{
 		return $this->context->videos->findByExercise($this);
 	}
 
 
-
-	public function getDescription()
+    /**
+     * @return string
+     */
+    public function getDescription()
 	{
 		if ($this->getRelatedVideos()->count()) {
 			$desc = [];

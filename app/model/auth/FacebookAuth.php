@@ -18,8 +18,11 @@ class FacebookAuth extends Nette\Object implements \Nette\Security\IAuthenticato
 	}
 
 
-
-	public function authenticate(array $info)
+    /**
+     * @param array $info Facebook::api('/me')
+     * @return Nette\Security\Identity
+     */
+    public function authenticate(array $info)
 	{
 		$id = (int) $info['id'];
 
