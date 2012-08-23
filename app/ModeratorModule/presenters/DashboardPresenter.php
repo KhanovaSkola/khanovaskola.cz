@@ -16,7 +16,13 @@ class DashboardPresenter extends BaseModeratorPresenter
 
 		$vid = [];
 		$vid['description'] = $this->context->videos->findBy(['description' => '']);
-		$vid['exercise'] = $this->context->videos->findBy(['exercise_id' => NULL]);
+
+        $ids = [];
+        foreach ($this->context->videos->findBy(['exercise_id IS NOT NULL']) as $video) {
+            $ids[] = $video['exercise_id'];
+        }
+		$vid['exercise'] = $this->context->exercises->findBy(['id NOT' => $ids]);
+
 		$this->template->vid = $vid;
 
 		$this->template->github = new \Github($this->context);

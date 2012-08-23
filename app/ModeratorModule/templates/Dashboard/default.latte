@@ -88,7 +88,7 @@
 		<tr>
 			<th><strong>Kategorie bez popisu:</strong></th>
 			<th><strong>Videa bez popisu:</strong></th>
-			<th><strong>Videa bez cvičení:</strong></th>
+			<th><strong>Nenavázaná cvičení:</strong></th>
 		</tr>
 		<tr>
 			{cache tags => ['categories']}
@@ -115,8 +115,8 @@
 				<td>
 					<ol>
 						{var $count => $vid['exercise']->limit(30)->count()}
-						<li n:foreach="$vid['exercise']->limit(30)->order('id DESC') as $video">
-							<a n:href=":Front:Watch:edit, vid => $video->id">{$video->label}</a>
+						<li n:foreach="$vid['exercise']->limit(30)->order('id DESC') as $exercise">
+							{$exercise->label}
 						</li>
 						<li n:if="$count == 30">and more&hellip;</li>
 					</ol>
