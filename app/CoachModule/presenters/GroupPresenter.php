@@ -11,7 +11,7 @@ class GroupPresenter extends BaseCoachPresenter
 	/** @persistent */
 	public $gid;
 
-	/** @var Group */
+	/** @var \Group */
 	protected $group;
 
 

@@ -9,13 +9,13 @@ class ProfilePresenter extends BaseCoachPresenter
 	/** @persistent */
 	public $pid;
 
-	/** @var User */
+	/** @var \User */
 	protected $profile;
 
 	/** @persistent */
 	public $gid = NULL;
 
-	/** @var Group */
+	/** @var \Group */
 	protected $group = NULL;
 
 

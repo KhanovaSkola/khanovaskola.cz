@@ -15,7 +15,7 @@ class BrowsePresenter extends BaseFrontPresenter
 	 */
 	public $id;
 
-	/** @var Category */
+	/** @var \Category */
 	protected $category;
 
 

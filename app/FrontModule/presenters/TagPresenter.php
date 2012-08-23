@@ -9,7 +9,7 @@ class TagPresenter extends BaseFrontPresenter
 	/** @persistent */
 	public $tid;
 
-	/** @var Tag */
+	/** @var \Tag */
 	protected $tag;
 
 

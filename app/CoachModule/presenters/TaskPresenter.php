@@ -11,7 +11,7 @@ class TaskPresenter extends BaseCoachPresenter
 	/** @persistent */
 	public $tid;
 
-	/** @var Task */
+	/** @var \Task */
 	protected $task;
 
 

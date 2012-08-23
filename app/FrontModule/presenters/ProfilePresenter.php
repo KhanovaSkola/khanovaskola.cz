@@ -12,7 +12,7 @@ class ProfilePresenter extends BaseFrontPresenter
 	/** @persistent */
 	public $pid;
 
-	/** @var User */
+	/** @var \User */
 	public $profile;
 
 

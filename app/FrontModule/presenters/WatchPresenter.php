@@ -11,11 +11,11 @@ class WatchPresenter extends BaseFrontPresenter
 
 	/**
 	 * @persistent
-	 * @var public
+	 * @var int
 	 */
 	public $vid;
 
-	/** @var Video */
+	/** @var \Video */
 	protected $video;
 
 

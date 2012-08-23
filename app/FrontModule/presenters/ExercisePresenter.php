@@ -11,11 +11,11 @@ class ExercisePresenter extends BaseFrontPresenter
 
 	/**
 	 * @persistent
-	 * @var public
+	 * @var int
 	 */
 	public $eid;
 
-	/** @var Exercise */
+	/** @var \Exercise */
 	protected $exercise;
 
 
