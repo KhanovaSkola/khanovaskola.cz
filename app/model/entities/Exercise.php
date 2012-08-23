@@ -27,11 +27,26 @@ class Exercise extends Entity
 				$labels[] = $video->label;
 			}
 
-			if (count($desc)) {
-				return implode(' ', $desc);
+            $ret = '';
+            if (count($desc)) {
+				$ret = implode(' ', $desc);
 			} else {
-				return "Cvičení {$this->label} na Khanově škole pro lekc" . (count($labels) > 1 ? 'e ' : 'i ') . implode(', ', $labels);
+				$ret = "Cvičení {$this->label} pro lekc" . (count($labels) > 1 ? 'e ' : 'i ') . implode(', ', $labels);
 			}
+
+            if (isset($video)) { // last from iterator
+                $parent = $video->getCategory();
+                $cats = [];
+                while ($parent) {
+                    $cats[] = $parent->label;
+                    $parent = $parent->getParent();
+                }
+                $cats = array_reverse($cats);
+
+                $ret = implode(" ≫ ", $cats) . ": $ret.";
+            }
+
+            return $ret;
 		}
 
 		return "Cvičení {$this->label} na Khanově škole.";
