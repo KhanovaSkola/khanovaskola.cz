@@ -11,7 +11,7 @@
 	<title>{ifset $title}{$title} &ndash; {/ifset}Khanova škola</title>
 
 	<link rel="stylesheet" href="{$basePath}/css/themes/default/jquery.mobile-1.1.1.css">
-	<link rel="stylesheet" href="{$basePath}/css/tablet.css">
+	<link rel="stylesheet" href="{$basePath}/css/tablet.css?v=rand()">
 	<link n:if="$user->loggedIn" rel="stylesheet" media="screen,projection,tv" n:href=":Api:DynamicCss:, v => rand()" type="text/css">
 
 	<link rel="shortcut icon" href="{$basePath}/favicon.ico" type="image/x-icon">

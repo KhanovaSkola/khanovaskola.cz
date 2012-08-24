@@ -23,6 +23,33 @@
 		var $high = null;
 		var center = 0;
 
+		window.onorientationchange = function(e) {
+			$("h1").text(e.rotation);
+			switch (window.orientation) {
+				case 0:
+				case 180:
+					onEnterPortrait();
+					break;
+				case 90:
+				case 270:
+				default:
+					onEnterLandscape();
+					break;
+			}
+		}
+
+		function onEnterLandscape()
+		{
+			$("body").addClass("landscape").removeClass("portrait");
+			player.setSize(640, 480);
+		}
+
+		function onEnterPortrait()
+		{
+			$("body").removeClass("landscape").addClass("portrait");
+			player.setSize(768, 567);
+		}
+
 		/**
 		 * @Override
 		 */
@@ -48,6 +75,7 @@
 
 			$high = $("#subtitles div:first");
 			center = $("#subtitles").height() / 2;
+			window.orientation == 0 || window.orientation == 180 ? onEnterPortrait() : onEnterLandscape();
 		});
 
 		function moveSubtitles(time) {
