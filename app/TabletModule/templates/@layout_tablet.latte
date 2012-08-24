@@ -52,7 +52,11 @@
 		<div data-role="header">
 			<a data-rel="back" href="#">{ifset $backlink}Zpět na {$backlink}{else}Zpět{/ifset}</a>
 			<h1>{ifset $title}{$title}{else}Khanova škola{/ifset}</h1>
-			<a n:href="this, v => rand()">Refresh</a>
+			{if $user->loggedIn}
+				<a n:href=":Sign:out" data-ajax="false">{$user->entity->name}</a>
+			{else}
+				<a n:href=":Sign:inTablet" data-rel="dialog">Přihlášení</a>
+			{/if}
 		</div>
 		<div data-role="content">
 			<div class="ui-grid-t">

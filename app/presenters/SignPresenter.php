@@ -8,18 +8,35 @@ use Nette\Caching\Cache;
 class SignPresenter extends BasePresenter
 {
 
+    protected function populateInTemplate()
+    {
+        $this->template->facebookAuth = $this->context->facebook->getLoginUrl([
+            'scope' => ['email'],
+            'redirect_uri' => $this->link("//fbAuth"),
+        ]);
+
+        $this->template->googleAuth = $this->context->google->getLoginUrl([
+            'scope' => $this->context->params['google']['scope'],
+            'redirect_uri' => $this->link('//googleAuth'),
+        ]);
+    }
+
+
+
 	public function renderIn()
 	{
-		$this->template->facebookAuth = $this->context->facebook->getLoginUrl([
-			'scope' => ['email'],
-			'redirect_uri' => $this->link("//fbAuth"),
-		]);
-
-		$this->template->googleAuth = $this->context->google->getLoginUrl([
-			'scope' => $this->context->params['google']['scope'],
-			'redirect_uri' => $this->link('//googleAuth'),
-		]);
+		$this->populateInTemplate();
 	}
+
+
+
+    public function renderInTablet()
+    {
+        $this->setLayout(FALSE);
+        $this->populateInTemplate();
+
+        $this['signInForm']['tablet_login']->setValue(TRUE);
+    }
 
 
 
@@ -39,6 +56,8 @@ class SignPresenter extends BasePresenter
 		$form->addPassword('password')
 			->setRequired('Vyplňte heslo.');
 
+        $form->addHidden('tablet_login', FALSE);
+
 		$form->addSubmit('send', 'Přihlásit');
 
 		$form->onSuccess[] = $this->signInFormSubmitted;
@@ -54,6 +73,10 @@ class SignPresenter extends BasePresenter
 
 			$this->user->setExpiration('+ 7 days', TRUE);
 			$this->user->login($values->username, $values->password);
+
+            if ($values['tablet_login']) {
+                $this->redirect(':Tablet:Homepage:');
+            }
 
 			if ($this->user->isInRole('moderator')) {
 				$this->redirect(':Moderator:Dashboard:');

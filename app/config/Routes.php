@@ -14,6 +14,22 @@ class Routes
         /**
          * Tablet routes - duplicated because link creator must know the domain
          */
+        $container->router[] = new Route('//tablet.khan.l/prihlaseni', [
+            'presenter' => 'Sign',
+            'action' => 'inTablet',
+        ]);
+        $container->router[] = new Route('//tablet.khanovaskola.cz/prihlaseni', [
+            'presenter' => 'Sign',
+            'action' => 'inTablet',
+        ]);
+        $container->router[] = new Route('//tablet.khan.l/odhlaseni', [
+            'presenter' => 'Sign',
+            'action' => 'out',
+        ]);
+        $container->router[] = new Route('//tablet.khanovaskola.cz/odhlaseni', [
+            'presenter' => 'Sign',
+            'action' => 'out',
+        ]);
         $container->router[] = new Route('//tablet.khan.l/<presenter>[/<action>]', [
             'module' => 'Tablet',
             'presenter' => 'Homepage',
@@ -25,7 +41,7 @@ class Routes
             'action' => 'default',
         ]);
 
-		/**
+        /**
 		 * API
 		 */
 		$container->router[] = new Route('//api.<domain>.<top l|cz>/', [

@@ -4,7 +4,10 @@
 {#navigation}
 <ul data-role="listview" data-inset="true">
 	<li n:foreach="$category->getVideos() as $v" class="video-link">
-		<a n:href="this, vid => $v->id">{$v->label}</a>
+		<a n:href="this, vid => $v->id">
+			<span class="video-progress v-{$v->id}"></span>
+			{$v->label}
+		</a>
 	</li>
 </ul>
 
