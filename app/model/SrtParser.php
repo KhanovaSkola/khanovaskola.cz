@@ -23,13 +23,15 @@ class SrtParser extends \Nette\Object
                     $node['id'] = (int) $line;
                     break;
                 case self::TIMES:
-                    list($node['start'], $node['end']) = explode(' --> ', $line);
+                    list($s, $e) = explode(' --> ', $line);
+                    $node['start'] = self::parseTime($s);
+                    $node['end'] = self::parseTime(trim($e));
                     break;
                 case self::CONTENT:
                     $node['content'] = trim($line);
                     break;
                 case self::DELIMITER:
-                    $res[] = $node;
+                    $res[] = (object) $node;
                     $expect = -1;
                     break;
             }
@@ -37,6 +39,14 @@ class SrtParser extends \Nette\Object
         }
 
         return $res;
+    }
+
+
+
+    private static function parseTime($time)
+    {
+        list($h, $m, $s) = explode(':', $time);
+        return $h * 3600 + $m * 60 + str_replace(',', '.', $s);
     }
 
 }

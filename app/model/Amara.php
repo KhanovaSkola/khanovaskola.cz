@@ -49,7 +49,8 @@ class Amara extends Nette\Object
 
             $id = $meta->objects[0]->id;
             $content = $this->makeRequest(self::ENDPOINT . "/api2/partners/videos/$id/languages/cs/subtitles/?format=srt");
-            $cache->save($video->id, SrtParser::parse($content));
+            $res = SrtParser::parse($content);
+            $cache->save($video->id, $res);
         }
 
         return $cache[$video->id];

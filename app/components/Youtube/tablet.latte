@@ -15,12 +15,18 @@
 	 ***************************
 	 */
 	function onYouTubeIframeAPIReady() {
+		var height = 480;
+		var width = 640;
+		if (window.orientation == 0 || window.orientation == 180) {
+			height = 576;
+			width = 768;
+		}
+
 		player = new YT.Player('player', {
-			height: '480',
-			width: '640',
+			height: height,
+			width: width,
 			playerVars: {
 				'autoplay': {$autoplay ? '1' : '0'},
-				'controls': 0
 			},
 			videoId: {$video->youtube_id},
 			events: {

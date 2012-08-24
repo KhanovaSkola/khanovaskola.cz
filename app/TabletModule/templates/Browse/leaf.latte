@@ -15,4 +15,50 @@
 	<div class="tablet-player">
 		{control youtube:tablet, $video}
 	</div>
+	<div id="subtitles">
+		<div n:foreach="$video->getSubtitles() as $row" data-start="{$row->start}" data-end="{$row->end}">{$row->content}</div>
+	</div>
+	<script>
+		var tracking = false;
+		var $high = null;
+		var center = 0;
+
+		/**
+		 * @Override
+		 */
+		function onPlayerStateChange(event) {
+			var code = event.data;
+			saveState(code);
+
+			if (code == 1) { // playing
+				$high.addClass('highlight');
+				setInterval(function() {
+					moveSubtitles(player.getCurrentTime());
+				}, 500);
+			} else {
+				clearInterval(tracking);
+			}
+		}
+
+		$(function() {
+			/** prepare scroll helpers */
+			$("#subtitles div").each(function(i, el) {
+				$(el).data('scroll-to', $(el).position().top - $("#subtitles").position().top);
+			});
+
+			$high = $("#subtitles div:first");
+			center = $("#subtitles").height() / 2;
+		});
+
+		function moveSubtitles(time) {
+			if ($high.data('end') < time) {
+				$high.removeClass("highlight");
+				while ($high.data('end') < time) {
+					$high = $high.next();
+				}
+				$high.addClass("highlight");
+				$("#subtitles").scrollTop($high.data('scroll-to') - center);
+			}
+		}
+	</script>
 {/if}

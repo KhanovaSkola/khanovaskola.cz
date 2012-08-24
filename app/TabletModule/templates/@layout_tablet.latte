@@ -5,7 +5,7 @@
 
 	<meta name="description" content="{$description}" n:ifset="$description">
 	<meta name="robots" content="{$robots}" n:ifset="$robots">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="height=device-height,width=device-width,initial-scale=1.0,maximum-scale=1.0" >
 	<meta name="apple-mobile-web-app-capable" content="yes">
 
 	<title>{ifset $title}{$title} &ndash; {/ifset}Khanova škola</title>
@@ -46,9 +46,8 @@
 		})();
 	</script>
 </head>
-<body>
+<body n:class="isset($video) && $video ? video">
 	<script> document.body.className+=' js' </script>
-
 	<div data-role="page">
 		<div data-role="header">
 			<a data-rel="back" href="#">{ifset $backlink}Zpět na {$backlink}{else}Zpět{/ifset}</a>
