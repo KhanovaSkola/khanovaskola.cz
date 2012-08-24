@@ -96,4 +96,11 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 		return FALSE;
 	}
 
+
+
+    public function createComponentYoutube()
+    {
+        return new Youtube();
+    }
+
 }

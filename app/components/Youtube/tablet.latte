@@ -1,3 +1,4 @@
+<div id="player"></div>
 <script>
 	var player = null;
 	var ticker = null;
@@ -8,8 +9,6 @@
 	var firstScriptTag = document.getElementsByTagName('script')[0];
 	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-
-
 	/*
 	 ***************************
 	 * For iframe view (ie ipad)
@@ -18,7 +17,11 @@
 	function onYouTubeIframeAPIReady() {
 		player = new YT.Player('player', {
 			height: '480',
-			width: '800',
+			width: '640',
+			playerVars: {
+				'autoplay': {$autoplay ? '1' : '0'},
+				'controls': 0
+			},
 			videoId: {$video->youtube_id},
 			events: {
 				//'onReady': onPlayerReady,
@@ -32,26 +35,9 @@
 		saveState(event.data);
 	}
 
-
-
 	/*
 	 ***************************
-	 * Object view for unisubs
-	 ***************************
-	 */
-	function onYouTubePlayerReady() {
-		player = $("[id$='_ytplayer']")[0];
-		player.addEventListener("onStateChange", "saveState");
-
-		// translate widget
-		$('.unisubs-tabTextchoose').text('Čeština');
-	}
-
-
-
-	/*
-	 ***************************
-	 * Save for both
+	 * Save progress
 	 ***************************
 	 */
 	function saveState(code) {
@@ -82,3 +68,4 @@
 		});
 	}
 </script>
+

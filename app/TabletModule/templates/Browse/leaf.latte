@@ -1,0 +1,18 @@
+{var $backlink => $category->getParent()->label}
+{var $title => $video ? $video->label : $category->label}
+
+{#navigation}
+<ul data-role="listview" data-inset="true">
+	<li n:foreach="$category->getVideos() as $v" class="video-link">
+		<a n:href="this, vid => $v->id">{$v->label}</a>
+	</li>
+</ul>
+
+{/#}
+{#content}
+
+{if $video}
+	<div class="tablet-player">
+		{control youtube:tablet, $video}
+	</div>
+{/if}

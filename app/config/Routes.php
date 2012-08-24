@@ -11,6 +11,20 @@ class Routes
 	{
 		$container->router[] = new Route('index.php', 'Front:Homepage:default', Route::ONE_WAY);
 
+        /**
+         * Tablet routes - duplicated because link creator must know the domain
+         */
+        $container->router[] = new Route('//tablet.khan.l/<presenter>[/<action>]', [
+            'module' => 'Tablet',
+            'presenter' => 'Homepage',
+            'action' => 'default',
+        ]);
+        $container->router[] = new Route('//tablet.khanovaskola.cz/<presenter>[/<action>]', [
+            'module' => 'Tablet',
+            'presenter' => 'Homepage',
+            'action' => 'default',
+        ]);
+
 		/**
 		 * API
 		 */

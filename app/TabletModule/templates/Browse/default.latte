@@ -1,0 +1,15 @@
+{var $backlink => !$category->isSubject() ? $category->getParent()->label : 'Témata'}
+{var $title => $category->label}
+
+{#navigation}
+<ul data-role="listview" data-inset="true">
+	<li n:foreach="$category->getSubcategories() as $subcat">
+		{if $subcat->isLeaf()}
+			<a n:href="leaf, id => $subcat->id">{$subcat->label}</a>
+		{else}
+			<a n:href="this, id => $subcat->id">{$subcat->label}</a>
+		{/if}
+	</li>
+</ul>
+{/#}
+{#content}
