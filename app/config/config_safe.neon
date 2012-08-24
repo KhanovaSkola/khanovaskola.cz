@@ -26,6 +26,9 @@ common:
 			secret:
 			scope: ['https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/userinfo.email']
 
+		amara:
+			key:
+
 		adminer_editor:
 			role: moderator
 
@@ -61,6 +64,8 @@ common:
 
 		facebook: Facebook([appId: %facebook.appId%, secret: %facebook.secret%])
 		google: Google([id: %google.id%, secret: %google.secret%])
+
+		amara: Amara(%amara.key%, %amara.username%)
 
 		user: NetteUser
 		authenticator_facebook: FacebookAuth

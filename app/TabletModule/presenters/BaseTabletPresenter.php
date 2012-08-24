@@ -10,6 +10,10 @@ abstract class BaseTabletPresenter extends \BasePresenter
 	{
 		parent::startup();
 
+        $subs = $this->context->videos->find(3)->getSubtitles();
+        dump($subs);
+        die;
+
         $this->setLayout('layout_tablet');
 
         if (FALSE && !$this->isMobile()) {

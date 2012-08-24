@@ -193,4 +193,11 @@ class Video extends Entity
 		return "http://i.ytimg.com/vi/{$this->youtube_id}/hqdefault.jpg";
 	}
 
+
+
+    public function getSubtitles()
+    {
+        return $this->context->amara->getSubtitles($this);
+    }
+
 }
