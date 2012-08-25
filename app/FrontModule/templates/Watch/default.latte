@@ -48,29 +48,11 @@
 				</div>
 			</div>
 			<div n:if="$presenter->mobile == 'ipad'" class="video-container">
-				<div id="player"></div> {* loaded dynamicaly in _save_progress *}
-				<p>Na iPadu zatím nemůžeme zobrazovat videa s českými titulky. Na řešení pracujeme.</p>
+				{control youtube:tablet, $video}
 			</div>
 			<div n:if="$presenter->mobile != 'ipad'" class="video-container">
-				<div class="video-overlay desktop-only large-font"></div>
-				<div class="youtube-video">
-					<link itemprop="thumbnailUrl" href="http://img.youtube.com/vi/{$video->youtube_id}/hqdefault.jpg">
-					<script type="text/javascript" src="http://s3.www.universalsubtitles.org/embed.js">
-						({
-							video_url: "http://www.youtube.com/watch?v={!$video->youtube_id}",
-							base_state: {"language": "cs"},
-							video_config: {
-								width: "800",
-								height: "480",
-								modestbranding: "1",
-								autoplay: {$autoplay ? 1 : 0},
-								enablejsapi: "1",
-							}
-						})
-					</script>
-				</div>
+				{control youtube, $video, $autoplay}
 			</div>
-			{include _save_progress.latte}
 			<div>
 				<span class="video-footer">
 					<span class="extra-link-bar desktop-only">

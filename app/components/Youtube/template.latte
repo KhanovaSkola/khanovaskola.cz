@@ -14,4 +14,18 @@
 			}
 		})
 	</script>
+	<script>
+		var player = null;
+		var ticker = null;
+
+		function onYouTubePlayerReady() {
+			player = $("[id$='_ytplayer']")[0];
+			player.addEventListener("onStateChange", "saveState");
+
+			// translate widget
+			$('.unisubs-tabTextchoose').text('Čeština');
+		}
+
+		{include 'save_progress.js'}
+	</script>
 </div>
