@@ -11,31 +11,20 @@ class Routes
 	{
 		$container->router[] = new Route('index.php', 'Front:Homepage:default', Route::ONE_WAY);
 
+        $domain = $container->parameters['environment'] === 'production' ? 'khanovaskola.cz' : 'khan.l';
+
         /**
          * Tablet routes - duplicated because link creator must know the domain
          */
-        $container->router[] = new Route('//tablet.khan.l/prihlaseni', [
+        $container->router[] = new Route("//tablet.$domain/prihlaseni", [
             'presenter' => 'Sign',
             'action' => 'inTablet',
         ]);
-        $container->router[] = new Route('//tablet.khanovaskola.cz/prihlaseni', [
-            'presenter' => 'Sign',
-            'action' => 'inTablet',
-        ]);
-        $container->router[] = new Route('//tablet.khan.l/odhlaseni', [
+        $container->router[] = new Route("//tablet.$domain/odhlaseni", [
             'presenter' => 'Sign',
             'action' => 'out',
         ]);
-        $container->router[] = new Route('//tablet.khanovaskola.cz/odhlaseni', [
-            'presenter' => 'Sign',
-            'action' => 'out',
-        ]);
-        $container->router[] = new Route('//tablet.khan.l/<presenter>[/<action>]', [
-            'module' => 'Tablet',
-            'presenter' => 'Homepage',
-            'action' => 'default',
-        ]);
-        $container->router[] = new Route('//tablet.khanovaskola.cz/<presenter>[/<action>]', [
+        $container->router[] = new Route("//tablet.$domain/<presenter>[/<action>]", [
             'module' => 'Tablet',
             'presenter' => 'Homepage',
             'action' => 'default',
