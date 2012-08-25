@@ -8,6 +8,18 @@
 abstract class BasePresenter extends Nette\Application\UI\Presenter
 {
 
+    public function startup()
+    {
+        parent::startup();
+
+        list($module) = explode(':', $this->name);
+        if ($module !== 'Tablet' && $this->isMobile()) {
+            $this->redirect(':Tablet:Homepage:');
+        }
+    }
+
+
+
 	/**
 	 * @return string
 	 */

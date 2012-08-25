@@ -53,9 +53,9 @@
 			<a data-rel="back" href="#">{ifset $backlink}Zpět na {$backlink}{else}Zpět{/ifset}</a>
 			<h1>{ifset $title}{$title}{else}Khanova škola{/ifset}</h1>
 			{if $user->loggedIn}
-				<a n:href=":Sign:out" data-ajax="false">{$user->entity->name}</a>
+				<a n:href="Sign:out" data-ajax="false">{$user->entity->name}</a>
 			{else}
-				<a n:href=":Sign:inTablet" data-rel="dialog">Přihlášení</a>
+				<a n:href="Sign:in" data-rel="dialog">Přihlášení</a>
 			{/if}
 		</div>
 		<div data-role="content">

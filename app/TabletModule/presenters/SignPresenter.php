@@ -1,14 +1,16 @@
 <?php
 
+namespace TabletModule;
+
 use Nette\Application\UI;
 use Nette\Security as NS;
 use Nette\Caching\Cache;
 
 
-class SignPresenter extends BasePresenter
+class SignPresenter extends BaseTabletPresenter
 {
 
-	public function renderIn()
+    public function renderIn()
 	{
         $this->template->facebookAuth = $this->context->facebook->getLoginUrl([
             'scope' => ['email'],
@@ -23,7 +25,7 @@ class SignPresenter extends BasePresenter
 
 
 
-	/**
+    /**
 	 * Sign in form component factory.
 	 * @return Nette\Application\UI\Form
 	 */
@@ -55,11 +57,7 @@ class SignPresenter extends BasePresenter
 			$this->user->setExpiration('+ 7 days', TRUE);
 			$this->user->login($values->username, $values->password);
 
-			if ($this->user->isInRole('moderator')) {
-				$this->redirect(':Moderator:Dashboard:');
-			} else {
-				$this->redirect(':Front:Homepage:');
-			}
+			$this->redirect(':Tablet:Homepage:');
 
 		} catch (NS\AuthenticationException $e) {
 			$form->addError($e->getMessage());
@@ -79,7 +77,7 @@ class SignPresenter extends BasePresenter
 				 * Facebook does not redirect to it without the final slash
 				 * @see http://stackoverflow.com/a/8363709/326257
 				 */
-				'next' => $this->presenter->link('//:Sign:in') . '/',
+				'next' => $this->presenter->link('//in') . '/',
 			]);
 			$this->redirectUrl($url);
 		}
@@ -97,7 +95,7 @@ class SignPresenter extends BasePresenter
 			$this->user->login($info);
 		}
 
-		$this->redirect(':Front:Profile:');
+		$this->redirect(':Tablet:Homepage:');
 	}
 
 
@@ -113,7 +111,7 @@ class SignPresenter extends BasePresenter
 		$token = $g->getToken($code, $this->link('//googleAuth'));
 
 		$this->user->googleLogin($g->getInfo($token));
-		$this->redirect(':Front:Profile:');
+		$this->redirect(':Tablet:Homepage:');
 	}
 
 }
