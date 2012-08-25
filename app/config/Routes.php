@@ -14,16 +14,8 @@ class Routes
         $domain = $container->parameters['environment'] === 'production' ? 'khanovaskola.cz' : 'khan.l';
 
         /**
-         * Tablet routes - duplicated because link creator must know the domain
+         * Tablet routes
          */
-        $container->router[] = new Route("//tablet.$domain/prihlaseni", [
-            'presenter' => 'Sign',
-            'action' => 'inTablet',
-        ]);
-        $container->router[] = new Route("//tablet.$domain/odhlaseni", [
-            'presenter' => 'Sign',
-            'action' => 'out',
-        ]);
         $container->router[] = new Route("//tablet.$domain/<presenter>[/<action>]", [
             'module' => 'Tablet',
             'presenter' => 'Homepage',
@@ -33,11 +25,11 @@ class Routes
         /**
 		 * API
 		 */
-		$container->router[] = new Route('//api.<domain>.<top l|cz>/', [
+		$container->router[] = new Route("//api.$domain/", [
 			'module' => 'Api',
 			'presenter' => 'Documentation',
 		]);
-		$container->router[] = new Route('//api.<domain>.<top l|cz>/<presenter>[/<id>[/<method>]]', [
+		$container->router[] = new Route("//api.$domain/<presenter>[/<id>[/<method>]]", [
 			'module' => 'Api',
 			'presenter' => 'Category',
 		]);
