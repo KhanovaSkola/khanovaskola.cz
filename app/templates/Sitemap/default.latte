@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url><loc>{plink //:Front:About:}</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+	<url><loc>{plink //:Front:About:coach}</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+	<url><loc>{plink //:Front:Contact:}</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+	<url><loc>{plink //:Front:Contact:tos}</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+	<url><loc>{plink //:Front:Exercise:}</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+	<url><loc>{plink //:Front:Registration:}</loc><changefreq>yearly</changefreq><priority>0.8</priority></url>
+	<url><loc>{plink //:Front:Volunteer:}</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
+	<url><loc>{plink //:Sign:in}</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
+
+	{cache tags => ['categories']}
+		<url n:foreach="$presenter->context->categories->findAll() as $category">
+			<loc>{plink //:Front:Browse:, id => $category->id}</loc>
+			<changefreq>monthly</changefreq>
+			<priority>0.5</priority>
+		</url>
+	{/cache}
+	{cache tags => ['videos']}
+		<url n:foreach="$presenter->context->videos->findAll() as $video">
+			<loc>{plink //:Front:Watch:, vid => $video->id}</loc>
+			<changefreq>yearly</changefreq>
+			<priority>0.6</priority>
+		</url>
+	{/cache}
+	{cache tags => ['exercises']}
+		<url n:foreach="$presenter->context->exercises->findAll() as $exercise">
+			<loc>{plink //:Front:Exercise:, eid => $exercise->id}</loc>
+			<changefreq>monthly</changefreq>
+			<priority>0.4</priority>
+		</url>
+	{/cache}
+	{cache tags => ['tags']}
+		<url n:foreach="$presenter->context->tags->findAll() as $tag">
+			<loc>{plink //:Front:Tag:, tid => $tag->id}</loc>
+			<changefreq>monthly</changefreq>
+			<priority>0.3</priority>
+		</url>
+	{/cache}
+</urlset>

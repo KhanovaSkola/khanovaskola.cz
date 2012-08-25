@@ -129,6 +129,13 @@ class Routes
 			'action' => 'confirmCoach',
 		]);
 
+        /**
+         * Sitemap
+         */
+        $container->router[] = new Route('sitemap[!.xml]', [
+            'presenter' => 'Sitemap',
+            'action' => 'default',
+        ]);
 
 		/**
 		 * Direct actions of sign presenter
