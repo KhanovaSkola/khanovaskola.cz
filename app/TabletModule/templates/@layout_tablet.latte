@@ -50,13 +50,21 @@
 	<script> document.body.className+=' js' </script>
 	<div data-role="page">
 		<div data-role="header">
-			<a data-rel="back" href="#">{ifset $backlink}Zpět na {$backlink}{else}Zpět{/ifset}</a>
-			<h1>{ifset $title}{$title}{else}Khanova škola{/ifset}</h1>
-			{if $user->loggedIn}
-				<a n:href="Sign:out" data-ajax="false">{$user->entity->name}</a>
+			{ifset #leftButton}
+				{include #leftButton}
 			{else}
-				<a n:href="Sign:in" data-rel="dialog">Přihlášení</a>
-			{/if}
+				<a data-rel="back" href="#">{ifset $backlink}Zpět na {$backlink}{else}Zpět{/ifset}</a>
+			{/ifset}
+			<h1>{ifset $title}{$title}{else}Khanova škola{/ifset}</h1>
+			{ifset #rightButton}
+				{include #rightButton}
+			{else}
+				{if $user->loggedIn}
+					<a n:href="Profile:" data-ajax="false">{$user->entity->name}</a>
+				{else}
+					<a n:href="Sign:in" data-rel="dialog">Přihlášení</a>
+				{/if}
+			{/ifset}
 		</div>
 		<div data-role="content">
 			<div class="ui-grid-t">
