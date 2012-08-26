@@ -94,7 +94,7 @@ class SignPresenter extends BasePresenter
 	{
 		$info = $this->context->facebook->api('/me');
 		if ($info) {
-			$this->user->login($info);
+			$this->user->facebookLogin($info);
 		}
 
 		$this->redirect(':Front:Profile:');
