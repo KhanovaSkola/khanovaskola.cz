@@ -43,7 +43,12 @@ class ContactPresenter extends BaseFrontPresenter
 	public function onSuccessIssueForm(Form $form)
 	{
 		$gh = new \Github($this->context);
-		$gh->createIssue($form->values);
+
+        $data = $form->values;
+        $data['label'] = ucFirst($data['label']);
+        $data['branch'] = \Git::getBranch();
+        $data['commit'] = substr(\Git::getCommit(), 0, 7);
+		$gh->createIssue($data);
 
 		$cache = new Cache($this->context->cacheStorage);
 		$cache->clean([Cache::TAGS => ["issues"]]);

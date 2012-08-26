@@ -51,15 +51,12 @@ class Github extends \Nette\Object
 	{
 		$query = [
 			'title' => $data['label'],
-			'body' => "```ruby
-user_id: $data[user_id]
-url: $data[url]
-time: " . date('c', $data['time']) . "
-```
-
-$data[description]
-
-*This issue has been automatically generated from user report on the website.*",
+			'body' => "<table>
+                    <tr><td>user_id</td><td>$data[user_id]</td></tr>
+                    <tr><td>url</td><td>$data[url]</td></tr>
+                    <tr><td>time</td><td>" . date('c', $data['time']) . "</td></tr>
+                    <tr><td>version</td><td>$data[branch] $data[commit]</td></tr>
+                </table>\n$data[description]\n\n*This issue has been automatically generated from user report on the website.*",
 			'labels' => ['user-report']
 		];
 
