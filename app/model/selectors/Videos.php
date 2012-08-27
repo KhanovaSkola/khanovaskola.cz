@@ -141,4 +141,14 @@ class Videos extends Table
 		return $count;
 	}
 
+
+
+    public function findEmpty()
+    {
+        return $this->findOneBy([
+            'label' => '',
+            'description' => '',
+        ]);
+    }
+
 }

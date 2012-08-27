@@ -110,9 +110,15 @@ class BrowsePresenter extends BaseFrontPresenter
             throw new \Nette\Application\ForbiddenRequestException;
         }
 
-		$video = $this->context->videos->insert([
-			'category_id' => $this->id,
-		]);
+        $video = $this->context->videos->findEmpty();
+        if ($video) {
+            $video->category_id = $this->id;
+            $video->update();
+        } else {
+            $video = $this->context->videos->insert([
+                'category_id' => $this->id,
+            ]);
+        }
 		$this->redirect(':Front:Watch:edit', ['vid' => $video->id]);
 	}
 
