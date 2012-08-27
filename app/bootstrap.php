@@ -7,8 +7,8 @@ require LIBS_DIR . '/Nette/loader.php';
 $configurator = new Nette\Config\Configurator;
 
 // Enable Nette Debugger for error visualisation & logging
-$local_ips = ['79.98.75.10', '192.168.100.53', '192.168.100.57'];
-$configurator->setDebugMode($local_ips);
+$local_ips = ['192.168.100.53', '192.168.100.57'];
+$configurator->setDebugMode(array_merge($local_ips, ['79.98.75.10']));
 $configurator->enableDebugger(__DIR__ . '/../log');
 
 // Enable RobotLoader - this will load all classes automatically
