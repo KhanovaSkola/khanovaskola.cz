@@ -7,7 +7,8 @@ require LIBS_DIR . '/Nette/loader.php';
 $configurator = new Nette\Config\Configurator;
 
 // Enable Nette Debugger for error visualisation & logging
-$configurator->setDebugMode(['79.98.75.10', '192.168.100.57']);
+$local_ips = ['79.98.75.10', '192.168.100.53', '192.168.100.57'];
+$configurator->setDebugMode($local_ips);
 $configurator->enableDebugger(__DIR__ . '/../log');
 
 // Enable RobotLoader - this will load all classes automatically
@@ -20,7 +21,7 @@ $configurator->createRobotLoader()
 Kdyby\Forms\Containers\Replicator::register();
 
 // Create Dependency Injection container from config.neon file
-$environment = Nette\Config\Configurator::detectDebugMode(['127.0.0.1', '192.168.100.57'])
+$environment = Nette\Config\Configurator::detectDebugMode($local_ips)
 	? $configurator::DEVELOPMENT : $configurator::PRODUCTION;
 $configurator->addConfig(__DIR__ . '/config/config.neon', $environment);
 
