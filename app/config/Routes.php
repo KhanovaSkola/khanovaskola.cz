@@ -34,7 +34,7 @@ class Routes
 			'presenter' => 'Category',
 		]);
 		$container->router[] = new Route('css/dynamic.dcss', [
-			'module' => 'Api',
+			'module' => 'Front',
 			'presenter' => 'DynamicCss',
 			'action' => 'default',
 		]);

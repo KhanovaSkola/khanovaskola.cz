@@ -1,6 +1,6 @@
 <?php
 
-namespace ApiModule;
+namespace FrontModule;
 
 use Nette\Application\Responses\TextResponse;
 use Nette\Caching\Cache;
@@ -11,6 +11,10 @@ class DynamicCssPresenter extends \BasePresenter
 
 	public function actionDefault()
 	{
+        if (!$this->user->isLoggedIn()) {
+            throw new \Nette\Application\ForbiddenRequestException;
+        }
+
 		$cache = new Cache($this->context->cacheStorage, 'dynamic_css');
 		if (!isset($cache[$this->user->id])) {
 			$data = $this->generateStyle();
