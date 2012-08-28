@@ -188,7 +188,6 @@ class Routes
 		 * Other presenters
 		 */
         $container->router[] = new Route("robots.txt", [
-            'module' => 'Front',
             'presenter' => 'Sitemap',
             'action' => 'robotsTxt',
         ]);
