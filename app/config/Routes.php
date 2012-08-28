@@ -16,6 +16,11 @@ class Routes
         /**
          * Tablet routes
          */
+        $container->router[] = new Route("//tablet.$domain/robots.txt", [
+            'module' => 'Tablet',
+            'presenter' => 'Homepage',
+            'action' => 'robotsTxt',
+        ]);
         $container->router[] = new Route("//tablet.$domain/<presenter>[/<action>]", [
             'module' => 'Tablet',
             'presenter' => 'Homepage',
@@ -182,6 +187,11 @@ class Routes
 		/**
 		 * Other presenters
 		 */
+        $container->router[] = new Route("robots.txt", [
+            'module' => 'Front',
+            'presenter' => 'Sitemap',
+            'action' => 'robotsTxt',
+        ]);
 		$container->router[] = new Route('<presenter>/<action>[/<id>]', [
 			'module' => 'Front',
 			'presenter' => [
