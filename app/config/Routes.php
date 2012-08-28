@@ -141,6 +141,10 @@ class Routes
 				]
 			]
 		]);
+        $container->router[] = new Route('auth/<action>', [
+            'presenter' => 'Sign',
+            'action' => 'default',
+        ]);
 
 		/**
 		 * Moderator module without tanslations

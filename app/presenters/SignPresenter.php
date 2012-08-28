@@ -8,18 +8,25 @@ use Nette\Caching\Cache;
 class SignPresenter extends BasePresenter
 {
 
-	public function renderIn()
-	{
-        $this->template->facebookAuth = $this->context->facebook->getLoginUrl([
+    public function actionInFacebook()
+    {
+        $url = $this->context->facebook->getLoginUrl([
             'scope' => ['email'],
             'redirect_uri' => $this->link("//fbAuth"),
         ]);
+        $this->redirectUrl($url);
+    }
 
-        $this->template->googleAuth = $this->context->google->getLoginUrl([
-            'scope' => $this->context->params['google']['scope'],
+
+
+    public function actionInGoogle()
+    {
+        $url = $this->context->google->getLoginUrl([
+            'scope' => $this->context->parameters['google']['scope'],
             'redirect_uri' => $this->link('//googleAuth'),
         ]);
-	}
+        $this->redirectUrl($url);
+    }
 
 
 

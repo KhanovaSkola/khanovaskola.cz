@@ -3,8 +3,8 @@
 {#content}
 
 <article id="page-root">
-	<div class="login-container card-case vertical-shadow">
-		<div class="providers">
+	<div class="signup-container card-case vertical-shadow">
+		<div class="pw-signup container">
 			<div class="pw-login">
 				<h3>Registrace do Khanovy školy</h3>
 
@@ -32,6 +32,28 @@
 
 						{input send, value => "Přihlásit", class => "simple-button green"}
 					{/form}
+				</div>
+			</div>
+
+			<div class="horizontal-separator">
+				<span class="separator-text">NEBO</span>
+			</div>
+
+			<h3>Máte Google nebo Facebook účet? Můžete se rovnou přihlásit:</h3>
+			<div class="providers container center">
+				<div id="login-google" class="action-gradient provider">
+					<div class="img-container">
+						<a n:href=":Sign:inGoogle">
+							<img width="180" height="61" alt="Google" src="{$basePath}/images/google-logo-large.png">
+						</a>
+					</div>
+				</div>
+				<div id="login-facebook" class="action-gradient provider" style="margin-left: 12pt;">
+					<div class="img-container">
+						<a n:href=":Sign:inFacebook">
+							<img width="180" height="61" alt="Facebook" src="{$basePath}/images/facebook-logo-large.png">
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
