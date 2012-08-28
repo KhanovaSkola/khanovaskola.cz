@@ -1,5 +1,5 @@
 <div class="video-overlay desktop-only large-font"></div>
-<div class="youtube-video">
+<div class="youtube-video" id="video-container">
 	<link itemprop="thumbnailUrl" href="{$video->getThumbnailHd()}">
 	<script type="text/javascript" src="http://s3.www.universalsubtitles.org/embed.js">
 		({
@@ -21,11 +21,24 @@
 		function onYouTubePlayerReady() {
 			player = $("[id$='_ytplayer']")[0];
 			player.addEventListener("onStateChange", "saveState");
+			player.addEventListener("onStateChange", "checkCaptions");
+			console.log('hooked');
 
 			// translate widget
 			$('.unisubs-tabTextchoose').text('Čeština');
 		}
 
+		function checkCaptions() {
+			if (player.getOptions().indexOf("cc") !== -1) {
+				$("#cc-notification").show();
+			} else {
+				$("#cc-notification").hide();
+			}
+		}
+
 		{include 'save_progress.js'}
 	</script>
 </div>
+<p id="cc-notification" style="display: none;">
+	Pro výrazně lepší čitelnost českých titulků si vypněte titulky (<emp>cc</emp>) v Youtube.
+</p>

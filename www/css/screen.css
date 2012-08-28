@@ -49,6 +49,8 @@ code {font-family: "Monaco", "Courier New";}
 .task.task-completed {text-decoration: line-through; color: gray;}
 .video-dubbed .unisubs-videoTab-static {display: none !important;}
 .unisubs-videoTab-static .unisubs-tabTextShare {display: none !important;}
+#video-container .unisubs-videoTab-container {display: inline !important;}
+#cc-notification {margin: 3px 0 0 0; padding: 0; position: relative; left: 1em;}
 
 /* ----  iPad 3 ---- */
 .ipad-only {display: none;}
