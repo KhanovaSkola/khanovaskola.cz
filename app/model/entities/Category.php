@@ -66,7 +66,7 @@ class Category extends Entity
 	 */
 	public function getVideos()
 	{
-		return $this->context->videos->findBy(['category_id' => $this->id]);
+		return $this->context->videos->findBy(['category_id' => $this->id, 'slug <> ?' => '']);
 	}
 
 
