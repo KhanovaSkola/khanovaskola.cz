@@ -1,5 +1,10 @@
 {var $video_count = floor($presenter->context->videos->findAll()->count() / 10) * 10}
 {var $description = "Jsme překlad Khan Academy. Máme pro vás přes $video_count lekcí z matematiky, fyziky, astronomie a humanitních věd a cvičení, na kterých si nabyté znalosti procvičíte."}
+{#head}
+	{if $presenter->getParam('ref')}
+		<link rel="canonical" n:href="//this, ref => NULL">
+	{/if}
+{/#}
 {#content}
 
 <article id="homepage">

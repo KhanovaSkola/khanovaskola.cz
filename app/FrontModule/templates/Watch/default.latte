@@ -1,5 +1,10 @@
 {var $title = $video->label}
 {var $description = $video->description ? "{$video->description} ({$video->getCategory()->label})" : "Video z kategorie {$video->getCategory()->getParent()->label}, {$video->getCategory()->label}"}
+{#head}
+	{if $autoplay}
+		<link rel="canonical" n:href="//this, autoplay => NULL">
+	{/if}
+{/#}
 {#breadcrumbs}
 	<span class="breadcrumbs-tags">
 		<span n:if="$video->hasTags()">
