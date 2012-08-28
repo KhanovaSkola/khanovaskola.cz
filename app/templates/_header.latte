@@ -25,7 +25,7 @@
 			</span>
 			{if !$user->loggedIn}
 				<span class="separator"></span>
-				<span><a n:href=":Sign:in">Přihlášení</a></span>
+				<span><a n:href=":Sign:in, backlink => $presenter->link('this')">Přihlášení</a></span>
 				<span class="separator"></span>
 				<span><a n:href=":Front:Registration:">Registrace</a></span>
 			{/if}

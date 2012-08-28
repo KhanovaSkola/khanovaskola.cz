@@ -8,6 +8,11 @@ use Nette\Caching\Cache;
 class SignPresenter extends BasePresenter
 {
 
+    /** @persistent */
+    public $backlink;
+
+
+
     public function actionInFacebook()
     {
         $url = $this->context->facebook->getLoginUrl([
@@ -62,11 +67,7 @@ class SignPresenter extends BasePresenter
 			$this->user->setExpiration('+ 7 days', TRUE);
 			$this->user->login($values->username, $values->password);
 
-			if ($this->user->isInRole('moderator')) {
-				$this->redirect(':Moderator:Dashboard:');
-			} else {
-				$this->redirect(':Front:Homepage:');
-			}
+            $this->inRedirect();
 
 		} catch (NS\AuthenticationException $e) {
 			$form->addError($e->getMessage());
@@ -104,7 +105,7 @@ class SignPresenter extends BasePresenter
 			$this->user->facebookLogin($info);
 		}
 
-		$this->redirect(':Front:Profile:');
+        $this->inRedirect();
 	}
 
 
@@ -120,7 +121,22 @@ class SignPresenter extends BasePresenter
 		$token = $g->getToken($code, $this->link('//googleAuth'));
 
 		$this->user->googleLogin($g->getInfo($token));
-		$this->redirect(':Front:Profile:');
+
+        $this->inRedirect();
 	}
+
+
+
+    protected function inRedirect()
+    {
+        if (!$this->backlink || $this->backlink === '/') {
+            if ($this->user->isInRole('moderator')) {
+                $this->redirect(':Moderator:Dashboard:');
+            } else {
+                $this->redirect(':Front:Homepage:');
+            }
+        }
+        $this->redirectUrl($this->backlink);
+    }
 
 }
