@@ -1,9 +1,10 @@
 <div class="prerendered">
 	<div>
 		<div class="main-header clearfix">
-			{var $thumbnail => $category->getSubcategories()->limit(1)->fetch()->getVideos()->limit(1)->fetch()}
+			{var $leaf => $category->getSubcategories()->limit(1)->fetch()}
+			{var $thumbnail => $leaf->getVideos()->limit(1)->fetch()}
 			<div class="topic-video thumbnail_td">
-				<a n:tag-if="$thumbnail" n:href=":Front:Watch:, vid => $thumbnail->id" class="thumbnail_link modal-video">
+				<a n:tag-if="$thumbnail" n:href=":Front:Watch:, id => $leaf->id, vid => $thumbnail->id" class="thumbnail_link modal-video">
 					<div class="thumb" style="background-image:url('http://img.youtube.com/vi/{$thumbnail ? $thumbnail->youtube_id : '0'}/hqdefault.jpg')"></div>
 					<div n:if="$thumbnail" class="thumbnail_container">
 						<div class="thumbnail_label"><div class="thumbnail_desc">{$thumbnail->label}</div></div>

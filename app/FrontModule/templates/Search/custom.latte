@@ -15,7 +15,7 @@
 		<ol>
 			<li n:foreach="$videos as $video">
 				<span class="video-progress v-{$video->id}"></span>
-				<a n:href=":Front:Watch:, vid => $video->id">{$video->label}</a>
+				<a n:href=":Front:Watch:, id => $video->getOneCategoryId(), vid => $video->id">{$video->label}</a>
 			</li>
 		</ol>
 	</div>

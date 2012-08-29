@@ -18,13 +18,31 @@ class WatchPresenter extends BaseFrontPresenter
 	/** @var \Video */
 	protected $video;
 
+    /**
+     * @persistent
+     * @var int
+     */
+    public $id;
+
+    /** @var \Category */
+    protected $category;
+
 
 
 	public function startup()
 	{
 		parent::startup();
-		$this->video = $this->context->videos->findOneBy(['id' => $this->vid]);
-        if (!$this->video) {
+
+        $this->video = $this->context->videos->find($this->vid);
+
+        if ($this->video && !$this->id) {
+            $this->redirect(301, 'this', [
+                'id' => $this->video->getOneCategoryId(),
+            ]);
+        }
+
+        $this->category = $this->context->categories->find($this->id);
+        if (!$this->category || !$this->video || !$this->category->containsVideo($this->video)) {
             throw new \Nette\Application\BadRequestException;
         }
 	}
@@ -125,7 +143,7 @@ class WatchPresenter extends BaseFrontPresenter
 		$cache = new Cache($this->context->cacheStorage);
 		$cache->clean([Cache::TAGS => $invalid]);
 
-		$this->redirect(':Front:Watch:');
+		$this->redirect('default');
 	}
 
 }

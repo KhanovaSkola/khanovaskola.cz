@@ -17,11 +17,13 @@
 		</url>
 	{/cache}
 	{cache tags => ['videos']}
-		<url n:foreach="$presenter->context->videos->findAll() as $video">
-			<loc>{plink //:Front:Watch:, vid => $video->id}</loc>
+		{foreach $presenter->context->categories->findLeaves() as $leaf}
+		<url n:foreach="$leaf->getVideos() as $video">
+			<loc>{plink //:Front:Watch:, id => $leaf->id, vid => $video->id}</loc>
 			<changefreq>yearly</changefreq>
 			<priority>0.6</priority>
 		</url>
+		{/foreach}
 	{/cache}
 	{cache tags => ['exercises']}
 		<url n:foreach="$presenter->context->exercises->findAll() as $exercise">

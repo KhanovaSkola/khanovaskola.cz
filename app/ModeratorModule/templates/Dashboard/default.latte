@@ -113,7 +113,7 @@
 					<ol>
 							{var $count => $vid['description']->limit(30)->count()}
 							<li n:foreach="$vid['description']->limit(30)->order('id DESC') as $video">
-								<a n:href=":Front:Watch:edit, vid => $video->id">{$video->label}</a>
+								<a n:href=":Front:Watch:edit, id => $video->getOneCategoryId(), vid => $video->id">{$video->label}</a>
 							</li>
 							<li n:if="$count == 30">and more&hellip;</li>
 					</ol>

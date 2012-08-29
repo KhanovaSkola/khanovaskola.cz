@@ -247,4 +247,24 @@ class Video extends Entity
         return $desc . $this->label;
     }
 
+
+    /**
+     * @return int
+     */
+    public function getOneCategoryId()
+    {
+        return $this->getCategoryIds()[0];
+    }
+
+
+
+    /**
+     * Default to this category when linking from exercises etc.
+     * @return Category
+     */
+    public function getOneCategory()
+    {
+        return $this->context->categories->find($this->getOneCategoryId());
+    }
+
 }

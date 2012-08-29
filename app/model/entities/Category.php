@@ -223,4 +223,17 @@ class Category extends Entity
         return $ids;
     }
 
+
+
+    public function containsVideo(Video $video)
+    {
+        foreach ($this->getVideoIds() as $id) {
+            if ($id === $video->id) {
+                return TRUE;
+            }
+        }
+
+        return FALSE;
+    }
+
 }

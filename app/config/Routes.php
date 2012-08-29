@@ -45,42 +45,26 @@ class Routes
 		]);
 
 		/**
-		 * SEO Category
-		 */
-		$categoryRoute = new SlugRoute('<id>[/<action>]', [
-			'id' => [
-				Route::FILTER_OUT => function ($id) use ($container) {
-					if (!is_numeric($id)) {
-						return $id;
-
-					} else {
-						return Strings::webalize($container->categories->findOneBy(['id' => $id])->label);
-					}
-				}
-			],
-			'module' => 'Front',
-			'presenter' => 'Browse',
-			'action' => [
-				Route::VALUE => 'default',
-				Route::FILTER_TABLE => [
-					'upravit' => 'edit',
-				]
-			],
-		]);
-		$categoryRoute->init($container, 'id', 'categories');
-		$container->router[] = $categoryRoute;
-
-		/**
 		 * SEO Video
 		 */
-		$videoRoute = new SlugRoute('video/<vid>[/<action>]', [
-			'vid' => [
+		$videoRoute = new VideoRoute('<id>/<vid>[/<action>]', [
+            'id' => [
+                Route::FILTER_OUT => function ($id) use ($container) {
+                    if (!is_numeric($id)) {
+                        return $id;
+
+                    } else {
+                        return Strings::webalize($container->categories->find($id)->label);
+                    }
+                }
+            ],
+            'vid' => [
 				Route::FILTER_OUT => function ($vid) use ($container) {
 					if (!is_numeric($vid)) {
 						return $vid;
 
 					} else {
-						return Strings::webalize($container->videos->findOneBy(['id' => $vid])->label);
+						return Strings::webalize($container->videos->find($vid)->label);
 					}
 				}
 			],
@@ -93,8 +77,57 @@ class Routes
 				]
 			],
 		]);
-		$videoRoute->init($container, 'vid', 'videos');
+		$videoRoute->init($container, 'id', 'vid');
 		$container->router[] = $videoRoute;
+
+        $oldVideo = new SlugRoute('video/<vid>[/<action>]', [
+            'vid' => [
+                Route::FILTER_OUT => function ($vid) use ($container) {
+                    if (!is_numeric($vid)) {
+                        return $vid;
+
+                    } else {
+                        return Strings::webalize($container->videos->find($vid)->label);
+                    }
+                }
+            ],
+            'module' => 'Front',
+            'presenter' => 'Watch',
+            'action' => [
+                Route::VALUE => 'default',
+                Route::FILTER_TABLE => [
+                    'upravit' => 'edit',
+                ]
+            ],
+        ]);
+        $oldVideo->init($container, 'vid', 'videos');
+        $container->router[] = $oldVideo;
+
+        /**
+         * SEO Category
+         */
+        $categoryRoute = new SlugRoute('<id>[/<action>]', [
+            'id' => [
+                Route::FILTER_OUT => function ($id) use ($container) {
+                    if (!is_numeric($id)) {
+                        return $id;
+
+                    } else {
+                        return Strings::webalize($container->categories->findOneBy(['id' => $id])->label);
+                    }
+                }
+            ],
+            'module' => 'Front',
+            'presenter' => 'Browse',
+            'action' => [
+                Route::VALUE => 'default',
+                Route::FILTER_TABLE => [
+                    'upravit' => 'edit',
+                ]
+            ],
+        ]);
+        $categoryRoute->init($container, 'id', 'categories');
+        $container->router[] = $categoryRoute;
 
 		/**
 		 * SEO Cviceni
