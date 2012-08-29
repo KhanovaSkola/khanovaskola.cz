@@ -13,8 +13,21 @@ class SignPresenter extends BasePresenter
 
 
 
+    public function actionIn()
+    {
+        if ($this->user->isLoggedIn()) {
+            $this->redirect(':Front:Profile:');
+        }
+    }
+
+
+
     public function actionInFacebook()
     {
+        if ($this->user->isLoggedIn()) {
+            $this->redirect(':Front:Profile:');
+        }
+
         $url = $this->context->facebook->getLoginUrl([
             'scope' => ['email'],
             'redirect_uri' => $this->link("//fbAuth"),
@@ -26,6 +39,10 @@ class SignPresenter extends BasePresenter
 
     public function actionInGoogle()
     {
+        if ($this->user->isLoggedIn()) {
+            $this->redirect(':Front:Profile:');
+        }
+
         $url = $this->context->google->getLoginUrl([
             'scope' => $this->context->parameters['google']['scope'],
             'redirect_uri' => $this->link('//googleAuth'),
