@@ -1,4 +1,4 @@
--- Adminer 3.4.0-dev MySQL dump
+-- Adminer 3.5.1 MySQL dump
 
 SET NAMES utf8;
 SET foreign_key_checks = 0;
@@ -32,6 +32,16 @@ CREATE TABLE `category` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `label` (`label`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci COMMENT='Kategorie';
+
+
+DROP TABLE IF EXISTS `category_video`;
+CREATE TABLE `category_video` (
+  `category_id` bigint(20) unsigned NOT NULL COMMENT 'Kategorie',
+  `video_id` bigint(20) unsigned NOT NULL COMMENT 'Video',
+  `position` int(10) unsigned NOT NULL COMMENT 'Pozice',
+  KEY `category_id` (`category_id`),
+  KEY `video_id` (`video_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci COMMENT='Kategorie + Videa';
 
 
 DROP TABLE IF EXISTS `coach`;
@@ -155,23 +165,16 @@ CREATE TABLE `user` (
 DROP TABLE IF EXISTS `video`;
 CREATE TABLE `video` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `category_id` bigint(20) unsigned NOT NULL COMMENT 'kategorie',
   `exercise_id` bigint(20) unsigned DEFAULT NULL COMMENT 'cvičení',
   `label` varchar(255) COLLATE utf8_czech_ci NOT NULL COMMENT 'titulek',
   `slug` varchar(255) COLLATE utf8_czech_ci NOT NULL,
   `description` text COLLATE utf8_czech_ci NOT NULL COMMENT 'abstrakt',
-  `youtube_id` varchar(50) COLLATE utf8_czech_ci NOT NULL COMMENT 'youtube_id',
-  `position` int(10) unsigned NOT NULL,
+  `youtube_id` varchar(50) COLLATE utf8_czech_ci NOT NULL COMMENT 'youtube_id (bez mezer okolo)',
   PRIMARY KEY (`id`),
   UNIQUE KEY `label` (`label`),
-  KEY `category_id` (`category_id`),
   KEY `exercise_id` (`exercise_id`),
-  CONSTRAINT `video_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`),
   CONSTRAINT `video_ibfk_2` FOREIGN KEY (`exercise_id`) REFERENCES `exercise` (`id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci COMMENT='Videa';
 
 
-DROP VIEW IF EXISTS `videos_with_error`;
-CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `videos_with_error` AS select `video`.`id` AS `id`,`video`.`category_id` AS `category_id`,`video`.`exercise_id` AS `exercise_id`,`video`.`label` AS `label`,`video`.`description` AS `description`,`video`.`youtube_id` AS `youtube_id`,`video`.`position` AS `position` from `video` where (`video`.`description` like '%.');
-
--- 2012-08-21 15:04:30
+-- 2012-08-29 12:25:09
