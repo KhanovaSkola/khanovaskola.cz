@@ -106,9 +106,9 @@
 
                     <div data-if="GCD > 1 || G < 0" data-unwrap>
                         <p data-if="GCD > 1">Všechny tyto výrazy jsou dělitelné <code><var>GCD</var></code>.</p>
-                        <p data-if="GCD > 1 && G < 0">Vydělte společným dělitelem a prohoďte znaménka, aby jmenovatel nebyl záporný.</p>
+                        <p data-if="GCD > 1 && G < 0">Vydělte společným dělitelem a vyrušte znaménka, aby jmenovatel nebyl záporný.</p>
                         <p data-else-if="GCD > 1">Vydělte společným dělitelem.</p>
-                        <p data-else>Prohoďte znaménka tak, aby jmenovatel nebyl záporný.</p>
+                        <p data-else>Vyrušte znaménka tak, aby jmenovatel nebyl záporný.</p>
                         <p><code><var>X</var> = \dfrac{ <var>plus( color_( round( DIVISOR*(D-A) ), true )+Y, color_( round( DIVISOR*(E-B) ), true )+Z, color_( round( DIVISOR*(F-C) ), true ) )</var> }{ <var>plus( color_( round( DIVISOR*G )+X_EXTRAS, true ) )</var> }</code></p>
                     </div>
                 </div>
