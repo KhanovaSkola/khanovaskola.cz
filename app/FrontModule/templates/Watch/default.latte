@@ -1,5 +1,5 @@
 {var $title = $video->label}
-{var $description = $video->getDescription()}
+{var $description = $video->getDescription($category)}
 {#head}
 	{if $autoplay}
 		<link rel="canonical" n:href="//this, autoplay => NULL">
@@ -12,7 +12,6 @@
 		</span>
 	</span>
 	<span class="breadcrumbs_nav video-nav">
-		{var $category = $video->getCategories()->fetch()}
 		{#breadpath}
 			{if !$category->isSubject()}
 				{include #breadpath, category => $category->getParent()}
@@ -37,14 +36,14 @@
 				</div>
 				<div class="video-header" style="min-height: 1px">
 					<nav class="prev_next_nav desktop-only">
-						{var $prev => $video->getPreviousVideo()}
+						{var $prev => $video->getPreviousVideo($category)}
 						<label id="prev_video">
 							<a n:if="$prev" rel="prev" class="previous-video" n:href="this, vid => $prev->id">
 								<b>Předchozí video:</b> {$prev->label}
 							</a>
 							<a n:if="!$prev" class="previous-video"></a>
 						</label>
-						{var $next => $video->getNextVideo()}
+						{var $next => $video->getNextVideo($category)}
 						<label id="next_video" n:if="$next">
 							<a rel="next" class="next-video" n:href="this, vid => $next->id"><b>Další video:</b> {$next->label}</a>
 						</label>

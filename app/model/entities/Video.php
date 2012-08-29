@@ -25,9 +25,9 @@ class Video extends Entity
 	/**
 	 * @return Video
 	 */
-	public function getNextVideo()
+	public function getNextVideo(Category $category)
 	{
-		return $this->getAdjacentVideo(+1);
+		return $this->getAdjacentVideo($category, +1);
 	}
 
 
@@ -35,9 +35,9 @@ class Video extends Entity
 	/**
 	 * @return Video
 	 */
-	public function getPreviousVideo()
+	public function getPreviousVideo(Category $category)
 	{
-		return $this->getAdjacentVideo(-1);
+		return $this->getAdjacentVideo($category, -1);
 	}
 
 
@@ -45,15 +45,15 @@ class Video extends Entity
 	/**
 	 * @return Video
 	 */
-	protected function getAdjacentVideo($offset)
+	protected function getAdjacentVideo(Category $category, $offset)
 	{
         $position = $this->context->database->table('category_video')->where([
-            'category_id' => $this->getCategoryIds()[0],
+            'category_id' => $category->id,
             'video_id' => $this->id,
         ])->fetch()['position'];
 
         $row = $this->context->database->table('category_video')->where([
-            'category_id' => $this->getCategoryIds()[0],
+            'category_id' => $category->id,
             'position' => $position + $offset,
         ])->fetch();
 
@@ -230,14 +230,15 @@ class Video extends Entity
 
 
 
-    public function getDescription()
+    public function getDescription(Category $category)
     {
         $labels = [];
-        $parent = $this->getCategories()->fetch(); // render only one
+        $parent = $category;
         while ($parent) {
             $labels[] = $parent->label;
             $parent = $parent->getParent();
         }
+        $labels = array_reverse($labels);
 
         $desc = implode(" ≫ ", $labels) . ": ";
 

@@ -53,6 +53,7 @@ class WatchPresenter extends BaseFrontPresenter
 	{
 		$this->template->autoplay = $autoplay;
 		$this->template->video = $this->video;
+        $this->template->category = $this->category;
 	}
 
 
