@@ -13,9 +13,9 @@ class VideoRoute extends \Nette\Application\Routers\Route
 	{
 		$this->context = $context;
 		$this->args = (object) [
-            'category' => $category_arg,
-            'video' => $video_arg,
-        ];
+			'category' => $category_arg,
+			'video' => $video_arg,
+		];
 	}
 
 
@@ -39,17 +39,17 @@ class VideoRoute extends \Nette\Application\Routers\Route
 			$params[$this->args->category] = $category->id;
 			$appRequest->parameters = $params;
 		}
-        if (!is_numeric($appRequest->parameters[$this->args->video])) {
-            $compare = $appRequest->parameters[$this->args->video];
-            $video = $this->context->videos->findOneBy(['slug' => $compare]);
-            if ($video == NULL) {
-                return NULL;
-            }
+		if (!is_numeric($appRequest->parameters[$this->args->video])) {
+			$compare = $appRequest->parameters[$this->args->video];
+			$video = $this->context->videos->findOneBy(['slug' => $compare]);
+			if ($video == NULL) {
+				return NULL;
+			}
 
-            $params = $appRequest->parameters;
-            $params[$this->args->video] = $video->id;
-            $appRequest->parameters = $params;
-        }
+			$params = $appRequest->parameters;
+			$params[$this->args->video] = $video->id;
+			$appRequest->parameters = $params;
+		}
 
 		return $appRequest;
 

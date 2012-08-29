@@ -40,10 +40,10 @@ class Exercise extends Entity
 			}
 
 			if (isset($video)) { // last from iterator
-                foreach ($video->getCategories() as $category) {
-                    $parent = $category;
-                    break;
-                }
+				foreach ($video->getCategories() as $category) {
+					$parent = $category;
+					break;
+				}
 				$cats = [];
 				while ($parent) {
 					$cats[] = $parent->label;

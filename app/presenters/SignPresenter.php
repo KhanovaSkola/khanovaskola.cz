@@ -8,48 +8,48 @@ use Nette\Caching\Cache;
 class SignPresenter extends BasePresenter
 {
 
-    /** @persistent */
-    public $backlink;
+	/** @persistent */
+	public $backlink;
 
 
 
-    public function actionIn()
-    {
-        if ($this->user->isLoggedIn()) {
-            $this->redirect(':Front:Profile:');
-        }
-    }
+	public function actionIn()
+	{
+		if ($this->user->isLoggedIn()) {
+			$this->redirect(':Front:Profile:');
+		}
+	}
 
 
 
-    public function actionInFacebook()
-    {
-        if ($this->user->isLoggedIn()) {
-            $this->redirect(':Front:Profile:');
-        }
+	public function actionInFacebook()
+	{
+		if ($this->user->isLoggedIn()) {
+			$this->redirect(':Front:Profile:');
+		}
 
-        $url = $this->context->facebook->getLoginUrl([
-            'scope' => ['email'],
-            'redirect_uri' => $this->link("//fbAuth"),
-        ]);
-        $this->redirectUrl($url);
-    }
+		$url = $this->context->facebook->getLoginUrl([
+			'scope' => ['email'],
+			'redirect_uri' => $this->link("//fbAuth"),
+		]);
+		$this->redirectUrl($url);
+	}
 
 
 
-    public function actionInGoogle()
-    {
-        if ($this->user->isLoggedIn()) {
-            $this->redirect(':Front:Profile:');
-        }
+	public function actionInGoogle()
+	{
+		if ($this->user->isLoggedIn()) {
+			$this->redirect(':Front:Profile:');
+		}
 
-        $url = $this->context->google->getLoginUrl([
-            'scope' => $this->context->parameters['google']['scope'],
-            'redirect_uri' => $this->link('//googleAuth', ['backlink' => NULL]), // backlink must be passed with state
-            'state' => $this->backlink
-        ]);
-        $this->redirectUrl($url);
-    }
+		$url = $this->context->google->getLoginUrl([
+			'scope' => $this->context->parameters['google']['scope'],
+			'redirect_uri' => $this->link('//googleAuth', ['backlink' => NULL]), // backlink must be passed with state
+			'state' => $this->backlink
+		]);
+		$this->redirectUrl($url);
+	}
 
 
 
@@ -85,7 +85,7 @@ class SignPresenter extends BasePresenter
 			$this->user->setExpiration('+ 7 days', TRUE);
 			$this->user->login($values->username, $values->password);
 
-            $this->inRedirect();
+			$this->inRedirect();
 
 		} catch (NS\AuthenticationException $e) {
 			$form->addError($e->getMessage());
@@ -123,7 +123,7 @@ class SignPresenter extends BasePresenter
 			$this->user->facebookLogin($info);
 		}
 
-        $this->inRedirect();
+		$this->inRedirect();
 	}
 
 
@@ -140,23 +140,23 @@ class SignPresenter extends BasePresenter
 
 		$this->user->googleLogin($g->getInfo($token));
 
-        $this->backlink = $state;
+		$this->backlink = $state;
 
-        $this->inRedirect();
+		$this->inRedirect();
 	}
 
 
 
-    protected function inRedirect()
-    {
-        if (!$this->backlink || $this->backlink === '/') {
-            if ($this->user->isInRole('moderator')) {
-                $this->redirect(':Moderator:Dashboard:');
-            } else {
-                $this->redirect(':Front:Homepage:');
-            }
-        }
-        $this->redirectUrl($this->backlink);
-    }
+	protected function inRedirect()
+	{
+		if (!$this->backlink || $this->backlink === '/') {
+			if ($this->user->isInRole('moderator')) {
+				$this->redirect(':Moderator:Dashboard:');
+			} else {
+				$this->redirect(':Front:Homepage:');
+			}
+		}
+		$this->redirectUrl($this->backlink);
+	}
 
 }

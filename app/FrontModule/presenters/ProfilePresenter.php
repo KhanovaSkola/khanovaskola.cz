@@ -23,9 +23,9 @@ class ProfilePresenter extends BaseFrontPresenter
 
 		if ($this->pid) {
 			$this->profile = $this->context->users->find($this->pid);
-            if (!$this->profile) {
-                throw new \Nette\Application\BadRequestException;
-            }
+			if (!$this->profile) {
+				throw new \Nette\Application\BadRequestException;
+			}
 
 		} elseif ($this->user->loggedIn) {
 			$this->profile = $this->user->entity;
@@ -35,12 +35,12 @@ class ProfilePresenter extends BaseFrontPresenter
 			$this->redirect(':Sign:in:');
 		}
 
-        if (!$this->user->entity->canView($this->profile)) {
-            throw new \Nette\Application\ForbiddenRequestException();
+		if (!$this->user->entity->canView($this->profile)) {
+			throw new \Nette\Application\ForbiddenRequestException();
 
-        } else if ($this->user->id !== $this->profile->id) {
-            $this->redirect(':Coach:Profile:', ['pid' => $this->profile->id]);
-        }
+		} else if ($this->user->id !== $this->profile->id) {
+			$this->redirect(':Coach:Profile:', ['pid' => $this->profile->id]);
+		}
 	}
 
 

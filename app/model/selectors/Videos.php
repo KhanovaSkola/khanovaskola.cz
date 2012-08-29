@@ -8,7 +8,7 @@ class Videos extends Table
 
 	public function updatePositions(array $data)
 	{
-        throw new \Nette\NotImplementedException;
+		throw new \Nette\NotImplementedException;
 	}
 
 
@@ -100,28 +100,28 @@ class Videos extends Table
 	}
 
 
-    /**
-     * @return Video
-     */
-    public function findEmpty()
-    {
-        return $this->findOneBy([
-            'label' => '',
-            'description' => '',
-        ]);
-    }
+	/**
+	 * @return Video
+	 */
+	public function findEmpty()
+	{
+		return $this->findOneBy([
+			'label' => '',
+			'description' => '',
+		]);
+	}
 
 
-    /**
-     * @param Category $category
-     * @return Video[]
-     */
-    public function findByCategory(Category $category)
-    {
-        return $this->findBy([
-            'id' => $category->getVideoIds(),
-            'slug <> ?' => '', // not empty videos
-        ]);
-    }
+	/**
+	 * @param Category $category
+	 * @return Video[]
+	 */
+	public function findByCategory(Category $category)
+	{
+		return $this->findBy([
+			'id' => $category->getVideoIds(),
+			'slug <> ?' => '', // not empty videos
+		]);
+	}
 
 }

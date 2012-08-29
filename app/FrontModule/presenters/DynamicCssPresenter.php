@@ -11,9 +11,9 @@ class DynamicCssPresenter extends \BasePresenter
 
 	public function actionDefault()
 	{
-        if (!$this->user->isLoggedIn()) {
-            throw new \Nette\Application\ForbiddenRequestException;
-        }
+		if (!$this->user->isLoggedIn()) {
+			throw new \Nette\Application\ForbiddenRequestException;
+		}
 
 		$cache = new Cache($this->context->cacheStorage, 'dynamic_css');
 		if (!isset($cache[$this->user->id])) {

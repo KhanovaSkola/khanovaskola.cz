@@ -10,22 +10,22 @@ use Nette\Caching\Cache;
 class SignPresenter extends BaseTabletPresenter
 {
 
-    public function renderIn()
+	public function renderIn()
 	{
-        $this->template->facebookAuth = $this->context->facebook->getLoginUrl([
-            'scope' => ['email'],
-            'redirect_uri' => $this->link("//fbAuth"),
-        ]);
+		$this->template->facebookAuth = $this->context->facebook->getLoginUrl([
+			'scope' => ['email'],
+			'redirect_uri' => $this->link("//fbAuth"),
+		]);
 
-        $this->template->googleAuth = $this->context->google->getLoginUrl([
-            'scope' => $this->context->params['google']['scope'],
-            'redirect_uri' => $this->link('//googleAuth'),
-        ]);
+		$this->template->googleAuth = $this->context->google->getLoginUrl([
+			'scope' => $this->context->params['google']['scope'],
+			'redirect_uri' => $this->link('//googleAuth'),
+		]);
 	}
 
 
 
-    /**
+	/**
 	 * Sign in form component factory.
 	 * @return Nette\Application\UI\Form
 	 */

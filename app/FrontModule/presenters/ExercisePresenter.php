@@ -51,9 +51,9 @@ class ExercisePresenter extends BaseFrontPresenter
 
 	public function renderEdit()
 	{
-        if (!$this->user->moderator) {
-            throw new \Nette\Application\ForbiddenRequestException;
-        }
+		if (!$this->user->moderator) {
+			throw new \Nette\Application\ForbiddenRequestException;
+		}
 
 		$form = $this['editForm'];
 		$ex = $this->exercise;
@@ -81,9 +81,9 @@ class ExercisePresenter extends BaseFrontPresenter
 
 	public function onSuccessEditForm(Form $form)
 	{
-        if (!$this->user->moderator) {
-            throw new \Nette\Application\ForbiddenRequestException;
-        }
+		if (!$this->user->moderator) {
+			throw new \Nette\Application\ForbiddenRequestException;
+		}
 
 		$v = $form->values;
 		$ex = $this->exercise;

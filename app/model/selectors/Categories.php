@@ -18,18 +18,18 @@ class Categories extends Table
 	 */
 	public function findLeaves()
 	{
-        return $this->findBy(['is_leaf' => TRUE]);
+		return $this->findBy(['is_leaf' => TRUE]);
 	}
 
 
 
-    /**
-     * @param Video $video
-     * @return Category[]
-     */
-    public function findByVideo(Video $video)
-    {
-        return $this->findBy(['id' => $video->getCategoryIds()]);
-    }
+	/**
+	 * @param Video $video
+	 * @return Category[]
+	 */
+	public function findByVideo(Video $video)
+	{
+		return $this->findBy(['id' => $video->getCategoryIds()]);
+	}
 
 }

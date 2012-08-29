@@ -8,15 +8,15 @@
 abstract class BasePresenter extends Nette\Application\UI\Presenter
 {
 
-    public function startup()
-    {
-        parent::startup();
+	public function startup()
+	{
+		parent::startup();
 
-        list($module) = explode(':', $this->name);
-        if ($module !== 'Tablet' && $this->isMobile()) {
-            $this->redirect(':Tablet:Homepage:');
-        }
-    }
+		list($module) = explode(':', $this->name);
+		if ($module !== 'Tablet' && $this->isMobile()) {
+			$this->redirect(':Tablet:Homepage:');
+		}
+	}
 
 
 
@@ -47,11 +47,11 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 
 	public function beforeRender()
 	{
-        $this->template->git_deploy = (object) [
-            'branch' => Git::getBranch(),
-            'commit' => Git::getCommit(),
-            'hash' => substr(Git::getCommit(), 0, 7),
-        ];
+		$this->template->git_deploy = (object) [
+			'branch' => Git::getBranch(),
+			'commit' => Git::getCommit(),
+			'hash' => substr(Git::getCommit(), 0, 7),
+		];
 
 		\Helpers::register($this->template);
 		$this['search']['query']->setValue($this->getParam('q'));
@@ -116,9 +116,9 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 
 
 
-    public function createComponentYoutube()
-    {
-        return new Youtube();
-    }
+	public function createComponentYoutube()
+	{
+		return new Youtube();
+	}
 
 }

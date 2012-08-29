@@ -210,30 +210,30 @@ class Category extends Entity
 
 
 
-    /**
-     * Ordered by position
-     * @return int[]
-     */
-    public function getVideoIds()
-    {
-        $ids = [];
-        foreach ($this->context->database->query('SELECT video_id FROM category_video WHERE category_id=? ORDER BY position ASC', $this->id) as $row) {
-            $ids[] = (int) $row['video_id'];
-        }
-        return $ids;
-    }
+	/**
+	 * Ordered by position
+	 * @return int[]
+	 */
+	public function getVideoIds()
+	{
+		$ids = [];
+		foreach ($this->context->database->query('SELECT video_id FROM category_video WHERE category_id=? ORDER BY position ASC', $this->id) as $row) {
+			$ids[] = (int) $row['video_id'];
+		}
+		return $ids;
+	}
 
 
 
-    public function containsVideo(Video $video)
-    {
-        foreach ($this->getVideoIds() as $id) {
-            if ($id === $video->id) {
-                return TRUE;
-            }
-        }
+	public function containsVideo(Video $video)
+	{
+		foreach ($this->getVideoIds() as $id) {
+			if ($id === $video->id) {
+				return TRUE;
+			}
+		}
 
-        return FALSE;
-    }
+		return FALSE;
+	}
 
 }

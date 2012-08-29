@@ -10,11 +10,11 @@ abstract class BaseTabletPresenter extends \BasePresenter
 	{
 		parent::startup();
 
-        $this->setLayout('layout_tablet');
+		$this->setLayout('layout_tablet');
 
-        if (FALSE && !$this->isMobile()) {
-            $this->redirect('Homepage:');
-        }
+		if (FALSE && !$this->isMobile()) {
+			$this->redirect('Homepage:');
+		}
 	}
 
 }

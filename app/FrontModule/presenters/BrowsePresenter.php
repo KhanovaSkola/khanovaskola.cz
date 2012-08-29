@@ -24,9 +24,9 @@ class BrowsePresenter extends BaseFrontPresenter
 	{
 		parent::startup();
 		$this->category = $this->context->categories->findOneBy(['id' => $this->id]);
-        if (!$this->category) {
-            throw new \Nette\Application\BadRequestException;
-        }
+		if (!$this->category) {
+			throw new \Nette\Application\BadRequestException;
+		}
 
 		if (!$this->category || $this->category->isSubject()) {
 			// those are not rendered
@@ -52,9 +52,9 @@ class BrowsePresenter extends BaseFrontPresenter
 
 	public function renderEdit()
 	{
-        if (!$this->user->moderator) {
-            throw new \Nette\Application\ForbiddenRequestException;
-        }
+		if (!$this->user->moderator) {
+			throw new \Nette\Application\ForbiddenRequestException;
+		}
 
 		$this->template->category = $this->category;
 
@@ -81,9 +81,9 @@ class BrowsePresenter extends BaseFrontPresenter
 
 	public function onSuccessEditForm(Form $form)
 	{
-        if (!$this->user->moderator) {
-            throw new \Nette\Application\ForbiddenRequestException;
-        }
+		if (!$this->user->moderator) {
+			throw new \Nette\Application\ForbiddenRequestException;
+		}
 
 		$v = $form->values;
 		$c = $this->category;
@@ -106,21 +106,21 @@ class BrowsePresenter extends BaseFrontPresenter
 
 	public function handleAdd()
 	{
-        throw new \Nette\NotImplementedException;
+		throw new \Nette\NotImplementedException;
 
-        if (!$this->user->moderator) {
-            throw new \Nette\Application\ForbiddenRequestException;
-        }
+		if (!$this->user->moderator) {
+			throw new \Nette\Application\ForbiddenRequestException;
+		}
 
-        $video = $this->context->videos->findEmpty();
-        if ($video) {
-            $video->category_id = $this->id;
-            $video->update();
-        } else {
-            $video = $this->context->videos->insert([
-                'category_id' => $this->id,
-            ]);
-        }
+		$video = $this->context->videos->findEmpty();
+		if ($video) {
+			$video->category_id = $this->id;
+			$video->update();
+		} else {
+			$video = $this->context->videos->insert([
+				'category_id' => $this->id,
+			]);
+		}
 		$this->redirect(':Front:Watch:edit', ['vid' => $video->id]);
 	}
 
@@ -128,9 +128,9 @@ class BrowsePresenter extends BaseFrontPresenter
 
 	public function handleUpdatePositions($videos)
 	{
-        if (!$this->user->moderator) {
-            throw new \Nette\Application\ForbiddenRequestException;
-        }
+		if (!$this->user->moderator) {
+			throw new \Nette\Application\ForbiddenRequestException;
+		}
 
 		$data = explode(',', $videos);
 		$this->context->videos->updatePositions($data);

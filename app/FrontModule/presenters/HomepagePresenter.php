@@ -17,9 +17,9 @@ class HomepagePresenter extends BaseFrontPresenter
 	/** @todo rewrite */
 	public function actionGithubCallback($code)
 	{
-        if (!$this->user->admin) {
-            throw new \Nette\Application\ForbiddenRequestException;
-        }
+		if (!$this->user->admin) {
+			throw new \Nette\Application\ForbiddenRequestException;
+		}
 
 		$github = new \Github($this->context);
 		if ($code) {

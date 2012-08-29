@@ -18,14 +18,14 @@ class WatchPresenter extends BaseFrontPresenter
 	/** @var \Video */
 	protected $video;
 
-    /**
-     * @persistent
-     * @var int
-     */
-    public $id;
+	/**
+	 * @persistent
+	 * @var int
+	 */
+	public $id;
 
-    /** @var \Category */
-    protected $category;
+	/** @var \Category */
+	protected $category;
 
 
 
@@ -33,18 +33,18 @@ class WatchPresenter extends BaseFrontPresenter
 	{
 		parent::startup();
 
-        $this->video = $this->context->videos->find($this->vid);
+		$this->video = $this->context->videos->find($this->vid);
 
-        if ($this->video && !$this->id) {
-            $this->redirect(301, 'this', [
-                'id' => $this->video->getOneCategoryId(),
-            ]);
-        }
+		if ($this->video && !$this->id) {
+			$this->redirect(301, 'this', [
+				'id' => $this->video->getOneCategoryId(),
+			]);
+		}
 
-        $this->category = $this->context->categories->find($this->id);
-        if (!$this->category || !$this->video || !$this->category->containsVideo($this->video)) {
-            throw new \Nette\Application\BadRequestException;
-        }
+		$this->category = $this->context->categories->find($this->id);
+		if (!$this->category || !$this->video || !$this->category->containsVideo($this->video)) {
+			throw new \Nette\Application\BadRequestException;
+		}
 	}
 
 
@@ -53,7 +53,7 @@ class WatchPresenter extends BaseFrontPresenter
 	{
 		$this->template->autoplay = $autoplay;
 		$this->template->video = $this->video;
-        $this->template->category = $this->category;
+		$this->template->category = $this->category;
 	}
 
 
@@ -84,9 +84,9 @@ class WatchPresenter extends BaseFrontPresenter
 
 	public function renderEdit()
 	{
-        if (!$this->user->moderator) {
-            throw new \Nette\Application\ForbiddenRequestException;
-        }
+		if (!$this->user->moderator) {
+			throw new \Nette\Application\ForbiddenRequestException;
+		}
 
 		$form = $this['editForm'];
 		$vid = $this->video;
@@ -118,9 +118,9 @@ class WatchPresenter extends BaseFrontPresenter
 
 	public function onSuccessEditForm(Form $form)
 	{
-        if (!$this->user->moderator) {
-            throw new \Nette\Application\ForbiddenRequestException;
-        }
+		if (!$this->user->moderator) {
+			throw new \Nette\Application\ForbiddenRequestException;
+		}
 
 		$v = $form->values;
 		$vid = $this->video;
@@ -135,9 +135,9 @@ class WatchPresenter extends BaseFrontPresenter
 		$vid->updateTags($v['tags']);
 
 		$invalid = ["videos", "video/$vid->id"];
-        foreach ($vid->getCategoryIds() as $cat_id) {
-            $invalid[] = "category/$cat_id";
-        }
+		foreach ($vid->getCategoryIds() as $cat_id) {
+			$invalid[] = "category/$cat_id";
+		}
 		foreach ($v['tags'] as $tag_id) {
 			$invalid[] = "tag/$tag_id";
 		}

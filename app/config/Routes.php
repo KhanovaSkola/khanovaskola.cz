@@ -11,23 +11,23 @@ class Routes
 	{
 		$container->router[] = new Route('index.php', 'Front:Homepage:default', Route::ONE_WAY);
 
-        $domain = $container->parameters['environment'] === 'production' ? 'khanovaskola.cz' : 'khan.l';
+		$domain = $container->parameters['environment'] === 'production' ? 'khanovaskola.cz' : 'khan.l';
 
-        /**
-         * Tablet routes
-         */
-        $container->router[] = new Route("//tablet.$domain/robots.txt", [
-            'module' => 'Tablet',
-            'presenter' => 'Homepage',
-            'action' => 'robotsTxt',
-        ]);
-        $container->router[] = new Route("//tablet.$domain/<presenter>[/<action>]", [
-            'module' => 'Tablet',
-            'presenter' => 'Homepage',
-            'action' => 'default',
-        ]);
+		/**
+		 * Tablet routes
+		 */
+		$container->router[] = new Route("//tablet.$domain/robots.txt", [
+			'module' => 'Tablet',
+			'presenter' => 'Homepage',
+			'action' => 'robotsTxt',
+		]);
+		$container->router[] = new Route("//tablet.$domain/<presenter>[/<action>]", [
+			'module' => 'Tablet',
+			'presenter' => 'Homepage',
+			'action' => 'default',
+		]);
 
-        /**
+		/**
 		 * API
 		 */
 		$container->router[] = new Route("//api.$domain/", [
@@ -48,17 +48,17 @@ class Routes
 		 * SEO Video
 		 */
 		$videoRoute = new VideoRoute('<id>/<vid>[/<action>]', [
-            'id' => [
-                Route::FILTER_OUT => function ($id) use ($container) {
-                    if (!is_numeric($id)) {
-                        return $id;
+			'id' => [
+				Route::FILTER_OUT => function ($id) use ($container) {
+					if (!is_numeric($id)) {
+						return $id;
 
-                    } else {
-                        return Strings::webalize($container->categories->find($id)->label);
-                    }
-                }
-            ],
-            'vid' => [
+					} else {
+						return Strings::webalize($container->categories->find($id)->label);
+					}
+				}
+			],
+			'vid' => [
 				Route::FILTER_OUT => function ($vid) use ($container) {
 					if (!is_numeric($vid)) {
 						return $vid;
@@ -80,54 +80,54 @@ class Routes
 		$videoRoute->init($container, 'id', 'vid');
 		$container->router[] = $videoRoute;
 
-        $oldVideo = new SlugRoute('video/<vid>[/<action>]', [
-            'vid' => [
-                Route::FILTER_OUT => function ($vid) use ($container) {
-                    if (!is_numeric($vid)) {
-                        return $vid;
+		$oldVideo = new SlugRoute('video/<vid>[/<action>]', [
+			'vid' => [
+				Route::FILTER_OUT => function ($vid) use ($container) {
+					if (!is_numeric($vid)) {
+						return $vid;
 
-                    } else {
-                        return Strings::webalize($container->videos->find($vid)->label);
-                    }
-                }
-            ],
-            'module' => 'Front',
-            'presenter' => 'Watch',
-            'action' => [
-                Route::VALUE => 'default',
-                Route::FILTER_TABLE => [
-                    'upravit' => 'edit',
-                ]
-            ],
-        ]);
-        $oldVideo->init($container, 'vid', 'videos');
-        $container->router[] = $oldVideo;
+					} else {
+						return Strings::webalize($container->videos->find($vid)->label);
+					}
+				}
+			],
+			'module' => 'Front',
+			'presenter' => 'Watch',
+			'action' => [
+				Route::VALUE => 'default',
+				Route::FILTER_TABLE => [
+					'upravit' => 'edit',
+				]
+			],
+		]);
+		$oldVideo->init($container, 'vid', 'videos');
+		$container->router[] = $oldVideo;
 
-        /**
-         * SEO Category
-         */
-        $categoryRoute = new SlugRoute('<id>[/<action>]', [
-            'id' => [
-                Route::FILTER_OUT => function ($id) use ($container) {
-                    if (!is_numeric($id)) {
-                        return $id;
+		/**
+		 * SEO Category
+		 */
+		$categoryRoute = new SlugRoute('<id>[/<action>]', [
+			'id' => [
+				Route::FILTER_OUT => function ($id) use ($container) {
+					if (!is_numeric($id)) {
+						return $id;
 
-                    } else {
-                        return Strings::webalize($container->categories->findOneBy(['id' => $id])->label);
-                    }
-                }
-            ],
-            'module' => 'Front',
-            'presenter' => 'Browse',
-            'action' => [
-                Route::VALUE => 'default',
-                Route::FILTER_TABLE => [
-                    'upravit' => 'edit',
-                ]
-            ],
-        ]);
-        $categoryRoute->init($container, 'id', 'categories');
-        $container->router[] = $categoryRoute;
+					} else {
+						return Strings::webalize($container->categories->findOneBy(['id' => $id])->label);
+					}
+				}
+			],
+			'module' => 'Front',
+			'presenter' => 'Browse',
+			'action' => [
+				Route::VALUE => 'default',
+				Route::FILTER_TABLE => [
+					'upravit' => 'edit',
+				]
+			],
+		]);
+		$categoryRoute->init($container, 'id', 'categories');
+		$container->router[] = $categoryRoute;
 
 		/**
 		 * SEO Cviceni
@@ -159,13 +159,13 @@ class Routes
 			'action' => 'confirmCoach',
 		]);
 
-        /**
-         * Sitemap
-         */
-        $container->router[] = new Route('sitemap[!.xml]', [
-            'presenter' => 'Sitemap',
-            'action' => 'default',
-        ]);
+		/**
+		 * Sitemap
+		 */
+		$container->router[] = new Route('sitemap[!.xml]', [
+			'presenter' => 'Sitemap',
+			'action' => 'default',
+		]);
 
 		/**
 		 * Direct actions of sign presenter
@@ -179,10 +179,10 @@ class Routes
 				]
 			]
 		]);
-        $container->router[] = new Route('auth/<action>', [
-            'presenter' => 'Sign',
-            'action' => 'default',
-        ]);
+		$container->router[] = new Route('auth/<action>', [
+			'presenter' => 'Sign',
+			'action' => 'default',
+		]);
 
 		/**
 		 * Moderator module without tanslations
@@ -220,10 +220,10 @@ class Routes
 		/**
 		 * Other presenters
 		 */
-        $container->router[] = new Route("robots.txt", [
-            'presenter' => 'Sitemap',
-            'action' => 'robotsTxt',
-        ]);
+		$container->router[] = new Route("robots.txt", [
+			'presenter' => 'Sitemap',
+			'action' => 'robotsTxt',
+		]);
 		$container->router[] = new Route('<presenter>/<action>[/<id>]', [
 			'module' => 'Front',
 			'presenter' => [

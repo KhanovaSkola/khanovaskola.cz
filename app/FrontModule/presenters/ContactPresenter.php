@@ -44,10 +44,10 @@ class ContactPresenter extends BaseFrontPresenter
 	{
 		$gh = new \Github($this->context);
 
-        $data = $form->values;
-        $data['label'] = ucFirst($data['label']);
-        $data['branch'] = \Git::getBranch();
-        $data['commit'] = substr(\Git::getCommit(), 0, 7);
+		$data = $form->values;
+		$data['label'] = ucFirst($data['label']);
+		$data['branch'] = \Git::getBranch();
+		$data['commit'] = substr(\Git::getCommit(), 0, 7);
 		$gh->createIssue($data);
 
 		$cache = new Cache($this->context->cacheStorage);

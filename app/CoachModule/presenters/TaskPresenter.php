@@ -21,13 +21,13 @@ class TaskPresenter extends BaseCoachPresenter
 		parent::startup();
 
 		$this->task = $this->context->tasks->find($this->tid);
-        if (!$this->task) {
-            throw new \Nette\Application\BadRequestException;
-        }
+		if (!$this->task) {
+			throw new \Nette\Application\BadRequestException;
+		}
 
-        if (!$this->task->getGroup()->belongsTo($this->user->entity)) {
-            throw new \Nette\Application\ForbiddenRequestException;
-        }
+		if (!$this->task->getGroup()->belongsTo($this->user->entity)) {
+			throw new \Nette\Application\ForbiddenRequestException;
+		}
 	}
 
 
