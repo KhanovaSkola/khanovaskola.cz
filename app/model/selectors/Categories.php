@@ -18,12 +18,18 @@ class Categories extends Table
 	 */
 	public function findLeaves()
 	{
-		$ids = [];
-		foreach ($this->context->database->table('video')->select('category_id')->group('category_id') as $row) {
-			$ids[] = $row['category_id'];
-		}
-
-		return $this->findBy(['id' => $ids]);
+        return $this->findBy(['is_leaf' => TRUE]);
 	}
+
+
+
+    /**
+     * @param Video $video
+     * @return Category[]
+     */
+    public function findByVideo(Video $video)
+    {
+        return $this->findBy(['id' => $video->getCategoryIds()]);
+    }
 
 }

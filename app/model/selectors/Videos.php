@@ -8,29 +8,7 @@ class Videos extends Table
 
 	public function updatePositions(array $data)
 	{
-		$this->connection->beginTransaction();
-
-		$cache = new Cache($this->context->cacheStorage);
-		foreach ($data as $position => $id) {
-			$this->findOneBy(['id' => $id])->update(['position' => $position]);
-			$cache->clean([Cache::TAGS => ["video/$id"]]);
-		}
-
-		$video = $this->findOneBy(['id' => $id]);
-		$category = $video->getCategory();
-		$cache->clean([Cache::TAGS => ["category/$category->id"]]);
-
-		$this->connection->commit();
-	}
-
-
-
-	/**
-	 * @return Video[]
-	 */
-	public function findAll()
-	{
-		return $this->getTable()->order('position');
+        throw new \Nette\NotImplementedException;
 	}
 
 
@@ -41,7 +19,7 @@ class Videos extends Table
 	 */
 	public function findBy(array $by)
 	{
-		return $this->getTable()->where($by)->order('position');
+		return $this->getTable()->where($by);
 	}
 
 
@@ -96,26 +74,6 @@ class Videos extends Table
 
 
 
-	/**
-	 * @param array $data
-	 * @return \Nette\Database\Table\ActiveRow
-	 */
-	public function insert($data)
-	{
-		if (!isset($data['position'])) {
-			$last = $this->getTable()->where(['category_id' => $data['category_id']])->order('position DESC')->limit(1)->fetch();
-			if ($last) {
-				$data['position'] = $last->position + 1;
-			} else {
-				$data['position'] = 0;
-			}
-		}
-
-		return $this->getTable()->insert($data);
-	}
-
-
-
 	public function trimYoutubeIds()
 	{
 		return $this->connection->exec("UPDATE video SET youtube_id = Trim(youtube_id)");
@@ -142,12 +100,27 @@ class Videos extends Table
 	}
 
 
-
+    /**
+     * @return Video
+     */
     public function findEmpty()
     {
         return $this->findOneBy([
             'label' => '',
             'description' => '',
+        ]);
+    }
+
+
+    /**
+     * @param Category $category
+     * @return Video[]
+     */
+    public function findByCategory(Category $category)
+    {
+        return $this->findBy([
+            'id' => $category->getVideoIds(),
+            'slug <> ?' => '', // not empty videos
         ]);
     }
 

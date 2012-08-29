@@ -115,7 +115,10 @@ class WatchPresenter extends BaseFrontPresenter
 
 		$vid->updateTags($v['tags']);
 
-		$invalid = ["videos", "video/$vid->id", "category/{$vid->category_id}"];
+		$invalid = ["videos", "video/$vid->id"];
+        foreach ($vid->getCategoryIds() as $cat_id) {
+            $invalid[] = "category/$cat_id";
+        }
 		foreach ($v['tags'] as $tag_id) {
 			$invalid[] = "tag/$tag_id";
 		}

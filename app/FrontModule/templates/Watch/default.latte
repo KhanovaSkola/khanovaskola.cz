@@ -1,5 +1,5 @@
 {var $title = $video->label}
-{var $description = $video->description ? "{$video->description} ({$video->getCategory()->label})" : "Video z kategorie {$video->getCategory()->getParent()->label}, {$video->getCategory()->label}"}
+{var $description = $video->getDescription()}
 {#head}
 	{if $autoplay}
 		<link rel="canonical" n:href="//this, autoplay => NULL">
@@ -12,7 +12,7 @@
 		</span>
 	</span>
 	<span class="breadcrumbs_nav video-nav">
-		{var $category = $video->getCategory()}
+		{var $category = $video->getCategories()->fetch()}
 		{#breadpath}
 			{if !$category->isSubject()}
 				{include #breadpath, category => $category->getParent()}

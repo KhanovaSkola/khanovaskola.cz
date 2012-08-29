@@ -106,6 +106,8 @@ class BrowsePresenter extends BaseFrontPresenter
 
 	public function handleAdd()
 	{
+        throw new \Nette\NotImplementedException;
+
         if (!$this->user->moderator) {
             throw new \Nette\Application\ForbiddenRequestException;
         }

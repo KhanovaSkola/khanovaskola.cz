@@ -45,7 +45,7 @@ class Category extends Entity
 	 */
 	public function hasVideos()
 	{
-		$count = $this->getVideos()->count();
+		$count = count($this->getVideoIds());
 		if ($count) {
 			return TRUE;
 		}
@@ -66,7 +66,7 @@ class Category extends Entity
 	 */
 	public function getVideos()
 	{
-		return $this->context->videos->findBy(['category_id' => $this->id, 'slug <> ?' => '']);
+		return $this->context->videos->findByCategory($this);
 	}
 
 
@@ -98,7 +98,7 @@ class Category extends Entity
 	 */
 	public function getParent()
 	{
-		return $this->context->categories->findOneBy(['id' => $this->parent_id]);
+		return $this->context->categories->find($this->parent_id);
 	}
 
 
@@ -207,5 +207,20 @@ class Category extends Entity
 
 		return trim($desc);
 	}
+
+
+
+    /**
+     * Ordered by position
+     * @return int[]
+     */
+    public function getVideoIds()
+    {
+        $ids = [];
+        foreach ($this->context->database->query('SELECT video_id FROM category_video WHERE category_id=? ORDER BY position ASC', $this->id) as $row) {
+            $ids[] = (int) $row['video_id'];
+        }
+        return $ids;
+    }
 
 }

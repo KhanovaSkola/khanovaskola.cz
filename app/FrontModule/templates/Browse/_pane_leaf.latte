@@ -16,7 +16,7 @@
 				<div class='topic-desc'>{$leaf->description}</div>
 				<div n:if="$user->moderator">
 					<a n:href="edit">[upravit]</a>
-					<a n:href="add!">[přivat video]</a>
+					{*<a n:href="add!">[přivat video]</a>*}
 				</div>
 				<div>Stopáž: {$leaf->getDuration()|time}</div>
 			</div>

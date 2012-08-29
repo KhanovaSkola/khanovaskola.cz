@@ -13,11 +13,11 @@ class Video extends Entity
 {
 
 	/**
-	 * @return Category
+	 * @return Category[]
 	 */
-	public function getCategory()
+	public function getCategories()
 	{
-		return $this->context->categories->findOneBy(['id' => $this->category_id]);
+		return $this->context->categories->findByVideo($this);
 	}
 
 
@@ -47,7 +47,20 @@ class Video extends Entity
 	 */
 	protected function getAdjacentVideo($offset)
 	{
-		return $this->context->videos->findOneBy(['category_id' => $this->category_id, 'position' => $this->position + $offset]);
+        $position = $this->context->database->table('category_video')->where([
+            'category_id' => $this->getCategoryIds()[0],
+            'video_id' => $this->id,
+        ])->fetch()['position'];
+
+        $row = $this->context->database->table('category_video')->where([
+            'category_id' => $this->getCategoryIds()[0],
+            'position' => $position + $offset,
+        ])->fetch();
+
+        if (!$row) {
+            return FALSE;
+        }
+        return $this->context->videos->find($row['video_id']);
 	}
 
 
@@ -116,7 +129,7 @@ class Video extends Entity
 	{
 		$ids = [];
 		foreach ($this->context->database->query('SELECT tag_id FROM tag_video WHERE video_id=?', $this->id) as $row) {
-			$ids = $row['tag_id'];
+			$ids[] = (int) $row['tag_id'];
 		}
 		return $ids;
 	}
@@ -198,6 +211,40 @@ class Video extends Entity
     public function getSubtitles()
     {
         return $this->context->amara->getSubtitles($this);
+    }
+
+
+
+
+    /**
+     * @return int[]
+     */
+    public function getCategoryIds()
+    {
+        $ids = [];
+        foreach ($this->context->database->query('SELECT category_id FROM category_video WHERE video_id=?', $this->id) as $row) {
+            $ids[] = (int) $row['category_id'];
+        }
+        return $ids;
+    }
+
+
+
+    public function getDescription()
+    {
+        $labels = [];
+        $parent = $this->getCategories()->fetch(); // render only one
+        while ($parent) {
+            $labels[] = $parent->label;
+            $parent = $parent->getParent();
+        }
+
+        $desc = implode(" ≫ ", $labels) . ": ";
+
+        if ($this->description) {
+            return $desc . $this->description;
+        }
+        return $desc . $this->label;
     }
 
 }
