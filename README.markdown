@@ -1,7 +1,7 @@
-Khanova Škola
-=============
+Khan Academy CZ
+===============
 
-Khan Academy CZ (Khanova Škola) is a community of passionate volunteers committed to translating Khan Academy content and providing universal access to quality education.
+Khanova škola (Khan Academy CZ) is a community of passionate volunteers committed to translating Khan Academy content and providing universal access to quality education.
 
 KhanAcademy is in no way responsible for the content of this application and does not endorse it.
 
