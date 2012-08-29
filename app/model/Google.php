@@ -42,6 +42,10 @@ class Google extends Nette\Object
 			//'approval_prompt' => 'force',
 		];
 
+        if (isset($args['state'])) {
+            $query['state'] = $args['state'];
+        }
+
 		return self::URL_AUTH . '?' . http_build_query($query);
 	}
 

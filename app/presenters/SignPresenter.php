@@ -45,7 +45,8 @@ class SignPresenter extends BasePresenter
 
         $url = $this->context->google->getLoginUrl([
             'scope' => $this->context->parameters['google']['scope'],
-            'redirect_uri' => $this->link('//googleAuth'),
+            'redirect_uri' => $this->link('//googleAuth', ['backlink' => NULL]), // backlink must be passed with state
+            'state' => $this->backlink
         ]);
         $this->redirectUrl($url);
     }
@@ -127,7 +128,7 @@ class SignPresenter extends BasePresenter
 
 
 
-	public function actionGoogleAuth($code, $error = NULL)
+	public function actionGoogleAuth($code, $state, $error = NULL)
 	{
 		if ($error) {
 			$this->flashMessage('Povolte prosím Khanově škole přístup, bez toho se nebudete moct přes váš Google účet přihlásit.');
@@ -138,6 +139,8 @@ class SignPresenter extends BasePresenter
 		$token = $g->getToken($code, $this->link('//googleAuth'));
 
 		$this->user->googleLogin($g->getInfo($token));
+
+        $this->backlink = $state;
 
         $this->inRedirect();
 	}
