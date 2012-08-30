@@ -17,7 +17,7 @@ class TagPresenter extends BaseFrontPresenter
 	public function startup()
 	{
 		parent::startup();
-		$this->tag = $this->context->tags->findOneBy(['id' => $this->tid]);
+		$this->tag = $this->context->tags->find($this->tid);
 		if (!$this->tag) {
 			throw new \Nette\Application\BadRequestException;
 		}

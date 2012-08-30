@@ -23,7 +23,7 @@ class ExercisePresenter extends BaseFrontPresenter
 	public function startup()
 	{
 		parent::startup();
-		$this->exercise = $this->context->exercises->findOneBy(['id' => $this->eid]);
+		$this->exercise = $this->context->exercises->find($this->eid);
 	}
 
 

@@ -29,13 +29,10 @@ class BrowsePresenter extends BaseTabletPresenter
 	public function startup()
 	{
 		parent::startup();
-		$this->category = $this->context->categories->findOneBy(['id' => $this->id]);
-		if (!$this->category) {
-			throw new \Nette\Application\BadRequestException;
-		}
+		$this->category = $this->context->categories->find($this->id);
 
-		$this->video = $this->context->videos->findOneBy(['id' => $this->vid]);
-		if ($this->vid && !$this->video) {
+		$this->video = $this->context->videos->find($this->vid);
+		if (!$this->category || ($this->vid && !$this->video)) {
 			throw new \Nette\Application\BadRequestException;
 		}
 	}

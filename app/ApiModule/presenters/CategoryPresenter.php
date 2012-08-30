@@ -22,7 +22,7 @@ class CategoryPresenter extends BaseApiPresenter
 	{
 		$data = [];
 
-		$category = $this->context->categories->findOneBy(['id' => $id]);
+		$category = $this->context->categories->find($id);
 		foreach ($category->getVideos()->order('position') as $v) {
 			$data[] = [
 				'id' => $v->id,
@@ -53,7 +53,7 @@ class CategoryPresenter extends BaseApiPresenter
 
 	private function getOne($id)
 	{
-		$c = $this->context->categories->findOneBy(['id' => $id]);
+		$c = $this->context->categories->find($id);
 		return $c->toArray();
 	}
 

@@ -8,7 +8,7 @@ class VideoPresenter extends BaseApiPresenter
 
 	public function get($id)
 	{
-		$video = $this->context->videos->findOneBy(['id' => $id]);
+		$video = $this->context->videos->find($id);
 
 		$data = $video->toArray();
 		$data['thumbnail'] = $video->getMetaData()->data->thumbnail->hqDefault;

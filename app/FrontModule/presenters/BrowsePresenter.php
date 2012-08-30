@@ -23,7 +23,7 @@ class BrowsePresenter extends BaseFrontPresenter
 	public function startup()
 	{
 		parent::startup();
-		$this->category = $this->context->categories->findOneBy(['id' => $this->id]);
+		$this->category = $this->context->categories->find($this->id);
 		if (!$this->category) {
 			throw new \Nette\Application\BadRequestException;
 		}

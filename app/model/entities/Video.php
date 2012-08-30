@@ -70,7 +70,7 @@ class Video extends Entity
 	 */
 	public function getExercise()
 	{
-		return $this->context->exercises->findOneBy(['id' => $this->exercise_id]);
+		return $this->context->exercises->find($this->exercise_id);
 	}
 
 

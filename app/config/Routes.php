@@ -113,7 +113,7 @@ class Routes
 						return $id;
 
 					} else {
-						return Strings::webalize($container->categories->findOneBy(['id' => $id])->label);
+						return Strings::webalize($container->categories->find($id)->label);
 					}
 				}
 			],
@@ -139,7 +139,7 @@ class Routes
 						return $eid;
 
 					} else {
-						return Strings::webalize($container->exercises->findOneBy(['id' => $eid])->label);
+						return Strings::webalize($container->exercises->find($eid)->label);
 					}
 				}
 			],

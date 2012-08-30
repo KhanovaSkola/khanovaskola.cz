@@ -37,7 +37,7 @@ class NetteUser extends \Nette\Security\User
 	 */
 	public function getEntity()
 	{
-		return $this->users->findOneBy(['id' => $this->id]);
+		return $this->users->find($this->id);
 	}
 
 
