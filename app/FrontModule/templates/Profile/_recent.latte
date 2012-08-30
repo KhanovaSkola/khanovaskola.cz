@@ -12,7 +12,7 @@
 				</td>
 				<td>
 					<span class="video-progress v-{$progress->video_id}"></span>
-					<a n:href=":Front:Watch:, id => $video->getOneCategoryId(), vid => $progress->video_id">{$progress->getVideo()->label}</a>
+					<a n:href=":Front:Watch:, id => $progress->getVideo()->getOneCategoryId(), vid => $progress->video_id">{$progress->getVideo()->label}</a>
 					{if $progress->percent < 98}({$progress->percent|number}&thinsp;%){/if}
 				</td>
 			</tr>

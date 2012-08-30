@@ -7,7 +7,7 @@
 			<ol>
 				<li n:foreach="$profile->getTasksFromCoach($coach)->order('completed, Isnull(deadline), deadline') as $task">
 					&bull;
-					<a n:tag-if="$task->isVideo()" n:href="Watch:, id => $video->getOneCategoryId(), vid => $task->video_id">
+					<a n:tag-if="$task->isVideo()" n:href="Watch:, id => $task->getVideo()->getOneCategoryId(), vid => $task->video_id">
 					<a n:tag-if="!$task->isVideo()" n:href="Exercise:, eid => $task->exercise_id">
 						<span n:class="task, $task->completed ? task-completed">
 							{$task->getText()}
