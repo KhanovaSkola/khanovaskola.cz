@@ -54,7 +54,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 		];
 
 		\Helpers::register($this->template);
-		$this['search']['query']->setValue($this->getParam('q'));
+		$this['search']['query']->setValue($this->getParameter('q'));
 	}
 
 
@@ -121,4 +121,10 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 		return new Youtube();
 	}
 
+
+
+	public function getBacklink()
+	{
+		return $this->link('this');
+	}
 }

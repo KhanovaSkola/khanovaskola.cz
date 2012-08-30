@@ -29,4 +29,11 @@ class HomepagePresenter extends BaseFrontPresenter
 		die;
 	}
 
+
+
+	public function getBacklink()
+	{
+		return NULL;
+	}
+
 }

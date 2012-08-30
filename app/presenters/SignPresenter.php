@@ -22,6 +22,13 @@ class SignPresenter extends BasePresenter
 
 
 
+	public function getBacklink()
+	{
+		return NULL;
+	}
+
+
+
 	public function actionInFacebook()
 	{
 		if ($this->user->isLoggedIn()) {
@@ -149,7 +156,7 @@ class SignPresenter extends BasePresenter
 
 	protected function inRedirect()
 	{
-		if (!$this->backlink || $this->backlink === '/') {
+		if (!$this->backlink) {
 			if ($this->user->isInRole('moderator')) {
 				$this->redirect(':Moderator:Dashboard:');
 			} else {
