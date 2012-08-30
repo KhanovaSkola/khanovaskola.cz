@@ -32,7 +32,7 @@
 				</strong>
 				<ol style="padding-left: 2em;">
 					<li n:foreach="$group->getUsers() as $student">
-						&bull; <a n:href="Profile:, pid => $student->id">{$student->name}</a>
+						&bull; <a n:href="Profile:, gid => $group->id, pid => $student->id">{$student->name}</a>
 					</li>
 				</ol>
 			</p>
