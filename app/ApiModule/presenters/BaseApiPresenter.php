@@ -3,7 +3,7 @@
 namespace ApiModule;
 
 
-class BaseApiPresenter extends \BasePresenter
+abstract class BaseApiPresenter extends \BasePresenter
 {
 
 	const OK = 200;
