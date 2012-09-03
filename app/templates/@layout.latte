@@ -32,6 +32,19 @@
 	<script type="text/javascript" src="{$basePath}/js/retina.js"></script>
 	{#head}{/#}
 
+	<script>
+		/** error logging */
+		window.onerror = function(errorMessage, url, line) {
+			var parameters = "?description=" + escape(errorMessage)
+					+ "&url=" + escape(url)
+					+ "&line=" + escape(line)
+					+ "&parent_url=" + escape(document.location.href)
+					+ "&user_agent=" + escape(navigator.userAgent)
+					+ "&user_id={$user->id}";
+			/** Send error to server */
+			new Image().src = "/jsLogger/" + parameters;
+		};
+	</script>
 	<script type="text/javascript">
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', 'UA-33892654-1']);
