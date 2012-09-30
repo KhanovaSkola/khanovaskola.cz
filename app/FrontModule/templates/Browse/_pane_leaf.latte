@@ -29,7 +29,7 @@
 						<li n:block="video_link" class="video-link" id="video-{$video->id}" data-id="{$video->id}">
 							<a n:href=":Front:Watch:, id => $leaf->id, vid => $video->id">
 								<span class="indent">
-									<span class="video-progress v-{$video->id}"></span>
+									<span n:class="'video-progress', 'v-'.$video->id, $video->isDubbed() ? 'icon-dubbed'"></span>
 									{$video->label}
 								</span>
 							</a>

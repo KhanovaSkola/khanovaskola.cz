@@ -8,7 +8,7 @@
 	<div class="library-content-list" style="margin-left: 6em;">
 		<div class="wrap-columns">
 			<a n:foreach="$subcat->getVideos() as $video" class="link-wrap" n:href=":Front:Watch:, id => $subcat->id, vid => $video->id" title="{$video->label}">
-				<span class="video-progress v-{$video->id}"></span>
+				<span n:class="'video-progress', 'v-'.$video->id, $video->isDubbed() ? 'icon-dubbed'"></span>
 				{$video->label|truncate:45}
 			</a>
 		</div>
