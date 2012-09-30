@@ -76,7 +76,8 @@ class Videos extends Table
 
 	public function trimYoutubeIds()
 	{
-		return $this->connection->exec("UPDATE video SET youtube_id = Trim(youtube_id)");
+		// trim and inclusive remove everything after hashes, then crop it to 11 chars
+		return $this->connection->exec("UPDATE video SET youtube_id = Substring(Substring_index(Trim(youtube_id), '#', 1), 1, 11)");
 	}
 
 
