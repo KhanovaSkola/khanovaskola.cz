@@ -25,6 +25,7 @@ a[href^="error:"] {background: red; color: white;}
 	font-weight: normal;
 	font-style: normal;
 }
+.icon-dubbed:before {content: "\f028"; color: rgb(72, 113, 201);}
 
 /* generic */
 footer .legal {float: right; margin-right: 10px;}
