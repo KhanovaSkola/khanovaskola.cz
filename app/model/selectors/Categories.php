@@ -9,7 +9,7 @@ class Categories extends Table
 	 */
 	public function findRoot()
 	{
-		return $this->findBy(['parent_id' => NULL]);
+		return $this->findBy(['parent_id' => NULL])->order('position ASC');
 	}
 
 
