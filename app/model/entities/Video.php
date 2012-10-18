@@ -107,7 +107,10 @@ class Video extends Entity
 	 */
 	public function isDubbed()
 	{
-		return $this->getMetaData()->data->uploader === 'khanacademyczech';
+		// dubbed tag
+		// TODO: FIX Hardcoded ID !!!
+		$tag_id = 473;
+		return $this->context->tags->findByVideo($this)->where('tag_id', $tag_id) !== FALSE;
 	}
 
 
