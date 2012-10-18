@@ -119,10 +119,11 @@ class Videos extends Table
 	 */
 	public function findByCategory(Category $category)
 	{
+		$ids = $category->getVideoIds();
 		return $this->findBy([
-			'id' => $category->getVideoIds(),
+			'id' => $ids,
 			'slug <> ?' => '', // not empty videos
-		]);
+		])->order('FIELD(id,' . implode(',', $ids) . '), id');
 	}
 
 }
