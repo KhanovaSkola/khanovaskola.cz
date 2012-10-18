@@ -120,6 +120,13 @@ class Videos extends Table
 	public function findByCategory(Category $category)
 	{
 		$ids = $category->getVideoIds();
+		if (!count($ids)) { // TODO: remove and handle differently (ie do not show empty categories)
+			return $this->findBy([
+				'id' => $ids,
+				'slug <> ?' => '', // not empty videos
+			]);
+		}
+
 		return $this->findBy([
 			'id' => $ids,
 			'slug <> ?' => '', // not empty videos
