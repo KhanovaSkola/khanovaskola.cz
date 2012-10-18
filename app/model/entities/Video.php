@@ -110,7 +110,12 @@ class Video extends Entity
 		// dubbed tag
 		// TODO: FIX Hardcoded ID !!!
 		$tag_id = 473;
-		return $this->context->tags->findByVideo($this)->where('tag_id', $tag_id) !== FALSE;
+		foreach ($this->getTags() as $tag) {
+			if ($tag->id === $tag_id) {
+				return TRUE;
+			}
+		}
+		return FALSE;
 	}
 
 
