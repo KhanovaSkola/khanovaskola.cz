@@ -13,7 +13,7 @@ class SitemapPresenter extends BasePresenter
 
 	public function renderRobotsTxt()
 	{
-		$robots = "# see http://www.robotstxt.org/orig.html for documentation\n";
+		$robots = "# see http://www.robotstxt.org/orig.html for documentation\nUser-agent: *\nDisallow: /exercise/\n";
 		$this->getHttpResponse()->setContentType('text/plain');
 		$this->sendResponse(new \Nette\Application\Responses\TextResponse($robots));
 	}
