@@ -515,12 +515,12 @@ function Multiplier(a, b, digitsA, digitsB, deciA, deciB) {
         var y = -digitsB.length * digitsA.length;
 		/** @todo translate with context */
         graph.label([x, y + 2],
-            "\\text{Horní číslo má " + KhanUtil.plural(deciA, "číslici", "čislice", "číslic") + " to the right of the decimal.}", "right");
+            "\\text{Horní číslo má " + deciA + " " + KhanUtil.plural(deciA, "číslici", "čislice", "číslic") + " napravo od desetinné čárky.}", "right");
         graph.label([x, y + 1],
-            "\\text{Spodní číslo má " + KhanUtil.plural(deciB, "číslici", "číslice", "číslic") + " to the right of the decimal.}", "right");
+            "\\text{Spodní číslo má " + deciB + " " + KhanUtil.plural(deciB, "číslici", "číslice", "číslic") + " napravo od desetinné čárky.}", "right");
         graph.label([x, y],
-            "\\text{Součin má " + deciA + " + " + deciB + " = " + (deciA + deciB)
-             + " číslic to the right of the decimal.}", "right");
+            "\\text{Součin má " + deciA + " + " + deciB + " = " + (deciA + deciB) + " "
+             + KhanUtil.plural(deciA + deciB, "číslici", "číslice", "číslic") + " napravo od desetinné čárky.}", "right");
         graph.style({
             fill: "#000"
         }, function() {

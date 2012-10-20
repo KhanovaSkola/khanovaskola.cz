@@ -1,0 +1,2 @@
+11.1	 Sčítání desetinných čísel  0.5
+

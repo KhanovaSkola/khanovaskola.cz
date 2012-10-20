@@ -1,0 +1,4 @@
+239.1	 Násobení výrazů 1
+
+239.2	 V tomto cvičení si vyzkoušíte zjednodušování výrazů ve tvaru: (Ax + B)(Cx + D)
+

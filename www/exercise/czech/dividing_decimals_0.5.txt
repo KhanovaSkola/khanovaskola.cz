@@ -1,0 +1,3 @@
+111.1	 Dělení 0.5
+
+111.2	 Napište výsledek jako desetinné číslo.

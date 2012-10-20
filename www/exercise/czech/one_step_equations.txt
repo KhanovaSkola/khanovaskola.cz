@@ -1,0 +1,33 @@
+253.1	 Lineární rovnice - příklady řešené jednou ekv.úpravou
+
+
+253.2	 Vypočítejte <code><var>X</var></code>.
+
+253.4	 <code><var>X</var>=</code> <span class="sol"><var>Z - Y</var></span>
+
+253.5	 <span data-if="Y &lt; 0">Přičtěte <var>Y * -1</var> k</span><span data-else>odečtěte<var>Y</var> z </span> obou(m) stran rovnice.
+
+253.8	 Zjednodušte.
+
+253.10	 Vypočítejte <code><var>X</var></code>.
+
+253.12	 <code><var>X</var>=</code> <span class="sol" data-type="rational"><var>Z / Y</var></span>
+
+253.13	 Vydělte obě strany <var>Y</var>.
+
+253.16	 Vydělte obě strany <var>Y</var>.
+
+253.19	 Zjednodušte.
+
+253.21	 <b>Solve for <code><var>X</var></code>.</b>
+
+253.23	 <code><var>X</var>=</code> <span class="sol" data-type="rational"><var>Z * Y</var></span>
+
+253.24	 Vynásobte obě strany rovnice <var>Y</var>.
+
+253.26	 Zjednodušte.
+
+253.29	 Multiply both sides by <var>Y</var>.
+
+253.31	 Zjednodušte.
+

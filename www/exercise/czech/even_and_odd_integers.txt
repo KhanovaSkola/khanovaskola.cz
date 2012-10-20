@@ -1,0 +1,3 @@
+141.1	 Sudá a lichá čísla
+
+141.2	 Je výraz <code><var>expr( EXPR )</var></code> sudé nebo liché číslo?
