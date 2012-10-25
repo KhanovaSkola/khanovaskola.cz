@@ -19,7 +19,7 @@
 	<div id="homepage-text" class="visited-no-recolor">
 		<h1 class="section-headline pulls"><a n:href=":Front:Homepage:#browse">Dívej se.</a> <a n:href=":Front:Exercise:">Procvičuj.</a></h1>
 		<h1>Nauč se zdarma skoro cokoliv.</h1>
-		<p class="justify">
+		<p>
 			Jsme překlad Khan Academy. Máme pro vás přes <a n:href=":Front:Homepage:#browse">{$video_count} videi</a>,
 			už nejenom z oblasti základní matematiky, ale i přírodních a humanitních věd. Probranou látku z matematiky si můžete prozkoušet na řadě <a n:href=":Front:Exercise:">cvičení</a>.
 		</p>
@@ -30,13 +30,17 @@
 			<a n:href=":Front:Homepage:#browse" class="call-to-action simple-button green watch-a-video">Shlédnout video</a>
 			<a n:href=":Front:Exercise:" class="call-to-action simple-button blue">Vyplnit cvičení</a>
 		</div>
-		<p>Chcete Khanově škole pomoct? Můžete hned <a n:href=":Front:Volunteer:">začít překládat videa</a>.</p>
+		{*<p>Chcete Khanově škole pomoct? Můžete hned <a n:href=":Front:Volunteer:">začít překládat videa</a>.</p>*}
+		<p>
+			Hlavním partnerem projektu je společnost <a href="http://scio.cz/">SCIO</a>
+			<img src="{$basePath}/images/logo_scio.jpeg" height="64px">
+		</p>
 	</div>
 	<div class="clear"></div>
 
 	{cache tags => ['categories', 'videos']}
 		<div>
-			<h2 class="main-headline">Máme pro vás přeloženo už {$presenter->context->videos->findAll()->count()} výukových videí&hellip;</h2>
+			<h2>Máme pro vás přeloženo už {$presenter->context->videos->findAll()->count()} výukových videí&hellip;</h2>
 		</div>
 
 		<hr id="browse">
