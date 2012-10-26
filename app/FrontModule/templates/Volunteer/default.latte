@@ -1,54 +1,39 @@
-{var $title = "Překlad"}
+{var $title = "Zapojte se"}
 {var $description = "Jsme dobrovolníci, kteří rádi ve svých řadách uvítají další nadšence, kteří by nám s překladem pomohli. Patříte mezi ně i vy?"}
 {#content}
 
 <article>
 	<div>
+		<h2 class="main-headline" style="white-space: pre;">Zapojte se</h2>
+		<p>
+			<cite><em>
+				„Dělte se o svou zkušenost. Je to cesta jak dosáhnout nesmrtelnosti.“ —Dalajláma
+			</em></cite>
+		</p>
+
+		<p>Koho potřebujeme?</p>
+		<ol>
+			<li><p><b>Překladatele</b> Dobrovolníky s ucházející znalostí angličtiny, kteří nám pomohou překládat výukové materiály do češtiny.</p></li>
+			<li><p><b>Učitele</b> Hledáme zkušené a zapálené učitele, ochotné předat své vědomosti ne 30 dětem, ale tisícům.</p></li>
+			<li><p><b>Garanty</b> Máte dobrou angličtinu a jste vzdělání v technickém oboru? Pomožte nám opravit překlady od technických nedostatků, zlepšit terminologii.</p></li>
+			<li><p><b>Vývojáře</b> Umíte s počítačem zázraky? Pomožte nám z vývojem webových aplikací. Můžete získat praxi v oboru, kterou Vám rádi potvrdíme. A hlavně budete pracovat na smysluplném projektu.</p></li>
+	</div>
+
+	<div>
 		<h2 class="main-headline" style="white-space: pre;">Chcete hned začít překládat?</h2>
 		<p class="justify">Khanova škola je skupina dobrovolníků &ndash; překladatelů a příznivců <a href="http://www.khanacademy.org/">www.khanacademy.org</a>. Spolupracujeme s KhanAcademy Inc. USA a naším společným cílem je kvalitní dabing kompletního obsahu knihovny Khan Academy. Rádi vás ve svých řadách uvítáme, chcete-li nám pomoci s překladem i dabingem. Také hledáme dobrovolníky, kteří nám překlady zvládnou zkontrolovat po odborné stránce. Přidáte se k nám? Těšíme se na vás :-)</p>
 		<p>
+			<a n:href="rules" class="call-to-action simple-button blue">Manuál / Pravidla</a>
 			<a href="http://khan-report.appspot.com/translations/subtitlestatus?language=Czech&playlist=all&display=1" class="call-to-action simple-button green" target="_blank">Začít překládat</a>
-			<a href="https://docs.google.com/spreadsheet/ccc?key=0Ap8zSTFMBKM_dG9EV2lLbWp4N0wwdDJKTjNNOERsOXc#gid=6" target="_blank">Manuál</a>
 		</p>
 	</div>
 
 	<hr class="thin"/>
 	<div>
+		<h2 class="main-headline" style="white-space: pre;">Poděkování</h2>
 		<p>
 			Děkujeme všem dobrovolníkům, kteří věnovali svůj čas, energii a znalosti překladům videí či cvičení Khan Academy &ndash; abecedně:<br>
-			{var $credits => [
-				'Dalibor K',
-				'Dana U',
-				'Dominik B',
-				'eeeppe',
-				'Emil 22',
-				'Erik N',
-				'Eva Z 33',
-				'Gabriel K',
-				'Jakub Č',
-				'Jindra Z',
-				'Jirka H',
-				'ktinkoo',
-				'M4nic',
-				'Marianna',
-				'Marketa C',
-				'Martin K',
-				'Michal.c',
-				'Milosu 3',
-				'Mirka N',
-				'Naďa S',
-				'Ota J',
-				'Pavel J',
-				'Pavel Ka',
-				'Pavel Ko',
-				'Pepa Š',
-				'Petra V',
-				'Snoblucha',
-				'Šimon H',
-				'upstairs.quick',
-				'Viktor Smolík',
-				'Zdeněk O',
-			]}
+			{var $credits => ['Dalibor K', 'Dana U', 'Dominik B', 'eeeppe', 'Emil 22', 'Erik N', 'Eva Z 33', 'Gabriel K', 'Jakub Č', 'Jindra Z', 'Jirka H', 'ktinkoo', 'M4nic', 'Marianna', 'Marketa C', 'Martin K', 'Michal.c', 'Milosu 3', 'Mirka N', 'Naďa S', 'Ota J', 'Pavel J', 'Pavel Ka', 'Pavel Ko', 'Pepa Š', 'Petra V', 'Snoblucha', 'Šimon H', 'upstairs.quick', 'Viktor Smolík', 'Zdeněk O']}
 			{?natcasesort($credits)}
 			{=implode(', ', $credits)}
 		</p>
