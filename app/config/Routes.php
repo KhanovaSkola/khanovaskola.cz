@@ -243,6 +243,9 @@ class Routes
 					'pravidla-pouziti' => 'tos',
 					'osobni-udaje' => 'privacy',
 					'ucit' => 'coach',
+					'pravidla-prekladu' => 'rules',
+					'projekty' => 'projects',
+					'sponzori' => 'sponsors',
 				],
 			],
 		]);
