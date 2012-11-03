@@ -34,14 +34,28 @@ CREATE TABLE `category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci COMMENT='Kategorie';
 
 
+DROP TABLE IF EXISTS `category_exercise`;
+CREATE TABLE `category_exercise` (
+  `category_id` bigint(20) unsigned NOT NULL COMMENT 'kategorie',
+  `exercise_id` bigint(20) unsigned NOT NULL COMMENT 'cvičení',
+  `position` int(10) unsigned NOT NULL COMMENT 'pozice',
+  PRIMARY KEY (`category_id`,`exercise_id`),
+  KEY `exercise_id` (`exercise_id`),
+  CONSTRAINT `category_exercise_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `category_exercise_ibfk_2` FOREIGN KEY (`exercise_id`) REFERENCES `exercise` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci COMMENT='Kategorie:Cvičení';
+
+
 DROP TABLE IF EXISTS `category_video`;
 CREATE TABLE `category_video` (
-  `category_id` bigint(20) unsigned NOT NULL COMMENT 'Kategorie',
-  `video_id` bigint(20) unsigned NOT NULL COMMENT 'Video',
-  `position` int(10) unsigned NOT NULL COMMENT 'Pozice',
-  KEY `category_id` (`category_id`),
-  KEY `video_id` (`video_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci COMMENT='Kategorie + Videa';
+  `category_id` bigint(20) unsigned NOT NULL COMMENT 'kategorie',
+  `video_id` bigint(20) unsigned NOT NULL COMMENT 'video',
+  `position` int(10) unsigned NOT NULL COMMENT 'pozice',
+  PRIMARY KEY (`category_id`,`video_id`),
+  KEY `video_id` (`video_id`),
+  CONSTRAINT `category_video_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `category_video_ibfk_2` FOREIGN KEY (`video_id`) REFERENCES `video` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci COMMENT='Kategorie:Videa';
 
 
 DROP TABLE IF EXISTS `coach`;
@@ -120,7 +134,7 @@ CREATE TABLE `tag_video` (
   KEY `video_id` (`video_id`),
   CONSTRAINT `tag_video_ibfk_1` FOREIGN KEY (`tag_id`) REFERENCES `tag` (`id`) ON DELETE CASCADE,
   CONSTRAINT `tag_video_ibfk_2` FOREIGN KEY (`video_id`) REFERENCES `video` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci COMMENT='Video + Tagy';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci COMMENT='Video:Tagy';
 
 
 DROP TABLE IF EXISTS `task`;
@@ -177,4 +191,7 @@ CREATE TABLE `video` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci COMMENT='Videa';
 
 
--- 2012-08-29 12:25:09
+DROP VIEW IF EXISTS `_autocomplete`;
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `_autocomplete` AS select `category`.`label` AS `label` from `category` union select `exercise`.`label` AS `label` from `exercise` union select `tag`.`label` AS `label` from `tag` union select `video`.`label` AS `label` from `video`;
+
+-- 2012-11-03 17:13:10
