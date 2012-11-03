@@ -129,16 +129,18 @@
 					</ol>
 				</td>
 			{/cache}
-			<td>
-				<ol>
-					{var $count => $vid['nogroupex']->limit(30)->count()}
-					<li n:foreach="$vid['nogroupex']->limit(30)->order('id DESC') as $exercise">
-						{$exercise->label}
-					</li>
-					<div n:if="!$count" class="moderator-congrats">Dobrá práce, všechna cvičení jsou zařazená.</div>
-					<li n:if="$count == 30">a další&hellip;</li>
-				</ol>
-			</td>
+			{cache tags => ['categories', 'exercises']}
+				<td>
+					<ol>
+						{var $count => $vid['nogroupex']->limit(30)->count()}
+						<li n:foreach="$vid['nogroupex']->limit(30)->order('id DESC') as $exercise">
+							{$exercise->label}
+						</li>
+						<div n:if="!$count" class="moderator-congrats">Dobrá práce, všechna cvičení jsou zařazená.</div>
+						<li n:if="$count == 30">a další&hellip;</li>
+					</ol>
+				</td>
+			{/cache}
 		</tr>
 	</table>
 </article>
