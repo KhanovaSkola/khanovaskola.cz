@@ -52,6 +52,7 @@ code {font-family: "Monaco", "Courier New";}
 .unisubs-videoTab-static .unisubs-tabTextShare {display: none !important;}
 #video-container .unisubs-videoTab-container {display: inline !important;}
 #cc-notification {margin: 3px 0 0 0; padding: 0; position: relative; left: 1em;}
+li p {margin: 0;}
 
 /* ----  iPad 3 ---- */
 .ipad-only {display: none;}
