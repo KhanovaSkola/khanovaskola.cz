@@ -9,6 +9,16 @@ class Exercise extends Entity
 {
 
 	/**
+	 * @return Category[]
+	 */
+	public function getCategories()
+	{
+		return $this->context->categories->findByExercise($this);
+	}
+
+
+
+	/**
 	 * @return Video[]
 	 */
 	public function getRelatedVideos()
@@ -58,6 +68,20 @@ class Exercise extends Entity
 		}
 
 		return "Cvičení {$this->label} na Khanově škole.";
+	}
+
+
+
+	/**
+	 * @return int[]
+	 */
+	public function getCategoryIds()
+	{
+		$ids = [];
+		foreach ($this->context->database->query('SELECT category_id FROM category_exercise WHERE exercise_id=?', $this->id) as $row) {
+			$ids[] = (int) $row['category_id'];
+		}
+		return $ids;
 	}
 
 }

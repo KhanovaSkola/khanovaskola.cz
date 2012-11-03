@@ -236,4 +236,51 @@ class Category extends Entity
 		return FALSE;
 	}
 
+
+
+	/**
+	 * Ordered by position
+	 * @return int[]
+	 */
+	public function getExerciseIds()
+	{
+		$ids = [];
+		foreach ($this->context->database->query('SELECT exercise_id FROM category_exercise WHERE category_id=? ORDER BY position ASC', $this->id) as $row) {
+			$ids[] = (int) $row['exercise_id'];
+		}
+		return $ids;
+	}
+
+
+
+	/**
+	 * Recursive
+	 * @return bool
+	 */
+	public function hasExercises()
+	{
+		$count = count($this->getExerciseIds());
+		if ($count) {
+			return TRUE;
+		}
+
+		foreach ($this->getSubCategories() as $subcat) {
+			if ($subcat->hasExercises()) {
+				return TRUE;
+			}
+		}
+
+		return FALSE;
+	}
+
+
+
+	/**
+	 * @return Exercise[]
+	 */
+	public function getExercises()
+	{
+		return $this->context->exercises->findByCategory($this);
+	}
+
 }

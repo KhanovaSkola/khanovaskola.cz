@@ -32,4 +32,26 @@ class Categories extends Table
 		return $this->findBy(['id' => $video->getCategoryIds()]);
 	}
 
+
+
+	/**
+	 * @param Exercise $exercise
+	 * @return Category[]
+	 */
+	public function findByExercise(Exercise $exercise)
+	{
+		return $this->findBy(['id' => $exercise->getCategoryIds()]);
+	}
+
+
+
+	public function findWithExercises()
+	{
+		$ids = [];
+		foreach ($this->context->database->query('SELECT DISTINCT category_id FROM category_exercise') as $row) {
+			$ids[] = (int) $row['category_id'];
+		}
+		return $this->findBy(['id' => $ids]);
+	}
+
 }

@@ -44,7 +44,8 @@ class ExercisePresenter extends BaseFrontPresenter
 
 	public function renderList()
 	{
-		$this->template->exercises = $this->context->exercises->findAll();
+		$this->template->categories = $this->context->categories->findWithExercises();
+		//$this->template->exercises = $this->context->exercises->findAll();
 	}
 
 

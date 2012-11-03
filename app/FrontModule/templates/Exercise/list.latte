@@ -5,17 +5,20 @@
 <article>
 	<h2 class="main-headline">Cvičení</h2>
 
-	<table>
-		<tr n:foreach="$exercises as $ex">
-			<td n:if="$user->loggedIn" style="padding-right: .5em; text-align: right;">
-				{var $skill = $user->entity->getExerciseSkill($ex)}
-				{if $skill > 0.05}
-					{=$skill * 100|number}&thinsp;%
-				{/if}
-			</td>
-			<td>
-				<a n:href=":Front:Exercise:, eid => $ex->id">{$ex->label}</a>
-			</td>
-		</tr>
-	</table>
+	{foreach $categories as $category}
+		<h3 style="margin: 10px 0 0 0">{$category->label}</h3>
+		<table>
+			<tr n:foreach="$category->getExercises() as $ex">
+				<td n:if="$user->loggedIn" style="padding-right: .5em; text-align: right; width: 3em;">
+					{var $skill = $user->entity->getExerciseSkill($ex)}
+					{if $skill > 0.05}
+						{=$skill * 100|number}&thinsp;%
+					{/if}
+				</td>
+				<td>
+					<a n:href=":Front:Exercise:, eid => $ex->id">{$ex->label}</a>
+				</td>
+			</tr>
+		</table>
+	{/foreach}
 </article>

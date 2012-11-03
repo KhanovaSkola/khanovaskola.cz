@@ -21,4 +21,17 @@ class Exercises extends Table
 		return $query;
 	}
 
+
+
+	/**
+	 * @param Category $category
+	 * @return Exercise[]
+	 */
+	public function findByCategory(Category $category)
+	{
+		$ids = $category->getExerciseIds();
+		return $this->findBy(['id' => $ids])
+			->order('FIELD(id,' . implode(',', $ids) . '), id');
+	}
+
 }
