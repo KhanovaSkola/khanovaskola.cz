@@ -95,6 +95,7 @@
 			<th><strong>Kategorie bez popisu:</strong></th>
 			<th><strong>Videa bez popisu:</strong></th>
 			<th><strong>Nenavázaná cvičení:</strong></th>
+			<th><strong>Cvičení bez kategorie:</strong></th>
 		</tr>
 		<tr>
 			{cache tags => ['categories']}
@@ -115,7 +116,7 @@
 							<li n:foreach="$vid['description']->limit(30)->order('id DESC') as $video">
 								<a n:href=":Front:Watch:edit, id => $video->getOneCategoryId(), vid => $video->id">{$video->label}</a>
 							</li>
-							<li n:if="$count == 30">and more&hellip;</li>
+							<li n:if="$count == 30">a další&hellip;</li>
 					</ol>
 				</td>
 				<td>
@@ -124,10 +125,20 @@
 						<li n:foreach="$vid['exercise']->limit(30)->order('id DESC') as $exercise">
 							{$exercise->label}
 						</li>
-						<li n:if="$count == 30">and more&hellip;</li>
+						<li n:if="$count == 30">a další&hellip;</li>
 					</ol>
 				</td>
 			{/cache}
+			<td>
+				<ol>
+					{var $count => $vid['nogroupex']->limit(30)->count()}
+					<li n:foreach="$vid['nogroupex']->limit(30)->order('id DESC') as $exercise">
+						{$exercise->label}
+					</li>
+					<div n:if="!$count" class="moderator-congrats">Dobrá práce, všechna cvičení jsou zařazená.</div>
+					<li n:if="$count == 30">a další&hellip;</li>
+				</ol>
+			</td>
 		</tr>
 	</table>
 </article>

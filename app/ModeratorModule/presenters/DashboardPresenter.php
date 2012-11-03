@@ -22,6 +22,7 @@ class DashboardPresenter extends BaseModeratorPresenter
 			$ids[] = $video['exercise_id'];
 		}
 		$vid['exercise'] = $this->context->exercises->findBy(['id NOT' => $ids]);
+		$vid['nogroupex'] = $this->context->exercises->findWithoutCategory();
 
 		$this->template->vid = $vid;
 

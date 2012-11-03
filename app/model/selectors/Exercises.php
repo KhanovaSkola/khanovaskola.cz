@@ -34,4 +34,15 @@ class Exercises extends Table
 			->order('FIELD(id,' . implode(',', $ids) . '), id');
 	}
 
+
+
+	public function findWithoutCategory()
+	{
+		$ids = [];
+		foreach ($this->context->database->query('SELECT DISTINCT exercise_id FROM category_exercise') as $row) {
+			$ids[] = (int) $row['exercise_id'];
+		}
+		return $this->findBy(['id NOT' => $ids]);
+	}
+
 }
