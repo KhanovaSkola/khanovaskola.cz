@@ -245,7 +245,7 @@ class Routes
 					'ucit' => 'coach',
 					'pravidla-prekladu' => 'rules',
 					'projekty' => 'projects',
-					'sponzori' => 'sponsors',
+					'sponzori' => 'sponsors'
 				],
 			],
 		]);

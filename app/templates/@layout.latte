@@ -2,11 +2,12 @@
 <html lang="cs">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	
+	<title>{ifset $title}{$title} &ndash; {/ifset}Khanova škola</title>
 
 	<meta name="description" content="{$description}" n:ifset="$description">
 	<meta name="robots" content="{$robots}" n:ifset="$robots">
-
-	<title>{ifset $title}{$title} &ndash; {/ifset}Khanova škola</title>
+	<link rel="alternate" type="application/rss+xml" title="Khanova škola - Blog" n:href="//:Front:Blog:rss">
 
 	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/khan.css" type="text/css">
 	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css" type="text/css">
@@ -100,7 +101,7 @@
 					<a n:href=":Front:Contact:tos" title="Podmínky použití">Podmínky použití</a>
 					<a href="http://docs.khanovaskola.apiary.io">Api</a>
 					<span class="sep">|</span>
-					<a n:href=":Tablet:Homepage:" title="Mobilní verze webu">Verze pro tablety</a>
+					<a n:href="//:Front:Blog:rss" title="Blog Khanovy školy">RSS feed</a>
 					<span class="sep">|</span>
 
 					<span class="small-social-links">

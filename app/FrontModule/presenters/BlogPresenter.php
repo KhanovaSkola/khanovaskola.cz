@@ -142,10 +142,41 @@ class BlogPresenter extends BaseFrontPresenter
 		if (!$this->user->moderator) {
 			throw new \Nette\Application\ForbiddenRequestException;
 		}
-		
+
 		$this->article->setPublished();
 		$this->flashMessage('Článek zveřejněn.');
 		$this->redirect('detail');
+	}
+
+
+
+	public function renderRss()
+	{
+		$httpResponse = $this->context->getService('httpResponse');
+		$httpResponse->setContentType('application/rss+xml', 'UTF-8');
+
+		$rss = $this["rss"];
+
+		$rss->title = "Khanova škola";
+		$rss->description = "Blog";
+		$rss->link = $this->link("//:Front:Homepage:");
+		$rss->setChannelProperty("lastBuildDate", time());
+
+		$items = [];
+		foreach ($this->context->articles->findPublished() as $article) {
+			$items[] = [
+				'link' => $this->link("//:Front:Blog:detail", ['aid' => $article->id]),
+				'title' => $article->label,
+				'description' => $article->text,
+			];
+		}
+
+		$rss->items = $items;
+	}
+
+	protected function createComponentRss()
+	{
+		return new \RssControl;
 	}
 
 }
