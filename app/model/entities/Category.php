@@ -5,7 +5,7 @@
  * @property bool	$is_leaf
  * @property string	$label
  * @property string	$slug			Webalized $label
- * @property strign	$description
+ * @property string	$description
  * @property int	$position		Unique between siblings
  */
 class Category extends Entity

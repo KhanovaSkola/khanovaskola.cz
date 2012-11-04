@@ -54,6 +54,14 @@ code {font-family: "Monaco", "Courier New";}
 #cc-notification {margin: 3px 0 0 0; padding: 0; position: relative; left: 1em;}
 li p {margin: 0;}
 .moderator-congrats {color: green; font-style: italic;}
+#blog h2 {margin-bottom: 0; float: left;}
+#blog-detail .holder {width: 640px; margin: auto; margin-top: 32px;}
+#blog-detail h2 {margin: 0; padding: 0; float: left;}
+#blog div p, #blog-detail div p {margin-top: 0;}
+.blog-time {float: right;}
+.blog-edit {margin-left: 1em;}
+#frm-articleForm input[type=text] {width: 640px;}
+#frm-articleForm textarea {width: 640px; height: 320px;}
 
 /* ----  iPad 3 ---- */
 .ipad-only {display: none;}

@@ -1,0 +1,16 @@
+{var $title = "Blog"}
+{#content}
+
+{include ../_navigation.latte}
+<article id="blog-detail">
+	<a n:href="default, aid => NULL">Zobrazit všechny články</a>
+	<div class="holder">
+		<h2 class="main-headline">{$article->label}</h2>
+		<span class="blog-time">{$article->datetime|date:"m/d G:i"}</span>
+		<a n:if="$user->moderator" n:href="edit, aid => $article->id" class="blog-edit">Editovat</a>
+		<a n:if="$user->moderator && !$article->is_published" n:href="publish!">Zveřejnit článek</a>
+		<div class="clear"></div>
+
+		<p n:foreach="$article->getSplitText() as $p" class="justify">{$p}</p>
+	</div>
+</article>

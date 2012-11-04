@@ -1,0 +1,30 @@
+{var $title = "Blog"}
+{var $description = "Novinky z Khanovy školy."}
+{#content}
+
+{include ../_navigation.latte}
+<article id="blog">
+	<div n:if="$user->moderator" style="width: 640px; margin: auto; margin-bottom: 2em;">
+		<p>
+			<a n:href="add, aid => NULL">Přidat článek</a>
+		</p>
+		<ul n:if="$to_publish->count()">
+			<li><p><b>Nezveřejněné články:</b></p></li>
+			<li n:foreach="$to_publish as $article">
+				<a n:href="detail, aid => $article->id">{$article->label}</a>
+			</li>
+		</ul>
+	</div>
+
+	<div n:foreach="$articles as $article" style="width: 640px; margin: auto;">
+		<h2>
+			<a n:href="detail, aid => $article->id">{$article->label}</a>
+		</h2>
+		<span class="blog-time">{$article->datetime|date:"m/d G:i"}</span>
+		<a n:if="$user->moderator" n:href="edit, aid => $article->id" class="blog-edit">Editovat</a>
+
+		<div class="clear"></div>
+		<p n:foreach="$article->getSplitText() as $p" class="justify">{$p}</p>
+		<hr class="thin">
+	</div>
+</article>
