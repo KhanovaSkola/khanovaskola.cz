@@ -2,6 +2,9 @@
 {#content}
 
 <article>
+	<style n:syntax="off">
+		hr.thin {width: 100%}
+	</style>
 	<br>
 
 	{if $user->admin}
@@ -20,7 +23,7 @@
 		</div>
 		<div class="clear"></div>
 
-		<hr>
+		<hr class="thin">
 	{/if}
 
 	<div class="col1 fifty-fifty">
@@ -45,7 +48,23 @@
 	</div>
 	<div class="clear"></div>
 
-	<hr>
+	<hr class="thin">
+
+	<div class="col1 fifty-fifty">
+		<h2><a n:href=":Front:Blog:">Blog</a></h2>
+		<ol>
+			<li><a n:href=":Front:Blog:add">Nový příspěvek</a></li>
+		</ol>
+		<ul>
+			<li n:foreach="$to_publish as $article">{$article->label}</li>
+			<li n:if="!count($to_publish)">žádné rozepsané články</li>
+		</ul>
+	</div>
+	<div class="col2 fifty-fifty">
+	</div>
+	<div class="clear"></div>
+
+	<hr class="thin">
 
 	<div class="col1 fifty-fifty">
 		<h2>Překlad</h2>
@@ -87,7 +106,7 @@
 	</div>
 	<div class="clear"></div>
 
-	<hr>
+	<hr class="thin">
 
 	<h2>Nekompletní údaje</h2>
 	<table>
