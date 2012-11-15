@@ -2,6 +2,7 @@
 
 // Load Nette Framework
 require LIBS_DIR . '/Nette/loader.php';
+require LIBS_DIR . '/Markdown.php'; // not class, loaded directly
 
 // Configure application
 $configurator = new Nette\Config\Configurator;

@@ -34,6 +34,16 @@ class BlogPresenter extends BaseFrontPresenter
 
 
 
+	protected function createTemplate($class = NULL)
+	{
+		$template = parent::createTemplate($class);
+		$template->registerHelper('markdown', callback('\Markdown'));
+
+		return $template;
+	}
+
+
+
 	public function renderDefault()
 	{
 		$this->template->articles = $this->context->articles->findPublished();

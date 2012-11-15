@@ -24,7 +24,9 @@
 		<a n:if="$user->moderator" n:href="edit, aid => $article->id" class="blog-edit">Editovat</a>
 
 		<div class="clear"></div>
-		<p n:foreach="$article->getSplitText() as $p" class="justify">{$p}</p>
+		<p n:foreach="$article->getSplitText() as $p" class="justify">
+			{!$p|markdown}
+		</p>
 		<hr class="thin">
 	</div>
 </article>

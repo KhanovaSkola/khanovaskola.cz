@@ -11,6 +11,8 @@
 		<a n:if="$user->moderator && !$article->is_published" n:href="publish!">Zveřejnit článek</a>
 		<div class="clear"></div>
 
-		<p n:foreach="$article->getSplitText() as $p" class="justify">{$p}</p>
+		<p n:foreach="$article->getSplitText() as $p" class="justify">
+			{!$p|markdown}
+		</p>
 	</div>
 </article>
