@@ -1,0 +1,43 @@
+{var $title = "Materiály"}
+{#content}
+
+{include ../_navigation.latte}
+<article id="press">
+	<style n:syntax="off">
+		#press img {margin-right: 1em}
+		#press .color {display: inline-block; width: 2em; height: 3ex; margin-right: 1em;}
+	</style>
+	<div>
+		<p>
+			Typeface: Myseo Sans (<a href="http://www.fontsquirrel.com/fonts/Museo-Sans">MuseoSans500</a>)<br>
+			Barevné schéma:<br>
+				<span class="color" style="background-color: rgb(157, 182, 59)">&nbsp;</span><code>rgb(157, 182, 59)</code>, nebo <code>#9db63b</code><br>
+				<span class="color" style="background-color: rgb(43, 130, 161)">&nbsp;</span><code>rgb(43, 130, 161)</code>, nebo <code>#2b82a1</code>
+		</p>
+	</div>
+
+	<hr class="thin"/>
+
+	<div>
+		<a href="{$basePath}/press/header.png">
+			<img src="{$basePath}/images/press-preview/full.png">
+			Kompletní logo
+		</a>(png 1320&times;306)
+		<hr class="thin">
+		<a href="{$basePath}/press/hand.png">
+			<img src="{$basePath}/images/press-preview/hand.png">
+			Logo &ndash; strom
+		</a>(png 469&times;469)
+		<hr class="thin">
+		<a href="{$basePath}/press/logotyp.png">
+			<img src="{$basePath}/images/press-preview/text.png">
+			Logo &ndash; text
+		</a>(pdf)
+		<hr class="thin">
+		<a href="{$basePath}/press/logotyp_white.png">
+			<img src="{$basePath}/images/press-preview/text-white.png">
+			Logo &ndash; text
+		</a>(pdf)
+	</div>
+
+</article>
