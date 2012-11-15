@@ -24,9 +24,8 @@
 		<a n:if="$user->moderator" n:href="edit, aid => $article->id" class="blog-edit">Editovat</a>
 
 		<div class="clear"></div>
-		<p n:foreach="$article->getSplitText() as $p" class="justify">
-			{!$p|markdown}
-		</p>
+		{!$article->text|truncate:400|markdown}
+		<a n:href="detail, aid => $article->id">celý příspěvěk</a>
 		<hr class="thin">
 	</div>
 </article>

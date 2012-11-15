@@ -57,7 +57,7 @@ li p {margin: 0;}
 #blog h2 {margin-bottom: 0; float: left;}
 #blog-detail .holder {width: 640px; margin: auto; margin-top: 32px;}
 #blog-detail h2 {margin: 0; padding: 0; float: left;}
-#blog div p, #blog-detail div p {margin-top: 0;}
+#blog div p, #blog-detail div p {margin-top: 0; text-align: justify;}
 .blog-time {float: right;}
 .blog-edit {margin-left: 1em;}
 #frm-articleForm input[type=text] {width: 640px;}
