@@ -31,6 +31,7 @@ class ContactPresenter extends BaseFrontPresenter
 		$form->addHidden('url');
 		$form->addHidden('time');
 		$form->addHidden('user_id');
+		$form->addHidden('antispam');
 
 		$form->addSubmit('send', 'Odeslat');
 		$form->onSuccess[] = callback($this, 'onSuccessIssueForm');
@@ -45,6 +46,12 @@ class ContactPresenter extends BaseFrontPresenter
 		$gh = new \Github($this->context);
 
 		$data = $form->values;
+
+		if (!$data['antispam']) {
+			$this->flashMessage('Promiňte, vaše ohlášení chyby bylo označené jako spam. Můžete nás, prosím, kontaktovat přes email?');
+			$this->redirect(':Front:Homepage:');
+		}
+
 		$data['label'] = ucFirst($data['label']);
 		$data['branch'] = \Git::getBranch();
 		$data['commit'] = substr(\Git::getCommit(), 0, 7);
