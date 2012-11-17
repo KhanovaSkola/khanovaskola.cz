@@ -36,6 +36,11 @@ class Routes
 			'presenter' => 'Homepage',
 			'action' => 'gone',
 		]);
+		$container->router[] = new Route("kontakt/osobni-udaje", [
+			'module' => 'Front',
+			'presenter' => 'Homepage',
+			'action' => 'gone',
+		]);
 
 		/**
 		 * API
