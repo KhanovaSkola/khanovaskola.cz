@@ -25,7 +25,7 @@ class TaskPresenter extends BaseCoachPresenter
 			throw new \Nette\Application\BadRequestException;
 		}
 
-		if (!$this->task->getGroup()->belongsTo($this->user->entity)) {
+		if (!$this->task->belongsTo($this->user->entity)) {
 			throw new \Nette\Application\ForbiddenRequestException;
 		}
 	}

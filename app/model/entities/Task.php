@@ -22,6 +22,14 @@ class Task extends Entity
 		return $this->context->users->find($this->coach_id);
 	}
 
+	/**
+	 * @return bool
+	 */
+	public function belongsTo(User $user)
+	{
+		return $this->coach_id == $user->id;
+	}
+
 
 	/**
 	 * @return bool
