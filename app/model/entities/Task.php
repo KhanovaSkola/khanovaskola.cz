@@ -138,7 +138,8 @@ class Task extends Entity
 			$student = $this->getStudent();
 			if ($this->isVideo()) {
 				$threshold = $this->context->params['progress']['completed_threshold'];
-				if ($student->getProgress($this->getVideo())->percent >= $threshold) {
+				$progress = $student->getProgress($this->getVideo());
+				if ($progress && $progress->percent >= $threshold) {
 					return TRUE;
 				}
 			} else {
