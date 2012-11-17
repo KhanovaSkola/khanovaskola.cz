@@ -274,9 +274,9 @@ class User extends Entity
 	}
 
 
-	public function saveExerciseAnswer($file, $correct, $onMasteryCallback = NULL)
+	public function saveExerciseAnswer($exercise_id, $correct, $onMasteryCallback = NULL)
 	{
-		$exercise = $this->context->exercises->findOneBy(['file' => $file]);
+		$exercise = $this->context->exercises->find($exercise_id);
 		if (!$exercise) {
 			return FALSE;
 		}

@@ -100,12 +100,12 @@ class ExercisePresenter extends BaseFrontPresenter
 
 
 
-	public function handleSaveAnswer($name, $correct)
+	public function handleSaveAnswer($exercise_id, $correct)
 	{
-		if ($this->ajax) {
-			$this->user->entity->saveExerciseAnswer($name, $correct === 'true', function() use ($name) {
+		if (TRUE || $this->ajax && $this->user->loggedIn) {
+			$result = $this->user->entity->saveExerciseAnswer($exercise_id, $correct === 'true', function() use ($exercise_id) {
 				// onAttainedMastery
-				$task = $this->user->entity->getTaskForExercise($this->context->exercises->findOneBy(['file' => $name]));
+				$task = $this->user->entity->getTaskForExercise($this->context->exercises->find($exercise_id));
 				if ($task && !$task->completed) {
 					$cache = new Cache($this->context->cacheStorage);
 					$cache->clean([Cache::TAGS => $this->task->getTagsToInvalidate()]);
@@ -116,7 +116,7 @@ class ExercisePresenter extends BaseFrontPresenter
 			$cache = new Cache($this->context->cacheStorage);
 			$cache->clean([Cache::TAGS => ["profile/recent/exercise/{$this->user->id}"]]);
 
-			$this->sendJson(['status' => 'success']);
+			$this->sendJson(['status' => $result ? 'success' : 'error']);
 		}
 		$this->terminate();
 	}

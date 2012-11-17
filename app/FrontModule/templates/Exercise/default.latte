@@ -4,6 +4,10 @@
 
 <div id="inject-exercise"></div>
 <div style="display: none;">
+	<script>
+		var khanovaskola_user_logged_in = {!=$user->loggedIn ? 'true' : 'false'};
+		var khanovaskola_exercise_id = {!$exercise->id};
+	</script>
 	{!$content}
 
 	<div id="injected-related" style="margin-top: 10px;">
