@@ -16,16 +16,18 @@
 		</ul>
 	</div>
 
-	<div n:foreach="$articles as $article" style="width: 640px; margin: auto;">
+	<div n:foreach="$articles as $article" style="width: 640px; margin: auto;" itemscope="" itemtype="http://schema.org/BlogPosting">
 		<h2>
-			<a n:href="detail, aid => $article->id">{$article->label}</a>
+			<a n:href="detail, aid => $article->id" itemprop="name headline">{$article->label}</a>
 		</h2>
-		<span class="blog-time">{$article->datetime|date:"m/d G:i"}</span>
+		<span class="blog-time" itemprop="datePublished" datetime="{$article->datetime|date:"c"}">{$article->datetime|date:"m/d G:i"}</span>
 		<a n:if="$user->moderator" n:href="edit, aid => $article->id" class="blog-edit">Editovat</a>
 
 		<div class="clear"></div>
-		{!$article->text|truncate:400|markdown}
-		<a n:href="detail, aid => $article->id">celý příspěvěk</a>
+		<div itemprop="description">
+			{!$article->text|truncate:400|markdown}
+		</div>
+		<a n:href="detail, aid => $article->id" itemprop="url">celý příspěvěk</a>
 		<hr class="thin">
 	</div>
 </article>

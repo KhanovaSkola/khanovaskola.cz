@@ -4,16 +4,16 @@
 	<div>
 		<div class="main-header clearfix">
 			<div class="topic-video thumbnail_td">
-				<a n:tag-if="$thumbnail" n:href=":Front:Watch:, id => $leaf->id, vid => $thumbnail->id" class="thumbnail_link modal-video">
-					<div class="thumb" style="background-image:url('http://img.youtube.com/vi/{$thumbnail ? $thumbnail->youtube_id : '0'}/hqdefault.jpg')"></div>
+				<a n:tag-if="$thumbnail" n:href=":Front:Watch:, id => $leaf->id, vid => $thumbnail->id" class="thumbnail_link modal-video" itemprop="significantLink">
+					<div class="thumb" style="background-image:url('http://img.youtube.com/vi/{$thumbnail ? $thumbnail->youtube_id : '0'}/hqdefault.jpg')" itemprop="thumbnailUrl primaryImageOfPage"></div>
 					<div n:if="$thumbnail" class="thumbnail_container">
 						<div class="thumbnail_label"><div class="thumbnail_desc">{$thumbnail->label}</div></div>
 					</div>
 				</a>
 			</div>
 			<div class="topic-info">
-				<div class='topic-title'>{$leaf->label}</div>
-				<div class='topic-desc'>{$leaf->description}</div>
+				<div class="topic-title" itemprop="name">{$leaf->label}</div>
+				<div class="topic-desc" itemprop="description">{$leaf->description}</div>
 				<div n:if="$user->moderator">
 					<a n:href="edit">[upravit]</a>
 					{*<a n:href="add!">[přivat video]</a>*}
@@ -27,7 +27,7 @@
 				{if TRUE || !$user->moderator}
 					<ol class="first" n:inner-foreach="$leaf->getVideosHalf() as $video">
 						<li n:block="video_link" class="video-link" id="video-{$video->id}" data-id="{$video->id}">
-							<a n:href=":Front:Watch:, id => $leaf->id, vid => $video->id">
+							<a n:href=":Front:Watch:, id => $leaf->id, vid => $video->id" itemprop="significantLink">
 								<span class="indent">
 									<span n:class="'video-progress', 'v-'.$video->id, $video->isDubbed() ? 'icon-dubbed'"></span>
 									{$video->label}

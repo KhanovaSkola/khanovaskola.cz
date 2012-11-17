@@ -82,13 +82,14 @@
 	</div>
 	<div class="push"></div>
 
-	<footer id="footer" class="short">
+	<footer id="footer" class="short" itemscope="" itemtype="http://schema.org/WPFooter">
 		<div id="leaves">
 			<div class="inner">
 				<div id="copyright" class="tiny">
 					<small>
-						&copy; Khan Academy&reg; {date('Y')}, czech version &copy; Mikuláš Dítě {date('Y')}
-						| {$git_deploy->branch}&ndash;{$git_deploy->hash}
+						&copy; <span itemprop="copyrightHolder">Khan Academy</span>&reg; <span itemprop="copyrightYear">{date('Y')}</span>,
+						czech version &copy; <span itemprop="copyrightHolder">Mikuláš Dítě</span> <span itemprop="copyrightYear">{date('Y')}</span>
+						| <span itemprop="version">{$git_deploy->branch}&ndash;{$git_deploy->hash}</a>
 					</small>
 					<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cz/" class="creative-commons">
 						<img src="{$basePath}/images/creative_commons.png">

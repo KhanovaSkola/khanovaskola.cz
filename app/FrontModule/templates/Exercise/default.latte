@@ -2,12 +2,13 @@
 {var $description = $exercise->getDescription()}
 {#content}
 
-<div id="inject-exercise"></div>
+<div id="inject-exercise" itemscope="" itemtype="http://schema.org/WebApplication"></div>
 <div style="display: none;">
 	<script>
 		var khanovaskola_user_logged_in = {!=$user->loggedIn ? 'true' : 'false'};
 		var khanovaskola_exercise_id = {!$exercise->id};
 	</script>
+	
 	{!$content}
 
 	<div id="injected-related" style="margin-top: 10px;">
@@ -16,7 +17,7 @@
 			<ul class="related-video-list">
 				<li n:foreach="$exercise->getRelatedVideos() as $video">
 					<a n:href=":Front:Watch:, id => $video->getOneCategoryId(), vid => $video->id" class="related-video" title="{$video->label}" style="display: none;">
-						<span class="video-title vid-progress v884313452">
+						<span class="video-title vid-progress">
 							{$video->label}
 						</span>
 					</a>

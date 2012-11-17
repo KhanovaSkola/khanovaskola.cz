@@ -2,22 +2,21 @@
 {var $description = $selected->getDescription()}
 {#content}
 
-<article id="topic-page">
-
+<article id="topic-page" itemscope="" itemtype="http://schema.org/{ifset $leaf}VideoGallery{else}CollectionPage{/ifset}">
 	{cache $selected->id . "_" . $user->moderator, tags => ["category/$selected->id", "category/$category->id"]}
 		<div class="topic-page-content">
 			<div class="container">
 				<div class="nav-pane">
 					<ul>
 						<li n:class="$category->id == $selected->id ? 'selected'">
-							<a class="subtopic-link" n:href=":Front:Browse:, id => $category->id">
-								<h2 class='topic-heading'>{$category->label}</h2>
+							<a class="subtopic-link" n:href=":Front:Browse:, id => $category->id" itemprop="isPartOf">
+								<h2 class="topic-heading">{$category->label}</h2>
 								<div class="right-arrow"></div>
 							</a>
 						</li>
 						<li class="subheading"><span>Témata</span></li>
 						<li n:foreach="$category->getSubcategories() as $subcat" n:class="$subcat->id == $selected->id ? 'selected'">
-							<a class="subtopic-link" n:href=":Front:Browse:, id => $subcat->id">
+							<a class="subtopic-link" n:href=":Front:Browse:, id => $subcat->id"{if $subcat->id == $selected->id} itemprop="isPartOf"{/if}>
 								{$subcat->label}
 								<div class="right-arrow"></div>
 							</a>

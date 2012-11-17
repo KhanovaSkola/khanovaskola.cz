@@ -1,9 +1,13 @@
 {var $title = "Kontakt"}
 {#content}
 
-{include ../_navigation.latte}
-<article>
-	 <style>
+<div itemscope="" itemtype="http://schema.org/AboutPage">
+	<div itemprop="breadcrumb">
+		{include ../_navigation.latte}
+	</div>
+
+	<article>
+		<style>
 #credits dt {
 	font-weight: bold;
 	float: left;
@@ -210,96 +214,82 @@
 	}
 	</style>
 
-<style type="text/css">
-	#the-team .card-photo img.alternate,
-	#the-team .card-photo:hover img.normal {
-		display: none;
-	}
+	<style type="text/css">
+		#the-team .card-photo img.alternate,
+		#the-team .card-photo:hover img.normal {
+			display: none;
+		}
 
-	#the-team .card-photo img.normal,
-	#the-team .card-photo:hover img.alternate {
-		display: block;
-	}
-</style>
+		#the-team .card-photo img.normal,
+		#the-team .card-photo:hover img.alternate {
+			display: block;
+		}
+	</style>
 
-	<div id="the-team" style="font-size: 14px;">
-	{*<div class="col1">
-		<h2>A small team trying to do something big</h2>
-		<p>
-			We're a small team trying our best to improve the way the world learns. Too many people around the globe don’t have access to good education materials, or they are forced to learn through a system that doesn't properly cater to their individual needs. We think the technology exists today to fundamentally change this, and we're trying to build the tools and resources every student deserves.
-		</p>
-		<p>
-			We believe a few great people can make a big difference. We strive to hire the very best — people who are passionate, thoughtful and creative. We believe it is our obligation to relentlessly focus on what the learner values, and we make every decision with the learner in mind.
-		</p>
-	</div>
-	<div class="col2">
-		<img src="/images/team-photo.jpg" class="team-photo vertical-shadow">
-	</div>
-	<div class="clear"></div>
-	<br>
-	<hr class="thin">
-	*}
+		<div id="the-team" style="font-size: 14px;" itemprop="mainContentOfPage">
+			<h2 class="section-header" itemprop="sourceOrganization">Khanova škola</h2>
+			<p itemscope="" itemtype="http://schema.org/ContactPoint">
+				<span itemprop="name">Khanova škola, o.s.</span><br>
+				IČO: <code>22708022</code><br>
+				Bankovní spojení: <code>2800321231/2010</code>, <a href="https://www.fio.cz/scgi-bin/hermes/dz-transparent.cgi?ID_ucet=2800321231&castka_min=5">FIO banka</a>
+			</p>
 
-	<h2 class="section-header">Khanova škola</h2>
-	<p>
-		Khanova škola, o.s.<br>
-		IČO: <code>22708022</code><br>
-		Bankovní spojení: <code>2800321231/2010</code>, <a href="https://www.fio.cz/scgi-bin/hermes/dz-transparent.cgi?ID_ucet=2800321231&castka_min=5">FIO banka</a></p>
+			<h2 class="section-header">Poznejte náš tým</h2>
+			<div class="team-card" itemscope="" itemtype="http://schema.org/Person">
+				<div class="card-photo vertical-shadow">
+					<img src="{$basePath}/images/Otakar_Jicha.jpg" itemprop="image">
+				</div>
+				<div class="card-info">
+					<h2 class="pulls" itemprop="name">Otakar Jícha</h2>
+					<h3 itemprop="jobTitle">finance, propagace</h3>
+					<p class="contact-links">
+						<a href="mailto:ota@khanovaskola.cz" class="contact-email" itemprop="email">Email</a>
+					</p>
+					<p itemprop="description">
+						„Kvalitní vzdělání je nejsilnější zbraní 21. století.“
+						Student doktorského studia ČVUT, obor elektromagnetické pole.
+					</p>
+				</div>
+			</div>
+			<div class="team-card">
+				<div class="card-photo vertical-shadow">
+					<img src="{$basePath}/images/Marketa_Matejickova.jpg" itemprop="image">
+				</div>
+				<div class="card-info">
+					<h2 class="pulls" itemprop="name">Markéta Matějíčková</h2>
+					<h3 itemprop="jobTitle">koordinátorka</h3>
+					<p class="contact-links">
+						<a href="mailto:marketa@khanovaskola.cz" class="contact-email" itemprop="email">Email</a>
+					</p>
+					<p itemprop="description">
+						V srpnu 2011 jsem se na základě smouvy s Khan Academy USA stala „Language Advocate“ pro češtinu.
+						Koordinuji překlady a dabingy videí do češtiny. Spolupracuji i s koordinátory dalších jazyků.
+						Khan Academy je v současné době mým největším koníčkem, využívám pro samostudium i jako rodič. 
+						Pracuji ve velkoobchodě zebazpečovací technikou euroalarm.cz. Salman Khan je pro mne velkým životním vzorem.
+					</p>
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div class="team-card">
+				<div class="card-photo vertical-shadow">
+					<img src="{$basePath}/images/Mikulas_Dite.jpg" itemprop="image">
+				</div>
+				<div class="card-info">
+					<h2 class="pulls" itemprop="name">Mikuláš Dítě</h2>
+					<h3 itemprop="jobTitle"><abbr title="Chief Technical Officer">CTO</abbr>, vývojář</h3>
+					<p class="contact-links">
+						<a href="mailto:mikulas@khanovaskola.cz" class="contact-email" itemprop="email">Email</a>
+						<a href="http://twitter.com/mikulasdite" class="contact-twitter">Twitter</a>
+					</p>
+					<p itemprop="description">
+						Programátor zbožňující technologie, logiku a racionálno. Khanova škola je pro mne snaha změnit vyučování v Čechách. Chci víc interaktivity a vlastní volbu předmětů.
+					</p>
+				</div>
+			</div>
+		</div>
 
-	<h2 class="section-header">Poznejte náš tým</h2>
-	<div class="team-card">
-		<div class="card-photo vertical-shadow">
-			<img src="{$basePath}/images/Otakar_Jicha.jpg">
-		</div>
-		<div class="card-info">
-			<h2 class="pulls">Otakar Jícha</h2>
-			<h3>finance, propagace</h3>
-			<p class="contact-links">
-				<a href="mailto:ota@khanovaskola.cz" class="contact-email">Email</a>
-			</p>
-			<p>
-				„Kvalitní vzdělání je nejsilnější zbraní 21. století.“
-				Student doktorského studia ČVUT, obor elektromagnetické pole.
-			</p>
-		</div>
-	</div>
-	<div class="team-card">
-		<div class="card-photo vertical-shadow">
-			<img src="{$basePath}/images/Marketa_Matejickova.jpg">
-		</div>
-		<div class="card-info">
-			<h2 class="pulls">Markéta Matějíčková</h2>
-			<h3>koordinátorka</h3>
-			<p class="contact-links">
-				<a href="mailto:marketa@khanovaskola.cz" class="contact-email">Email</a>
-			</p>
-			<p>
-				V srpnu 2011 jsem se na základě smouvy s Khan Academy USA stala „Language Advocate“ pro češtinu.
-				Koordinuji překlady a dabingy videí do češtiny. Spolupracuji i s koordinátory dalších jazyků.
-				Khan Academy je v současné době mým největším koníčkem, využívám pro samostudium i jako rodič. 
-				Pracuji ve velkoobchodě zebazpečovací technikou euroalarm.cz. Salman Khan je pro mne velkým životním vzorem.
-			</p>
-		</div>
-	</div>
-	<div class="clear"></div>
-	<div class="team-card">
-		<div class="card-photo vertical-shadow">
-			<img src="{$basePath}/images/Mikulas_Dite.jpg">
-		</div>
-		<div class="card-info">
-			<h2 class="pulls">Mikuláš Dítě</h2>
-			<h3><abbr title="Chief Technical Officer">CTO</abbr>, vývojář</h3>
-			<p class="contact-links">
-				<a href="mailto:mikulas@khanovaskola.cz" class="contact-email">Email</a>
-				<a href="http://twitter.com/mikulasdite" class="contact-twitter">Twitter</a>
-			</p>
-			<p>
-				Programátor zbožňující technologie, logiku a racionálno. Khanova škola je pro mne snaha změnit vyučování v Čechách. Chci víc interaktivity a vlastní volbu předmětů.
-			</p>
-		</div>
-	</div>
+		<div class="clear" style="margin-bottom:36px;"></div>
+		<hr class="margin-bottom: 18px;">
 
-	<div class="clear" style="margin-bottom:36px;"></div>
-	<hr class="margin-bottom: 18px;">
-
-</article>
+	</article>
+</div>

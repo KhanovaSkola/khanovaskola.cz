@@ -1,34 +1,38 @@
 {var $title = "Sponzoři Khanovy školy"}
 {#content}
 
-{include ../_navigation.latte}
-<article id="about-us">
-
-	<div class="col1 sixty-fourty center">
-		<h2 class="main-headline" style="white-space: pre;">Partneři projektu</h2>
-		<p>Hlavním partnerem projektu je společnost <a href="http://scio.cz/">Scio</a>.</p>
-		<img src="{$basePath}/images/logo_scio.jpeg" height="64px">
-	</div>
-	<div class="col2 sixty-fourty" style="max-width:81%; text-align: justify;">
-		<p class="center">
-			<cite><em>
-				„Investice do vzdělání nesou nejvyšší úrok.“ —Benjamin Franklin
-			</em></cite>
-		</p>
+<div itemscope="" itemtype="http://schema.org/AboutPage">
+	<div itemprop="breadcrumb">
+		{include ../_navigation.latte}
 	</div>
 
-	<div class="col1 fourty-sixty">
-		&nbsp;
-	</div>
-	<div class="col2 fourty-sixty" style="max-width:81%; text-align: justify;">
-		<h2 class="main-headline" style="white-space: pre;">Chci pomoci:</h2>
-		<p>Ať již jste právnická či fyzická osoba budeme rádi pokud přispějete na naši činnost. Za co utratíme Váš sponzorský dar můžete sledovat na našem <a href="https://www.fio.cz/scgi-bin/hermes/dz-transparent.cgi?ID_ucet=2800321231&castka_min=5">transparentním účtu u Fio banky</a>.<p>
-		<ul>
-			<li><p>Česká Republika: <code>2800321231/2010</code></p></li>
-			<li><p>Slovensko: <code>2800321231/8330</code></p></li>
-		</ul>
-		<p>V případě dotazů prosím kontaktujte <a n:href="Contact:default">Otu J.</a>.</p>
-	</div>
-	
-	<hr class="thin"/>
-</article>
+	<article id="about-us" itemprop="mainContentOfPage">
+		<div class="col1 sixty-fourty center">
+			<h2 class="main-headline" style="white-space: pre;">Partneři projektu</h2>
+			<p>Hlavním partnerem projektu je společnost <a href="http://scio.cz/">Scio</a>.</p>
+			<img src="{$basePath}/images/logo_scio.jpeg" height="64px">
+		</div>
+		<div class="col2 sixty-fourty" style="max-width:81%; text-align: justify;">
+			<p class="center">
+				<cite><em>
+					„Investice do vzdělání nesou nejvyšší úrok.“ —Benjamin Franklin
+				</em></cite>
+			</p>
+		</div>
+
+		<div class="col1 fourty-sixty">
+			&nbsp;
+		</div>
+		<div class="col2 fourty-sixty" style="max-width:81%; text-align: justify;">
+			<h2 class="main-headline" style="white-space: pre;">Chci pomoci:</h2>
+			<p>Ať již jste právnická či fyzická osoba budeme rádi pokud přispějete na naši činnost. Za co utratíme Váš sponzorský dar můžete sledovat na našem <a href="https://www.fio.cz/scgi-bin/hermes/dz-transparent.cgi?ID_ucet=2800321231&castka_min=5">transparentním účtu u Fio banky</a>.<p>
+			<ul>
+				<li><p>Česká Republika: <code>2800321231/2010</code></p></li>
+				<li><p>Slovensko: <code>2800321231/8330</code></p></li>
+			</ul>
+			<p>V případě dotazů prosím kontaktujte <a n:href="Contact:default">Otu J.</a>.</p>
+		</div>
+		
+		<hr class="thin"/>
+	</article>
+</div>

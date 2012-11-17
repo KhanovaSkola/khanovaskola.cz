@@ -2,31 +2,36 @@
 {var $description = "Khanova škola je překlad Khan Academy. Nabízíme vzdělání světové kvality zdarma a pro všechny."}
 {#content}
 
-{include ../_navigation.latte}
-<article id="about-us">
-	<div class="col1 forty-sixty" style="text-align: center; padding-top: 18px; min-width:160px; max-width:160px; margin-right: 2%;">
-		<img id="about-vertical-logo" src="{$basePath}/images/khan-logo-vertical-transparent.png" height=170 width=125>
-	</div>
-	<div class="col2 forty-sixty" style="max-width:81%; text-align: justify;">
-		<h2 class="main-headline" style="white-space: pre;">O nás</h2>
-		<p>
-			<cite><em>
-				„Kdo není ochoten se celý život učit, nenaučil se to nejdůležitější.“ —Rainer Haak
-			</em></cite>
-		</p>
-		<p class="justify">Jsme skupina lidí, která chce zlepšit možnosti vzdělávání, a nebojíme se pro to něco udělat. Ostatně nikdo jiný to za nás neudělá&hellip;</p>
-		<p class="justify">Jako tým nadšenců jsme se shromáždili okolo úspěšného a bezplatného vzdělávacího projektu Khan Academy. Společně jsme začali překládat výukové materiály a brzy si uvědomili, že je potřeba udělat mnohem více. Inspirováni vynikajícím projektem jsme založili neziskovou organizaci Khanova škola, o.s., která si klade za cíl podporovat veškeré inovativní a bezplatné vzdělávání.</p>
-	</div>
-	<div class="clear"></div>
-	<div class="col1 sixty-forty">
-		<p class="justify">S oficiální podporou Khan Academy pracujeme na překladech výukových materiálů, spolupracujeme se zahraničními překladatelskými skupinami i dalšími organizacemi nebojících se něco změnit. Chtěli bychom přispět k rozšíření metody vyučování „flipped teaching“, kterou propaguje a realizuje právě Khan Academy.<p>
-		<p class="justify">Myslíme, že v České republice chybí alternativní metody vzdělávání, které by dokázaly nadchnout děti pro vědění. Pokud se nám to nepodaří již na základní škole, tak už je většinou příliš pozdě.</p>
-		<p class="justify">Budeme rádi, pokud se k nám připojíte. Společně můžeme vytvořit lepší budoucnost výukových materiálů.</p>
-	</div>
-	<div class="col2 sixty-forty">
-		<img class="rounded-background" src="http://www.khanacademy.org/images/screenshot-tour/video.png">
+<div itemscope="" itemtype="http://schema.org/AboutPage">
+	<div itemprop="breadcrumb">
+		{include ../_navigation.latte}
 	</div>
 
-	<hr class="thin"/>
+	<article id="about-us" itemprop="mainContentOfPage">
+		<div class="col1 forty-sixty" style="text-align: center; padding-top: 18px; min-width:160px; max-width:160px; margin-right: 2%;">
+			<img id="about-vertical-logo" src="{$basePath}/images/khan-logo-vertical-transparent.png" height=170 width=125 itemprop="primaryImageOfPage">
+		</div>
+		<div class="col2 forty-sixty" style="max-width:81%; text-align: justify;">
+			<h2 class="main-headline" style="white-space: pre;" itemprop="about">O nás</h2>
+			<p>
+				<cite><em>
+					„Kdo není ochoten se celý život učit, nenaučil se to nejdůležitější.“ —Rainer Haak
+				</em></cite>
+			</p>
+			<p class="justify">Jsme skupina lidí, která chce zlepšit možnosti vzdělávání, a nebojíme se pro to něco udělat. Ostatně nikdo jiný to za nás neudělá&hellip;</p>
+			<p class="justify">Jako tým nadšenců jsme se shromáždili okolo úspěšného a bezplatného vzdělávacího projektu Khan Academy. Společně jsme začali překládat výukové materiály a brzy si uvědomili, že je potřeba udělat mnohem více. Inspirováni vynikajícím projektem jsme založili neziskovou organizaci Khanova škola, o.s., která si klade za cíl podporovat veškeré inovativní a bezplatné vzdělávání.</p>
+		</div>
+		<div class="clear"></div>
+		<div class="col1 sixty-forty">
+			<p class="justify">S oficiální podporou Khan Academy pracujeme na překladech výukových materiálů, spolupracujeme se zahraničními překladatelskými skupinami i dalšími organizacemi nebojících se něco změnit. Chtěli bychom přispět k rozšíření metody vyučování „flipped teaching“, kterou propaguje a realizuje právě Khan Academy.<p>
+			<p class="justify">Myslíme, že v České republice chybí alternativní metody vzdělávání, které by dokázaly nadchnout děti pro vědění. Pokud se nám to nepodaří již na základní škole, tak už je většinou příliš pozdě.</p>
+			<p class="justify">Budeme rádi, pokud se k nám připojíte. Společně můžeme vytvořit lepší budoucnost výukových materiálů.</p>
+		</div>
+		<div class="col2 sixty-forty">
+			<img class="rounded-background" src="http://www.khanacademy.org/images/screenshot-tour/video.png">
+		</div>
 
-</article>
+		<hr class="thin"/>
+
+	</article>
+</div>
