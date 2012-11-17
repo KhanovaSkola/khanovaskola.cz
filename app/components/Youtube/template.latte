@@ -22,7 +22,6 @@
 			player = $("[id$='_ytplayer']")[0];
 			player.addEventListener("onStateChange", "saveState");
 			player.addEventListener("onStateChange", "checkCaptions");
-			console.log('hooked');
 
 			// translate widget
 			$('.unisubs-tabTextchoose').text('Čeština');
@@ -36,7 +35,9 @@
 			}
 		}
 
-		{include 'save_progress.js'}
+		{if $user->loggedIn}
+			{include 'save_progress.js'}
+		{/if}
 	</script>
 </div>
 <p id="cc-notification" style="display: none;">

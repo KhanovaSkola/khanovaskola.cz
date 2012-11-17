@@ -41,6 +41,8 @@
 		saveState(event.data);
 	}
 
-	{include 'save_progress.js'}
+	{if $user->loggedIn}
+		{include 'save_progress.js'}
+	{/if}
 </script>
 
