@@ -26,9 +26,6 @@ $environment = Nette\Config\Configurator::detectDebugMode($local_ips)
 	? $configurator::DEVELOPMENT : $configurator::PRODUCTION;
 $configurator->addConfig(__DIR__ . '/config/config.neon', $environment);
 
-
-//\Nella\NetteAddons\Diagnostics\Config\Extension::register($configurator);
-
 $container = $configurator->createContainer();
 
 $routes = new Routes();

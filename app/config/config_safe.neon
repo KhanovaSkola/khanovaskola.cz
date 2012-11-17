@@ -84,6 +84,7 @@ common:
 
 	factories:
 
+
 production < common:
 	parameters:
 		database:
@@ -91,3 +92,8 @@ production < common:
 			password:
 
 development < common:
+
+
+selenium < common:
+	services:
+		application: \Selenium\Application
