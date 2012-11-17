@@ -102,7 +102,7 @@ class ExercisePresenter extends BaseFrontPresenter
 
 	public function handleSaveAnswer($exercise_id, $correct)
 	{
-		if (TRUE || $this->ajax && $this->user->loggedIn) {
+		if ($this->ajax && $this->user->loggedIn) {
 			$result = $this->user->entity->saveExerciseAnswer($exercise_id, $correct === 'true', function() use ($exercise_id) {
 				// onAttainedMastery
 				$task = $this->user->entity->getTaskForExercise($this->context->exercises->find($exercise_id));
