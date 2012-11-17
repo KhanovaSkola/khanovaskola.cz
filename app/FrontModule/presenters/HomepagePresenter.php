@@ -14,6 +14,13 @@ class HomepagePresenter extends BaseFrontPresenter
 
 
 
+	public function actionGone()
+	{
+		throw new \Nette\Application\BadRequestException('Gone', 410);
+	}
+
+
+
 	/** @todo rewrite */
 	public function actionGithubCallback($code)
 	{

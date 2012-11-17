@@ -16,15 +16,10 @@ class Routes
 		/**
 		 * Tablet routes
 		 */
-		$container->router[] = new Route("//tablet.$domain/robots.txt", [
-			'module' => 'Tablet',
+		$container->router[] = new Route("//tablet.$domain/<path .*>", [
+			'module' => 'Front',
 			'presenter' => 'Homepage',
-			'action' => 'robotsTxt',
-		]);
-		$container->router[] = new Route("//tablet.$domain/<presenter>[/<action>]", [
-			'module' => 'Tablet',
-			'presenter' => 'Homepage',
-			'action' => 'default',
+			'action' => 'gone',
 		]);
 
 		/**
