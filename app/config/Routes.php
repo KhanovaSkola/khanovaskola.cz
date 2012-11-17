@@ -14,9 +14,24 @@ class Routes
 		$domain = $container->parameters['environment'] === 'production' ? 'khanovaskola.cz' : 'khan.l';
 
 		/**
-		 * Tablet routes
+		 * 410 Gone
 		 */
 		$container->router[] = new Route("//tablet.$domain/<path .*>", [
+			'module' => 'Front',
+			'presenter' => 'Homepage',
+			'action' => 'gone',
+		]);
+		$container->router[] = new Route("fyzika/<path .*>", [
+			'module' => 'Front',
+			'presenter' => 'Homepage',
+			'action' => 'gone',
+		]);
+		$container->router[] = new Route("vedy", [
+			'module' => 'Front',
+			'presenter' => 'Homepage',
+			'action' => 'gone',
+		]);
+		$container->router[] = new Route("kontakt/\$baseUrl", [
 			'module' => 'Front',
 			'presenter' => 'Homepage',
 			'action' => 'gone',
