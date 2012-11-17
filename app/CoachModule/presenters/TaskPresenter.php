@@ -37,7 +37,7 @@ class TaskPresenter extends BaseCoachPresenter
 		$this->template->task = $this->task;
 		$this['editForm']['task']->setValue($this->task->isVideo() ? "video_{$this->task->video_id}" : "exercise_{$this->task->exercise_id}");
 
-		if ($this->task->deadline) {
+		if ($this->task->deadline && $this->task->deadline->format('U') > 0) {
 			$this['editForm']['deadline']->setValue($this->task->deadline->format('Y-m-d'));
 		}
 	}

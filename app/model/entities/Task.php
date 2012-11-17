@@ -120,7 +120,9 @@ class Task extends Entity
 			$task = 'Vyplnit správně cvičení ' . lcFirst($this->getExercise()->label);
 		}
 
-		$task .= $this->deadline ? ' nejpozději do ' . date('d. n. y', strToTime($this->deadline)) : '';
+		if ($this->deadline && $this->deadline->format('U') > 0) {
+			$task .= $this->deadline ? ' nejpozději do ' . date('j. n.', strToTime($this->deadline)) : '';
+		}
 
 		return $task;
 	}
