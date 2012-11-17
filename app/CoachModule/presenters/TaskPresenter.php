@@ -78,11 +78,17 @@ class TaskPresenter extends BaseCoachPresenter
 	{
 		$data = [];
 
+		$unique = [];
+
 		$data['——————— Lekce ———————'] = [];
 		foreach ($this->context->categories->findLeaves() as $category) {
 			$node = [];
 			foreach ($category->getVideos() as $video) {
-				$node["video_{$video->id}"] = $video->label;
+				$key = "video_{$video->id}";
+				if (!in_array($key, $unique)) {
+					$unique[] = $key;
+					$node[$key] = $video->label;
+				}
 			}
 
 			$data[$category->label] = $node;
