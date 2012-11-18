@@ -120,6 +120,7 @@ class BlogPresenter extends BaseFrontPresenter
 		if (!$this->aid) {
 			$article = $this->context->articles->insert([
 				'label' => $v->label,
+				'slug' => \Nette\Utils\Strings::webalize($v->label),
 				'text' => $v->text,
 				'datetime' => date('Y-m-d H:i:s'),
 				'is_published' => $publish,
@@ -135,6 +136,7 @@ class BlogPresenter extends BaseFrontPresenter
 			$article = $this->article;
 
 			$article->label = $v['label'];
+			$article->slug = \Nette\Utils\Strings::webalize($v['label']);
 			$article->text = $v['text'];
 			$article->is_published = $article->is_published || $publish;
 			$article->update();
