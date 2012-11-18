@@ -86,6 +86,14 @@ class DashboardPresenter extends BaseModeratorPresenter
 			$ex->slug = \Nette\Utils\Strings::webalize($ex->label);
 			$ex->update();
 		}
+
+		foreach ($this->context->articles->findAll() as $article) {
+			$article->slug = \Nette\Utils\Strings::webalize($article->label);
+			$article->update();
+		}
+
+		$this->flashMessage('Slugy byly aktualizovány.');
+		$this->redirect('this');
 	}
 
 

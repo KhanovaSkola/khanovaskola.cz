@@ -205,6 +205,27 @@ class Routes
 /** end REMOVE 2013/03/01+ */
 
 		/**
+		 * SEO Blog
+		 */
+		$blogRoute = new SlugRoute('blog/<aid>', [
+			'aid' => [
+				Route::FILTER_OUT => function ($aid) use ($container) {
+					if (!is_numeric($aid)) {
+						return $aid;
+
+					} else {
+						return Strings::webalize($container->articles->find($aid)->label);
+					}
+				}
+			],
+			'module' => 'Front',
+			'presenter' => 'Blog',
+			'action' => 'detail',
+		]);
+		$blogRoute->init($container, 'aid', 'articles');
+		$container->router[] = $blogRoute;
+
+		/**
 		 * Shortest add teacher url possible
 		 */
 		$container->router[] = new Route('u/<coach_id \d+>', [
