@@ -4,7 +4,7 @@
 
 {include ../_navigation.latte}
 <article id="blog">
-	<div n:if="$user->moderator" style="width: 640px; margin: auto; margin-bottom: 2em;">
+	<div n:if="$user->isInrole(\NetteUser::ROLE_BLOG)" style="width: 640px; margin: auto; margin-bottom: 2em;">
 		<p>
 			<a n:href="add, aid => NULL">Přidat článek</a>
 		</p>
@@ -21,7 +21,7 @@
 			<a n:href="detail, aid => $article->id" itemprop="name headline">{$article->label}</a>
 		</h2>
 		<span class="blog-time" itemprop="datePublished" datetime="{$article->datetime|date:"c"}">{$article->datetime|date:"m/d G:i"}</span>
-		<a n:if="$user->moderator" n:href="edit, aid => $article->id" class="blog-edit">Editovat</a>
+		<a n:if="$user->isInrole(\NetteUser::ROLE_BLOG)" n:href="edit, aid => $article->id" class="blog-edit">Editovat</a>
 
 		<div class="clear"></div>
 		<div itemprop="description">

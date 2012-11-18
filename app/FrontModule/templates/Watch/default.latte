@@ -60,7 +60,7 @@
 			<div>
 				<span class="video-footer">
 					<span class="extra-link-bar desktop-only">
-						<a n:if="$user->moderator" n:href="edit">[upravit]</a>
+						<a n:if="$user->isInrole(\NetteUser::ROLE_EDITOR)" n:href="edit">[upravit]</a>
 					</span>
 				</span>
 			</div>

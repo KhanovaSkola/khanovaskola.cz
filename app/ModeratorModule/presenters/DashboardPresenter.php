@@ -50,7 +50,7 @@ class DashboardPresenter extends BaseModeratorPresenter
 
 	public function handlePopulateDb()
 	{
-		if (!$this->user->admin) {
+		if (!$this->user->isInrole(\NetteUser::ROLE_ADMIN)) {
 			$this->redirect(':Moderator:Dashboard:');
 		}
 
@@ -68,7 +68,7 @@ class DashboardPresenter extends BaseModeratorPresenter
 
 	public function handleUpdateSlugs()
 	{
-		if (!$this->user->admin) {
+		if (!$this->user->isInrole(\NetteUser::ROLE_ADMIN)) {
 			$this->redirect(':Moderator:Dashboard:');
 		}
 
@@ -117,7 +117,7 @@ class DashboardPresenter extends BaseModeratorPresenter
 
 	public function handleAttachToGithub()
 	{
-		if (!$this->user->admin) {
+		if (!$this->user->isInrole(\NetteUser::ROLE_ADMIN)) {
 			$this->redirect(':Moderator:Dashboard:');
 		}
 
@@ -129,7 +129,7 @@ class DashboardPresenter extends BaseModeratorPresenter
 
 	public function handleClearCache()
 	{
-		if (!$this->user->admin) {
+		if (!$this->user->isInrole(\NetteUser::ROLE_ADMIN)) {
 			$this->redirect(':Moderator:Dashboard:');
 		}
 
@@ -155,7 +155,7 @@ class DashboardPresenter extends BaseModeratorPresenter
 
 	public function handleTrimYoutubeIds()
 	{
-		if (!$this->user->admin) {
+		if (!$this->user->isInrole(\NetteUser::ROLE_ADMIN)) {
 			$this->redirect(':Moderator:Dashboard:');
 		}
 
@@ -169,7 +169,7 @@ class DashboardPresenter extends BaseModeratorPresenter
 
 	public function handleAddDubbedTagToVideos()
 	{
-		if (!$this->user->admin) {
+		if (!$this->user->isInrole(\NetteUser::ROLE_ADMIN)) {
 			$this->redirect(':Moderator:Dashboard:');
 		}
 

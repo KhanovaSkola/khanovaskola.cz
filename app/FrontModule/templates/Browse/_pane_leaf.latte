@@ -14,7 +14,7 @@
 			<div class="topic-info">
 				<div class="topic-title" itemprop="name">{$leaf->label}</div>
 				<div class="topic-desc" itemprop="description">{$leaf->description}</div>
-				<div n:if="$user->moderator">
+				<div n:if="$user->isInrole(\NetteUser::ROLE_EDITOR)">
 					<a n:href="edit">[upravit]</a>
 					{*<a n:href="add!">[přivat video]</a>*}
 				</div>
@@ -24,7 +24,7 @@
 		<div class="videos-list">
 			<div class="videos-header">Videa</div>
 			<div class="videos-table">
-				{if TRUE || !$user->moderator}
+				{if TRUE || !$user->isInrole(\NetteUser::ROLE_EDITOR)}
 					<ol class="first" n:inner-foreach="$leaf->getVideosHalf() as $video">
 						<li n:block="video_link" class="video-link" id="video-{$video->id}" data-id="{$video->id}">
 							<a n:href=":Front:Watch:, id => $leaf->id, vid => $video->id" itemprop="significantLink">

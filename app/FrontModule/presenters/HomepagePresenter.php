@@ -24,7 +24,7 @@ class HomepagePresenter extends BaseFrontPresenter
 	/** @todo rewrite */
 	public function actionGithubCallback($code)
 	{
-		if (!$this->user->admin) {
+		if (!$this->user->isInrole(\NetteUser::ROLE_ADMIN)) {
 			throw new \Nette\Application\ForbiddenRequestException;
 		}
 

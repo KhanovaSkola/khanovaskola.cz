@@ -8,7 +8,7 @@ abstract class BaseModeratorPresenter extends \BasePresenter
 
 	public function startup()
 	{
-		if (!$this->user->moderator) {
+		if (!$this->user->isInrole(\NetteUser::ROLE_EDITOR)) {
 			throw new \Nette\Application\ForbiddenRequestException();
 		}
 

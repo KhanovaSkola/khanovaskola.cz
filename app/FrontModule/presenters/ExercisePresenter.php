@@ -52,7 +52,7 @@ class ExercisePresenter extends BaseFrontPresenter
 
 	public function renderEdit()
 	{
-		if (!$this->user->moderator) {
+		if (!$this->user->isInrole(\NetteUser::ROLE_EDITOR)) {
 			throw new \Nette\Application\ForbiddenRequestException;
 		}
 
@@ -82,7 +82,7 @@ class ExercisePresenter extends BaseFrontPresenter
 
 	public function onSuccessEditForm(Form $form)
 	{
-		if (!$this->user->moderator) {
+		if (!$this->user->isInrole(\NetteUser::ROLE_EDITOR)) {
 			throw new \Nette\Application\ForbiddenRequestException;
 		}
 

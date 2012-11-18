@@ -7,8 +7,8 @@
 	<div class="holder" itemscope="" itemtype="http://schema.org/BlogPosting">
 		<h2 class="main-headline" itemprop="name headline">{$article->label}</h2>
 		<span class="blog-time" itemprop="datePublished" datetime="{$article->datetime|date:"c"}">{$article->datetime|date:"m/d G:i"}</span>
-		<a n:if="$user->moderator" n:href="edit, aid => $article->id" class="blog-edit">Editovat</a>
-		<a n:if="$user->moderator && !$article->is_published" n:href="publish!">Zveřejnit článek</a>
+		<a n:if="$user->isInrole(\NetteUser::ROLE_BLOG)" n:href="edit, aid => $article->id" class="blog-edit">Editovat</a>
+		<a n:if="$user->isInrole(\NetteUser::ROLE_BLOG) && !$article->is_published" n:href="publish!">Zveřejnit článek</a>
 		<div class="clear"></div>
 		<div itemprop="articleBody">
 			{!$article->text|markdown}

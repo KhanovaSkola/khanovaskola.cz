@@ -3,7 +3,7 @@
 {#content}
 
 <article id="topic-page" itemscope="" itemtype="http://schema.org/{ifset $leaf}VideoGallery{else}CollectionPage{/ifset}">
-	{cache $selected->id . "_" . $user->moderator, tags => ["category/$selected->id", "category/$category->id"]}
+	{cache $selected->id . "_" . $user->isInrole(\NetteUser::ROLE_EDITOR), tags => ["category/$selected->id", "category/$category->id"]}
 		<div class="topic-page-content">
 			<div class="container">
 				<div class="nav-pane">

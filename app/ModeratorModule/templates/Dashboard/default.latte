@@ -7,7 +7,7 @@
 	</style>
 	<br>
 
-	{if $user->admin}
+	{if $user->isInrole(\NetteUser::ROLE_ADMIN)}
 		<div class="col1 fifty-fifty">
 			<h2>Administrátor</h2>
 			<ol>
@@ -31,10 +31,10 @@
 		<hr class="thin">
 	{/if}
 
-	<div class="col1 fifty-fifty">
+	<div class="col1 fifty-fifty" n:if="$user->isInRole(\NetteUser::ROLE_ADMINER)">
 		<h2>Databáze</h2>
 		<ol>
-			<li n:if="$user->admin"><a href="/adminer/">Adminer</a></li>
+			<li n:if="$user->isInrole(\NetteUser::ROLE_ADMIN)"><a href="/adminer/">Adminer</a></li>
 			<li><a href="/adminer/editor.php?username=moderator">Adminer Editor</a></li>
 		</ol>
 	</div>
@@ -55,21 +55,23 @@
 
 	<hr class="thin">
 
-	<div class="col1 fifty-fifty">
-		<h2><a n:href=":Front:Blog:">Blog</a></h2>
-		<ol>
-			<li><a n:href=":Front:Blog:add">Nový příspěvek</a></li>
-		</ol>
-		<ul>
-			<li n:foreach="$to_publish as $article">{$article->label}</li>
-			<li n:if="!count($to_publish)">žádné rozepsané články</li>
-		</ul>
-	</div>
-	<div class="col2 fifty-fifty">
-	</div>
-	<div class="clear"></div>
+	{if $user->isInRole(\NetteUser::ROLE_BLOG)}
+		<div class="col1 fifty-fifty">
+			<h2><a n:href=":Front:Blog:">Blog</a></h2>
+			<ol>
+				<li><a n:href=":Front:Blog:add">Nový příspěvek</a></li>
+			</ol>
+			<ul>
+				<li n:foreach="$to_publish as $article">{$article->label}</li>
+				<li n:if="!count($to_publish)">žádné rozepsané články</li>
+			</ul>
+		</div>
+		<div class="col2 fifty-fifty">
+		</div>
+		<div class="clear"></div>
 
-	<hr class="thin">
+		<hr class="thin">
+	{/if}
 
 	<div class="col1 fifty-fifty">
 		<h2>Překlad</h2>
@@ -80,7 +82,7 @@
 			</li>
 			{if $presenter->context->params['environment'] === 'development'}
 				<li><a n:href="detachedExercises">cvičení mimo databázi</a></li>
-				<li n:if="$user->admin"><a n:href="addExercise!">přidat cvičení do databáze</a></li>
+				<li n:if="$user->isInrole(\NetteUser::ROLE_ADMIN)"><a n:href="addExercise!">přidat cvičení do databáze</a></li>
 			{/if}
 		</ol>
 	</div>

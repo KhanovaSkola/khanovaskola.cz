@@ -6,6 +6,14 @@
 class NetteUser extends \Nette\Security\User
 {
 
+	const ROLE_ADMIN = 'admin';
+	const ROLE_ADMINER = 'adminer';
+	const ROLE_ADDER = 'adder';
+	const ROLE_EDITOR = 'editor';
+	const ROLE_BLOG = 'blog';
+
+
+
 	/** @var Users */
 	protected $users;
 
@@ -38,26 +46,6 @@ class NetteUser extends \Nette\Security\User
 	public function getEntity()
 	{
 		return $this->users->find($this->id);
-	}
-
-
-
-	/**
-	 * @return bool
-	 */
-	public function isModerator()
-	{
-		return $this->isInRole('moderator');
-	}
-
-
-
-	/**
-	 * @return bool
-	 */
-	public function isAdmin()
-	{
-		return $this->isInRole('admin');
 	}
 
 

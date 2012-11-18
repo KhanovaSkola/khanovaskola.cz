@@ -23,7 +23,7 @@ class BlogPresenter extends BaseFrontPresenter
 		$this->article = $this->context->articles->find($this->aid);
 
 		if (($this->aid !== NULL && !$this->article)
-		|| ($this->article && !$this->user->moderator && !$this->article->is_published)) {
+		|| ($this->article && !$this->user->isInrole(\NetteUser::ROLE_BLOG) && !$this->article->is_published)) {
 			throw new \Nette\Application\BadRequestException;
 		}
 
@@ -47,7 +47,7 @@ class BlogPresenter extends BaseFrontPresenter
 	public function renderDefault()
 	{
 		$this->template->articles = $this->context->articles->findPublished();
-		if ($this->user->moderator) {
+		if ($this->user->isInrole(\NetteUser::ROLE_BLOG)) {
 			$this->template->to_publish = $this->context->articles->findPublished(FALSE);
 		}
 	}
@@ -86,7 +86,7 @@ class BlogPresenter extends BaseFrontPresenter
 
 	public function actionAdd()
 	{
-		if (!$this->user->moderator) {
+		if (!$this->user->isInrole(\NetteUser::ROLE_BLOG)) {
 			throw new \Nette\Application\ForbiddenRequestException;
 		}
 
@@ -97,7 +97,7 @@ class BlogPresenter extends BaseFrontPresenter
 
 	public function actionEdit()
 	{
-		if (!$this->user->moderator) {
+		if (!$this->user->isInrole(\NetteUser::ROLE_BLOG)) {
 			throw new \Nette\Application\ForbiddenRequestException;
 		}
 
@@ -110,7 +110,7 @@ class BlogPresenter extends BaseFrontPresenter
 
 	public function onSuccessArticleForm($form)
 	{
-		if (!$this->user->moderator) {
+		if (!$this->user->isInrole(\NetteUser::ROLE_BLOG)) {
 			throw new \Nette\Application\ForbiddenRequestException;
 		}
 
@@ -149,7 +149,7 @@ class BlogPresenter extends BaseFrontPresenter
 
 	public function handlePublish()
 	{
-		if (!$this->user->moderator) {
+		if (!$this->user->isInrole(\NetteUser::ROLE_BLOG)) {
 			throw new \Nette\Application\ForbiddenRequestException;
 		}
 
