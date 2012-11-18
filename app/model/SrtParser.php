@@ -15,15 +15,18 @@ class SrtParser extends \Nette\Object
 	{
 		$res = [];
 		$expect = self::ID;
-
 		$node = [];
+
 		foreach (explode("\n", $srt) as $line) {
 			switch ($expect) {
 				case self::ID:
 					$node['id'] = (int) $line;
 					break;
 				case self::TIMES:
-					list($s, $e) = explode(' --> ', $line);
+					@list($s, $e) = explode(' --> ', $line);
+					if (!$s || !$e) {
+						goto skip; // probably commentary
+					}
 					$node['start'] = self::parseTime($s);
 					$node['end'] = self::parseTime(trim($e));
 					break;
@@ -36,6 +39,7 @@ class SrtParser extends \Nette\Object
 					break;
 			}
 			$expect++;
+			skip:
 		}
 
 		return $res;
