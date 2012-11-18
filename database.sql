@@ -1,9 +1,11 @@
--- Adminer 3.5.1 MySQL dump
+-- Adminer 3.6.1 MySQL dump
 
 SET NAMES utf8;
 SET foreign_key_checks = 0;
 SET time_zone = 'SYSTEM';
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
+
+USE `khanovaskola`;
 
 DROP TABLE IF EXISTS `answer`;
 CREATE TABLE `answer` (
@@ -18,6 +20,17 @@ CREATE TABLE `answer` (
   CONSTRAINT `answer_ibfk_1` FOREIGN KEY (`exercise_id`) REFERENCES `exercise` (`id`) ON DELETE CASCADE,
   CONSTRAINT `answer_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+
+
+DROP TABLE IF EXISTS `article`;
+CREATE TABLE `article` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `label` varchar(255) NOT NULL,
+  `text` text NOT NULL,
+  `is_published` tinyint(1) NOT NULL DEFAULT '0',
+  `datetime` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 DROP TABLE IF EXISTS `category`;
@@ -184,6 +197,8 @@ CREATE TABLE `video` (
   `slug` varchar(255) COLLATE utf8_czech_ci NOT NULL,
   `description` text COLLATE utf8_czech_ci NOT NULL COMMENT 'abstrakt',
   `youtube_id` varchar(50) COLLATE utf8_czech_ci NOT NULL COMMENT 'youtube_id (bez mezer okolo)',
+  `duration` int(10) unsigned NOT NULL COMMENT 'délka (sec)',
+  `uploader` varchar(255) COLLATE utf8_czech_ci NOT NULL COMMENT 'uploader',
   PRIMARY KEY (`id`),
   UNIQUE KEY `label` (`label`),
   KEY `exercise_id` (`exercise_id`),
@@ -194,4 +209,4 @@ CREATE TABLE `video` (
 DROP VIEW IF EXISTS `_autocomplete`;
 CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `_autocomplete` AS select `category`.`label` AS `label` from `category` union select `exercise`.`label` AS `label` from `exercise` union select `tag`.`label` AS `label` from `tag` union select `video`.`label` AS `label` from `video`;
 
--- 2012-11-03 17:13:10
+-- 2012-11-18 10:59:41
