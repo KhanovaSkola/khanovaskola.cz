@@ -1,0 +1,31 @@
+{#content}
+
+<article id="page-root">
+	<div class="login-container card-case vertical-shadow">
+		<div class="pw-login">
+			<h3>Nastavení nového hesla</h3>
+			<div class="pw-login-contents">
+				{form passSetForm}
+					<div class="field-error color-error" id="error-text">{control passSetForm errors}</div>
+
+					<img src="/images/hand-tree.png" width="75" height="75" class="tree">
+
+					<div class="field-container">
+						<label class="field-label" for="frm-resetForm-mail">Uživatel</label>
+						<input type="text" class="simple-input ui-corner-all" id="frm-resetForm-mail" disabled value="{$mail}">
+					</div>
+					<div class="field-container">
+						{label password, class => "field-label"}Heslo{/label}
+						{input password, class => "simple-input ui-corner-all"}
+					</div>
+					<div class="field-container">
+						{label check, class => "field-label"}Stejné heslo{/label}
+						{input check, class => "simple-input ui-corner-all"}
+					</div>
+
+					{input send, class => "simple-button green"}
+				{/form}
+			</div>
+		</div>
+	</div>
+</article>

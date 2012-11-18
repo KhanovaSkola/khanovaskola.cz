@@ -69,6 +69,7 @@ class SignPresenter extends BasePresenter
 		$form = new UI\Form;
 		$control = $form->addText('username')
 			->setRequired('Vyplňte mail.')
+			->addRule($form::EMAIL, 'Zkontrolujte formát emailu.')
 			->getControlPrototype();
 		$control->attrs['type'] = 'email';
 		$control->attrs['autofocus'] = TRUE;
@@ -164,6 +165,126 @@ class SignPresenter extends BasePresenter
 			}
 		}
 		$this->redirectUrl($this->backlink);
+	}
+
+
+
+	/**
+	 * Sign in form component factory.
+	 * @return Nette\Application\UI\Form
+	 */
+	protected function createComponentPassResetForm()
+	{
+		$form = new UI\Form;
+		$control = $form->addText('username')
+			->setRequired('Vyplňte mail.')
+			->addRule($form::EMAIL, 'Zkontrolujte formát emailu.')
+			->getControlPrototype();
+		$control->attrs['type'] = 'email';
+		$control->attrs['autofocus'] = TRUE;
+
+		$form->addSubmit('send', 'Pokračovat');
+
+		$form->onSuccess[] = $this->passResetFormSubmitted;
+		return $form;
+	}
+
+
+
+	public function passResetFormSubmitted($form)
+	{
+		$email = $form['username']->value;
+		$user = $this->context->users->findOneBy(['mail' => $email]);
+		if (!$user) {
+			$form->addError('Pod tímto emailem není žádný uživatel zaregistrovaný.');
+			return FALSE;
+		}
+
+		$email = new Email($user);
+		$email->sendPasswordReset($link = $this->link('//:Sign:reset', [
+			'id' => $user->id,
+			'code' => $user->getSecurityCode(),
+		]));
+		$this->flashMessage('Zaslali jsme vám do vaší schránky email s dalším postupem.');
+		$this->redirect('in');
+	}
+
+
+
+	public function actionReset($id, $code)
+	{
+		$user = $this->context->users->find($id);
+		$this->checkCode($user, $code);
+
+		$this->template->mail = $user->mail;
+		$this['passSetForm']['user_id']->setValue($user->id);
+		$this['passSetForm']['code']->setValue($code);
+	}
+
+
+
+	private function checkCode($user, $code)
+	{
+		list($time, $hash) = explode(':', $code);
+
+		if ((int) $time < time() - 60 * 120) { // expires after two hours
+			$this->flashMessage('Tento kód už vypršel, pošlete si prosím nový.');
+			$this->redirect('forgotten');
+		}
+
+		if ($user->getSecurityCode($time) != $code) {
+			$this->flashMessage('Špatný bezpečnostní kód, pošlete si prosím nový.');
+			$this->redirect('forgotten');
+		}
+	}
+
+
+
+	/**
+	 * Sign in form component factory.
+	 * @return Nette\Application\UI\Form
+	 */
+	protected function createComponentPassSetForm()
+	{
+		$form = new UI\Form;
+		
+		$control = $form->addPassword('password')
+			->setRequired('Vyplňte heslo.')
+			->getControlPrototype();
+		$control->attrs['autofocus'] = TRUE;
+
+		$form->addPassword('check')
+			->addRule($form::EQUAL, 'Hesla musí být stejná.', $form['password']);
+
+		$form->addHidden('user_id');
+		$form->addHidden('code');
+
+		$form->addSubmit('send', 'Změnit heslo');
+
+		$form->onSuccess[] = $this->passSetFormSubmitted;
+		return $form;
+	}
+
+
+
+	public function passSetFormSubmitted($form)
+	{
+		$v = $form->values;
+
+		$user = $this->context->users->find($v['user_id']);
+		$this->checkCode($user, $v['code']);
+
+		$p = new \Password();
+		$salt = $p->getRandomSalt();
+		$hash = $p->calculateHash($v->password, $salt);
+
+		$user->salt = $salt;
+		$user->password = $hash;
+		$user->update();
+
+		$this->flashMessage('Heslo bylo úspěšně změněno.');
+		$this->user->login($user->mail, $v->password);
+		$this->inRedirect();
 	}
 
 }

@@ -1,8 +1,3 @@
-{#head}
-	{if $presenter->backlink}
-		<link rel="canonical" n:href="//this, backlink => NULL">
-	{/if}
-{/#}
 {#content}
 
 <article id="page-root">
@@ -31,23 +26,15 @@
 		</div>
 
 		<div class="pw-login">
-			<h3>Přihlášení s vaším účtem</h3>
+			<h3>Zapomenuté heslo</h3>
 			<div class="pw-login-contents">
-				{form signInForm}
-					<div class="field-error color-error" id="error-text">{control signInForm errors}</div>
-
+				{form passResetForm}
 					<img src="/images/hand-tree.png" width="75" height="75" class="tree">
+					<p>Zašleme vám na email odkaz na stránku,<br>kde si budete moct nastavit nové heslo.</p>
+					<div class="field-error color-error" id="error-text">{control passResetForm errors}</div>
 					<div class="field-container">
 						{label username, class => "field-label"}Email{/label}
 						{input username, class => "simple-input ui-corner-all"}
-					</div>
-
-					<div class="field-container">
-						{label password, class => "field-label"}Heslo{/label}
-						{input password, class => "simple-input ui-corner-all"}
-						<div>
-							<a id="forgot-hint" n:href="forgotten" target="_top">Zapomenuté heslo?</a>
-						</div>
 					</div>
 
 					{input send, class => "simple-button green"}

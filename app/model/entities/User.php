@@ -360,4 +360,12 @@ class User extends Entity
 		])->fetch();
 	}
 
+
+
+	public function getSecurityCode($time = NULL)
+	{
+		$time = $time ?: time();
+		return $time . ':' . md5($time . $this->id . $this->mail . $this->salt);
+	}
+
 }
