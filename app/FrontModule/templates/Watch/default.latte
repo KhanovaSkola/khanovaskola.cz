@@ -31,7 +31,8 @@
 					{var $exercise => $video->getExercise()}
 					<a n:if="$exercise" n:href=":Front:Exercise:, eid => $exercise->id" class="practice simple-button green desktop-only" title="Ověřte si pochopení tématu na cvičeních">Procvičit toto téma</a>
 					<h1 class="title-header">
-						<span itemprop="name caption" class="title desktop-only">{$video->label}</span><span n:if="$video->description" class="long-description"><span class="desktop-only">: </span><span itemprop="description">{$video->description}</span></span>
+						<span itemprop="name caption" class="title desktop-only">{$video->label}</span><span n:if="$video->description" class="long-description">: <span itemprop="description">{$video->description}</span></span>
+						<a n:if="$user->isInrole(\NetteUser::ROLE_EDITOR)" n:href="edit">[upravit]</a>
 					</h1>
 				</div>
 				<div class="video-header" style="min-height: 1px">
@@ -51,19 +52,10 @@
 					</nav>
 				</div>
 			</div>
-			<div n:if="$presenter->mobile == 'ipad'" class="video-container">
-				{control youtube:tablet, $video}
+			<div class="video-container">
+				{control youtube:tablet, $video, $autoplay}
 			</div>
-			<div n:if="$presenter->mobile != 'ipad'" class="video-container">
-				{control youtube, $video, $autoplay}
-			</div>
-			<div>
-				<span class="video-footer">
-					<span class="extra-link-bar desktop-only">
-						<a n:if="$user->isInrole(\NetteUser::ROLE_EDITOR)" n:href="edit">[upravit]</a>
-					</span>
-				</span>
-			</div>
+			{control subtitles, $video}
 		</div>
 	</div>
 </article>

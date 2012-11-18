@@ -118,6 +118,13 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 
 
 
+	public function createComponentSubtitles()
+	{
+		return new Subtitles();
+	}
+
+
+
 	public function getBacklink()
 	{
 		return $this->link('this');

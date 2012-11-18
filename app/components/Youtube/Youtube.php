@@ -13,11 +13,11 @@ class Youtube extends BaseControl
 
 
 
-	public function renderTablet(Video $video)
+	public function renderTablet(Video $video, $autoplay = FALSE)
 	{
 		$this->template->setFile(__DIR__ . '/tablet.latte');
 		$this->template->video = $video;
-		$this->template->autoplay = FALSE;
+		$this->template->autoplay = $autoplay;
 		$this->template->render();
 	}
 

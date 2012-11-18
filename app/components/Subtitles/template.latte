@@ -1,0 +1,47 @@
+<div id="subtitles">
+	<div class="line" n:foreach="$subtitles as $row" data-start="{$row->start}" data-end="{$row->end}">
+		{$row->content}
+	</div>
+</div>
+<script>
+	var ticker = null;
+	var center = null;
+	var $high = null;
+
+	onPlayerStateChangeCallbacks.push(function(code) {
+		if (code == 1) { // playing
+			if ($high == null) {
+				$high = $("#subtitles div:first");
+				$high.addClass("highlight");
+			}
+
+			ticker = setInterval(function() {
+				moveSubtitles(player.getCurrentTime());
+			}, 500);
+
+		} else if (code == -1) { // created
+			window.scroll(0, 3000); // scroll to end so the subtitles are visible
+			/** prepare scroll helpers */
+			$("#subtitles div").each(function(i, el) {
+				$(el).data('scroll-to', $(el).position().top - $("#subtitles").position().top);
+			});
+			center = $("#subtitles").height() / 2;
+
+		} else {
+			clearInterval(ticker);
+		}
+	});
+	
+	function moveSubtitles(time) {
+		if ($high.data('end') >= time) {
+			return false;
+		}
+
+		$high.removeClass("highlight");
+		while ($high.data('end') < time) {
+			$high = $high.next();
+		}
+		$high.addClass("highlight");
+		$("#subtitles").scrollTop($high.data('scroll-to') - center);
+	}
+</script>

@@ -3,30 +3,20 @@
 	var player = null;
 	var ticker = null;
 
-	// Load iframe api
 	var tag = document.createElement('script');
 	tag.src = "//www.youtube.com/iframe_api";
 	var firstScriptTag = document.getElementsByTagName('script')[0];
 	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-	/*
-	 ***************************
-	 * For iframe view (ie ipad)
-	 ***************************
-	 */
 	function onYouTubeIframeAPIReady() {
 		var height = 480;
-		var width = 640;
-		if (window.orientation == 0 || window.orientation == 180) {
-			height = 576;
-			width = 768;
-		}
-
+		var width = 800;
+		
 		player = new YT.Player('player', {
 			height: height,
 			width: width,
 			playerVars: {
-				'autoplay': {$autoplay ? '1' : '0'},
+				autoplay: {!$autoplay ? '1' : '0'},
 			},
 			videoId: {$video->youtube_id},
 			events: {
@@ -37,11 +27,15 @@
 	}
 
 	var done = false;
+	var onPlayerStateChangeCallbacks = [];
 	function onPlayerStateChange(event) {
-		saveState(event.data);
+		for (i = 0; i < onPlayerStateChangeCallbacks.length; ++i) {
+			onPlayerStateChangeCallbacks[i](event.data);
+		}
 	}
 
 	{if $user->loggedIn}
+		onPlayerStateChangeCallbacks.push(saveState);
 		{include 'save_progress.js'}
 	{/if}
 </script>

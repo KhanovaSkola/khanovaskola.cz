@@ -64,6 +64,12 @@ li p {margin: 0;}
 #frm-articleForm textarea {width: 640px; height: 320px;}
 .nav-subheader > span > a {letter-spacing: 0; margin-left: 17px;}
 
+#subtitles {height: 180px; overflow: scroll; padding: 0; padding-left: 1em;}
+#subtitles div {padding: 0 0 4px 5px; font-size: 140%; font-family: serif;}
+#subtitles .highlight {background-color: rgba(157, 182, 59, 0.3);}
+#subtitles div:first-child {margin-top: 100px;}
+#subtitles div:last-child {margin-bottom: 100px;}
+
 /* ----  iPad 3 ---- */
 .ipad-only {display: none;}
 @media only screen and (max-device-width: 2048px) and (-webkit-min-device-pixel-ratio: 2)
