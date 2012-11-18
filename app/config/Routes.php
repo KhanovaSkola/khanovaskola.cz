@@ -62,7 +62,7 @@ class Routes
 		/**
 		 * SEO Video
 		 */
-		$videoRoute = new VideoRoute('<id>/<vid>[/<action>]', [
+		$videoRoute = new VideoRoute('[!v/]<id>/<vid>[/<action>]', [
 			'id' => [
 				Route::FILTER_OUT => function ($id) use ($container) {
 					if (!is_numeric($id)) {
