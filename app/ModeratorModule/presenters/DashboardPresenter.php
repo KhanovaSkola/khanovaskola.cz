@@ -177,7 +177,7 @@ class DashboardPresenter extends BaseModeratorPresenter
 		if ($count === FALSE) {
 			$this->flashMessage('Tag pro dabovaná videa neexistuje!');
 		} else {
-			$this->flashMessage('Dabovací tag byl přidán k ' . $count . ' videím.');
+			$this->flashMessage("Dabovací tag byl přidán k $count videím.");
 		}
 
 		$this->redirect('this');
@@ -200,6 +200,27 @@ class DashboardPresenter extends BaseModeratorPresenter
 		file_put_contents($file, $content);
 
 		$this->sendResponse(new \Nette\Application\Responses\FileResponse($file));
+	}
+
+
+
+	public function handleSaveMetadata()
+	{
+		$videos = $this->context->videos->findBy(['duration' => 0]);
+		$updated = 0;
+		foreach ($videos as $video) {
+			$meta = $video->getMetaData();
+			$video->duration = $meta->data->duration;
+			$video->uploader = $meta->data->uploader;
+			$video->update();
+			$updated++;
+		}
+
+		$cache = new Cache($this->context->cacheStorage);
+		$cache->clean([Cache::TAGS => ['categories']]);
+
+		$this->flashMessage("Meta data byla doplněna u $updated videí.");
+		$this->redirect('this');
 	}
 
 }

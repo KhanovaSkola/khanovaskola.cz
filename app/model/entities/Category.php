@@ -143,7 +143,7 @@ class Category extends Entity
 			$duration = 0;
 			if ($this->isLeaf()) {
 				foreach ($this->getVideos() as $video) {
-					$duration += $video->getDuration();
+					$duration += $video->duration;
 				}
 			} else {
 				foreach ($this->getSubCategories() as $subcat) {
@@ -152,7 +152,7 @@ class Category extends Entity
 			}
 
 			$cache->save($this->id, $duration, [
-				\Nette\Caching\Cache::TAGS => ["category/$this->id"],
+				\Nette\Caching\Cache::TAGS => ["categories", "category/$this->id"],
 			]);
 		}
 

@@ -91,7 +91,7 @@ class Videos extends Table
 
 		$count = 0;
 		foreach ($this->findAll() as $video) {
-			if ($video->getMetaData()->data->uploader === 'khanacademyczech') {
+			if ($video->isDubbed()) {
 				$video->addTag($tag->id);
 				$count++;
 			}

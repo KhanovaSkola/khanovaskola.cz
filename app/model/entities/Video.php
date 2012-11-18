@@ -7,7 +7,8 @@
  * @property string	$slug			Webalized $label
  * @property string	$description
  * @property string	$youtube_id
- * @property int	$position		Unique between siblings
+ * @property int	$duration		seconds
+ * @property string	$uploader		youtube username
  */
 class Video extends Entity
 {
@@ -94,28 +95,12 @@ class Video extends Entity
 
 
 
-	public function getDuration()
-	{
-		return $this->getMetaData()->data->duration;
-	}
-
-
-
 	/**
-	 * @todo Should this check tags or uploader?
 	 * @return bool
 	 */
 	public function isDubbed()
 	{
-		// dubbed tag
-		// TODO: FIX Hardcoded ID !!!
-		$tag_id = 473;
-		foreach ($this->getTags() as $tag) {
-			if ($tag->id === $tag_id) {
-				return TRUE;
-			}
-		}
-		return FALSE;
+		return $this->uploader = 'khanacademyczech';
 	}
 
 
