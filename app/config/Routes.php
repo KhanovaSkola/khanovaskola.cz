@@ -16,6 +16,7 @@ class Routes
 		/**
 		 * 410 Gone
 		 */
+/** REMOVE 2013/03/01+ */
 		$container->router[] = new Route("//tablet.$domain/<path .*>", [
 			'module' => 'Front',
 			'presenter' => 'Homepage',
@@ -41,6 +42,7 @@ class Routes
 			'presenter' => 'Homepage',
 			'action' => 'gone',
 		]);
+/** end REMOVE 2013/03/01+ */
 
 		/**
 		 * API
@@ -95,6 +97,7 @@ class Routes
 		$videoRoute->init($container, 'id', 'vid');
 		$container->router[] = $videoRoute;
 
+/** REMOVE 2013/02/01+ */
 		$oldVideo = new SlugRoute('video/<vid>[/<action>]', [
 			'vid' => [
 				Route::FILTER_OUT => function ($vid) use ($container) {
@@ -117,6 +120,7 @@ class Routes
 		]);
 		$oldVideo->init($container, 'vid', 'videos');
 		$container->router[] = $oldVideo;
+/** end REMOVE 2013/02/01+ */
 
 		/**
 		 * SEO Category
@@ -147,7 +151,41 @@ class Routes
 		/**
 		 * SEO Cviceni
 		 */
-		$exRoute = new SlugRoute('cviceni/<eid>', [
+		$exerciseRoute = new ExerciseRoute('[!cviceni/]<id>/<eid>[/<action>]', [
+			'id' => [
+				Route::FILTER_OUT => function ($id) use ($container) {
+					if (!is_numeric($id)) {
+						return $id;
+
+					} else {
+						return Strings::webalize($container->categories->find($id)->label);
+					}
+				}
+			],
+			'eid' => [
+				Route::FILTER_OUT => function ($eid) use ($container) {
+					if (!is_numeric($eid)) {
+						return $eid;
+
+					} else {
+						return Strings::webalize($container->exercises->find($eid)->label);
+					}
+				}
+			],
+			'module' => 'Front',
+			'presenter' => 'Exercise',
+			'action' => [
+				Route::VALUE => 'default',
+				Route::FILTER_TABLE => [
+					'upravit' => 'edit',
+				]
+			],
+		]);
+		$exerciseRoute->init($container, 'id', 'eid');
+		$container->router[] = $exerciseRoute;
+
+/** REMOVE 2013/03/01+ */
+		$oldExerciseRoute = new SlugRoute('cviceni/<eid>', [
 			'eid' => [
 				Route::FILTER_OUT => function ($eid) use ($container) {
 					if (!is_numeric($eid)) {
@@ -162,8 +200,9 @@ class Routes
 			'presenter' => 'Exercise',
 			'action' => 'default',
 		]);
-		$exRoute->init($container, 'eid', 'exercises');
-		$container->router[] = $exRoute;
+		$oldExerciseRoute->init($container, 'eid', 'exercises');
+		$container->router[] = $oldExerciseRoute;
+/** end REMOVE 2013/03/01+ */
 
 		/**
 		 * Shortest add teacher url possible

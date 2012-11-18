@@ -24,6 +24,12 @@ class ExercisePresenter extends BaseFrontPresenter
 	{
 		parent::startup();
 		$this->exercise = $this->context->exercises->find($this->eid);
+		
+		// route without category, redirect to full url
+		if (!$this->getParam('id')) {
+			$cat = $this->exercise->getCategories()->fetch();
+			$this->redirect('this', ['id' => $cat->id]);
+		}
 	}
 
 
