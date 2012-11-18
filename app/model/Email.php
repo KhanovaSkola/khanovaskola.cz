@@ -24,7 +24,7 @@ class Email extends Nette\Object
 		$template->link = $link;
 
 		$mail = new Message();
-		$mail->setFrom('Khanova Škola <heslo@khanovaskola.cz>')
+		$mail->setFrom('Khanova škola <heslo@khanovaskola.cz>')
 			->addTo("{$this->user->name} <{$this->user->mail}>")
 			->setSubject('Ztracené heslo')
 			->setHtmlBody($template)
