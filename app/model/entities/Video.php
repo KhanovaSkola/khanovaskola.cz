@@ -100,7 +100,7 @@ class Video extends Entity
 	 */
 	public function isDubbed()
 	{
-		return $this->uploader = 'khanacademyczech';
+		return $this->uploader == 'khanacademyczech';
 	}
 
 
