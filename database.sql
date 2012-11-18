@@ -26,6 +26,7 @@ DROP TABLE IF EXISTS `article`;
 CREATE TABLE `article` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `label` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
   `text` text NOT NULL,
   `is_published` tinyint(1) NOT NULL DEFAULT '0',
   `datetime` datetime NOT NULL,
@@ -209,4 +210,4 @@ CREATE TABLE `video` (
 DROP VIEW IF EXISTS `_autocomplete`;
 CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `_autocomplete` AS select `category`.`label` AS `label` from `category` union select `exercise`.`label` AS `label` from `exercise` union select `tag`.`label` AS `label` from `tag` union select `video`.`label` AS `label` from `video`;
 
--- 2012-11-18 10:59:41
+-- 2012-11-18 16:10:32
