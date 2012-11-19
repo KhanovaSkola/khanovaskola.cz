@@ -115,7 +115,7 @@ class User extends Entity
 			'user_id' => $this->id,
 		];
 
-		$percent = $seconds == -1 ? 100 : $seconds / $video->getDuration() * 100;
+		$percent = $seconds == -1 ? 100 : $seconds / $video->duration * 100;
 
 		$db = $this->context->database;
 		$db->beginTransaction();
