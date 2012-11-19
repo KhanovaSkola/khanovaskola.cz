@@ -231,4 +231,30 @@ class DashboardPresenter extends BaseModeratorPresenter
 		$this->redirect('this');
 	}
 
+
+
+	public function handleCacheSubtitles()
+	{
+		set_time_limit(0);
+		$videos = $this->context->videos->findAll();
+		
+		$par = $this->context->params['amara'];
+		$amara = new \Amara($par['key'], $par['username'], $this->context->cacheStorage);
+
+		$i = 0;
+		foreach ($videos as $video) {
+			$amara->getSubtitles($video);
+			
+			if ($i > 5) { // prevent amara from blocking there requests
+				sleep(15);
+				$i = 0;
+			} else {
+				$i++;
+			}
+		}
+
+		$this->flashMessage("Cache titulků byla obnovena.");
+		$this->redirect('this');
+	}
+
 }
