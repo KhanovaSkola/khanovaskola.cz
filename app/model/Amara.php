@@ -30,8 +30,13 @@ class Amara extends Nette\Object
 			$res = file_get_contents($url);
 			$data = \Nette\Utils\Json::decode(substr($res, 1, -2));
 			
-			$cache->save($video->id, $data->subtitles->subtitles);
-			return $data->subtitles->subtitles;
+			if ($data->subtitles !== NULL) {
+				$cache->save($video->id, $data->subtitles->subtitles);
+				return $data->subtitles->subtitles;
+
+			} else {
+				return [];
+			}
 		}
 
 		return $cache[$video->id];
