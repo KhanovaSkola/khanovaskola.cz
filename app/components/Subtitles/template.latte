@@ -25,7 +25,7 @@
 			$("#subtitles div").each(function(i, el) {
 				$(el).data('scroll-to', $(el).position().top - $("#subtitles").position().top);
 			});
-			center = $("#subtitles").height() / 2;
+			center = $("#subtitles").height() * 1/3; // position to scroll subtitles to
 
 		} else {
 			clearInterval(ticker);
