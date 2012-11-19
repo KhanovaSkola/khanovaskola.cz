@@ -1,12 +1,20 @@
 <div id="subtitles">
 	<div class="line" n:foreach="$subtitles as $row" data-start="{$row->start_time / 1000}" data-end="{$row->end_time / 1000}">
-		{$row->text}
+		{$row->text} <a href="#" class="time">{$row->start_time / 1000|time}</a>
 	</div>
 </div>
 <script>
 	var ticker = null;
 	var center = null;
 	var $high = null;
+
+	$(function() {
+		$('.time').click(function(e) {
+			player.seekTo($(this).parent().data('start'));
+			e.stopProgapation();
+			return false;
+		})
+	})
 
 	onPlayerStateChangeCallbacks.push(function(code) {
 		if (code == 1) { // playing
