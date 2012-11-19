@@ -10,21 +10,13 @@ class Amara extends Nette\Object
 
 
 
-	/** @var string */
-	protected $key;
-
-	/** @var string */
-	protected $username;
-
 	/** @var \Nette\Caching\IStorage */
 	protected $cacheStorage;
 
 
 
-	public function __construct($key, $username, \Nette\Caching\IStorage $cacheStorage)
+	public function __construct(\Nette\Caching\IStorage $cacheStorage)
 	{
-		$this->key = $key;
-		$this->username = $username;
 		$this->cacheStorage = $cacheStorage;
 	}
 

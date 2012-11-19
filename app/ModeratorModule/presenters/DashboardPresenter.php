@@ -238,12 +238,9 @@ class DashboardPresenter extends BaseModeratorPresenter
 		set_time_limit(0);
 		$videos = $this->context->videos->findAll();
 		
-		$par = $this->context->params['amara'];
-		$amara = new \Amara($par['key'], $par['username'], $this->context->cacheStorage);
-
 		$i = 0;
 		foreach ($videos as $video) {
-			$amara->getSubtitles($video);
+			$this->context->amara->getSubtitles($video);
 			
 			if ($i > 5) { // prevent amara from blocking there requests
 				sleep(15);
