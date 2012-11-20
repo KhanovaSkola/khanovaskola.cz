@@ -147,4 +147,15 @@ class WatchPresenter extends BaseFrontPresenter
 		$this->redirect('default');
 	}
 
+
+
+	public function actionEditSubtitles()
+	{
+		$url = urlencode("http://www.youtube.com/watch?v=" . $this->video->youtube_id);
+		$video_id = $this->context->amara->getId($this->video);
+		list($basePK, $subPK) = $this->context->amara->getLanguagePk($this->video);
+		$target = "http://www.universalsubtitles.org/en/onsite_widget/?config=%7B%22videoID%22%3A%22$video_id%22%2C%22videoURL%22%3A%22$url%22%2C%22effectiveVideoURL%22%3A%22$url%22%2C%22languageCode%22%3A%22cs%22%2C%22originalLanguageCode%22%3Anull%2C%22subLanguagePK%22%3A$subPK%2C%22baseLanguagePK%22%3A$basePK%7D";
+		$this->redirectUrl($target);
+	}
+
 }

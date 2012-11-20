@@ -63,6 +63,7 @@ li p {margin: 0;}
 #frm-articleForm input[type=text] {width: 640px;}
 #frm-articleForm textarea {width: 640px; height: 320px;}
 .nav-subheader > span > a {letter-spacing: 0; margin-left: 17px;}
+a.subtitles-edit {float: right; font-size: 10pt;}
 
 #subtitles {height: 180px; overflow: scroll; padding: 0; padding-left: 1em;}
 #subtitles div {padding: 0 0 4px 5px; font-size: 140%; font-family: serif;}
