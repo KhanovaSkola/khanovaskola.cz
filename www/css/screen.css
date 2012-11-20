@@ -71,6 +71,7 @@ a.subtitles-edit {float: right; font-size: 10pt;}
 #subtitles div:first-child {margin-top: 60px;}
 #subtitles div:last-child {margin-bottom: 140px;}
 #subtitles .time {float: right; color: rgb(150, 150, 150); font-family: sans-serif; font-size: 80%;}
+.practice.simple-button {margin-left: 1em;}
 
 /* ----  iPad 3 ---- */
 .ipad-only {display: none;}
