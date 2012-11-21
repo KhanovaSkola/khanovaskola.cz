@@ -1,6 +1,6 @@
 <div id="subtitles">
 	<div class="line" n:foreach="$subtitles as $row" data-start="{$row->start_time / 1000}" data-end="{$row->end_time / 1000}">
-		{$row->text} <a href="#" class="time">{$row->start_time / 1000|time}</a>
+		{$row->text}&nbsp; <a href="#" class="time">{$row->start_time / 1000|time}</a>
 	</div>
 </div>
 <script>
