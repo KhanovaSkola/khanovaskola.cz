@@ -11,6 +11,9 @@ class TaskPresenter extends BaseCoachPresenter
 	/** @persistent */
 	public $tid;
 
+	/** @persistent */
+	public $gid = NULL;
+
 	/** @var \Task */
 	protected $task;
 
@@ -36,6 +39,7 @@ class TaskPresenter extends BaseCoachPresenter
 	{
 		$this->template->task = $this->task;
 		$this['editForm']['task']->setValue($this->task->isVideo() ? "video_{$this->task->video_id}" : "exercise_{$this->task->exercise_id}");
+		$this->template->gid = $this->gid;
 
 		if ($this->task->deadline && $this->task->deadline->format('U') > 0) {
 			$this['editForm']['deadline']->setValue($this->task->deadline->format('Y-m-d'));
@@ -46,14 +50,21 @@ class TaskPresenter extends BaseCoachPresenter
 
 	public function handleRemove()
 	{
+		$tags = $this->task->getTagsToInvalidate();
 		$this->task->delete();
+		
+		$cache = new Cache($this->context->cacheStorage);
+		$cache->clean([Cache::TAGS => $tags]);
 
 		$this->flashMessage('Úkol byl smazán.');
 
 		if ($this->task->isBoundToGroup()) {
 			$this->redirect('Group:', ['gid' => $this->task->group_id]);
 		} else {
-			$this->redirect('Profile:', ['pid' => $this->task->user_id]);
+			$this->redirect('Profile:', [
+				'gid' => $this->gid,
+				'pid' => $this->task->user_id,
+			]);
 		}
 	}
 

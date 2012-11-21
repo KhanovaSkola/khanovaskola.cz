@@ -29,7 +29,7 @@
 		{if $task->isBoundToGroup()}
 			<a n:href="Group:, gid => $task->group_id">zpět</a>
 		{else}
-			<a n:href="Profile:, pid => $task->user_id">zpět</a>
+			<a n:href="Profile:, gid => $gid, pid => $task->user_id">zpět</a>
 		{/if}
 	</p>
 </article>

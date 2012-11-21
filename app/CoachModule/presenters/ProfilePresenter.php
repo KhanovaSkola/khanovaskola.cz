@@ -61,7 +61,10 @@ class ProfilePresenter extends BaseCoachPresenter
 
 		$task = $this->context->tasks->insert($data);
 
-		$this->redirect('Task:', ['tid' => $task->id]);
+		$this->redirect('Task:', [
+			'gid' => $this->gid,
+			'tid' => $task->id,
+		]);
 	}
 
 }
