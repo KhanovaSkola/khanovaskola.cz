@@ -33,7 +33,7 @@ footer .legal {float: right; margin-right: 10px;}
 .featured_video {display: block; max-width: 694px; height: 395px; background-color: black; background-repeat: no-repeat; background-position: center center;}
 .youtube_play {display: block; position: relative; top: 161px; background: url('/images/youtube_play.png'); width: 107px; height: 73px; opacity: .6; margin-left: auto; margin-right: auto;}
 a:hover .youtube_play {opacity: 1;}
-.featured_header {display: block; position: absolute; width: 100%; top: 0; left: 0; font-size: 16pt; color: white; background-color: rgba(0, 0, 0, .6); height: 25pt;}
+.featured_header {display: block; position: absolute; width: auto; top: 0; left: 0; font-size: 16pt; color: white; background-color: rgba(0, 0, 0, .6); min-height: 25pt;}
 .featured_header .label {padding: 8pt; top: 5pt; position: relative;}
 a:hover .featured_header .label {text-decoration: underline;}
 .wrap-columns {column-count:3; -moz-column-count:3; -webkit-column-count:3; column-gap:2em; -moz-column-gap:2em; -webkit-column-gap:2em;}
