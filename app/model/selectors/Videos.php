@@ -59,7 +59,11 @@ class Videos extends Table
 	 */
 	public function findRandom()
 	{
-		return $this->getTable()->select('*')->order('Rand()')->limit(1)->fetch();
+		$video = $this->getTable()->select('*')->order('Rand()')->limit(1)->fetch();
+		if (count($video->getCategoryIds()) <= 0) {
+			return $this->findRandom();
+		}
+		return $video;
 	}
 
 
