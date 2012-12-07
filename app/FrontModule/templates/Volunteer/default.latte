@@ -33,9 +33,7 @@
 		<h2 class="main-headline" style="white-space: pre;">Poděkování</h2>
 		<p>
 			Děkujeme všem dobrovolníkům, kteří věnovali svůj čas, energii a znalosti překladům videí či cvičení Khan Academy &ndash; abecedně:<br>
-			{var $credits => ['Dalibor K', 'Dana U', 'Dominik B', 'eeeppe', 'Emil 22', 'Erik N', 'Eva Z 33', 'Gabriel K', 'Jakub Č', 'Jindra Z', 'Jirka H', 'ktinkoo', 'M4nic', 'Marianna', 'Marketa C', 'Martin K', 'Michal.c', 'Milosu 3', 'Mirka N', 'Naďa S', 'Ota J', 'Pavel J', 'Pavel Ka', 'Pavel Ko', 'Pepa Š', 'Petra V', 'Snoblucha', 'Šimon H', 'upstairs.quick', 'Viktor Smolík', 'Zdeněk O', 'Pavla B', 'Silva Va', 'Ludek007', 'Zdeněk Ha', 'Tomas H', 'Pavel V', 'Marta', 'Tereza S', 'R. Satr--', 'Koub5']}
-			{?natcasesort($credits)}
-			{=implode(', ', $credits)}
+			{foreach $volunteers as $volunteer}{$volunteer->name}{sep}, {/sep}{/foreach}
 		</p>
 		<p>
 			Pokud jste nám v nedávné době pomohli a my jsme Vás omylem vynechali, napište nám na <a href="mailto:info@khanovaskola.cz">info@khanovaskola.cz</a>, napravíme to :)
