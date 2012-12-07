@@ -78,6 +78,7 @@ common:
 		progress: Table('progress')
 		groups: Table('group')
 		tasks: Tasks('task')
+		volunteers: Volunteers('volunteer')
 
 	factories:
 
