@@ -33,7 +33,7 @@
 					<h1 class="title-header">
 						<span itemprop="name caption" class="title desktop-only">{$video->label}</span><span n:if="$video->description" class="long-description">: <span itemprop="description">{$video->description}</span></span>
 						<a n:if="$user->isInrole(\NetteUser::ROLE_EDITOR)" n:href="edit">[upravit]</a>
-						<a n:href="editSubtitles" class="subtitles-edit">upravit titulky</a>
+						<a n:href="editSubtitles" class="subtitles-edit" rel="nofollow">upravit titulky</a>
 					</h1>
 				</div>
 				<div class="video-header" style="min-height: 1px">
