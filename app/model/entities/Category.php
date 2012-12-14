@@ -282,4 +282,15 @@ class Category extends EntityUrl
 		return $this->context->exercises->findByCategory($this);
 	}
 
+
+
+	public function addVideo(Video $video)
+	{
+		foreach ($this->context->database->query('SELECT position FROM category_video WHERE category_id ORDER BY position DESC', $this->id) as $row) {
+			$position = $row['position'];
+			break;
+		}
+		$this->context->database->query('INSERT INTO category_video (category_id, video_id, position) VALUES (?, ?, ?)', $this->id, $video->id, $position + 1);
+	}
+
 }

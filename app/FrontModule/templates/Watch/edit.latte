@@ -1,8 +1,17 @@
 {var $title = "Úprava videa"}
 {#breadcrumbs}
 {/#}
+{#head}
+	<link rel="stylesheet" media="screen,projection,tv" href="{$cdnUrl}/css/chosen.css" type="text/css">
+{/#}
+{#scripts}
+	<script type="text/javascript" src="{$cdnUrl}/js/chosen.jquery.min.js"></script>
+	<script>
+		$("#frm-editForm-tags").chosen();
+		$("#frm-editForm-categories").chosen();
+	</script>
+{/#}
 {#content}
-
 <article>
 <div>
 	<h2 class="main-headline" style="white-space: pre;">Úprava videa</h2>

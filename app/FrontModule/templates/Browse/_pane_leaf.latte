@@ -1,4 +1,3 @@
-
 {var $thumbnail => $leaf->getVideos()->limit(1)->fetch()}
 <div class="prerendered">
 	<div>
@@ -16,7 +15,7 @@
 				<div class="topic-desc" itemprop="description">{$leaf->description}</div>
 				<div n:if="$user->isInrole(\NetteUser::ROLE_EDITOR)">
 					<a n:href="edit">[upravit]</a>
-					{*<a n:href="add!">[přivat video]</a>*}
+					<a n:href="add">[přidat video]</a>
 				</div>
 				<div>Stopáž: {$leaf->getDuration()|time}</div>
 			</div>

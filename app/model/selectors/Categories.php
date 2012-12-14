@@ -45,6 +45,16 @@ class Categories extends Table
 
 
 
+	/**
+	 * @return array
+	 */
+	public function getFill()
+	{
+		return $this->findBy(['is_leaf' => TRUE])->order('label')->fetchPairs('id', 'label');
+	}
+
+
+
 	public function findWithExercises()
 	{
 		$ids = [];

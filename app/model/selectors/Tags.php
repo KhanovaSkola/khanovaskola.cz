@@ -18,7 +18,7 @@ class Tags extends Table
 	 */
 	public function getFill()
 	{
-		return $this->findAll()->fetchPairs('id', 'label');
+		return $this->findAll()->order('label')->fetchPairs('id', 'label');
 	}
 
 

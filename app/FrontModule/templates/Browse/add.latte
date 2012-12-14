@@ -1,0 +1,19 @@
+{var $title = "Nové video"}
+{#head}
+	<link rel="stylesheet" media="screen,projection,tv" href="{$cdnUrl}/css/chosen.css" type="text/css">
+{/#}
+{#scripts}
+	<script type="text/javascript" src="{$cdnUrl}/js/chosen.jquery.min.js"></script>
+	<script>
+		$("#frm-addForm-tags").chosen();
+		$("#frm-addForm-categories").chosen();
+	</script>
+{/#}
+{#content}
+<article>
+	<div>
+		<h2 class="main-headline" style="white-space: pre;">Nové video</h2>
+		{control addForm}
+	</div>
+	<div class="clear" style="margin-bottom:36px;"></div>
+</article>

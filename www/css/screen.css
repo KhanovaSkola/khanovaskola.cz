@@ -10,7 +10,6 @@ a[href^="error:"] {background: red; color: white;}
 .m1 {margin-left: 33%;}
 .m2 {margin-left: 66%;}
 
-
 /*
  * glyphs
  * @see http://fortawesome.github.com/Font-Awesome/#all-icons
@@ -72,6 +71,8 @@ a.subtitles-edit {float: right; font-size: 10pt;}
 #subtitles div:last-child {margin-bottom: 140px;}
 #subtitles .time {float: right; color: rgb(150, 150, 150); font-family: sans-serif; font-size: 80%;}
 .practice.simple-button {margin-left: 1em;}
+
+#frm-addForm select, #frm-editForm select {width: 250px;}
 
 /* ----  iPad 3 ---- */
 .ipad-only {display: none;}

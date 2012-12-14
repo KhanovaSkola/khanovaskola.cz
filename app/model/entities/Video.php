@@ -172,6 +172,35 @@ class Video extends EntityUrl
 	}
 
 
+
+	/**
+	 * @param array $cats
+	 * @return bool
+	 */
+	public function updateCategories(array $cats)
+	{
+		if (!count($cats)) {
+			return FALSE;
+		}
+		$db = $this->context->database;
+
+		$insert = [];
+		foreach (array_diff($cats, $this->getCategoryIds()) as $cid) {
+			$position = $db->query('SELECT position FROM category_video WHERE category_id=? ORDER BY position DESC', $cid)->fetch()['position'];
+			$insert[] = ['video_id' => $this->id, 'category_id' => $cid, 'position' => $position + 1];
+		}
+
+		$db->beginTransaction();
+		foreach (array_diff($this->getCategoryIds(), $cats) as $cid) {
+			$db->query('DELETE FROM category_video WHERE video_id=? AND category_id=?', $this->id, $cid);
+		}
+		if (count($insert)) {
+			$db->query('INSERT INTO category_video', $insert);
+		}
+		$db->commit();
+	}
+
+
 	/**
 	 * @return bool
 	 */
@@ -258,5 +287,5 @@ class Video extends EntityUrl
 	{
 		return $this->context->categories->find($this->getOneCategoryId());
 	}
-
+	
 }

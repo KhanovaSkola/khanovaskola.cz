@@ -95,6 +95,7 @@ class WatchPresenter extends BaseFrontPresenter
 		$form['description']->setValue($vid->description);
 		$form['youtube_id']->setValue($vid->youtube_id);
 		$form['tags']->setValue($vid->getTagsIds());
+		$form['categories']->setValue($vid->getCategoryIds());
 	}
 
 
@@ -107,6 +108,7 @@ class WatchPresenter extends BaseFrontPresenter
 		$form->addTextArea('description', 'Popis');
 		$form->addText('youtube_id', 'Youtube ID');
 		$form->addMultiSelect('tags', 'Tagy', $this->context->tags->getFill());
+		$form->addMultiSelect('categories', 'Kategorie', $this->context->categories->getFill());
 
 		$form->addSubmit('send', 'Upravit');
 		$form->onSuccess[] = callback($this, 'onSuccessEditForm');
@@ -133,6 +135,7 @@ class WatchPresenter extends BaseFrontPresenter
 		$vid->addSlug($v->label);
 
 		$vid->updateTags($v['tags']);
+		$vid->updateCategories($v['categories']);
 
 		$invalid = ["videos", "video/$vid->id"];
 		foreach ($vid->getCategoryIds() as $cat_id) {

@@ -64,6 +64,24 @@ class BrowsePresenter extends BaseFrontPresenter
 
 
 
+	public function createComponentAddForm($name)
+	{
+		$form = new Form($this, $name);
+
+		$form->addText('label', 'Název');
+		$form->addTextArea('description', 'Popis');
+		$form->addText('youtube_id', 'Youtube ID');
+		$form->addMultiSelect('tags', 'Tagy', $this->context->tags->getFill());
+		$form->addMultiSelect('categories', 'Kategorie', $this->context->categories->getFill());
+
+		$form->addSubmit('send', 'Uložit');
+		$form->onSuccess[] = callback($this, 'onSuccessAddForm');
+
+		return $form;
+	}
+
+
+
 	public function createComponentEditForm($name)
 	{
 		$form = new Form($this, $name);
@@ -104,24 +122,51 @@ class BrowsePresenter extends BaseFrontPresenter
 
 
 
-	public function handleAdd()
+	public function onSuccessAddForm($form)
 	{
-		throw new \Nette\NotImplementedException;
-
 		if (!$this->user->isInrole(\NetteUser::ROLE_ADDER)) {
 			throw new \Nette\Application\ForbiddenRequestException;
 		}
 
-		$video = $this->context->videos->findEmpty();
-		if ($video) {
-			$video->category_id = $this->id;
-			$video->update();
-		} else {
-			$video = $this->context->videos->insert([
-				'category_id' => $this->id,
+		$v = $form->values;
+
+		try {
+			$vid = $this->context->videos->insert([
+				'label' => $v->label,
+				'description' => $v->description,
+				'youtube_id' => $v->youtube_id
 			]);
+		} catch (\PDOException $e) {
+			if ($e->getCode() != 23000) {
+				throw $e;
+			}
+			$form->addError('Toto jméno má už jiné video zabrané.');
+			return FALSE;
 		}
-		$this->redirect(':Front:Watch:edit', ['vid' => $video->id]);
+
+		$video = $this->context->videos->find($vid->id);
+		$video->addSlug($video->label);
+
+		foreach ($v->categories as $cid) {
+			$this->context->categories->find($cid)->addVideo($video);
+		}
+		foreach ($v->tags as $tid) {
+			$video->addTag($tid);
+		}
+
+		// invalidate cache
+		$invalid = ["videos", "video/$vid->id"];
+		foreach ($v['categories'] as $cid) {
+			$invalid[] = "category/$cid";
+		}
+		foreach ($v['tags'] as $tid) {
+			$invalid[] = "tag/$tid";
+		}
+		$cache = new Cache($this->context->cacheStorage);
+		$cache->clean([Cache::TAGS => $invalid]);
+		
+
+		$this->redirect(':Front:Watch:', ['vid' => $video->id]);
 	}
 
 
