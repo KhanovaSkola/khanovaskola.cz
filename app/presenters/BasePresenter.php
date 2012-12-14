@@ -51,6 +51,11 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 
 		\Helpers::register($this->template);
 		$this['search']['query']->setValue($this->getParameter('q'));
+
+		if ($this->user->loggedIn) {
+			$session = $this->getSession('dynamic_css');
+			$this->template->dynamic_css_hash = $session->hash;
+		}
 	}
 
 

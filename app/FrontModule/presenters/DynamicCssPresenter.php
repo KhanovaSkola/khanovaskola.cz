@@ -21,6 +21,9 @@ class DynamicCssPresenter extends \BasePresenter
 			$cache->save($this->user->id, $data, [
 				\Nette\Caching\Cache::TAGS => ["watched/{$this->user->id}"],
 			]);
+
+			$session = $this->getSession('dynamic_css');
+			$session->hash = md5($data);
 		}
 
 		$this->getHttpResponse()->setContentType("text/css");
