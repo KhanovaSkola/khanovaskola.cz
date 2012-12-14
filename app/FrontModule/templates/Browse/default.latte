@@ -1,5 +1,39 @@
 {var $title = $selected->label}
 {var $description = $selected->getDescription()}
+{#scripts}
+	{if $show_video_order}
+		<script>
+			$(function() {
+				var prompt_shown = false;
+
+				$(".videos-table ol.first, .videos-table ol.second").sortable({
+					items: 'li',
+					connectWith: ".connected",
+					change: function() {
+						var $that = $(this);
+						$('.videos-header a').show();
+						if (!prompt_shown) {
+							prompt_shown = true;
+							$('.videos-header').append($('<a href="#"/>').text(' [Uložit]').click(function() {
+								var data = [];
+
+								var a = $('.videos-table ol.first').sortable('toArray');
+								var b = $('.videos-table ol.second').sortable('toArray');
+								$.each(a.concat(b), function(p, id) {
+									data.push($("#" + id).data('id'));
+								});
+								$.ajax({plink updatePositions!}, {
+									data: { videos: data.join(',')}
+								});
+								$('.videos-header a').hide();
+							}));
+						}
+					}
+				}).disableSelection();
+			});
+		</script>
+	{/if}
+{/#}
 {#content}
 
 <article id="topic-page" itemscope="" itemtype="http://schema.org/{ifset $leaf}VideoGallery{else}CollectionPage{/ifset}">

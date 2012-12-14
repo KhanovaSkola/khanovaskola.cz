@@ -42,8 +42,10 @@ class BrowsePresenter extends BaseFrontPresenter
 		if ($this->category->isLeaf()) {
 			$this->template->category = $this->category->getParent();
 			$this->template->leaf = $this->category;
+			$this->template->show_video_order = $this->user->isInrole(\NetteUser::ROLE_EDITOR);
 
 		} else { // isSubcategory
+			$this->template->show_video_order = FALSE;
 			$this->template->category = $this->category;
 		}
 	}
@@ -178,7 +180,10 @@ class BrowsePresenter extends BaseFrontPresenter
 		}
 
 		$data = explode(',', $videos);
-		$this->context->videos->updatePositions($data);
+		$this->category->updatePositions($data);
+
+		$cache = new Cache($this->context->cacheStorage);
+		$cache->clean([Cache::TAGS => ["categories", "category/{$this->id}"]]);
 
 		if ($this->isAjax()) {
 			$this->sendJson(['status' => 'success']);

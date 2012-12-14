@@ -293,4 +293,20 @@ class Category extends EntityUrl
 		$this->context->database->query('INSERT INTO category_video (category_id, video_id, position) VALUES (?, ?, ?)', $this->id, $video->id, $position + 1);
 	}
 
+
+
+	public function updatePositions(array $data)
+	{
+		$db = $this->context->database;
+		$db->beginTransaction();
+		$position = 1;
+		foreach ($data as $vid) {
+			$db->query('UPDATE category_video SET position=? WHERE category_id=? AND video_id=?', $position, $this->id, $vid);
+			$position++;
+		}
+		$db->commit();
+
+		// invalidate cache
+	}
+
 }

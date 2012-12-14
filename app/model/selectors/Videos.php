@@ -6,13 +6,6 @@ use Nette\Caching\Cache;
 class Videos extends Table
 {
 
-	public function updatePositions(array $data)
-	{
-		throw new \Nette\NotImplementedException;
-	}
-
-
-
 	/**
 	 * @param array $by
 	 * @return Video[]
