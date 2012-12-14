@@ -22,7 +22,6 @@ use Nette,
  *
  * @author     David Grudl
  *
- * @property       IReflection          $databaseReflection
  * @property-read  ISupplementalDriver  $supplementalDriver
  * @property-read  string               $dsn
  */
@@ -37,18 +36,15 @@ class Connection extends PDO
 	/** @var SqlPreprocessor */
 	private $preprocessor;
 
-	/** @var IReflection */
-	private $databaseReflection;
-
-	/** @var Nette\Caching\Cache */
-	private $cache;
+	/** @var Table\SelectionFactory */
+	private $selectionFactory;
 
 	/** @var array of function(Statement $result, $params); Occurs after query is executed */
 	public $onQuery;
 
 
 
-	public function __construct($dsn, $username = NULL, $password  = NULL, array $options = NULL, $driverClass = NULL)
+	public function __construct($dsn, $username = NULL, $password = NULL, array $options = NULL, $driverClass = NULL)
 	{
 		parent::__construct($this->dsn = $dsn, $username, $password, $options);
 		$this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -72,51 +68,6 @@ class Connection extends PDO
 	public function getSupplementalDriver()
 	{
 		return $this->driver;
-	}
-
-
-
-	/**
-	 * Sets database reflection
-	 * @param  IReflection  database reflection object
-	 * @return Connection   provides a fluent interface
-	 */
-	public function setDatabaseReflection(IReflection $databaseReflection)
-	{
-		$databaseReflection->setConnection($this);
-		$this->databaseReflection = $databaseReflection;
-		return $this;
-	}
-
-
-
-	/** @return IReflection */
-	public function getDatabaseReflection()
-	{
-		if (!$this->databaseReflection) {
-			$this->setDatabaseReflection(new Reflection\ConventionalReflection);
-		}
-		return $this->databaseReflection;
-	}
-
-
-
-	/**
-	 * Sets cache storage engine
-	 * @param  Nette\Caching\IStorage $storage
-	 * @return Connection   provides a fluent interface
-	 */
-	public function setCacheStorage(Nette\Caching\IStorage $storage = NULL)
-	{
-		$this->cache = $storage ? new Nette\Caching\Cache($storage, 'Nette.Database.' . md5($this->dsn)) : NULL;
-		return $this;
-	}
-
-
-
-	public function getCache()
-	{
-		return $this->cache;
 	}
 
 
@@ -154,17 +105,11 @@ class Connection extends PDO
 	 * @param  array
 	 * @return Statement
 	 */
-	public function queryArgs($statement, $params)
+	public function queryArgs($statement, array $params)
 	{
-		foreach ($params as $value) {
-			if (is_array($value) || is_object($value)) {
-				$need = TRUE; break;
-			}
-		}
-		if (isset($need) && $this->preprocessor !== NULL) {
+		if ($params) {
 			list($statement, $params) = $this->preprocessor->process($statement, $params);
 		}
-
 		return $this->prepare($statement)->execute($params);
 	}
 
@@ -230,7 +175,7 @@ class Connection extends PDO
 
 
 
-	/********************* selector ****************d*g**/
+	/********************* Selection ****************d*g**/
 
 
 
@@ -241,7 +186,38 @@ class Connection extends PDO
 	 */
 	public function table($table)
 	{
-		return new Table\Selection($table, $this);
+		if (!$this->selectionFactory) {
+			$this->selectionFactory = new Table\SelectionFactory($this);
+		}
+		return $this->selectionFactory->create($table);
+	}
+
+
+
+	/**
+	 * @return Connection   provides a fluent interface
+	 */
+	public function setSelectionFactory(Table\SelectionFactory $selectionFactory)
+	{
+		$this->selectionFactory = $selectionFactory;
+		return $this;
+	}
+
+
+
+	/** @deprecated */
+	function setDatabaseReflection()
+	{
+		trigger_error(__METHOD__ . '() is deprecated; use setSelectionFactory() instead.', E_USER_DEPRECATED);
+		return $this;
+	}
+
+
+
+	/** @deprecated */
+	function setCacheStorage()
+	{
+		trigger_error(__METHOD__ . '() is deprecated; use setSelectionFactory() instead.', E_USER_DEPRECATED);
 	}
 
 
@@ -253,9 +229,9 @@ class Connection extends PDO
 	/**
 	 * @return Nette\Reflection\ClassType
 	 */
-	public /**/static/**/ function getReflection()
+	public static function getReflection()
 	{
-		return new Nette\Reflection\ClassType(/*5.2*$this*//**/get_called_class()/**/);
+		return new Nette\Reflection\ClassType(get_called_class());
 	}
 
 

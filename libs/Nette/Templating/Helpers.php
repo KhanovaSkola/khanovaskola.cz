@@ -61,7 +61,7 @@ final class Helpers
 	public static function loader($helper)
 	{
 		if (method_exists(__CLASS__, $helper)) {
-			return callback(__CLASS__, $helper);
+			return new Nette\Callback(__CLASS__, $helper);
 		} elseif (isset(self::$helpers[$helper])) {
 			return self::$helpers[$helper];
 		}
@@ -163,10 +163,10 @@ final class Helpers
 	{
 		return Strings::replace(
 			$s,
-			'#(</textarea|</pre|</script|^).*?(?=<textarea|<pre|<script|$)#si',
-			/*5.2* callback(*/function($m) {
-				return trim(preg_replace("#[ \t\r\n]+#", " ", $m[0]));
-			}/*5.2* )*/);
+			'#(</textarea|</pre|</script|^).*?(?=<textarea|<pre|<script|\z)#si',
+			function($m) {
+				return trim(preg_replace('#[ \t\r\n]+#', " ", $m[0]));
+			});
 	}
 
 
@@ -181,9 +181,9 @@ final class Helpers
 	public static function indent($s, $level = 1, $chars = "\t")
 	{
 		if ($level >= 1) {
-			$s = Strings::replace($s, '#<(textarea|pre).*?</\\1#si', /*5.2* callback(*/function($m) {
+			$s = Strings::replace($s, '#<(textarea|pre).*?</\\1#si', function($m) {
 				return strtr($m[0], " \t\r\n", "\x1F\x1E\x1D\x1A");
-			}/*5.2* )*/);
+			});
 			$s = Strings::indent($s, $level, $chars);
 			$s = strtr($s, "\x1F\x1E\x1D\x1A", " \t\r\n");
 		}
@@ -329,7 +329,7 @@ final class Helpers
 
 				} elseif ($token[0] === T_CLOSE_TAG) {
 					$next = isset($tokens[$key + 1]) ? $tokens[$key + 1] : NULL;
-					if (substr($res, -1) !== '<' && preg_match('#^<\?php\s*$#', $php)) {
+					if (substr($res, -1) !== '<' && preg_match('#^<\?php\s*\z#', $php)) {
 						$php = ''; // removes empty (?php ?), but retains ((?php ?)?php
 
 					} elseif (is_array($next) && $next[0] === T_OPEN_TAG) { // remove ?)(?php
@@ -342,7 +342,7 @@ final class Helpers
 						$tokens->next();
 
 					} elseif ($next) {
-						$res .= preg_replace('#;?(\s)*$#', '$1', $php) . $token[1]; // remove last semicolon before ?)
+						$res .= preg_replace('#;?(\s)*\z#', '$1', $php) . $token[1]; // remove last semicolon before ?)
 						if (strlen($res) - strrpos($res, "\n") > $lineLength
 							&& (!is_array($next) || strpos($next[1], "\n") === FALSE)
 						) {

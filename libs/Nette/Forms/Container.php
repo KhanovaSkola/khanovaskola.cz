@@ -36,7 +36,7 @@ class Container extends Nette\ComponentModel\Container implements \ArrayAccess
 	protected $currentGroup;
 
 	/** @var bool */
-	protected $valid;
+	private $validated;
 
 
 
@@ -130,10 +130,10 @@ class Container extends Nette\ComponentModel\Container implements \ArrayAccess
 	 */
 	public function isValid()
 	{
-		if ($this->valid === NULL) {
+		if (!$this->validated) {
 			$this->validate();
 		}
-		return $this->valid;
+		return !$this->getAllErrors();
 	}
 
 
@@ -144,13 +144,26 @@ class Container extends Nette\ComponentModel\Container implements \ArrayAccess
 	 */
 	public function validate()
 	{
-		$this->valid = TRUE;
 		$this->onValidate($this);
 		foreach ($this->getControls() as $control) {
-			if (!$control->getRules()->validate()) {
-				$this->valid = FALSE;
-			}
+			$control->validate();
 		}
+		$this->validated = TRUE;
+	}
+
+
+
+	/**
+	 * Returns all validation errors.
+	 * @return array
+	 */
+	public function getAllErrors()
+	{
+		$errors = array();
+		foreach ($this->getControls() as $control) {
+			$errors = array_merge($errors, $control->getErrors());
+		}
+		return array_unique($errors);
 	}
 
 
@@ -160,7 +173,6 @@ class Container extends Nette\ComponentModel\Container implements \ArrayAccess
 
 
 	/**
-	 * @param  ControlGroup
 	 * @return Container  provides a fluent interface
 	 */
 	public function setCurrentGroup(ControlGroup $group = NULL)
@@ -477,17 +489,6 @@ class Container extends Nette\ComponentModel\Container implements \ArrayAccess
 	final public function __clone()
 	{
 		throw new Nette\NotImplementedException('Form cloning is not supported yet.');
-	}
-
-
-
-	/********************* deprecated ****************d*g**/
-
-	/** @deprecated */
-	function addFile($name, $label = NULL)
-	{
-		trigger_error(__METHOD__ . '() is deprecated; use addUpload() instead.', E_USER_DEPRECATED);
-		return $this->addUpload($name, $label);
 	}
 
 }

@@ -63,9 +63,9 @@ final class ObjectMixin
 			return call_user_func_array($_this->$name, $args);
 
 		} elseif ($isProp === 'event') { // calling event handlers
-			if (is_array($_this->$name)) {
+			if (is_array($_this->$name) || $_this->$name instanceof \Traversable) {
 				foreach ($_this->$name as $handler) {
-					callback($handler)->invokeArgs($args);
+					Callback::create($handler)->invokeArgs($args);
 				}
 			} elseif ($_this->$name !== NULL) {
 				throw new UnexpectedValueException("Property $class::$$name must be array or NULL, " . gettype($_this->$name) ." given.");
@@ -146,12 +146,6 @@ final class ObjectMixin
 		if ($name === '') {
 			throw new MemberAccessException("Cannot read a class '$class' property without name.");
 
-		} elseif (isset(self::$methods[$class][$name])) { // public method as closure getter
-			$val = function() use ($_this, $name) {
-				return call_user_func_array(array($_this, $name), func_get_args());
-			};
-			return $val;
-
 		} elseif (isset(self::$methods[$class][$m = 'get' . $uname]) || isset(self::$methods[$class][$m = 'is' . $uname])) { // property getter
 			$isRef = & self::$methods[$class][$m];
 			if (!is_bool($isRef)) {
@@ -164,6 +158,10 @@ final class ObjectMixin
 				$val = $_this->$m();
 				return $val;
 			}
+
+		} elseif (isset(self::$methods[$class][$name])) { // public method as closure getter
+			$val = Callback::create($_this, $name);
+			return $val;
 
 		} else { // strict class
 			$type = isset(self::$methods[$class]['set' . $uname]) ? 'a write-only' : 'an undeclared';
@@ -274,7 +272,7 @@ final class ObjectMixin
 	public static function setExtensionMethod($class, $name, $callback)
 	{
 		$l = & self::$extMethods[strtolower($name)];
-		$l[strtolower($class)] = callback($callback);
+		$l[strtolower($class)] = new Callback($callback);
 		$l[''] = NULL;
 	}
 
@@ -288,21 +286,6 @@ final class ObjectMixin
 	 */
 	public static function getExtensionMethod($class, $name)
 	{
-		/*5.2* if (self::$extMethods === NULL || $name === NULL) { // for backwards compatibility
-			$list = get_defined_functions(); // names are lowercase!
-			foreach ($list['user'] as $fce) {
-				$pair = explode('_prototype_', $fce);
-				if (count($pair) === 2) {
-					self::$extMethods[$pair[1]][$pair[0]] = callback($fce);
-					self::$extMethods[$pair[1]][''] = NULL;
-				}
-			}
-			if ($name === NULL) {
-				return NULL;
-			}
-		}
-		*/
-
 		$class = strtolower($class);
 		$l = & self::$extMethods[strtolower($name)];
 

@@ -66,14 +66,14 @@ abstract class Control extends PresenterComponent implements IRenderable
 	{
 		$template = $class ? new $class : new Nette\Templating\FileTemplate;
 		$presenter = $this->getPresenter(FALSE);
-		$template->onPrepareFilters[] = callback($this, 'templatePrepareFilters');
+		$template->onPrepareFilters[] = $this->templatePrepareFilters;
 		$template->registerHelperLoader('Nette\Templating\Helpers::loader');
 
 		// default parameters
 		$template->control = $template->_control = $this;
 		$template->presenter = $template->_presenter = $presenter;
 		if ($presenter instanceof Presenter) {
-			$template->setCacheStorage($presenter->getContext()->nette->templateCacheStorage);
+			$template->setCacheStorage($presenter->getContext()->{'nette.templateCacheStorage'});
 			$template->user = $presenter->getUser();
 			$template->netteHttpResponse = $presenter->getHttpResponse();
 			$template->netteCacheStorage = $presenter->getContext()->getByType('Nette\Caching\IStorage');
@@ -102,20 +102,7 @@ abstract class Control extends PresenterComponent implements IRenderable
 	 */
 	public function templatePrepareFilters($template)
 	{
-		$template->registerFilter($this->getPresenter()->getContext()->nette->createLatte());
-	}
-
-
-
-	/**
-	 * Returns widget component specified by name.
-	 * @param  string
-	 * @return Nette\ComponentModel\IComponent
-	 */
-	public function getWidget($name)
-	{
-		trigger_error(__METHOD__ . '() is deprecated, use getComponent() instead.', E_USER_DEPRECATED);
-		return $this->getComponent($name);
+		$template->registerFilter($this->getPresenter()->getContext()->createNette__Latte());
 	}
 
 

@@ -20,7 +20,6 @@ use Nette;
  *
  * @author     Jakub Vrana
  * @author     Jan Skrasek
- * @property-write Nette\Database\Connection $connection
  */
 class ConventionalReflection extends Nette\Object implements Nette\Database\IReflection
 {
@@ -79,14 +78,9 @@ class ConventionalReflection extends Nette\Object implements Nette\Database\IRef
 
 
 
-	public function setConnection(Nette\Database\Connection $connection)
-	{}
-
-
-
 	protected function getColumnFromTable($name)
 	{
-		if ($this->table !== '%s' && preg_match('(^' . str_replace('%s', '(.*)', preg_quote($this->table)) . '$)', $name, $match)) {
+		if ($this->table !== '%s' && preg_match('(^' . str_replace('%s', '(.*)', preg_quote($this->table)) . '\z)', $name, $match)) {
 			return $match[1];
 		}
 

@@ -10,7 +10,7 @@ class Selection extends Nette\Database\Table\Selection
 
 	public function __construct($table, Nette\Database\Connection $connection, Nette\DI\Container $context)
 	{
-		parent::__construct($table, $connection);
+		parent::__construct($connection, $table, new Nette\Database\Reflection\ConventionalReflection);
 		$this->context = $context;
 	}
 

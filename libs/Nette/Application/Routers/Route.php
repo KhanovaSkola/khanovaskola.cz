@@ -143,7 +143,6 @@ class Route extends Nette\Object implements Application\IRouter
 
 	/**
 	 * Maps HTTP request to a Request object.
-	 * @param  Nette\Http\IRequest
 	 * @return Nette\Application\Request|NULL
 	 */
 	public function match(Nette\Http\IRequest $httpRequest)
@@ -152,9 +151,16 @@ class Route extends Nette\Object implements Application\IRouter
 
 		// 1) URL MASK
 		$url = $httpRequest->getUrl();
+		$re = $this->re;
 
 		if ($this->type === self::HOST) {
 			$path = '//' . $url->getHost() . $url->getPath();
+			$host = array_reverse(explode('.', $url->getHost()));
+			$re = strtr($re, array(
+				'/%basePath%/' => preg_quote($url->getBasePath(), '#'),
+				'%tld%' => $host[0],
+				'%domain%' => isset($host[1]) ? "$host[1]\\.$host[0]" : $host[0],
+			));
 
 		} elseif ($this->type === self::RELATIVE) {
 			$basePath = $url->getBasePath();
@@ -171,7 +177,7 @@ class Route extends Nette\Object implements Application\IRouter
 			$path = rtrim($path, '/') . '/';
 		}
 
-		if (!$matches = Strings::match($path, $this->re)) {
+		if (!$matches = Strings::match($path, $re)) {
 			// stop, not matched
 			return NULL;
 		}
@@ -258,8 +264,6 @@ class Route extends Nette\Object implements Application\IRouter
 
 	/**
 	 * Constructs absolute URL from Request object.
-	 * @param  Nette\Application\Request
-	 * @param  Nette\Http\Url
 	 * @return string|NULL
 	 */
 	public function constructUrl(Application\Request $appRequest, Nette\Http\Url $refUrl)
@@ -375,6 +379,28 @@ class Route extends Nette\Object implements Application\IRouter
 		} while (TRUE);
 
 
+		// absolutize path
+		if ($this->type === self::RELATIVE) {
+			$url = '//' . $refUrl->getAuthority() . $refUrl->getBasePath() . $url;
+
+		} elseif ($this->type === self::PATH) {
+			$url = '//' . $refUrl->getAuthority() . $url;
+
+		} else {
+			$host = array_reverse(explode('.', $refUrl->getHost()));
+			$url = strtr($url, array(
+				'/%basePath%/' => $refUrl->getBasePath(),
+				'%tld%' => $host[0],
+				'%domain%' => isset($host[1]) ? "$host[1].$host[0]" : $host[0],
+			));
+		}
+
+		if (strpos($url, '//', 2) !== FALSE) {
+			return NULL; // TODO: implement counterpart in match() ?
+		}
+
+		$url = ($this->flags & self::SECURED ? 'https:' : 'http:') . $url;
+
 		// build query string
 		if ($this->xlat) {
 			$params = self::renameKeys($params, $this->xlat);
@@ -385,20 +411,6 @@ class Route extends Nette\Object implements Application\IRouter
 		if ($query != '') { // intentionally ==
 			$url .= '?' . $query;
 		}
-
-		// absolutize path
-		if ($this->type === self::RELATIVE) {
-			$url = '//' . $refUrl->getAuthority() . $refUrl->getBasePath() . $url;
-
-		} elseif ($this->type === self::PATH) {
-			$url = '//' . $refUrl->getAuthority() . $url;
-		}
-
-		if (strpos($url, '//', 2) !== FALSE) {
-			return NULL; // TODO: implement counterpart in match() ?
-		}
-
-		$url = ($this->flags & self::SECURED ? 'https:' : 'http:') . $url;
 
 		return $url;
 	}
@@ -514,8 +526,9 @@ class Route extends Nette\Object implements Application\IRouter
 			array_unshift($sequence, $name);
 
 			if ($name[0] === '?') { // "foo" parameter
-				$re = '(?:' . preg_quote(substr($name, 1), '#') . '|' . $pattern . ')' . $re;
-				$sequence[1] = substr($name, 1) . $sequence[1];
+				$name = substr($name, 1);
+				$re = $pattern ? '(?:' . preg_quote($name, '#') . "|$pattern)$re" : preg_quote($name, '#') . $re;
+				$sequence[1] = $name . $sequence[1];
 				continue;
 			}
 
@@ -563,7 +576,7 @@ class Route extends Nette\Object implements Application\IRouter
 					$meta['defOut'] = $meta[self::VALUE];
 				}
 			}
-			$meta[self::PATTERN] = "#(?:$pattern)$#A" . ($this->flags & self::CASE_SENSITIVE ? '' : 'iu');
+			$meta[self::PATTERN] = "#(?:$pattern)\\z#A" . ($this->flags & self::CASE_SENSITIVE ? '' : 'iu');
 
 			// include in expression
 			$re = '(?P<' . str_replace('-', '___', $name) . '>(?U)' . $pattern . ')' . $re; // str_replace is dirty trick to enable '-' in parameter name
@@ -591,7 +604,7 @@ class Route extends Nette\Object implements Application\IRouter
 			throw new Nette\InvalidArgumentException("Missing closing ']' in mask '$mask'.");
 		}
 
-		$this->re = '#' . $re . '/?$#A' . ($this->flags & self::CASE_SENSITIVE ? '' : 'iu');
+		$this->re = '#' . $re . '/?\z#A' . ($this->flags & self::CASE_SENSITIVE ? '' : 'iu');
 		$this->metadata = $metadata;
 		$this->sequence = $sequence;
 	}

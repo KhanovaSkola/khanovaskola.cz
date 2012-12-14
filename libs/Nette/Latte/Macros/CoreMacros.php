@@ -199,7 +199,8 @@ class CoreMacros extends MacroSet
 	 */
 	public function macroUse(MacroNode $node, PhpWriter $writer)
 	{
-		callback($node->tokenizer->fetchWord(), 'install')->invoke($this->getCompiler())
+		Nette\Callback::create($node->tokenizer->fetchWord(), 'install')
+			->invoke($this->getCompiler())
 			->initialize();
 	}
 
@@ -273,6 +274,7 @@ class CoreMacros extends MacroSet
 	 */
 	public function macroOldAttr(MacroNode $node)
 	{
+		trigger_error('Macro {attr} is deprecated; use n:attr="..." instead.', E_USER_DEPRECATED);
 		return Nette\Utils\Strings::replace($node->args . ' ', '#\)\s+#', ')->');
 	}
 
@@ -307,6 +309,9 @@ class CoreMacros extends MacroSet
 	 */
 	public function macroVar(MacroNode $node, PhpWriter $writer)
 	{
+		if ($node->name === 'assign') {
+			trigger_error('Macro {assign} is deprecated; use {var} instead.', E_USER_DEPRECATED);
+		}
 		$out = '';
 		$var = TRUE;
 		$tokenizer = $writer->preprocess();
@@ -388,8 +393,6 @@ class CoreMacros extends MacroSet
 
 	/**
 	 * Initializes local & global storage in template.
-	 * @param
-	 * @param  string
 	 * @return \stdClass
 	 */
 	public static function initRuntime(Nette\Templating\ITemplate $template, $templateId)
@@ -399,13 +402,13 @@ class CoreMacros extends MacroSet
 			$local = $template->_l;
 			unset($template->_l);
 		} else {
-			$local = (object) NULL;
+			$local = new \stdClass;
 		}
 		$local->templates[$templateId] = $template;
 
 		// global storage
 		if (!isset($template->_g)) {
-			$template->_g = (object) NULL;
+			$template->_g = new \stdClass;
 		}
 
 		return array($local, $template->_g);

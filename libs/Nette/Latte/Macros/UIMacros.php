@@ -33,9 +33,6 @@ use Nette,
  */
 class UIMacros extends MacroSet
 {
-	/** @internal PHP identifier */
-	const RE_IDENTIFIER = '[_a-zA-Z\x7F-\xFF][_a-zA-Z0-9\x7F-\xFF]*';
-
 	/** @var array */
 	private $namedBlocks = array();
 
@@ -155,10 +152,6 @@ if (!empty($_control->snippetMode)) {
 		}
 
 		$destination = ltrim($destination, '#');
-		if (!Strings::match($destination, '#^\$?' . self::RE_IDENTIFIER . '$#')) {
-			throw new CompileException("Included block name must be alphanumeric string, '$destination' given.");
-		}
-
 		$parent = $destination === 'parent';
 		if ($destination === 'parent' || $destination === 'this') {
 			for ($item = $node->parentNode; $item && $item->name !== 'block' && !isset($item->data->name); $item = $item->parentNode);
@@ -168,7 +161,7 @@ if (!empty($_control->snippetMode)) {
 			$destination = $item->data->name;
 		}
 
-		$name = $destination[0] === '$' ? $destination : var_export($destination, TRUE);
+		$name = Strings::contains($destination, '$') ? $destination : var_export($destination, TRUE);
 		if (isset($this->namedBlocks[$destination]) && !$parent) {
 			$cmd = "call_user_func(reset(\$_l->blocks[$name]), \$_l, %node.array? + get_defined_vars())";
 		} else {
@@ -232,8 +225,6 @@ if (!empty($_control->snippetMode)) {
 
 		if ($node->name === 'block' && $name === FALSE) { // anonymous block
 			return $node->modifiers === '' ? '' : 'ob_start()';
-		} elseif ($node->name === '#') {
-			$node->modifiers = substr($node->modifiers, 0, -7); // remove |escape, dirty fix
 		}
 
 		$node->data->name = $name = ltrim($name, '#');
@@ -242,7 +233,7 @@ if (!empty($_control->snippetMode)) {
 				throw new CompileException("Missing block name.");
 			}
 
-		} elseif (!Strings::match($name, '#^' . self::RE_IDENTIFIER . '$#')) { // dynamic blok/snippet
+		} elseif (Strings::contains($name, '$')) { // dynamic block/snippet
 			if ($node->name === 'snippet') {
 				for ($parent = $node->parentNode; $parent && $parent->name !== 'snippet'; $parent = $parent->parentNode);
 				if (!$parent) {
@@ -252,7 +243,7 @@ if (!empty($_control->snippetMode)) {
 				$node->data->leave = TRUE;
 				$node->closingCode = "<?php \$_dynSnippets[\$_dynSnippetId] = ob_get_flush() ?>";
 
-				if ($node->htmlNode) {
+				if ($node->prefix) {
 					$node->attrCode = $writer->write("<?php echo ' id=\"' . (\$_dynSnippetId = \$_control->getSnippetId({$writer->formatWord($name)})) . '\"' ?>");
 					return $writer->write('ob_start()');
 				}
@@ -264,22 +255,24 @@ if (!empty($_control->snippetMode)) {
 			} else {
 				$node->data->leave = TRUE;
 				$fname = $writer->formatWord($name);
-				$node->closingCode = "<?php }} call_user_func(reset(\$_l->blocks[$fname]), \$_l, get_defined_vars()) ?>";
+				$node->closingCode = "<?php }} " . ($node->name === 'define' ? '' : "call_user_func(reset(\$_l->blocks[$fname]), \$_l, get_defined_vars())") . " ?>";
 				$func = '_lb' . substr(md5($this->getCompiler()->getTemplateId() . $name), 0, 10) . '_' . preg_replace('#[^a-z0-9_]#i', '_', $name);
-				return "//\n// block $name\n//\n"
-					. "if (!function_exists(\$_l->blocks[$fname][] = '$func')) { "
+				return "\n\n//\n// block $name\n//\n"
+					. "if (!function_exists(\$_l->blocks[$fname]['{$this->getCompiler()->getTemplateId()}'] = '$func')) { "
 					. "function $func(\$_l, \$_args) { "
 					. (PHP_VERSION_ID > 50208 ? 'extract($_args)' : 'foreach ($_args as $__k => $__v) $$__k = $__v'); // PHP bug #46873
 			}
 		}
 
-		// static blok/snippet
+		// static block/snippet
 		if ($node->name === 'snippet') {
 			$node->data->name = $name = '_' . $name;
 		}
+
 		if (isset($this->namedBlocks[$name])) {
 			throw new CompileException("Cannot redeclare static block '$name'");
 		}
+
 		$prolog = $this->namedBlocks ? '' : "if (\$_l->extends) { ob_end_clean(); return Nette\\Latte\\Macros\\CoreMacros::includeTemplate(\$_l->extends, get_defined_vars(), \$template)->render(); }\n";
 		$top = empty($node->parentNode);
 		$this->namedBlocks[$name] = TRUE;
@@ -290,7 +283,7 @@ if (!empty($_control->snippetMode)) {
 		}
 
 		if ($node->name === 'snippet') {
-			if ($node->htmlNode) {
+			if ($node->prefix) {
 				$node->attrCode = $writer->write('<?php echo \' id="\' . $_control->getSnippetId(%var) . \'"\' ?>', (string) substr($name, 1));
 				return $writer->write($prolog . $include, $name);
 			}
@@ -318,8 +311,8 @@ if (!empty($_control->snippetMode)) {
 	public function macroBlockEnd(MacroNode $node, PhpWriter $writer)
 	{
 		if (isset($node->data->name)) { // block, snippet, define
-			if ($node->name === 'snippet' && $node->htmlNode && $node->prefix === MacroNode::PREFIX_NONE // n:snippet -> n:inner-snippet
-				&& preg_match("#^.*? n:\w+>\n?#s", $node->content, $m1) && preg_match("#[ \t]*<[^<]+$#sD", $node->content, $m2))
+			if ($node->name === 'snippet' && $node->prefix === MacroNode::PREFIX_NONE // n:snippet -> n:inner-snippet
+				&& preg_match('#^.*? n:\w+>\n?#s', $node->content, $m1) && preg_match('#[ \t]*<[^<]+\z#s', $node->content, $m2))
 			{
 				$node->openingCode = $m1[0] . $node->openingCode;
 				$node->content = substr($node->content, strlen($m1[0]), -strlen($m2[0]));
@@ -364,6 +357,9 @@ if (!empty($_control->snippetMode)) {
 	 */
 	public function macroControl(MacroNode $node, PhpWriter $writer)
 	{
+		if ($node->name === 'widget') {
+			trigger_error('Macro {widget} is deprecated; use {control} instead.', E_USER_DEPRECATED);
+		}
 		$pair = $node->tokenizer->fetchWord();
 		if ($pair === FALSE) {
 			throw new CompileException("Missing control name in {control}");
@@ -371,7 +367,7 @@ if (!empty($_control->snippetMode)) {
 		$pair = explode(':', $pair, 2);
 		$name = $writer->formatWord($pair[0]);
 		$method = isset($pair[1]) ? ucfirst($pair[1]) : '';
-		$method = Strings::match($method, '#^(' . self::RE_IDENTIFIER . '|)$#') ? "render$method" : "{\"render$method\"}";
+		$method = Strings::match($method, '#^\w*\z#') ? "render$method" : "{\"render$method\"}";
 		$param = $writer->formatArray();
 		if (!Strings::contains($node->args, '=>')) {
 			$param = substr($param, 6, -1); // removes array()

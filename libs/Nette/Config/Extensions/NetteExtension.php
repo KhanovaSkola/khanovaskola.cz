@@ -25,8 +25,8 @@ use Nette,
 class NetteExtension extends Nette\Config\CompilerExtension
 {
 	public $defaults = array(
-		'xhtml' => TRUE,
 		'session' => array(
+			'debugger' => FALSE,
 			'iAmUsingBadHost' => NULL,
 			'autoStart' => 'smart',  // true|false|smart
 			'expiration' => NULL,
@@ -54,6 +54,10 @@ class NetteExtension extends Nette\Config\CompilerExtension
 		'database' => array(), // of [name => dsn, user, password, debugger, explain, autowired, reflection]
 		'forms' => array(
 			'messages' => array(),
+		),
+		'latte' => array(
+			'xhtml' => TRUE,
+			'macros' => array(),
 		),
 		'container' => array(
 			'debugger' => FALSE,
@@ -85,6 +89,11 @@ class NetteExtension extends Nette\Config\CompilerExtension
 		$container = $this->getContainerBuilder();
 		$config = $this->getConfig($this->defaults);
 
+		if (isset($config['xhtml'])) {
+			$config['latte']['xhtml'] = $config['xhtml'];
+		}
+		$container->addDefinition('nette')->setClass('Nette\Config\Extensions\NetteAccessor', array('@container'));
+
 		$this->setupCache($container);
 		$this->setupHttp($container);
 		$this->setupSession($container, $config['session']);
@@ -93,7 +102,7 @@ class NetteExtension extends Nette\Config\CompilerExtension
 		$this->setupRouting($container, $config['routing']);
 		$this->setupMailer($container, $config['mailer']);
 		$this->setupForms($container);
-		$this->setupTemplating($container, $config);
+		$this->setupTemplating($container, $config['latte']);
 		$this->setupDatabase($container, $config['database']);
 	}
 
@@ -122,8 +131,7 @@ class NetteExtension extends Nette\Config\CompilerExtension
 	{
 		$container->addDefinition($this->prefix('httpRequestFactory'))
 			->setClass('Nette\Http\RequestFactory')
-			->addSetup('setEncoding', array('UTF-8'))
-			->setInternal(TRUE);
+			->addSetup('setEncoding', array('UTF-8'));
 
 		$container->addDefinition('httpRequest') // no namespace for back compatibility
 			->setClass('Nette\Http\Request')
@@ -149,7 +157,14 @@ class NetteExtension extends Nette\Config\CompilerExtension
 		if (isset($config['iAmUsingBadHost'])) {
 			$session->addSetup('Nette\Framework::$iAmUsingBadHost = ?;', array((bool) $config['iAmUsingBadHost']));
 		}
-		unset($config['expiration'], $config['autoStart'], $config['iAmUsingBadHost']);
+
+		if ($container->parameters['debugMode'] && $config['debugger']) {
+			$session->addSetup('Nette\Diagnostics\Debugger::$bar->addPanel(?)', array(
+				new Nette\DI\Statement('Nette\Http\Diagnostics\SessionPanel')
+			));
+		}
+
+		unset($config['expiration'], $config['autoStart'], $config['iAmUsingBadHost'], $config['debugger']);
 		if (!empty($config)) {
 			$session->addSetup('setOptions', array($config));
 		}
@@ -195,7 +210,8 @@ class NetteExtension extends Nette\Config\CompilerExtension
 		$application = $container->addDefinition('application') // no namespace for back compatibility
 			->setClass('Nette\Application\Application')
 			->addSetup('$catchExceptions', $config['catchExceptions'])
-			->addSetup('$errorPresenter', $config['errorPresenter']);
+			->addSetup('$errorPresenter', $config['errorPresenter'])
+			->addSetup('!headers_sent() && header(?);', 'X-Powered-By: Nette Framework');
 
 		if ($config['debugger']) {
 			$application->addSetup('Nette\Application\Diagnostics\RoutingPanel::initializePanel');
@@ -272,15 +288,23 @@ class NetteExtension extends Nette\Config\CompilerExtension
 			->addSetup('registerFilter', array($latte))
 			->addSetup('registerHelperLoader', array('Nette\Templating\Helpers::loader'))
 			->setShared(FALSE);
+
+		foreach ($config['macros'] as $macro) {
+			if (strpos($macro, '::') === FALSE && class_exists($macro)) {
+				$macro .= '::install';
+
+			} else {
+				Validators::assert($macro, 'callable');
+			}
+
+			$latte->addSetup($macro . '(?->compiler)', array('@self'));
+		}
 	}
 
 
 
 	private function setupDatabase(ContainerBuilder $container, array $config)
 	{
-		$container->addDefinition($this->prefix('database'))
-				->setClass('Nette\DI\NestedAccessor', array('@container', $this->prefix('database')));
-
 		if (isset($config['dsn'])) {
 			$config = array('default' => $config);
 		}
@@ -298,43 +322,43 @@ class NetteExtension extends Nette\Config\CompilerExtension
 				$info['options'][constant($key)] = $value;
 			}
 
+			if (!$info['reflection']) {
+				$reflection = NULL;
+			} elseif (is_string($info['reflection'])) {
+				$reflection = new Nette\DI\Statement(preg_match('#^[a-z]+\z#', $info['reflection'])
+					? 'Nette\Database\Reflection\\' . ucfirst($info['reflection']) . 'Reflection'
+					: $info['reflection'], array('@self'));
+			} else {
+				$tmp = Nette\Config\Compiler::filterArguments(array($info['reflection']));
+				$reflection = reset($tmp);
+			}
+
 			$connection = $container->addDefinition($this->prefix("database.$name"))
 				->setClass('Nette\Database\Connection', array($info['dsn'], $info['user'], $info['password'], $info['options']))
 				->setAutowired($info['autowired'])
-				->addSetup('setCacheStorage')
+				->addSetup('setSelectionFactory', array(
+					new Nette\DI\Statement('Nette\Database\Table\SelectionFactory', array('@self', $reflection)),
+				))
 				->addSetup('Nette\Diagnostics\Debugger::$blueScreen->addPanel(?)', array(
 					'Nette\Database\Diagnostics\ConnectionPanel::renderException'
 				));
 
-			if ($info['reflection']) {
-				$connection->addSetup('setDatabaseReflection', is_string($info['reflection'])
-					? array(new Nette\DI\Statement(preg_match('#^[a-z]+$#', $info['reflection']) ? 'Nette\Database\Reflection\\' . ucfirst($info['reflection']) . 'Reflection' : $info['reflection']))
-					: Nette\Config\Compiler::filterArguments(array($info['reflection']))
-				);
-			}
-
 			if ($container->parameters['debugMode'] && $info['debugger']) {
-				$panel = $container->addDefinition($this->prefix("database.{$name}ConnectionPanel"))
-					->setClass('Nette\Database\Diagnostics\ConnectionPanel')
-					->setAutowired(FALSE)
-					->addSetup('$explain', !empty($info['explain']))
-					->addSetup('Nette\Diagnostics\Debugger::$bar->addPanel(?)', array('@self'));
-
-				$connection->addSetup('$service->onQuery[] = ?', array(array($panel, 'logQuery')));
+				$connection->addSetup('Nette\Database\Helpers::createDebugPanel', array($connection, !empty($info['explain'])));
 			}
 		}
 	}
 
 
 
-	public function afterCompile(Nette\Utils\PhpGenerator\ClassType $class)
+	public function afterCompile(Nette\PhpGenerator\ClassType $class)
 	{
 		$initialize = $class->methods['initialize'];
 		$container = $this->getContainerBuilder();
 		$config = $this->getConfig($this->defaults);
 
 		// debugger
-		foreach (array('email', 'editor', 'browser', 'strictMode', 'maxLen', 'maxDepth') as $key) {
+		foreach (array('email', 'editor', 'browser', 'strictMode', 'maxLen', 'maxDepth', 'showLocation', 'scream') as $key) {
 			if (isset($config['debugger'][$key])) {
 				$initialize->addBody('Nette\Diagnostics\Debugger::$? = ?;', array($key, $config['debugger'][$key]));
 			}
@@ -374,8 +398,8 @@ class NetteExtension extends Nette\Config\CompilerExtension
 			$initialize->addBody('$this->session->start();');
 		}
 
-		if (empty($config['xhtml'])) {
-			$initialize->addBody('Nette\Utils\Html::$xhtml = ?;', array((bool) $config['xhtml']));
+		if (empty($config['latte']['xhtml'])) {
+			$initialize->addBody('Nette\Utils\Html::$xhtml = ?;', array((bool) $config['latte']['xhtml']));
 		}
 
 		if (isset($config['security']['frames']) && $config['security']['frames'] !== TRUE) {

@@ -94,6 +94,24 @@ class Parameter extends \ReflectionParameter
 
 
 
+	/**
+	 * @return bool
+	 */
+	public function isDefaultValueAvailable()
+	{
+		if (PHP_VERSION_ID === 50316) { // PHP bug #62988
+			try {
+				$this->getDefaultValue();
+				return TRUE;
+			} catch (\ReflectionException $e) {
+				return FALSE;
+			}
+		}
+		return parent::isDefaultValueAvailable();
+	}
+
+
+
 	public function __toString()
 	{
 		return '$' . parent::getName() . ' in ' . $this->getDeclaringFunction();
@@ -108,9 +126,9 @@ class Parameter extends \ReflectionParameter
 	/**
 	 * @return ClassType
 	 */
-	public /**/static/**/ function getReflection()
+	public static function getReflection()
 	{
-		return new ClassType(/*5.2*$this*//**/get_called_class()/**/);
+		return new ClassType(get_called_class());
 	}
 
 

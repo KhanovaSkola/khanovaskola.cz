@@ -56,7 +56,7 @@ abstract class TextBase extends BaseControl
 	{
 		$value = $this->value;
 		foreach ($this->filters as $filter) {
-			$value = (string) $filter/*5.2*->invoke*/($value);
+			$value = (string) $filter($value);
 		}
 		return $value === $this->translate($this->emptyValue) ? '' : $value;
 	}
@@ -94,7 +94,7 @@ abstract class TextBase extends BaseControl
 	 */
 	public function addFilter($filter)
 	{
-		$this->filters[] = callback($filter);
+		$this->filters[] = new Nette\Callback($filter);
 		return $this;
 	}
 
@@ -121,7 +121,7 @@ abstract class TextBase extends BaseControl
 	public function addRule($operation, $message = NULL, $arg = NULL)
 	{
 		if ($operation === Form::FLOAT) {
-			$this->addFilter(callback(__CLASS__, 'filterFloat'));
+			$this->addFilter(array(__CLASS__, 'filterFloat'));
 		}
 		return parent::addRule($operation, $message, $arg);
 	}
@@ -210,7 +210,7 @@ abstract class TextBase extends BaseControl
 	 */
 	public static function validatePattern(TextBase $control, $pattern)
 	{
-		return (bool) Strings::match($control->getValue(), "\x01^($pattern)$\x01u");
+		return (bool) Strings::match($control->getValue(), "\x01^($pattern)\\z\x01u");
 	}
 
 

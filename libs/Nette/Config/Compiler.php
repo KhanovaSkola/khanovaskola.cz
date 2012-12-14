@@ -113,8 +113,8 @@ class Compiler extends Nette\Object
 
 	public function processExtensions()
 	{
-		foreach ($this->extensions as $name => $extension) {
-			$extension->loadConfiguration();
+		for ($i = 0; $slice = array_slice($this->extensions, $i, 1); $i++) {
+			reset($slice)->loadConfiguration();
 		}
 
 		if ($extra = array_diff_key($this->config, self::$reserved, $this->extensions)) {
@@ -130,22 +130,8 @@ class Compiler extends Nette\Object
 		$this->parseServices($this->container, $this->config);
 
 		foreach ($this->extensions as $name => $extension) {
-			$this->container->addDefinition($name)
-				->setClass('Nette\DI\NestedAccessor', array('@container', $name))
-				->setAutowired(FALSE);
-
 			if (isset($this->config[$name])) {
 				$this->parseServices($this->container, $this->config[$name], $name);
-			}
-		}
-
-		foreach ($this->container->getDefinitions() as $name => $def) {
-			$factory = $name . 'Factory';
-			if (!$def->shared && !$def->internal && !$this->container->hasDefinition($factory)) {
-				$this->container->addDefinition($factory)
-					->setClass('Nette\Callback', array('@container', Nette\DI\Container::getMethodName($name, FALSE)))
-					->setAutowired(FALSE)
-					->tags = $def->tags;
 			}
 		}
 	}
@@ -159,32 +145,14 @@ class Compiler extends Nette\Object
 			$this->container->addDependency(Nette\Reflection\ClassType::from($extension)->getFileName());
 		}
 
-		$classes[] = $class = $this->container->generateClass($parentName);
-		$class->setName($className)
+		$classes = $this->container->generateClasses();
+		$classes[0]->setName($className)
+			->setExtends($parentName)
 			->addMethod('initialize');
 
 		foreach ($this->extensions as $extension) {
-			$extension->afterCompile($class);
+			$extension->afterCompile($classes[0]);
 		}
-
-		$defs = $this->container->getDefinitions();
-		ksort($defs);
-		$list = array_keys($defs);
-		foreach (array_reverse($defs, TRUE) as $name => $def) {
-			if ($def->class === 'Nette\DI\NestedAccessor' && ($found = preg_grep('#^'.$name.'\.#i', $list))) {
-				$list = array_diff($list, $found);
-				$def->class = $className . '_' . preg_replace('#\W+#', '_', $name);
-				$class->documents = preg_replace("#\S+(?= \\$$name$)#", $def->class, $class->documents);
-				$classes[] = $accessor = new Nette\Utils\PhpGenerator\ClassType($def->class);
-				foreach ($found as $item) {
-					$short = substr($item, strlen($name)  + 1);
-					$accessor->addDocument($defs[$item]->shared
-						? "@property {$defs[$item]->class} \$$short"
-						: "@method {$defs[$item]->class} create" . ucfirst("$short()"));
-				}
-			}
-		}
-
 		return implode("\n\n\n", $classes);
 	}
 
@@ -202,19 +170,21 @@ class Compiler extends Nette\Object
 	{
 		$services = isset($config['services']) ? $config['services'] : array();
 		$factories = isset($config['factories']) ? $config['factories'] : array();
-		if ($tmp = array_intersect_key($services, $factories)) {
-			$tmp = implode("', '", array_keys($tmp));
-			throw new Nette\DI\ServiceCreationException("It is not allowed to use services and factories with the same names: '$tmp'.");
-		}
+		$all = array_merge($services, $factories);
 
-		$all = $services + $factories;
 		uasort($all, function($a, $b) {
 			return strcmp(Helpers::isInheriting($a), Helpers::isInheriting($b));
 		});
 
-		foreach ($all as $name => $def) {
-			$shared = array_key_exists($name, $services);
-			$name = ($namespace ? $namespace . '.' : '') . $name;
+		foreach ($all as $origName => $def) {
+			$shared = array_key_exists($origName, $services);
+			if ((string) (int) $origName === (string) $origName) {
+				$name = (string) (count($container->getDefinitions()) + 1);
+			} elseif ($shared && array_key_exists($origName, $factories)) {
+				throw new Nette\DI\ServiceCreationException("It is not allowed to use services and factories with the same name: '$origName'.");
+			} else {
+				$name = ($namespace ? $namespace . '.' : '') . strtr($origName, '\\', '_');
+			}
 
 			if (($parent = Helpers::takeParent($def)) && $parent !== $name) {
 				$container->removeDefinition($name);
@@ -237,6 +207,13 @@ class Compiler extends Nette\Object
 			} catch (\Exception $e) {
 				throw new Nette\DI\ServiceCreationException("Service '$name': " . $e->getMessage(), NULL, $e);
 			}
+
+			if ($definition->class === 'self') {
+				$definition->class = $origName;
+			}
+			if ($definition->factory && $definition->factory->entity === 'self') {
+				$definition->factory->entity = $origName;
+			}
 		}
 	}
 
@@ -251,15 +228,21 @@ class Compiler extends Nette\Object
 		if ($config === NULL) {
 			return;
 		} elseif (!is_array($config)) {
-			$config = array('class' => NULL, 'factory' => $config);
+			$key = !$shared && is_string($config) && interface_exists($config) ? 'implement' : 'create';
+			$config = array('class' => NULL, $key => $config);
 		}
 
+		if (array_key_exists('factory', $config)) {
+			$config['create'] = $config['factory'];
+			unset($config['factory']);
+		};
+
 		$known = $shared
-			? array('class', 'factory', 'arguments', 'setup', 'autowired', 'run', 'tags')
-			: array('class', 'factory', 'arguments', 'setup', 'autowired', 'tags', 'internal', 'parameters');
+			? array('class', 'create', 'arguments', 'setup', 'autowired', 'inject', 'run', 'tags')
+			: array('class', 'create', 'arguments', 'setup', 'autowired', 'inject', 'parameters', 'implement');
 
 		if ($error = array_diff(array_keys($config), $known)) {
-			throw new Nette\InvalidStateException("Unknown key '" . implode("', '", $error) . "' in definition of service.");
+			throw new Nette\InvalidStateException("Unknown or deprecated key '" . implode("', '", $error) . "' in definition of service.");
 		}
 
 		$arguments = array();
@@ -269,7 +252,7 @@ class Compiler extends Nette\Object
 			$definition->setArguments($arguments);
 		}
 
-		if (array_key_exists('class', $config) || array_key_exists('factory', $config)) {
+		if (array_key_exists('class', $config) || array_key_exists('create', $config)) {
 			$definition->class = NULL;
 			$definition->factory = NULL;
 		}
@@ -283,12 +266,12 @@ class Compiler extends Nette\Object
 			}
 		}
 
-		if (array_key_exists('factory', $config)) {
-			Validators::assertField($config, 'factory', 'callable|stdClass|null');
-			if ($config['factory'] instanceof \stdClass) {
-				$definition->setFactory($config['factory']->value, self::filterArguments($config['factory']->attributes));
+		if (array_key_exists('create', $config)) {
+			Validators::assertField($config, 'create', 'callable|stdClass|null');
+			if ($config['create'] instanceof \stdClass) {
+				$definition->setFactory($config['create']->value, self::filterArguments($config['create']->attributes));
 			} else {
-				$definition->setFactory($config['factory'], $arguments);
+				$definition->setFactory($config['create'], $arguments);
 			}
 		}
 
@@ -314,14 +297,20 @@ class Compiler extends Nette\Object
 			$definition->setParameters($config['parameters']);
 		}
 
+		if (isset($config['implement'])) {
+			Validators::assertField($config, 'implement', 'string');
+			$definition->setImplement($config['implement']);
+			$definition->setAutowired(TRUE);
+		}
+
 		if (isset($config['autowired'])) {
 			Validators::assertField($config, 'autowired', 'bool');
 			$definition->setAutowired($config['autowired']);
 		}
 
-		if (isset($config['internal'])) {
-			Validators::assertField($config, 'internal', 'bool');
-			$definition->setInternal($config['internal']);
+		if (isset($config['inject'])) {
+			Validators::assertField($config, 'inject', 'bool');
+			$definition->setInject($config['inject']);
 		}
 
 		if (isset($config['run'])) {

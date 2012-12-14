@@ -13,7 +13,7 @@ class Github extends \Nette\Object
 
 	public function __construct($context)
 	{
-		$this->config = (object) $context->params['github'];
+		$this->config = (object) $context->parameters['github'];
 	}
 
 

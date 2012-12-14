@@ -47,19 +47,19 @@ class Compiler extends Nette\Object
 	/** @var MacroNode */
 	private $macroNode;
 
-	/** @var array of string */
+	/** @var string[] */
 	private $attrCodes = array();
 
 	/** @var string */
 	private $contentType;
 
-	/** @var array */
+	/** @var array [context, subcontext] */
 	private $context;
 
 	/** @var string */
 	private $templateId;
 
-	/** Context-aware escaping states */
+	/** Context-aware escaping content types */
 	const CONTENT_HTML = 'html',
 		CONTENT_XHTML = 'xhtml',
 		CONTENT_XML = 'xml',
@@ -68,11 +68,11 @@ class Compiler extends Nette\Object
 		CONTENT_ICAL = 'ical',
 		CONTENT_TEXT = 'text';
 
-	/** @internal Context-aware escaping states */
+	/** @internal Context-aware escaping HTML contexts */
 	const CONTEXT_COMMENT = 'comment',
-		CONTEXT_SINGLE_QUOTED = "'",
-		CONTEXT_DOUBLE_QUOTED = '"',
-		CONTEXT_UNQUOTED = '=';
+		CONTEXT_SINGLE_QUOTED_ATTR = "'",
+		CONTEXT_DOUBLE_QUOTED_ATTR = '"',
+		CONTEXT_UNQUOTED_ATTR = '=';
 
 
 	public function __construct()
@@ -98,7 +98,7 @@ class Compiler extends Nette\Object
 
 	/**
 	 * Compiles tokens to PHP code.
-	 * @param  array
+	 * @param  Token[]
 	 * @return string
 	 */
 	public function compile(array $tokens)
@@ -184,7 +184,7 @@ class Compiler extends Nette\Object
 
 
 	/**
-	 * @return array [context, spec]
+	 * @return array [context, subcontext]
 	 */
 	public function getContext()
 	{
@@ -233,10 +233,10 @@ class Compiler extends Nette\Object
 
 	private function processText(Token $token)
 	{
-		if (($this->context[0] === self::CONTEXT_SINGLE_QUOTED || $this->context[0] === self::CONTEXT_DOUBLE_QUOTED)
+		if (($this->context[0] === self::CONTEXT_SINGLE_QUOTED_ATTR || $this->context[0] === self::CONTEXT_DOUBLE_QUOTED_ATTR)
 			&& $token->text === $this->context[0])
 		{
-			$this->setContext(self::CONTEXT_UNQUOTED);
+			$this->setContext(self::CONTEXT_UNQUOTED_ATTR);
 		}
 		$this->output .= $token->text;
 	}
@@ -279,7 +279,7 @@ class Compiler extends Nette\Object
 			$this->htmlNode->isEmpty = in_array($this->contentType, array(self::CONTENT_HTML, self::CONTENT_XHTML))
 				&& isset(Nette\Utils\Html::$emptyElements[strtolower($token->name)]);
 			$this->htmlNode->offset = strlen($this->output);
-			$this->setContext(self::CONTEXT_UNQUOTED);
+			$this->setContext(self::CONTEXT_UNQUOTED_ATTR);
 		}
 		$this->output .= $token->text;
 	}
@@ -332,7 +332,15 @@ class Compiler extends Nette\Object
 	private function processHtmlAttribute(Token $token)
 	{
 		if (Strings::startsWith($token->name, Parser::N_PREFIX)) {
-			$this->htmlNode->macroAttrs[substr($token->name, strlen(Parser::N_PREFIX))] = $token->value;
+			$name = substr($token->name, strlen(Parser::N_PREFIX));
+			if (isset($this->htmlNode->macroAttrs[$name])) {
+				throw new CompileException("Found multiple macro-attributes $token->name.", 0, $token->line);
+
+			} elseif ($this->macroNode && $this->macroNode->htmlNode === $this->htmlNode) {
+				throw new CompileException("Macro-attributes must not appear inside macro; found $token->name inside {{$this->macroNode->name}}.", 0, $token->line);
+			}
+			$this->htmlNode->macroAttrs[$name] = $token->value;
+
 		} else {
 			$this->htmlNode->attrs[$token->name] = TRUE;
 			$this->output .= $token->text;
@@ -525,7 +533,7 @@ class Compiler extends Nette\Object
 			throw new CompileException("Unknown macro {{$name}}" . ($cdata ? " (in JavaScript or CSS, try to put a space after bracket.)" : ''));
 		}
 		foreach (array_reverse($this->macros[$name]) as $macro) {
-			$node = new MacroNode($macro, $name, $args, $modifiers, $this->macroNode, $nPrefix === NULL ? NULL : $this->htmlNode, $nPrefix);
+			$node = new MacroNode($macro, $name, $args, $modifiers, $this->macroNode, $this->htmlNode, $nPrefix);
 			if ($macro->nodeOpened($node) !== FALSE) {
 				return $node;
 			}

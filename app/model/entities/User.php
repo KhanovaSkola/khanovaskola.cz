@@ -124,7 +124,7 @@ class User extends Entity
 		$data['percent'] = $percent;
 		$db->table('progress')->insert($data);
 
-		if ($percent > $this->context->params['progress']['completed_threshold']) {
+		if ($percent > $this->context->parameters['progress']['completed_threshold']) {
 			$onWatchedCallback();
 		}
 
@@ -256,7 +256,7 @@ class User extends Entity
 	 */
 	public function getExerciseSkill(Exercise $exercise)
 	{
-		$boundary = $this->context->params['progress']['exercise_limit'];
+		$boundary = $this->context->parameters['progress']['exercise_limit'];
 
 		$res = $this->context->database->queryArgs('SELECT Count(*) AS count, Avg(tmp.correct) AS score FROM (
 			SELECT correct FROM answer

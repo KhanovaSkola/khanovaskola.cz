@@ -61,11 +61,7 @@ class PresenterFactory implements IPresenterFactory
 	public function createPresenter($name)
 	{
 		$presenter = $this->container->createInstance($this->getPresenterClass($name));
-		foreach (array_reverse(get_class_methods($presenter)) as $method) {
-			if (substr($method, 0, 6) === 'inject') {
-				$this->container->callMethod(array($presenter, $method));
-			}
-		}
+		$this->container->callInjects($presenter);
 
 		if ($presenter instanceof UI\Presenter && $presenter->invalidLinkMode === NULL) {
 			$presenter->invalidLinkMode = $this->container->parameters['debugMode'] ? UI\Presenter::INVALID_LINK_WARNING : UI\Presenter::INVALID_LINK_SILENT;
@@ -87,7 +83,7 @@ class PresenterFactory implements IPresenterFactory
 			return $class;
 		}
 
-		if (!is_string($name) || !Nette\Utils\Strings::match($name, "#^[a-zA-Z\x7f-\xff][a-zA-Z0-9\x7f-\xff:]*$#")) {
+		if (!is_string($name) || !Nette\Utils\Strings::match($name, '#^[a-zA-Z\x7f-\xff][a-zA-Z0-9\x7f-\xff:]*\z#')) {
 			throw new InvalidPresenterException("Presenter name must be alphanumeric string, '$name' is invalid.");
 		}
 
@@ -141,7 +137,6 @@ class PresenterFactory implements IPresenterFactory
 	 */
 	public function formatPresenterClass($presenter)
 	{
-		/*5.2*return strtr($presenter, ':', '_') . 'Presenter';*/
 		$parts = explode(':', $presenter);
 		$mapping = explode('\\*', isset($parts[1], $this->mapping[$parts[0]])
 			? $this->mapping[array_shift($parts)]
@@ -162,11 +157,10 @@ class PresenterFactory implements IPresenterFactory
 	 */
 	public function unformatPresenterClass($class)
 	{
-		/*5.2*return strtr(substr($class, 0, -9), '_', ':');*/
 		foreach ($this->mapping as $module => $mapping) {
 			$mapping = explode('\\\\\*', preg_quote($mapping, '#'));
 			$mapping[0] .= $mapping[0] ? '\\\\' : '';
-			if (preg_match("#^\\\\?$mapping[0]((?:\w+$mapping[1]\\\\)*)(\w+)$mapping[2]$#i", $class, $matches)) {
+			if (preg_match("#^\\\\?$mapping[0]((?:\\w+$mapping[1]\\\\)*)(\\w+)$mapping[2]\\z#i", $class, $matches)) {
 				return ($module === '*' ? '' : $module . ':')
 					. str_replace($mapping[1] . '\\', ':', $matches[1]) . $matches[2];
 			}

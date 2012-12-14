@@ -23,6 +23,7 @@ use Nette;
 final class Json
 {
 	const FORCE_ARRAY = 1;
+	const PRETTY = 2;
 
 	/** @var array */
 	private static $messages = array(
@@ -47,20 +48,26 @@ final class Json
 	/**
 	 * Returns the JSON representation of a value.
 	 * @param  mixed
+	 * @param  int  accepts Json::PRETTY
 	 * @return string
 	 */
-	public static function encode($value)
+	public static function encode($value, $options = 0)
 	{
-		Nette\Diagnostics\Debugger::tryError();
-		if (function_exists('ini_set')) {
-			$old = ini_set('display_errors', 0); // needed to receive 'Invalid UTF-8 sequence' error
-			$json = json_encode($value);
-			ini_set('display_errors', $old);
-		} else {
-			$json = json_encode($value);
+		$args = array($value);
+		if (PHP_VERSION_ID >= 50400) {
+			$args[] = JSON_UNESCAPED_UNICODE | ($options & self::PRETTY ? JSON_PRETTY_PRINT : 0);
 		}
-		if (Nette\Diagnostics\Debugger::catchError($e)) { // needed to receive 'recursion detected' error
-			throw new JsonException($e->getMessage());
+		if (function_exists('ini_set')) { // workaround for PHP bugs #52397, #54109, #63004
+			$old = ini_set('display_errors', 0); // needed to receive 'Invalid UTF-8 sequence' error
+		}
+		set_error_handler(function($severity, $message) { // needed to receive 'recursion detected' error
+			restore_error_handler();
+			throw new JsonException($message);
+		});
+		$json = call_user_func_array('json_encode', $args);
+		restore_error_handler();
+		if (isset($old)) {
+			ini_set('display_errors', $old);
 		}
 		return $json;
 	}
@@ -70,13 +77,21 @@ final class Json
 	/**
 	 * Decodes a JSON string.
 	 * @param  string
-	 * @param  int
+	 * @param  int  accepts Json::FORCE_ARRAY
 	 * @return mixed
 	 */
 	public static function decode($json, $options = 0)
 	{
 		$json = (string) $json;
-		$value = json_decode($json, (bool) ($options & self::FORCE_ARRAY));
+		$args = array($json, (bool) ($options & self::FORCE_ARRAY));
+		if (PHP_VERSION_ID >= 50300) {
+			$args[] = 512;
+			if (PHP_VERSION_ID >= 50400) {
+				$args[] = JSON_BIGINT_AS_STRING;
+			}
+		}
+		$value = call_user_func_array('json_decode', $args);
+
 		if ($value === NULL && $json !== '' && strcasecmp($json, 'null')) { // '' do not clean json_last_error
 			$error = PHP_VERSION_ID >= 50300 ? json_last_error() : 0;
 			throw new JsonException(isset(static::$messages[$error]) ? static::$messages[$error] : 'Unknown error', $error);

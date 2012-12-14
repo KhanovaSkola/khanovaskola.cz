@@ -130,7 +130,7 @@ class Template extends Nette\Object implements ITemplate
 			if ($args && $args[0]) {
 				throw $e;
 			} else {
-				Nette\Diagnostics\Debugger::toStringException($e);
+				trigger_error("Exception in " . __METHOD__ . "(): {$e->getMessage()} in {$e->getFile()}:{$e->getLine()}", E_USER_ERROR);
 			}
 		}
 	}
@@ -150,7 +150,7 @@ class Template extends Nette\Object implements ITemplate
 		$code = $this->getSource();
 		foreach ($this->filters as $filter) {
 			$code = self::extractPhp($code, $blocks);
-			$code = $filter/*5.2*->invoke*/($code);
+			$code = $filter($code);
 			$code = strtr($code, $blocks); // put PHP code back
 		}
 
@@ -170,11 +170,7 @@ class Template extends Nette\Object implements ITemplate
 	 */
 	public function registerFilter($callback)
 	{
-		$callback = callback($callback);
-		if (in_array($callback, $this->filters)) {
-			throw new Nette\InvalidStateException("Filter '$callback' was registered twice.");
-		}
-		$this->filters[] = $callback;
+		$this->filters[] = new Nette\Callback($callback);
 		return $this;
 	}
 
@@ -199,7 +195,7 @@ class Template extends Nette\Object implements ITemplate
 	 */
 	public function registerHelper($name, $callback)
 	{
-		$this->helpers[strtolower($name)] = callback($callback);
+		$this->helpers[strtolower($name)] = new Nette\Callback($callback);
 		return $this;
 	}
 
@@ -212,7 +208,7 @@ class Template extends Nette\Object implements ITemplate
 	 */
 	public function registerHelperLoader($callback)
 	{
-		$this->helperLoaders[] = callback($callback);
+		$this->helperLoaders[] = new Nette\Callback($callback);
 		return $this;
 	}
 
@@ -251,7 +247,7 @@ class Template extends Nette\Object implements ITemplate
 		$lname = strtolower($name);
 		if (!isset($this->helpers[$lname])) {
 			foreach ($this->helperLoaders as $loader) {
-				$helper = $loader/*5.2*->invoke*/($lname);
+				$helper = $loader($lname);
 				if ($helper) {
 					$this->registerHelper($lname, $helper);
 					return $this->helpers[$lname]->invokeArgs($args);
@@ -267,7 +263,6 @@ class Template extends Nette\Object implements ITemplate
 
 	/**
 	 * Sets translate adapter.
-	 * @param  Nette\Localization\ITranslator
 	 * @return Template  provides a fluent interface
 	 */
 	public function setTranslator(Nette\Localization\ITranslator $translator = NULL)
@@ -321,24 +316,6 @@ class Template extends Nette\Object implements ITemplate
 	{
 		$this->params['template'] = $this;
 		return $this->params;
-	}
-
-
-
-	/** @deprecated */
-	function setParams(array $params)
-	{
-		trigger_error(__METHOD__ . '() is deprecated; use setParameters() instead.', E_USER_DEPRECATED);
-		return $this->setParameters($params);
-	}
-
-
-
-	/** @deprecated */
-	function getParams()
-	{
-		trigger_error(__METHOD__ . '() is deprecated; use getParameters() instead.', E_USER_DEPRECATED);
-		return $this->getParameters();
 	}
 
 
@@ -402,7 +379,6 @@ class Template extends Nette\Object implements ITemplate
 
 	/**
 	 * Set cache storage.
-	 * @param  Nette\Caching\Cache
 	 * @return Template  provides a fluent interface
 	 */
 	public function setCacheStorage(Caching\IStorage $storage)

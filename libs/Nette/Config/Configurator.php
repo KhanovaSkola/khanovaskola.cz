@@ -26,10 +26,10 @@ use Nette,
  */
 class Configurator extends Nette\Object
 {
-	/** config file sections */
+	/** @deprecated */
 	const DEVELOPMENT = 'development',
 		PRODUCTION = 'production',
-		AUTO = NULL,
+		AUTO = TRUE,
 		NONE = FALSE;
 
 	/** @var array of function(Configurator $sender, Compiler $compiler); Occurs after the compiler is created */
@@ -106,14 +106,14 @@ class Configurator extends Nette\Object
 	 */
 	protected function getDefaultParameters()
 	{
-		$trace = /*5.2*PHP_VERSION_ID < 50205 ? debug_backtrace() : */debug_backtrace(FALSE);
+		$trace = debug_backtrace(FALSE);
 		$debugMode = static::detectDebugMode();
 		return array(
 			'appDir' => isset($trace[1]['file']) ? dirname($trace[1]['file']) : NULL,
 			'wwwDir' => isset($_SERVER['SCRIPT_FILENAME']) ? dirname($_SERVER['SCRIPT_FILENAME']) : NULL,
 			'debugMode' => $debugMode,
 			'productionMode' => !$debugMode,
-			'environment' => $debugMode ? self::DEVELOPMENT : self::PRODUCTION,
+			'environment' => $debugMode ? 'development' : 'production',
 			'consoleMode' => PHP_SAPI === 'cli',
 			'container' => array(
 				'class' => 'SystemContainer',
@@ -157,19 +157,10 @@ class Configurator extends Nette\Object
 	 * Adds configuration file.
 	 * @return Configurator  provides a fluent interface
 	 */
-	public function addConfig($file, $section = self::AUTO)
+	public function addConfig($file, $section = NULL)
 	{
 		$this->files[] = array($file, $section === self::AUTO ? $this->parameters['environment'] : $section);
 		return $this;
-	}
-
-
-
-	/** @deprecated */
-	public function loadConfig($file, $section = NULL)
-	{
-		trigger_error(__METHOD__ . '() is deprecated; use addConfig(file, [section])->createContainer() instead.', E_USER_DEPRECATED);
-		return $this->addConfig($file, $section)->createContainer();
 	}
 
 
@@ -219,12 +210,17 @@ class Configurator extends Nette\Object
 		$code = "<?php\n";
 		foreach ($this->files as $tmp) {
 			list($file, $section) = $tmp;
-			$config = Helpers::merge($loader->load($file, $section), $config);
 			$code .= "// source: $file $section\n";
+			try {
+				if ($section === NULL) { // back compatibility
+					$config = Helpers::merge($loader->load($file, $this->parameters['environment']), $config);
+					continue;
+				}
+			} catch (Nette\Utils\AssertionException $e) {}
+
+			$config = Helpers::merge($loader->load($file, $section), $config);
 		}
 		$code .= "\n";
-
-		$this->checkCompatibility($config);
 
 		if (!isset($config['parameters'])) {
 			$config['parameters'] = array();
@@ -245,26 +241,6 @@ class Configurator extends Nette\Object
 
 
 
-	protected function checkCompatibility(array $config)
-	{
-		foreach (array('service' => 'services', 'variable' => 'parameters', 'variables' => 'parameters', 'mode' => 'parameters', 'const' => 'constants') as $old => $new) {
-			if (isset($config[$old])) {
-				throw new Nette\DeprecatedException("Section '$old' in configuration file is deprecated; use '$new' instead.");
-			}
-		}
-		if (isset($config['services'])) {
-			foreach ($config['services'] as $key => $def) {
-				foreach (array('option' => 'arguments', 'methods' => 'setup') as $old => $new) {
-					if (is_array($def) && isset($def[$old])) {
-						throw new Nette\DeprecatedException("Section '$old' in service definition is deprecated; refactor it into '$new'.");
-					}
-				}
-			}
-		}
-	}
-
-
-
 	/**
 	 * @return Compiler
 	 */
@@ -273,7 +249,8 @@ class Configurator extends Nette\Object
 		$compiler = new Compiler;
 		$compiler->addExtension('php', new Extensions\PhpExtension)
 			->addExtension('constants', new Extensions\ConstantsExtension)
-			->addExtension('nette', new Extensions\NetteExtension);
+			->addExtension('nette', new Extensions\NetteExtension)
+			->addExtension('extensions', new Extensions\ExtensionsExtension);
 		return $compiler;
 	}
 
@@ -314,7 +291,6 @@ class Configurator extends Nette\Object
 		}
 		return in_array(isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : php_uname('n'), $list, TRUE);
 	}
-
 
 
 

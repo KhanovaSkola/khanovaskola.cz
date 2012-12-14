@@ -138,13 +138,13 @@ class Task extends Entity
 		} else {
 			$student = $this->getStudent();
 			if ($this->isVideo()) {
-				$threshold = $this->context->params['progress']['completed_threshold'];
+				$threshold = $this->context->parameters['progress']['completed_threshold'];
 				$progress = $student->getProgress($this->getVideo());
 				if ($progress && $progress->percent >= $threshold) {
 					return TRUE;
 				}
 			} else {
-				$threshold = $this->context->params['progress']['exercise_mastery'];
+				$threshold = $this->context->parameters['progress']['exercise_mastery'];
 				if ($student->getExerciseSkill($this->getExercise()) * 100 >= $threshold) {
 					return TRUE;
 				}

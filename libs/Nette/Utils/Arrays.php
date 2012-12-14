@@ -170,10 +170,14 @@ final class Arrays
 	 */
 	public static function grep(array $arr, $pattern, $flags = 0)
 	{
-		Nette\Diagnostics\Debugger::tryError();
+		set_error_handler(function($severity, $message) use ($pattern) { // preg_last_error does not return compile errors
+			restore_error_handler();
+			throw new RegexpException("$message in pattern: $pattern");
+		});
 		$res = preg_grep($pattern, $arr, $flags);
-		if (Nette\Diagnostics\Debugger::catchError($e) || preg_last_error()) { // compile error XOR run-time error
-			throw new RegexpException($e ? $e->getMessage() : NULL, $e ? NULL : preg_last_error(), $pattern);
+		restore_error_handler();
+		if (preg_last_error()) { // run-time error
+			throw new RegexpException(NULL, preg_last_error(), $pattern);
 		}
 		return $res;
 	}
@@ -190,6 +194,18 @@ final class Arrays
 		$res = array();
 		array_walk_recursive($arr, function($a) use (& $res) { $res[] = $a; });
 		return $res;
+	}
+
+
+
+	/**
+	 * Finds whether a variable is a zero-based integer indexed array.
+	 * @param  array
+	 * @return bool
+	 */
+	public static function isList($value)
+	{
+		return is_array($value) && (!$value || array_keys($value) === range(0, count($value) - 1));
 	}
 
 }

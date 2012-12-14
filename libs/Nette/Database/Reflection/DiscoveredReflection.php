@@ -19,45 +19,32 @@ use Nette;
  * Reflection metadata class with discovery for a database.
  *
  * @author     Jan Skrasek
- * @property-write Nette\Database\Connection $connection
  */
 class DiscoveredReflection extends Nette\Object implements Nette\Database\IReflection
 {
-	/** @var Nette\Caching\Cache */
-	protected $cache;
-
-	/** @var Nette\Caching\IStorage */
-	protected $cacheStorage;
-
 	/** @var Nette\Database\Connection */
 	protected $connection;
 
+	/** @var Nette\Caching\Cache */
+	protected $cache;
+
 	/** @var array */
-	protected $structure = array(
-		'primary' => array(),
-		'hasMany' => array(),
-		'belongsTo' => array(),
-	);
+	protected $structure = array();
+
+	/** @var array */
+	protected $loadedStructure;
 
 
 
 	/**
 	 * Create autodiscovery structure.
-	 * @param  Nette\Caching\IStorage
 	 */
-	public function __construct(Nette\Caching\IStorage $storage = NULL)
-	{
-		$this->cacheStorage = $storage;
-	}
-
-
-
-	public function setConnection(Nette\Database\Connection $connection)
+	public function __construct(Nette\Database\Connection $connection, Nette\Caching\IStorage $cacheStorage = NULL)
 	{
 		$this->connection = $connection;
-		if ($this->cacheStorage) {
-			$this->cache = new Nette\Caching\Cache($this->cacheStorage, 'Nette.Database.' . md5($connection->getDsn()));
-			$this->structure = $this->cache->load('structure') ?: $this->structure;
+		if ($cacheStorage) {
+			$this->cache = new Nette\Caching\Cache($cacheStorage, 'Nette.Database.' . md5($connection->getDsn()));
+			$this->structure = $this->loadedStructure = $this->cache->load('structure') ?: array();
 		}
 	}
 
@@ -65,7 +52,7 @@ class DiscoveredReflection extends Nette\Object implements Nette\Database\IRefle
 
 	public function __destruct()
 	{
-		if ($this->cache) {
+		if ($this->cache && $this->structure !== $this->loadedStructure) {
 			$this->cache->save('structure', $this->structure);
 		}
 	}
@@ -74,23 +61,23 @@ class DiscoveredReflection extends Nette\Object implements Nette\Database\IRefle
 
 	public function getPrimary($table)
 	{
-		$primary = & $this->structure['primary'][$table];
+		$primary = & $this->structure['primary'][strtolower($table)];
 		if (isset($primary)) {
 			return empty($primary) ? NULL : $primary;
 		}
 
 		$columns = $this->connection->getSupplementalDriver()->getColumns($table);
-		$primaryCount = 0;
+		$primary = array();
 		foreach ($columns as $column) {
 			if ($column['primary']) {
-				$primary = $column['name'];
-				$primaryCount++;
+				$primary[] = $column['name'];
 			}
 		}
 
-		if ($primaryCount !== 1) {
-			$primary = '';
+		if (count($primary) === 0) {
 			return NULL;
+		} elseif (count($primary) === 1) {
+			$primary = reset($primary);
 		}
 
 		return $primary;
@@ -100,15 +87,36 @@ class DiscoveredReflection extends Nette\Object implements Nette\Database\IRefle
 
 	public function getHasManyReference($table, $key, $refresh = TRUE)
 	{
-		$reference = $this->structure['hasMany'];
-		if (!empty($reference[$table])) {
-			foreach ($reference[$table] as $targetTable => $targetColumn) {
-				if (stripos($targetTable, $key) !== FALSE) {
-					return array(
-						$targetTable,
-						$targetColumn,
-					);
+		$reference = & $this->structure['hasMany'][strtolower($table)];
+		if (!empty($reference)) {
+			$candidates = $columnCandidates = array();
+			foreach ($reference as $targetPair) {
+				list($targetColumn, $targetTable) = $targetPair;
+				if (stripos($targetTable, $key) === FALSE)
+					continue;
+
+				$candidates[] = array($targetTable, $targetColumn);
+				if (stripos($targetColumn, $table) !== FALSE) {
+					$columnCandidates[] = $candidate = array($targetTable, $targetColumn);
+					if (strtolower($targetTable) === strtolower($key))
+						return $candidate;
 				}
+			}
+
+			if (count($columnCandidates) === 1) {
+				return reset($columnCandidates);
+			} elseif (count($candidates) === 1) {
+				return reset($candidates);
+			}
+
+			foreach ($candidates as $candidate) {
+				list($targetTable, $targetColumn) = $candidate;
+				if (strtolower($targetTable) === strtolower($key))
+					return $candidate;
+			}
+
+			if (!$refresh && !empty($candidates)) {
+				throw new \PDOException('Ambiguous joining column in related call.');
 			}
 		}
 
@@ -124,9 +132,9 @@ class DiscoveredReflection extends Nette\Object implements Nette\Database\IRefle
 
 	public function getBelongsToReference($table, $key, $refresh = TRUE)
 	{
-		$reference = $this->structure['belongsTo'];
-		if (!empty($reference[$table])) {
-			foreach ($reference[$table] as $column => $targetTable) {
+		$reference = & $this->structure['belongsTo'][strtolower($table)];
+		if (!empty($reference)) {
+			foreach ($reference as $column => $targetTable) {
 				if (stripos($column, $key) !== FALSE) {
 					return array(
 						$targetTable,
@@ -166,8 +174,8 @@ class DiscoveredReflection extends Nette\Object implements Nette\Database\IRefle
 	protected function reloadForeignKeys($table)
 	{
 		foreach ($this->connection->getSupplementalDriver()->getForeignKeys($table) as $row) {
-			$this->structure['belongsTo'][$table][$row['local']] = $row['table'];
-			$this->structure['hasMany'][$row['table']][$table] = $row['local'];
+			$this->structure['belongsTo'][strtolower($table)][$row['local']] = $row['table'];
+			$this->structure['hasMany'][strtolower($row['table'])][$row['local'] . $table] = array($row['local'], $table);
 		}
 
 		if (isset($this->structure['belongsTo'][$table])) {

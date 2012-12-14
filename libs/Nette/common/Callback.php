@@ -31,21 +31,32 @@ final class Callback extends Object
 
 
 	/**
-	 * Do not call directly, use callback() function.
-	 * @param  callable
+	 * Factory. Workaround for missing (new Callback)->invoke() in PHP 5.3.
+	 * @param  mixed   class, object, callable
+	 * @param  string  method
+	 * @return Callback
+	 */
+	public static function create($callback, $m = NULL)
+	{
+		return new self($callback, $m);
+	}
+
+
+
+	/**
+	 * @param  mixed   class, object, callable
+	 * @param  string  method
 	 */
 	public function __construct($cb, $m = NULL)
 	{
 		if ($m !== NULL) {
-			$cb = array($cb, $m); // back-compatibility
+			$cb = array($cb, $m);
+
+		} elseif ($cb instanceof self) { // prevents wrapping itself
+			$this->cb = $cb->cb;
+			return;
 		}
-		/*5.2*
-		if (PHP_VERSION_ID < 50202 && is_string($cb) && strpos($cb, '::')) {
-			$cb = explode('::', $cb, 2);
-		} elseif (is_object($cb) && !$cb instanceof Closure) {
-			$cb = array($cb, '__invoke');
-		}
-  		*/
+
 		if (!is_callable($cb, TRUE)) {
 			throw new InvalidArgumentException("Invalid callback.");
 		}
@@ -146,6 +157,22 @@ final class Callback extends Object
 	public function isStatic()
 	{
 		return is_array($this->cb) ? is_string($this->cb[0]) : is_string($this->cb);
+	}
+
+
+
+	/**
+	 * Duplicates the callback with a new bound object.
+	 * @return Callback
+	 */
+	public function bindTo($newthis)
+	{
+		if (is_string($this->cb) && strpos($this->cb, '::')) {
+			$this->cb = explode('::', $this->cb);
+		} elseif (!is_array($this->cb)) {
+			throw new InvalidStateException("Callback '$this' have not any bound object.");
+		}
+		return new static($newthis, $this->cb[1]);
 	}
 
 

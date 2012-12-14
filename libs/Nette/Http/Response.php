@@ -46,6 +46,16 @@ final class Response extends Nette\Object implements IResponse
 
 
 
+	public function __construct()
+	{
+		if (PHP_VERSION_ID >= 50400) {
+			$this->code = http_response_code();
+			header_register_callback($this->removeDuplicateCookies);
+		}
+	}
+
+
+
 	/**
 	 * Sets HTTP response code.
 	 * @param  int
@@ -106,6 +116,8 @@ final class Response extends Nette\Object implements IResponse
 
 		if ($value === NULL && function_exists('header_remove')) {
 			header_remove($name);
+		} elseif (strcasecmp($name, 'Content-Length') === 0 && ini_get('zlib.output_compression')) {
+			// ignore, PHP bug #44164
 		} else {
 			header($name . ': ' . $value, TRUE, $this->code);
 		}
@@ -298,6 +310,22 @@ final class Response extends Nette\Object implements IResponse
 			$httpOnly === NULL ? $this->cookieHttpOnly : (bool) $httpOnly
 		);
 
+		$this->removeDuplicateCookies();
+		return $this;
+	}
+
+
+
+	/**
+	 * Removes duplicate cookies from response.
+	 * @return void
+	 */
+	public function removeDuplicateCookies()
+	{
+		if (headers_sent($file, $line) || ini_get('suhosin.cookie.encrypt')) {
+			return;
+		}
+
 		$flatten = array();
 		foreach (headers_list() as $header) {
 			if (preg_match('#^Set-Cookie: .+?=#', $header, $m)) {
@@ -312,8 +340,6 @@ final class Response extends Nette\Object implements IResponse
 		foreach (array_values($flatten) as $key => $header) {
 			header($header, $key === 0);
 		}
-
-		return $this;
 	}
 
 

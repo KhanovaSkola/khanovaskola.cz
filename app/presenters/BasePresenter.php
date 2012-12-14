@@ -35,7 +35,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 
 	public function beforeRender()
 	{
-		if ($this->context->params['environment'] == 'production') {
+		if ($this->context->parameters['environment'] == 'production') {
 			$this->template->cdnUrl = 'http://khancdn.eu';
 		} else {
 			$this->template->cdnUrl = $this->template->baseUrl;

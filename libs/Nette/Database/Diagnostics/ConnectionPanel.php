@@ -24,8 +24,8 @@ use Nette,
  */
 class ConnectionPanel extends Nette\Object implements Nette\Diagnostics\IBarPanel
 {
-	/** @var int maximum SQL length */
-	static public $maxLength = 1000;
+	/** @deprecated */
+	static public $maxLength;
 
 	/** @var int logged time */
 	private $totalTime = 0;
@@ -44,13 +44,20 @@ class ConnectionPanel extends Nette\Object implements Nette\Diagnostics\IBarPane
 
 
 
+	public function __construct(Nette\Database\Connection $connection)
+	{
+		$connection->onQuery[] = array($this, 'logQuery');
+	}
+
+
+
 	public function logQuery(Nette\Database\Statement $result, array $params = NULL)
 	{
 		if ($this->disabled) {
 			return;
 		}
 		$source = NULL;
-		foreach (/*5.2*PHP_VERSION_ID < 50205 ? debug_backtrace() : */debug_backtrace(FALSE) as $row) {
+		foreach (debug_backtrace(FALSE) as $row) {
 			if (isset($row['file']) && is_file($row['file']) && strpos($row['file'], NETTE_DIR . DIRECTORY_SEPARATOR) !== 0) {
 				if (isset($row['function']) && strpos($row['function'], 'call_user_func') === 0) continue;
 				if (isset($row['class']) && is_subclass_of($row['class'], '\\Nette\\Database\\Connection')) continue;
@@ -66,12 +73,19 @@ class ConnectionPanel extends Nette\Object implements Nette\Diagnostics\IBarPane
 
 	public static function renderException($e)
 	{
-		if ($e instanceof \PDOException && isset($e->queryString)) {
-			return array(
-				'tab' => 'SQL',
-				'panel' => Helpers::dumpSql($e->queryString),
-			);
+		if (!$e instanceof \PDOException) {
+			return;
 		}
+		if (isset($e->queryString)) {
+			$sql = $e->queryString;
+
+		} elseif ($item = Nette\Diagnostics\Helpers::findTrace($e->getTrace(), 'PDO::prepare')) {
+			$sql = $item['args'][0];
+		}
+		return isset($sql) ? array(
+			'tab' => 'SQL',
+			'panel' => Helpers::dumpSql($sql),
+		) : NULL;
 	}
 
 
@@ -107,10 +121,10 @@ class ConnectionPanel extends Nette\Object implements Nette\Diagnostics\IBarPane
 			if ($explain) {
 				static $counter;
 				$counter++;
-				$s .= "<br /><a href='#' class='nette-toggler' rel='#nette-DbConnectionPanel-row-$counter'>explain&nbsp;&#x25ba;</a>";
+				$s .= "<br /><a class='nette-toggle-collapsed' href='#nette-DbConnectionPanel-row-$counter'>explain</a>";
 			}
 
-			$s .= '</td><td class="nette-DbConnectionPanel-sql">' . Helpers::dumpSql(self::$maxLength ? Nette\Utils\Strings::truncate($sql, self::$maxLength) : $sql);
+			$s .= '</td><td class="nette-DbConnectionPanel-sql">' . Helpers::dumpSql($sql, $params);
 			if ($explain) {
 				$s .= "<table id='nette-DbConnectionPanel-row-$counter' class='nette-collapsed'><tr>";
 				foreach ($explain[0] as $col => $foo) {
@@ -130,21 +144,16 @@ class ConnectionPanel extends Nette\Object implements Nette\Diagnostics\IBarPane
 				$s .= Nette\Diagnostics\Helpers::editorLink($source[0], $source[1])->class('nette-DbConnectionPanel-source');
 			}
 
-			$s .= '</td><td>';
-			foreach ($params as $param) {
-				$s .= Debugger::dump($param, TRUE);
-			}
-
 			$s .= '</td><td>' . $rows . '</td></tr>';
 		}
 
 		return empty($this->queries) ? '' :
-			'<style> #nette-debug td.nette-DbConnectionPanel-sql { background: white !important }
+			'<style class="nette-debug"> #nette-debug td.nette-DbConnectionPanel-sql { background: white !important }
 			#nette-debug .nette-DbConnectionPanel-source { color: #BBB !important } </style>
 			<h1>Queries: ' . count($this->queries) . ($this->totalTime ? ', time: ' . sprintf('%0.3f', $this->totalTime * 1000) . ' ms' : '') . '</h1>
 			<div class="nette-inner nette-DbConnectionPanel">
 			<table>
-				<tr><th>Time&nbsp;ms</th><th>SQL Statement</th><th>Params</th><th>Rows</th></tr>' . $s . '
+				<tr><th>Time&nbsp;ms</th><th>SQL Statement</th><th>Rows</th></tr>' . $s . '
 			</table>
 			</div>';
 	}

@@ -86,9 +86,6 @@ class Form extends Container
 	/** @var array of function(Form $sender); Occurs when the form is submitted */
 	public $onSubmit;
 
-	/** @deprecated */
-	public $onInvalidSubmit;
-
 	/** @var mixed or NULL meaning: not detected yet */
 	private $submittedBy;
 
@@ -314,7 +311,6 @@ class Form extends Container
 
 	/**
 	 * Sets translate adapter.
-	 * @param  Nette\Localization\ITranslator
 	 * @return Form  provides a fluent interface
 	 */
 	public function setTranslator(Nette\Localization\ITranslator $translator = NULL)
@@ -379,7 +375,6 @@ class Form extends Container
 
 	/**
 	 * Sets the submittor control.
-	 * @param  ISubmitterControl
 	 * @return Form  provides a fluent interface
 	 */
 	public function setSubmittedBy(ISubmitterControl $by = NULL)
@@ -429,20 +424,8 @@ class Form extends Container
 			$this->onSuccess($this);
 		} else {
 			$this->onError($this);
-			if ($this->onInvalidSubmit) {
-				trigger_error(__CLASS__ . '->onInvalidSubmit is deprecated; use onError instead.', E_USER_DEPRECATED);
-				$this->onInvalidSubmit($this);
-			}
 		}
-
-		if ($this->onSuccess) { // back compatibility
-			$this->onSubmit($this);
-		} elseif ($this->onSubmit) {
-			trigger_error(__CLASS__ . '->onSubmit changed its behavior; use onSuccess instead.', E_USER_DEPRECATED);
-			if (isset($valid) || $this->isValid()) {
-				$this->onSubmit($this);
-			}
-		}
+		$this->onSubmit($this);
 	}
 
 
@@ -497,27 +480,24 @@ class Form extends Container
 
 
 	/**
-	 * Adds error message to the list.
+	 * Adds global error message.
 	 * @param  string  error message
 	 * @return void
 	 */
 	public function addError($message)
 	{
-		$this->valid = FALSE;
-		if ($message !== NULL && !in_array($message, $this->errors, TRUE)) {
-			$this->errors[] = $message;
-		}
+		$this->errors[] = $message;
 	}
 
 
 
 	/**
-	 * Returns validation errors.
+	 * Returns global validation errors.
 	 * @return array
 	 */
 	public function getErrors()
 	{
-		return $this->errors;
+		return array_unique($this->errors);
 	}
 
 
@@ -538,7 +518,17 @@ class Form extends Container
 	public function cleanErrors()
 	{
 		$this->errors = array();
-		$this->valid = NULL;
+	}
+
+
+
+	/**
+	 * Returns all validation errors.
+	 * @return array
+	 */
+	public function getAllErrors()
+	{
+		return array_unique(array_merge($this->errors, parent::getAllErrors()));
 	}
 
 
@@ -560,7 +550,6 @@ class Form extends Container
 
 	/**
 	 * Sets form renderer.
-	 * @param  IFormRenderer
 	 * @return Form  provides a fluent interface
 	 */
 	public function setRenderer(IFormRenderer $renderer)
@@ -612,7 +601,7 @@ class Form extends Container
 			if (func_get_args() && func_get_arg(0)) {
 				throw $e;
 			} else {
-				Nette\Diagnostics\Debugger::toStringException($e);
+				trigger_error("Exception in " . __METHOD__ . "(): {$e->getMessage()} in {$e->getFile()}:{$e->getLine()}", E_USER_ERROR);
 			}
 		}
 	}

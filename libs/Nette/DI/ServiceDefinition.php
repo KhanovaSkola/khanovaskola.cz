@@ -44,7 +44,10 @@ class ServiceDefinition extends Nette\Object
 	public $shared = TRUE;
 
 	/** @var bool */
-	public $internal = FALSE;
+	public $inject = TRUE;
+
+	/** @var string  interface name */
+	public $implement;
 
 
 
@@ -125,9 +128,18 @@ class ServiceDefinition extends Nette\Object
 
 
 
-	public function setInternal($on)
+	public function setInject($on)
 	{
-		$this->internal = (bool) $on;
+		$this->inject = (bool) $on;
+		return $this;
+	}
+
+
+
+	public function setImplement($implement)
+	{
+		$this->implement = $implement;
+		$this->shared = TRUE;
 		return $this;
 	}
 
