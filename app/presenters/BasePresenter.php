@@ -115,13 +115,6 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 
 
 
-	public function createComponentYoutube()
-	{
-		return new Youtube();
-	}
-
-
-
 	public function createComponentSubtitles()
 	{
 		return new Subtitles();
