@@ -2,11 +2,20 @@
 {#content}
 
 <article>
+	<h2 class="main-headline" style="white-space: pre;">Dokumenty</h2>
+
 	<div n:if="$user->isInRole(\NetteUser::ROLE_ADDER)">
-		<a n:href="add">Nahrát nový dokument</a>
+		<a class="simple-button blue" n:href="add">Nahrát nový dokument</a>
+		<hr class="thin"/>
 	</div>
 
-	<a n:foreach="$documents as $document" href="http://docs.google.com/viewer?url={=urlencode("$baseUrl/documents/$document->file")}">{$document->name}</a>
+	<ul>
+		<li n:foreach="$documents as $document">
+			<p>
+				<a href="http://docs.google.com/viewer?url={=urlencode("$baseUrl/documents/$document->file")}" target="_blank">{$document->name}</a>
+				{$document->timestamp|timeAgo}
+			</p>
+		</li>
+	</ul>
 
-	<hr class="thin"/>
 </article>
