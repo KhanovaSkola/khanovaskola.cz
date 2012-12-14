@@ -9,16 +9,16 @@
 	<meta name="robots" content="{$robots}" n:ifset="$robots">
 	<link rel="alternate" type="application/rss+xml" title="Khanova škola - Blog" n:href="//:Front:Blog:rss">
 
-	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/khan.css?v={=md5_file(WWW_DIR . '/css/khan.css')}" type="text/css">
-	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css?v={=md5_file(WWW_DIR . '/css/screen.css')}" type="text/css">
+	<link rel="stylesheet" media="screen,projection,tv" href="{$cdnUrl}/css/khan.css?v={=md5_file(WWW_DIR . '/css/khan.css')}" type="text/css">
+	<link rel="stylesheet" media="screen,projection,tv" href="{$cdnUrl}/css/screen.css?v={=md5_file(WWW_DIR . '/css/screen.css')}" type="text/css">
 	<link n:if="$user->loggedIn" rel="stylesheet" media="screen,projection,tv" n:href=":Front:DynamicCss:, v => rand()" type="text/css">
 
-	<link rel="shortcut icon" href="{$basePath}/favicon.ico" type="image/x-icon">
-	<link rel="apple-touch-icon" href="{$basePath}/apple-touch-icon.png">
-	<link rel="apple-touch-icon-precomposed" href="{$basePath}/apple-touch-icon-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes=”72x72″ href="{$basePath}/apple-touch-icon-72x72-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes=”114x114″ href="{$basePath}/apple-touch-icon-114x114-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes=”144x144″ href="{$basePath}/apple-touch-icon-144x144-precomposed.png">
+	<link rel="shortcut icon" href="{$cdnUrl}/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="{$cdnUrl}/apple-touch-icon.png">
+	<link rel="apple-touch-icon-precomposed" href="{$cdnUrl}/apple-touch-icon-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes=”72x72″ href="{$cdnUrl}/apple-touch-icon-72x72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes=”114x114″ href="{$cdnUrl}/apple-touch-icon-114x114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes=”144x144″ href="{$cdnUrl}/apple-touch-icon-144x144-precomposed.png">
 
 	{* Facebook open graph *}
 	<meta property="og:site_name" content="Khanova škola">
@@ -87,7 +87,7 @@
 						| <span itemprop="version">{$git_deploy->branch}&ndash;{$git_deploy->hash}</span>
 					</small>
 					<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cz/" class="creative-commons">
-						<img src="{$basePath}/images/creative_commons.png" height="15" width="80">
+						<img src="{$cdnUrl}/images/creative_commons.png" height="15" width="80">
 					</a>
 				</div>
 				<span class="footer-links">
@@ -103,13 +103,13 @@
 
 					<span class="small-social-links">
 						<a class="google-analytics-link-track" onclick="_gaq.push(['_trackEvent', 'Click', 'Youtube-Subscribe-Header']);" href="http://www.youtube.com/khanacademyczech" title="Youtube">
-							<img src="{$basePath}/images/services/youtube.png" height="24" width="24">
+							<img src="{$cdnUrl}/images/services/youtube.png" height="24" width="24">
 						</a>
 						<a class="google-analytics-link-track" onclick="_gaq.push(['_trackEvent', 'Click', 'Twitter-Follow-Header']);" href="http://twitter.com/khanovaskola" title="Twitter">
-							<img src="{$basePath}/images/services/twitter.png" height="24" width="24">
+							<img src="{$cdnUrl}/images/services/twitter.png" height="24" width="24">
 						</a>
 						<a class="google-analytics-link-track" onclick="_gaq.push(['_trackEvent', 'Click', 'Facebook-Join-Header']);" href="http://www.facebook.com/khanovaskola" title="Facebook">
-							<img src="{$basePath}/images/services/facebook.png" height="24" width="24">
+							<img src="{$cdnUrl}/images/services/facebook.png" height="24" width="24">
 						</a>
 					</span>
 				</span>
@@ -122,11 +122,11 @@
 		</div>
 	</footer>
 
-	<script type="text/javascript" src="{$basePath}/js/jquery-1.7.2.min.js"></script>
-	<script type="text/javascript" src="{$basePath}/js/jquery-ui-1.8.21.custom.min.js"></script>
-	<script type="text/javascript" src="{$basePath}/js/netteForms.js"></script>
-	<script type="text/javascript" src="{$basePath}/js/khan.js"></script>
-	<script type="text/javascript" src="{$basePath}/js/retina.js"></script>
+	<script type="text/javascript" src="{$cdnUrl}/js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="{$cdnUrl}/js/jquery-ui-1.8.21.custom.min.js"></script>
+	<script type="text/javascript" src="{$cdnUrl}/js/netteForms.js"></script>
+	<script type="text/javascript" src="{$cdnUrl}/js/khan.js"></script>
+	<script type="text/javascript" src="{$cdnUrl}/js/retina.js"></script>
 	{#scripts}{/#}
 </body>
 </html>

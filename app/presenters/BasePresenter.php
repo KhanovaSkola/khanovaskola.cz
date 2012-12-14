@@ -10,6 +10,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 
 	public function startup()
 	{
+		$this->template->cdnUrl = 'http://khancdn.eu';
 		parent::startup();
 	}
 

@@ -7,7 +7,7 @@
 					<span class="dropdown">
 						<span class="username_and_notification dropdown-toggle">
 							<a n:tag-if="!$presenter->mobile" href="{if $user->isInrole(\NetteUser::ROLE_EDITOR)}{plink :Moderator:Dashboard:}{else}{plink :Front:Profile:}{/if}">
-								<img class="user-avatar" src="{$baseUrl}/images/avatars/leaf-{if $user->isInrole(\NetteUser::ROLE_ADMIN)}red{elseif $user->isInrole(\NetteUser::ROLE_EDITOR)}blue{else}green{/if}.png">
+								<img class="user-avatar" src="{$cdnUrl}/images/avatars/leaf-{if $user->isInrole(\NetteUser::ROLE_ADMIN)}red{elseif $user->isInrole(\NetteUser::ROLE_EDITOR)}blue{else}green{/if}.png">
 								<span class="user-name">
 									{=trim($user->entity->name) ?: $user->entity->mail}
 								</span>
@@ -73,7 +73,7 @@
 	</div>
 	<div id="logo">
 		<a id="logo-image" href="/" title="Zpět na titulku!">
-			<img src="{$basePath}/images/header.png" height="65" width="280">
+			<img src="{$cdnUrl}/images/header.png" height="65" width="280">
 		</a>
 	</div>
 	<div class="clear"></div>
