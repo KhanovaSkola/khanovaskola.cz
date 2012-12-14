@@ -17,7 +17,7 @@ class DocumentPresenter extends BaseFrontPresenter
 
 	public function createComponentAddForm($name)
 	{
-		$form = new Form($this, $name);
+		$form = $this->createForm($name);
 
 		$form->addText('name', 'Název')
 			->setRequired('Zadejte prosím název dokumentu');
@@ -25,9 +25,6 @@ class DocumentPresenter extends BaseFrontPresenter
 			->setRequired('Zvolte dokument, který chcete zveřejnit');
 
 		$form->addSubmit('send', 'Nahrát');
-		$form->onSuccess[] = callback($this, 'onSuccessAddForm');
-
-		return $form;
 	}
 
 

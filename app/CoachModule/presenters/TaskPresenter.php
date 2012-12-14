@@ -72,15 +72,12 @@ class TaskPresenter extends BaseCoachPresenter
 
 	public function createComponentEditForm($name)
 	{
-		$form = new \Nette\Application\UI\Form($this, $name);
+		$form = $this->createForm($name);
 
 		$form->addSelect('task', 'Úkol', $this->getFill());
 		$form->addText('deadline', 'Nejpozději do');
 
 		$form->addSubmit('send', 'Uložit');
-		$form->onSuccess[] = callback($this, 'onSuccessEdit');
-
-		return $form;
 	}
 
 
@@ -118,7 +115,7 @@ class TaskPresenter extends BaseCoachPresenter
 
 
 
-	public function onSuccessEdit($form)
+	public function onSuccessEditForm($form)
 	{
 		$v = $form->values;
 		list($type, $id) = explode('_', $v->task);

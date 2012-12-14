@@ -68,7 +68,7 @@ class BrowsePresenter extends BaseFrontPresenter
 
 	public function createComponentAddForm($name)
 	{
-		$form = new Form($this, $name);
+		$form = $this->createForm($name);
 
 		$form->addText('label', 'Název');
 		$form->addTextArea('description', 'Popis');
@@ -77,24 +77,18 @@ class BrowsePresenter extends BaseFrontPresenter
 		$form->addMultiSelect('categories', 'Kategorie', $this->context->categories->getFill());
 
 		$form->addSubmit('send', 'Uložit');
-		$form->onSuccess[] = callback($this, 'onSuccessAddForm');
-
-		return $form;
 	}
 
 
 
 	public function createComponentEditForm($name)
 	{
-		$form = new Form($this, $name);
+		$form = $this->createForm($name);
 
 		$form->addText('label', 'Název');
 		$form->addTextArea('description', 'Popis');
 
 		$form->addSubmit('send');
-		$form->onSuccess[] = callback($this, 'onSuccessEditForm');
-
-		return $form;
 	}
 
 

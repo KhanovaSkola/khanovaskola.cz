@@ -22,7 +22,7 @@ class ContactPresenter extends BaseFrontPresenter
 
 	public function createComponentIssueForm($name)
 	{
-		$form = new Form($this, $name);
+		$form = $this->createForm($name);
 
 		$form->addText('label', 'Hlavní sdělení')
 			->setRequired();
@@ -34,9 +34,6 @@ class ContactPresenter extends BaseFrontPresenter
 		$form->addHidden('antispam');
 
 		$form->addSubmit('send', 'Odeslat');
-		$form->onSuccess[] = callback($this, 'onSuccessIssueForm');
-
-		return $form;
 	}
 
 

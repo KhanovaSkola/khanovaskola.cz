@@ -44,16 +44,13 @@ class TranslatePresenter extends BaseModeratorPresenter
 
 	public function createComponentTranslateForm($name)
 	{
-		$form = new Form($this, $name);
+		$form = $this->createForm($name);
 
 		$form->addDynamic('translations', function (Container $container) {
 			$container->addTextArea($container->name);
 		});
 
 		$form->addSubmit('send');
-		$form->onSuccess[] = callback($this, 'onSuccessTranslateForm');
-
-		return $form;
 	}
 
 

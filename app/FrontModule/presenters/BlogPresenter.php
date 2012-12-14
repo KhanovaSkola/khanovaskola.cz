@@ -71,15 +71,12 @@ class BlogPresenter extends BaseFrontPresenter
 
 	public function createComponentArticleForm($name)
 	{
-		$form = new Form($this, $name);
+		$form = $this->createForm($name);
 
 		$form->addText('label', 'Nadpis');
 		$form->addTextarea('text', 'Text');
 
 		$form->addSubmit('save', 'Uložit');
-		$form->onSuccess[] = callback($this, 'onSuccessArticleForm');
-
-		return $form;
 	}
 
 

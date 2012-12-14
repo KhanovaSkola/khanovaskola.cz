@@ -64,9 +64,9 @@ class SignPresenter extends BasePresenter
 	 * Sign in form component factory.
 	 * @return Nette\Application\UI\Form
 	 */
-	protected function createComponentSignInForm()
+	protected function createComponentSignInForm($name)
 	{
-		$form = new UI\Form;
+		$form = $this->createForm($name);
 		$control = $form->addText('username')
 			->setRequired('Vyplňte mail.')
 			->addRule($form::EMAIL, 'Zkontrolujte formát emailu.')
@@ -78,14 +78,11 @@ class SignPresenter extends BasePresenter
 			->setRequired('Vyplňte heslo.');
 
 		$form->addSubmit('send', 'Přihlásit');
-
-		$form->onSuccess[] = $this->signInFormSubmitted;
-		return $form;
 	}
 
 
 
-	public function signInFormSubmitted($form)
+	public function onSuccessSignInForm($form)
 	{
 		try {
 			$values = $form->getValues();
@@ -173,9 +170,9 @@ class SignPresenter extends BasePresenter
 	 * Sign in form component factory.
 	 * @return Nette\Application\UI\Form
 	 */
-	protected function createComponentPassResetForm()
+	protected function createComponentPassResetForm($name)
 	{
-		$form = new UI\Form;
+		$form = $this->createForm($name);
 		$control = $form->addText('username')
 			->setRequired('Vyplňte mail.')
 			->addRule($form::EMAIL, 'Zkontrolujte formát emailu.')
@@ -184,14 +181,11 @@ class SignPresenter extends BasePresenter
 		$control->attrs['autofocus'] = TRUE;
 
 		$form->addSubmit('send', 'Pokračovat');
-
-		$form->onSuccess[] = $this->passResetFormSubmitted;
-		return $form;
 	}
 
 
 
-	public function passResetFormSubmitted($form)
+	public function onSuccessPassResetForm($form)
 	{
 		$email = $form['username']->value;
 		$user = $this->context->users->findOneBy(['mail' => $email]);
@@ -244,9 +238,9 @@ class SignPresenter extends BasePresenter
 	 * Sign in form component factory.
 	 * @return Nette\Application\UI\Form
 	 */
-	protected function createComponentPassSetForm()
+	protected function createComponentPassSetForm($name)
 	{
-		$form = new UI\Form;
+		$form = $this->createForm($name);
 		
 		$control = $form->addPassword('password')
 			->setRequired('Vyplňte heslo.')
@@ -260,14 +254,11 @@ class SignPresenter extends BasePresenter
 		$form->addHidden('code');
 
 		$form->addSubmit('send', 'Změnit heslo');
-
-		$form->onSuccess[] = $this->passSetFormSubmitted;
-		return $form;
 	}
 
 
 
-	public function passSetFormSubmitted($form)
+	public function onSuccessPassSetForm($form)
 	{
 		$v = $form->values;
 

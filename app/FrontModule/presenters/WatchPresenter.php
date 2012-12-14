@@ -102,7 +102,7 @@ class WatchPresenter extends BaseFrontPresenter
 
 	public function createComponentEditForm($name)
 	{
-		$form = new Form($this, $name);
+		$form = $this->createForm($name);
 
 		$form->addText('label', 'Název');
 		$form->addTextArea('description', 'Popis');
@@ -111,9 +111,6 @@ class WatchPresenter extends BaseFrontPresenter
 		$form->addMultiSelect('categories', 'Kategorie', $this->context->categories->getFill());
 
 		$form->addSubmit('send', 'Upravit');
-		$form->onSuccess[] = callback($this, 'onSuccessEditForm');
-
-		return $form;
 	}
 
 

@@ -73,15 +73,12 @@ class ExercisePresenter extends BaseFrontPresenter
 
 	public function createComponentEditForm($name)
 	{
-		$form = new Form($this, $name);
+		$form = $this->createForm($name);
 
 		$form->addText('label', 'Název');
 		$form->addText('file', 'Soubor');
 
 		$form->addSubmit('send');
-		$form->onSuccess[] = callback($this, 'onSuccessEditForm');
-
-		return $form;
 	}
 
 

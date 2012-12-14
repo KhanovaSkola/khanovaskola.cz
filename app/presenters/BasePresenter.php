@@ -60,7 +60,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 
 	public function createComponentSearch($name)
 	{
-		$form = new \Nette\Application\UI\Form($this, $name);
+		$form = $this->createForm($name);
 
 		$control = $form->addText('query')->getControlPrototype();
 		$control->attrs['type'] = 'search';
@@ -68,9 +68,6 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 		$control->attrs['autosave'] = 'khanovaskola_search';
 
 		$form->addSubmit('send');
-		$form->onSuccess[] = callback($this, 'onSuccessSearch');
-
-		return $form;
 	}
 
 
@@ -111,6 +108,17 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 		}
 
 		return FALSE;
+	}
+
+
+
+	protected function createForm($name)
+	{
+		$form = new \Nette\Application\UI\Form($this, $name);
+
+		$form->onSuccess[] = callback($this, 'onSuccess' . ucFirst($name));
+
+		return $form;
 	}
 
 

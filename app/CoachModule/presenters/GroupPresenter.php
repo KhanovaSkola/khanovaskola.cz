@@ -53,7 +53,7 @@ class GroupPresenter extends BaseCoachPresenter
 
 	public function createComponentUsersForm($name)
 	{
-		$form = new \Nette\Application\UI\Form($this, $name);
+		$form = $this->createForm($name);
 
 		$form->addGroup('');
 		$form->addText('label');
@@ -93,9 +93,6 @@ class GroupPresenter extends BaseCoachPresenter
 		}
 
 		$form->addSubmit('send', 'Uložit');
-		$form->onSuccess[] = callback($this, 'onSuccessUsersForm');
-
-		return $form;
 	}
 
 

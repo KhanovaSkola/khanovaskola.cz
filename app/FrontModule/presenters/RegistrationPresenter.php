@@ -22,7 +22,7 @@ class RegistrationPresenter extends BaseFrontPresenter
 
 	public function createComponentRegistrationForm($name)
 	{
-		$form = new Form($this, $name);
+		$form = $this->createForm($name);
 
 		$control = $form->addText('name')
 			->setRequired('Vyplńte prosím vaše jméno')
@@ -39,9 +39,6 @@ class RegistrationPresenter extends BaseFrontPresenter
 			->setRequired('Vyplňte vaše heslo.');
 
 		$form->addSubmit('send');
-		$form->onSuccess[] = callback($this, 'onSuccessRegistrationForm');
-
-		return $form;
 	}
 
 

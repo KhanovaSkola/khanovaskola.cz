@@ -84,7 +84,7 @@ class ProfilePresenter extends BaseFrontPresenter
 
 	public function createComponentAddTeacherForm($name)
 	{
-		$form = new Form($this, $name);
+		$form = $this->createForm($name);
 
 		$form->addText('email')
 			->addRule(Form::EMAIL, 'Vyplňte prosím email učitele, kterého chcete přidat')
@@ -92,9 +92,6 @@ class ProfilePresenter extends BaseFrontPresenter
 			->getControlPrototype()->attrs['placeholder'] = "ID učitele";
 
 		$form->addSubmit('send', 'Přidat učitele');
-		$form->onSuccess[] = callback($this, 'onSuccessAddTeacherForm');
-
-		return $form;
 	}
 
 
