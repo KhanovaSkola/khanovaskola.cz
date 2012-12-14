@@ -71,7 +71,7 @@ class Routes
 						return $id;
 
 					} else {
-						return Strings::webalize($container->categories->find($id)->label);
+						return $container->categories->find($id)->getSlug();
 					}
 				}
 			],
@@ -81,7 +81,7 @@ class Routes
 						return $vid;
 
 					} else {
-						return Strings::webalize($container->videos->find($vid)->label);
+						return $container->videos->find($vid)->getSlug();
 					}
 				}
 			],
@@ -105,7 +105,7 @@ class Routes
 						return $vid;
 
 					} else {
-						return Strings::webalize($container->videos->find($vid)->label);
+						return $container->videos->find($vid)->getSlug();
 					}
 				}
 			],
@@ -132,7 +132,7 @@ class Routes
 						return $id;
 
 					} else {
-						return Strings::webalize($container->categories->find($id)->label);
+						return $container->categories->find($id)->getSlug();
 					}
 				}
 			],
@@ -158,7 +158,7 @@ class Routes
 						return $id;
 
 					} else {
-						return Strings::webalize($container->categories->find($id)->label);
+						return $container->categories->find($id)->getSlug();
 					}
 				}
 			],
@@ -168,7 +168,7 @@ class Routes
 						return $eid;
 
 					} else {
-						return Strings::webalize($container->exercises->find($eid)->label);
+						return $container->exercises->find($eid)->getSlug();
 					}
 				}
 			],
@@ -192,7 +192,7 @@ class Routes
 						return $eid;
 
 					} else {
-						return Strings::webalize($container->exercises->find($eid)->label);
+						return $container->exercises->find($eid)->getSlug();
 					}
 				}
 			],
@@ -214,7 +214,7 @@ class Routes
 						return $aid;
 
 					} else {
-						return Strings::webalize($container->articles->find($aid)->label);
+						return $container->articles->find($aid)->getSlug();
 					}
 				}
 			],

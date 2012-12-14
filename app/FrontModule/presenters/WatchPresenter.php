@@ -123,14 +123,14 @@ class WatchPresenter extends BaseFrontPresenter
 		}
 
 		$v = $form->values;
-		$vid = $this->video;
 
+		$vid = $this->video;
 		$vid->label = $v->label;
-		$vid->slug = \Nette\Utils\Strings::webalize($v->label);
 		$vid->description = $v->description;
 		$vid->youtube_id = $v->youtube_id;
-
 		$vid->update();
+
+		$vid->addSlug($v->label);
 
 		$vid->updateTags($v['tags']);
 

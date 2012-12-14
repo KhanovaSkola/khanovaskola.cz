@@ -55,44 +55,12 @@ class DashboardPresenter extends BaseModeratorPresenter
 		}
 
 		foreach ($this->getDetachedExercises() as $file => $label) {
-			$this->context->exercises->insert([
+			$ex = $this->context->exercises->insert([
 				'file' => $file,
 				'label' => $label,
-				'slug' => \Nette\Utils\Strings::webalize($label),
 			]);
+			$ex->addSlug($label);
 		}
-		$this->redirect('this');
-	}
-
-
-
-	public function handleUpdateSlugs()
-	{
-		if (!$this->user->isInrole(\NetteUser::ROLE_ADMIN)) {
-			$this->redirect(':Moderator:Dashboard:');
-		}
-
-		foreach ($this->context->categories->findAll() as $category) {
-			$category->slug = \Nette\Utils\Strings::webalize($category->label);
-			$category->update();
-		}
-
-		foreach ($this->context->videos->findAll() as $video) {
-			$video->slug = \Nette\Utils\Strings::webalize($video->label);
-			$video->update();
-		}
-
-		foreach ($this->context->exercises->findAll() as $ex) {
-			$ex->slug = \Nette\Utils\Strings::webalize($ex->label);
-			$ex->update();
-		}
-
-		foreach ($this->context->articles->findAll() as $article) {
-			$article->slug = \Nette\Utils\Strings::webalize($article->label);
-			$article->update();
-		}
-
-		$this->flashMessage('Slugy byly aktualizovány.');
 		$this->redirect('this');
 	}
 

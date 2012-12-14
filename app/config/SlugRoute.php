@@ -30,7 +30,7 @@ class SlugRoute extends \Nette\Application\Routers\Route
 
 		if (!is_numeric($appRequest->parameters[$this->argument])) {
 			$compare = $appRequest->parameters[$this->argument];
-			$category = $this->context->{$this->table}->findOneBy(['slug' => $compare]);
+			$category = $this->context->{$this->table}->findBySlug($compare);
 			if ($category == NULL) {
 				return NULL;
 			}

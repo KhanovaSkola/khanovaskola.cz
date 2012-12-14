@@ -6,7 +6,7 @@
  * @property string	$datetime
  * @property bool $is_published
  */
-class Article extends Entity
+class Article extends EntityUrl
 {
 
 	public function getSplitText()

@@ -35,10 +35,10 @@ class SearchPresenter extends BaseFrontPresenter
 
 		$query = str_replace(['%', '_'], ['\%', '\_'], $this->q);
 		$this->template->videos = $this->context->videos->findInAny([
-			'label', 'description', 'slug', 'youtube_id'
+			'label', 'description', 'youtube_id'
 		], $query);
 		$this->template->exercises = $this->context->exercises->findInAny([
-			'label', 'slug'
+			'label'
 		], $query);
 	}
 

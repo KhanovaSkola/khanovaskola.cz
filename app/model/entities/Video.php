@@ -4,13 +4,12 @@
  * @property int	$category_id
  * @property int	$exercise_id
  * @property string	$label
- * @property string	$slug			Webalized $label
  * @property string	$description
  * @property string	$youtube_id
  * @property int	$duration		seconds
  * @property string	$uploader		youtube username
  */
-class Video extends Entity
+class Video extends EntityUrl
 {
 
 	/**

@@ -120,11 +120,11 @@ class BlogPresenter extends BaseFrontPresenter
 		if (!$this->aid) {
 			$article = $this->context->articles->insert([
 				'label' => $v->label,
-				'slug' => \Nette\Utils\Strings::webalize($v->label),
 				'text' => $v->text,
 				'datetime' => date('Y-m-d H:i:s'),
 				'is_published' => $publish,
 			]);
+			$article->addSlug($v->label);
 			
 			if ($publish) {
 				$this->flashMessage('Nový článek na blog byl uložen a zveřejněn.');
@@ -136,10 +136,11 @@ class BlogPresenter extends BaseFrontPresenter
 			$article = $this->article;
 
 			$article->label = $v['label'];
-			$article->slug = \Nette\Utils\Strings::webalize($v['label']);
 			$article->text = $v['text'];
 			$article->is_published = $article->is_published || $publish;
 			$article->update();
+
+			$article->addSlug($v['label']);
 
 			$this->flashMessage('Článek upraven.');
 		}

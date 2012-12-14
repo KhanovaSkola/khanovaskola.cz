@@ -87,4 +87,32 @@ class Table extends Nette\Object
 	{
 		return $this->findOneBy(['id' => $id]);
 	}
+
+
+
+	public function findBySlug($slug)
+	{
+		switch(strToLower(get_class($this))) {
+			case 'articles':
+				$type = 'article';
+				break;
+			case 'categories':
+				$type = 'category';
+				break;
+			case 'exercises':
+				$type = 'exercise';
+				break;
+			case 'tags':
+				$type = 'tag';
+				break;
+			case 'videos':
+				$type = 'video';
+				break;
+			default:
+				throw new InvalidArgumentException("Class " . get_class($this) . " does not support slugs.");
+		}
+		foreach ($this->context->database->query('SELECT * FROM url WHERE slug=? AND type=?', $slug, $type) as $row) {
+			return $this->find($row['entity_id']);
+		}
+	}
 }

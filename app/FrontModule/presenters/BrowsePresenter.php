@@ -88,9 +88,9 @@ class BrowsePresenter extends BaseFrontPresenter
 		$v = $form->values;
 		$c = $this->category;
 		$c->label = $v->label;
-		$c->slug = \Nette\Utils\Strings::webalize($c->label);
 		$c->description = $v->description;
 		$c->update();
+		$c->addSlug($c->label);
 
 		$cache = new Cache($this->context->cacheStorage);
 		$cache->clean([Cache::TAGS => [

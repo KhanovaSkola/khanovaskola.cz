@@ -93,13 +93,13 @@ class ExercisePresenter extends BaseFrontPresenter
 		}
 
 		$v = $form->values;
+
 		$ex = $this->exercise;
-
 		$ex->label = $v->label;
-		$ex->slug = \Nette\Utils\Strings::webalize($ex->label);
 		$ex->file = $v->file;
-
 		$ex->update();
+
+		$ex->addSlug($ex->label);
 
 		$this->redirect(':Front:Exercise:');
 	}

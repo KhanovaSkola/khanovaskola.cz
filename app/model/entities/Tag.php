@@ -3,7 +3,7 @@
 /**
  * @property string	$label
  */
-class Tag extends Entity
+class Tag extends EntityUrl
 {
 
 	/**

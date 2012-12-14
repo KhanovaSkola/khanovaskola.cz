@@ -29,8 +29,8 @@ class ExerciseRoute extends \Nette\Application\Routers\Route
 		}
 
 		if (!is_numeric($appRequest->parameters[$this->args->category])) {
-			$compare = $appRequest->parameters[$this->args->category];
-			$category = $this->context->categories->findOneBy(['slug' => $compare]);
+			$slug = $appRequest->parameters[$this->args->category];
+			$category = $this->context->categories->findBySlug($slug);
 			if ($category == NULL) {
 				return NULL;
 			}
@@ -40,8 +40,8 @@ class ExerciseRoute extends \Nette\Application\Routers\Route
 			$appRequest->parameters = $params;
 		}
 		if (!is_numeric($appRequest->parameters[$this->args->exercise])) {
-			$compare = $appRequest->parameters[$this->args->exercise];
-			$exercise = $this->context->exercises->findOneBy(['slug' => $compare]);
+			$slug = $appRequest->parameters[$this->args->exercise];
+			$exercise = $this->context->exercises->findBySlug($slug);
 			if ($exercise == NULL) {
 				return NULL;
 			}

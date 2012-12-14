@@ -126,14 +126,12 @@ class Videos extends Table
 		$ids = $category->getVideoIds();
 		if (!count($ids)) { // TODO: remove and handle differently (ie do not show empty categories)
 			return $this->findBy([
-				'id' => $ids,
-				'slug <> ?' => '', // not empty videos
+				'id' => $ids
 			]);
 		}
 
 		return $this->findBy([
 			'id' => $ids,
-			'slug <> ?' => '', // not empty videos
 		])->order('FIELD(id,' . implode(',', $ids) . '), id');
 	}
 
