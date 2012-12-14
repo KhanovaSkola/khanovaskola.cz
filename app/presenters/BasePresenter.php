@@ -8,14 +8,6 @@
 abstract class BasePresenter extends Nette\Application\UI\Presenter
 {
 
-	public function startup()
-	{
-		$this->template->cdnUrl = 'http://khancdn.eu';
-		parent::startup();
-	}
-
-
-
 	/**
 	 * @return string
 	 */
@@ -43,6 +35,12 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 
 	public function beforeRender()
 	{
+		if ($this->context->params['environment']) {
+			$this->template->cdnUrl = 'http://khancdn.eu';
+		} else {
+			$this->template->cdnUrl = $this->template->baseUrl;
+		}
+		
 		$this->template->git_deploy = (object) [
 			'branch' => Git::getBranch(),
 			'commit' => Git::getCommit(),
