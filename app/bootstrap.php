@@ -22,10 +22,8 @@ $configurator->createRobotLoader()
 Kdyby\Forms\Containers\Replicator::register();
 
 // Create Dependency Injection container from config.neon file
-$environment = Nette\Config\Configurator::detectDebugMode($local_ips)
-	? $configurator::DEVELOPMENT : $configurator::PRODUCTION;
-$configurator->addConfig(__DIR__ . '/config/config.neon', $environment);
-
+$configurator->addConfig(__DIR__ . '/config/config.neon');
+$configurator->addConfig(__DIR__ . '/config/config.local.neon');
 $container = $configurator->createContainer();
 
 $routes = new Routes();

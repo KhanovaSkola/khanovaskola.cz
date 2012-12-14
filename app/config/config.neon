@@ -1,0 +1,65 @@
+
+parameters:
+	progress:
+		completed_threshold: 95 # video position in percents that mark video as watched
+		exercise_limit: 30 # how many correct answer in row would give 100 % score
+		exercise_mastery: 90 # how many percent must user achieve to mark exercise as mastered
+
+	github:
+		url: https://api.github.com
+
+	google:
+		scope: ['https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/userinfo.email']
+
+	adminer_editor:
+		role: adminer
+
+
+php:
+	date.timezone: Europe/Prague
+	# zlib.output_compression: yes
+
+
+nette:
+	application:
+		errorPresenter: Error
+
+	session:
+		expiration: 14 days
+
+	database:
+		default:
+			dsn: "mysql:host=%database.host%;dbname=%database.dbname%"
+			user: %database.user%
+			password: %database.password%
+
+	debugger:
+		email: rullaf@gmail.com
+
+
+services:
+	database: @Nette\Database\Connection
+
+	facebook: Facebook([appId: %facebook.appId%, secret: %facebook.secret%])
+	google: Google([id: %google.id%, secret: %google.secret%])
+
+	amara: Amara()
+
+	user: NetteUser
+	authenticator_facebook: FacebookAuth
+	authenticator_google: GoogleAuth
+	authenticator_password: PasswordAuth
+
+	articles: Articles('article')
+	categories: Categories('category')
+	videos: Videos('video')
+	users: Users('user')
+	exercises: Exercises('exercise')
+	tags: Tags('tag')
+	progress: Table('progress')
+	groups: Table('group')
+	tasks: Tasks('task')
+	volunteers: Volunteers('volunteer')
+	documents: Documents('document')
+
+factories:
