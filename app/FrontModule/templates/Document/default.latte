@@ -1,0 +1,12 @@
+{var $title = 'Dokumenty'}
+{#content}
+
+<article>
+	<div n:if="$user->isInRole(\NetteUser::ROLE_ADDER)">
+		<a n:href="add">Nahrát nový dokument</a>
+	</div>
+
+	<a n:foreach="$documents as $document" href="http://docs.google.com/viewer?url={=urlencode("$baseUrl/documents/$document->file")}">{$document->name}</a>
+
+	<hr class="thin"/>
+</article>

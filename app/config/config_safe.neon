@@ -79,6 +79,7 @@ common:
 		groups: Table('group')
 		tasks: Tasks('task')
 		volunteers: Volunteers('volunteer')
+		documents: Documents('document')
 
 	factories:
 

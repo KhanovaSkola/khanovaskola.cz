@@ -310,6 +310,7 @@ class Routes
 					'kontakt' => 'Contact',
 					'dobrovolnici' => 'Volunteer',
 					'profil' => 'Profile',
+					'dokumenty' => 'Document',
 				],
 			],
 			'action' => [
