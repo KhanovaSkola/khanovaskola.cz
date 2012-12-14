@@ -22,6 +22,16 @@
 		{/#}
 	</span>
 {/#}
+{#scripts}
+	<script>
+		var youtube_video_id = {$video->youtube_id};
+		var youtube_autoplay = {$autoplay ? '1' : '0'};
+		{if $user->loggedIn}var youtube_progress_url = {plink updateProgress!, autoplay => NULL};{/if}
+	</script>
+	<script n:if="!$user->loggedIn" type="text/javascript" src="{$basePath}/js/youtube_guest.js"></script>
+	<script n:if="$user->loggedIn" type="text/javascript" src="{$basePath}/js/youtube_user.js"></script>
+	<script type="text/javascript" src="{$basePath}/js/subtitles.js"></script>
+{/#}
 {#content}
 <article id="video-page">
 	<div n:class="video, $video->isDubbed() ? video-dubbed">
