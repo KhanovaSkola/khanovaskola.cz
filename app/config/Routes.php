@@ -11,17 +11,10 @@ class Routes
 	{
 		$container->router[] = new Route('index.php', 'Front:Homepage:default', Route::ONE_WAY);
 
-		$domain = $container->parameters['environment'] === 'production' ? 'khanovaskola.cz' : 'khan.l';
-
 		/**
 		 * 410 Gone
 		 */
 /** REMOVE 2013/03/01+ */
-		$container->router[] = new Route("//tablet.$domain/<path .*>", [
-			'module' => 'Front',
-			'presenter' => 'Homepage',
-			'action' => 'gone',
-		]);
 		$container->router[] = new Route("fyzika/<path .*>", [
 			'module' => 'Front',
 			'presenter' => 'Homepage',
@@ -44,17 +37,6 @@ class Routes
 		]);
 /** end REMOVE 2013/03/01+ */
 
-		/**
-		 * API
-		 */
-		$container->router[] = new Route("//api.$domain/", [
-			'module' => 'Api',
-			'presenter' => 'Documentation',
-		]);
-		$container->router[] = new Route("//api.$domain/<presenter>[/<id>[/<method>]]", [
-			'module' => 'Api',
-			'presenter' => 'Category',
-		]);
 		$container->router[] = new Route('css/dynamic.dcss', [
 			'module' => 'Front',
 			'presenter' => 'DynamicCss',
