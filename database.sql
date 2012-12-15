@@ -26,7 +26,6 @@ DROP TABLE IF EXISTS `article`;
 CREATE TABLE `article` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `label` varchar(255) NOT NULL,
-  `slug` varchar(255) NOT NULL,
   `text` text NOT NULL,
   `is_published` tinyint(1) NOT NULL DEFAULT '0',
   `datetime` datetime NOT NULL,
@@ -40,7 +39,6 @@ CREATE TABLE `category` (
   `parent_id` bigint(20) unsigned DEFAULT NULL,
   `is_leaf` tinyint(1) unsigned NOT NULL DEFAULT '1',
   `label` varchar(255) COLLATE utf8_czech_ci NOT NULL COMMENT 'titulek',
-  `slug` varchar(255) COLLATE utf8_czech_ci NOT NULL,
   `description` text COLLATE utf8_czech_ci NOT NULL COMMENT 'abstrakt',
   `position` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
@@ -83,11 +81,20 @@ CREATE TABLE `coach` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 
+DROP TABLE IF EXISTS `document`;
+CREATE TABLE `document` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `file` varchar(512) COLLATE utf8_czech_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8_czech_ci NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+
+
 DROP TABLE IF EXISTS `exercise`;
 CREATE TABLE `exercise` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `label` varchar(255) COLLATE utf8_czech_ci NOT NULL COMMENT 'název',
-  `slug` varchar(255) COLLATE utf8_czech_ci NOT NULL,
   `file` varchar(255) COLLATE utf8_czech_ci NOT NULL COMMENT 'soubor',
   PRIMARY KEY (`id`),
   UNIQUE KEY `label` (`label`)
@@ -113,6 +120,17 @@ CREATE TABLE `group_user` (
   KEY `user_id` (`user_id`),
   CONSTRAINT `group_user_ibfk_1` FOREIGN KEY (`group_id`) REFERENCES `group` (`id`) ON DELETE CASCADE,
   CONSTRAINT `group_user_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+
+
+DROP TABLE IF EXISTS `map`;
+CREATE TABLE `map` (
+  `parent_id` bigint(20) unsigned NOT NULL,
+  `child_id` bigint(20) unsigned NOT NULL,
+  PRIMARY KEY (`parent_id`,`child_id`),
+  KEY `child_id` (`child_id`),
+  CONSTRAINT `map_ibfk_1` FOREIGN KEY (`parent_id`) REFERENCES `category` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `map_ibfk_2` FOREIGN KEY (`child_id`) REFERENCES `category` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 
@@ -176,6 +194,18 @@ CREATE TABLE `task` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 
+DROP TABLE IF EXISTS `url`;
+CREATE TABLE `url` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `type` enum('article','category','exercise','tag','video') COLLATE utf8_czech_ci NOT NULL,
+  `entity_id` bigint(20) unsigned NOT NULL,
+  `slug` varchar(255) COLLATE utf8_czech_ci NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `entity_id_slug` (`entity_id`,`slug`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+
+
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -195,7 +225,6 @@ CREATE TABLE `video` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `exercise_id` bigint(20) unsigned DEFAULT NULL COMMENT 'cvičení',
   `label` varchar(255) COLLATE utf8_czech_ci NOT NULL COMMENT 'titulek',
-  `slug` varchar(255) COLLATE utf8_czech_ci NOT NULL,
   `description` text COLLATE utf8_czech_ci NOT NULL COMMENT 'abstrakt',
   `youtube_id` varchar(50) COLLATE utf8_czech_ci NOT NULL COMMENT 'youtube_id (bez mezer okolo)',
   `duration` int(10) unsigned NOT NULL COMMENT 'délka (sec)',
@@ -207,7 +236,13 @@ CREATE TABLE `video` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci COMMENT='Videa';
 
 
+DROP TABLE IF EXISTS `volunteer`;
+CREATE TABLE `volunteer` (
+  `name` varchar(255) COLLATE utf8_czech_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+
+
 DROP VIEW IF EXISTS `_autocomplete`;
 CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `_autocomplete` AS select `category`.`label` AS `label` from `category` union select `exercise`.`label` AS `label` from `exercise` union select `tag`.`label` AS `label` from `tag` union select `video`.`label` AS `label` from `video`;
 
--- 2012-11-18 16:10:32
+-- 2012-12-15 14:11:18
