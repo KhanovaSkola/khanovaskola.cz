@@ -1,0 +1,31 @@
+{#content}
+
+<article>
+	<h2 class="main-headline" style="white-space: pre;">Knihovna všech videí</h2>
+	{cache tags => ['categories', 'videos']}
+		<div>
+			<h3>Máme pro vás přeloženo už {$presenter->context->videos->findAll()->count()} lekcí&hellip;</h3>
+		</div>
+
+		<hr id="browse" class="thin" style="width: 100%">
+
+		<div id="library">
+			<div id="library-content" >
+				<div id="library-content-main">
+					{foreach $categories as $maincat}
+						{continueIf !$maincat->hasVideos()}
+						<h2>{$maincat->label}</h2>
+						{foreach $maincat->getSubCategories() as $category}
+							{continueIf !$category->hasVideos()}
+							{if $category->isLeaf()}
+								{include '_leaf.latte', subcat => $category, category => $category->getParent()}
+							{else}
+								{include '_topic.latte', category => $category}
+							{/if}
+						{/foreach}
+					{/foreach}
+				</div>
+			</div>
+		</div>
+	{/cache}
+</article>

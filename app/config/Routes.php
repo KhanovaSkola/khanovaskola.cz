@@ -240,6 +240,11 @@ class Routes
 			'presenter' => 'Sign',
 			'action' => 'default',
 		]);
+		$container->router[] = new Route('knihovna', [
+			'module' => 'Front',
+			'presenter' => 'Homepage',
+			'action' => 'library',
+		]);
 
 		/**
 		 * Moderator module without tanslations
@@ -303,7 +308,7 @@ class Routes
 					'ucit' => 'coach',
 					'pravidla-prekladu' => 'rules',
 					'projekty' => 'projects',
-					'sponzori' => 'sponsors'
+					'sponzori' => 'sponsors',
 				],
 			],
 		]);
