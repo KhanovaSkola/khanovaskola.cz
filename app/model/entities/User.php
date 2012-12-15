@@ -287,7 +287,7 @@ class User extends Entity
 			'correct' => $correct ? 1 : 0
 		]);
 
-		$masteryThreshold = $this->context->params['progress']['completed_threshold'];
+		$masteryThreshold = $this->context->parameters['progress']['completed_threshold'];
 		if ($onMasteryCallback && 100 * $this->getExerciseSkill($exercise) > $masteryThreshold) {
 			$onMasteryCallback();
 		}
