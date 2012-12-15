@@ -298,6 +298,7 @@ class Routes
 					'dobrovolnici' => 'Volunteer',
 					'profil' => 'Profile',
 					'dokumenty' => 'Document',
+					'hledat' => 'Search',
 				],
 			],
 			'action' => [
