@@ -29,7 +29,7 @@
 				<span class="separator"></span>
 				<span><a n:href=":Front:Registration:">Registrace</a></span>
 			{/if}
-			{if $presenter->mobile === 'ipad'}
+			{if $presenter->mobile === 'ipad' && !isset($hide_search)}
 				<span id="search-box" class="search-ipad">
 					{form search, class => "page-search"}
 						{input query, class => "ui-corner-all simple-input search-input blur-on-esc", placeholder => "Vyhledávání"}
@@ -61,7 +61,7 @@
 					</nav>
 				</div>
 			{/cache}
-			{if $presenter->mobile !== 'ipad'}
+			{if $presenter->mobile !== 'ipad' && !isset($hide_search)}
 				<span id="search-box" class="search-other">
 					{form search, class => "page-search"}
 						{input query, class => "ui-corner-all simple-input search-input blur-on-esc", placeholder => "Vyhledávání"}
