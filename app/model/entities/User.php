@@ -166,7 +166,7 @@ class User extends Entity
 		$answers = $this->context->database->table('answer')->where([
 			'user_id' => $this->id,
 			'`timestamp` > DATE_SUB(now(), INTERVAL 1 MONTH)',
-		])->group('exercise_id', 'Count(*) > 3');
+		])->group('exercise_id', 'Count(*) > 3')->order('timestamp DESC');
 
 		$ids = [];
 		$times = [];
