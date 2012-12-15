@@ -12,17 +12,16 @@ class HomepagePresenter extends BaseFrontPresenter
 
 		$examples = [
 			'maths' => [
-				'rovnice', 'komplexní čísla', 'mřížka', 'zaokrouhlování',
-				'komutativnost', 'NSN', 'prvočíslo', 'exponenty',
-				'1. ekvivalentní úprava', 'absolutní hodnota', 'binom',
+				'rovnice', 'komplexní čísla', 'mřížka', 'zaokrouhlování', 'NSN', 'prvočíslo',
+				'exponenty', '1. ekvivalentní úprava', 'absolutní hodnota', 'binomické rozdělení',
 			],
 			'people' => [
-				'Newton', 'Eukelides', 'Leibniz', 'Usain Bolt', 'Mobius',
+				'Newton', 'Eukleides', 'Leibniz', 'Usain Bolt', 'Mobius',
 				'Lincoln', 'Salman Khan',
 			],
 			'other' => [
-				'Coulombův zákon', 'atomy', 'Snellův zákon', 'peníze',
-				'Airbus', 'Porshe',
+				'Coulombův zákon', 'prvky', 'atomy', 'Snellův zákon', 'peníze',
+				'Airbus', 'zlato', 'Porshe', 'zrychlení', 'galaxie', 'teleskop'
 			],
 		];
 
