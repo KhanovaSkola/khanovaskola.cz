@@ -1,6 +1,20 @@
 {var $title = "Úprava cvičení"}
+{#head}
+	<link rel="stylesheet" media="screen,projection,tv" href="{$cdnUrl}/css/chosen.css" type="text/css">
+{/#}
+{#scripts}
+	<script type="text/javascript" src="{$cdnUrl}/js/chosen.jquery.min.js"></script>
+	<script>
+		$("#frm-editForm-categories").chosen();
+		$("#frm-editForm-related").chosen();
+	</script>
+{/#}
 {#content}
-
 <article>
+<div>
+	<h2 class="main-headline" style="white-space: pre;">Úprava videa</h2>
 	{control editForm}
+</div>
+<div class="clear" style="margin-bottom:36px;"></div>
+
 </article>

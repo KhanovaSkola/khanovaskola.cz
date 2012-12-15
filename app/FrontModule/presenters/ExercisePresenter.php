@@ -62,8 +62,16 @@ class ExercisePresenter extends BaseFrontPresenter
 
 	public function renderList()
 	{
-		$this->template->categories = $this->context->categories->findWithExercises();
-		//$this->template->exercises = $this->context->exercises->findAll();
+		$cats = [];
+		foreach ($this->context->categories->findWithExercises() as $cat) {
+			$cats[] = $cat;
+		}
+		@usort($cats, function($a, $b) {
+			return $a->getMapDepth() > $b->getMapDepth() ? 1 : -1;
+		});
+		$this->template->categories = $cats;
+
+		$this->template->map_root = $this->context->categories->findMapRoot();
 	}
 
 
@@ -78,7 +86,14 @@ class ExercisePresenter extends BaseFrontPresenter
 		$ex = $this->exercise;
 
 		$form['label']->setValue($ex->label);
-		$form['file']->setValue($ex->file);
+
+		$form['categories']->setValue($ex->getCategoryIds());
+
+		/*$related = [];
+		foreach ($ex->getRelatedVideos() as $video) {
+			$related[] = $video->id;
+		}
+		$form['related']->setValue($related);*/
 	}
 
 
@@ -88,9 +103,11 @@ class ExercisePresenter extends BaseFrontPresenter
 		$form = $this->createForm($name);
 
 		$form->addText('label', 'Název');
-		$form->addText('file', 'Soubor');
+		$form->addMultiSelect('categories', 'Kategorie', $this->context->categories->getFill());
+		//$form->addMultiSelect('related', 'Videa k tématu', $this->context->videos->getFill());
+		//$form->addText('file', 'Soubor');
 
-		$form->addSubmit('send');
+		$form->addSubmit('send', 'Uložit');
 	}
 
 
@@ -105,9 +122,9 @@ class ExercisePresenter extends BaseFrontPresenter
 
 		$ex = $this->exercise;
 		$ex->label = $v->label;
-		$ex->file = $v->file;
 		$ex->update();
 
+		$ex->updateCategories($v->categories);
 		$ex->addSlug($ex->label);
 
 		$this->redirect(':Front:Exercise:');

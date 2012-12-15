@@ -309,4 +309,50 @@ class Category extends EntityUrl
 		// invalidate cache
 	}
 
+
+
+	public function addMapRelation(Category $child)
+	{
+		if  ($child->id === $this->id) {
+			return FALSE;
+		}
+
+		try {
+			$this->context->database->query('INSERT INTO map (parent_id, child_id) VALUES (?, ?)', $this->id, $child->id);
+		} catch (\PDOException $e) {
+			if ($e->getCode() != 23000) {
+				throw $e;
+			}
+			// relation already set
+		}
+	}
+
+
+
+	public function getMapChildren()
+	{
+		$children = [];
+		foreach ($this->context->database->query('SELECT child_id FROM map WHERE parent_id=?', $this->id) as $row) {
+			$children[] = $this->context->categories->find($row['child_id']);
+		}
+
+		return $children;
+	}
+
+
+
+	public function getMapDepth()
+	{
+		$depth = 0;
+		$cid = $this->id;
+		while (TRUE) {
+			$res = $this->context->database->query('SELECT parent_id FROM map WHERE child_id=?', $cid)->fetch();
+			if (!$res) {
+				return $depth;
+			}
+			$cid = $res['parent_id'];
+			$depth++;
+		}
+	}
+
 }

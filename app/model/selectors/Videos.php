@@ -128,4 +128,14 @@ class Videos extends Table
 		])->order('FIELD(id,' . implode(',', $ids) . '), id');
 	}
 
+
+
+	/**
+	 * @return array
+	 */
+	public function getFill()
+	{
+		return $this->findAll()->order('label')->fetchPairs('id', 'label');
+	}
+
 }

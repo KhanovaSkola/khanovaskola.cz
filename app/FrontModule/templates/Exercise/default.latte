@@ -42,5 +42,9 @@
 				</li>
 			</ul>
 		</div>
+		<div n:if="$user->isInRole(\NetteUser::ROLE_EDITOR)">
+			<span class="info-box-header" style="">Administrace</span>
+			<a n:href="edit">Editovat</a>
+		</div>
 	</div>
 </div>
