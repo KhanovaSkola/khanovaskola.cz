@@ -1,15 +1,21 @@
 {var $title = 'Cvičení: ' . $exercise->label}
 {var $description = $exercise->getDescription()}
+{var $data_require = $content->require}
+{#scripts}
+	<script>
+		var khanovaskola_user_logged_in = {!=$user->loggedIn ? 'true' : 'false'};
+		var khanovaskola_exercise_id = {!$exercise->id};
+		var khanovaskola_title = {$content->title};
+	</script>
+	{foreach $content->scripts as $script}
+		{!$script}
+	{/foreach}
+{/#scripts}
 {#content}
 
 <div id="inject-exercise" itemscope="" itemtype="http://schema.org/WebApplication"></div>
 <div style="display: none;">
-	<script>
-		var khanovaskola_user_logged_in = {!=$user->loggedIn ? 'true' : 'false'};
-		var khanovaskola_exercise_id = {!$exercise->id};
-	</script>
-	
-	{!$content}
+	{!$content->body}
 
 	<div id="injected-related" style="margin-top: 10px;">
 		<div id="related-video-list">

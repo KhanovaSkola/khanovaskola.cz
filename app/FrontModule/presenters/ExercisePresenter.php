@@ -5,6 +5,8 @@ namespace FrontModule;
 use Nette\Application\UI\Form;
 use Nette\Caching\Cache;
 
+require(LIBS_DIR . '/' . 'simple_html_dom.php');
+
 
 class ExercisePresenter extends BaseFrontPresenter
 {
@@ -41,9 +43,19 @@ class ExercisePresenter extends BaseFrontPresenter
 		}
 
 		$this->template->exercise = $this->exercise;
-		$content = file_get_contents(WWW_DIR . "/exercise/translated/{$this->exercise->file}.html");
-		$content = str_replace('src="../khan-exercise.js"', 'src="/exercise/khan-exercise.js"', $content);
-		$this->template->content = $content;
+		$raw = file_get_contents(WWW_DIR . "/exercise/translated/{$this->exercise->file}.html");
+		$raw = str_replace('src="../khan-exercise.js"', 'src="/exercise/khan-exercise.js"', $raw);
+		$html = \str_get_html($raw);
+
+		$content = ['scripts' => [], 'body' => NULL];
+		foreach ($html->find('head script') as $node) {
+			$content['scripts'][] = (string) $node;
+		}
+		$content['require'] = $html->find('html')[0]->attr['data-require'];
+		$content['title'] = (string) $html->find('title')[0]->innertext;
+		$content['body'] = (string) $html->find('body')[0]->innertext;
+
+		$this->template->content = (object) $content;
 	}
 
 
