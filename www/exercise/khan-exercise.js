@@ -2881,7 +2881,7 @@ var Khan = (function() {
 
         function injectTestModeSite(html, htmlExercise) {
             $(injectIntoElement).prepend(html);
-            $("#container .exercises-header h2").append($("body title").text());
+            $("#container .exercises-header h2").append("– " + khanovaskola_title);
             $("#container .exercises-body .current-card-contents").html(
                 htmlExercise);
 
