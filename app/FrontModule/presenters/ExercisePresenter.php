@@ -62,6 +62,13 @@ class ExercisePresenter extends BaseFrontPresenter
 
 	public function renderList()
 	{
+		$this->template->map_root = $this->context->categories->findMapRoot();
+	}
+
+
+
+	public function getSortedCategories()
+	{
 		$cats = [];
 		foreach ($this->context->categories->findWithExercises() as $cat) {
 			$cats[] = $cat;
@@ -69,9 +76,7 @@ class ExercisePresenter extends BaseFrontPresenter
 		@usort($cats, function($a, $b) {
 			return $a->getMapDepth() > $b->getMapDepth() ? 1 : -1;
 		});
-		$this->template->categories = $cats;
-
-		$this->template->map_root = $this->context->categories->findMapRoot();
+		return $cats;
 	}
 
 

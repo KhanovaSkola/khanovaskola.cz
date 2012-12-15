@@ -3,42 +3,44 @@
 {#content}
 
 <article>
-	<div class="col1 forty-sixty">
-		<h2 class="main-headline">Cvičení</h2>
+	{cache tags => ['exercises', 'categories']}
+		<div class="col1 forty-sixty">
+			<h2 class="main-headline">Cvičení</h2>
 
-		{var $linked = []}
-		{foreach $categories as $category}
-			{var $linked[] = $category->id}
-			<h3 style="margin: 10px 0 0 0" id="category-{$category->id}">{$category->label}</h3>
-			<table>
-				<tr n:foreach="$category->getExercises() as $ex">
-					<td n:if="$user->loggedIn" style="padding-right: .5em; text-align: right; width: 3em;">
-						{var $skill = $user->entity->getExerciseSkill($ex)}
-						{if $skill > 0.05}
-							{=$skill * 100|number}&thinsp;%
-						{/if}
-					</td>
-					<td>
-						<a n:href=":Front:Exercise:, id => $category->id, eid => $ex->id">{$ex->label}</a>
-						<a n:if="$user->isInRole(\NetteUser::ROLE_EDITOR)" n:href=":Front:Exercise:edit, id => $category->id, eid => $ex->id">[edit]</a>
-					</td>
-				</tr>
-			</table>
-		{/foreach}
-	</div>
-	<div id="map" class="col2 forty-sixty">
-		<h2 class="main-headline">Strom vědomostí</h2>
-		{var $parent = $map_root}
-		{var $indent = 1}
-		{$parent->label}
-		<div n:block="#generation">
-			{foreach $parent->getMapChildren() as $child}
-				{=str_repeat('— ', $indent)}
-				<a n:tag-if="in_array($child->id, $linked)" href="#category-{$child->id}">{$child->label}</a>
-				{include #generation, parent => $child, indent => $indent + 1}
+			{var $linked = []}
+			{foreach $presenter->getSortedCategories() as $category}
+				{var $linked[] = $category->id}
+				<h3 style="margin: 10px 0 0 0" id="category-{$category->id}">{$category->label}</h3>
+				<table>
+					<tr n:foreach="$category->getExercises() as $ex">
+						<td n:if="$user->loggedIn" style="padding-right: .5em; text-align: right; width: 3em;">
+							{var $skill = $user->entity->getExerciseSkill($ex)}
+							{if $skill > 0.05}
+								{=$skill * 100|number}&thinsp;%
+							{/if}
+						</td>
+						<td>
+							<a n:href=":Front:Exercise:, id => $category->id, eid => $ex->id">{$ex->label}</a>
+							<a n:if="$user->isInRole(\NetteUser::ROLE_EDITOR)" n:href=":Front:Exercise:edit, id => $category->id, eid => $ex->id">[edit]</a>
+						</td>
+					</tr>
+				</table>
 			{/foreach}
 		</div>
-	</div>
+		<div id="map" class="col2 forty-sixty">
+			<h2 class="main-headline">Strom vědomostí</h2>
+			{var $parent = $map_root}
+			{var $indent = 1}
+			{$parent->label}
+			<div n:block="#generation">
+				{foreach $parent->getMapChildren() as $child}
+					{=str_repeat('— ', $indent)}
+					<a n:tag-if="in_array($child->id, $linked)" href="#category-{$child->id}">{$child->label}</a>
+					{include #generation, parent => $child, indent => $indent + 1}
+				{/foreach}
+			</div>
+		</div>
+	{/cache}
 	<div class="clear"></div>
 
 </article>
