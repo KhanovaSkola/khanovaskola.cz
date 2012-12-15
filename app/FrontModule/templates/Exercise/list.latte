@@ -3,7 +3,7 @@
 {#content}
 
 <article>
-	{cache tags => ['exercises', 'categories']}
+	{cache $user->id, tags => ['exercises', 'categories']}
 		<div class="col1 forty-sixty">
 			<h2 class="main-headline">Cvičení</h2>
 
