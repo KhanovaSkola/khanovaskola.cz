@@ -1,5 +1,16 @@
-<div id="subtitles">
-	<div class="line" n:foreach="$subtitles as $row" data-start="{$row->start_time / 1000}" data-end="{$row->end_time / 1000}">
-		{$row->text}&nbsp; <a href="#" class="time">{$row->start_time / 1000|time}</a>
-	</div>
+<div id="subtitles" style="height: 100%">
+	<table style="width: 100%">
+		<tr>
+			<td>
+				<div class="line row" n:foreach="$subtitles as $row" data-start="{$row->start_time / 1000}" data-end="{$row->end_time / 1000}">
+					{$row->text}
+				</div>
+			</td>
+			<td style="width: 50px;">
+				<div class="row" n:foreach="$subtitles as $row">
+					<a href="#" class="time">{$row->start_time / 1000|time}</a>
+				</div>
+			</td>
+		</tr>
+	</table>
 </div>

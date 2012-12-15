@@ -69,7 +69,9 @@ a.subtitles-edit {float: right; font-size: 10pt;}
 #subtitles .highlight {background-color: rgba(157, 182, 59, 0.3);}
 #subtitles div:first-child {margin-top: 60px;}
 #subtitles div:last-child {margin-bottom: 140px;}
-#subtitles .time {float: right; color: rgb(150, 150, 150); font-family: sans-serif; font-size: 80%;}
+#subtitles .time {color: rgb(150, 150, 150); font-family: sans-serif; font-size: 80%;}
+#subtitles .row {height: 23px;}
+
 .practice.simple-button {margin-left: 1em;}
 
 #frm-addForm select, #frm-editForm select {width: 250px;}
