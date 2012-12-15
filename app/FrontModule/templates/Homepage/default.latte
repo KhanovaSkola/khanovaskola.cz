@@ -4,6 +4,7 @@
 	{if $presenter->getParam('ref')}
 		<link rel="canonical" n:href="//this, ref => NULL">
 	{/if}
+	<link rel="prefetch" n:href=":Front:Watch:, id => $featured_video->getOneCategoryId(), vid => $featured_video->id">
 {/#}
 {#content}
 
