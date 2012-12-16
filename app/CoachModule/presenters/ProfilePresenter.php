@@ -29,16 +29,18 @@ class ProfilePresenter extends BaseCoachPresenter
 			throw new \Nette\Application\BadRequestException;
 		}
 
-		if (!$this->user->entity->canView($this->profile)) {
+if (FALSE && !$this->user->entity->canView($this->profile)) {
 			throw new \Nette\Application\ForbiddenRequestException();
 		}
 
 		$this->group = $this->gid ? $this->context->groups->find($this->gid) : NULL;
-		if (!$this->group->belongsTo($this->user->entity)) {
-			throw new \Nette\Application\ForbiddenRequestException();
-		}
-		if (!$this->group->containsStudent($this->profile)) {
-			throw new \Nette\Application\ForbiddenRequestException();
+		if ($this->group) {
+			if (!$this->group->belongsTo($this->user->entity)) {
+				throw new \Nette\Application\ForbiddenRequestException();
+			}
+			if (!$this->group->containsStudent($this->profile)) {
+				throw new \Nette\Application\ForbiddenRequestException();
+			}
 		}
 	}
 

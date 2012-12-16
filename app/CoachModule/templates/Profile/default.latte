@@ -18,7 +18,7 @@
 	<h3>Úkoly</h3>
 	<p><a n:href="addTask!">Zadat úkol</a></p>
 	<p>
-		{cache $group->id, tags => ["coach/{$user->id}/profile/{$profile->id}"]}
+		{cache $group ? $group->id : 0, tags => ["coach/{$user->id}/profile/{$profile->id}"]}
 			{if !$profile->hasTasksFromCoach($user->entity)}
 				Tento student od vás nemá žádné úkoly.
 			{else}
