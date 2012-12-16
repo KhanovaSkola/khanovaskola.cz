@@ -36,6 +36,13 @@ class Videos extends Table
 
 
 
+	public function findAllDubbed()
+	{
+		return $this->findByTag($this->context->tags->findDubTag());
+	}
+
+
+
 	/**
 	 * @param Tag $tag
 	 * @return Video[]
