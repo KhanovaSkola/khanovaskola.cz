@@ -29,7 +29,7 @@ class ProfilePresenter extends BaseCoachPresenter
 			throw new \Nette\Application\BadRequestException;
 		}
 
-if (FALSE && !$this->user->entity->canView($this->profile)) {
+		if (!$this->user->entity->canView($this->profile)) {
 			throw new \Nette\Application\ForbiddenRequestException();
 		}
 
