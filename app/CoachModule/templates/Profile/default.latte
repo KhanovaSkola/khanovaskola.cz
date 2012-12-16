@@ -24,7 +24,7 @@
 			{else}
 				<ol>
 					<li n:foreach="$profile->getTasksFromCoach($user->entity)->order('completed, Isnull(deadline), deadline') as $task">
-						<a n:class="task, $task->completed ? task-completed" n:href="Task:, gid => $group->id, tid => $task->id">{$task->getText()}</a>
+						<a n:class="task, $task->completed ? task-completed" n:href="Task:, gid => $group ? $group->id : NULL, tid => $task->id">{$task->getText()}</a>
 					</li>
 				</ol>
 			{/if}
