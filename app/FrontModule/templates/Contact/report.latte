@@ -1,14 +1,16 @@
 {var $title = Problém}
 {var $robots = noindex}
+{#scripts}
+<script>
+	$("#frm-issueForm-antispam").val("hash-{$user->id}");
+</script>
+{/#}
 {#content}
 
 <article>
 	<div>
 		<h2 class="main-headline" style="white-space: pre;">Nahlásit problém</h2>
 		{control issueForm}
-		<script>
-			$("#frm-issueForm-antispam").val("hash-{$user->id}");
-		</script>
 	</div>
 	<div class="clear" style="margin-bottom:36px;"></div>
 	<hr class="margin-bottom: 18px;">
