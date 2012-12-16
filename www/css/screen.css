@@ -74,6 +74,8 @@ a.subtitles-edit {float: right; font-size: 10pt;}
 
 .practice.simple-button {margin-left: 1em;}
 
+#welcome a.call-to-action {font-size: 20px; line-height: 35px; display: inline-block; width: 20%;}
+
 #frm-addForm select, #frm-editForm select {width: 250px;}
 
 /* ----  iPad 3 ---- */

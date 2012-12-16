@@ -310,6 +310,7 @@ class Routes
 					'pravidla-prekladu' => 'rules',
 					'projekty' => 'projects',
 					'sponzori' => 'sponsors',
+					'vitejte' => 'welcome',
 				],
 			],
 		]);

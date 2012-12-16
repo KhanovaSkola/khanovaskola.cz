@@ -8,14 +8,21 @@ use Nette\Application\UI\Form;
 class RegistrationPresenter extends BaseFrontPresenter
 {
 
-	public function startup()
+	public function actionWelcome()
+	{
+		if (!$this->user->loggedIn) {
+			$this->redirect(':Front:Homepage:');
+		}
+	}
+
+
+
+	public function actionDefault()
 	{
 		if ($this->user->loggedIn) {
 			$this->flashMessage('Již jste zaregistrovaní, nepotřebujete se registrovat znovu.');
 			$this->redirect(':Front:Homepage:');
 		}
-
-		parent::startup();
 	}
 
 
@@ -61,8 +68,7 @@ class RegistrationPresenter extends BaseFrontPresenter
 
 		$this->user->login($v->mail, $v->password);
 
-		$this->flashMessage('Vítejte, nyní jste člen Khanovy školy. Uvidíte, které lekce jste už prošli.');
-		$this->redirect(':Front:Homepage:');
+		$this->redirect('welcome');
 	}
 
 }
