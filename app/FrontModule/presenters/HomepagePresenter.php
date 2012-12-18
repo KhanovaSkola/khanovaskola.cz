@@ -80,4 +80,21 @@ class HomepagePresenter extends BaseFrontPresenter
 		return NULL;
 	}
 
+
+
+	public function renderOpensearch()
+	{
+		$link = $this->link('//:Front:Search:');
+		$this->getHttpResponse()->setContentType('application/opensearchdescription+xml', 'utf8');
+		$this->sendResponse(new \Nette\Application\Responses\TextResponse("
+			<?xml version=\"1.0\"?>
+			<OpenSearchDescription xmlns=\"http://a9.com/-/spec/opensearch/1.1/\">
+				<ShortName>KŠ</ShortName>
+				<Description>Khanova škola</Description>
+				<Url template=\"$link?q={searchTerms}\" type=\"text/html\"/>
+				<Image type=\"image/x-icon\" width=\"16\" height=\"16\">{$this->template->cdnUrl}/favicon.ico</Image>
+			</OpenSearchDescription>
+		"));
+	}
+
 }

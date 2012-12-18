@@ -223,6 +223,11 @@ class Routes
 			'presenter' => 'Sitemap',
 			'action' => 'default',
 		]);
+		$container->router[] = new Route('opensearch[!.xml]', [
+			'module' => 'Front',
+			'presenter' => 'Homepage',
+			'action' => 'opensearch',
+		]);
 
 		/**
 		 * Direct actions of sign presenter
