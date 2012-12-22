@@ -130,6 +130,13 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 
 
 
+	public function createComponentGithub()
+	{
+		return new \Control\Github();
+	}
+
+
+
 	public function getBacklink()
 	{
 		return $this->link('this');

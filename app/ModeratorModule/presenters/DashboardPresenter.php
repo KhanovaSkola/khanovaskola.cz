@@ -24,10 +24,9 @@ class DashboardPresenter extends BaseModeratorPresenter
 		$vid['exercise'] = $this->context->exercises->findBy(['id NOT' => $ids]);
 		$vid['nogroupex'] = $this->context->exercises->findWithoutCategory();
 
+		$this->template->limit = 10;
 		$this->template->to_publish = $this->context->articles->findPublished(FALSE);
-
 		$this->template->vid = $vid;
-
 		$this->template->github = new \Github($this->context);
 	}
 

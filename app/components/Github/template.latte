@@ -1,0 +1,11 @@
+<p n:if="!$issues">Žádné nahlášené a neopravené problémy</p>
+<ol n:if="$issues">
+	<li n:foreach="$issues as $issue">
+		{* intentionally not n:foreach because it creates whitespace *}
+		{foreach $issue->labels as $label}<a n:if="strPos($label->name, ' UI') === FALSE && strPos($label->name, ' backend') === FALSE"
+			href="https://github.com/KhanovaSkola/khanovaskola.cz/issues?labels={$label->name}&page=1&state=open" style=" background-color: #{!$label->color};" class="github-tag">
+			&nbsp;
+		</a>{/foreach}
+		<a href="{$issue->html_url}"><strong>#{=str_pad('0', 3, $issue->number, STR_PAD_RIGHT)}&nbsp;</strong>{$issue->title|truncate:50}</a>
+	</li>
+</ol>

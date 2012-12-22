@@ -41,7 +41,7 @@ a:hover .featured_header .label {text-decoration: underline;}
 .breadcrumbs-tags {float: left; font-size: 16px; line-height: 18px;}
 .color-error {color: rgb(227, 58, 45);}
 code {font-family: "Monaco", "Courier New";}
-.github-tag {color: rgba(255, 255, 255, .8) !important; padding: 2px 5px; text-shadow: 1px 1px 0px rgba(0, 0, 0, .4); margin-right: 1em;}
+.github-tag {text-shadow: 1px 1px 0px rgba(0, 0, 0, .3); display: inline-block; width: 5px;}
 .video-progress {display: inline-block; width: 1em; font-family: "FontAwesome";}
 .search-ipad {margin-left: 1em; margin-top: 0; display: inline; float: none !important;}
 .search-ipad form {display: inline;}
@@ -73,10 +73,13 @@ a.subtitles-edit {float: right; font-size: 10pt;}
 #subtitles .row {height: 23px;}
 
 .practice.simple-button {margin-left: 1em;}
-
 #welcome a.call-to-action {font-size: 20px; line-height: 35px; display: inline-block; width: 20%;}
-
 #frm-addForm select, #frm-editForm select {width: 250px;}
+
+#pin-columns {-webkit-column-count: 3; -webkit-column-gap: 10px; -webkit-column-fill: auto; -moz-column-count: 3; -moz-column-gap: 10px; -moz-column-fill: auto; column-count: 3; column-gap: 15px; column-fill: auto;}
+.pin {width: 340px; display: inline-block; background: #FEFEFE; border: 2px solid #FAFAFA; box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4); margin: 0 2px 15px; -webkit-column-break-inside: avoid; -moz-column-break-inside: avoid; column-break-inside: avoid; padding: 15px; padding-bottom: 5px; background: -webkit-linear-gradient(45deg, #FFF, #F9F9F9); opacity: 1; -webkit-transition: all .2s ease; -moz-transition: all .2s ease; -o-transition: all .2s ease; transition: all .2s ease;}
+.pin .role {color: #888; display: block; float: right; -webkit-transform:rotate(45deg); -moz-transform:rotate(45deg); -o-transform:rotate(45deg); -ms-transform:rotate(45deg); border-bottom: 1px dashed #AAA; width: 90px; text-align: center; position: relative; left: 36px; top: -3px;}
+.pin .role:before {font-family: "FontAwesome"; content: "\f023"; margin-right: 5px;}
 
 /* ----  iPad 3 ---- */
 .ipad-only {display: none;}

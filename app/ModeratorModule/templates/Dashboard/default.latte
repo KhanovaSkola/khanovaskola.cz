@@ -7,8 +7,9 @@
 	</style>
 	<br>
 
-	{if $user->isInrole(\NetteUser::ROLE_ADMIN)}
-		<div class="col1 fifty-fifty">
+	<div id="pin-columns">
+		<div class="pin" n:if="$user->isInrole(\NetteUser::ROLE_ADMIN)">
+			<div class="role">admin</div>
 			<h2>Administrátor</h2>
 			<ol>
 				<li n:if="FALSE"><a n:href="attachToGithub!">propojit Github</a></li>
@@ -18,46 +19,37 @@
 				<li><a n:href="saveMetadata!">doplnit metadata</a></li>
 				<li><a n:href="addDubbedTagToVideos!">doplnit dabovací tagy</a></li>
 				<li><a n:href="Map:">mapa kategorií</a></li>
-			</ol>
-		</div>
-		<div class="col2 fifty-fifty">
-			<ol>
 				<li><a href="https://www.google.com/a/khanovaskola.cz/">Google Apps</a></li>
 				<li><a href="https://www.google.com/webmasters/tools/dashboard?hl=en&siteUrl=http%3A%2F%2Fkhanovaskola.cz%2F">Webmaster Tools</a></li>
 				<li><a href="http://www.google.com/cse/panel/basics?cx=012195005340914706032:ifaoips1ht0&sig=__BEH6PcUiO4qbwsq3nVkKWVaSoDQ=&hl=en">Search Control Panel</a></li>
 			</ol>
 		</div>
-		<div class="clear"></div>
 
-		<hr class="thin">
-	{/if}
+		<div class="pin" n:if="$user->isInRole(\NetteUser::ROLE_ADMINER)">
+			<div class="role">adminer</div>
+			<h2>Databáze</h2>
+			<ol>
+				<li n:if="$user->isInrole(\NetteUser::ROLE_ADMIN)"><a href="/adminer/">Adminer</a></li>
+				<li><a href="/adminer/editor.php?username=moderator">Adminer Editor</a></li>
+			</ol>
+		</div>
 
-	<div class="col1 fifty-fifty" n:if="$user->isInRole(\NetteUser::ROLE_ADMINER)">
-		<h2>Databáze</h2>
-		<ol>
-			<li n:if="$user->isInrole(\NetteUser::ROLE_ADMIN)"><a href="/adminer/">Adminer</a></li>
-			<li><a href="/adminer/editor.php?username=moderator">Adminer Editor</a></li>
-		</ol>
-	</div>
-	<div class="col2 fifty-fifty">
-		<h2>Statistika</h2>
-		<ol>
-			<li><a href="https://www.google.com/analytics/web/?pli=1#realtime/rt-overview/a33892654w61295030p62747299/">Google Analytics</a></li>
-			<li>
-				{cache tags => ['videos']}
-					{$presenter->context->videos->findAll()->count()} videí,
-					{$presenter->context->exercises->findAll()->count()} cvičení,
-					{$presenter->context->users->findAll()->count()} registrací
-				{/cache}
-			</li>
-		</ol>
-	</div>
-	<div class="clear"></div>
+		<div class="pin">
+			<h2>Statistika</h2>
+			<ol>
+				<li><a href="https://www.google.com/analytics/web/?pli=1#realtime/rt-overview/a33892654w61295030p62747299/">Google Analytics</a></li>
+				<li>
+					{cache tags => ['videos']}
+						{$presenter->context->videos->findAll()->count()} videí,
+						{$presenter->context->exercises->findAll()->count()} cvičení,
+						{$presenter->context->users->findAll()->count()} registrací
+					{/cache}
+				</li>
+			</ol>
+		</div>
 
-	<hr class="thin">
-
-	{if $user->isInRole(\NetteUser::ROLE_BLOG)}
-		<div class="col1 fifty-fifty">
+		<div class="pin" n:if="$user->isInRole(\NetteUser::ROLE_BLOG)">
+			<div class="role">blog</div>
 			<h2><a n:href=":Front:Blog:">Blog</a></h2>
 			<ol>
 				<li><a n:href=":Front:Blog:add">Nový příspěvek</a></li>
@@ -67,107 +59,86 @@
 				<li n:if="!count($to_publish)">žádné rozepsané články</li>
 			</ul>
 		</div>
-		<div class="col2 fifty-fifty">
+
+		<div class="pin" n:if="$user->isInRole(\NetteUser::ROLE_EDITOR)">
+			<div class="role">editor</div>
+			<h2>Překlad</h2>
+			<ol>
+				<li>
+					<a n:href="Translate:">přeložit cvičení</a>
+					<span>&ndash; Cvičení se neukládá jako veřejné, je k němu potřeba nechat vygenerovat příslušné soubory. Kontrolu a zveřejnění udělá Mikuláš.</span>
+				</li>
+				{if $presenter->context->parameters['environment'] === 'development'}
+					<li><a n:href="detachedExercises">cvičení mimo databázi</a></li>
+					<li n:if="$user->isInrole(\NetteUser::ROLE_ADMIN)"><a n:href="addExercise!">přidat cvičení do databáze</a></li>
+				{/if}
+			</ol>
 		</div>
-		<div class="clear"></div>
 
-		<hr class="thin">
-	{/if}
-
-	<div class="col1 fifty-fifty">
-		<h2>Překlad</h2>
-		<ol>
-			<li>
-				<a n:href="Translate:">přeložit cvičení</a>
-				<span>&ndash; Cvičení se neukládá jako veřejné, je k němu potřeba nechat vygenerovat příslušné soubory. Kontrolu a zveřejnění udělá Mikuláš.</span>
-			</li>
-			{if $presenter->context->parameters['environment'] === 'development'}
-				<li><a n:href="detachedExercises">cvičení mimo databázi</a></li>
-				<li n:if="$user->isInrole(\NetteUser::ROLE_ADMIN)"><a n:href="addExercise!">přidat cvičení do databáze</a></li>
-			{/if}
-		</ol>
-	</div>
-	<div class="col2 fifty-fifty">
 		{cache tags => ['issues']}
-			{var $issues => $github->getIssues()}
-			<h2>
-				<a href="https://github.com/KhanovaSkola/khanovaskola.cz/issues?state=open">
-					Problémy a featury{if $issues} ({count($issues)}){/if}
-				</a>
-				<a n:href="refreshIssues!">⟳</a>
-			</h2>
-			<p n:if="!$issues">Žádné nahlášené a neopravené problémy :-)</p>
-			<a n:href=":Front:Contact:report, url => $presenter->url, time => time()">✎ Nahlásit problém</a>
-			<table n:if="$issues">
-				<tr n:foreach="$issues as $issue">
-					<td style="text-align: right;">
-						<a n:foreach="$issue->labels as $label" href="{$label->url}" style="background-color: #{!$label->color};" class="github-tag" >
-							{$label->name}
-						</a>
-					</td>
-					<td>
-						<a href="{$issue->html_url}"><strong>#{$issue->number}&nbsp;</strong>{$issue->title}</a>
-					</td>
-				</tr>
-			</table>
+			<div class="pin">
+				{var $issues => $github->getIssues()}
+				<h2>
+					<a href="https://github.com/KhanovaSkola/khanovaskola.cz/issues?state=open">
+						Problémy a featury{if $issues} ({count($issues)}){/if}
+					</a>
+					<a n:href="refreshIssues!">⟳</a>
+				</h2>
+				<a n:href=":Front:Contact:report, url => $presenter->url, time => time()">✎ Nahlásit problém</a>,
+				<a href="https://github.com/KhanovaSkola/khanovaskola.cz/issues/new">založit Github ticket</a>
+				<br><br>
+				{control github:issues, $issues}
+			</div>
+		{/cache}
+
+		{cache tags => ['categories']}
+			<div class="pin">
+				<h2>Kategorie bez popisu</h2>
+				{var $count => $cat['description']->limit($limit)->count()}
+				<ol>
+					<li n:foreach="$cat['description']->limit($limit)->order('id DESC') as $cat">
+						<a n:href=":Front:Browse:edit, id => $cat->id">{$cat->label}</a>
+					</li>
+					<li n:if="$count == $limit">a další&hellip;</li>
+				</ol>
+			</div>
+		{/cache}
+
+		{cache tags => ['videos']}
+			<div class="pin">
+				<h2>Videa bez popisu</h2>
+				{var $count => $vid['description']->limit($limit)->count()}
+				<ol>
+					<li n:foreach="$vid['description']->limit($limit)->order('id DESC') as $video">
+						<a n:href=":Front:Watch:edit, id => $video->getOneCategoryId(), vid => $video->id">{$video->label}</a>
+					</li>
+					<li n:if="$count == $limit">a další&hellip;</li>
+				</ol>
+			</div>
+			<div class="pin">
+				<h2>Nenavázaná cvičení</h2>
+				{var $count => $vid['exercise']->limit($limit)->count()}
+				<ol>
+					<li n:foreach="$vid['exercise']->limit($limit)->order('id DESC') as $exercise">
+						{$exercise->label}
+					</li>
+					<li n:if="$count == $limit">a další&hellip;</li>
+				</ol>
+			</div>
+		{/cache}
+
+		{cache tags => ['categories', 'exercises']}
+			<div class="pin">
+				<h2>Cvičení bez kategorie</h2>
+				{var $count => $vid['nogroupex']->limit($limit)->count()}
+				<ol>
+					<li n:foreach="$vid['nogroupex']->limit($limit)->order('id DESC') as $exercise">
+						{$exercise->label}
+					</li>
+					<li n:if="$count == $limit">a další&hellip;</li>
+				</ol>
+				<div n:if="!$count" class="moderator-congrats">Dobrá práce, všechna cvičení jsou zařazená.</div>
+			</div>
 		{/cache}
 	</div>
-	<div class="clear"></div>
-
-	<hr class="thin">
-
-	<h2>Nekompletní údaje</h2>
-	<table>
-		<tr>
-			<th><strong>Kategorie bez popisu:</strong></th>
-			<th><strong>Videa bez popisu:</strong></th>
-			<th><strong>Nenavázaná cvičení:</strong></th>
-			<th><strong>Cvičení bez kategorie:</strong></th>
-		</tr>
-		<tr>
-			{cache tags => ['categories']}
-				<td>
-					<ol>
-						{var $count => $cat['description']->limit(30)->count()}
-						<li n:foreach="$cat['description']->limit(30)->order('id DESC') as $cat">
-							<a n:href=":Front:Browse:edit, id => $cat->id">{$cat->label}</a>
-						</li>
-						<li n:if="$count == 30">a další&hellip;</li>
-					</ol>
-				</td>
-			{/cache}
-			{cache tags => ['videos']}
-				<td>
-					<ol>
-							{var $count => $vid['description']->limit(30)->count()}
-							<li n:foreach="$vid['description']->limit(30)->order('id DESC') as $video">
-								<a n:href=":Front:Watch:edit, id => $video->getOneCategoryId(), vid => $video->id">{$video->label}</a>
-							</li>
-							<li n:if="$count == 30">a další&hellip;</li>
-					</ol>
-				</td>
-				<td>
-					<ol>
-						{var $count => $vid['exercise']->limit(30)->count()}
-						<li n:foreach="$vid['exercise']->limit(30)->order('id DESC') as $exercise">
-							{$exercise->label}
-						</li>
-						<li n:if="$count == 30">a další&hellip;</li>
-					</ol>
-				</td>
-			{/cache}
-			{cache tags => ['categories', 'exercises']}
-				<td>
-					<ol>
-						{var $count => $vid['nogroupex']->limit(30)->count()}
-						<li n:foreach="$vid['nogroupex']->limit(30)->order('id DESC') as $exercise">
-							{$exercise->label}
-						</li>
-						<div n:if="!$count" class="moderator-congrats">Dobrá práce, všechna cvičení jsou zařazená.</div>
-						<li n:if="$count == 30">a další&hellip;</li>
-					</ol>
-				</td>
-			{/cache}
-		</tr>
-	</table>
 </article>
