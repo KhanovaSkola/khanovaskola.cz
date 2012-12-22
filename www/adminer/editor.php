@@ -20,11 +20,12 @@ $configurator->createRobotLoader()
 
 // Create Dependency Injection container from config.neon file
 $configurator->addConfig(__DIR__ . '/../../app/config/config.neon');
+$configurator->addConfig(__DIR__ . '/../../app/config/config.local.neon');
 
 $container = $configurator->createContainer();
 
 $container->user->isLoggedIn();
-$container->user->isInRole($container->params['adminer_editor']['role']);
+$container->user->isInRole($container->parameters['adminer_editor']['role']);
 
 $_GET['username'] = ''; // triggers autologin
 
@@ -45,13 +46,13 @@ function adminer_object() {
 
 		function credentials() {
 			// server, username and password for connecting to database
-			$c = $this->context->params['database'];
+			$c = $this->context->parameters['database'];
 			return array($c['host'], $c['user'], $c['password']);
 		}
 
 		function database() {
 			// database name, will be escaped by Adminer
-			return $this->context->params['database']['dbname'];
+			return $this->context->parameters['database']['dbname'];
 		}
 
 		function login() {
@@ -83,7 +84,7 @@ function adminer_object() {
 		}
 
 		private function isInRole() {
-			return $this->context->user->isInRole($this->context->params['adminer_editor']['role']);
+			return $this->context->user->isInRole($this->context->parameters['adminer_editor']['role']);
 		}
 
 	}
