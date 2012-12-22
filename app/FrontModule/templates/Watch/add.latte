@@ -1,0 +1,36 @@
+{var $title = "Nové video"}
+{#head}
+	<link rel="stylesheet" media="screen,projection,tv" href="{$cdnUrl}/css/chosen.css" type="text/css">
+{/#}
+{#scripts}
+	<script type="text/javascript" src="{$cdnUrl}/js/chosen.jquery.min.js"></script>
+	<script>
+		$("#frm-videoForm-tags").chosen();
+		$("#frm-videoForm-categories").chosen();
+		$("#frm-videoForm-youtube_id").bind("paste keyup", function(e) {
+			var target = e.target;
+			setTimeout(function() {
+				$.get('http://gdata.youtube.com/feeds/api/videos/' + target.value + '?v=2&alt=jsonc&prettyprint=false', function(data) {
+					console.log(data);
+					$("#youtube-name").text(data.data.title);
+					$("#frm-videoForm-label").attr('placeholder', data.data.title);
+					$("#frm-videoForm-description").attr('placeholder', data.data.description);
+				});
+				var image = 'http://i.ytimg.com/vi/' + target.value + '/hqdefault.jpg';
+				$('#youtube-image').attr('src', image);
+			}, 100);
+		});
+	</script>
+{/#}
+{#content}
+<article id="backend-form">
+	<div class="col1 fifty-fifty">
+		<h2 class="main-headline" style="white-space: pre;">Nové video</h2>
+		{control videoForm}
+	</div>
+	<div class="col2 fifty-fifty">
+		<h2 class="main-headline" style="white-space: pre;" id="youtube-name"></h2>
+		<img id="youtube-image">
+	</div>
+	<div class="clear" style="margin-bottom:36px;"></div>
+</article>

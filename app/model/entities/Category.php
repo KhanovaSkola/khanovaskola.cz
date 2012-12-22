@@ -286,7 +286,8 @@ class Category extends EntityUrl
 
 	public function addVideo(Video $video)
 	{
-		foreach ($this->context->database->query('SELECT position FROM category_video WHERE category_id ORDER BY position DESC', $this->id) as $row) {
+		$position = 1;
+		foreach ($this->context->database->query('SELECT position FROM category_video WHERE category_id=? ORDER BY position DESC', $this->id) as $row) {
 			$position = $row['position'];
 			break;
 		}

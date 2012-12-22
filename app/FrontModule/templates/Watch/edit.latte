@@ -7,17 +7,17 @@
 {#scripts}
 	<script type="text/javascript" src="{$cdnUrl}/js/chosen.jquery.min.js"></script>
 	<script>
-		$("#frm-editForm-tags").chosen();
-		$("#frm-editForm-categories").chosen();
+		$("#frm-videoForm-tags").chosen();
+		$("#frm-videoForm-categories").chosen();
 	</script>
 {/#}
 {#content}
-<article>
-<div>
-	<h2 class="main-headline" style="white-space: pre;">Úprava videa</h2>
-	{control editForm}
-</div>
-<div class="clear" style="margin-bottom:36px;"></div>
-<hr class="margin-bottom: 18px;">
+<article id="backend-form">
+	<div>
+		<h2 class="main-headline" style="white-space: pre;">Úprava videa</h2>
+		{control videoForm}
+	</div>
+	<div class="clear" style="margin-bottom:36px;"></div>
+	<hr class="margin-bottom: 18px;">
 
 </article>

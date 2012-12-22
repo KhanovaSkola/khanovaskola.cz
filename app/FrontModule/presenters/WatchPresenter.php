@@ -35,6 +35,10 @@ class WatchPresenter extends BaseFrontPresenter
 
 		$this->video = $this->context->videos->find($this->vid);
 
+		if ($this->action === 'add') {
+			return;
+		}
+
 		if ($this->video && !$this->id) {
 			$this->redirect(301, 'this', [
 				'id' => $this->video->getOneCategoryId(),
@@ -54,6 +58,13 @@ class WatchPresenter extends BaseFrontPresenter
 		$this->template->autoplay = $autoplay;
 		$this->template->video = $this->video;
 		$this->template->category = $this->category;
+	}
+
+
+
+	public function renderAdd()
+	{
+		$this['videoForm']['categories']->setDefaultValue($this->getParam('categories'));
 	}
 
 
@@ -82,13 +93,96 @@ class WatchPresenter extends BaseFrontPresenter
 
 
 
+
+	public function createComponentVideoForm($name)
+	{
+		$form = $this->createForm($name);
+
+		$form->addText('youtube_id', 'Youtube ID', NULL, 11); // every youtube_id has 11 chars
+		$form->addText('label', 'Název');
+		$form->addTextArea('description', 'Popis');
+		$form->addMultiSelect('tags', 'Tagy', $this->context->tags->getFill());
+		$form->addMultiSelect('categories', 'Kategorie', $this->context->categories->getFill());
+
+		$form->addSubmit('send', 'Uložit');
+	}
+
+
+
+	public function onSuccessVideoForm($form)
+	{
+		$v = $form->values;
+
+		if ($this->action === 'add') {
+			if (!$this->user->isInrole(\NetteUser::ROLE_ADDER)) {
+				throw new \Nette\Application\ForbiddenRequestException;
+			}
+
+			try {
+				$vid = $this->context->videos->insert([
+					'label' => $v->label,
+					'description' => $v->description,
+					'youtube_id' => $v->youtube_id
+				]);
+			} catch (\PDOException $e) {
+				if ($e->getCode() != 23000) {
+					throw $e;
+				}
+				$form->addError('Toto jméno má už jiné video zabrané.');
+				return FALSE;
+			}
+
+			$video = $this->context->videos->find($vid->id);
+			$video->addSlug($video->label);
+
+			foreach ($v->categories as $cid) {
+				$this->context->categories->find($cid)->addVideo($video);
+			}
+			foreach ($v->tags as $tid) {
+				$video->addTag($tid);
+			}
+
+		} else { // edit
+			if (!$this->user->isInrole(\NetteUser::ROLE_EDITOR)) {
+				throw new \Nette\Application\ForbiddenRequestException;
+			}
+
+			$vid = $this->video;
+			$vid->label = $v->label;
+			$vid->description = $v->description;
+			$vid->youtube_id = $v->youtube_id;
+			$vid->update();
+
+			$vid->addSlug($v->label);
+
+			$vid->updateTags($v['tags']);
+			$vid->updateCategories($v['categories']);
+		}
+
+		// invalidate cache
+		$invalid = ["videos", "video/$vid->id"];
+		foreach ($v['categories'] as $cid) {
+			$invalid[] = "category/$cid";
+		}
+		foreach ($v['tags'] as $tid) {
+			$invalid[] = "tag/$tid";
+		}
+		$cache = new Cache($this->context->cacheStorage);
+		$cache->clean([Cache::TAGS => $invalid]);
+		
+
+		$this->redirect('default', ['vid' => $vid->id]);
+	}
+
+
+
 	public function renderEdit()
 	{
 		if (!$this->user->isInrole(\NetteUser::ROLE_EDITOR)) {
 			throw new \Nette\Application\ForbiddenRequestException;
 		}
 
-		$form = $this['editForm'];
+		$form = $this['videoForm'];
 		$vid = $this->video;
 
 		$form['label']->setValue($vid->label);
@@ -96,55 +190,6 @@ class WatchPresenter extends BaseFrontPresenter
 		$form['youtube_id']->setValue($vid->youtube_id);
 		$form['tags']->setValue($vid->getTagsIds());
 		$form['categories']->setValue($vid->getCategoryIds());
-	}
-
-
-
-	public function createComponentEditForm($name)
-	{
-		$form = $this->createForm($name);
-
-		$form->addText('label', 'Název');
-		$form->addTextArea('description', 'Popis');
-		$form->addText('youtube_id', 'Youtube ID');
-		$form->addMultiSelect('tags', 'Tagy', $this->context->tags->getFill());
-		$form->addMultiSelect('categories', 'Kategorie', $this->context->categories->getFill());
-
-		$form->addSubmit('send', 'Upravit');
-	}
-
-
-
-	public function onSuccessEditForm(Form $form)
-	{
-		if (!$this->user->isInrole(\NetteUser::ROLE_EDITOR)) {
-			throw new \Nette\Application\ForbiddenRequestException;
-		}
-
-		$v = $form->values;
-
-		$vid = $this->video;
-		$vid->label = $v->label;
-		$vid->description = $v->description;
-		$vid->youtube_id = $v->youtube_id;
-		$vid->update();
-
-		$vid->addSlug($v->label);
-
-		$vid->updateTags($v['tags']);
-		$vid->updateCategories($v['categories']);
-
-		$invalid = ["videos", "video/$vid->id"];
-		foreach ($vid->getCategoryIds() as $cat_id) {
-			$invalid[] = "category/$cat_id";
-		}
-		foreach ($v['tags'] as $tag_id) {
-			$invalid[] = "tag/$tag_id";
-		}
-		$cache = new Cache($this->context->cacheStorage);
-		$cache->clean([Cache::TAGS => $invalid]);
-
-		$this->redirect('default');
 	}
 
 
