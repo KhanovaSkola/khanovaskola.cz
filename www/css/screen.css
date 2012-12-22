@@ -4,7 +4,7 @@ div.flash {color: black; background: #FFF9D7; border: 1px solid #E2C822; padding
 a[href^="error:"] {background: red; color: white;}
 
 
-/* for homepage library */
+/* for library */
 #library-content .library-content-list a {width: 30%; height: 18.0px;}
 .m0 {margin-left: 0%;}
 .m1 {margin-left: 33%;}

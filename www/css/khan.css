@@ -43,8 +43,8 @@ height: 100%;
 height: 50px;
 width: 100%;
 }
-.page-ribbon .icon-search {top: -35px; left: 8px; position: relative; font-size: 140%; opacity: .7;}
-.page-ribbon .span4 {width: 33%; display: inline-block; top: -33px; position: relative;}
+.page-ribbon .icon-search {top: -41px; left: 8px; position: relative; font-size: 140%; opacity: .7;}
+.page-ribbon .span4 {width: 33%; display: inline-block; top: -40px; position: relative;}
 .page-ribbon .span8 {width: 66%; display: inline-block;}
 
 /** topic view */
