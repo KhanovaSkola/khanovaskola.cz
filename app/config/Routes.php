@@ -304,6 +304,7 @@ class Routes
 					'profil' => 'Profile',
 					'dokumenty' => 'Document',
 					'hledat' => 'Search',
+					'video' => 'Watch',
 				],
 			],
 			'action' => [
@@ -316,6 +317,7 @@ class Routes
 					'projekty' => 'projects',
 					'sponzori' => 'sponsors',
 					'vitejte' => 'welcome',
+					'pridat' => 'add',
 				],
 			],
 		]);
