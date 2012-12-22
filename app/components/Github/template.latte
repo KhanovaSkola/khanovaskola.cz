@@ -6,6 +6,6 @@
 			href="https://github.com/KhanovaSkola/khanovaskola.cz/issues?labels={$label->name}&page=1&state=open" style=" background-color: #{!$label->color};" class="github-tag">
 			&nbsp;
 		</a>{/foreach}
-		<a href="{$issue->html_url}"><strong>#{=str_pad('0', 3, $issue->number, STR_PAD_RIGHT)}&nbsp;</strong>{$issue->title|truncate:50}</a>
+		<a href="{$issue->html_url}"><strong>#{=str_pad($issue->number, 3, '0', STR_PAD_LEFT)}&nbsp;</strong>{$issue->title|truncate:50}</a>
 	</li>
 </ol>
