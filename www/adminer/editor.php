@@ -93,4 +93,4 @@ function adminer_object() {
 	return new AdminerSoftware($container);
 }
 
-include "./editor-3.6.1-mysql.php";
+include "./editor-3.6.2-mysql.php";
