@@ -14,8 +14,8 @@
 				<div class="topic-title" itemprop="name">{$leaf->label}</div>
 				<div class="topic-desc" itemprop="description">{$leaf->description}</div>
 				<div n:if="$user->isInrole(\NetteUser::ROLE_EDITOR)">
-					<a n:href="edit">[upravit]</a>
-					<a n:href=":Front:Watch:add, categories => [$leaf->id]">[přidat video]</a>
+					<a n:href="edit" class="call-to-action simple-button blue">Upravit</a>
+					<a n:href=":Front:Watch:add, categories => [$leaf->id]" class="call-to-action simple-button blue">Přidat video</a>
 				</div>
 				<div>Stopáž: {$leaf->getDuration()|time}</div>
 			</div>

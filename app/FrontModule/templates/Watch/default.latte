@@ -42,9 +42,9 @@
 					<a n:if="$exercise" n:href=":Front:Exercise:, eid => $exercise->id" class="practice simple-button green desktop-only" title="Ověřte si pochopení tématu na cvičeních">Procvičit toto téma</a>
 					<h1 class="title-header">
 						<span itemprop="name caption" class="title desktop-only">{$video->label}</span><span n:if="$video->description" class="long-description">: <span itemprop="description">{$video->description}</span></span>
-						<a n:if="$user->isInrole(\NetteUser::ROLE_EDITOR)" n:href="edit">[upravit]</a>
 						<a n:href="editSubtitles" class="subtitles-edit" rel="nofollow">upravit titulky</a>
 					</h1>
+					<a n:if="$user->isInrole(\NetteUser::ROLE_EDITOR)" n:href="edit" class="call-to-action simple-button blue">Upravit</a>
 				</div>
 				<div class="video-header" style="min-height: 1px">
 					<nav class="prev_next_nav desktop-only">

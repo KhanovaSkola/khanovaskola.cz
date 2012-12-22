@@ -15,7 +15,7 @@
 				<div class='topic-title'>
 					<span itemprop="name">{$category->label}</span>
 					{if $user->isInRole('moderator')}
-						<a n:href="edit">[upravit]</a>
+						<a n:href="edit" class="call-to-action simple-button blue">Upravit</a>
 					{/if}
 				</div>
 				<div class='topic-desc'>{$category->description}</div>
