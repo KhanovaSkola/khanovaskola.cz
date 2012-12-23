@@ -40,7 +40,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 		} else {
 			$this->template->cdnUrl = $this->template->baseUrl;
 		}
-		
+
 		$this->template->git_deploy = (object) [
 			'branch' => Git::getBranch(),
 			'commit' => Git::getCommit(),

@@ -122,7 +122,7 @@ class BlogPresenter extends BaseFrontPresenter
 				'is_published' => $publish,
 			]);
 			$article->addSlug($v->label);
-			
+
 			if ($publish) {
 				$this->flashMessage('Nový článek na blog byl uložen a zveřejněn.');
 			} else {

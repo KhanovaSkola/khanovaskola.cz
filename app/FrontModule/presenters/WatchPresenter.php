@@ -169,7 +169,7 @@ class WatchPresenter extends BaseFrontPresenter
 		}
 		$cache = new Cache($this->context->cacheStorage);
 		$cache->clean([Cache::TAGS => $invalid]);
-		
+
 
 		$this->redirect('default', ['vid' => $vid->id]);
 	}

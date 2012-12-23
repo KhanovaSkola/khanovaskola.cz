@@ -8,7 +8,7 @@ class MapPresenter extends BaseModeratorPresenter
 
 	public function renderDefault()
 	{
-		
+
 	}
 
 
@@ -20,7 +20,7 @@ class MapPresenter extends BaseModeratorPresenter
 		$control = $form->addSelect('parent_id', 'Kořen', $this->context->categories->getFill())
 			->getControlPrototype();
 		$control->attrs['autofocus'] = TRUE;
-		
+
 		$form->addMultiSelect('child_id', 'Větev', $this->context->categories->getFill());
 
 		$form->addSubmit('send', 'Přidat vazbu');
@@ -36,7 +36,7 @@ class MapPresenter extends BaseModeratorPresenter
 		foreach ($v->child_id as $cid) {
 			$cat->addMapRelation($this->context->categories->find($cid));
 		}
-		
+
 		$this->flashMessage('Vazby přidány.');
 		$this->redirect('this');
 	}

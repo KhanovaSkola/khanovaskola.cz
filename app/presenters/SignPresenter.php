@@ -241,7 +241,7 @@ class SignPresenter extends BasePresenter
 	protected function createComponentPassSetForm($name)
 	{
 		$form = $this->createForm($name);
-		
+
 		$control = $form->addPassword('password')
 			->setRequired('Vyplňte heslo.')
 			->getControlPrototype();

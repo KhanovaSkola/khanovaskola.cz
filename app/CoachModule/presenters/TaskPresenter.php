@@ -52,7 +52,7 @@ class TaskPresenter extends BaseCoachPresenter
 	{
 		$tags = $this->task->getTagsToInvalidate();
 		$this->task->delete();
-		
+
 		$cache = new Cache($this->context->cacheStorage);
 		$cache->clean([Cache::TAGS => $tags]);
 

@@ -71,7 +71,7 @@ class Categories extends Table
 		$id = $this->context->database->query(
 			'SELECT DISTINCT parent_id FROM map WHERE parent_id NOT IN (SELECT DISTINCT child_id FROM map)'
 		)->fetch()['parent_id'];
-		
+
 		return $this->find($id);
 	}
 

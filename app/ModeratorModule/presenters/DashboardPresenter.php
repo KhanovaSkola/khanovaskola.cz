@@ -204,7 +204,7 @@ class DashboardPresenter extends BaseModeratorPresenter
 	{
 		set_time_limit(0);
 		$videos = $this->context->videos->findAll();
-		
+
 		foreach ($videos as $video) {
 			$this->context->amara->getSubtitles($video);
 		}

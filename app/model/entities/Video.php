@@ -287,5 +287,5 @@ class Video extends EntityUrl
 	{
 		return $this->context->categories->find($this->getOneCategoryId());
 	}
-	
+
 }
