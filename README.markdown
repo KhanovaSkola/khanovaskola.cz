@@ -18,7 +18,7 @@ This application is based mainly on the following open source:
 
 **Nette Framework Skeleton** (https://github.com/nette/sandbox) Copyright © 2004, 2012 David Grudl (http://davidgrudl.com), released under GNU General Public License
 
-**Facebook PHP SDK** (https://github.com/facebook/facebook-php-sdk) Copyright © 2011 Facebook, Inc., released under the Apache License, Version 2.0 
+**Facebook PHP SDK** (https://github.com/facebook/facebook-php-sdk) Copyright © 2011 Facebook, Inc., released under the Apache License, Version 2.0
 
 **PHP Markdown** (https://github.com/facebook/facebook-php-sdk) Copyright © 2004-2012 Michel Fortin, 2004-2012 John Gruber, released under BSD-style or GNU General Public License version 2
 
