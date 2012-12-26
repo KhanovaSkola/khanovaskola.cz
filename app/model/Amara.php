@@ -52,7 +52,13 @@ class Amara extends Nette\Object
 				return [$node->standard_pk, $node->pk];
 			}
 		}
-		return ['null', $langs[0]->pk];
+
+		if (isset($langs[0])) {
+			return ['null', $langs[0]->pk];
+
+		} else {
+			return ['null', 'english'];
+		}
 	}
 
 
