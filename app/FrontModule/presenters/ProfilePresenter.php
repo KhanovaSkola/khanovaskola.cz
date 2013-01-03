@@ -31,8 +31,7 @@ class ProfilePresenter extends BaseFrontPresenter
 			$this->profile = $this->user->entity;
 
 		} else {
-			$this->flashMessage('Přihlaste se prosím.');
-			$this->redirect(':Sign:in');
+			$this->redirect(':Sign:in', ['backlink' => $this->link('this')]);
 		}
 
 		if (!$this->user->entity->canView($this->profile)) {

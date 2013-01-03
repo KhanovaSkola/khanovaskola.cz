@@ -24,7 +24,7 @@ abstract class AuthenticatedPresenter extends \BasePresenter
 					$this->flashMessage('Přihlašte se prosím.');
 					break;
 			}
-			$this->redirect(':Sign:in');
+			$this->redirect(':Sign:in', ['backlink' => $this->link('this')]);
 		}
 
 		parent::startup();
