@@ -101,4 +101,5 @@ a.subtitles-edit {float: right; font-size: 10pt;}
 {
 	#copyright {display: none;}
 	#footer .legal {display: none;}
+	.hide-small {display: none;}
 }
