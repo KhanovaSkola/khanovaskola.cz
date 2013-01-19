@@ -85,6 +85,7 @@ a.subtitles-edit {float: right; font-size: 10pt;}
 #backend-form textarea {height: 120pt;}
 #backend-form input[type=submit] {width: auto; width: 70px; font-size: 16pt;}
 #backend-form select {width: 306px;}
+.video #description .title-header .long-description {white-space: normal;}
 
 /* ----  iPad 3 ---- */
 .ipad-only {display: none;}
