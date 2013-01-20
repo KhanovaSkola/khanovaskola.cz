@@ -12,7 +12,7 @@ height: 50px;
 overflow: visible;
 padding: 10px 24px;
 position: absolute;
-top: 450px;
+top: 20px;
 right: -7px;
 bottom: auto;
 left: -7px;
@@ -27,6 +27,7 @@ height: 15px;
 position: absolute;
 top: -24px;
 }
+.homepage-pull{padding-top: 100px;}
 
 #large-search-input, .large-search-bar {
 background-image: none;

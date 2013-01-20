@@ -34,37 +34,6 @@
 {#content}
 
 <article id="homepage">
-	<div id="main-video">
-		<a n:href=":Front:Watch:, id => $featured_video->getOneCategoryId(), vid => $featured_video->id, autoplay => TRUE">
-			<span class="featured_video" style="background-image:url('http://img.youtube.com/vi/{$featured_video->youtube_id}/hqdefault.jpg')">
-				<span class="youtube_play"></span>
-			</span>
-			<span class="featured_header"><span class="label">{$featured_video->label}</span></span>
-		</a>
-	</div>
-	<div id="homepage-text" class="visited-no-recolor">
-		<h1 class="section-headline pulls"><a n:href=":Front:Homepage:library">Dívej se.</a> <a n:href=":Front:Exercise:">Procvičuj.</a></h1>
-		<h1>Nauč se zdarma skoro cokoliv.</h1>
-		<p>
-			Jsme překlad Khan Academy. Máme pro vás víc jak <a n:href=":Front:Homepage:library">{$video_count} videi</a> z matematiky, fyziky a třeba i dějepisu a medicíny. Matematiku si navíc můžete prozkoušet na <a n:href=":Front:Exercise:">cvičeních</a>. Pro učitele máme <a n:href=":Coach:Dashboard:">nástroje</a> pro zadávání úkolů a sledování výsledků.
-		</p>
-		<p>
-			<a n:href=":Front:About:">Snažíme se</a> učit to, co vás zajímá.
-		</p>
-		<div>
-			<a n:href=":Front:Homepage:library" class="call-to-action simple-button green watch-a-video">Zhlédnout video</a>
-			<a n:href=":Front:Exercise:" class="call-to-action simple-button blue">Vyplnit cvičení</a>
-		</div>
-		{*<p>Chcete Khanově škole pomoct? Můžete hned <a n:href=":Front:Volunteer:">začít překládat videa</a>.</p>*}
-		<p>
-			Naším hlavním <a n:href=":Front:About:sponsors">partnerem</a> je společnost <a href="http://scio.cz/" target="_blank">Scio</a>.
-		</p>
-		<div style="position: relative; top: -10px;">
-			<fb:like href="https://www.facebook.com/KhanovaSkola" send="false" layout="box_count" show_faces="false"></fb:like>
-		</div>
-	</div>
-	<div class="clear"></div>
-
 	<div class="page-ribbon">
 		<div class="span4 tagline">
 			<h1>Naučte se dneska něco nového</h1>
@@ -77,6 +46,39 @@
 			{/form}
 		</div>
 	</div>
+	<div class="homepage-pull">
+		<div id="main-video">
+			<a n:href=":Front:Watch:, id => $featured_video->getOneCategoryId(), vid => $featured_video->id, autoplay => TRUE">
+				<span class="featured_video" style="background-image:url('http://img.youtube.com/vi/{$featured_video->youtube_id}/hqdefault.jpg')">
+					<span class="youtube_play"></span>
+				</span>
+				<span class="featured_header"><span class="label">{$featured_video->label}</span></span>
+			</a>
+		</div>
+		<div id="homepage-text" class="visited-no-recolor">
+			<h1 class="section-headline pulls"><a n:href=":Front:Homepage:library">Dívej se.</a> <a n:href=":Front:Exercise:">Procvičuj.</a></h1>
+			<h1>Nauč se zdarma skoro cokoliv.</h1>
+			<p>
+				Jsme překlad Khan Academy. Máme pro vás víc jak <a n:href=":Front:Homepage:library">{$video_count} videi</a> z matematiky, fyziky a třeba i dějepisu a medicíny. Matematiku si navíc můžete prozkoušet na <a n:href=":Front:Exercise:">cvičeních</a>. Pro učitele máme <a n:href=":Coach:Dashboard:">nástroje</a> pro zadávání úkolů a sledování výsledků.
+			</p>
+			<p>
+				<a n:href=":Front:About:">Snažíme se</a> učit to, co vás zajímá.
+			</p>
+			<div>
+				<a n:href=":Front:Homepage:library" class="call-to-action simple-button green watch-a-video">Zhlédnout video</a>
+				<a n:href=":Front:Exercise:" class="call-to-action simple-button blue">Vyplnit cvičení</a>
+			</div>
+			{*<p>Chcete Khanově škole pomoct? Můžete hned <a n:href=":Front:Volunteer:">začít překládat videa</a>.</p>*}
+			<p>
+				Naším hlavním <a n:href=":Front:About:sponsors">partnerem</a> je společnost <a href="http://scio.cz/" target="_blank">Scio</a>.
+			</p>
+			<div style="position: relative; top: -10px;">
+				<fb:like href="https://www.facebook.com/KhanovaSkola" send="false" layout="box_count" show_faces="false"></fb:like>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+
 	{*
 	{cache tags => ['categories', 'videos']}
 		<div>
