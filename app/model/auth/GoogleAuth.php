@@ -37,6 +37,7 @@ class GoogleAuth extends Nette\Object implements \Nette\Security\IAuthenticator
 		}
 
 		// otherwise, register new user
+		$new = FALSE;
 		if (!$user) {
 			$user = $this->users->insert([
 				'name' => $info->name,
@@ -45,10 +46,14 @@ class GoogleAuth extends Nette\Object implements \Nette\Security\IAuthenticator
 				'registration' => time(),
 				'role' => '',
 			]);
+			$new = TRUE;
 		}
 
 		$roles = explode(';', $user->role);
 		$roles[] = 'google';
+		if ($new) {
+			$roles[] = 'new-user';
+		}
 
 		return new \Nette\Security\Identity($user->id, $roles, []);
 	}

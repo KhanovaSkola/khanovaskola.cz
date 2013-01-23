@@ -38,6 +38,7 @@ class FacebookAuth extends Nette\Object implements \Nette\Security\IAuthenticato
 		}
 
 		// otherwise, register new user
+		$new = FALSE;
 		if (!$user) {
 			$user = $this->users->insert([
 				'name' => $info['name'],
@@ -46,10 +47,14 @@ class FacebookAuth extends Nette\Object implements \Nette\Security\IAuthenticato
 				'registration' => time(),
 				'role' => '',
 			]);
+			$new = TRUE;
 		}
 
 		$roles = explode(';', $user->role);
 		$roles[] = 'facebook';
+		if ($new) {
+			$roles[] = 'new-user';
+		}
 
 		return new \Nette\Security\Identity($user->id, $roles, []);
 	}

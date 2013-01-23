@@ -154,6 +154,10 @@ class SignPresenter extends BasePresenter
 
 	protected function inRedirect()
 	{
+		if ($this->user->isInRole('new-user')) {
+			$this->redirect(':Front:Registration:welcome');
+		}
+
 		if (!$this->backlink) {
 			if ($this->user->isInrole(\NetteUser::ROLE_EDITOR)) {
 				$this->redirect(':Moderator:Dashboard:');
