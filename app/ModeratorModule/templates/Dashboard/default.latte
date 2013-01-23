@@ -19,9 +19,16 @@
 				<li><a n:href="saveMetadata!">doplnit metadata</a></li>
 				<li><a n:href="addDubbedTagToVideos!">doplnit dabovací tagy</a></li>
 				<li><a n:href="Map:">mapa kategorií</a></li>
+			</ol>
+		</div>
+		<div class="pin" n:if="$user->isInrole(\NetteUser::ROLE_ADMIN)">
+			<div class="role">admin</div>
+			<h2>3rd Party</h2>
+			<ol>
 				<li><a href="https://www.google.com/a/khanovaskola.cz/">Google Apps</a></li>
 				<li><a href="https://www.google.com/webmasters/tools/dashboard?hl=en&siteUrl=http%3A%2F%2Fkhanovaskola.cz%2F">Webmaster Tools</a></li>
 				<li><a href="http://www.google.com/cse/panel/basics?cx=012195005340914706032:ifaoips1ht0&sig=__BEH6PcUiO4qbwsq3nVkKWVaSoDQ=&hl=en">Search Control Panel</a></li>
+				<li><a href="https://adwords.google.com/cm/CampaignMgmt?__u=4559939138&__c=2601738578#r.ONLINE&app=cm">Adwords</a></li>
 			</ol>
 		</div>
 
