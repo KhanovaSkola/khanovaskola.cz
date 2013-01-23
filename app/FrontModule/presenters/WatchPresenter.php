@@ -113,6 +113,12 @@ class WatchPresenter extends BaseFrontPresenter
 	{
 		$v = $form->values;
 
+		if (($this->action === 'add' || $this->video->youtube_id !== $v->youtube_id)
+		 && $this->context->videos->findBy(['youtube_id' => $v->youtube_id])->count()) {
+			$form->addError('Tohle video (id) už v databázi máme.');
+			return FALSE;
+		}
+
 		if ($this->action === 'add') {
 			if (!$this->user->isInrole(\NetteUser::ROLE_ADDER)) {
 				throw new \Nette\Application\ForbiddenRequestException;
