@@ -5,6 +5,7 @@ SET foreign_key_checks = 0;
 SET time_zone = 'SYSTEM';
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
+CREATE DATABASE `khanovaskola` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_czech_ci */;
 USE `khanovaskola`;
 
 DROP TABLE IF EXISTS `answer`;
@@ -43,7 +44,7 @@ CREATE TABLE `category` (
   `position` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `label` (`label`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci COMMENT='Kategorie';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 
 DROP TABLE IF EXISTS `category_exercise`;
@@ -67,7 +68,7 @@ CREATE TABLE `category_video` (
   KEY `video_id` (`video_id`),
   CONSTRAINT `category_video_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`) ON DELETE CASCADE,
   CONSTRAINT `category_video_ibfk_2` FOREIGN KEY (`video_id`) REFERENCES `video` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci COMMENT='Kategorie:Videa';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 
 DROP TABLE IF EXISTS `coach`;
@@ -98,7 +99,7 @@ CREATE TABLE `exercise` (
   `file` varchar(255) COLLATE utf8_czech_ci NOT NULL COMMENT 'soubor',
   PRIMARY KEY (`id`),
   UNIQUE KEY `label` (`label`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci COMMENT='Cvičení';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 
 DROP TABLE IF EXISTS `group`;
@@ -155,7 +156,7 @@ CREATE TABLE `tag` (
   `label` varchar(255) COLLATE utf8_czech_ci NOT NULL COMMENT 'tag',
   `display` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci COMMENT='Tagy';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 
 DROP TABLE IF EXISTS `tag_video`;
@@ -202,7 +203,7 @@ CREATE TABLE `url` (
   `slug` varchar(255) COLLATE utf8_czech_ci NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `entity_id_slug` (`entity_id`,`slug`)
+  UNIQUE KEY `type_slug` (`type`,`slug`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 
@@ -216,6 +217,8 @@ CREATE TABLE `user` (
   `name` varchar(255) COLLATE utf8_czech_ci NOT NULL,
   `facebook_id` varchar(255) COLLATE utf8_czech_ci DEFAULT NULL,
   `google_id` varchar(255) COLLATE utf8_czech_ci DEFAULT NULL,
+  `registration` int(11) NOT NULL,
+  `last_login` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci COMMENT='Uživatelé';
 
@@ -231,18 +234,20 @@ CREATE TABLE `video` (
   `uploader` varchar(255) COLLATE utf8_czech_ci NOT NULL COMMENT 'uploader',
   PRIMARY KEY (`id`),
   UNIQUE KEY `label` (`label`),
+  UNIQUE KEY `youtube_id` (`youtube_id`),
   KEY `exercise_id` (`exercise_id`),
   CONSTRAINT `video_ibfk_2` FOREIGN KEY (`exercise_id`) REFERENCES `exercise` (`id`) ON DELETE SET NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci COMMENT='Videa';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 
 DROP TABLE IF EXISTS `volunteer`;
 CREATE TABLE `volunteer` (
-  `name` varchar(255) COLLATE utf8_czech_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+  `name` varchar(255) COLLATE utf8_czech_ci NOT NULL COMMENT 'Jméno',
+  `mail` varchar(255) COLLATE utf8_czech_ci NOT NULL COMMENT 'E-mail'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci COMMENT='Dobrovolníci';
 
 
 DROP VIEW IF EXISTS `_autocomplete`;
 CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `_autocomplete` AS select `category`.`label` AS `label` from `category` union select `exercise`.`label` AS `label` from `exercise` union select `tag`.`label` AS `label` from `tag` union select `video`.`label` AS `label` from `video`;
 
--- 2012-12-15 14:11:18
+-- 2013-01-23 21:44:50
