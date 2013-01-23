@@ -8,7 +8,7 @@ class HomepagePresenter extends BaseFrontPresenter
 
 	public function renderDefault()
 	{
-		$this->template->featured_video = $this->context->videos->findRandom();
+		$this->template->featured_video = $this->context->videos->findRandomDubbed();
 		$this->template->hide_search = TRUE;
 
 		$examples = [

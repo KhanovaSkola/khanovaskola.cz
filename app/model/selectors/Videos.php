@@ -67,6 +67,14 @@ class Videos extends Table
 	}
 
 
+
+	public function findRandomDubbed()
+	{
+		return $this->findAllDubbed()->order('Rand()')->limit(1)->fetch();
+	}
+
+
+
 	/**
 	 * @param Exercise $exercise
 	 * @return Video[]
