@@ -134,6 +134,8 @@ class WatchPresenter extends BaseFrontPresenter
 
 			$video = $this->context->videos->find($vid->id);
 			$video->addSlug($video->label);
+			$video->updateMetaData();
+			$video->update();
 
 			foreach ($v->categories as $cid) {
 				$this->context->categories->find($cid)->addVideo($video);
@@ -150,7 +152,9 @@ class WatchPresenter extends BaseFrontPresenter
 			$vid = $this->video;
 			$vid->label = $v->label;
 			$vid->description = $v->description;
+
 			$vid->youtube_id = $v->youtube_id;
+			$vid->updateMetaData();
 			$vid->update();
 
 			$vid->addSlug($v->label);

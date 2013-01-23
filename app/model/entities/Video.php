@@ -95,6 +95,25 @@ class Video extends EntityUrl
 
 
 	/**
+	 * Queries 3rd party server for metadata
+	 * Does not update the db record
+	 */
+	public function updateMetaData()
+	{
+		$meta = $this->getMetaData();
+		$this->duration = $meta->data->duration;
+		$this->uploader = $meta->data->uploader;
+
+		// add dubbed tag if applies
+		$tag = $this->context->tags->findDubTag();
+		if ($this->isDubbed()) {
+			$this->addTag($tag->id);
+		}
+	}
+
+
+
+	/**
 	 * @return bool
 	 */
 	public function isDubbed()
