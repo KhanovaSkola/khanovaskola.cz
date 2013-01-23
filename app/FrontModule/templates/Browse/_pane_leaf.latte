@@ -18,6 +18,12 @@
 					<a n:href=":Front:Watch:add, categories => [$leaf->id]" class="call-to-action simple-button blue">Přidat video</a>
 				</div>
 				<div>Stopáž: {$leaf->getDuration()|time}</div>
+				{if $user->isInrole(\NetteUser::ROLE_ADMIN) && count($selected->getSlugs()) > 1}
+					<b>Aliasy:</b>
+					<ol>
+						<li n:foreach="$selected->getSlugs() as $slug"><a n:href="this, id => $slug">{$slug}</a></li>
+					</ol>
+				{/if}
 			</div>
 		</div>
 		<div class="videos-list">

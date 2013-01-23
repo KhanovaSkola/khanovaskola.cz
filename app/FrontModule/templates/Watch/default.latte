@@ -44,6 +44,12 @@
 						<span itemprop="name caption" class="title desktop-only">{$video->label}</span><span n:if="$video->description" class="long-description">: <span itemprop="description">{$video->description}</span></span>
 						<a n:href="editSubtitles" class="subtitles-edit" rel="nofollow">upravit titulky</a>
 					</h1>
+					<div>
+						{if $user->isInrole(\NetteUser::ROLE_ADMIN) && count($video->getSlugs()) > 1}
+							<b>Aliasy:</b>
+							{foreach $video->getSlugs() as $slug}<a n:href="this, vid => $slug">{$slug}</a>{sep}, {/sep}{/foreach}
+						{/if}
+					</div>
 					<a n:if="$user->isInrole(\NetteUser::ROLE_EDITOR)" n:href="edit" class="call-to-action simple-button blue">Upravit</a>
 				</div>
 				<div class="video-header" style="min-height: 1px">
