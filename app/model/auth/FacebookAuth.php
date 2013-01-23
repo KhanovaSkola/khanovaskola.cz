@@ -43,6 +43,7 @@ class FacebookAuth extends Nette\Object implements \Nette\Security\IAuthenticato
 				'name' => $info['name'],
 				'facebook_id' => (int) $info['id'],
 				'mail' => $info['email'],
+				'registration' => time(),
 				'role' => '',
 			]);
 		}

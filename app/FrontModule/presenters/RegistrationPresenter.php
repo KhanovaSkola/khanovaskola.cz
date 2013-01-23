@@ -63,6 +63,7 @@ class RegistrationPresenter extends BaseFrontPresenter
 			'mail' => $v->mail,
 			'password' => $hash,
 			'salt' => $salt,
+			'registration' => time(),
 			'role' => '',
 		]);
 

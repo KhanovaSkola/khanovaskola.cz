@@ -70,6 +70,10 @@ class NetteUser extends \Nette\Security\User
 		$this->storage->setIdentity($id);
 		$this->storage->setAuthenticated(TRUE);
 		$this->onLoggedIn($this);
+
+		$entity = $this->getEntity();
+		$entity->last_login = time();
+		$entity->update();
 	}
 
 

@@ -8,6 +8,8 @@
  * @property string $name
  * @property string $facebook_id
  * @property string $google_id
+ * @property int $registartion	unix timestamp
+ * @property int $last_login	unix timestamp
  */
 class User extends Entity
 {

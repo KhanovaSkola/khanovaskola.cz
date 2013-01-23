@@ -42,6 +42,7 @@ class GoogleAuth extends Nette\Object implements \Nette\Security\IAuthenticator
 				'name' => $info->name,
 				'google_id' => $info->id,
 				'mail' => $info->email,
+				'registration' => time(),
 				'role' => '',
 			]);
 		}
