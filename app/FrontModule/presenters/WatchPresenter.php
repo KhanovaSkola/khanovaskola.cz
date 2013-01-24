@@ -103,6 +103,7 @@ class WatchPresenter extends BaseFrontPresenter
 		$form->addTextArea('description', 'Popis');
 		$form->addMultiSelect('tags', 'Tagy', $this->context->tags->getFill());
 		$form->addMultiSelect('categories', 'Kategorie', $this->context->categories->getFill());
+		$form->addSelect('author_id', 'Dabing', $this->context->authors->getFill());
 
 		$form->addSubmit('send', 'Uložit');
 	}
@@ -119,6 +120,9 @@ class WatchPresenter extends BaseFrontPresenter
 			return FALSE;
 		}
 
+		$author_id = $v->author_id != 0 ? $v->author_id : NULL;
+		dump($v->author_id, $author_id, $v->youtube_id);
+
 		if ($this->action === 'add') {
 			if (!$this->user->isInrole(\NetteUser::ROLE_ADDER)) {
 				throw new \Nette\Application\ForbiddenRequestException;
@@ -128,7 +132,8 @@ class WatchPresenter extends BaseFrontPresenter
 				$vid = $this->context->videos->insert([
 					'label' => $v->label,
 					'description' => $v->description,
-					'youtube_id' => $v->youtube_id
+					'youtube_id' => $v->youtube_id,
+					'author_id' => $author_id,
 				]);
 			} catch (\PDOException $e) {
 				if ($e->getCode() != 23000) {
@@ -158,7 +163,7 @@ class WatchPresenter extends BaseFrontPresenter
 			$vid = $this->video;
 			$vid->label = $v->label;
 			$vid->description = $v->description;
-
+			$vid->author_id = $author_id;;
 			$vid->youtube_id = $v->youtube_id;
 			$vid->updateMetaData();
 			$vid->update();
@@ -200,6 +205,7 @@ class WatchPresenter extends BaseFrontPresenter
 		$form['youtube_id']->setValue($vid->youtube_id);
 		$form['tags']->setValue($vid->getTagsIds());
 		$form['categories']->setValue($vid->getCategoryIds());
+		$form['author_id']->setValue($vid->author_id);
 	}
 
 
