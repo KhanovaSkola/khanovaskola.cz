@@ -8,6 +8,7 @@
  * @property string	$youtube_id
  * @property int	$duration		seconds
  * @property string	$uploader		youtube username
+ * @property int	$author_id
  */
 class Video extends EntityUrl
 {
@@ -305,6 +306,23 @@ class Video extends EntityUrl
 	public function getOneCategory()
 	{
 		return $this->context->categories->find($this->getOneCategoryId());
+	}
+
+
+
+	public function hasAuthor()
+	{
+		return $this->author_id !== NULL;
+	}
+
+
+
+	public function getAuthor()
+	{
+		if (!$this->author_id)
+			return NULL;
+
+		return $this->context->authors->find($this->author_id);
 	}
 
 }

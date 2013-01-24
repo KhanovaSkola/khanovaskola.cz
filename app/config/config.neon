@@ -51,6 +51,7 @@ services:
 	authenticator_password: PasswordAuth
 
 	articles: Articles('article')
+	authors: Authors('author')
 	categories: Categories('category')
 	videos: Videos('video')
 	users: Users('user')
