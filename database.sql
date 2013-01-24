@@ -34,6 +34,15 @@ CREATE TABLE `article` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+DROP TABLE IF EXISTS `author`;
+CREATE TABLE `author` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_czech_ci NOT NULL COMMENT 'Jméno',
+  `role` enum('dubbing') COLLATE utf8_czech_ci NOT NULL COMMENT 'Role',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci COMMENT='Autoři';
+
+
 DROP TABLE IF EXISTS `category`;
 CREATE TABLE `category` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -198,7 +207,7 @@ CREATE TABLE `task` (
 DROP TABLE IF EXISTS `url`;
 CREATE TABLE `url` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `type` enum('article','category','exercise','tag','video') COLLATE utf8_czech_ci NOT NULL,
+  `type` enum('article','category','exercise','tag','video','video_ad') COLLATE utf8_czech_ci NOT NULL,
   `entity_id` bigint(20) unsigned NOT NULL,
   `slug` varchar(255) COLLATE utf8_czech_ci NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -232,10 +241,13 @@ CREATE TABLE `video` (
   `youtube_id` varchar(50) COLLATE utf8_czech_ci NOT NULL COMMENT 'youtube_id (bez mezer okolo)',
   `duration` int(10) unsigned NOT NULL COMMENT 'délka (sec)',
   `uploader` varchar(255) COLLATE utf8_czech_ci NOT NULL COMMENT 'uploader',
+  `author_id` bigint(20) unsigned DEFAULT NULL COMMENT 'autor',
   PRIMARY KEY (`id`),
   UNIQUE KEY `label` (`label`),
   UNIQUE KEY `youtube_id` (`youtube_id`),
   KEY `exercise_id` (`exercise_id`),
+  KEY `author_id` (`author_id`),
+  CONSTRAINT `video_ibfk_3` FOREIGN KEY (`author_id`) REFERENCES `author` (`id`) ON DELETE SET NULL,
   CONSTRAINT `video_ibfk_2` FOREIGN KEY (`exercise_id`) REFERENCES `exercise` (`id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
@@ -250,4 +262,4 @@ CREATE TABLE `volunteer` (
 DROP VIEW IF EXISTS `_autocomplete`;
 CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `_autocomplete` AS select `category`.`label` AS `label` from `category` union select `exercise`.`label` AS `label` from `exercise` union select `tag`.`label` AS `label` from `tag` union select `video`.`label` AS `label` from `video`;
 
--- 2013-01-23 21:44:50
+-- 2013-01-24 19:05:50
