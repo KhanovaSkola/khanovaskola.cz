@@ -134,6 +134,7 @@ class WatchPresenter extends BaseFrontPresenter
 		$form->addMultiSelect('tags', 'Tagy', $this->context->tags->getFill());
 		$form->addMultiSelect('categories', 'Kategorie', $this->context->categories->getFill());
 		$form->addSelect('author_id', 'Dabing', $this->context->authors->getFill());
+		$form->addText('external_exercise_url', 'Externí cvičení');
 
 		$form->addSubmit('send', 'Uložit');
 	}
@@ -164,6 +165,7 @@ class WatchPresenter extends BaseFrontPresenter
 					'description' => $v->description,
 					'youtube_id' => $v->youtube_id,
 					'author_id' => $author_id,
+					'external_exercise_url' => $v->external_exercise_url,
 				]);
 			} catch (\PDOException $e) {
 				if ($e->getCode() != 23000) {
@@ -193,7 +195,8 @@ class WatchPresenter extends BaseFrontPresenter
 			$vid = $this->video;
 			$vid->label = $v->label;
 			$vid->description = $v->description;
-			$vid->author_id = $author_id;;
+			$vid->author_id = $author_id;
+			$vid->external_exercise_url = $v->external_exercise_url;
 			$vid->youtube_id = $v->youtube_id;
 			$vid->updateMetaData();
 			$vid->update();

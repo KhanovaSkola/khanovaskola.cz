@@ -9,6 +9,7 @@
  * @property int	$duration		seconds
  * @property string	$uploader		youtube username
  * @property int	$author_id
+ * @property string $external_exercise_url
  */
 class Video extends EntityUrl
 {
