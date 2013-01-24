@@ -44,7 +44,7 @@
 					<a n:if="!$exercise && $video->external_exercise_url" href="{$video->external_exercise_url}" class="practice simple-button blue desktop-only" target="_blank">
 						Externí cvičení</a></a>
 					<h1 class="title-header">
-						<span itemprop="name caption" class="title desktop-only">{$video->label}</span><span n:if="$video->description" class="long-description">: <span itemprop="description">{$video->description}</span>{if $video->hasAuthor()} Dabing {$video->getAuthor()->name}.{/if}</span>
+						<span itemprop="name caption" class="title desktop-only">{$video->label}</span><span n:if="$video->description" class="long-description">: <span itemprop="description">{$video->description}</span>{if $video->hasAuthor()} Dabing {!$video->getAuthor()->getNbName()}.{/if}</span>
 						<a n:if="!$video->isDubbed()" n:href="editSubtitles" class="subtitles-edit" rel="nofollow">upravit titulky</a>
 					</h1>
 					<div>

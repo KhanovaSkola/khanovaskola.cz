@@ -7,4 +7,9 @@
 class Author extends Entity
 {
 
+	public function getNbName()
+	{
+		return str_replace(' ', '&nbsp;', htmlspecialchars($this->name));
+	}
+
 }
