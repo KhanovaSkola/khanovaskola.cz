@@ -121,8 +121,12 @@ class SignPresenter extends BasePresenter
 
 
 
-	public function actionFbAuth()
+	public function actionFbAuth($error)
 	{
+		if ($error === "access_denied") {
+			$this->flashMessage('Povolte prosím přístup Khanově škole na váš Facebook účet. Ukládáme pouze vaše jméno a email.');
+			$this->redirect('in');
+		}
 		$info = $this->context->facebook->api('/me');
 		if ($info) {
 			$this->user->facebookLogin($info);
