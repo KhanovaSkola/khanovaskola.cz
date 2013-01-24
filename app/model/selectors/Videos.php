@@ -49,7 +49,17 @@ class Videos extends Table
 	 */
 	public function findByTag(Tag $tag)
 	{
-		return $this->getTable()->where('id', $tag->getVideosIds());
+		$ids = $tag->getVideosIds();
+		if (!count($ids)) {
+			// return empty result, we can't have empty FIELD() in mysql
+			return $this->findBy([
+				'id' => $ids
+			]);
+		}
+
+		return $this->findBy([
+			'id' => $ids,
+		])->order('FIELD(id,' . implode(',', $tag->getOrderedVideosIds()) . '), id');
 	}
 
 

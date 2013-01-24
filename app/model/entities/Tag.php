@@ -51,4 +51,21 @@ class Tag extends EntityUrl
 		return $ids;
 	}
 
+
+
+	/**
+	 * @return int[]
+	 */
+	public function getOrderedVideosIds()
+	{
+		$ids = [];
+		foreach ($this->context->videos->findBy(['id' => $this->getVideosIds()]) as $video) {
+			$cid = $video->getOneCategoryId();
+			$position = $this->context->database->query('SELECT position FROM category_video WHERE category_id=? AND video_id=?', $cid, $video->id)->fetch()->position;
+			$ids[$cid * 1000 + $position] = $video->id;
+		}
+		ksort($ids);
+		return $ids;
+	}
+
 }
