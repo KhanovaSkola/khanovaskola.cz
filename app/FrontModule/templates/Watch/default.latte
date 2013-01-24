@@ -45,9 +45,10 @@
 						<a n:href="editSubtitles" class="subtitles-edit" rel="nofollow">upravit titulky</a>
 					</h1>
 					<div>
-						{if $user->isInrole(\NetteUser::ROLE_ADMIN) && count($video->getSlugs()) > 1}
+						{if $user->isInrole(\NetteUser::ROLE_ADMIN) && count($video->getSlugs()) > 1 || count($video->getAdSlugs())}
 							<b>Aliasy:</b>
-							{foreach $video->getSlugs() as $slug}<a n:href="this, vid => $slug">{$slug}</a>{sep}, {/sep}{/foreach}
+							{foreach $video->getSlugs() as $slug}<a n:href="this, vid => $slug">{plink this, vid => $slug}</a>{sep}, {/sep}{/foreach}, 
+							{foreach $video->getAdSlugs() as $slug}<a n:href="alias, vid => $slug, id => NULL">{plink alias, vid => $slug, id => NULL}</a>{sep}, {/sep}{/foreach}
 						{/if}
 					</div>
 					<a n:if="$user->isInrole(\NetteUser::ROLE_EDITOR)" n:href="edit" class="call-to-action simple-button blue">Upravit</a>

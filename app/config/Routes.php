@@ -44,6 +44,27 @@ class Routes
 		]);
 
 		/**
+		 * SEO Video adwords (short)
+		 */
+		$videoAdRoute = new VideoAdRoute('a/<vid>', [
+			'vid' => [
+				Route::FILTER_OUT => function ($vid) use ($container) {
+					if (!is_numeric($vid)) {
+						return $vid;
+
+					} else {
+						return $container->videos->find($vid)->getAdSlug();
+					}
+				}
+			],
+			'module' => 'Front',
+			'presenter' => 'Watch',
+			'action' => 'alias',
+		]);
+		$videoAdRoute->init($container, 'id', 'vid');
+		$container->router[] = $videoAdRoute;
+
+		/**
 		 * SEO Video
 		 */
 		$videoRoute = new VideoRoute('[!v/]<id>/<vid>[/<action>]', [

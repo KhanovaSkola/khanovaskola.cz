@@ -153,4 +153,13 @@ class Videos extends Table
 		return $this->findAll()->order('label')->fetchPairs('id', 'label');
 	}
 
+
+
+	public function findByAdSlug($slug)
+	{
+		foreach ($this->context->database->query('SELECT * FROM url WHERE slug=? AND type=?', $slug, 'video_ad') as $row) {
+			return $this->find($row['entity_id']);
+		}
+	}
+
 }

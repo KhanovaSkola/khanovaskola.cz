@@ -53,6 +53,13 @@ class WatchPresenter extends BaseFrontPresenter
 
 
 
+	public function renderAlias()
+	{
+		$this->redirect('default');
+	}
+
+
+
 	public function renderDefault($autoplay = 0)
 	{
 		$this->template->autoplay = $autoplay;
@@ -91,6 +98,29 @@ class WatchPresenter extends BaseFrontPresenter
 		$this->terminate();
 	}
 
+
+
+	public function createComponentAliasForm($name)
+	{
+		$form = $this->createForm($name);
+
+		$form->addText('alias', 'Alias');
+
+		$form->addSubmit('send', 'Přidat');
+	}
+
+
+
+	public function onSuccessAliasForm($form)
+	{
+		$v = $form->values;
+		if ($this->video->addAlias($v->alias)) {
+			$this->flashMessage('Alias byl úspěšně přidán.');
+			$this->redirect('default');
+		} else {
+			$form->addError('Tento alias je už používaný.');
+		}
+	}
 
 
 

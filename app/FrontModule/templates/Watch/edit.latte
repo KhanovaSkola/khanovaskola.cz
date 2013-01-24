@@ -16,7 +16,12 @@
 <article id="backend-form">
 	<div>
 		<h2 class="main-headline" style="white-space: pre;">Úprava videa</h2>
-		{control videoForm}
+		<div class="col1 fifty-fifty">
+			{control videoForm}
+		</div>
+		<div class="col2 fifty-fifty" n:if="$user->isInRole(\NetteUser::ROLE_ADMIN)">
+			{control aliasForm}
+		</div>
 	</div>
 	<div class="clear" style="margin-bottom:36px;"></div>
 	<hr class="margin-bottom: 18px;">
