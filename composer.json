@@ -7,7 +7,7 @@
 	"repositories": [
 		{
 			"type": "vcs",
-			"url": "/Volumes/Data/Web/php-git-grabber"
+			"url": "git@31.31.72.76:php-git-grabber.git"
 		}
 	],
 	"require": {
