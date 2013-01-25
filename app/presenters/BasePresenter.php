@@ -1,5 +1,8 @@
 <?php
 
+use Mikulas\Git;
+
+
 /**
  * @property NetteUser $user
  * @property bool $moderator

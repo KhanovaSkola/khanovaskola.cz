@@ -4,6 +4,7 @@ namespace FrontModule;
 
 use Nette\Application\UI\Form;
 use Nette\Caching\Cache;
+use Mikulas\Git;
 
 
 class ContactPresenter extends BaseFrontPresenter
@@ -50,8 +51,8 @@ class ContactPresenter extends BaseFrontPresenter
 		}
 
 		$data['label'] = ucFirst($data['label']);
-		$data['branch'] = \Git::getBranch();
-		$data['commit'] = substr(\Git::getCommit(), 0, 7);
+		$data['branch'] = Git::getBranch();
+		$data['commit'] = substr(Git::getCommit(), 0, 7);
 		$gh->createIssue($data);
 
 		$cache = new Cache($this->context->cacheStorage);

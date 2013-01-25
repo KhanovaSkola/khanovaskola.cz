@@ -1,8 +1,7 @@
 <?php
 
 // Load Nette Framework
-require LIBS_DIR . '/Nette/loader.php';
-require LIBS_DIR . '/Markdown.php'; // not class, loaded directly
+require __DIR__ . '/../vendor/autoload.php';
 
 // Configure application
 $configurator = new Nette\Config\Configurator;
@@ -16,10 +15,7 @@ $configurator->enableDebugger(__DIR__ . '/../log');
 $configurator->setTempDirectory(__DIR__ . '/../temp');
 $configurator->createRobotLoader()
 	->addDirectory(APP_DIR)
-	->addDirectory(LIBS_DIR)
 	->register();
-
-Kdyby\Forms\Containers\Replicator::register();
 
 // Create Dependency Injection container from config.neon file
 $configurator->addConfig(__DIR__ . '/config/config.neon');

@@ -4,8 +4,7 @@ namespace FrontModule;
 
 use Nette\Application\UI\Form;
 use Nette\Caching\Cache;
-
-require(LIBS_DIR . '/' . 'simple_html_dom.php');
+use Sunra\PhpSimple\HtmlDomParser;
 
 
 class ExercisePresenter extends BaseFrontPresenter
@@ -45,7 +44,7 @@ class ExercisePresenter extends BaseFrontPresenter
 		$this->template->exercise = $this->exercise;
 		$raw = file_get_contents(WWW_DIR . "/exercise/translated/{$this->exercise->file}.html");
 		$raw = str_replace('src="../khan-exercise.js"', 'src="/exercise/khan-exercise.js"', $raw);
-		$html = \str_get_html($raw);
+		$html = HtmlDomParser::str_get_html($raw);
 
 		$content = ['scripts' => [], 'body' => NULL];
 		foreach ($html->find('head script') as $node) {

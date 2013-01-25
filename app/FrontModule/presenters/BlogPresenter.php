@@ -37,7 +37,7 @@ class BlogPresenter extends BaseFrontPresenter
 	protected function createTemplate($class = NULL)
 	{
 		$template = parent::createTemplate($class);
-		$template->registerHelper('markdown', callback('\Markdown'));
+		$template->registerHelper('markdown', callback('\Michelf\Markdown::defaultTransform'));
 
 		return $template;
 	}

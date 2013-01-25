@@ -1,0 +1,21 @@
+{
+	"name": "khanovaskola/khanovaskola.cz",
+	"description": "Education video site",
+	"homepage": "http://khanovaskola.cz",
+	"license": ["BSD-3-Clause"],
+	"authors": [{"name": "Mikulas Dite"}],
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "/Volumes/Data/Web/php-git-grabber"
+		}
+	],
+	"require": {
+		"php": ">=5.4.0",
+		"nette/nette": ">=2.1@dev",
+		"facebook/php-sdk": "dev-master",
+		"michelf/php-markdown": "1.3.*@dev",
+		"sunra/php-simple-html-dom-parser": "dev-master",
+		"mikulas/gitcommit": "dev-master"
+	}
+}
