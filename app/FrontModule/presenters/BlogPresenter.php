@@ -177,7 +177,7 @@ class BlogPresenter extends BaseFrontPresenter
 			$items[] = [
 				'link' => $this->link("//:Front:Blog:detail", ['aid' => $article->id]),
 				'title' => $article->label,
-				'description' => \Markdown($article->text),
+				'description' => \Michelf\Markdown::defaultTransform($article->text),
 			];
 		}
 
