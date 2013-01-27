@@ -1,5 +1,5 @@
 {
-    "hash": "180a3751513cbc4be7003a0b897f0265",
+    "hash": "b8f5a14fd5b597249c6e0454106f1506",
     "packages": [
         {
             "name": "facebook/php-sdk",
@@ -102,8 +102,14 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "/Volumes/Data/Web/php-git-grabber",
+                "url": "https://github.com/Mikulas/php-git-grabber",
                 "reference": "eac9eb80dd9052fcfdd82ef741b35219b2bc29cd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/Mikulas/php-git-grabber/archive/eac9eb80dd9052fcfdd82ef741b35219b2bc29cd.zip",
+                "reference": "eac9eb80dd9052fcfdd82ef741b35219b2bc29cd",
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.2.0"
@@ -116,6 +122,7 @@
                     "Git.php"
                 ]
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3"
             ],
@@ -246,60 +253,7 @@
             ]
         }
     ],
-    "packages-dev": [
-        {
-            "name": "nette/tester",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nette/tester",
-                "reference": "5150a9451d84c5d4292692ea6c5b593a92535e67"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/nette/tester/archive/5150a9451d84c5d4292692ea6c5b593a92535e67.zip",
-                "reference": "5150a9451d84c5d4292692ea6c5b593a92535e67",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "time": "2012-12-17 13:52:17",
-            "bin": [
-                "Tester/tester"
-            ],
-            "type": "library",
-            "installation-source": "source",
-            "autoload": {
-                "classmap": [
-                    "Tester/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause",
-                "GPL-2.0",
-                "GPL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "David Grudl",
-                    "homepage": "http://davidgrudl.com"
-                },
-                {
-                    "name": "Nette Community",
-                    "homepage": "http://nette.org/contributors"
-                }
-            ],
-            "description": "An easy-to-use PHP Unit Testing framework.",
-            "homepage": "http://nette.org",
-            "keywords": [
-                "testing",
-                "nette",
-                "unit"
-            ]
-        }
-    ],
+    "packages-dev": null,
     "aliases": [
 
     ],
