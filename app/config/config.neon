@@ -38,8 +38,6 @@ nette:
 
 
 services:
-	database: @Nette\Database\Connection
-
 	facebook: Facebook([appId: %facebook.appId%, secret: %facebook.secret%])
 	google: Google([id: %google.id%, secret: %google.secret%])
 

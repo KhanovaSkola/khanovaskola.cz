@@ -5,7 +5,7 @@ SET foreign_key_checks = 0;
 SET time_zone = 'SYSTEM';
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
-CREATE DATABASE `khanovaskola` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_czech_ci */;
+
 USE `khanovaskola`;
 
 DROP TABLE IF EXISTS `answer`;

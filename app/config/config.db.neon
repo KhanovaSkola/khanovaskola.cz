@@ -1,0 +1,10 @@
+
+nette:
+	database:
+		default:
+			dsn: "mysql:host=%database.host%;dbname=%database.dbname%"
+			user: %database.user%
+			password: %database.password%
+
+services:
+	database: @Nette\Database\Connection
