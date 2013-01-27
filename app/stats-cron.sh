@@ -1,3 +1,3 @@
 #!/bin/sh
 
-sudo php post-stats.php
+sudo php /srv/virtual_hosts/khanovaskola.cz/app/post-stats.php
