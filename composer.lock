@@ -1,5 +1,5 @@
 {
-    "hash": "b8f5a14fd5b597249c6e0454106f1506",
+    "hash": "8069b9478a10f95ab528491fc0745ffd",
     "packages": [
         {
             "name": "facebook/php-sdk",
@@ -43,6 +43,52 @@
             "keywords": [
                 "facebook",
                 "sdk"
+            ]
+        },
+        {
+            "name": "kriswallsmith/buzz",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "http://github.com/kriswallsmith/Buzz.git",
+                "reference": "8ff1d1910b9e04ac571bcf6d639559e065093136"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/kriswallsmith/Buzz/archive/8ff1d1910b9e04ac571bcf6d639559e065093136.zip",
+                "reference": "8ff1d1910b9e04ac571bcf6d639559e065093136",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "suggest": {
+                "ext-curl": "*"
+            },
+            "time": "2013-01-14 16:07:06",
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Buzz": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kris Wallsmith",
+                    "email": "kris.wallsmith@gmail.com",
+                    "homepage": "http://kriswallsmith.net/"
+                }
+            ],
+            "description": "Lightweight HTTP client",
+            "homepage": "https://github.com/kriswallsmith/Buzz",
+            "keywords": [
+                "curl",
+                "http client"
             ]
         },
         {
@@ -132,6 +178,50 @@
                 }
             ],
             "description": "git commit grabber"
+        },
+        {
+            "name": "nesQuick/Metrics",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nesQuick/PHP-Metrics-Client",
+                "reference": "a612705a2e9887ee757cd23ed61251c27836abf0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/nesQuick/PHP-Metrics-Client/archive/a612705a2e9887ee757cd23ed61251c27836abf0.zip",
+                "reference": "a612705a2e9887ee757cd23ed61251c27836abf0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3",
+                "kriswallsmith/buzz": "dev-master"
+            },
+            "time": "2012-05-15 08:35:21",
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Metrics": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ole 'nesQuick' Michaelis",
+                    "email": "ole.michaelis@googlemail.com",
+                    "homepage": "http://www.codestars.eu"
+                }
+            ],
+            "description": "PHP Client for Librato Metrics APIs.",
+            "keywords": [
+                "api",
+                "client",
+                "Metrics"
+            ]
         },
         {
             "name": "nette/nette",
@@ -310,13 +400,14 @@
     "aliases": [
 
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
         "nette/nette": 20,
         "facebook/php-sdk": 20,
         "michelf/php-markdown": 20,
         "sunra/php-simple-html-dom-parser": 20,
         "mikulas/gitcommit": 20,
+        "nesquick/metrics": 20,
         "nette/tester": 20
     }
 }

@@ -4,13 +4,15 @@
 	"homepage": "http://khanovaskola.cz",
 	"license": ["BSD-3-Clause"],
 	"authors": [{"name": "Mikulas Dite"}],
+	"minimum-stability": "dev",
 	"require": {
 		"php": ">=5.4.0",
 		"nette/nette": ">=2.1@dev",
 		"facebook/php-sdk": "dev-master",
 		"michelf/php-markdown": "1.3.*@dev",
 		"sunra/php-simple-html-dom-parser": "dev-master",
-		"mikulas/gitcommit": "dev-master"
+		"mikulas/gitcommit": "dev-master",
+		"nesQuick/Metrics": "dev-master"
 	},
     "require-dev": {
         "nette/tester": "@dev"
