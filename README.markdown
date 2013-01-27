@@ -28,3 +28,7 @@ License
 -------
 
 Source codes from the aformentioned assets are published under the respective licenses. Changes, patches and original code are released either under GNU General Public License, MIT license and/or Creative Commons BY-NC-SA 3.0, depending on what the code does affect.
+
+----
+
+[![Build Status](https://travis-ci.org/KhanovaSkola/khanovaskola.cz.png?branch=master)](https://travis-ci.org/KhanovaSkola/khanovaskola.cz)
