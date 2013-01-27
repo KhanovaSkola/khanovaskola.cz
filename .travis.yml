@@ -6,5 +6,6 @@ php:
 before_script:
   - composer self-update
   - composer install --no-interaction --dev
+  - php db/migrate.php test
 
 script: vendor/nette/tester/Tester/tester tests/
