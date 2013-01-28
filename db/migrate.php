@@ -4,7 +4,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use Nette\Utils\Finder;
 
-$modes = ['local', 'test'];
+$modes = ['local', 'test', 'test_test'];
 if ($argc < 2 || !in_array($argv[1], $modes)) {
 	echo "Usage $argv[0] (" . implode('|', $modes) . ") [--drop]\n";
 	die(1);
