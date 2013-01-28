@@ -46,8 +46,6 @@ foreach ($data as $label => $value) {
 	];
 }
 
-dump($counters); die;
-
 $c = $container->parameters['metrics'];
 $client = new Client($c['user'], $c['key']);
 $res = $client->post('/metrics', ['gauges' => $counters]);
