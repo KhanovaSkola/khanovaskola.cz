@@ -46,7 +46,7 @@ foreach ($data as $label => $value) {
 
 $c = $container->parameters['metrics'];
 $client = new Client($c['user'], $c['key']);
-$res = $client->post('/metrics', ['counters' => $counters]);
+$res = $client->post('/metrics', ['gauges' => $counters]);
 if ($res !== NULL) {
 	var_dump($res);
 	die(1);
