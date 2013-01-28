@@ -27,13 +27,27 @@ $configurator->addConfig(__DIR__ . '/config/config.local.neon');
 $container = $configurator->createContainer();
 
 $data = [
-	['name' => 'total_users', 'value' => $container->users->findAll()->count()],
-	['name' => 'regs_google', 'value' => $container->users->findBy(['google_id IS NOT NULL'])->count()],
-	['name' => 'regs_fb', 'value' => $container->users->findBy(['facebook_id IS NOT NULL'])->count()],
-	['name' => 'regs_pass', 'value' => $container->users->findBy(['password <> 0'])->count()]
+	'Registrations' => $container->users->findAll()->count(),
+	'Registrations (Google)' => $container->users->findBy(['google_id IS NOT NULL'])->count(),
+	'Registrations (FB)' => $container->users->findBy(['facebook_id IS NOT NULL'])->count(),
+	'Registrations (Pass)' => $container->users->findBy(['password <> 0'])->count(),
 ];
-dump($data);
+
+$counters = [];
+foreach ($data as $label => $value) {
+	$counters[] = [
+		'name' => \Nette\Utils\Strings::webalize($label),
+		'display_name' => $label,
+		'value' => $value,
+		'period' => 15 * 60,
+		'attributes' => ['display_min' => 0],
+	];
+}
 
 $c = $container->parameters['metrics'];
 $client = new Client($c['user'], $c['key']);
-$client->post('/metrics', ['gauges' => $data]);
+$res = $client->post('/metrics', ['counters' => $counters]);
+if ($res !== NULL) {
+	var_dump($res);
+	die(1);
+}
