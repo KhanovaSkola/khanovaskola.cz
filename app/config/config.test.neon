@@ -5,3 +5,8 @@ parameters:
 		dbname: khanovaskola_test
 		user: root
 		password:
+
+nette:
+	database:
+		default:
+			dsn: "mysql:unix_socket=/tmp/mysql.sock;host=%database.host%;dbname=%database.dbname%"

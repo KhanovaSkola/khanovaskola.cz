@@ -8,4 +8,4 @@ before_script:
   - composer install --no-interaction --dev
   - php db/migrate.php test
 
-script: vendor/nette/tester/Tester/tester tests/
+script: vendor/nette/tester/Tester/tester tests/ -s

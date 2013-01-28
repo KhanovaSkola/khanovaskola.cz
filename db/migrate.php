@@ -5,8 +5,8 @@ require __DIR__ . '/../vendor/autoload.php';
 use Nette\Utils\Finder;
 
 $modes = ['local', 'test'];
-if ($argc !== 2 || !in_array($argv[1], $modes)) {
-	echo "Usage $argv[0] (" . implode('|', $modes) . ")\n";
+if ($argc < 2 || !in_array($argv[1], $modes)) {
+	echo "Usage $argv[0] (" . implode('|', $modes) . ") [--drop]\n";
 	die(1);
 }
 
@@ -18,8 +18,17 @@ $configurator->createRobotLoader()
 $configurator->addConfig(__DIR__ . "/../app/config/config.db.neon");
 $configurator->addConfig(__DIR__ . "/../app/config/config.$argv[1].neon");
 $container = $configurator->createContainer();
-
 $c = $container->parameters['database'];
+
+if (isset($argv[2]) && $argv[2] === '--drop') {
+	$db = new mysqli($c['host'], $c['user'], $c['password']);
+	$db->multi_query("
+		DROP DATABASE `$c[dbname]`;
+	");
+	echo "\033[34mDatabase dropped\033[0m\n";
+	die;
+}
+
 $db = @new mysqli($c['host'], $c['user'], $c['password'], $c['dbname']);
 if ($db->connect_errno === 1049) {
 	$db = new mysqli($c['host'], $c['user'], $c['password']);
