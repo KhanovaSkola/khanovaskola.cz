@@ -31,6 +31,8 @@ $data = [
 	'Registrations (Google)' => $container->users->findBy(['google_id IS NOT NULL'])->count(),
 	'Registrations (FB)' => $container->users->findBy(['facebook_id IS NOT NULL'])->count(),
 	'Registrations (Pass)' => $container->users->findBy(['password <> 0'])->count(),
+	'Videos (Translated)' => $container->videos->findAll()->count(),
+	'Videos (Dubbed)' => $container->videos->findAllDubbed()->count(),
 ];
 
 $counters = [];
@@ -43,6 +45,8 @@ foreach ($data as $label => $value) {
 		'attributes' => ['display_min' => 0],
 	];
 }
+
+dump($counters); die;
 
 $c = $container->parameters['metrics'];
 $client = new Client($c['user'], $c['key']);
