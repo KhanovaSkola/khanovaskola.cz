@@ -1,5 +1,18 @@
 
 parameters:
+	github:
+		id:
+		secret:
+		token:
+	facebook:
+		appId:
+		secret:
+	google:
+		id:
+		secret:
+	metrics:
+		user:
+		key:
 	database:
 		host: localhost
 		dbname: khanovaskola_test
