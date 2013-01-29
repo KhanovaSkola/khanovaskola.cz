@@ -87,6 +87,12 @@ class Categories extends Table
 		foreach ($res as $row) {
 			$ids[] = $row['category_id'];
 		}
+		if (!count($ids)) {
+			// return empty result, we can't have empty FIELD() in mysql
+			return $this->findBy([
+				'id' => $ids
+			]);
+		}
 
 		return $this->findBy(['id' => $ids])->order('FIELD(id,' . implode(',', $ids) . ')')->limit(2);
 	}
