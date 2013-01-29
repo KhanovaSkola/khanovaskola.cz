@@ -49,7 +49,7 @@ class SearchPresenter extends BaseFrontPresenter
 		$res = $this->context->autocomplete->whisper($startsWith)->limit(10);
 		$words = [];
 		foreach ($res as $row) {
-			$words[] = lcFirst($row['label']);
+			$words[] = $row['label'];
 		}
 		$this->sendJson(['results' => $words]);
 	}
