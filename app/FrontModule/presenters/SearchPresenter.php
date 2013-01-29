@@ -13,7 +13,7 @@ class SearchPresenter extends BaseFrontPresenter
 
 	public function startup()
 	{
-		if (!$this->q) {
+		if (!$this->q && $this->action === 'default') {
 			$this->redirect(':Front:Homepage:');
 		}
 
@@ -40,6 +40,18 @@ class SearchPresenter extends BaseFrontPresenter
 		$this->template->exercises = $this->context->exercises->findInAny([
 			'label'
 		], $query);
+	}
+
+
+
+	public function renderAutocomplete($startsWith)
+	{
+		$res = $this->context->autocomplete->whisper($startsWith)->limit(10);
+		$words = [];
+		foreach ($res as $row) {
+			$words[] = $row['label'];
+		}
+		$this->sendJson(['results' => $words]);
 	}
 
 }

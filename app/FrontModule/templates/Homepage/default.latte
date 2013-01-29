@@ -29,6 +29,40 @@
 			_gaq.push(['_trackSocial', 'facebook', 'send', targetUrl]);
 		});
 	};
+
+	$(function() {
+		$("#large-search-input").autocomplete({
+			source: function(req, res) {
+				$.ajax({
+					url: {plink :Front:Search:autocomplete},
+					dataType: "json",
+					data: {
+						startsWith: req.term
+					},
+					success: function(data) {
+						res($.map(data.results, function(item) {
+							return {
+								label: item,
+								value: item
+							}
+						}));
+					}
+				});
+			},
+			minLength: 2,
+			delay: 200,
+			select: function(event, ui) {
+				$("#frm-search").submit();
+			},
+			open: function() {
+				$(this).removeClass("ui-corner-all").addClass("ui-corner-top");
+			},
+			close: function() {
+				$(this).removeClass("ui-corner-top").addClass("ui-corner-all");
+			}
+		});
+		$(".page-search [role=status]").hide();
+	});
 </script>
 {/#}
 {#content}

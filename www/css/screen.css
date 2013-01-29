@@ -87,6 +87,9 @@ a.subtitles-edit {float: right; font-size: 10pt;}
 #backend-form select {width: 306px;}
 .video #description .title-header .long-description {white-space: normal;}
 
+.ui-menu-item a {background-color: white !important; font-size: 12pt !important; padding-left: 26px !important;}
+.ui-menu-item a.ui-state-focus {background-color: #f2f2f2 !important;}
+
 /* ----  iPad 3 ---- */
 .ipad-only {display: none;}
 @media only screen and (max-device-width: 2048px) and (-webkit-min-device-pixel-ratio: 2)
