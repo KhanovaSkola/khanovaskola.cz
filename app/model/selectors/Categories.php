@@ -75,4 +75,20 @@ class Categories extends Table
 		return $this->find($id);
 	}
 
+
+
+	public function findByVotes()
+	{
+		$res = $this->context->database->query(
+			'SELECT category_id, Count(*) as `count` FROM want_translated GROUP BY category_id ORDER BY Count(*)'
+		);
+
+		$ids = [];
+		foreach ($res as $row) {
+			$ids[] = $row['category_id'];
+		}
+
+		return $this->findBy(['id' => $ids])->order('FIELD(id,' . implode(',', $ids) . ')')->limit(2);
+	}
+
 }

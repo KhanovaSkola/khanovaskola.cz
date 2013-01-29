@@ -107,6 +107,17 @@
 			</div>
 		{/cache}
 
+		{cache expire => '+30 minutes'}
+			<div class="pin">
+				<h2>
+					Nejvíc žádané překlady
+				</h2>
+				<ol>
+					<li n:foreach="$wanted_cats->limit(6) as $category"><a n:href=":Front:Browse:, id => $category->id">{$category->label}</a> &times;{$category->getTranslationVoteCount()}</li>
+				</ol>
+			</div>
+		{/cache}
+
 		{cache tags => ['categories', 'exercises']}
 			<div class="pin">
 				{var $count => $vid['nogroupex']->count()}

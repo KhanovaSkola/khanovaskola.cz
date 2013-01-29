@@ -52,6 +52,10 @@
 			<a n:href="rules" class="call-to-action simple-button blue">Manuál / Pravidla</a>
 			<a href="http://khan-report.appspot.com/translations/subtitlestatus?language=Czech&playlist=all&display=1" class="call-to-action simple-button green" target="_blank">Začít překládat</a>
 		</p>
+		{cache expire => '+30 minutes'}
+			<b>Nejvíc žádané překlady:</b>
+			<span n:foreach="$wanted_cats as $category"><a n:href=":Front:Browse:, id => $category->id">{$category->label}</a>{sep}, {/sep}</span>
+		{/cache}
 	</div>
 
 	<hr class="thin"/>
