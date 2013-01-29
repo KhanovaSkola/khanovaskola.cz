@@ -37,9 +37,9 @@
 {#content}
 
 <article id="topic-page" itemscope="" itemtype="http://schema.org/{ifset $leaf}VideoGallery{else}CollectionPage{/ifset}">
-	{cache $selected->id . "_" . $user->isInrole(\NetteUser::ROLE_EDITOR), tags => ["category/$selected->id", "category/$category->id"]}
-		<div class="topic-page-content">
-			<div class="container">
+	<div class="topic-page-content">
+		<div class="container">
+			{cache $selected->id, tags => ["category/$selected->id", "category/$category->id"]}
 				<div class="nav-pane">
 					<ul>
 						<li n:class="$category->id == $selected->id ? 'selected'">
@@ -58,15 +58,17 @@
 					</ul>
 					<div style="clear: both"></div>
 				</div>
-				<div class="content-pane indent">
-					{ifset $leaf}
-						{include '_pane_leaf.latte'}
-					{else}
+			{/cache}
+			<div class="content-pane indent">
+				{ifset $leaf}
+					{include '_pane_leaf.latte'}
+				{else}
+					{cache $selected->id, tags => ["category/$selected->id", "category/$category->id"]}
 						{include '_pane_topic.latte'}
-					{/ifset}
-				</div>
+					{/cache}
+				{/ifset}
 			</div>
 		</div>
-	{/cache}
+	</div>
 
 </article>

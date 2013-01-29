@@ -356,4 +356,37 @@ class Category extends EntityUrl
 		}
 	}
 
+
+
+	public function hasUserVotedFor(User $user)
+	{
+		$res = $this->context->database->query('SELECT Count(*) as `count`
+			FROM `want_translated` WHERE `category_id`=? and `user_id`=?', $this->id, $user->id)->fetch();
+		return $res['count'] !== 0;
+	}
+
+
+
+	public function getTranslationVoteCount()
+	{
+		$res = $this->context->database->query('SELECT Count(*) as `count`
+			FROM `want_translated` WHERE `category_id`=?', $this->id)->fetch();
+		return $res['count'];
+	}
+
+
+
+	public function addVote(User $user)
+	{
+		return $this->context->database->query('INSERT INTO `want_translated`
+			(category_id, user_id) VALUES (?, ?)', $this->id, $user->id);
+	}
+
+
+
+	public function removeVote(User $user)
+	{
+		return $this->context->database->query('DELETE FROM `want_translated` WHERE `category_id`=? AND `user_id`=?', $this->id, $user->id);
+	}
+
 }

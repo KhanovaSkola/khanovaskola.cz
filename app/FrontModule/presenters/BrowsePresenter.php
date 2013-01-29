@@ -122,4 +122,28 @@ class BrowsePresenter extends BaseFrontPresenter
 		$this->redirect('this');
 	}
 
+
+
+	public function handleVote()
+	{
+		if (!$this->user->isLoggedIn() || $this->category->hasUserVotedFor($this->user->entity)) {
+			$this->redirect('this');
+		}
+
+		$this->category->addVote($this->user->entity);
+		$this->redirect('this');
+	}
+
+
+
+	public function handleRemoveVote()
+	{
+		if (!$this->user->isLoggedIn()) {
+			$this->redirect('this');
+		}
+
+		$this->category->removeVote($this->user->entity);
+		$this->redirect('this');
+	}
+
 }

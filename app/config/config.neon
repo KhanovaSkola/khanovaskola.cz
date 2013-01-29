@@ -36,7 +36,6 @@ nette:
 	debugger:
 		email: rullaf@gmail.com
 
-
 services:
 	facebook: Facebook([appId: %facebook.appId%, secret: %facebook.secret%])
 	google: Google([id: %google.id%, secret: %google.secret%])
