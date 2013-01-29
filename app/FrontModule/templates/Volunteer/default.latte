@@ -2,25 +2,29 @@
 {var $description = "Jsme dobrovolníci, kteří rádi ve svých řadách uvítají další nadšence, kteří by nám s překladem pomohli. Patříte mezi ně i vy?"}
 {#scripts}
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-	<script type="text/javascript">
-		google.load('visualization', '1.0', {'packages':['corechart']});
-		google.setOnLoadCallback(drawChart);
-		function drawChart() {
-			var data = new google.visualization.DataTable();
-			data.addColumn('string', 'Topping');
-			data.addColumn('number', 'Slices');
-			data.addRows([
-				{foreach $count as $type => $value}[{$type}, {$value}]{sep},{/sep}{/foreach}
-			]);
-			var options = {'title':'Jak jsme na tom s překladem', 'width':400, 'height':220,
-				'fontSize': 12,
-				'legend': {'textStyle': {'color': '#444', 'fontName': 'Helvetica Neue', 'fontSize': '14px'}},
-				'sliceVisibilityThreshold': 0,
-				'colors': ['#E0440E', '#2B99CA', '#89C644']};
-			var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-			chart.draw(data, options);
-		}
-	</script>
+	{cache expire => '+2 hours'}
+		<script type="text/javascript">
+			google.load('visualization', '1.0', {'packages':['corechart']});
+			google.setOnLoadCallback(drawChart);
+			function drawChart() {
+				var data = new google.visualization.DataTable();
+				data.addColumn('string', 'Topping');
+				data.addColumn('number', 'Slices');
+				data.addRows([
+					{var $translated => $presenter->context->videos->findAll()->count()}
+					{var $dubbed => $presenter->context->videos->findAllDubbed()->count()}
+					["Zbývá", {$eng_videos - $translated - $dubbed}],["Přeložené", {$translated - $dubbed}],["Dabované", {$dubbed}]
+				]);
+				var options = {'title':'Jak jsme na tom s překladem', 'width':400, 'height':220,
+					'fontSize': 12,
+					'legend': {'textStyle': {'color': '#444', 'fontName': 'Helvetica Neue', 'fontSize': '14px'}},
+					'sliceVisibilityThreshold': 0,
+					'colors': ['#E0440E', '#2B99CA', '#89C644']};
+				var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+				chart.draw(data, options);
+			}
+		</script>
+	{/cache}
 {/#}
 {#content}
 <article>
@@ -52,7 +56,7 @@
 			<a n:href="rules" class="call-to-action simple-button blue">Manuál / Pravidla</a>
 			<a href="http://khan-report.appspot.com/translations/subtitlestatus?language=Czech&playlist=all&display=1" class="call-to-action simple-button green" target="_blank">Začít překládat</a>
 		</p>
-		{cache expire => '+30 minutes'}
+		{cache expire => '+2 hours'}
 			<b>Nejvíc žádané překlady:</b>
 			<span n:foreach="$wanted_cats as $category"><a n:href=":Front:Browse:, id => $category->id">{$category->label}</a>{sep}, {/sep}</span>
 		{/cache}
