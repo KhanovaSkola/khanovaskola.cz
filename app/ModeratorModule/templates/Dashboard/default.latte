@@ -21,6 +21,7 @@
 				<li><a n:href="Map:">mapa kategorií</a></li>
 			</ol>
 		</div>
+
 		<div class="pin" n:if="$user->isInrole(\NetteUser::ROLE_ADMIN)">
 			<div class="role">admin</div>
 			<h2>3rd Party</h2>
@@ -30,21 +31,6 @@
 				<li><a href="http://www.google.com/cse/panel/basics?cx=012195005340914706032:ifaoips1ht0&sig=__BEH6PcUiO4qbwsq3nVkKWVaSoDQ=&hl=en">Search Control Panel</a></li>
 				<li><a href="https://adwords.google.com/cm/CampaignMgmt?__u=4559939138&__c=2601738578#r.ONLINE&app=cm">Adwords</a></li>
 				<li><a href="https://metrics.librato.com/metrics/">Metrics</a></li>
-			</ol>
-		</div>
-
-		<div class="pin" n:if="$user->isInrole(\NetteUser::ROLE_ADDER)">
-			<div class="role">adder</div>
-			<h2>Videa</h2>
-			<a n:href=":Front:Watch:add">Přidat nové video</a>
-		</div>
-
-		<div class="pin" n:if="$user->isInRole(\NetteUser::ROLE_ADMINER)">
-			<div class="role">adminer</div>
-			<h2>Databáze</h2>
-			<ol>
-				<li n:if="$user->isInrole(\NetteUser::ROLE_ADMIN)"><a href="/adminer/">Adminer</a></li>
-				<li><a href="/adminer/editor.php">Adminer Editor</a></li>
 			</ol>
 		</div>
 
@@ -60,6 +46,21 @@
 						{$presenter->context->users->findAll()->count()} registrací
 					{/cache}
 				</li>
+			</ol>
+		</div>
+
+		<div class="pin" n:if="$user->isInrole(\NetteUser::ROLE_ADDER)">
+			<div class="role">adder</div>
+			<h2>Videa</h2>
+			<a n:href=":Front:Watch:add">Přidat nové video</a>
+		</div>
+
+		<div class="pin" n:if="$user->isInRole(\NetteUser::ROLE_ADMINER)">
+			<div class="role">adminer</div>
+			<h2>Databáze</h2>
+			<ol>
+				<li n:if="$user->isInrole(\NetteUser::ROLE_ADMIN)"><a href="/adminer/">Adminer</a></li>
+				<li><a href="/adminer/editor.php">Adminer Editor</a></li>
 			</ol>
 		</div>
 
@@ -106,53 +107,53 @@
 			</div>
 		{/cache}
 
+		{cache tags => ['categories', 'exercises']}
+			<div class="pin">
+				{var $count => $vid['nogroupex']->count()}
+				<h2>Cvičení bez kategorie{if $count} ({$count}){/if}</h2>
+				<ol>
+					<li n:foreach="$vid['nogroupex']->limit($limit)->order('id DESC') as $exercise">
+						{$exercise->label}
+					</li>
+					<li n:if="$count >= $limit">a další&hellip;</li>
+				</ol>
+				<div n:if="!$count" class="moderator-congrats">Dobrá práce, všechna cvičení jsou zařazená.</div>
+			</div>
+		{/cache}
+
 		{cache tags => ['categories']}
 			<div class="pin">
-				<h2>Kategorie bez popisu</h2>
-				{var $count => $cat['description']->limit($limit)->count()}
+				{var $count => $cat['description']->count()}
+				<h2>Kategorie bez popisu{if $count} ({$count}){/if}</h2>
 				<ol>
 					<li n:foreach="$cat['description']->limit($limit)->order('id DESC') as $cat">
 						<a n:href=":Front:Browse:edit, id => $cat->id">{$cat->label}</a>
 					</li>
-					<li n:if="$count == $limit">a další&hellip;</li>
+					<li n:if="$count >= $limit">a další&hellip;</li>
 				</ol>
 			</div>
 		{/cache}
 
 		{cache tags => ['videos']}
 			<div class="pin">
-				<h2>Videa bez popisu</h2>
-				{var $count => $vid['description']->limit($limit)->count()}
+				{var $count => $vid['description']->count()}
+				<h2>Videa bez popisu{if $count} ({$count}){/if}</h2>
 				<ol>
 					<li n:foreach="$vid['description']->limit($limit)->order('id DESC') as $video">
 						<a n:href=":Front:Watch:edit, id => $video->getOneCategoryId(), vid => $video->id">{$video->label}</a>
 					</li>
-					<li n:if="$count == $limit">a další&hellip;</li>
+					<li n:if="$count >= $limit">a další&hellip;</li>
 				</ol>
 			</div>
 			<div class="pin">
-				<h2>Nenavázaná cvičení</h2>
-				{var $count => $vid['exercise']->limit($limit)->count()}
+				{var $count => $vid['exercise']->count()}
+				<h2>Nenavázaná cvičení{if $count} ({$count}){/if}</h2>
 				<ol>
 					<li n:foreach="$vid['exercise']->limit($limit)->order('id DESC') as $exercise">
 						{$exercise->label}
 					</li>
-					<li n:if="$count == $limit">a další&hellip;</li>
+					<li n:if="$count >= $limit">a další&hellip;</li>
 				</ol>
-			</div>
-		{/cache}
-
-		{cache tags => ['categories', 'exercises']}
-			<div class="pin">
-				<h2>Cvičení bez kategorie</h2>
-				{var $count => $vid['nogroupex']->limit($limit)->count()}
-				<ol>
-					<li n:foreach="$vid['nogroupex']->limit($limit)->order('id DESC') as $exercise">
-						{$exercise->label}
-					</li>
-					<li n:if="$count == $limit">a další&hellip;</li>
-				</ol>
-				<div n:if="!$count" class="moderator-congrats">Dobrá práce, všechna cvičení jsou zařazená.</div>
 			</div>
 		{/cache}
 	</div>
