@@ -1,21 +1,15 @@
 <?php
 
-define('WWW_DIR', __DIR__ . '/..');
-define('APP_DIR', WWW_DIR . '/../app');
-define('LIBS_DIR', WWW_DIR . '/../libs');
-
-require LIBS_DIR . '/Nette/loader.php';
+require __DIR__ . '/../../vendor/autoload.php';
 
 $configurator = new Nette\Config\Configurator;
 
 $configurator->setDebugMode();
-$configurator->enableDebugger(APP_DIR . '/../log');
 
 // Enable RobotLoader - this will load all classes automatically
-$configurator->setTempDirectory(APP_DIR . '/../temp');
+$configurator->setTempDirectory(__DIR__ . '/../../temp');
 $configurator->createRobotLoader()
-	->addDirectory(APP_DIR)
-	->addDirectory(LIBS_DIR)
+	->addDirectory(__DIR__ . '/../../app')
 	->register();
 
 // Create Dependency Injection container from config.neon file
@@ -93,4 +87,4 @@ function adminer_object() {
 	return new AdminerSoftware($container);
 }
 
-include "./editor-3.6.2-mysql.php";
+include "./editor-3.6.3-mysql.php";
