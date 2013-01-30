@@ -90,6 +90,8 @@ a.subtitles-edit {float: right; font-size: 10pt;}
 .ui-menu-item a {background-color: white !important; font-size: 12pt !important; padding-left: 26px !important;}
 .ui-menu-item a.ui-state-focus {background-color: #f2f2f2 !important;}
 
+.anchor-highlight {background-color: rgba(169,232,250,.3); padding: 0 1em .5ex 1em; margin: 0 -1em -.5ex -1em;}
+
 /* ----  iPad 3 ---- */
 .ipad-only {display: none;}
 @media only screen and (max-device-width: 2048px) and (-webkit-min-device-pixel-ratio: 2)

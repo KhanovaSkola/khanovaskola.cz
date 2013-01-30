@@ -3,6 +3,11 @@
 if(window.history.replaceState){l=window.location.toString();u=l.indexOf('_fid=');if(u!=-1){u=l.substr(0,u)+l.substr(u+10);if(u.substr(u.length-1)=='?'||u.substr(u.length-1)=='&')u=u.substr(0,u.length-1);window.history.replaceState('',document.title,u)}}
 
 $(function() {
+	/** highlight anchor if in correct format */
+	if (location.hash.indexOf('#hl-') === 0) {
+		$(location.hash).addClass("anchor-highlight");
+	}
+
 	var timeout = 300;
 
 	/** ######### main dropdown #########  */
