@@ -13,6 +13,13 @@ class RegistrationPresenter extends BaseFrontPresenter
 		if (!$this->user->loggedIn) {
 			$this->redirect(':Front:Homepage:');
 		}
+
+		$sesion = $this->context->session->getSection('registration');
+		if (!$sesion->showWelcome) {
+			$this->redirect(':Front:Profile:');
+		} else {
+			$sesion->showWelcome = FALSE;
+		}
 	}
 
 
@@ -69,6 +76,8 @@ class RegistrationPresenter extends BaseFrontPresenter
 
 		$this->user->login($v->mail, $v->password);
 
+		$sesion = $this->context->session->getSection('registration');
+		$sesion->showWelcome = TRUE;
 		$this->redirect('welcome');
 	}
 

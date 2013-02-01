@@ -159,6 +159,8 @@ class SignPresenter extends BasePresenter
 	protected function inRedirect()
 	{
 		if ($this->user->isInRole('new-user')) {
+			$sesion = $this->context->session->getSection('registration');
+			$sesion->showWelcome = TRUE;
 			$this->redirect(':Front:Registration:welcome');
 		}
 
