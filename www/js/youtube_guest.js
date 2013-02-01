@@ -9,7 +9,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 function onYouTubeIframeAPIReady() {
 	var height = 480;
 	var width = 800;
-	
+
 	player = new YT.Player('player', {
 		height: height,
 		width: width,
@@ -29,5 +29,12 @@ var onPlayerStateChangeCallbacks = [];
 function onPlayerStateChange(event) {
 	for (i = 0; i < onPlayerStateChangeCallbacks.length; ++i) {
 		onPlayerStateChangeCallbacks[i](event.data);
+	}
+}
+
+onPlayerStateChangeCallbacks.push(fireGAEvent);
+function fireGAEvent(code) {
+	if (code == 0) {
+		_gaq.push(['_trackEvent', 'Video', 'Video-Watched', ]);
 	}
 }

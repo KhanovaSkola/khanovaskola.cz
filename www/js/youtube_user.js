@@ -9,7 +9,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 function onYouTubeIframeAPIReady() {
 	var height = 480;
 	var width = 800;
-	
+
 	player = new YT.Player('player', {
 		height: height,
 		width: width,
@@ -56,4 +56,11 @@ function updateProgress(progress) {
 			}
 		}
 	});
+}
+
+onPlayerStateChangeCallbacks.push(fireGAEvent);
+function fireGAEvent(code) {
+	if (code == 0) {
+		_gaq.push(['_trackEvent', 'Video', 'Video-Watched', video_id]);
+	}
 }

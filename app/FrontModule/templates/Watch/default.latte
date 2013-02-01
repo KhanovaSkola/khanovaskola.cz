@@ -19,6 +19,7 @@
 {/#}
 {#scripts}
 	<script>
+		var video_id = {$video->id};
 		var youtube_video_id = {$video->youtube_id};
 		var youtube_autoplay = {$autoplay ? '1' : '0'};
 		{if $user->loggedIn}var youtube_progress_url = {plink updateProgress!, autoplay => NULL};{/if}
