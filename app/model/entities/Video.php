@@ -87,6 +87,9 @@ class Video extends EntityUrl
 		if (!isset($cache[$this->id])) {
 			$res = file_get_contents("http://gdata.youtube.com/feeds/api/videos/$this->youtube_id?v=2&alt=jsonc&prettyprint=false");
 			$data = \Nette\Utils\Json::decode($res);
+			if (property_exists($data, 'error')) {
+				throw new \Nette\Utils\JsonException($data->error[0]->code);
+			}
 			$cache->save($this->id, $data, [
 				\Nette\Caching\Cache::TAGS => ["video/$this->id"],
 			]);
