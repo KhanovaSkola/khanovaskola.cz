@@ -185,10 +185,12 @@ class DashboardPresenter extends BaseModeratorPresenter
 	{
 		$videos = $this->context->videos->findBy(['duration' => 0]);
 		$updated = 0;
+		$depleted = FALSE;
 		foreach ($videos as $video) {
-			$meta = $video->getMetaData();
-			$video->duration = $meta->data->duration;
-			$video->uploader = $meta->data->uploader;
+			if (!$video->updateMetaData()) {
+				$depleted = TRUE;
+				break;
+			}
 			$video->update();
 			$updated++;
 		}
@@ -196,7 +198,11 @@ class DashboardPresenter extends BaseModeratorPresenter
 		$cache = new Cache($this->context->cacheStorage);
 		$cache->clean([Cache::TAGS => ['categories']]);
 
+		if ($depleted) {
+			$this->flashMessage("Vyčerpali jsme limit Amara API, stáhněte prosím další metadata za chvíli.");
+		}
 		$this->flashMessage("Meta data byla doplněna u $updated videí.");
+
 		$this->redirect('this');
 	}
 

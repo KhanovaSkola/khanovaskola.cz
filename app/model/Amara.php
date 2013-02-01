@@ -24,9 +24,13 @@ class Amara extends Nette\Object
 
 	public function getSubtitles(Video $video)
 	{
-		$data = $this->getData($video);
-		if ($data->subtitles !== NULL) {
-			return $data->subtitles->subtitles;
+		try {
+			$data = $this->getData($video);
+			if ($data->subtitles !== NULL) {
+				return $data->subtitles->subtitles;
+			}
+		} catch (\Nette\Utils\JsonException $e) {
+			return FALSE;
 		}
 
 		return [];
@@ -34,6 +38,9 @@ class Amara extends Nette\Object
 
 
 
+	/**
+	 * @throws \Nette\Utils\JsonException
+	 */
 	public function getId(Video $video)
 	{
 		return $this->getData($video)->video_id;
@@ -63,6 +70,9 @@ class Amara extends Nette\Object
 
 
 
+	/**
+	 * @throws \Nette\Utils\JsonException
+	 */
 	protected function getData(Video $video)
 	{
 		$cache = new \Nette\Caching\Cache($this->cacheStorage, 'amara');

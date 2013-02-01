@@ -79,6 +79,7 @@ class Video extends EntityUrl
 
 	/**
 	 * Queues Youtube API
+	 * @throws \Nette\Utils\JsonException
 	 */
 	public function getMetaData()
 	{
@@ -102,7 +103,12 @@ class Video extends EntityUrl
 	 */
 	public function updateMetaData()
 	{
-		$meta = $this->getMetaData();
+		try {
+			$meta = $this->getMetaData();
+		} catch (\Nette\Utils\JsonException $e) {
+			return FALSE;
+		}
+
 		$this->duration = $meta->data->duration;
 		$this->uploader = $meta->data->uploader;
 
@@ -111,6 +117,8 @@ class Video extends EntityUrl
 		if ($this->isDubbed()) {
 			$this->addTag($tag->id);
 		}
+
+		return TRUE;
 	}
 
 

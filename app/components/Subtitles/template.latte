@@ -1,4 +1,7 @@
-<div id="subtitles">
+<div n:if="$subtitles === FALSE">
+	<p>Omlouáme se, titulky jsou na moment nedostupné. Zkuste prosím za chvíli tuto stránku obnovit.
+</div>
+<div id="subtitles" n:if="$subtitles">
 	<table style="width: 100%">
 		<tr>
 			<td>
