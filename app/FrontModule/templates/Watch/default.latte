@@ -1,10 +1,5 @@
 {var $title = $video->label}
 {var $description = $video->getDescription($category)}
-{#head}
-	{if $autoplay}
-		<link rel="canonical" n:href="//this, autoplay => NULL">
-	{/if}
-{/#}
 {#breadcrumbs}
 	<span class="breadcrumbs-tags">
 		<span n:if="$video->hasTags()">
