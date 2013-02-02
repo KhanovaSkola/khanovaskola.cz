@@ -7,5 +7,6 @@ before_script:
   - composer self-update
   - composer install --no-interaction --dev
   - php db/migrate.php test
+  - php -r "file_put_contents('app/config/config.test.neon', str_replace('unix_socket=/tmp/mysql.sock;', '', file_get_contents('app/config/config.test.neon')));"
 
 script: vendor/nette/tester/Tester/tester tests/ -s
