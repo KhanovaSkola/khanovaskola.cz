@@ -93,6 +93,8 @@ class Video extends EntityUrl
 			$cache->save($this->id, $data, [
 				\Nette\Caching\Cache::TAGS => ["video/$this->id"],
 			]);
+
+			return $data;
 		}
 
 		return $cache[$this->id];
@@ -176,7 +178,7 @@ class Video extends EntityUrl
 
 		$db = $this->context->database;
 		$db->beginTransaction();
-		$db->query('DELETE FROM tag_video WHERE video_id = ?', $this->id);
+		$db->query('DELETE FROM tag_video WHERE video_id = ? AND tag_id != ?', $this->id, $this->context->tags->findDubTag()->id);
 		$db->query('INSERT INTO tag_video', $values);
 		$db->commit();
 	}

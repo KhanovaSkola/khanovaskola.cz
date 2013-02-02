@@ -9,7 +9,7 @@ class Tags extends Table
 	 */
 	public function findByVideo(Video $video)
 	{
-		return $this->getTable()->where('id', $video->getTagsIds());
+		return $this->findBy(['id' => $video->getTagsIds()]);
 	}
 
 
@@ -18,7 +18,8 @@ class Tags extends Table
 	 */
 	public function getFill()
 	{
-		return $this->findAll()->order('label')->fetchPairs('id', 'label');
+		return $this->findBy(['id != ?' => $this->findDubTag()->id])
+			->order('label')->fetchPairs('id', 'label');
 	}
 
 

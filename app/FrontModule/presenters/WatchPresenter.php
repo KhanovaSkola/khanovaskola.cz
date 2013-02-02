@@ -152,7 +152,6 @@ class WatchPresenter extends BaseFrontPresenter
 		}
 
 		$author_id = $v->author_id != 0 ? $v->author_id : NULL;
-		dump($v->author_id, $author_id, $v->youtube_id);
 
 		if ($this->action === 'add') {
 			if (!$this->user->isInrole(\NetteUser::ROLE_ADDER)) {
