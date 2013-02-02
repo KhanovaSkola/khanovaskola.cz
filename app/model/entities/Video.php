@@ -298,7 +298,11 @@ class Video extends EntityUrl
 
 		if ($this->description) {
 			return $desc . $this->description;
+
+		} else if ($subs = $this->getSubtitles()) {
+			return FALSE; // let search engine select best part of subtitles
 		}
+
 		return $desc . $this->label;
 	}
 

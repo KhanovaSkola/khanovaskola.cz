@@ -1,5 +1,7 @@
 {var $title = $video->label}
-{var $description = $video->getDescription($category)}
+{if $desc = $video->getDescription($category)}
+	{var $description = $desc}
+{/if}
 {#breadcrumbs}
 	<span class="breadcrumbs-tags">
 		<span n:if="$video->hasTags()">
