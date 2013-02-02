@@ -1,5 +1,5 @@
-![Khan Academy CZ](/www/images/header.svg)
-===============
+Khanova škola
+=============
 
 Khanova škola (Khan Academy in Czech) is a website built by community of passionate volunteers committed to translating Khan Academy content and providing universal access to quality education.
 
