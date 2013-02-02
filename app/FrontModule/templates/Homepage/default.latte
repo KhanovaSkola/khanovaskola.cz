@@ -8,28 +8,8 @@
 {#scripts}
 <div id="fb-root"></div>
 <script>
-	(function(d, s, id) {
-		var js, fjs = d.getElementsByTagName(s)[0];
-		if (d.getElementById(id)) return;
-		js = d.createElement(s); js.id = id;
-		js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=273608052753035";
-		fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));
-
-	{* GA social interaction tracking *}
-	window.fbAsyncInit = function() {
-		FB.Event.subscribe('edge.create', function(targetUrl) {
-			_gaq.push(['_trackSocial', 'facebook', 'like', targetUrl]);
-		});
-		FB.Event.subscribe('edge.remove', function(targetUrl) {
-			_gaq.push(['_trackSocial', 'facebook', 'unlike', targetUrl]);
-		});
-		FB.Event.subscribe('message.send', function(targetUrl) {
-			_gaq.push(['_trackSocial', 'facebook', 'send', targetUrl]);
-		});
-	};
-
 	$(function() {
+		$("#facebook-like").append($('<iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FKhanovaSkola&amp;send=false&amp;layout=box_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=90&amp;appId=273608052753035" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:90px;" allowTransparency="true"></iframe>'));
 		$("#large-search-input").autocomplete({
 			source: function(req, res) {
 				$.ajax({
@@ -106,8 +86,8 @@
 			<p>
 				Naším hlavním <a n:href=":Front:About:sponsors">partnerem</a> je společnost <a href="http://scio.cz/" target="_blank">Scio</a>.
 			</p>
-			<div style="position: relative; top: -10px;">
-				<fb:like href="https://www.facebook.com/KhanovaSkola" send="false" layout="box_count" show_faces="false"></fb:like>
+			<div style="position: relative; top: -10px;" id="facebook-like">
+				<!--<fb:like href="https://www.facebook.com/KhanovaSkola" send="false" layout="box_count" show_faces="false"></fb:like>-->
 			</div>
 		</div>
 		<div class="clear"></div>
