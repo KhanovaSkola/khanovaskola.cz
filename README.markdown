@@ -1,4 +1,4 @@
-![Khan Academy CZ](http://khanovaskola.cz/images/header.png)
+![Khan Academy CZ](/www/images/header@2x.png)
 ===============
 
 Khanova škola (Khan Academy CZ) is a community of passionate volunteers committed to translating Khan Academy content and providing universal access to quality education.
