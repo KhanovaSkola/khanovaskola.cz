@@ -10,10 +10,20 @@ $configurator->createRobotLoader()
 	->addDirectory(__DIR__ . '/../app')
 	->register();
 
-// Create Dependency Injection container from config.neon file
+
+
 $configurator->addConfig(__DIR__ . '/../app/config/config.neon');
 $configurator->addConfig(__DIR__ . '/../app/config/config.db.neon');
+
+$local = __DIR__ . '/../app/config/config.local.neon';
+if (file_exists($local)) {
+	$configurator->addConfig($local);
+}
+
 $configurator->addConfig(__DIR__ . '/../app/config/config.test.neon'); // must be last
+
+
+
 $container = $configurator->createContainer();
 
 if (extension_loaded('xdebug')) {
