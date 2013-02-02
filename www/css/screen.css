@@ -112,3 +112,10 @@ a.subtitles-edit {float: right; font-size: 10pt;}
 	#footer .legal {display: none;}
 	.hide-small {display: none;}
 }
+
+/* Retina-specific stuff here */
+img.retina {display: none;}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    img.non-retina {display: none;}
+    img.retina {display: inherit;}
+}
