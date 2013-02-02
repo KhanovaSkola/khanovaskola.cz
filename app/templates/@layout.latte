@@ -133,9 +133,9 @@
 	<script type="text/javascript" src="{$cdnUrl}/js/netteForms.js"></script>
 	<script type="text/javascript" src="{$cdnUrl}/js/khan.js"></script>
 	<script type="text/javascript">
-		{if $user->loggedIn}_gaq.push(['_setCustomVar', 1, 'User ID', {$user->id}, 1]);{/if}
+		{if $user->loggedIn}_gaq.push(['_setCustomVar', 1, 'User ID', '{$user->id}', 1]);{/if}
 		_gaq.push(['_setCustomVar', 1, 'Logged in', {$user->loggedIn ? 'Yes' : 'No'}, 2]);
-		_gaq.push(['_setCustomVar', 1, 'Device pixel ratio', window.devicePixelRatio, 1]);
+		_gaq.push(['_setCustomVar', 1, 'Device pixel ratio', ""+window.devicePixelRatio, 1]);
 	</script>
 	{#scripts}{/#}
 </body>
