@@ -79,7 +79,7 @@ a.subtitles-edit {float: right; font-size: 10pt;}
 .pin .role:before {font-family: "FontAwesome"; content: "\f023"; margin-right: 5px;}
 
 #backend-form th {text-align: right; padding-right: 1em; vertical-align: top;}
-#backend-form textarea, input:not([type=submit]) {width: 300px; margin-bottom: 5pt; height: 16pt;}
+#backend-form textarea, #backend-form input:not([type=submit]) {width: 300px; margin-bottom: 5pt; height: 16pt;}
 #backend-form textarea {height: 120pt;}
 #backend-form input[type=submit] {min-width: 70px; height: 30px; font-size: 120%;}
 #backend-form .chzn-container.chzn-container-single {margin-bottom: 1ex;}
