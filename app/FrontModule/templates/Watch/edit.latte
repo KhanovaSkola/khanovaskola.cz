@@ -20,6 +20,7 @@
 			{control videoForm}
 		</div>
 		<div class="col2 fifty-fifty" n:if="$user->isInRole(\NetteUser::ROLE_ADMIN)">
+			<p>Alias slouží k vytvoření nové adresy, která na původní přesměrovává. Hlavně používané pro tvorbu krátkých adres pro reklamy.</p>
 			{control aliasForm}
 		</div>
 	</div>

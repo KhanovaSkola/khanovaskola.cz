@@ -76,7 +76,7 @@ class BlogPresenter extends BaseFrontPresenter
 		$form->addText('label', 'Nadpis');
 		$form->addTextarea('text', 'Text');
 
-		$form->addSubmit('save', 'Uložit');
+		$form->addSubmit('save', 'Uložit')->controlPrototype->class = "simple-button blue";
 	}
 
 
@@ -87,7 +87,7 @@ class BlogPresenter extends BaseFrontPresenter
 			throw new \Nette\Application\ForbiddenRequestException;
 		}
 
-		$this['articleForm']->addSubmit('publish', 'Uložit a zveřejnit');
+		$this['articleForm']->addSubmit('publish', 'Uložit a zveřejnit')->controlPrototype->class = "simple-button green";
 	}
 
 
@@ -99,7 +99,7 @@ class BlogPresenter extends BaseFrontPresenter
 		}
 
 		if (!$this->article->is_published) {
-			$this['articleForm']->addSubmit('publish', 'Uložit a zveřejnit');
+			$this['articleForm']->addSubmit('publish', 'Uložit a zveřejnit')->controlPrototype->class = "simple-button green";
 		}
 	}
 

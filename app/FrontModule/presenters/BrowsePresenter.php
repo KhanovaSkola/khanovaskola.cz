@@ -73,7 +73,7 @@ class BrowsePresenter extends BaseFrontPresenter
 		$form->addText('label', 'Název');
 		$form->addTextArea('description', 'Popis');
 
-		$form->addSubmit('send');
+		$form->addSubmit('send', 'Uložit')->controlPrototype->class = "simple-button green";
 	}
 
 

@@ -106,7 +106,7 @@ class WatchPresenter extends BaseFrontPresenter
 
 		$form->addText('alias', 'Alias');
 
-		$form->addSubmit('send', 'Přidat');
+		$form->addSubmit('send', 'Přidat')->controlPrototype->class = "simple-button blue";
 	}
 
 
@@ -136,7 +136,7 @@ class WatchPresenter extends BaseFrontPresenter
 		$form->addSelect('author_id', 'Dabing', $this->context->authors->getFill());
 		$form->addText('external_exercise_url', 'Externí cvičení');
 
-		$form->addSubmit('send', 'Uložit');
+		$form->addSubmit('send', 'Uložit')->controlPrototype->class = "simple-button green";
 	}
 
 
