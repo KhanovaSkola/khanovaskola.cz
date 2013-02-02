@@ -95,6 +95,9 @@ a.subtitles-edit {float: right; font-size: 10pt;}
 
 .anchor-highlight {background-color: rgba(169,232,250,.3); padding: 0 1em .5ex 1em; margin: 0 -1em -.5ex -1em;}
 
+#search-box {width: 150px; padding: 0;}
+#frm-search-query {padding: 0; background-image: none;}
+
 /* ----  iPad 3 ---- */
 .ipad-only {display: none;}
 @media only screen and (max-device-width: 2048px) and (-webkit-min-device-pixel-ratio: 2)
