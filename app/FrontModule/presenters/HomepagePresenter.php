@@ -2,6 +2,8 @@
 
 namespace FrontModule;
 
+use Nette\Caching\Cache;
+
 
 class HomepagePresenter extends BaseFrontPresenter
 {
@@ -40,6 +42,20 @@ class HomepagePresenter extends BaseFrontPresenter
 		shuffle($words);
 
 		$this->template->search_examples = implode(', ', $words);
+
+		$cache = new Cache($this->context->cacheStorage, 'homepage');
+		if (isset($cache['counts'])) {
+			$this->template->count = (object) $cache['counts'];
+
+		} else {
+			$counts = [];
+			$counts['video'] = floor($this->context->videos->findAll()->count() / 10) * 10;
+			$counts['dubbed'] = floor($this->context->videos->findAllDubbed()->count() / 10) * 10;
+			$cache->save('counts', $counts, [
+				Cache::TAGS => "videos/count",
+			]);
+			$this->template->count = (object) $counts;
+		}
 	}
 
 

@@ -1,5 +1,4 @@
-{var $video_count = floor($presenter->context->videos->findAll()->count() / 10) * 10}
-{var $description = "Jsme překlad Khan Academy. Máme pro vás přes $video_count lekcí z matematiky, fyziky, astronomie a humanitních věd a cvičení, na kterých si nabyté znalosti procvičíte."}
+{var $description = "Jsme překlad Khan Academy. Máme $count->video lekcí z matematiky, fyziky i humanitních věd a dalších. Přes $count->dubbed videí je nadabováno."}
 {#head}
 	{if $presenter->getParam('ref')}
 		<link rel="canonical" n:href="//this, ref => NULL">
@@ -94,7 +93,7 @@
 			<h1 class="section-headline pulls"><a n:href=":Front:Homepage:library">Dívej se.</a> <a n:href=":Front:Exercise:">Procvičuj.</a></h1>
 			<h1>Nauč se zdarma skoro cokoliv.</h1>
 			<p>
-				Jsme překlad Khan Academy. Máme pro vás víc jak <a n:href=":Front:Homepage:library">{$video_count} videi</a> z matematiky, fyziky a třeba i dějepisu a medicíny. Matematiku si navíc můžete prozkoušet na <a n:href=":Front:Exercise:">cvičeních</a>. Pro učitele máme <a n:href=":Coach:Dashboard:">nástroje</a> pro zadávání úkolů a sledování výsledků.
+				Jsme překlad Khan Academy. Máme pro vás víc jak <a n:href=":Front:Homepage:library">{$count->video} videi</a> z matematiky, fyziky a třeba i dějepisu a medicíny. Matematiku si navíc můžete prozkoušet na <a n:href=":Front:Exercise:">cvičeních</a>. Pro učitele máme <a n:href=":Coach:Dashboard:">nástroje</a> pro zadávání úkolů a sledování výsledků.
 			</p>
 			<p>
 				<a n:href=":Front:About:">Snažíme se</a> učit to, co vás zajímá.

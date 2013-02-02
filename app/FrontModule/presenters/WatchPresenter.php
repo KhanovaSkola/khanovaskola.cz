@@ -215,6 +215,9 @@ class WatchPresenter extends BaseFrontPresenter
 		foreach ($v['tags'] as $tid) {
 			$invalid[] = "tag/$tid";
 		}
+		if ($this->action === 'add') {
+			$invalid[] = "videos/count";
+		}
 		$cache = new Cache($this->context->cacheStorage);
 		$cache->clean([Cache::TAGS => $invalid]);
 

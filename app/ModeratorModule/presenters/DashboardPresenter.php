@@ -196,7 +196,7 @@ class DashboardPresenter extends BaseModeratorPresenter
 		}
 
 		$cache = new Cache($this->context->cacheStorage);
-		$cache->clean([Cache::TAGS => ['categories']]);
+		$cache->clean([Cache::TAGS => ['categories', 'videos/count']]);
 
 		if ($depleted) {
 			$this->flashMessage("Vyčerpali jsme limit Amara API, stáhněte prosím další metadata za chvíli.");
