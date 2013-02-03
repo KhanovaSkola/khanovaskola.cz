@@ -23,7 +23,12 @@ abstract class EntityUrl extends Entity
 	 */
 	public function getSlug()
 	{
-		return $this->getSlugs()[0];
+		$slugs = $this->getSlugs();
+		if (isset($slugs[0])) {
+			return $slugs[0];
+		}
+
+		return NULL;
 	}
 
 

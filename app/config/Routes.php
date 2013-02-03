@@ -208,6 +208,27 @@ class Routes
 /** end REMOVE 2013/03/01+ */
 
 		/**
+		 * SEO Tag
+		 */
+		$tagRoute = new SlugRoute('tag/<tid>[/<action>]', [
+			'tid' => [
+				Route::FILTER_OUT => function ($tid) use ($container) {
+					if (!is_numeric($tid)) {
+						return $tid;
+
+					} else {
+						return $container->tags->find($tid)->getSlug();
+					}
+				}
+			],
+			'module' => 'Front',
+			'presenter' => 'Tag',
+			'action' => 'default',
+		]);
+		$tagRoute->init($container, 'tid', 'tags');
+		$container->router[] = $tagRoute;
+
+		/**
 		 * SEO Blog
 		 */
 		$blogRoute = new SlugRoute('blog/<aid>', [
