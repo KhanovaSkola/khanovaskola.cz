@@ -27,7 +27,7 @@ class ContactPresenter extends BaseFrontPresenter
 		$form = $this->createForm($name);
 
 		$form->addText('label', 'Hlavní sdělení')
-			->setRequired();
+			->setRequired('Vyplňte prosím hlavní sdělení');
 		$form->addTextarea('description', 'Popis');
 
 		$form->addHidden('url');
