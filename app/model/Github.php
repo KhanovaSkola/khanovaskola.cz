@@ -60,7 +60,7 @@ class Github extends \Nette\Object
 			'labels' => ['user-report']
 		];
 
-		$res = $this->makeQuery($this->config->url . '/repos/khanovaskola/khanovaskola.cz/issues', $query, 'POST');
+		return $this->makeQuery($this->config->url . '/repos/khanovaskola/khanovaskola.cz/issues', $query, 'POST');
 	}
 
 
