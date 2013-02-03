@@ -49,6 +49,9 @@
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', 'UA-33892654-1']);
 		_gaq.push(['_trackPageview']);
+		_gaq.push(['_setCustomVar', 1, 'Logged in', {$user->loggedIn ? 'Yes' : 'No'}, 2]);
+		_gaq.push(['_setCustomVar', 1, 'Device pixel ratio', ""+window.devicePixelRatio, 1]);
+		{if $user->loggedIn}_gaq.push(['_setCustomVar', 1, 'User ID', '{$user->id}', 1]);{/if}
 		(function() {
 			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
@@ -128,11 +131,6 @@
 	<script type="text/javascript" src="{$cdnUrl}/js/jquery-ui-1.10.0.custom.min.js"></script>
 	<script type="text/javascript" src="{$cdnUrl}/js/netteForms.js"></script>
 	<script type="text/javascript" src="{$cdnUrl}/js/khan.js"></script>
-	<script type="text/javascript">
-		{if $user->loggedIn}_gaq.push(['_setCustomVar', 1, 'User ID', '{$user->id}', 1]);{/if}
-		_gaq.push(['_setCustomVar', 1, 'Logged in', {$user->loggedIn ? 'Yes' : 'No'}, 2]);
-		_gaq.push(['_setCustomVar', 1, 'Device pixel ratio', ""+window.devicePixelRatio, 1]);
-	</script>
 	{#scripts}{/#}
 </body>
 </html>
