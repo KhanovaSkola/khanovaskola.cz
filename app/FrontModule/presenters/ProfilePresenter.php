@@ -85,12 +85,11 @@ class ProfilePresenter extends BaseFrontPresenter
 	{
 		$form = $this->createForm($name);
 
-		$form->addText('email')
+		$form->addText('email', 'Email učitele')
 			->addRule(Form::EMAIL, 'Vyplňte prosím email učitele, kterého chcete přidat')
-			->setRequired('Vyplňte prosím email učitele, kterého chcete přidat')
-			->getControlPrototype()->attrs['placeholder'] = "ID učitele";
+			->setRequired('Vyplňte prosím email učitele, kterého chcete přidat');
 
-		$form->addSubmit('send', 'Přidat učitele');
+		$form->addSubmit('send', 'Přidat učitele')->getControlPrototype()->class = "simple-button green";
 	}
 
 
