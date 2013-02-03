@@ -21,6 +21,8 @@
 					{else}
 						<a n:href="vote!, category => [$leaf->id]" class="call-to-action simple-button blue">{!$vote}</a>
 					{/if}
+					{var $translate_url = $leaf->getTranslateUrl()}
+					<a n:if="$translate_url" href="{$translate_url}" class="call-to-action simple-button green" target="_blank" onclick="_gaq.push(['_trackEvent', 'Click', 'Volunteer-Translate', 'Category-{$leaf->id}']);">Přeložit</a>
 					{if $user->isInrole(\NetteUser::ROLE_EDITOR)}
 						<a n:href="edit" class="call-to-action simple-button blue">Upravit</a>
 						<a n:href=":Front:Watch:add, categories => [$leaf->id]" class="call-to-action simple-button blue">Přidat video</a>

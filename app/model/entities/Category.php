@@ -6,6 +6,7 @@
  * @property string	$label
  * @property string	$description
  * @property int	$position		Unique between siblings
+ * @property string $playlist_en
  */
 class Category extends EntityUrl
 {
@@ -387,6 +388,16 @@ class Category extends EntityUrl
 	public function removeVote(User $user)
 	{
 		return $this->context->database->query('DELETE FROM `want_translated` WHERE `category_id`=? AND `user_id`=?', $this->id, $user->id);
+	}
+
+
+
+	public function getTranslateUrl()
+	{
+		if (!$this->isLeaf() || $this->playlist_en === "")
+			return FALSE;
+
+		return 'http://khan-report.appspot.com/translations/subtitleactions?playlist=' . urlencode($this->playlist_en) . '&language=Czech';
 	}
 
 }
