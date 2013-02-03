@@ -3,6 +3,7 @@
 namespace FrontModule;
 
 use Nette\Application\UI\Form;
+use Nette\Utils\Html;
 
 
 class RegistrationPresenter extends BaseFrontPresenter
@@ -65,14 +66,28 @@ class RegistrationPresenter extends BaseFrontPresenter
 		$salt = $p->getRandomSalt();
 		$hash = $p->calculateHash($v->password, $salt);
 
-		$this->context->users->insert([
-			'name' => $v->name,
-			'mail' => $v->mail,
-			'password' => $hash,
-			'salt' => $salt,
-			'registration' => time(),
-			'role' => '',
-		]);
+		try {
+			$this->context->users->insert([
+				'name' => $v->name,
+				'mail' => $v->mail,
+				'password' => $hash,
+				'salt' => $salt,
+				'registration' => time(),
+				'role' => '',
+			]);
+
+		} catch (\PDOException $e) {
+			if ($e->getCode() != 23000) {
+				throw $e;
+			}
+
+			$error = Html::el('div');
+			$error->add(Html::el('span')->setText('Tento email už je u nějakého účtu zaregistrovaný. Nechcete se radši'));
+			$error->add(Html::el('a')->href($this->link(':Sign:in', ['mail' => $v->mail]))->setText('přihlásit'));
+			$error->add(Html::el('span')->setText('?'));
+			$form->addError($error);
+			return FALSE;
+		}
 
 		$this->user->login($v->mail, $v->password);
 

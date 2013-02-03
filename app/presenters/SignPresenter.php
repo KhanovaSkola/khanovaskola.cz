@@ -22,6 +22,13 @@ class SignPresenter extends BasePresenter
 
 
 
+	public function renderIn($mail = NULL)
+	{
+		$this['signInForm']['username']->setDefaultValue($mail);
+	}
+
+
+
 	public function getBacklink()
 	{
 		return NULL;
