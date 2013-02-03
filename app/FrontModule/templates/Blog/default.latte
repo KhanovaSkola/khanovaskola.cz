@@ -4,7 +4,7 @@
 
 {include ../_navigation.latte}
 <article id="blog">
-	<div n:if="$user->isInrole(\NetteUser::ROLE_BLOG)" style="width: 640px; margin: auto; margin-bottom: 2em;">
+	<div n:if="$user->isInrole(\NetteUser::ROLE_BLOG)" class="blog-strip">
 		<p>
 			<a n:href="add, aid => NULL">Přidat článek</a>
 		</p>
@@ -16,7 +16,7 @@
 		</ul>
 	</div>
 
-	<div n:foreach="$articles as $article" style="width: 640px; margin: auto;" itemscope="" itemtype="http://schema.org/BlogPosting">
+	<div n:foreach="$articles as $article" class="articles" itemscope="" itemtype="http://schema.org/BlogPosting">
 		<h2>
 			<a n:href="detail, aid => $article->id" itemprop="name headline">{$article->label}</a>
 		</h2>

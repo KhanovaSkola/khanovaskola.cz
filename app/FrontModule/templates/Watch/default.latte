@@ -34,7 +34,7 @@
 <article id="video-page">
 	<div n:class="video, $video->isDubbed() ? video-dubbed">
 		<div itemscope="" itemtype="http://schema.org/VideoObject">
-			<div style="min-height: 88px">
+			<div>
 				<div id="description" class="video-description">
 					{var $exercise => $video->getExercise()}
 					<a n:if="$exercise" n:href=":Front:Exercise:, eid => $exercise->id" class="practice simple-button green desktop-only" title="Ověřte si pochopení tématu na cvičeních" target="_blank">
@@ -54,7 +54,7 @@
 					</div>
 					<a n:if="$user->isInrole(\NetteUser::ROLE_EDITOR)" n:href="edit" class="call-to-action simple-button blue">Upravit</a>
 				</div>
-				<div class="video-header" style="min-height: 1px">
+				<div class="video-header">
 					<nav class="prev_next_nav desktop-only">
 						{var $prev => $video->getPreviousVideo($category)}
 						<label id="prev_video">

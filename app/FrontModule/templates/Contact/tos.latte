@@ -1,43 +1,7 @@
 {var $title = "Pravidla použití"}
 {#content}
 
-<article>
-	<style n:syntax="double">
-		{*
-		 * Nested ordered lists
-		 * @see http://stackoverflow.com/questions/2729927/number-nested-ordered-lists-in-html
-		 *}
-		ol {
-			list-style: decimal inside;
-			padding-bottom: 20px;
-		}
-		ol ol {
-			margin-bottom: 0;
-		}
-		html>/**/body ol { /* Won't be interpreted by IE6/7. */
-			list-style-type: none;
-			counter-reset: level1;
-		}
-		ol li:before {
-			content: counter(level1) ". ";
-			counter-increment: level1;
-		}
-		ol li ol {
-			list-style-type: none;
-			counter-reset: level2;
-			padding-left: 2em;
-		}
-		ol li ol li:before {
-			content: counter(level1) "." counter(level2) " ";
-			counter-increment: level2;
-		}
-		ol li span { /* For IE6/7. */
-			margin: 0 5px 0 -25px;
-		}
-		li {
-			font-size: 14px;
-		}
-	</style>
+<article id="tos">
 	<h2 class="main-headline">Podmínky použití</h2>
 	<p>Poslední změna: 2. února 2013</p>
 	<p>Seznam všech změn: <a href="https://github.com/KhanovaSkola/khanovaskola.cz/commits/master/app/FrontModule/templates/Contact/tos.latte">github.com/KhanovaSkola/~tos.latte</a></p>

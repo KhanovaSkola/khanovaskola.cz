@@ -1,5 +1,5 @@
 {cache $profile->id, tags => ["watched/{$profile->id}"]}
-	<div class="col1 fifty-fifty">
+	<div class="col1 fifty-fifty profile-recent">
 		<h3>Lekce za poslední měsíc</h3>
 		{var $recentlyWatched = $profile->getRecentlyWatched()}
 		<div n:if="!count($recentlyWatched)">
@@ -7,7 +7,7 @@
 		</div>
 		<table n:if="count($recentlyWatched)">
 			<tr n:foreach="$recentlyWatched as $progress">
-				<td style="text-align: right; padding-right: .5em;">
+				<td class="time-ago">
 					{$progress->timestamp|timeAgo}:
 				</td>
 				<td>
@@ -20,7 +20,7 @@
 	</div>
 {/cache}
 {cache $profile->id, tags => ["profile/recent/exercise/{$profile->id}"]}
-	<div class="col2 fifty-fifty">
+	<div class="col2 fifty-fifty profile-recent">
 		<h3>Cvičení za poslední měsíc</h3>
 		{var $exs = $profile->getRecentExercises()}
 		<div n:if="!count($exs->times)">
@@ -29,7 +29,7 @@
 		<table n:if="count($exs->times)">
 			{var $row = 0}
 			<tr n:foreach="$exs->selector as $exercise">
-				<td style="text-align: right; padding-right: .5em;">
+				<td class="time-ago">
 					{$exs->times[$row]|timeAgo}:
 				</td>
 				<td>

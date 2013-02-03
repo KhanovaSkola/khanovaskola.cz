@@ -63,17 +63,19 @@ li p {margin: 0;}
 a.subtitles-edit {float: right; font-size: 10pt;}
 
 #subtitles {height: 180px; overflow: scroll; padding: 0; padding-left: 1em;}
+#subtitles table {width: 100%;}
 #subtitles div {padding: 0 0 4px 5px; font-size: 140%; font-family: serif;}
 #subtitles .highlight {background-color: rgba(157, 182, 59, 0.3);}
 #subtitles div:first-child {margin-top: 60px;}
 #subtitles div:last-child {margin-bottom: 140px;}
 #subtitles .time {color: rgb(150, 150, 150); font-family: sans-serif; font-size: 80%;}
 #subtitles .row {height: 23px;}
+#subtitles td.narrow {width: 50px;}
 
 .practice.simple-button {margin-left: 1em;}
 #welcome a.call-to-action {font-size: 20px; line-height: 35px; display: inline-block; width: 20%;}
 
-#pin-columns {-webkit-column-count: 3; -webkit-column-gap: 10px; -webkit-column-fill: auto; -moz-column-count: 3; -moz-column-gap: 10px; -moz-column-fill: auto; column-count: 3; column-gap: 15px; column-fill: auto;}
+#pin-columns {margin-top: 3ex; -webkit-column-count: 3; -webkit-column-gap: 10px; -webkit-column-fill: auto; -moz-column-count: 3; -moz-column-gap: 10px; -moz-column-fill: auto; column-count: 3; column-gap: 15px; column-fill: auto;}
 .pin {width: 340px; display: inline-block; background: #FEFEFE; border: 2px solid #FAFAFA; box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4); margin: 0 2px 15px; -webkit-column-break-inside: avoid; -moz-column-break-inside: avoid; column-break-inside: avoid; padding: 15px; padding-bottom: 5px; background: -webkit-linear-gradient(45deg, #FFF, #F9F9F9); opacity: 1; -webkit-transition: all .2s ease; -moz-transition: all .2s ease; -o-transition: all .2s ease; transition: all .2s ease;}
 .pin .role {color: #888; display: block; float: right; -webkit-transform:rotate(45deg); -moz-transform:rotate(45deg); -o-transform:rotate(45deg); -ms-transform:rotate(45deg); border-bottom: 1px dashed #AAA; width: 90px; text-align: center; position: relative; left: 36px; top: -3px;}
 .pin .role:before {font-family: "FontAwesome"; content: "\f023"; margin-right: 5px;}
@@ -98,6 +100,55 @@ a.subtitles-edit {float: right; font-size: 10pt;}
 #search-box {width: 150px; padding: 0;}
 #frm-search-query {padding: 0; background-image: none;}
 
+.coach-list {padding-left: 2em;}
+
+#about-us .logo {text-align: center; padding-top: 18px; min-width:160px; max-width:160px; margin-right: 2%;}
+#about-us .content {max-width:81%; text-align: justify;}
+#about-us .sponsors {margin-bottom: 44px;}
+
+#press img {margin-right: 1em}
+#press .color {display: inline-block; width: 2em; height: 3ex; margin-right: 1em;}
+
+.bullet-list {list-style: circle; padding-left: 2em;}
+
+img.pull-down {margin-top: 5ex;}
+
+.blog-form {float: left; width: 50%}
+.blog-help {float: right; width: 28%; margin-top: 4ex;}
+.blog-help .code {background-color: #f2f2f2; padding: 1ex}
+.blog-strip {width: 640px; margin: auto; margin-bottom: 2em;}
+
+.articles {width: 640px; margin: auto;}
+
+#injected-related {margin-top: 10px;}
+
+#related-video-list .thumbnail_label {margin-top: 68px;}
+#related-video-list .thumbnail_teaser {height: 0px;}
+
+#exercise-list h3 {margin: 10px 0 0 0;}
+#exercise-list td.column-progress {padding-right: .5em; text-align: right; width: 3em;}
+
+#topic-page .leaf-container {margin-top: 2ex;}
+#topic-page .subtopic-1-heading {display: inline; margin-left: 2em;}
+#topic-page .library-content-list {margin-left: 6em;}
+
+#facebook-like {position: relative; top: -10px;}
+#facebook-like iframe {border:none; overflow:hidden; width:120px; height:90px;}
+
+.profile-recent .time-ago {text-align: right; padding-right: .5em;}
+
+.push-right {padding-left: 2em;}
+
+.providers .provider {margin-left: 12pt;}
+.providers .provider:first-of-type {margin-left: 0;}
+
+#translation-rules ol {list-style: decimal inside; padding-bottom: 20px;}
+#translation-rules ol p {margin-left: 4em;}
+#translation-rules ol p:first-of-type {margin-left: 1em; padding-top: 1ex;}
+#translation-rules .note {color: gray;}
+
+hr.wide {width: 100%;}
+
 /* ----  iPad 3 ---- */
 .ipad-only {display: none;}
 @media only screen and (max-device-width: 2048px) and (-webkit-min-device-pixel-ratio: 2)
@@ -121,4 +172,113 @@ img.retina {display: none;}
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     img.non-retina {display: none;}
     img.retina {display: inherit;}
+}
+
+
+
+/* About hte team */
+#the-team .section-header {
+	padding-top: 18px;
+}
+#the-team .col1, #the-team .col2 {
+	padding-top: 18px;
+}
+
+#the-team .general-contact ul {
+	margin-bottom: 18px;
+}
+#the-team .general-contact ul li {
+	margin-bottom: 10px;
+}
+#the-team .team-photo {
+	width: 95%;
+	display: block;
+	margin: 0 auto;
+	padding: 9px;
+	background: #f7f7f7;
+}
+#the-team .team-card {
+	width: 47%;
+	float: left;
+	margin-right: 1%;
+	padding: 10px 10px 10px 0;
+	margin-bottom: 36px;
+	min-height: 267px;
+	position: relative;
+}
+#the-team .team-card .card-photo {
+	padding: 5px;
+	background: #eee;
+	width: 200px;
+
+	position: absolute;
+	left: 0;
+	top: 10px;
+
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+#the-team .team-card .card-photo img {
+	height: 267px;
+	display: block;
+}
+#the-team .team-card .card-info {
+	margin-left: 230px;
+}
+#the-team .team-card .card-info h1 {
+	margin-top: 5px;
+}
+#the-team .team-card .card-info h3 {
+	color: #777;
+	font-family: Georgia, serif;
+	font-style: italic;
+}
+#the-team .team-card .card-info p {
+	font-size: 13px;
+}
+#the-team .team-card .card-info .contact-links a:hover, .general-contact a:hover {
+	text-decoration: underline;
+}
+
+#the-team .card-photo img.alternate,
+#the-team .card-photo:hover img.normal {
+	display: none;
+}
+
+#the-team .card-photo img.normal,
+#the-team .card-photo:hover img.alternate {
+	display: block;
+}
+
+/** Terms of Use */
+#tos ol {
+	list-style: decimal inside;
+	padding-bottom: 20px;
+}
+#tos ol ol {
+	margin-bottom: 0;
+}
+#tos html>/**/body ol { /* Won't be interpreted by IE6/7. */
+	list-style-type: none;
+	counter-reset: level1;
+}
+#tos ol li:before {
+	content: counter(level1) ". ";
+	counter-increment: level1;
+}
+#tos ol li ol {
+	list-style-type: none;
+	counter-reset: level2;
+	padding-left: 2em;
+}
+#tos ol li ol li:before {
+	content: counter(level1) "." counter(level2) " ";
+	counter-increment: level2;
+}
+#tos ol li span { /* For IE6/7. */
+	margin: 0 5px 0 -25px;
+}
+#tos li {
+	font-size: 14px;
 }

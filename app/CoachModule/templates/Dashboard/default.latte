@@ -17,7 +17,7 @@
 		{if $user->entity->getStudentsWithoutGroup()->count()}
 			<p>
 				<strong>Studenti, které nemáte v žádné skupině</strong>
-				<ol style="padding-left: 2em;">
+				<ol class="coach-list">
 					<li n:foreach="$user->entity->getStudents() as $student">
 						&bull; <a n:href="Profile:, pid => $student->id">{$student->name}</a>
 					</li>
@@ -30,7 +30,7 @@
 				<strong>
 					<a n:href="Group:, gid => $group->id">{$group->label}</a>
 				</strong>
-				<ol style="padding-left: 2em;">
+				<ol class="coach-list">
 					<li n:foreach="$group->getUsers() as $student">
 						&bull; <a n:href="Profile:, gid => $group->id, pid => $student->id">{$student->name}</a>
 					</li>

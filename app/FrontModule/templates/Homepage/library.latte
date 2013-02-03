@@ -3,13 +3,13 @@
 {#content}
 
 <article>
-	<h2 class="main-headline" style="white-space: pre;">Knihovna všech videí</h2>
+	<h2 class="main-headline">Knihovna všech videí</h2>
 	{cache tags => ['categories', 'videos']}
 		<div>
 			<h3>Máme pro vás přeloženo už {$presenter->context->videos->findAll()->count()} lekcí&hellip;</h3>
 		</div>
 
-		<hr id="browse" class="thin" style="width: 100%">
+		<hr id="browse" class="thin wide">
 
 		<div id="library">
 			<div id="library-content" >

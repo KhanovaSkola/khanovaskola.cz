@@ -9,7 +9,7 @@
 <div id="fb-root"></div>
 <script>
 	$(function() {
-		$("#facebook-like").append($('<iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FKhanovaSkola&amp;send=false&amp;layout=box_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=90&amp;appId=273608052753035" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:120px; height:90px;" allowTransparency="true"></iframe>'));
+		$("#facebook-like").append($('<iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FKhanovaSkola&amp;send=false&amp;layout=box_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=90&amp;appId=273608052753035" scrolling="no" frameborder="0" allowTransparency="true"></iframe>'));
 		$("#large-search-input").autocomplete({
 			source: function(req, res) {
 				$.ajax({
@@ -86,39 +86,8 @@
 			<p>
 				Naším hlavním <a n:href=":Front:About:sponsors">partnerem</a> je společnost <a href="http://scio.cz/" target="_blank">Scio</a>.
 			</p>
-			<div style="position: relative; top: -10px;" id="facebook-like">
-				<!--<fb:like href="https://www.facebook.com/KhanovaSkola" send="false" layout="box_count" show_faces="false"></fb:like>-->
+			<div id="facebook-like">
 			</div>
 		</div>
-		<div class="clear"></div>
 	</div>
-
-	{*
-	{cache tags => ['categories', 'videos']}
-		<div>
-			<h2>Máme pro vás přeloženo už {$presenter->context->videos->findAll()->count()} výukových videí&hellip;</h2>
-		</div>
-
-		<hr id="browse" class="thin" style="width: 100%">
-
-		<div id="library">
-			<div id="library-content" >
-				<div id="library-content-main">
-					{foreach $categories as $maincat}
-						{continueIf !$maincat->hasVideos()}
-						<h2>{$maincat->label}</h2>
-						{foreach $maincat->getSubCategories() as $category}
-							{continueIf !$category->hasVideos()}
-							{if $category->isLeaf()}
-								{include '_leaf.latte', subcat => $category, category => $category->getParent()}
-							{else}
-								{include '_topic.latte', category => $category}
-							{/if}
-						{/foreach}
-					{/foreach}
-				</div>
-			</div>
-		</div>
-	{/cache}
-	*}
 </article>

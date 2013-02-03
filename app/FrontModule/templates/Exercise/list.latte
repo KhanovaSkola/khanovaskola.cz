@@ -2,7 +2,7 @@
 {var $description = "Všechna cvičení na Khanově škole. Zatím matematika, časem přibudou další témata."}
 {#content}
 
-<article>
+<article id="exercise-list">
 	{cache $user->id, tags => ['exercises', 'categories']}
 		<div class="col1 forty-sixty">
 			<h2 class="main-headline">Cvičení</h2>
@@ -10,10 +10,10 @@
 			{var $linked = []}
 			{foreach $presenter->getSortedCategories() as $category}
 				{var $linked[] = $category->id}
-				<h3 style="margin: 10px 0 0 0" id="category-{$category->id}">{$category->label}</h3>
+				<h3 id="category-{$category->id}">{$category->label}</h3>
 				<table>
 					<tr n:foreach="$category->getExercises() as $ex">
-						<td n:if="$user->loggedIn" style="padding-right: .5em; text-align: right; width: 3em;">
+						<td class="column-progress" n:if="$user->loggedIn">
 							{var $skill = $user->entity->getExerciseSkill($ex)}
 							{if $skill > 0.05}
 								{=$skill * 100|number}&thinsp;%
