@@ -65,6 +65,9 @@ class WatchPresenter extends BaseFrontPresenter
 		$this->template->autoplay = $autoplay;
 		$this->template->video = $this->video;
 		$this->template->category = $this->category;
+
+		$amara = new \Amara($this->presenter->context->cacheStorage);
+		$this->template->subtitles =  $amara->getSubtitles($this->video);
 	}
 
 

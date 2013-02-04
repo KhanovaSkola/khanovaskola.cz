@@ -7,20 +7,11 @@ class Subtitles extends BaseControl
 
 
 
-	public function render(Video $video)
+	public function render($subtitles)
 	{
-		$this->getSubtitles($video);
 		$this->template->setFile(__DIR__ . '/template.latte');
-		$this->template->subtitles = $this->getSubtitles($video);
+		$this->template->subtitles = $subtitles;
 		$this->template->render();
-	}
-
-
-
-	private function getSubtitles(Video $video)
-	{
-		$amara = new \Amara($this->presenter->context->cacheStorage);
-		return $amara->getSubtitles($video);
 	}
 
 

@@ -28,7 +28,7 @@
 	</script>
 	<script n:if="!$user->loggedIn" type="text/javascript" src="{$cdnUrl}/js/youtube_guest.js"></script>
 	<script n:if="$user->loggedIn" type="text/javascript" src="{$cdnUrl}/js/youtube_user.js"></script>
-	<script type="text/javascript" src="{$cdnUrl}/js/subtitles.js"></script>
+	<script n:if="$subtitles" type="text/javascript" src="{$cdnUrl}/js/subtitles.js"></script>
 {/#}
 {#content}
 <article id="video-page">
@@ -74,7 +74,9 @@
 			<div class="video-container">
 				<div id="player"></div>
 			</div>
-			{control subtitles, $video}
+			{if $subtitles}
+				{control subtitles, $subtitles}
+			{/if}
 		</div>
 		<p class="center">
 			<a n:href=":Front:Browse:, id => $category->id" class="call-to-action blue simple-button">Další videa z {$category->label}</a>
