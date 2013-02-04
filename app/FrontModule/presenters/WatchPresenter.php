@@ -92,7 +92,7 @@ class WatchPresenter extends BaseFrontPresenter
 				}
 			});
 
-			$cache = new Cache($this->context->cacheStorage);
+			$cache = new Cache($this->context->cacheStorage, 'dynamic_css');
 			$cache->clean([Cache::TAGS => "watched/{$this->user->id}"]);
 
 			$this->sendJson(['status' => 'success']);

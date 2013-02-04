@@ -1,6 +1,7 @@
 <?php
 
 use Nette\Utils\Json;
+use Nette\Caching\Cache;
 
 
 class Amara extends Nette\Object
@@ -75,17 +76,19 @@ class Amara extends Nette\Object
 	 */
 	protected function getData(Video $video)
 	{
-		$cache = new \Nette\Caching\Cache($this->cacheStorage, 'amara');
-		if (!isset($cache[$video->id])) {
+		$cache = new Cache($this->cacheStorage);
+		if (!isset($cache["amara/$video->id"])) {
 			$url = self::ENDPOINT . '/widget/rpc/jsonp/show_widget?video_url=' . urlencode("\"http://www.youtube.com/watch?v={$video->youtube_id}\"") . '&is_remote=true&base_state=%7B%22language%22%3A%22cs%22%7D&callback=';
 			$res = file_get_contents($url);
-			$data = \Nette\Utils\Json::decode(substr($res, 1, -2));
+			$data = Json::decode(substr($res, 1, -2));
 
-			$cache->save($video->id, $data);
+			$cache->save("amara/$video->id", $data, [
+				\Nette\Caching\Cache::TAGS => ["video/$video->id"],
+			]);
 			return $data;
 		}
 
-		return $cache[$video->id];
+		return $cache["amara/$video->id"];
 	}
 
 }

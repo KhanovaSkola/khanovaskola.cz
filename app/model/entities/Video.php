@@ -1,5 +1,8 @@
 <?php
 
+use Nette\Caching\Cache;
+
+
 /**
  * @property int	$category_id
  * @property int	$exercise_id
@@ -83,21 +86,21 @@ class Video extends EntityUrl
 	 */
 	public function getMetaData()
 	{
-		$cache = new \Nette\Caching\Cache($this->context->cacheStorage, 'video');
-		if (!isset($cache[$this->id])) {
+		$cache = new Cache($this->context->cacheStorage);
+		if (!isset($cache["video/$this->id"])) {
 			$res = file_get_contents("http://gdata.youtube.com/feeds/api/videos/$this->youtube_id?v=2&alt=jsonc&prettyprint=false");
 			$data = \Nette\Utils\Json::decode($res);
 			if (property_exists($data, 'error')) {
 				throw new \Nette\Utils\JsonException($data->error[0]->code);
 			}
-			$cache->save($this->id, $data, [
+			$cache->save("video/$this->id", $data, [
 				\Nette\Caching\Cache::TAGS => ["video/$this->id"],
 			]);
 
 			return $data;
 		}
 
-		return $cache[$this->id];
+		return $cache["video/$this->id"];
 	}
 
 
