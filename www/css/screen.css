@@ -105,6 +105,8 @@ a.subtitles-edit {float: right; font-size: 10pt;}
 #about-us .logo {text-align: center; padding-top: 18px; min-width:160px; max-width:160px; margin-right: 2%;}
 #about-us .content {max-width:81%; text-align: justify;}
 #about-us .sponsors {margin-bottom: 44px;}
+#about-us .sponsor {width: 25%; min-width: auto; max-width: auto;}
+#about-us .sponsor:nth-of-type(1) {padding-left: 25%;}
 
 #press img {margin-right: 1em}
 #press .color {display: inline-block; width: 2em; height: 3ex; margin-right: 1em;}
