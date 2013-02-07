@@ -1,5 +1,8 @@
 <?php
 
+use Nette\Utils\Strings;
+
+
 class Autocomplete extends Table
 {
 
@@ -12,7 +15,7 @@ class Autocomplete extends Table
 
 	public function whisper($string)
 	{
-		return $this->findBy(['label REGEXP ?' => "^(.* )?" . preg_quote($string)])->select('Concat(Lower(Substr(label, 1, 1)), Substr(label, 2)) AS `label`');
+		return $this->findBy(['label COLLATE utf8_general_ci LIKE ?' => "%" . str_replace(' ', '%', $string) . "%"])->select('Concat(Lower(Substr(label, 1, 1)), Substr(label, 2)) AS `label`');
 	}
 
 }
