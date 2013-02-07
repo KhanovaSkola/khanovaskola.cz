@@ -153,10 +153,8 @@ img.pull-down {margin-top: 5ex;}
 
 .topic-info {width: 450px; display: inline-block;}
 .topic-actions {float: right; display: inline-block; text-align: right; line-height: 300%;}
-.main-header {margin-left: -19px; margin-top: 0px !important; background-size: 100% auto; background-position: center center;}
 .main-header .aliases {margin-top: 2ex;}
 .main-header .aliases p {margin: 0;}
-.main-header .white-strip {background-color: rgba(255, 255, 255, .93); padding: 1ex 2em 1ex 1em;}
 
 hr.wide {width: 100%;}
 

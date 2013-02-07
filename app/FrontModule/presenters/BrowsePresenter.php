@@ -42,10 +42,6 @@ class BrowsePresenter extends BaseFrontPresenter
 		if ($this->category->isLeaf()) {
 			$this->template->category = $this->category->getParent();
 			$this->template->leaf = $this->category;
-
-			$video = $this->category->getVideos()->fetch();
-			$this->template->thumbnail = $video ? $video->getThumbnailHd() : "";
-
 			$this->template->show_video_order = $this->user->isInrole(\NetteUser::ROLE_EDITOR);
 
 		} else { // isSubcategory

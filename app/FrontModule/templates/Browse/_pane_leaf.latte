@@ -1,16 +1,16 @@
-<div class="main-header clearfix" style="background-image: url({$thumbnail});">
+<div class="main-header clearfix">
 	<div class="topic-info">
-		<div class="topic-title white-strip" itemprop="name">{$leaf->label}</div>
-		<div class="topic-desc white-strip" itemprop="description">
+		<div class="topic-title" itemprop="name">{$leaf->label}</div>
+		<div class="topic-desc" itemprop="description">
 			{$leaf->description}
 			{var $dubber = $leaf->getAuthor()}
 			{if $dubber}
 				Dabing {!$dubber->getNbName()}.
 			{/if}
 		</div>
-		<div class="white-strip">Stopáž: {$leaf->getDuration()|time}</div>
+		<div class="">Stopáž: {$leaf->getDuration()|time}</div>
 	</div>
-	<div class="topic-actions white-strip">
+	<div class="topic-actions">
 		{if $user->loggedIn}
 			<div>
 				{var $count = $leaf->getTranslationVoteCount()}
@@ -31,7 +31,7 @@
 		{/if}
 	</div>
 	<div class="clear"></div>
-	<div n:if="$user->isInrole(\NetteUser::ROLE_ADMIN) && count($selected->getSlugs()) > 1" class="white-strip aliases">
+	<div n:if="$user->isInrole(\NetteUser::ROLE_ADMIN) && count($selected->getSlugs()) > 1" class=" aliases">
 		<p><b>Aliasy:</b> {foreach $selected->getSlugs() as $slug}<a n:href="this, id => $slug">{$slug}</a>{sep}, {/sep}{/foreach}</p>
 	</div>
 </div>
