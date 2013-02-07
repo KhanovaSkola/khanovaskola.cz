@@ -143,6 +143,8 @@ img.pull-down {margin-top: 5ex;}
 
 .providers .provider {margin-left: 12pt;}
 .providers .provider:first-of-type {margin-left: 0;}
+.providers-rows .provider {margin-left: 0;}
+.providers-rows .provider:first-of-type {margin-left: 4px;}
 
 #translation-rules ol {list-style: decimal inside; padding-bottom: 20px;}
 #translation-rules ol p {margin-left: 4em;}

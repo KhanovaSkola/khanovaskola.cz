@@ -9,7 +9,7 @@
 
 <article id="page-root">
 	<div class="login-container card-case vertical-shadow">
-		<div class="providers">
+		<div class="providers providers-rows">
 			<h3>Přihlášení do Khanovy školy</h3>
 			<div id="login-google" class="action-gradient provider">
 				<div class="img-container">
@@ -38,7 +38,7 @@
 				{form signInForm, data-errors => "#error-text"}
 					<div class="field-error color-error" id="error-text">{control signInForm errors}</div>
 
-					<img src="/images/hand-tree.svg" width="75" height="75" class="tree">
+					<img src="/images/hand-tree.svg" width="120" class="tree">
 					<div class="field-container">
 						{label username, class => "field-label"}Email{/label}
 						{input username, class => "simple-input ui-corner-all"}
