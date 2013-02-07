@@ -400,4 +400,26 @@ class Category extends EntityUrl
 		return 'http://khan-report.appspot.com/translations/subtitleactions?playlist=' . urlencode($this->playlist_en) . '&language=Czech';
 	}
 
+
+
+	public function getAuthor()
+	{
+		$author_ids = [];
+		foreach ($this->getVideos() as $video) {
+			if ($video->author_id) {
+				if (!isset($author_ids[$video->author_id]))
+					$author_ids[$video->author_id] = 0;
+				$author_ids[$video->author_id]++;
+			}
+		}
+		if (!count($author_ids)) {
+			return NULL;
+		}
+
+		ksort($author_ids);
+		$author_id = array_keys($author_ids)[0];
+
+		return $this->context->authors->find($author_id);
+	}
+
 }
