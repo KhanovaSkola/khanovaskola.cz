@@ -11,6 +11,10 @@ use Mikulas\Git;
 abstract class BasePresenter extends Nette\Application\UI\Presenter
 {
 
+	const CSRF_OFF = FALSE;
+
+
+
 	/**
 	 * @return string
 	 */
@@ -63,7 +67,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 
 	public function createComponentSearch($name)
 	{
-		$form = $this->createForm($name);
+		$form = $this->createForm($name, self::CSRF_OFF);
 
 		$control = $form->addText('query')->getControlPrototype();
 		$control->attrs['type'] = 'search';
@@ -115,9 +119,13 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 
 
 
-	protected function createForm($name)
+	protected function createForm($name, $protect = NULL)
 	{
 		$form = new \Nette\Application\UI\Form($this, $name);
+
+		if ($protect !== self::CSRF_OFF) {
+			$form->addProtection('Odešlete prosím formulář znovu, vypršel bezpečnostní limit.');
+		}
 
 		$form->onSuccess[] = callback($this, 'onSuccess' . ucFirst($name));
 
