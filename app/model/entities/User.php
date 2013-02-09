@@ -117,7 +117,10 @@ class User extends Entity
 			'user_id' => $this->id,
 		];
 
-		$percent = $seconds == -1 ? 100 : $seconds / $video->duration * 100;
+		$percent = 0;
+		if ($video->duration !== 0) {
+			$percent = $seconds == -1 ? 100 : $seconds / $video->duration * 100;
+		}
 
 		$db = $this->context->database;
 		$db->beginTransaction();
@@ -126,7 +129,7 @@ class User extends Entity
 		$data['percent'] = $percent;
 		$db->table('progress')->insert($data);
 
-		if ($percent > $this->context->parameters['progress']['completed_threshold']) {
+		if ($onWatchedCallback && $percent > $this->context->parameters['progress']['completed_threshold']) {
 			$onWatchedCallback();
 		}
 
@@ -276,7 +279,7 @@ class User extends Entity
 	}
 
 
-	public function saveExerciseAnswer($exercise_id, $correct, $onMasteryCallback = NULL)
+	public function saveExerciseAnswer($exercise_id, $correct, $time, $onMasteryCallback = NULL)
 	{
 		$exercise = $this->context->exercises->find($exercise_id);
 		if (!$exercise) {
@@ -286,7 +289,8 @@ class User extends Entity
 		$answer = $this->context->database->table('answer')->insert([
 			'exercise_id' => $exercise->id,
 			'user_id' => $this->id,
-			'correct' => $correct ? 1 : 0
+			'correct' => $correct ? 1 : 0,
+			'time' => $time,
 		]);
 
 		$masteryThreshold = $this->context->parameters['progress']['completed_threshold'];

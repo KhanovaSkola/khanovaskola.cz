@@ -2,7 +2,7 @@
 parameters:
 	progress:
 		completed_threshold: 95 # video position in percents that mark video as watched
-		exercise_limit: 30 # how many correct answer in row would give 100 % score
+		exercise_limit: 15 # how many correct answer in row would give 100 % score
 		exercise_mastery: 90 # how many percent must user achieve to mark exercise as mastered
 
 	github:

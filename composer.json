@@ -15,6 +15,7 @@
 		"nesQuick/Metrics": "dev-master"
 	},
     "require-dev": {
-        "nette/tester": "@dev"
+        "nette/tester": "@dev",
+        "fzaninotto/faker": "@dev"
     }
 }
