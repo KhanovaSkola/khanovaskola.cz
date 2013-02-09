@@ -54,6 +54,7 @@ class RegistrationPresenter extends BaseFrontPresenter
 			->setRequired('Vyplňte vaše heslo.');
 
 		$form->addSubmit('send');
+		return $form;
 	}
 
 

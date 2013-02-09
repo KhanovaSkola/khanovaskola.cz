@@ -110,6 +110,7 @@ class WatchPresenter extends BaseFrontPresenter
 		$form->addText('alias', 'Alias');
 
 		$form->addSubmit('send', 'Přidat')->controlPrototype->class = "simple-button blue";
+		return $form;
 	}
 
 
@@ -140,6 +141,7 @@ class WatchPresenter extends BaseFrontPresenter
 		$form->addText('external_exercise_url', 'Externí cvičení');
 
 		$form->addSubmit('send', 'Uložit')->controlPrototype->class = "simple-button green";
+		return $form;
 	}
 
 

@@ -1,5 +1,5 @@
 {
-    "hash": "8c893ee061fc72c611a0fa37c065335c",
+    "hash": "ffaf0459e5e7714d4680b1107ee8e500",
     "packages": [
         {
             "name": "facebook/php-sdk",
@@ -16,13 +16,12 @@
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.2.0",
                 "ext-curl": "*",
-                "ext-json": "*"
+                "ext-json": "*",
+                "php": ">=5.2.0"
             },
             "time": "2013-01-15 21:37:15",
             "type": "library",
-            "installation-source": "source",
             "autoload": {
                 "classmap": [
                     "src"
@@ -43,6 +42,55 @@
             "keywords": [
                 "facebook",
                 "sdk"
+            ]
+        },
+        {
+            "name": "kdyby/forms-replicator",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Kdyby/Replicator",
+                "reference": "b95e37fff58ab43908605b79b0d030647852b5a2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Kdyby/Replicator/zipball/b95e37fff58ab43908605b79b0d030647852b5a2",
+                "reference": "b95e37fff58ab43908605b79b0d030647852b5a2",
+                "shasum": ""
+            },
+            "require": {
+                "nette/nette": "@dev"
+            },
+            "require-dev": {
+                "nette/tester": "@dev"
+            },
+            "time": "2013-01-22 16:52:45",
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Kdyby\\Replicator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Filip Procházka",
+                    "homepage": "http://filip-prochazka.com"
+                }
+            ],
+            "description": "Nette forms container replicator aka addDynamic",
+            "homepage": "http://kdyby.org",
+            "keywords": [
+                "Forms",
+                "addDynamic",
+                "kdyby",
+                "nette",
+                "replicator"
             ]
         },
         {
@@ -67,7 +115,6 @@
             },
             "time": "2013-01-14 16:07:06",
             "type": "library",
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Buzz": "lib/"
@@ -115,7 +162,6 @@
                     "dev-lib": "1.3.x-dev"
                 }
             },
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Michelf": ""
@@ -162,7 +208,6 @@
             },
             "time": "2013-01-25 14:43:55",
             "type": "library",
-            "installation-source": "source",
             "autoload": {
                 "files": [
                     "Git.php"
@@ -194,12 +239,11 @@
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3",
-                "kriswallsmith/buzz": "dev-master"
+                "kriswallsmith/buzz": "dev-master",
+                "php": ">=5.3"
             },
             "time": "2012-05-15 08:35:21",
             "type": "library",
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Metrics": "src/"
@@ -218,9 +262,9 @@
             ],
             "description": "PHP Client for Librato Metrics APIs.",
             "keywords": [
+                "Metrics",
                 "api",
-                "client",
-                "Metrics"
+                "client"
             ]
         },
         {
@@ -238,19 +282,19 @@
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0",
                 "ext-iconv": "*",
-                "ext-tokenizer": "*"
+                "ext-tokenizer": "*",
+                "php": ">=5.3.0"
             },
             "require-dev": {
                 "nette/tester": "@dev"
             },
             "suggest": {
-                "ext-mbstring": "*",
-                "ext-pdo": "*",
-                "ext-memcache": "*",
+                "ext-fileinfo": "*",
                 "ext-gd": "*",
-                "ext-fileinfo": "*"
+                "ext-mbstring": "*",
+                "ext-memcache": "*",
+                "ext-pdo": "*"
             },
             "time": "2013-02-07 10:40:20",
             "type": "library",
@@ -259,7 +303,6 @@
                     "dev-master": "2.1-dev"
                 }
             },
-            "installation-source": "source",
             "autoload": {
                 "files": [
                     "Nette/loader.php"
@@ -284,18 +327,18 @@
             "description": "Nette Framework - innovative framework for fast and easy development of secured web applications in PHP. Write less, have cleaner code and your work will bring you joy.",
             "homepage": "http://nette.org",
             "keywords": [
-                "templating",
-                "framework",
+                "Forms",
                 "database",
                 "dbal",
                 "debugging",
-                "mvc",
-                "micro",
-                "Forms",
+                "framework",
+                "images",
                 "latte",
-                "neon",
                 "mailing",
-                "images"
+                "micro",
+                "mvc",
+                "neon",
+                "templating"
             ]
         },
         {
@@ -317,7 +360,6 @@
             },
             "time": "2013-01-08 03:33:40",
             "type": "library",
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Sunra\\PhpSimple\\HtmlDomParser": "Src/"
@@ -337,112 +379,13 @@
             "description": "Composer adaptation of: A HTML DOM parser written in PHP5+ let you manipulate HTML in a very easy way! Require PHP 5+. Supports invalid HTML. Find tags on an HTML page with selectors just like jQuery. Extract contents from HTML in a single line.",
             "homepage": "https://github.com/sunra/php-simple-html-dom-parser",
             "keywords": [
-                "parser",
+                "dom",
                 "html",
-                "dom"
+                "parser"
             ]
         }
     ],
-    "packages-dev": [
-        {
-            "name": "fzaninotto/faker",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/fzaninotto/Faker",
-                "reference": "9fe1a478ad9b7f3ecf8a09e27e01127a37c5bd36"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/9fe1a478ad9b7f3ecf8a09e27e01127a37c5bd36",
-                "reference": "9fe1a478ad9b7f3ecf8a09e27e01127a37c5bd36",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "time": "2013-02-06 07:43:50",
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1.x-dev"
-                }
-            },
-            "installation-source": "source",
-            "autoload": {
-                "psr-0": {
-                    "Faker": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "François Zaninotto"
-                }
-            ],
-            "description": "Faker is a PHP library that generates fake data for you.",
-            "keywords": [
-                "faker",
-                "fixtures",
-                "data"
-            ]
-        },
-        {
-            "name": "nette/tester",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nette/tester",
-                "reference": "5150a9451d84c5d4292692ea6c5b593a92535e67"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/nette/tester/archive/5150a9451d84c5d4292692ea6c5b593a92535e67.zip",
-                "reference": "5150a9451d84c5d4292692ea6c5b593a92535e67",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "time": "2012-12-17 13:52:17",
-            "bin": [
-                "Tester/tester"
-            ],
-            "type": "library",
-            "installation-source": "source",
-            "autoload": {
-                "classmap": [
-                    "Tester/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause",
-                "GPL-2.0",
-                "GPL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "David Grudl",
-                    "homepage": "http://davidgrudl.com"
-                },
-                {
-                    "name": "Nette Community",
-                    "homepage": "http://nette.org/contributors"
-                }
-            ],
-            "description": "An easy-to-use PHP Unit Testing framework.",
-            "homepage": "http://nette.org",
-            "keywords": [
-                "testing",
-                "nette",
-                "unit"
-            ]
-        }
-    ],
+    "packages-dev": null,
     "aliases": [
 
     ],
@@ -454,6 +397,7 @@
         "sunra/php-simple-html-dom-parser": 20,
         "mikulas/gitcommit": 20,
         "nesquick/metrics": 20,
+        "kdyby/forms-replicator": 20,
         "nette/tester": 20,
         "fzaninotto/faker": 20
     }

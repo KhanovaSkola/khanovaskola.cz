@@ -93,6 +93,7 @@ class GroupPresenter extends BaseCoachPresenter
 		}
 
 		$form->addSubmit('send', 'Uložit');
+		return $form;
 	}
 
 

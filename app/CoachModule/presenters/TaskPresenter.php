@@ -78,6 +78,7 @@ class TaskPresenter extends BaseCoachPresenter
 		$form->addText('deadline', 'Nejpozději do');
 
 		$form->addSubmit('send', 'Uložit');
+		return $form;
 	}
 
 

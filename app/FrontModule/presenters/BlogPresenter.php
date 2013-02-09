@@ -77,6 +77,7 @@ class BlogPresenter extends BaseFrontPresenter
 		$form->addTextarea('text', 'Text');
 
 		$form->addSubmit('save', 'Uložit')->controlPrototype->class = "simple-button blue";
+		return $form;
 	}
 
 

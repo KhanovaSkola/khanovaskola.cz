@@ -24,6 +24,7 @@ class MapPresenter extends BaseModeratorPresenter
 		$form->addMultiSelect('child_id', 'Větev', $this->context->categories->getFill());
 
 		$form->addSubmit('send', 'Přidat vazbu');
+		return $form;
 	}
 
 

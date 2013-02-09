@@ -2,9 +2,30 @@
 {#content}
 
 <article>
-	<ul>
-		<li n:foreach="$files as $file">
-			<a n:href="Translate:, file => $file">{$file}</a>
-		</li>
-	</ul>
+	<div class="col1 fifty-fifty">
+		<h2 class="main-headline">Rozpracované překlady</h2>
+		<ul>
+			<li n:foreach="$working_on as $file">
+				<a n:href="Translate:, file => $file">{$file}</a>
+			</li>
+		</ul>
+
+		<br>
+		<h2>Nová cvičení</h2>
+		<ul>
+			<li n:foreach="$translate as $file">
+				<a n:href="Translate:, file => $file">{$file}</a>
+			</li>
+		</ul>
+	</div>
+	<div class="col2 fifty-fifty">
+		<h2 class="main-headline">Zveřejněné překlady</h2>
+		<ul>
+			<li n:foreach="$completed as $exercise">
+				<a n:href=":Front:Exercise:, eid => $exercise->id">{$exercise->label}</a>
+			</li>
+		</ul>
+		<hr class="thin">
+	</div>
+	<div class="clear"></div>
 </article>

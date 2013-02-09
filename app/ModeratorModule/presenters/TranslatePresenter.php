@@ -51,6 +51,7 @@ class TranslatePresenter extends BaseModeratorPresenter
 		});
 
 		$form->addSubmit('send');
+		return $form;
 	}
 
 
@@ -74,16 +75,33 @@ class TranslatePresenter extends BaseModeratorPresenter
 
 	public function renderList()
 	{
-		$files = [];
+		$translate = [];
 		foreach (scandir(WWW_DIR . '/exercise/translate') as $file) {
 			if (in_array($file, ['.', '..'])) {
 				continue;
 			}
 
-			$files[] = substr($file, 0, -4);
+			$translate[] = substr($file, 0, -4);
 		}
 
-		$this->template->files = $files;
+		$czech = [];
+		$completed = [];
+		foreach (scandir(WWW_DIR . '/exercise/czech') as $file) {
+			if (in_array($file, ['.', '..'])) {
+				continue;
+			}
+			$file = substr($file, 0, -4);
+			$exercise = $this->context->exercises->findOneBy(['file' => $file]);
+			if ($exercise) {
+				$completed[] = $exercise;
+			} else {
+				$czech[] = $file;
+			}
+		}
+
+		$this->template->translate = array_diff($translate, $czech);
+		$this->template->working_on = $czech;
+		$this->template->completed = $completed;
 	}
 
 }

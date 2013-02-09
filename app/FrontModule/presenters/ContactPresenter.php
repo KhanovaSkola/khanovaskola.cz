@@ -36,6 +36,7 @@ class ContactPresenter extends BaseFrontPresenter
 		$form->addHidden('antispam');
 
 		$form->addSubmit('send', 'Odeslat')->getControlPrototype()->class = "simple-button green";
+		return $form;
 	}
 
 

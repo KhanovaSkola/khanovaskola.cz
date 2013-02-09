@@ -90,6 +90,7 @@ class ProfilePresenter extends BaseFrontPresenter
 			->setRequired('Vyplňte prosím email učitele, kterého chcete přidat');
 
 		$form->addSubmit('send', 'Přidat učitele')->getControlPrototype()->class = "simple-button green";
+		return $form;
 	}
 
 

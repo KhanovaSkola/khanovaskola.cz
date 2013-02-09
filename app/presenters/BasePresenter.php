@@ -75,6 +75,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 		$control->attrs['autosave'] = 'khanovaskola_search';
 
 		$form->addSubmit('send');
+		return $form;
 	}
 
 
@@ -121,7 +122,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 
 	protected function createForm($name, $protect = NULL)
 	{
-		$form = new \Nette\Application\UI\Form($this, $name);
+		$form = new \Nette\Application\UI\Form();
 
 		if ($protect !== self::CSRF_OFF) {
 			$form->addProtection('Odešlete prosím formulář znovu, vypršel bezpečnostní limit.');

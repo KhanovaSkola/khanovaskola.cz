@@ -112,6 +112,7 @@ class ExercisePresenter extends BaseFrontPresenter
 		//$form->addText('file', 'Soubor');
 
 		$form->addSubmit('send', 'Uložit');
+		return $form;
 	}
 
 

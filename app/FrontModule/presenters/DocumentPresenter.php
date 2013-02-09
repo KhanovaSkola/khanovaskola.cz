@@ -25,6 +25,7 @@ class DocumentPresenter extends BaseFrontPresenter
 			->setRequired('Zvolte dokument, který chcete zveřejnit');
 
 		$form->addSubmit('send', 'Nahrát');
+		return $form;
 	}
 
 

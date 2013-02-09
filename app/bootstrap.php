@@ -23,6 +23,8 @@ $configurator->addConfig(__DIR__ . '/config/config.db.neon');
 $configurator->addConfig(__DIR__ . '/config/config.local.neon');
 $container = $configurator->createContainer();
 
+Kdyby\Replicator\Container::register();
+
 $routes = new Routes();
 $routes->setup($container);
 

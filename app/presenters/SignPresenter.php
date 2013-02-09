@@ -85,6 +85,7 @@ class SignPresenter extends BasePresenter
 			->setRequired('Vyplňte heslo.');
 
 		$form->addSubmit('send', 'Přihlásit');
+		return $form;
 	}
 
 
@@ -198,6 +199,7 @@ class SignPresenter extends BasePresenter
 		$control->attrs['autofocus'] = TRUE;
 
 		$form->addSubmit('send', 'Pokračovat');
+		return $form;
 	}
 
 
@@ -271,6 +273,7 @@ class SignPresenter extends BasePresenter
 		$form->addHidden('code');
 
 		$form->addSubmit('send', 'Změnit heslo');
+		return $form;
 	}
 
 
