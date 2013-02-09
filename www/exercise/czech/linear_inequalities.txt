@@ -1,0 +1,22 @@
+217.1	 Lineární nerovniec
+
+217.2	 Vyřešte pro <code>x</code>:
+
+217.3	 <code>x</code>
+                    <span class="sol" data-type="list" data-choices="['', '&lt;', '&gt;', '&le;', '&ge;']">
+                        <var>A - C > 0 ? REL : FREL</var>
+                    </span>
+                    <span class="sol"><var>( D - B ) / ( A - C )</var></span>
+
+217.4	 Odečtěte <code><var>C</var>x</code> od obou stran.
+
+217.7	 <var>B > 0 ? "Odečtěte" : "Přičtěte"</var> <code><var>abs(B)</var></code> <var>B > 0 ? "od obou stran" : "k oběma stranám"</var>:
+
+217.10	 Vydělte obě strany <code><var>A - C</var></code>. Protože je <code><var>A - C</var></code> kladné, znaménko nerovnosti <code><var>REL</var></code> se neotáčí.
+
+217.12	 Zjednodušte.
+
+217.14	 Vydělte obě strany <code><var>A - C</var></code>. Protože je <code><var>A - C</var></code> záporné, znaménko nerovnosti <code><var>REL</var></code> se musí otočit na <code><var>FREL</var></code>.
+
+217.16	 Zjednodušte.
+

@@ -1,0 +1,10 @@
+13.1	 Sčítání zlomků
+
+13.4	 Zjednodušte zlomky.
+
+13.6	 Najděte společný jmenovatel tím jako nejmenší společný násobek <code><var>SIMP_D1</var></code> and <code><var>SIMP_D2</var></code>.
+
+13.8	 Upravte zlomky na jmenovatel <code><var>LCM</var></code>.
+
+13.13	 Zjednodušte.
+
