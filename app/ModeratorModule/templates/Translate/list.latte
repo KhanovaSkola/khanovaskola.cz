@@ -7,6 +7,7 @@
 		<ul>
 			<li n:foreach="$working_on as $file">
 				<a n:href="Translate:, file => $file">{$file}</a>
+				<a n:href=":Front:Exercise:, id => 1, debug_file => $file">[test]</a>
 			</li>
 		</ul>
 

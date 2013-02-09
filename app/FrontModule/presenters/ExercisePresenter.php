@@ -16,6 +16,9 @@ class ExercisePresenter extends BaseFrontPresenter
 	 */
 	public $eid;
 
+	/** @persistent */
+	public $debug_file;
+
 	/** @var \Exercise */
 	protected $exercise;
 
@@ -24,7 +27,11 @@ class ExercisePresenter extends BaseFrontPresenter
 	public function startup()
 	{
 		parent::startup();
+
 		$this->exercise = $this->context->exercises->find($this->eid);
+		if (!$this->exercise && $this->debug_file && $this->user->isInRole(\NetteUser::ROLE_ADMIN)) {
+			$this->exercise = new \ExerciseDebug($this->debug_file);
+		}
 	}
 
 
