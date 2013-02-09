@@ -18,7 +18,7 @@
 			<p>
 				<strong>Studenti, které nemáte v žádné skupině</strong>
 				<ol class="coach-list">
-					<li n:foreach="$user->entity->getStudents() as $student">
+					<li n:foreach="$user->entity->getStudentsWithoutGroup() as $student">
 						&bull; <a n:href="Profile:, pid => $student->id">{$student->name}</a>
 					</li>
 				</ol>
