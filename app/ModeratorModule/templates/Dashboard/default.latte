@@ -79,7 +79,7 @@
 					<a n:href="Translate:">přeložit cvičení</a>
 					<span>&ndash; Cvičení se neukládá jako veřejné, je k němu potřeba nechat vygenerovat příslušné soubory. Kontrolu a zveřejnění udělá Mikuláš.</span>
 				</li>
-				{if $presenter->context->parameters['environment'] === 'development'}
+				{if $presenter->context->parameters['environment'] === 'development' && $user->isInRole(\NetteUser::ROLE_ADMIN)}
 					<li><a n:href="detachedExercises">cvičení mimo databázi</a></li>
 					<li n:if="$user->isInrole(\NetteUser::ROLE_ADMIN)"><a n:href="addExercise!">přidat cvičení do databáze</a></li>
 				{/if}
