@@ -374,4 +374,11 @@ class User extends Entity
 		return $time . ':' . md5($time . $this->id . $this->mail . $this->salt);
 	}
 
+
+
+	public function getAnswers(Exercise $exercise)
+	{
+		return $this->context->database->queryArgs('SELECT * FROM answer WHERE user_id=? AND exercise_id=? ORDER BY timestamp, id', [$this->id, $exercise->id]);
+	}
+
 }

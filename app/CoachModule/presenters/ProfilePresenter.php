@@ -18,6 +18,12 @@ class ProfilePresenter extends BaseCoachPresenter
 	/** @var \Group */
 	protected $group = NULL;
 
+	/** @persistent */
+	public $eid = NULL;
+
+	/** @var \Exercise */
+	protected $exercise = NULL;
+
 
 
 	public function startup()
@@ -42,6 +48,8 @@ class ProfilePresenter extends BaseCoachPresenter
 				throw new \Nette\Application\ForbiddenRequestException();
 			}
 		}
+
+		$this->exercise = $this->eid ? $this->context->exercises->find($this->eid) : NULL;
 	}
 
 
@@ -50,6 +58,15 @@ class ProfilePresenter extends BaseCoachPresenter
 	{
 		$this->template->profile = $this->profile;
 		$this->template->group = $this->group;
+	}
+
+
+
+	public function renderAnswerChart()
+	{
+		$this->template->profile = $this->profile;
+		$this->template->group = $this->group;
+		$this->template->exercise = $this->exercise;
 	}
 
 

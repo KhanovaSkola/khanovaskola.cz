@@ -51,18 +51,19 @@ for ($i = 0; $i < 20; ++$i) {
 
 foreach ($coach->getStudents() as $student) {
 	// add watched videos
-	for ($i = 0; $i < 5; ++$i) {
+	for ($i = 0; $i < mt_rand(4, 6); ++$i) {
 		$video = $container->videos->findRandom();
 		$student->setProgress($video, mt_rand(10, 10 * 60));
 	}
 
 	// add answers
-	for ($i = 0; $i < 5; ++$i) {
+	for ($i = 0; $i < mt_rand(4, 6); ++$i) {
 		$exercise = $container->exercises->findAll()->order('Rand()')->limit(1)->fetch();
 
-		$tries = 40;
+		$tries = mt_rand(35, 45);
 		for ($try = 0; $try < $tries; ++$try) {
-			$student->saveExerciseAnswer($exercise->id, probablity($try, $tries), mt_rand(750, 70 * 1000));
+			$time = $tries / ($try + $tries / 3);
+			$student->saveExerciseAnswer($exercise->id, probablity($try, $tries), $time * mt_rand(2 * 1000, 30 * 1000));
 		}
 	}
 }

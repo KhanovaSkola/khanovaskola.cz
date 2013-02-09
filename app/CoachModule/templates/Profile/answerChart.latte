@@ -1,0 +1,54 @@
+{var $title = "Student {$profile->name}"}
+{#breadcrumbs}
+	<span class="breadcrumbs_nav video-nav">
+		<a n:href="Dashboard:">Učit</a>
+		<span class="breadcrumb-separator">»</span>
+		{if $group}
+			<a n:href="Group:, gid => $group->id">{$group->label}</a>
+			<span class="breadcrumb-separator">»</span>
+		{/if}
+		<a n:href="this">{$profile->name}</a>
+	</span>
+{/#}
+{#scripts}
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript">
+		google.load("visualization", "1", { packages:["corechart"]});
+		google.setOnLoadCallback(drawChart);
+		{var $answers = $profile->getAnswers($exercise)->fetchAll()}
+		function drawChart() {
+			var data = google.visualization.arrayToDataTable([
+				['0', {foreach $answers as $i => $answer}'Delay-{$i}'{sep},{/sep}{/foreach}],
+				['0', {foreach $answers as $i => $answer}
+					{=round($answer->time/1000, 1)}{sep},{/sep}
+				{/foreach}]
+			]);
+
+			var options = {
+				vAxis: {'title': 'Čas řešení [s]'},
+				hAxis: {'textPosition': 'none'},
+				legend: 'none',
+				bar: {'groupWidth': '120%'},
+				chartArea: {'width': '90%'},
+				tooltip: {'trigger': 'none'},
+				width: '960',
+				colors: [{foreach $answers as $i => $answer}
+					{if $answer->correct}'green'{else}'red'{/if}{sep},{/sep}
+				{/foreach}]
+			};
+
+			var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+			chart.draw(data, options);
+		}
+	</script>
+{/#scripts}
+{#content}
+<article>
+	<h2 class="main-headline">Student <a n:href="default">{$profile->name}</a> - Cvičení {$exercise->label}</h2>
+
+	<div id="chart_div" style="width: 900px; height: 500px;"></div>
+
+	<p>
+		<a n:href="default">zpět</a>
+	</p>
+</article>
