@@ -86,6 +86,7 @@ class TranslatePresenter extends BaseModeratorPresenter
 
 		$czech = [];
 		$completed = [];
+		$completed_files = [];
 		foreach (scandir(WWW_DIR . '/exercise/czech') as $file) {
 			if (in_array($file, ['.', '..'])) {
 				continue;
@@ -94,12 +95,13 @@ class TranslatePresenter extends BaseModeratorPresenter
 			$exercise = $this->context->exercises->findOneBy(['file' => $file]);
 			if ($exercise) {
 				$completed[] = $exercise;
+				$completed_files[] = $file;
 			} else {
 				$czech[] = $file;
 			}
 		}
 
-		$this->template->translate = array_diff($translate, $czech);
+		$this->template->translate = array_diff($translate, $czech, $completed_files);
 		$this->template->working_on = $czech;
 		$this->template->completed = $completed;
 	}
