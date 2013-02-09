@@ -62,7 +62,7 @@ foreach ($coach->getStudents() as $student) {
 
 		$tries = 40;
 		for ($try = 0; $try < $tries; ++$try) {
-			$student->saveExerciseAnswer($exercise->id, probablity($try, $tries), mt_rand(5, 30));
+			$student->saveExerciseAnswer($exercise->id, probablity($try, $tries), mt_rand(750, 70 * 1000));
 		}
 	}
 }
