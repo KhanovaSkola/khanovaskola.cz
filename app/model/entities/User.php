@@ -89,7 +89,7 @@ class User extends Entity
 			$ids = array_diff($ids, $group->getUsersIds());
 		}
 
-		return $this->context->users->findBy(['id' => $ids]);
+		return $this->context->users->findBy(['id' => array_values($ids)]);
 	}
 
 
