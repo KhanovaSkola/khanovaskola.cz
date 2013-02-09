@@ -1,4 +1,4 @@
-217.1	 Lineární nerovniec
+217.1	 Lineární nerovnice
 
 217.2	 Vyřešte pro <code>x</code>:
 

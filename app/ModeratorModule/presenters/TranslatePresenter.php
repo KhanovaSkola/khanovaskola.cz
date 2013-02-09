@@ -69,7 +69,7 @@ class TranslatePresenter extends BaseModeratorPresenter
 		file_put_contents(WWW_DIR . '/exercise/czech/' . $this->getParam('file') . '.txt', $data);
 		exec('php ' . escapeshellarg(WWW_DIR . '/exercise/generate_translated.php') . ' ' . escapeshellarg($this->getParam('file') . '.html'));
 
-		$this->redirect('list');
+		$this->redirect('this');
 	}
 
 

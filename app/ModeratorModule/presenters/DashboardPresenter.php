@@ -49,18 +49,30 @@ class DashboardPresenter extends BaseModeratorPresenter
 
 
 
-	public function handlePopulateDb()
+	public function handlePopulateDb($file = NULL)
 	{
 		if (!$this->user->isInrole(\NetteUser::ROLE_ADMIN)) {
 			$this->redirect(':Moderator:Dashboard:');
 		}
 
-		foreach ($this->getDetachedExercises() as $file => $label) {
+		$exercises = $this->getDetachedExercises();
+		if (!$file) {
+			foreach ($exercises as $file => $label) {
+				$ex = $this->context->exercises->insert([
+					'file' => $file,
+					'label' => $label,
+				]);
+				$ex->addSlug($label);
+			}
+
+		} else {
+			$label = $exercises[$file];
 			$ex = $this->context->exercises->insert([
 				'file' => $file,
 				'label' => $label,
 			]);
 			$ex->addSlug($label);
+			$this->redirect(':Front:Exercise:', ['eid' => $ex->id]);
 		}
 		$this->redirect('this');
 	}

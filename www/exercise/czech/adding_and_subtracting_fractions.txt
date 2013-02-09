@@ -1,12 +1,12 @@
 6.1	 Sčítání a odčítání zlomků
 
-6.3	 First, we need to find a common denominator. The least common multiple of <code><var>D1</var></code> and <code><var>D2</var></code> is the smallest possible common denominator.
+6.3	 Nejprve potřebujeme najít společný jmenovatel, což je nejmenší společný násobek <code><var>D1</var></code> a <code><var>D2</var></code>.
 
-6.5	 Now, we need to change both fractions to have a denominator of <code><var>LCM</var></code>.
+6.5	 Oba zlomky přepište na jmenovatel o hodnotě <code><var>LCM</var></code>.
 
-6.7	 So, the problem becomes:
+6.7	 Takže se z problému stává:
 
-6.9	 <var>N2 &gt; 0 ? "Add" : "Subtract"</var> the numerators.
+6.9	 <var>N2 &gt; 0 ? "Sečtěte" : "Odečtěte"</var> čitatele.
 
-6.11	 Simplify.
+6.11	 Zjednodušte.
 
