@@ -1,12 +1,12 @@
 {var $title = "Překlad cvičení"}
 {#content}
 
-<article>
-	<h2>Překlad cvičení</h2>
+<article id="backend-form">
+	<h2 class="main-headline">Překlad cvičení</h2>
 	{form translateForm}
 		<table n:inner-foreach="$translate['tid'] as $i => $tid">
 			<tr>
-				<td rowspan="2">{$tid}</td>
+				<td rowspan="2">{$tid}&nbsp;&mdash;&nbsp;</td>
 				<td>{$translate['text'][$i]}</td>
 			</tr>
 			<tr>

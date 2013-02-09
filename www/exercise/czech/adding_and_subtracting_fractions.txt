@@ -1,0 +1,12 @@
+6.1	 Sčítání a odčítání zlomků
+
+6.3	 First, we need to find a common denominator. The least common multiple of <code><var>D1</var></code> and <code><var>D2</var></code> is the smallest possible common denominator.
+
+6.5	 Now, we need to change both fractions to have a denominator of <code><var>LCM</var></code>.
+
+6.7	 So, the problem becomes:
+
+6.9	 <var>N2 &gt; 0 ? "Add" : "Subtract"</var> the numerators.
+
+6.11	 Simplify.
+

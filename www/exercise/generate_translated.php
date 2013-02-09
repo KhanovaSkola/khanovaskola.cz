@@ -2,7 +2,16 @@
 
 $path = __DIR__ . '/exercises';
 
-foreach (scandir($path) as $name) {
+$files = [];
+if ($argc > 1) {
+	for ($i = 1; $i < $argc; ++$i) {
+		$files[] = $argv[$i];
+	}
+} else {
+	$files = scandir($path);
+}
+
+foreach ($files as $name) {
 	$file = "$path/$name";
 	if (is_file($file)) {
 		$template = file_get_contents($file);
@@ -16,13 +25,6 @@ foreach (scandir($path) as $name) {
 		$matches = [];
 		preg_match_all('~(?P<tid>\d+\.\d+)\s+(?P<text>.*?)\n$~ims', $translation, $matches);
 
-		/*
-		$template = preg_replace_callback('~
-			(<([^ >]+)[^>]*?)
-			\s+data-tid="(?P<tid>\d+\.\d+)"\s*
-			(/?>)(?P<inner>.*?)(</(\2))
-		~imsx',
-		*/
 		$template = preg_replace_callback('~
 			(?P<prepend>
 				<(p|title)
@@ -38,7 +40,7 @@ foreach (scandir($path) as $name) {
 						break;
 					}
 				}
-				
+
 				return ($match['prepend'] . $match['prepend2'] . $matches['text'][$i] . $match['append']);
 			}, $template);
 		file_put_contents(__DIR__ . "/translated/$name", $template);

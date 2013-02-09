@@ -50,7 +50,7 @@ class TranslatePresenter extends BaseModeratorPresenter
 			$container->addTextArea($container->name);
 		});
 
-		$form->addSubmit('send');
+		$form->addSubmit('send', 'Uložit')->controlPrototype->class = "simple-button blue";
 		return $form;
 	}
 
@@ -67,6 +67,7 @@ class TranslatePresenter extends BaseModeratorPresenter
 			$data .= "$tid	 $text\n\n";
 		}
 		file_put_contents(WWW_DIR . '/exercise/czech/' . $this->getParam('file') . '.txt', $data);
+		exec('php ' . escapeshellarg(WWW_DIR . '/exercise/generate_translated.php') . ' ' . escapeshellarg($this->getParam('file') . '.html'));
 
 		$this->redirect('list');
 	}
