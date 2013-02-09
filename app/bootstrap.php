@@ -7,8 +7,7 @@ require __DIR__ . '/../vendor/autoload.php';
 $configurator = new Nette\Config\Configurator;
 
 // Enable Nette Debugger for error visualisation & logging
-$local_ips = ['192.168.100.53', '192.168.100.57'];
-$configurator->setDebugMode(array_merge($local_ips, ['79.98.75.3', '79.98.75.249']));
+$configurator->setDebugMode(isset($_COOKIE['debug']) && $_COOKIE['debug'] === '9&(@QqxENEEb3Q4T');
 $configurator->enableDebugger(__DIR__ . '/../log');
 
 // Enable RobotLoader - this will load all classes automatically
