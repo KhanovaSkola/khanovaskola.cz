@@ -293,12 +293,60 @@ class User extends Entity
 			'time' => $time,
 		]);
 
-		$masteryThreshold = $this->context->parameters['progress']['completed_threshold'];
-		if ($onMasteryCallback && 100 * $this->getExerciseSkill($exercise) > $masteryThreshold) {
-			$onMasteryCallback();
+		$masteryThreshold = $this->context->parameters['progress']['exercise_mastery'];
+		$struggleThreshold = $this->context->parameters['progress']['exercise_struggle'];
+		$skill = $this->getExerciseSkill($exercise);
+
+		// @todo DRY [from getExerciseSkill]
+		$boundary = $this->context->parameters['progress']['exercise_limit'];
+		$res = $this->context->database->queryArgs('SELECT Count(*) AS count, Avg(tmp.correct) AS score FROM (
+			SELECT correct FROM answer
+			WHERE exercise_id = ? AND user_id = ?
+			ORDER BY timestamp DESC
+			) AS tmp LIMIT ?', [$exercise->id, $this->id, $boundary])->fetch();
+
+
+		if ($res['count'] < $boundary) {
+			$this->setExerciseStatus($exercise, Exercise::STARTED);
+
+		} else if (100 * $skill > $masteryThreshold) {
+			$this->setExerciseStatus($exercise, Exercise::PROFICIENT);
+			if ($onMasteryCallback) {
+				$onMasteryCallback();
+			}
+
+		} else if (100 * $skill < $struggleThreshold) {
+			$this->setExerciseStatus($exercise, Exercise::STRUGGLING);
+
+		} else {
+			$this->setExerciseStatus($exercise, Exercise::REVIEW);
 		}
 
+
 		return $answer;
+	}
+
+
+
+	public function setExerciseStatus($exercise, $status)
+	{
+		if ($this->getCurrentExerciseStatus($exercise) !== $status) {
+			$this->context->database->query('INSERT INTO `exercise_status` (exercise_id, user_id, status)
+				VALUES (?, ?, ?)', $exercise->id, $this->id, $status);
+		}
+	}
+
+
+
+	public function getCurrentExerciseStatus($exercise)
+	{
+		$res = $this->context->database->query('SELECT status FROM exercise_status
+			WHERE exercise_id=? AND user_id=? ORDER BY id DESC LIMIT 1', $exercise->id, $this->id)->fetch();
+
+		if ($res) {
+			return $res['status'];
+		}
+		return NULL;
 	}
 
 

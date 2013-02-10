@@ -38,8 +38,13 @@ $coach = $container->users->find(1);
 foreach ($coach->getStudents() as $student) {
 	$student->delete();
 }
+$groups = [];
+foreach ($coach->getGroups() as $group) {
+	$groups[] = $group;
+}
 
 // add students
+$to_group_ids = [];
 for ($i = 0; $i < 20; ++$i) {
 	$user = $container->users->insert([
 		'mail' => $faker->email,
@@ -47,6 +52,11 @@ for ($i = 0; $i < 20; ++$i) {
 		'google_id' => 'faker',
 	]);
 	$user->addCoach($coach);
+
+	$to_group_ids[array_rand($groups)][] = $user->id;
+}
+foreach ($to_group_ids as $id => $ids) {
+	$groups[$id]->setUsers($ids);
 }
 
 foreach ($coach->getStudents() as $student) {

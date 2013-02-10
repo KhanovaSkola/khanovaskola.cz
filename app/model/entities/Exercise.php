@@ -7,6 +7,12 @@
 class Exercise extends EntityUrl
 {
 
+	const STARTED = 'started';
+	const STRUGGLING = 'struggling';
+	const REVIEW = 'review';
+	const PROFICIENT = 'proficient';
+
+
 	/**
 	 * @return Category[]
 	 */
