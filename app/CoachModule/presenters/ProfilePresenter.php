@@ -58,6 +58,7 @@ class ProfilePresenter extends BaseCoachPresenter
 	{
 		$this->template->profile = $this->profile;
 		$this->template->group = $this->group;
+		$this->template->exercises = $this->context->exercises->findAll();
 	}
 
 

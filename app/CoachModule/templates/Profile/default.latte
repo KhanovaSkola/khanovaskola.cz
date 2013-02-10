@@ -10,10 +10,32 @@
 		<a n:href="this">{$profile->name}</a>
 	</span>
 {/#}
+{#scripts}
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+	google.load("visualization", "1", { packages: ["corechart"]});
+	google.setOnLoadCallback(drawChart);
+	function drawChart() {
+		var data = google.visualization.arrayToDataTable([
+			['Date', 'Skill'],
+			{foreach $profile->getExerciseSkillByDate() as $date => $skill}
+				[{$date}, {$skill}]{sep},{/sep}
+			{/foreach}
+		]);
+
+		var options = {
+			legend: 'none',
+			vAxis: {'textPosition': 'none'},
+		};
+
+		var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+		chart.draw(data, options);
+	}
+</script>
+{/#}
 {#content}
 <article>
 	<h2 class="main-headline">Student {$profile->name}</h2>
-
 	<h3>Úkoly</h3>
 	<p><a n:href="addTask!">Zadat úkol</a></p>
 	<p>
@@ -77,8 +99,20 @@
 	{/cache}
 
 	<div>
-		<h3 class="main-headline">Zvládnutá cvičení</h3>
-		
+		<h3 class="main-headline">Postup u cvičení</h3>
+		<table>
+			{foreach $exercises as $exercise}
+				{var $status = $profile->getCurrentExerciseStatus($exercise)}
+				<tr n:if="$status">
+					<td>{$exercise->label}</td>
+					<td>{$status}</td>
+				</tr>
+			{/foreach}
+		</table>
+	</div>
+	<div>
+		<h3 class="main-headline">Zvládnutá cvičení podle dní</h3>
+		<div id="chart_div" style="width: 900px; height: 500px;"></div>
 	</div>
 
 	<p>

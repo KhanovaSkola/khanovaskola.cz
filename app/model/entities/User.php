@@ -350,6 +350,39 @@ class User extends Entity
 	}
 
 
+
+	public function getExerciseStatuses()
+	{
+		return $this->context->database->query('SELECT status, timestamp FROM exercise_status
+			WHERE user_id=? ORDER BY id ASC', $this->id);
+	}
+
+
+
+	public function getExerciseSkillByDate()
+	{
+		$res = [];
+		$buffer = 0;
+		$last_date = NULL;
+		foreach ($this->getExerciseStatuses() as $row) {
+			if ($last_date !== NULL && $row['timestamp']->format('Y-m-d') !== $last_date) {
+				$res[$last_date] = $buffer;
+			}
+			switch ($row['status']) {
+				case Exercise::REVIEW:
+					$buffer += 1; break;
+				case Exercise::PROFICIENT:
+					$buffer += 3; break;
+			}
+			$last_date = $row['timestamp']->format('Y-m-d');
+		}
+		$res[$last_date] = $buffer;
+
+		return $res;
+	}
+
+
+
 	/**
 	 * @return bool
 	 */
