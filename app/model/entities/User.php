@@ -353,7 +353,7 @@ class User extends Entity
 
 	public function getExerciseStatuses()
 	{
-		return $this->context->database->query('SELECT status, timestamp FROM exercise_status
+		return $this->context->database->query('SELECT status, Date(timestamp) as date FROM exercise_status
 			WHERE user_id=? ORDER BY id ASC', $this->id);
 	}
 
@@ -365,8 +365,8 @@ class User extends Entity
 		$buffer = 0;
 		$last_date = NULL;
 		foreach ($this->getExerciseStatuses() as $row) {
-			if ($last_date !== NULL && $row['timestamp']->format('Y-m-d') !== $last_date) {
-				$res[$last_date] = $buffer;
+			if ($last_date !== NULL && $row['date']->getTimestamp() !== $last_date->getTimestamp()) {
+				$res[$last_date->getTimestamp()] = $buffer;
 			}
 			switch ($row['status']) {
 				case Exercise::REVIEW:
@@ -374,11 +374,40 @@ class User extends Entity
 				case Exercise::PROFICIENT:
 					$buffer += 3; break;
 			}
-			$last_date = $row['timestamp']->format('Y-m-d');
+			$last_date = $row['date'];
 		}
-		$res[$last_date] = $buffer;
+		$res[$last_date->getTimestamp()] = $buffer;
 
-		return $res;
+		// fill gaps
+		$count = count($res);
+		$i = 1;
+		foreach ($res as $stamp => $skill) {
+			if ($i >= $count - 1) {
+				// iterating over last element
+				break;
+			}
+
+			$date = new \Nette\DateTime();
+			$date->setTimestamp($stamp);
+			$day = new \DateInterval('P1D');
+			$next = $date->add($day);
+			while (!isset($res[$next->getTimestamp()])) {
+				$res[$next->getTimestamp()] = $skill;
+				$next = $next->add($day);
+				//break;
+			}
+			$i++;
+		}
+		ksort($res);
+
+		$return = [];
+		foreach ($res as $stamp => $value) {
+			$date = new \Nette\DateTime();
+			$date->setTimestamp($stamp);
+			$return[$date->format('Y-m-d')] = $value;
+		}
+
+		return $return;
 	}
 
 

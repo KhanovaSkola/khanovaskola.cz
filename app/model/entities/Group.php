@@ -99,4 +99,35 @@ class Group extends Entity
 		return $res['count'];
 	}
 
+
+
+	public function getExerciseSkillByDate()
+	{
+		// @todo it might still produce gaps, solve it by gapping up to Now() in user->getExerciseSkillByDate
+		$res = [];
+		$uids = [];
+		foreach ($this->getUsers() as $student) {
+			$uids[] = $student->id;
+			$skills = $student->getExerciseSkillByDate();
+			foreach ($skills as $date => $skill) {
+				$res[$date][$student->id] = $skill;
+			}
+		}
+		ksort($res);
+dump($res);die;
+		// @todo is this required?
+		$last = [];
+		foreach ($res as &$node) {
+			foreach ($uids as $uid) {
+				if (!isset($node[$uid])) {
+					$node[$uid] = isset($last[$uid]) ? $last[$uid] : 0;
+				} else {
+					$last[$uid] = $node[$uid];
+				}
+			}
+		}
+
+		return $res;
+	}
+
 }
