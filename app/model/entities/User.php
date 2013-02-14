@@ -354,7 +354,7 @@ class User extends Entity
 	public function getExerciseStatuses()
 	{
 		return $this->context->database->query('SELECT status, Date(timestamp) as date FROM exercise_status
-			WHERE user_id=? ORDER BY id ASC', $this->id);
+			WHERE user_id=? ORDER BY timestamp ASC, id ASC', $this->id);
 	}
 
 
@@ -378,25 +378,26 @@ class User extends Entity
 		}
 		$res[$last_date->getTimestamp()] = $buffer;
 
-		// fill gaps
+		// fill gaps up to today
 		$count = count($res);
-		$i = 1;
+		$day = new \DateInterval('P1D');
+		$first = TRUE;
+		$today = new \Nette\DateTime();
 		foreach ($res as $stamp => $skill) {
-			if ($i >= $count - 1) {
-				// iterating over last element
-				break;
-			}
-
 			$date = new \Nette\DateTime();
 			$date->setTimestamp($stamp);
-			$day = new \DateInterval('P1D');
+
+			if ($first) {
+				$tomorrow = clone $date;
+				$res[$tomorrow->sub($day)->getTimestamp()] = 0;
+				$first = FALSE;
+			}
+
 			$next = $date->add($day);
-			while (!isset($res[$next->getTimestamp()])) {
+			while (!isset($res[$next->getTimestamp()]) && $next < $today) {
 				$res[$next->getTimestamp()] = $skill;
 				$next = $next->add($day);
-				//break;
 			}
-			$i++;
 		}
 		ksort($res);
 
