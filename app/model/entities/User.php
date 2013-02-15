@@ -376,7 +376,9 @@ class User extends Entity
 			}
 			$last_date = $row['date'];
 		}
-		$res[$last_date->getTimestamp()] = $buffer;
+		if ($last_date) {
+			$res[$last_date->getTimestamp()] = $buffer;
+		}
 
 		// fill gaps up to today
 		$count = count($res);

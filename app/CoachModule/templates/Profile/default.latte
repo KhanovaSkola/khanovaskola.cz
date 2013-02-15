@@ -14,24 +14,27 @@
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
 	{cache $profile->id, expire => '+2 hours'}
-		google.load("visualization", "1", { packages: ["corechart"]});
-		google.setOnLoadCallback(drawChart);
-		function drawChart() {
-			var data = google.visualization.arrayToDataTable([
-				['Date', 'Skill'],
-				{foreach $profile->getExerciseSkillByDate() as $date => $skill}
-					[{$date}, {$skill}]{sep},{/sep}
-				{/foreach}
-			]);
+		{var $skill = $profile->getExerciseSkillByDate()}
+		{if $skill}
+			google.load("visualization", "1", { packages: ["corechart"]});
+			google.setOnLoadCallback(drawChart);
+			function drawChart() {
+				var data = google.visualization.arrayToDataTable([
+					['Date', 'Skill'],
+					{foreach $skill as $date => $skill}
+						[{$date}, {$skill}]{sep},{/sep}
+					{/foreach}
+				]);
 
-			var options = {
-				legend: 'none',
-				vAxis: {'textPosition': 'none'},
-			};
+				var options = {
+					legend: 'none',
+					vAxis: {'textPosition': 'none'},
+				};
 
-			var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-			chart.draw(data, options);
-		}
+				var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+				chart.draw(data, options);
+			}
+		{/if}
 	{/cache}
 </script>
 {/#}
