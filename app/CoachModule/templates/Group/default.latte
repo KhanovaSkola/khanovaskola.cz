@@ -9,24 +9,26 @@
 {#scripts}
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
-	google.load("visualization", "1", { packages: ["corechart"]});
-	google.setOnLoadCallback(drawChart);
-	function drawChart() {
-		var data = google.visualization.arrayToDataTable([
-			['Date', {foreach $group->getUsers() as $student}{$student->name}{sep},{/sep}{/foreach}],
-			{foreach $group->getExerciseSkillByDate() as $date => $students}
-				[{$date}, {foreach $students as $skill}{$skill}{sep},{/sep}{/foreach}]{sep},{/sep}
-			{/foreach}
-		]);
+	{cache $group->id, expire => '+2 hours'}
+		google.load("visualization", "1", { packages: ["corechart"]});
+		google.setOnLoadCallback(drawChart);
+		function drawChart() {
+			var data = google.visualization.arrayToDataTable([
+				['Date', {foreach $group->getUsers() as $student}{$student->name}{sep},{/sep}{/foreach}],
+				{foreach $group->getExerciseSkillByDate() as $date => $students}
+					[{$date}, {foreach $students as $skill}{$skill}{sep},{/sep}{/foreach}]{sep},{/sep}
+				{/foreach}
+			]);
 
-		var options = {
-			legend: 'right',
-			vAxis: {'textPosition': 'none'},
-		};
+			var options = {
+				legend: 'right',
+				vAxis: {'textPosition': 'none'},
+			};
 
-		var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-		chart.draw(data, options);
-	}
+			var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+			chart.draw(data, options);
+		}
+	{/cache}
 </script>
 {/#}
 {#content}
@@ -67,10 +69,12 @@
 		{/cache}
 	</p>
 
-	<div>
-		<h3 class="main-headline">Zvládnutá cvičení podle dní</h3>
-		<div id="chart_div" style="width: 900px; height: 500px;"></div>
-	</div>
+	{cache $group->id, expire => '+2 hours'}
+		<div>
+			<h3 class="main-headline">Zvládnutá cvičení podle dní</h3>
+			<div id="chart_div" style="width: 900px; height: 500px;"></div>
+		</div>
+	{/cache}
 
 	<p>
 		<a n:href="Dashboard:">zpět na přehled</a>

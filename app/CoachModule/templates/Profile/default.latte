@@ -13,24 +13,26 @@
 {#scripts}
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
-	google.load("visualization", "1", { packages: ["corechart"]});
-	google.setOnLoadCallback(drawChart);
-	function drawChart() {
-		var data = google.visualization.arrayToDataTable([
-			['Date', 'Skill'],
-			{foreach $profile->getExerciseSkillByDate() as $date => $skill}
-				[{$date}, {$skill}]{sep},{/sep}
-			{/foreach}
-		]);
+	{cache $profile->id, expire => '+2 hours'}
+		google.load("visualization", "1", { packages: ["corechart"]});
+		google.setOnLoadCallback(drawChart);
+		function drawChart() {
+			var data = google.visualization.arrayToDataTable([
+				['Date', 'Skill'],
+				{foreach $profile->getExerciseSkillByDate() as $date => $skill}
+					[{$date}, {$skill}]{sep},{/sep}
+				{/foreach}
+			]);
 
-		var options = {
-			legend: 'none',
-			vAxis: {'textPosition': 'none'},
-		};
+			var options = {
+				legend: 'none',
+				vAxis: {'textPosition': 'none'},
+			};
 
-		var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-		chart.draw(data, options);
-	}
+			var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+			chart.draw(data, options);
+		}
+	{/cache}
 </script>
 {/#}
 {#content}
@@ -98,22 +100,24 @@
 		<div class="clear"></div>
 	{/cache}
 
-	<div>
-		<h3 class="main-headline">Postup u cvičení</h3>
-		<table>
-			{foreach $exercises as $exercise}
-				{var $status = $profile->getCurrentExerciseStatus($exercise)}
-				<tr n:if="$status">
-					<td>{$exercise->label}</td>
-					<td>{$status}</td>
-				</tr>
-			{/foreach}
-		</table>
-	</div>
-	<div>
-		<h3 class="main-headline">Zvládnutá cvičení podle dní</h3>
-		<div id="chart_div" style="width: 900px; height: 500px;"></div>
-	</div>
+	{cache $profile->id, expire => '+2 hours'}
+		<div>
+			<h3 class="main-headline">Postup u cvičení</h3>
+			<table>
+				{foreach $exercises as $exercise}
+					{var $status = $profile->getCurrentExerciseStatus($exercise)}
+					<tr n:if="$status">
+						<td>{$exercise->label}</td>
+						<td>{$status}</td>
+					</tr>
+				{/foreach}
+			</table>
+		</div>
+		<div>
+			<h3 class="main-headline">Zvládnutá cvičení podle dní</h3>
+			<div id="chart_div" style="width: 900px; height: 500px;"></div>
+		</div>
+	{/cache}
 
 	<p>
 		<a n:if="$group" n:href="Group:, gid => $group->id">zpět</a>
