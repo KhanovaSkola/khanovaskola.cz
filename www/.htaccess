@@ -11,6 +11,11 @@ Options -Indexes
 	# prevents files starting with dot to be viewed by browser
 	RewriteRule /\.|^\. - [F]
 
+	# version hash in static names
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule (.*)\.v-[a-z0-9]+\.(js|css)$ $1.$2 [L]
+
 	# front controller
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d

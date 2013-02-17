@@ -9,8 +9,8 @@
 	<meta name="robots" content="{$robots}" n:ifset="$robots">
 	<link rel="alternate" type="application/rss+xml" title="Khanova škola - Blog" n:href="//:Front:Blog:rss">
 
-	<link rel="stylesheet" media="screen,projection,tv" href="{$cdnUrl}/css/khan.css?v={=md5_file(WWW_DIR . '/css/khan.css')}" type="text/css">
-	<link rel="stylesheet" media="screen,projection,tv" href="{$cdnUrl}/css/screen.css?v={=md5_file(WWW_DIR . '/css/screen.css')}" type="text/css">
+	<link rel="stylesheet" media="screen,projection,tv" href="{$cdnUrl}/css/khan.v-{=md5_file(WWW_DIR . '/css/khan.css')}.css" type="text/css">
+	<link rel="stylesheet" media="screen,projection,tv" href="{$cdnUrl}/css/screen.v-{=md5_file(WWW_DIR . '/css/screen.css')}.css" type="text/css">
 	<link n:if="$user->loggedIn" rel="stylesheet" media="screen,projection,tv" n:href=":Front:DynamicCss:, v => $dynamic_css_hash" type="text/css">
 
 	<link rel="shortcut icon" href="{$cdnUrl}/favicon.ico" type="image/x-icon">
@@ -140,7 +140,7 @@
 	<script type="text/javascript" src="{$cdnUrl}/js/jquery-1.9.0.min.js"></script>
 	<script type="text/javascript" src="{$cdnUrl}/js/jquery-ui-1.10.0.custom.min.js"></script>
 	<script type="text/javascript" src="{$cdnUrl}/js/netteForms.js"></script>
-	<script type="text/javascript" src="{$cdnUrl}/js/khan.js?v={=md5_file(WWW_DIR . '/js/khan.js')}"></script>
+	<script type="text/javascript" src="{$cdnUrl}/js/khan.v-{=md5_file(WWW_DIR . '/js/khan.js')}.js"></script>
 	{#scripts}{/#}
 </body>
 </html>
