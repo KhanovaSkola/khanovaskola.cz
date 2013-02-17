@@ -413,11 +413,11 @@ class Category extends EntityUrl
 			}
 		}
 		if (!count($author_ids)) {
-			return NULL;
+			return [];
 		}
 		arsort($author_ids);
-		
-		return $this->context->authors->findBy(['id' => array_keys($author_ids)]);
+		$res = $this->context->authors->findBy(['id' => array_keys($author_ids)]);
+		return $res;
 	}
 
 }
