@@ -402,7 +402,7 @@ class Category extends EntityUrl
 
 
 
-	public function getAuthor()
+	public function getAuthors()
 	{
 		$author_ids = [];
 		foreach ($this->getVideos() as $video) {
@@ -415,11 +415,9 @@ class Category extends EntityUrl
 		if (!count($author_ids)) {
 			return NULL;
 		}
-
-		ksort($author_ids);
-		$author_id = array_keys($author_ids)[0];
-
-		return $this->context->authors->find($author_id);
+		arsort($author_ids);
+		
+		return $this->context->authors->findBy(['id' => array_keys($author_ids)]);
 	}
 
 }

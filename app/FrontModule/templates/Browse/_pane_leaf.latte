@@ -3,10 +3,9 @@
 		<div class="topic-title" itemprop="name">{$leaf->label}</div>
 		<div class="topic-desc" itemprop="description">
 			{$leaf->description}
-			{var $dubber = $leaf->getAuthor()}
-			{if $dubber}
-				Dabing {!$dubber->getNbName()}.
-			{/if}
+			{foreach $leaf->getAuthors() as $dubber}
+				{first}Dabing {/first}{!$dubber->getNbName()}{sep}, {/sep}{last}.{/last}
+			{/foreach}
 		</div>
 		<div class="">Stopáž: {$leaf->getDuration()|time}</div>
 	</div>
