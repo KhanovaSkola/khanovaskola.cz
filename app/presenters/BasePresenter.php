@@ -58,7 +58,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 		$this['search']['query']->setValue($this->getParameter('q'));
 
 		if ($this->user->loggedIn) {
-			$session = $this->getSession('dynamic_css');
+			$session = $this->context->session->getSection('dynamic_css');
 			$this->template->dynamic_css_hash = $session->hash;
 		}
 	}
@@ -89,6 +89,35 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 
 		$this->redirect(':Front:Search:', ['q' => $q]);
 	}
+
+
+
+	/**
+	 * @see https://gist.github.com/1002597
+	 */
+	public function isMobile()
+	{
+		$agent = $this->getHttpRequest()->getHeader("user-agent");
+		$devices = [
+			"android" => "android",
+			"blackberry" => "blackberry",
+			"iphone" => "(iphone|ipod)",
+			"ipad" => "ipad",
+			"opera" => "opera mini",
+			"palm" => "(avantgo|blazer|elaine|hiptop|palm|plucker|xiino)",
+			"windows" => "windows ce; (iemobile|ppc|smartphone)",
+			"generic" => "(kindle|mobile|mmp|midp|o2|pda|pocket|psp|symbian|smartphone|treo|up.browser|up.link|vodafone|wap)"
+		];
+
+		foreach ($devices as $device => $pattern) {
+			if (\Nette\Utils\Strings::match($agent, "~$pattern~i")) {
+				return $device;
+			}
+		}
+
+		return FALSE;
+	}
+
 
 
 
