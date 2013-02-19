@@ -92,34 +92,6 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 
 
 
-	/**
-	 * @see https://gist.github.com/1002597
-	 */
-	public function isMobile()
-	{
-		$agent = $this->getHttpRequest()->getHeader("user-agent");
-		$devices = [
-			"android" => "android",
-			"blackberry" => "blackberry",
-			"iphone" => "(iphone|ipod)",
-			"ipad" => "ipad",
-			"opera" => "opera mini",
-			"palm" => "(avantgo|blazer|elaine|hiptop|palm|plucker|xiino)",
-			"windows" => "windows ce; (iemobile|ppc|smartphone)",
-			"generic" => "(kindle|mobile|mmp|midp|o2|pda|pocket|psp|symbian|smartphone|treo|up.browser|up.link|vodafone|wap)"
-		];
-
-		foreach ($devices as $device => $pattern) {
-			if (\Nette\Utils\Strings::match($agent, "~$pattern~i")) {
-				return $device;
-			}
-		}
-
-		return FALSE;
-	}
-
-
-
 	protected function createForm($name, $protect = NULL)
 	{
 		$form = new \Nette\Application\UI\Form();
