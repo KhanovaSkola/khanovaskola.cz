@@ -259,16 +259,19 @@ class Routes
 		]);
 
 		/**
-		 * Sitemap
+		 * Static files
 		 */
 		$container->router[] = new Route('sitemap[!.xml]', [
-			'presenter' => 'Sitemap',
-			'action' => 'default',
+			'presenter' => 'Static',
+			'action' => 'sitemap',
 		]);
 		$container->router[] = new Route('opensearch[!.xml]', [
-			'module' => 'Front',
-			'presenter' => 'Homepage',
+			'presenter' => 'Static',
 			'action' => 'opensearch',
+		]);
+		$container->router[] = new Route("robots.txt", [
+			'presenter' => 'Static',
+			'action' => 'robots',
 		]);
 
 		/**
@@ -329,10 +332,6 @@ class Routes
 		/**
 		 * Other presenters
 		 */
-		$container->router[] = new Route("robots.txt", [
-			'presenter' => 'Sitemap',
-			'action' => 'robotsTxt',
-		]);
 		$container->router[] = new Route('<presenter>/<action>[/<id>]', [
 			'module' => 'Front',
 			'presenter' => [
