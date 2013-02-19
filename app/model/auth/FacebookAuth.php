@@ -3,17 +3,13 @@
 class FacebookAuth extends Nette\Object implements \Nette\Security\IAuthenticator
 {
 
-	/** @var Facebook */
-	protected $facebook;
-
 	/** @var Table\Users */
 	protected $users;
 
 
 
-	public function __construct(Facebook $facebook, Users $users)
+	public function __construct(Users $users)
 	{
-		$this->facebook = $facebook;
 		$this->users = $users;
 	}
 

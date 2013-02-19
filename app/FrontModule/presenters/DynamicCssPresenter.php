@@ -22,7 +22,7 @@ class DynamicCssPresenter extends \BasePresenter
 				\Nette\Caching\Cache::TAGS => ["watched/{$this->user->id}"],
 			]);
 
-			$session = $this->getSession('dynamic_css');
+			$session = $this->context->session->getSection('dynamic_css');
 			$session->hash = md5($data);
 		}
 

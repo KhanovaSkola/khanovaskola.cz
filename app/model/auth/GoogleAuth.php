@@ -3,17 +3,13 @@
 class GoogleAuth extends Nette\Object implements \Nette\Security\IAuthenticator
 {
 
-	/** @var Google */
-	protected $google;
-
 	/** @var Table\Users */
 	protected $users;
 
 
 
-	public function __construct(Google $google, Users $users)
+	public function __construct(Users $users)
 	{
-		$this->google = $google;
 		$this->users = $users;
 	}
 
