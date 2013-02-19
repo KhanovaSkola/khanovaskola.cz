@@ -1,20 +1,9 @@
-{var $title = 404}
-{var $robots = noindex}
+{layout '@error.latte'}
+
+{var $title = $code}
+{var $header = "Stránka nenalezena"}
+{var $description = "Na této stránce nemáme žádný obsah. Je možné, že původní cíl byl přesunut na jinou adresu, nebo jste následovali špatný odkaz."}
+{var $error = "$code not found"}
+
 {#content}
-
-<article>
-	<div>
-		<h2 n:block="title" class="main-headline" style="white-space: pre;">Stránka nenalezena</h2>
-		<p>Na této stránce nemáme žádný obsah. Je možné, že původní cíl byl přesunut na jinou adresu, nebo jste následovali špatný odkaz.</p>
-		<p>
-			<a n:href=":Front:Homepage:" class="call-to-action simple-button green watch-a-video">Pokračovat na titulku</a>
-		</p>
-		<p>
-			<a n:href=":Front:Contact:report, url => $presenter->url, time => time(), title => 'Stránka nenalezena'">Nahlásit problém</a>
-		</p>
-	</div>
-	<div class="clear" style="margin-bottom:36px;"></div>
-	<hr class="margin-bottom: 18px;">
-
-	<p><small>error 404 not found</small></p>
-</article>
+	{include #error-page}

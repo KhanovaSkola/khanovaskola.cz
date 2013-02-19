@@ -1,0 +1,42 @@
+{layout '../@layout.latte'}
+
+{var $robots = noindex}
+
+{#scripts}
+	<script type="text/javascript">
+		$(function() {
+			var $back = $("#back-link");
+			var $home = $("#home-link");
+
+			var isKhan = document.referrer.match(/khan/);
+
+			if (window.history.length <= 2 || !isKhan) {
+				// empty history, cannot go back
+				$back.hide();
+				$home.addClass('green').removeClass('blue');
+			} else {
+				$back.click(function() {
+					window.history.back();
+				});
+			}
+		});
+	</script>
+{/#}
+{define error-page}
+	<article>
+		<div>
+			<h2 n:block="title" class="main-headline">{$header}</h2>
+			<p>{$description}</p>
+			<p>
+				<a id="back-link" class="call-to-action simple-button green">Zpět na předchozí stránku</a>
+				<a id="home-link" n:href=":Front:Homepage:" class="call-to-action simple-button blue">Pokračovat na titulku</a>
+			</p>
+			<p>
+				<a n:href=":Front:Contact:report, url => $presenter->url, time => time(), title => $header">Nahlásit problém</a>
+			</p>
+		</div>
+		<hr class="thin">
+
+		<p><small>error {$error}</small></p>
+	</article>
+{/define}

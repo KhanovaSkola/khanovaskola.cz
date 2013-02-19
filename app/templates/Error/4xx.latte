@@ -1,20 +1,9 @@
-{var $title = 4xx}
-{var $robots = noindex}
+{layout '@error.latte'}
+
+{var $title = $code}
+{var $header = "Uuuups, chyba"}
+{var $description = "Omlouváme se, na stránce se vyskytla chyba."}
+{var $error = "$code"}
+
 {#content}
-
-<article>
-	<div>
-		<h2 n:block="title" class="main-headline">Uuups &ndash; chyba</h2>
-		<p>Omlouváme se, na stránce se vyskytla chyba.</p>
-		<p>
-			<a n:href=":Front:Homepage:" class="call-to-action simple-button green watch-a-video">Pokračovat na titulku</a>
-		</p>
-		<p>
-			<a n:href=":Front:Contact:report, url => $presenter->url, time => time(), title => 'Obecná chyba'">Nahlásit problém</a>
-		</p>
-	</div>
-	<div class="clear"></div>
-	<hr class="thin">
-
-	<p><small>error 4xx</small></p>
-</article>
+	{include #error-page}
