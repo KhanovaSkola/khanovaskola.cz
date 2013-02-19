@@ -2,12 +2,12 @@
 
 <article id="page-root">
 	<div class="login-container card-case vertical-shadow">
-		<div class="providers">
+		<div class="providers providers-rows">
 			<h3>Přihlášení do Khanovy školy</h3>
 			<div id="login-google" class="action-gradient provider">
 				<div class="img-container">
 					<a n:href="inGoogle">
-						<img width="180" height="61" alt="Google" src="{$cdnUrl}/images/google-logo-large.png">
+						<img width="180" alt="Přihlaste se bez registrace přes váš Google účet" src="{$cdnUrl}/images/logo_google.svg">
 					</a>
 				</div>
 			</div>
@@ -15,7 +15,7 @@
 			<div id="login-facebook" class="action-gradient provider">
 				<div class="img-container">
 					<a n:href="inFacebook">
-						<img width="180" height="61" alt="Facebook" src="{$cdnUrl}/images/facebook-logo-large.png">
+						<img width="180" alt="Přihlaste se bez registrace přes váš Facebook účet" src="{$cdnUrl}/images/logo_facebook.svg">
 					</a>
 				</div>
 			</div>
@@ -29,7 +29,7 @@
 			<h3>Zapomenuté heslo</h3>
 			<div class="pw-login-contents">
 				{form passResetForm}
-					<img src="/images/hand-tree.png" width="75" height="75" class="tree">
+					<img src="/images/hand-tree.svg" width="120" class="tree" alt="Logo Khanovy školy - barevné listy rostoucí okolo ruky">
 					<p>Zašleme vám na email odkaz na stránku,<br>kde si budete moct nastavit nové heslo.</p>
 					<div class="field-error color-error" id="error-text">{control passResetForm errors}</div>
 					<div class="field-container">
