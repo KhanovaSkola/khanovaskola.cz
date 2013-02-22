@@ -1,0 +1,12 @@
+<style n:syntax="off">
+	a {color: #A44; text-decoration: none; line-height: 130%;}
+	a:visited {color: gray;}
+</style>
+
+{foreach $errors as $time => $error}
+	{$time|timeAgo}
+	<a n:href="show, file => $error->file">
+		{$error->title} {$error->text}
+	</a>
+	{sep}<br>{/sep}
+{/foreach}

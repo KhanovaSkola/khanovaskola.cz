@@ -329,6 +329,12 @@ class Routes
 			],
 		]);
 
+		$container->router[] = new Route('log[/<action>]', [
+			'module' => 'Log',
+			'presenter' => 'Exception',
+			'action' => 'default'
+		]);
+
 		/**
 		 * Other presenters
 		 */
