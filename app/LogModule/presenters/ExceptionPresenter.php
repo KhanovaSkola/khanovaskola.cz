@@ -29,7 +29,10 @@ class ExceptionPresenter extends BaseLogPresenter
 		foreach ($this->getDumps() as $dump) {
 			$errors[] = $this->parseDump($dump);
 		}
-		return array_reverse($errors);
+		usort($errors, function($a, $b) {
+			return $a->ctime < $b->ctime;
+		});
+		return $errors;
 	}
 
 
