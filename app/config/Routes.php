@@ -365,6 +365,7 @@ class Routes
 					'sponzori' => 'sponsors',
 					'vitejte' => 'welcome',
 					'pridat' => 'add',
+					'preklad' => 'howToTranslate',
 				],
 			],
 		]);

@@ -49,22 +49,21 @@
 	</div>
 	<div class="clear"></div>
 
-	<div id="hl-praxe">
-		<h2 class="main-headline">Školní praxe v Khanově škole</h2>
-		<p>Hledáte neziskovku, které v rámci školní praxe chcete pomoct? Rádi vás vezmeme. Můžete z domova překládat, programovat nová cvičení nebo spravovat online marketing. Za dobře odvedenou práci dostanete navíc oficiální certifikát.</p>
-	</div>
-
 	<div>
 		<h2 class="main-headline">Chcete hned začít překládat?</h2>
 		<p class="justify">Khanova škola je skupina dobrovolníků &ndash; překladatelů a příznivců <a href="http://www.khanacademy.org/">www.khanacademy.org</a>. Spolupracujeme s KhanAcademy Inc. USA a naším společným cílem je kvalitní dabing kompletního obsahu knihovny Khan Academy. Rádi vás ve svých řadách uvítáme, chcete-li nám pomoci s překladem i dabingem. Také hledáme dobrovolníky, kteří nám překlady zvládnou zkontrolovat po odborné stránce. Přidáte se k nám? Těšíme se na vás :-)</p>
 		<p>
-			<a n:href="rules" class="call-to-action simple-button blue" onclick="_gaq.push(['_trackEvent', 'Click', 'Volunteer-Manual']);">Manuál / Pravidla</a>
-			<a href="http://khan-report.appspot.com/translations/subtitlestatus?language=Czech&playlist=all&display=1" class="call-to-action simple-button green" target="_blank" onclick="_gaq.push(['_trackEvent', 'Click', 'Volunteer-Translate']);">Začít překládat</a>
+			<a n:href="howToTranslate" class="call-to-action simple-button green" onclick="_gaq.push(['_trackEvent', 'Click', 'Volunteer-Translate']);">Začít překládat</a>
 		</p>
 		{cache expire => '+2 hours'}
 			<b>Nejvíc žádané překlady:</b>
 			<span n:foreach="$wanted_cats as $category"><a n:href=":Front:Browse:, id => $category->id">{$category->label}</a>{sep}, {/sep}</span>
 		{/cache}
+	</div>
+
+	<div id="hl-praxe">
+		<h2 class="main-headline">Školní praxe v Khanově škole</h2>
+		<p>Hledáte neziskovku, které v rámci školní praxe chcete pomoct? Rádi vás vezmeme. Můžete z domova překládat, programovat nová cvičení nebo spravovat online marketing. Za dobře odvedenou práci dostanete navíc oficiální certifikát.</p>
 	</div>
 
 	<hr class="thin"/>
