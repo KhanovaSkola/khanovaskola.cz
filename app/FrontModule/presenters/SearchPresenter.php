@@ -44,6 +44,7 @@ class SearchPresenter extends BaseFrontPresenter
 
 
 
+	/** homepage search autocomplete */
 	public function renderAutocomplete($startsWith)
 	{
 		$res = $this->context->autocomplete->whisper($startsWith)->limit(10);
@@ -52,6 +53,19 @@ class SearchPresenter extends BaseFrontPresenter
 			$words[] = $row['label'];
 		}
 		$this->sendJson(['results' => $words]);
+	}
+
+
+
+	/** opensearch suggest */
+	public function renderSuggest($q)
+	{
+		$res = $this->context->autocomplete->whisper($q)->limit(10);
+		$words = [];
+		foreach ($res as $row) {
+			$words[] = $row['label'];
+		}
+		$this->sendJson([$q, $words]);
 	}
 
 }

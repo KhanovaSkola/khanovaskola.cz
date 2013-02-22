@@ -15,6 +15,7 @@ class StaticPresenter extends BasePresenter
 	public function renderOpensearch()
 	{
 		$this->template->link = $this->link('//:Front:Search:');
+		$this->template->suggest = $this->link('//:Front:Search:suggest');
 	}
 
 }
