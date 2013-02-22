@@ -29,6 +29,15 @@ class SignPresenter extends BasePresenter
 
 
 
+	public function actionForgotten()
+	{
+		if ($this->user->isLoggedIn()) {
+			$this->redirect(':Front:Profile:');
+		}
+	}
+
+
+
 	public function getBacklink()
 	{
 		return NULL;
