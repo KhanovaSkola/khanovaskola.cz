@@ -40,11 +40,14 @@ class ExceptionPresenter extends BaseLogPresenter
 		$match = [];
 		preg_match('~<div id="netteBluescreenError" class="panel">\s*<h1>(?P<title>.*?)</h1>\s*<p>(?P<text>.*?)\s*<a~ims', $res, $match);
 
+		$t = [];
+		preg_match('~^exception-([0-9-]{4})-([0-9-]{2})-([0-9-]{2})-([0-9-]{2})-([0-9-]{2})-([0-9-]{2})~', $file->getFileName(), $t);
+
 		return (object) [
 			'title' => isset($match['title']) ? $match['title'] : '',
 			'text' => isset($match['text']) ? $match['text'] : '',
 			'file' => $file->getFileName(),
-			'ctime' => $file->getCTime(),
+			'ctime' => mktime($t[4], $t[5], $t[6], $t[2], $t[3], $t[1]),
 		];
 	}
 
