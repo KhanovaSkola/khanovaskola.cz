@@ -15,6 +15,14 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 
 
 
+	public function startup()
+	{
+		parent::startup();
+		$this->context->session->start();
+	}
+
+
+
 	/**
 	 * @return string
 	 */
