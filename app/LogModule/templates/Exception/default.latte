@@ -3,8 +3,8 @@
 	a:visited {color: gray;}
 </style>
 
-{foreach $errors as $time => $error}
-	{$time|timeAgo}
+{foreach $errors as $error}
+	{$error->ctime|timeAgo}
 	<a n:href="show, file => $error->file">
 		{$error->title} {$error->text}
 	</a>

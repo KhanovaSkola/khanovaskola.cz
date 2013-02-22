@@ -27,10 +27,9 @@ class ExceptionPresenter extends BaseLogPresenter
 	{
 		$errors = [];
 		foreach ($this->getDumps() as $dump) {
-			$errors[$dump->getCTime()] = $this->parseDump($dump);
+			$errors[] = $this->parseDump($dump);
 		}
-		krsort($errors);
-		return $errors;
+		return array_reverse($errors);
 	}
 
 
@@ -45,6 +44,7 @@ class ExceptionPresenter extends BaseLogPresenter
 			'title' => isset($match['title']) ? $match['title'] : '',
 			'text' => isset($match['text']) ? $match['text'] : '',
 			'file' => $file->getFileName(),
+			'ctime' => $file->getCTime(),
 		];
 	}
 
