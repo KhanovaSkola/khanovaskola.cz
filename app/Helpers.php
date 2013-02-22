@@ -62,7 +62,9 @@ class Helpers
 		if ($delta < 90) return 'před hodinou';
 		if ($delta < 1440) return 'před ' . round($delta / 60) . ' hodinami';
 		if ($delta < 2880) return 'včera';
-		if ($delta < 43200) return 'před ' . round($delta / 1440) . ' dny';
+		if ($delta < 10080) return 'před ' . round($delta / 1440) . ' dny';
+		if ($delta < 20160) return 'před týdnem';
+		if ($delta < 43200) return 'před ' . round($delta / 10080) . ' týdny';
 		if ($delta < 86400) return 'před měsícem';
 		if ($delta < 525960) return 'před ' . round($delta / 43200) . ' měsíci';
 		if ($delta < 1051920) return 'před rokem';
