@@ -18,7 +18,7 @@ class CustomMailer {
 
 		$error = [];
 		preg_match('~] (.*?)(: |in)~', $message, $error);
-		$subject = $error[1] ? ": $error[1]" : '';
+		$subject = isset($error[1]) ? ": $error[1]" : '';
 
 		$match = [];
 		preg_match('~@@\s*(.*?)\s*$~', $message, $match);
