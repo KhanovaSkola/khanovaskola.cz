@@ -11,15 +11,11 @@
 		{/if}
 	</li>
 	<li class="has-divider level0 has-submenu">
-		<a class="menulink">Tagy</a>
-		<div class="right-arrow"></div>
-		<ul class="dropdown-menu no-submenus">
-			<li n:foreach="$presenter->context->tags->findBy(['display' => TRUE]) as $tag" class="level1">
-				<a n:href=":Front:Tag:, tid => $tag->id" class="menulink">{$tag->label}</a>
-			</li>
-		</ul>
+		<li n:foreach="$presenter->context->tags->findBy(['display' => TRUE]) as $tag" class="level1">
+			<a n:href=":Front:Tag:, tid => $tag->id" class="menulink">{$tag->label}</a>
+		</li>
 	</li>
-	<li>
+	<li class="has-divider">
 		<a n:href=":Front:Homepage:library" class="menulink">Projít všechna videa</a>
 	</li>
 </ul>
