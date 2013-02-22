@@ -11,14 +11,28 @@ class ExceptionPresenter extends BaseLogPresenter
 	public function renderDefault()
 	{
 		$this->template->errors = $this->getErrorList();
+		$this->template->snooze_set = file_exists($this->getSnoozeFile());
 	}
 
 
 
 	public function renderShow($file)
 	{
-		$dump = file_get_contents($this->getLogDir() . "/$file");
+		$path = $this->getLogDir() . "/$file";
+		if (!$file || !file_exists($path)) {
+			$this->redirect('default');
+		}
+
+		$dump = file_get_contents($path);
 		$this->sendResponse(new \Nette\Application\Responses\TextResponse($dump));
+	}
+
+
+
+	public function handleResetSnooze()
+	{
+		unlink($this->getSnoozeFile());
+		$this->redirect('this');
 	}
 
 
@@ -66,6 +80,13 @@ class ExceptionPresenter extends BaseLogPresenter
 	protected function getLogDir()
 	{
 		return $this->context->parameters['appDir'] . '/../log';
+	}
+
+
+
+	protected function getSnoozeFile()
+	{
+		return $this->getLogDir() . "/email-sent";
 	}
 
 }

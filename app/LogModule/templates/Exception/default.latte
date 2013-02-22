@@ -1,12 +1,21 @@
-<style n:syntax="off">
-	a {color: #A44; text-decoration: none; line-height: 130%;}
-	a:visited {color: gray;}
-</style>
-
-{foreach $errors as $error}
-	{$error->ctime|timeAgo}
-	<a n:href="show, file => $error->file">
-		{$error->title} {$error->text}
-	</a>
-	{sep}<br>{/sep}
-{/foreach}
+{#head}
+	<style n:syntax="off">
+		table {margin-top: 3ex;}
+		a {color: #A44; text-decoration: none; line-height: 130%;}
+		a:visited {color: rgb(130, 130, 130);}
+		th {text-align: right; width: 100px; padding-right: 1em}
+	</style>
+{/#head}
+{#content}
+	<article>
+		<h2 class="main-headline">Výpisy chyb</h2>
+		<a n:if="$snooze_set" n:href="resetSnooze!" class="simple-button green">Smazat email-sent</a>
+		<table>
+			<tr n:foreach="$errors as $error">
+				<th>{$error->ctime|timeAgo}</th>
+				<td>
+					<a n:href="show, file => $error->file" target="_blank">{$error->title} {$error->text}</a>
+				</td>
+			</tr>
+		</table>
+	</article>
