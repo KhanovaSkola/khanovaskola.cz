@@ -63,13 +63,23 @@
 		</div>
 	</div>
 	<div class="homepage-pull">
-		<div id="main-video">
+		{*<div id="main-video">
 			<a n:href=":Front:Watch:, id => $featured_video->getOneCategoryId(), vid => $featured_video->id, autoplay => TRUE">
 				<span class="featured_video" style="background-image:url('http://img.youtube.com/vi/{$featured_video->youtube_id}/hqdefault.jpg')">
 					<span class="youtube_play"></span>
 				</span>
 				<span class="featured_header"><span class="label">{$featured_video->label}</span></span>
 			</a>
+		</div>*}
+		<div id="main-video">
+			<h1>1.&nbsp;překladatelský maraton</h1>
+			<p>Pomozte nám zpřístupnit videa Khan Academy českým dětem – hledáme dobrovolníky pro překladatelským maraton. Naším cílem je během jediného dne přeložit co nejvíce videí.</p>
+			<p>O Vaše žaludky se postaráme – připravíme pro Vás oběd a v průběhu akce bude k dispozici občerstvení. Budeme rádi, když se na závěr zúčastníte i neformální afterparty. Nebojte se, s překlady nám bude pomáhat i jazyková škola Tandem.</p>
+			<p>Můžete si sebou vzít i svůj laptop, ale není to nezbytné. Prosím, vezměte si sluchátka (nějaká zajistíme, ale nebude jich dostatek).</p>
+			<p>Za účast udílíme i certifikát!</p>
+			<p>
+				<a href="http://srazy.info/khanova-skola-1-prekladatelsky-maraton/3223" class="call-to-action simple-button green" style="padding: 1ex 1.2em; font-size: 120%;">Přihlásit se na akci</a>
+			</p>
 		</div>
 		<div id="homepage-text" class="visited-no-recolor">
 			<h1 class="section-headline pulls"><a n:href=":Front:Homepage:library">Dívej se.</a> <a n:href=":Front:Exercise:">Procvičuj.</a></h1>
@@ -80,10 +90,10 @@
 			<p>
 				<a n:href=":Front:About:">Snažíme se</a> učit to, co vás zajímá.
 			</p>
-			<div>
+			{*<div>
 				<a n:href=":Front:Homepage:library" class="call-to-action simple-button green watch-a-video">Zhlédnout video</a>
 				<a n:href=":Front:Registration:" n:if="!$user->loggedIn" class="call-to-action simple-button blue">Registrace</a>
-			</div>
+			</div>*}
 			<p>
 				Naším hlavním <a n:href=":Front:About:sponsors">partnerem</a> je společnost <a href="http://scio.cz/" target="_blank">Scio</a>.
 			</p>
