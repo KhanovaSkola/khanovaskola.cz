@@ -114,6 +114,17 @@
 			</div>
 		{/cache}
 
+		{cache expire => '+30 minutes'}
+			<div class="pin">
+				<h2>
+					Videa bez kontroly ({$presenter->context->videos->findNotVerified()->count()})
+				</h2>
+				<ol>
+					<li n:foreach="$presenter->context->videos->findNotVerified()->limit(6) as $video"><a n:href=":Front:Watch:, vid => $video->id">{$video->label}</a></li>
+				</ol>
+			</div>
+		{/cache}
+
 		{cache tags => ['categories', 'exercises']}
 			<div class="pin">
 				{var $count => $vid['nogroupex']->count()}

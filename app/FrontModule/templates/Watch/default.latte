@@ -53,6 +53,18 @@
 						{/if}
 					</div>
 					<a n:if="$user->isInrole(\NetteUser::ROLE_EDITOR)" n:href="edit" class="call-to-action simple-button blue">Upravit</a>
+					{if $user->isInrole(\NetteUser::ROLE_VERIFIER)}
+						{if $video->hasUserVerified($user)}
+							Děkujeme za ověření překladu. <a n:href="undoVerify!">Zrušit</a>.
+						{else}
+							<a n:href="verify!" class="call-to-action simple-button blue">Ověřil jsem překlad</a>
+						{/if}
+						{foreach $video->getVerifications() as $ver}
+							{first}<p>Ověřil: {/first}
+							{$ver->user->name}{sep},{/sep}
+							{last}</p>{/last}
+						{/foreach}
+					{/if}
 				</div>
 				<div class="video-header">
 					<nav class="prev_next_nav desktop-only">

@@ -347,6 +347,42 @@ class Video extends EntityUrl
 	}
 
 
+
+	public function getVerifications()
+	{
+		$rows = [];
+		foreach ($this->context->database->query('SELECT user_id, timestamp FROM video_verification WHERE video_id=? ORDER BY timestamp DESC', $this->id) as $row) {
+			$rows[] = (object) [
+				'user' => $this->context->users->find($row['user_id']),
+				'timestamp' => $row['timestamp'],
+			];
+		}
+		return $rows;
+	}
+
+
+
+	public function verify($user)
+	{
+		return $this->context->database->query('INSERT INTO video_verification (video_id, user_id) VALUES (?, ?)', $this->id, $user->id);
+	}
+
+
+
+	public function undoVerify($user)
+	{
+		return $this->context->database->query('DELETE FROM video_verification WHERE video_id=? AND user_id=?', $this->id, $user->id);
+	}
+
+
+
+	public function hasUserVerified($user)
+	{
+		return $this->context->database->query('SELECT Count(*) as `count` FROM video_verification WHERE video_id=? AND user_id=?', $this->id, $user->id)->fetch()['count'] !== 0;
+	}
+
+
+
 	/**
 	 * @return string[]
 	 */

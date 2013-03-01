@@ -173,4 +173,11 @@ class Videos extends Table
 		}
 	}
 
+
+
+	public function findNotVerified()
+	{
+		return $this->findBy(['id NOT IN (SELECT video_id FROM video_verification)']);
+	}
+
 }

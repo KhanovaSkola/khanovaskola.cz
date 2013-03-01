@@ -11,6 +11,7 @@ class NetteUser extends \Nette\Security\User
 	const ROLE_ADDER = 'adder';
 	const ROLE_EDITOR = 'editor';
 	const ROLE_BLOG = 'blog';
+	const ROLE_VERIFIER = 'verifier';
 
 
 

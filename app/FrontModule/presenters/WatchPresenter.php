@@ -259,4 +259,28 @@ class WatchPresenter extends BaseFrontPresenter
 		$this->redirectUrl($target);
 	}
 
+
+
+	public function handleVerify()
+	{
+		if (!$this->user->isInrole(\NetteUser::ROLE_VERIFIER)) {
+			throw new \Nette\Application\ForbiddenRequestException;
+		}
+
+		$this->video->verify($this->user);
+		$this->redirect('this');
+	}
+
+
+
+	public function handleUndoVerify()
+	{
+		if (!$this->user->isInrole(\NetteUser::ROLE_VERIFIER)) {
+			throw new \Nette\Application\ForbiddenRequestException;
+		}
+
+		$this->video->undoVerify($this->user);
+		$this->redirect('this');
+	}
+
 }
