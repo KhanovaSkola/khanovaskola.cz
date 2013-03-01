@@ -163,7 +163,7 @@ class Task extends Entity
 		$invalid = [];
 		if ($this->isBoundToGroup()) {
 			$invalid[] = "coach/group/tasks/{$this->group_id}";
-			foreach ($this->getGroup()->getStudents() as $student) {
+			foreach ($this->getGroup()->getUsers() as $student) {
 				$invalid[] = "coach/{$this->coach_id}/profile/{$student->id}";
 				$invalid[] = "profile/tasks/{$student->id}";
 			}
