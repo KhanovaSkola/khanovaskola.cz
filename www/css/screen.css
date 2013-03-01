@@ -260,6 +260,10 @@ img.retina {display: none;}
 #the-team .card-photo:hover img.alternate {
 	display: block;
 }
+#the-team .card-info h2 {display: inline;}
+#the-team p.contact-links {display: inline; margin-left: 2em;}
+#the-team p.contact-links a:after {content: ", ";}
+#the-team p.contact-links a:last-of-type:after {content: "";}
 
 /** Terms of Use */
 #tos ol {
