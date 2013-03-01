@@ -19,6 +19,7 @@ class Routes
 
 		/**
 		 * SEO Video adwords (short)
+		 * @TODO deprecate
 		 */
 		$videoAdRoute = new VideoAdRoute('a/<vid>', [
 			'vid' => [
@@ -44,22 +45,12 @@ class Routes
 		$videoRoute = new VideoRoute('[!v/]<id>/<vid>[/<action>]', [
 			'id' => [
 				Route::FILTER_OUT => function ($id) use ($container) {
-					if (!is_numeric($id)) {
-						return $id;
-
-					} else {
-						return $container->categories->find($id)->getSlug();
-					}
+					return $this->filter($container, 'categories', $id);
 				}
 			],
 			'vid' => [
 				Route::FILTER_OUT => function ($vid) use ($container) {
-					if (!is_numeric($vid)) {
-						return $vid;
-
-					} else {
-						return $container->videos->find($vid)->getSlug();
-					}
+					return $this->filter($container, 'videos', $vid);
 				}
 			],
 			'module' => 'Front',
@@ -80,12 +71,7 @@ class Routes
 		$categoryRoute = new SlugRoute('<id>[/<action>]', [
 			'id' => [
 				Route::FILTER_OUT => function ($id) use ($container) {
-					if (!is_numeric($id)) {
-						return $id;
-
-					} else {
-						return $container->categories->find($id)->getSlug();
-					}
+					return $this->filter($container, 'categories', $id);
 				}
 			],
 			'module' => 'Front',
@@ -106,22 +92,12 @@ class Routes
 		$exerciseRoute = new ExerciseRoute('[!cviceni/]<id>/<eid>[/<action>]', [
 			'id' => [
 				Route::FILTER_OUT => function ($id) use ($container) {
-					if (!is_numeric($id)) {
-						return $id;
-
-					} else {
-						return $container->categories->find($id)->getSlug();
-					}
+					return $this->filter($container, 'categories', $id);
 				}
 			],
 			'eid' => [
 				Route::FILTER_OUT => function ($eid) use ($container) {
-					if (!is_numeric($eid)) {
-						return $eid;
-
-					} else {
-						return $container->exercises->find($eid)->getSlug();
-					}
+					return $this->filter($container, 'exercises', $eid);
 				}
 			],
 			'module' => 'Front',
@@ -142,12 +118,7 @@ class Routes
 		$tagRoute = new SlugRoute('tag/<tid>[/<action>]', [
 			'tid' => [
 				Route::FILTER_OUT => function ($tid) use ($container) {
-					if (!is_numeric($tid)) {
-						return $tid;
-
-					} else {
-						return $container->tags->find($tid)->getSlug();
-					}
+					return $this->filter($container, 'tags', $tid);
 				}
 			],
 			'module' => 'Front',
@@ -163,12 +134,7 @@ class Routes
 		$blogRoute = new SlugRoute('blog/<aid>', [
 			'aid' => [
 				Route::FILTER_OUT => function ($aid) use ($container) {
-					if (!is_numeric($aid)) {
-						return $aid;
-
-					} else {
-						return $container->articles->find($aid)->getSlug();
-					}
+					return $this->filter($container, 'articles', $aid);
 				}
 			],
 			'module' => 'Front',
@@ -298,6 +264,21 @@ class Routes
 				],
 			],
 		]);
+	}
+
+
+
+	private function filter($container, $selector, $id)
+	{
+		if (!is_numeric($id)) {
+			return $id;
+
+		} else {
+			$object = $container->$selector->find($id);
+			if ($object)
+				return $object->getSlug();
+			return FALSE;
+		}
 	}
 
 }
