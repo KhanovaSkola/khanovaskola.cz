@@ -11,32 +11,6 @@ class Routes
 	{
 		$container->router[] = new Route('index.php', 'Front:Homepage:default', Route::ONE_WAY);
 
-		/**
-		 * 410 Gone
-		 */
-/** REMOVE 2013/03/01+ */
-		$container->router[] = new Route("fyzika/<path .*>", [
-			'module' => 'Front',
-			'presenter' => 'Homepage',
-			'action' => 'gone',
-		]);
-		$container->router[] = new Route("vedy", [
-			'module' => 'Front',
-			'presenter' => 'Homepage',
-			'action' => 'gone',
-		]);
-		$container->router[] = new Route("kontakt/\$baseUrl", [
-			'module' => 'Front',
-			'presenter' => 'Homepage',
-			'action' => 'gone',
-		]);
-		$container->router[] = new Route("kontakt/osobni-udaje", [
-			'module' => 'Front',
-			'presenter' => 'Homepage',
-			'action' => 'gone',
-		]);
-/** end REMOVE 2013/03/01+ */
-
 		$container->router[] = new Route('css/dynamic.dcss', [
 			'module' => 'Front',
 			'presenter' => 'DynamicCss',
@@ -100,31 +74,6 @@ class Routes
 		$videoRoute->init($container, 'id', 'vid');
 		$container->router[] = $videoRoute;
 
-/** REMOVE 2013/02/01+ */
-		$oldVideo = new SlugRoute('video/<vid>[/<action>]', [
-			'vid' => [
-				Route::FILTER_OUT => function ($vid) use ($container) {
-					if (!is_numeric($vid)) {
-						return $vid;
-
-					} else {
-						return $container->videos->find($vid)->getSlug();
-					}
-				}
-			],
-			'module' => 'Front',
-			'presenter' => 'Watch',
-			'action' => [
-				Route::VALUE => 'default',
-				Route::FILTER_TABLE => [
-					'upravit' => 'edit',
-				]
-			],
-		]);
-		$oldVideo->init($container, 'vid', 'videos');
-		$container->router[] = $oldVideo;
-/** end REMOVE 2013/02/01+ */
-
 		/**
 		 * SEO Category
 		 */
@@ -186,26 +135,6 @@ class Routes
 		]);
 		$exerciseRoute->init($container, 'id', 'eid');
 		$container->router[] = $exerciseRoute;
-
-/** REMOVE 2013/03/01+ */
-		$oldExerciseRoute = new SlugRoute('cviceni/<eid>', [
-			'eid' => [
-				Route::FILTER_OUT => function ($eid) use ($container) {
-					if (!is_numeric($eid)) {
-						return $eid;
-
-					} else {
-						return $container->exercises->find($eid)->getSlug();
-					}
-				}
-			],
-			'module' => 'Front',
-			'presenter' => 'Exercise',
-			'action' => 'default',
-		]);
-		$oldExerciseRoute->init($container, 'eid', 'exercises');
-		$container->router[] = $oldExerciseRoute;
-/** end REMOVE 2013/03/01+ */
 
 		/**
 		 * SEO Tag
