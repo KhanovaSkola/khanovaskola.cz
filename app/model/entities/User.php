@@ -230,7 +230,7 @@ class User extends Entity
 	 */
 	public function getGroups()
 	{
-		return $this->context->groups->findBy(['user_id' => $this->id]);
+		return $this->context->groups->findBy(['user_id' => $this->id])->order('label ASC');
 	}
 
 
@@ -492,6 +492,14 @@ class User extends Entity
 	public function getAnswers(Exercise $exercise)
 	{
 		return $this->context->database->queryArgs('SELECT * FROM answer WHERE user_id=? AND exercise_id=? ORDER BY timestamp, id', [$this->id, $exercise->id]);
+	}
+
+
+
+	public function getLastName()
+	{
+		$split = explode(" ", $this->name);
+		return end($split);
 	}
 
 }

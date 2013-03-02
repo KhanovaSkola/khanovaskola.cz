@@ -27,14 +27,8 @@
 
 		{foreach $user->entity->getGroups() as $group}
 			<p>
-				<strong>
-					<a n:href="Group:, gid => $group->id">{$group->label}</a>
-				</strong>
-				{*<ol class="coach-list">
-					<li n:foreach="$group->getUsers() as $student">
-						&bull; <a n:href="Profile:, gid => $group->id, pid => $student->id">{$student->name}</a>
-					</li>
-				</ol>*}
+				<strong><a n:href="Group:, gid => $group->id">{$group->label}</a></strong><br>
+				{foreach $group->getUsers() as $student}<a n:href="Profile:, gid => $group->id, pid => $student->id">{$student->getLastName()}</a>{sep}, {/sep}{/foreach}
 			</p>
 		{/foreach}
 	{/cache}
