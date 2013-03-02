@@ -2,18 +2,12 @@
 <div class="prerendered">
 	<div n:if="$thumbnail">
 		<div class="main-header clearfix">
-			<div class="topic-video thumbnail_td">
-				<a n:tag-if="$thumbnail" n:href=":Front:Watch:, vid => $thumbnail->id" class="thumbnail_link modal-video">
-					<div class="thumb" style="background-image:url('{$thumbnail->getThumbnailHd()}')"></div>
-					<div n:if="$thumbnail" class="thumbnail_container">
-						<div class="thumbnail_label"><div class="thumbnail_desc">{$thumbnail->label}</div></div>
-					</div>
-				</a>
-			</div>
 			<div class="topic-info">
-				<div class='topic-title'>{$tag->label}</div>
-				{*<div class='topic-desc'>{$tag->description}</div>*}
-				{*<div>Stopáž: {$leaf->getDuration()|time}</div>*}
+				<div class="topic-title" itemprop="name">{$tag->label}</div>
+				<div class="topic-desc" itemprop="description">
+					{$tag->description}
+				</div>
+				<div class="">Stopáž: {$tag->getDuration()|time}</div>
 			</div>
 		</div>
 		<div class="videos-list">

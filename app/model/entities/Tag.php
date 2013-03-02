@@ -2,6 +2,8 @@
 
 /**
  * @property string	$label
+ * @property string	$description
+ * @property bool 	$display
  */
 class Tag extends EntityUrl
 {
@@ -66,6 +68,29 @@ class Tag extends EntityUrl
 		}
 		ksort($ids);
 		return $ids;
+	}
+
+
+
+	/**
+	 * @return int seconds
+	 */
+	public function getDuration()
+	{
+		$cache = new \Nette\Caching\Cache($this->context->cacheStorage, 'tag_duration');
+		if (!isset($cache[$this->id])) {
+			$duration = 0;
+			foreach ($this->getVideos() as $video) {
+				$duration += $video->duration;
+			}
+			
+			$cache->save($this->id, $duration, [
+				\Nette\Caching\Cache::TAGS => ["tag/$this->id"],
+			]);
+			return $duration;
+		}
+
+		return $cache[$this->id];
 	}
 
 }
