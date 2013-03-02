@@ -92,7 +92,7 @@ class GroupPresenter extends BaseCoachPresenter
 			}
 		}
 
-		$form->addSubmit('send', 'Uložit');
+		$form->addSubmit('send', 'Uložit')->getControlPrototype()->class = "simple-button green";
 		return $form;
 	}
 
@@ -124,7 +124,7 @@ class GroupPresenter extends BaseCoachPresenter
 		]]);
 
 		$this->group->setUsers($ids);
-		$this->redirect('this');
+		$this->redirect('default');
 	}
 
 

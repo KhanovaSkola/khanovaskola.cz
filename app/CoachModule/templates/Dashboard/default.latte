@@ -30,11 +30,11 @@
 				<strong>
 					<a n:href="Group:, gid => $group->id">{$group->label}</a>
 				</strong>
-				<ol class="coach-list">
+				{*<ol class="coach-list">
 					<li n:foreach="$group->getUsers() as $student">
 						&bull; <a n:href="Profile:, gid => $group->id, pid => $student->id">{$student->name}</a>
 					</li>
-				</ol>
+				</ol>*}
 			</p>
 		{/foreach}
 	{/cache}

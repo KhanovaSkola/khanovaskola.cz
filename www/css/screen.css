@@ -83,11 +83,13 @@ a.subtitles-edit {float: right; font-size: 10pt;}
 .pin.pin-tall {min-height: 725px;}
 
 #backend-form th {text-align: right; padding-right: 1em; vertical-align: top;}
-#backend-form textarea, #backend-form input:not([type=submit]) {width: 300px; margin-bottom: 5pt; height: 16pt;}
+#backend-form textarea, #backend-form input:not([type=submit]):not([type=checkbox]) {width: 300px; margin-bottom: 5pt; height: 16pt;}
+#backend-form input[type=checkbox] {font-size: 120%; margin-right: .6em;}
 #backend-form textarea {height: 120pt;}
-#backend-form input[type=submit] {min-width: 70px; height: 30px; font-size: 120%;}
+#backend-form input[type=submit] {min-width: 70px; height: 30px; font-size: 120%; margin-top: 1ex;}
 #backend-form .chzn-container.chzn-container-single {margin-bottom: 1ex;}
 #backend-form select {width: 306px;}
+#backend-form legend {font-size: 120%; margin-left: .9em; padding-top: 1ex;}
 
 #frm-articleForm input[type=text] {width: 640px;}
 #frm-articleForm textarea {width: 640px; height: 320px;}
