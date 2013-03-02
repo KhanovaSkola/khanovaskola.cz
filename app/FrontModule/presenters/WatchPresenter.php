@@ -287,6 +287,10 @@ class WatchPresenter extends BaseFrontPresenter
 
 	public function handleReloadSubtitles()
 	{
+		if (!$this->user->isInrole(\NetteUser::ROLE_EDITOR)) {
+			throw new \Nette\Application\ForbiddenRequestException;
+		}
+
 		$amara = new \Amara($this->presenter->context->cacheStorage);
 		$amara->clearCache($this->video);
 		$this->flashMessage('Cache titulků byla obnovena.');
