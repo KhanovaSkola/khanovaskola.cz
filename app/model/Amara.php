@@ -39,6 +39,14 @@ class Amara extends Nette\Object
 
 
 
+	public function clearCache(Video $video)
+	{
+		$cache = new Cache($this->cacheStorage);
+		$cache->remove("amara/$video->id");
+	}
+
+
+
 	/**
 	 * @throws \Nette\Utils\JsonException
 	 */

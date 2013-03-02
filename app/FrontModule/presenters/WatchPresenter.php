@@ -67,7 +67,7 @@ class WatchPresenter extends BaseFrontPresenter
 		$this->template->category = $this->category;
 
 		$amara = new \Amara($this->presenter->context->cacheStorage);
-		$this->template->subtitles =  $amara->getSubtitles($this->video);
+		$this->template->subtitles = $amara->getSubtitles($this->video);
 	}
 
 
@@ -280,6 +280,16 @@ class WatchPresenter extends BaseFrontPresenter
 		}
 
 		$this->video->undoVerify($this->user);
+		$this->redirect('this');
+	}
+
+
+
+	public function handleReloadSubtitles()
+	{
+		$amara = new \Amara($this->presenter->context->cacheStorage);
+		$amara->clearCache($this->video);
+		$this->flashMessage('Cache titulků byla obnovena.');
 		$this->redirect('this');
 	}
 

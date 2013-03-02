@@ -53,6 +53,7 @@
 						{/if}
 					</div>
 					<a n:if="$user->isInrole(\NetteUser::ROLE_EDITOR)" n:href="edit" class="call-to-action simple-button blue">Upravit</a>
+					<a n:if="$user->isInrole(\NetteUser::ROLE_EDITOR)" n:href="reloadSubtitles!" class="call-to-action simple-button blue">Znovu načíst titulky</a>
 					{if $user->isInrole(\NetteUser::ROLE_VERIFIER)}
 						{if $video->hasUserVerified($user)}
 							Děkujeme za ověření překladu. <a n:href="undoVerify!">Zrušit</a>.
