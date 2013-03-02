@@ -42,6 +42,9 @@
 	<h3>Studenti</h3>
 	<p>
 		{cache tags => ["coach/group/{$group->id}"]}
+			{if !$group->getUsers()->count()}
+				V této skupině zatím žádné studenty nemáte &ndash; chete <a n:href="edit">přidat studenty</a>?
+			{/if}
 			<table>
 				<tr n:foreach="$group->getUsers() as $student">
 					<td>
@@ -53,21 +56,23 @@
 		{/cache}
 	</p>
 
-	<h3>Úkoly</h3>
-	<p><a n:href="addTask!">Zadat úkol</a></p>
-	<p>
-		{cache tags => ["coach/group/tasks/{$group->id}"]}
-			{if !$group->hasTasks()}
-				Tenta skupina od vás nemá žádné úkoly.
-			{else}
-				<ol>
-					<li n:foreach="$group->getTasks() as $task">
-						<a n:href="Task:, tid => $task->id">{$task->getText()}</a>
-					</li>
-				</ol>
-			{/if}
-		{/cache}
-	</p>
+	{if $group->getUsers()->count()}
+		<h3>Úkoly</h3>
+		<p><a n:href="addTask!">Zadat úkol</a></p>
+		<p>
+			{cache tags => ["coach/group/tasks/{$group->id}"]}
+				{if !$group->hasTasks()}
+					Tenta skupina od vás nemá žádné úkoly.
+				{else}
+					<ol>
+						<li n:foreach="$group->getTasks() as $task">
+							<a n:href="Task:, tid => $task->id">{$task->getText()}</a>
+						</li>
+					</ol>
+				{/if}
+			{/cache}
+		</p>
+	{/if}
 
 	{cache $group->id, expire => '+2 hours'}
 		<div n:if="$group->getExerciseSkillByDate()">
