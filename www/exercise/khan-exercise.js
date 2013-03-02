@@ -378,7 +378,7 @@ var Khan = (function() {
 
             // http://burtleburtle.net/bob/hash/integer.html
             // This is also used as a PRNG in the V8 benchmark suite
-            random: function() {
+            random: Math.random/*function() {
                 // Robert Jenkins' 32 bit integer hash function.
                 var seed = randomSeed;
                 seed = ((seed + 0x7ed55d16) + (seed << 12)) & 0xffffffff;
@@ -388,7 +388,7 @@ var Khan = (function() {
                 seed = ((seed + 0xfd7046c5) + (seed << 3)) & 0xffffffff;
                 seed = ((seed ^ 0xb55a4f09) ^ (seed >>> 16)) & 0xffffffff;
                 return (randomSeed = (seed & 0xfffffff)) / 0x10000000;
-            },
+            }*/,
 
             crc32: crc32
         },
