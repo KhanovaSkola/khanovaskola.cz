@@ -3,11 +3,6 @@
 	{var $description = $desc}
 {/if}
 {#breadcrumbs}
-	<span class="breadcrumbs-tags">
-		<span n:if="$video->hasTags()">
-			<a n:foreach="$video->getTags()->where('display', TRUE) as $tag" n:href=":Front:Tag:, tid => $tag->id">{$tag->label}{sep}, {/sep}</a>
-		</span>
-	</span>
 	<span class="breadcrumbs_nav video-nav">
 		{#breadpath}
 			{if !$category->isSubject()}
@@ -17,6 +12,11 @@
 			<a n:if="!$category->isSubject()" n:href=":Front:Browse:, id => $category->id">{$category->label}</a>
 			<span n:if="$category->isSubject()">{$category->label}</span>
 		{/#}
+	</span>
+	<span class="breadcrumbs-tags">
+		<span n:if="$video->hasTags()">
+			<a n:foreach="$video->getTags()->where('display', TRUE) as $tag" n:href=":Front:Tag:, tid => $tag->id">{$tag->label}{sep}, {/sep}</a>
+		</span>
 	</span>
 {/#}
 {#scripts}
