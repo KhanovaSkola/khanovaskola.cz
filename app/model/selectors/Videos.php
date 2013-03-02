@@ -180,4 +180,18 @@ class Videos extends Table
 		return $this->findBy(['id NOT IN (SELECT video_id FROM video_verification)']);
 	}
 
+
+
+	public function findWithVerification($count = 1)
+	{
+		return $this->findBy(['id IN (SELECT video_id FROM video_verification GROUP BY video_id HAVING Count(*) = ?)' => $count]);
+	}
+
+
+
+	public function findReadyForDubbing()
+	{
+		return $this->findWithVerification(2)->where('id NOT IN (SELECT video_id FROM tag_video WHERE tag_id=?)', $this->context->tags->findDubTag()->id);
+	}
+
 }

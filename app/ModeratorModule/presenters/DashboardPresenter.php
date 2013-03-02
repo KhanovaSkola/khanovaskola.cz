@@ -34,6 +34,18 @@ class DashboardPresenter extends BaseModeratorPresenter
 
 
 
+	public function renderVideos()
+	{
+		if (!$this->user->isInrole(\NetteUser::ROLE_VERIFIER)) {
+			throw new \Nette\Application\ForbiddenRequestException;
+		}
+		$this->template->notVerified = $this->context->videos->findNotVerified();
+		$this->template->oneVerification = $this->context->videos->findWithVerification(1);
+		$this->template->forDubbing = $this->context->videos->findReadyForDubbing();
+	}
+
+
+
 	public function handleAddExercise()
 	{
 		$exercise = $this->context->exercises->insert([]);

@@ -45,10 +45,13 @@
 			</ol>
 		</div>
 
-		<div class="pin" n:if="$user->isInrole(\NetteUser::ROLE_ADDER)">
+		<div class="pin" n:if="$user->isInrole(\NetteUser::ROLE_ADDER) || $user->isInrole(\NetteUser::ROLE_VERIFIER)">
 			<div class="role">adder</div>
 			<h2>Videa</h2>
-			<a n:href=":Front:Watch:add">Přidat nové video</a>
+			<ol>
+				<li><a n:if="$user->isInrole(\NetteUser::ROLE_ADDER)" n:href=":Front:Watch:add">Přidat nové video</a></li>
+				<li><a n:if="$user->isInrole(\NetteUser::ROLE_VERIFIER)" n:href="videos">Korekce videí</a></li>
+			</ol>
 		</div>
 
 		<div class="pin" n:if="$user->isInRole(\NetteUser::ROLE_ADMINER)">
@@ -110,17 +113,6 @@
 				</h2>
 				<ol>
 					<li n:foreach="$wanted_cats->limit(6) as $category"><a n:href=":Front:Browse:, id => $category->id">{$category->label}</a> &times;{$category->getTranslationVoteCount()}</li>
-				</ol>
-			</div>
-		{/cache}
-
-		{cache expire => '+30 minutes'}
-			<div class="pin">
-				<h2>
-					Videa bez kontroly ({$presenter->context->videos->findNotVerified()->count()})
-				</h2>
-				<ol>
-					<li n:foreach="$presenter->context->videos->findNotVerified()->limit(6) as $video"><a n:href=":Front:Watch:, vid => $video->id">{$video->label}</a></li>
 				</ol>
 			</div>
 		{/cache}

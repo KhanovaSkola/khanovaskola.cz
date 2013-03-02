@@ -1,0 +1,42 @@
+{var $title = "Korektury videí"}
+{var $limit = 30}
+{#content}
+
+<article>
+	<div id="pin-columns">
+		<div class="pin pin-tall">
+			{var $count = $notVerified->count()}
+			<h2>Ke zkontrolování ({$count})</h2>
+			<ol>
+				<li n:foreach="$notVerified->limit($limit) as $video"><a n:href=":Front:Watch:, vid => $video->id">{$video->label}</a></li>
+				<li n:if="$count > $limit">a další&hellip;</li>
+			</ol>
+		</div>
+		<div class="pin pin-tall">
+			{var $count = $oneVerification->count()}
+			<h2>S jednou kontrolou ({$count})</h2>
+			<ol>
+				<li n:foreach="$oneVerification->limit($limit) as $video">
+					<a n:href=":Front:Watch:, vid => $video->id">{$video->label}</a>&nbsp;&mdash;&nbsp;
+					{foreach $video->getVerifications() as $ver}
+						{$ver->user->name} <span class="verification-time">{$ver->timestamp|timeAgo}</span>{sep}, {/sep}
+					{/foreach}
+				</li>
+				<li n:if="$count > $limit">a další&hellip;</li>
+			</ol>
+		</div>
+		<div class="pin pin-tall">
+			{var $count = $forDubbing->count()}
+			<h2>K nadabování ({$count})</h2>
+			<ol>
+				<li n:foreach="$forDubbing->limit($limit) as $video">
+					<a n:href=":Front:Watch:, vid => $video->id">{$video->label}</a>&nbsp;&mdash;&nbsp;
+					{foreach $video->getVerifications() as $ver}
+						{$ver->user->name} <span class="verification-time">{$ver->timestamp|timeAgo}</span>{sep}, {/sep}
+					{/foreach}
+				</li>
+				<li n:if="$count > $limit">a další&hellip;</li>
+			</ol>
+		</div>
+	</div>
+</article>
