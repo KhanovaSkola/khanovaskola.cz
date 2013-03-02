@@ -71,4 +71,6 @@ $(function() {
 			}
 		}, timeout);
 	}
+
+	console.info('Ahoj,\n\nočividně tě zajímá, jak funguje Khanova škola uvnitř. Nechceš s námi spolupracovat?\nNapiš nám na dev@khanovaskola.cz.\n\nS pozdravem,\nMikuláš Dítě');
 });
