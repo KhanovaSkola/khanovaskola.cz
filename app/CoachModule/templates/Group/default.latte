@@ -70,7 +70,7 @@
 	</p>
 
 	{cache $group->id, expire => '+2 hours'}
-		<div>
+		<div n:if="$group->getExerciseSkillByDate()">
 			<h3 class="main-headline">Zvládnutá cvičení podle dní</h3>
 			<div id="chart_div" style="width: 900px; height: 500px;"></div>
 		</div>
