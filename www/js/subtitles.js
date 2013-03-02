@@ -22,7 +22,6 @@ onPlayerStateChangeCallbacks.push(function(code) {
 		}, 500);
 
 	} else if (code == -1) { // created
-		window.scroll(0, 3000); // scroll to end so the subtitles are visible
 		/** prepare scroll helpers */
 		$("#subtitles div").each(function(i, el) {
 			$(el).data('scroll-to', $(el).position().top - $("#subtitles").position().top);
