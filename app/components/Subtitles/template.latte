@@ -12,7 +12,7 @@
 				</div>
 			</td>
 			<td class="narrow">
-				<div class="row" n:foreach="$subtitles as $row">
+				<div class="row" n:foreach="$subtitles as $row" data-start="{$row->start_time / 1000}">
 					<a href="#" class="time">{$row->start_time / 1000|time}</a>
 				</div>
 			</td>

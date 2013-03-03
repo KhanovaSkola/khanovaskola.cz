@@ -35,6 +35,8 @@ onPlayerStateChangeCallbacks.push(function(code) {
 
 	} else {
 		clearInterval(sub_ticker);
+		$high.removeClass("highlight");
+		$high = null;
 	}
 });
 
