@@ -1,6 +1,6 @@
 125.1	 Dělení 3
 
-125.2	 Pokud není výsledek celé číslo, třeba <code>5</code> zbytek <code>3</code>, napište ho ve formátu "5 zb 3".
+125.2	 Pokud není výsledek celé číslo, třeba <code>5</code> zbytek <code>3</code>, napište ho ve formátu "5 z 3".
 
-125.3	 výsledek a zbytek, například <code>5 \text{ zb } 3</code>
+125.3	 výsledek a zbytek, například <code>5 \text{ z } 3</code>
 

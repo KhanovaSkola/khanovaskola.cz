@@ -547,10 +547,15 @@ function Divider(divisor, dividend, deciDivisor, deciDividend) {
 
     this.show = function() {
         var paddedDivisor = digitsDivisor;
+        var paddedDividend = digitsDividend;
 
         if (deciDivisor !== 0) {
             paddedDivisor = (KhanUtil.padDigitsToNum(digitsDivisor.reverse(), deciDivisor + 1)).reverse();
         }
+        if (deciDividend !== 0) {
+            paddedDividend = (KhanUtil.padDigitsToNum(digitsDividend.reverse(), deciDividend + 1)).reverse();
+        }
+
         graph.init({
             range: [[-1 - paddedDivisor.length, 17], [(digitsDividend.length + (deciDiff > 0 ? deciDiff : 0)) * -2 - 1, 2]],
             scale: [30, 45]
@@ -566,9 +571,11 @@ function Divider(divisor, dividend, deciDivisor, deciDividend) {
             }
         });
 
-        drawDigits(paddedDivisor, -0.5 - paddedDivisor.length, 0);
-        drawDigits(digitsDividend, 0, 0);
-        graph.path([[-0.75, -0.5], [-0.75, 0.5], [digitsDividend.length + (deciDiff > 0 ? deciDiff : 0), 0.5]]);
+        drawDigits(paddedDividend, -2, 0);
+        drawDigits(digitsDivisor, paddedDividend.length -1, 0);
+        graph.label([paddedDividend.length - 2, 0], '\\LARGE{÷}');
+        graph.label([paddedDividend.length + paddedDivisor.length - 1, 0], '\\LARGE{=}');
+        //graph.path([[-0.75, -0.5], [-0.75, 0.5], [digitsDividend.length + (deciDiff > 0 ? deciDiff : 0), 0.5]]);
     };
 
     this.showHint = function() {
@@ -584,20 +591,21 @@ function Divider(divisor, dividend, deciDivisor, deciDividend) {
             value = digitsDividend[index];
             var quotient = value / divisor;
             var total = value + remainder;
-            highlights = highlights.concat(drawDigits([value], index, 0, KhanUtil.BLUE));
+            highlights = highlights.concat(drawDigits([value], index - 2, 0, KhanUtil.BLUE));
             if (index !== 0) {
                 graph.style({
                     arrows: "->"
                 }, function() {
-                    highlights.push(graph.path([[index, 0 - 0.5], [index, -2 * index + 0.5]]));
+                    highlights.push(graph.path([[index - 2, 0 - 0.5], [index - 2, -2 * index + 0.5]]));
                 });
             }
 
-            drawDigits([value], index, -2 * index);
-            var totalDigits = KhanUtil.integerToDigits(total);
-            highlights = highlights.concat(drawDigits(totalDigits, index - totalDigits.length + 1, -2 * index, KhanUtil.BLUE));
+            //drawDigits([value], index, -2 * index);
+            //var totalDigits = KhanUtil.integerToDigits(total);
+            //highlights = highlights.concat(drawDigits(totalDigits, index - totalDigits.length + 1, -2 * index, KhanUtil.BLUE));
 
-            graph.label([digitsDividend.length + 0.5, -2 * index],
+            console.log(index);
+            graph.label([digitsDividend.length + 0.5, -2 * index - 0.6],
                 "\\text{Kolikrát se }"
                 + divisor
                 + "\\text{ vejde do }"
@@ -606,28 +614,40 @@ function Divider(divisor, dividend, deciDivisor, deciDividend) {
 
             fShowFirstHalf = false;
         } else {
+            var paddedDivisor = digitsDivisor;
+            var paddedDividend = digitsDividend;
+
+            if (deciDivisor !== 0) {
+                paddedDivisor = (KhanUtil.padDigitsToNum(digitsDivisor.reverse(), deciDivisor + 1)).reverse();
+            }
+            if (deciDividend !== 0) {
+                paddedDividend = (KhanUtil.padDigitsToNum(digitsDividend.reverse(), deciDividend + 1)).reverse();
+            }
+
             value += remainder;
             var quotient = Math.floor(value / divisor);
             var diff = value - (quotient * divisor);
             remainder = diff * 10;
-            var quotientLabel = drawDigits([quotient], index, 1);
+            var left = paddedDivisor.length + paddedDividend.length + index;
+            console.log("LEFT:", left);
+            var quotientLabel = drawDigits([quotient], left, 0);
             if (quotient === 0 && fOnlyZeros && digitsDividend.length - deciDividend + deciDivisor > index + 1) {
                 leadingZeros = leadingZeros.concat(quotientLabel);
             } else {
                 fOnlyZeros = false;
             }
-            highlights = highlights.concat(drawDigits([quotient], index, 1, KhanUtil.GREEN));
+            highlights = highlights.concat(drawDigits([quotient], left, 0, KhanUtil.GREEN));
 
             var product = KhanUtil.integerToDigits(divisor * quotient);
-            drawDigits(product, index - product.length + 1, -2 * index - 1);
-            highlights = highlights.concat(drawDigits(product, index - product.length + 1, -2 * index - 1, KhanUtil.ORANGE));
+            drawDigits(product, index - product.length + 1 - 2, -2 * index - 1);
+            highlights = highlights.concat(drawDigits(product, index - product.length + 1 - 2, -2 * index - 1, KhanUtil.ORANGE));
 
             var diffDigits = KhanUtil.integerToDigits(diff);
-            drawDigits(diffDigits, index - diffDigits.length + 1, -2 * index - 2);
-            graph.label([index - product.length, -2 * index - 1] , "-\\vphantom{0}");
-            graph.path([[index - product.length - 0.25, -2 * index - 1.5], [index + 0.5, -2 * index - 1.5]]);
+            drawDigits(diffDigits, index - diffDigits.length + 1 - 2, -2 * index - 2);
+            graph.label([index - product.length - 2, -2 * index - 1] , "-\\vphantom{0}");
+            graph.path([[index - product.length - 0.25 - 2, -2 * index - 1.5], [index + 0.5 - 2, -2 * index - 1.5]]);
 
-            graph.label([digitsDividend.length + 0.5, -2 * index - 1],
+            graph.label([digitsDividend.length + 0.5, -2 * index - 1 - 0.2],
                 "\\color{#6495ED}{" + value + "}"
                 + "\\div"
                 + divisor + "="
