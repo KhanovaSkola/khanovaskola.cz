@@ -2,15 +2,6 @@
 	<div>
 		<div class="main-header clearfix">
 			{var $leaf => $category->getSubcategories()->limit(1)->fetch()}
-			{var $thumbnail => $leaf->getVideos()->limit(1)->fetch()}
-			<div class="topic-video thumbnail_td">
-				<a n:tag-if="$thumbnail" n:href=":Front:Watch:, id => $leaf->id, vid => $thumbnail->id" class="thumbnail_link modal-video" itemprop="significantLink">
-					<div class="thumb" style="background-image:url('http://img.youtube.com/vi/{$thumbnail ? $thumbnail->youtube_id : '0'}/hqdefault.jpg')" itemprop="thumbnailUrl primaryImageOfPage"></div>
-					<div n:if="$thumbnail" class="thumbnail_container">
-						<div class="thumbnail_label"><div class="thumbnail_desc">{$thumbnail->label}</div></div>
-					</div>
-				</a>
-			</div>
 			<div class="topic-info">
 				<div class='topic-title'>
 					<span itemprop="name">{$category->label}</span>
