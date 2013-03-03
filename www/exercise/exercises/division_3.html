@@ -13,8 +13,6 @@
             <var id="FINAL_REMAINDER">randRange( 1, DIVISOR - 1 )</var>
             <var id="DIVIDEND">DIVISOR * QUOTIENT + FINAL_REMAINDER</var>
             <var id="DIVIDEND_DIGITS">integerToDigits( DIVIDEND )</var>
-			<var id="DIVISOR_DIGITS">integerToDigits( DIVISOR )</var>
-			<var id="QUOTIENT_DIGITS">integerToDigits( QUOTIENT )</var>
         </div>
         <div class="problems">
             <div>
@@ -36,7 +34,7 @@
             </div>
 
             <div class="graphie" data-update="numbers">
-                drawDigits( [ "\\text{zb&thinsp;}" ].concat( integerToDigits( FINAL_REMAINDER ) ), DIVIDEND_DIGITS.length + DIVISOR_DIGITS.length + QUOTIENT_DIGITS.length + 3, 0 );
+                drawDigits( [ "\\text{zb}" ].concat( integerToDigits( FINAL_REMAINDER ) ), DIVIDEND_DIGITS.length, 1 );
             </div>
         </div>
     </div>
