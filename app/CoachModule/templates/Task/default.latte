@@ -1,4 +1,13 @@
 {var $title = 'Úkol pro ' . ($task->isBoundToGroup() ? $task->getGroup()->label : $task->getStudent()->name)}
+{#head}
+	<link rel="stylesheet" media="screen,projection,tv" href="{$cdnUrl}/css/chosen.css" type="text/css">
+{/#}
+{#scripts}
+	<script type="text/javascript" src="{$cdnUrl}/js/chosen.jquery.min.js"></script>
+	<script>
+		$("#frm-editForm-task").chosen();
+	</script>
+{/#}
 {#breadcrumbs}
 	<span class="breadcrumbs_nav coach-nav">
 		<a n:href="Dashboard:">Učit</a>
@@ -14,7 +23,7 @@
 {/#}
 {#content}
 
-<article>
+<article id="backend-form">
 	<h2 class="main-headline">Úkol</h2>
 	<p>
 		<a n:href="remove!">Smazat úkol</a>

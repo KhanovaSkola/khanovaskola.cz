@@ -112,7 +112,7 @@ class TaskPresenter extends BaseCoachPresenter
 		$form->addSelect('task', 'Úkol', $this->getFill());
 		$form->addText('deadline', 'Nejpozději do');
 
-		$form->addSubmit('send', 'Uložit');
+		$form->addSubmit('send', 'Uložit')->getControlPrototype()->class = "simple-button green";
 		return $form;
 	}
 
