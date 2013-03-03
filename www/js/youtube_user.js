@@ -15,6 +15,7 @@ function onYouTubeIframeAPIReady() {
 		width: width,
 		playerVars: {
 			autoplay: youtube_autoplay,
+			showinfo: 0
 		},
 		videoId: youtube_video_id,
 		events: {
