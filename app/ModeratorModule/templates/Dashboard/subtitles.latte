@@ -1,0 +1,22 @@
+{var $title = "Automatické hledání chyb"}
+{#head}
+<style n:syntax="off">
+	span.error {color: red; font-weight: bold; text-decoration: underline;}
+	ol ol {margin-left: 2em;}
+</style>
+{/#}
+{#content}
+
+<article>
+	<h2 class="main-headline">Automatické hledání chyb</h2>
+	<ol>
+		<li n:foreach="$errors as $error">
+			{if count($error->lines)}
+			<p><a n:href=":Front:Watch:editSubtitles, vid => $error->video->id" target="_blank">{$error->video->label}</a></p>
+			<ol>
+				<li n:foreach="$error->lines as $line"><p>{!$line}</p></li>
+			</ol>
+			{/if}
+		</li>
+	</ol>
+</article>
