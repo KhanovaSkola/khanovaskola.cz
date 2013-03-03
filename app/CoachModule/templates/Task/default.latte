@@ -2,11 +2,10 @@
 {#breadcrumbs}
 	<span class="breadcrumbs_nav coach-nav">
 		<a n:href="Dashboard:">Učit</a>
+		<span class="breadcrumb-separator">»</span>
 		{if $task->isBoundToGroup()}
-			<span class="breadcrumb-separator">»</span>
 			<a n:href="Group:, gid => $task->group_id">{$task->getGroup()->label}</a>
 		{else}
-			<span class="breadcrumb-separator">»</span>
 			<a n:href="Profile:, pid => $task->user_id">{$task->getStudent()->name}</a>
 		{/if}
 		<span class="breadcrumb-separator">»</span>

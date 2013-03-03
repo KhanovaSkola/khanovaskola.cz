@@ -58,7 +58,7 @@
 
 	{if $group->getUsers()->count()}
 		<h3>Úkoly</h3>
-		<p><a n:href="addTask!">Zadat úkol</a></p>
+		<p><a n:href="Task:add, gid => $group->id">Zadat úkol</a></p>
 		<p>
 			{cache tags => ["coach/group/tasks/{$group->id}"]}
 				{if !$group->hasTasks()}

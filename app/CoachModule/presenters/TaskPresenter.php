@@ -11,17 +11,44 @@ class TaskPresenter extends BaseCoachPresenter
 	/** @persistent */
 	public $tid;
 
+	/** @var \Task */
+	protected $task;
+
 	/** @persistent */
 	public $gid = NULL;
 
-	/** @var \Task */
-	protected $task;
+	/** @var \Group */
+	protected $group;
+
+	/** @persistent */
+	public $pid = NULL;
+
+	/** @var \User */
+	protected $profile;
 
 
 
 	public function startup()
 	{
 		parent::startup();
+
+		if ($this->gid) {
+			$this->group = $this->context->groups->find($this->gid);
+			if (!$this->group) {
+				throw new \Nette\Application\BadRequestException;
+			}
+		}
+
+		if ($this->pid) {
+			$this->profile = $this->context->users->find($this->pid);
+			if (!$this->profile) {
+				throw new \Nette\Application\BadRequestException;
+			}
+		}
+
+		if ($this->action === 'add') {
+			return;
+		}
 
 		$this->task = $this->context->tasks->find($this->tid);
 		if (!$this->task) {
@@ -44,6 +71,14 @@ class TaskPresenter extends BaseCoachPresenter
 		if ($this->task->deadline && $this->task->deadline->format('U') > 0) {
 			$this['editForm']['deadline']->setValue($this->task->deadline->format('Y-m-d'));
 		}
+	}
+
+
+
+	public function renderAdd()
+	{
+		$this->template->group = $this->group;
+		$this->template->profile = $this->profile;
 	}
 
 
@@ -121,6 +156,17 @@ class TaskPresenter extends BaseCoachPresenter
 		$v = $form->values;
 		list($type, $id) = explode('_', $v->task);
 
+		if ($this->action === 'add') {
+			$data = ['coach_id' => $this->user->id];
+			if ($this->group) {
+				$data['group_id'] = $this->group->id;
+			} else {
+				$data['user_id'] = $this->profile->id;
+			}
+			$tmp = $this->context->tasks->insert($data);
+			$this->task = $this->context->tasks->find($tmp->id);
+		}
+
 		if ($type === 'exercise') {
 			$this->task->exercise_id = $id;
 			$this->task->video_id = NULL;
@@ -142,7 +188,11 @@ class TaskPresenter extends BaseCoachPresenter
 		$cache->clean([Cache::TAGS => $this->task->getTagsToInvalidate()]);
 
 		$this->task->update();
-		$this->redirect('this');
+		if ($this->task->isBoundToGroup()) {
+			$this->redirect('Group:', ['gid' => $this->task->group_id]);
+		} else {
+			$this->redirect('Profile:', ['pid' => $this->task->user_id]);
+		}
 	}
 
 }

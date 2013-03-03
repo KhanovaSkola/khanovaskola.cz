@@ -137,18 +137,4 @@ class GroupPresenter extends BaseCoachPresenter
 		$this->redirect('Dashboard:');
 	}
 
-
-
-	public function handleAddTask()
-	{
-		$data = [
-			'coach_id' => $this->user->id,
-			'group_id' => $this->group->id,
-		];
-
-		$task = $this->context->tasks->insert($data);
-
-		$this->redirect('Task:', ['tid' => $task->id]);
-	}
-
 }

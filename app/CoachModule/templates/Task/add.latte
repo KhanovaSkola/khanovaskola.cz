@@ -1,0 +1,30 @@
+{var $title = 'Nový úkol pro ' . ($profile ? $profile->name : $group->label)}
+{#breadcrumbs}
+	<span class="breadcrumbs_nav coach-nav">
+		<a n:href="Dashboard:">Učit</a>
+		<span class="breadcrumb-separator">»</span>
+		{if $profile}
+			<a n:href="Profile:, pid => $profile->id">{$profile->name}</a>
+		{else}
+			<a n:href="Group:, gid => $group->id">{$group->label}</a>
+		{/if}
+		<span class="breadcrumb-separator">»</span>
+		<a n:href="this">úkol</a>
+	</span>
+{/#}
+{#content}
+
+<article>
+	<h2 class="main-headline">Úkol</h2>
+
+	<h3>Upravit</h3>
+	{control editForm}
+
+	<p>
+		{if $profile}
+			<a n:href="Profile:, pid => $profile->id">zpět</a>
+		{else}
+			<a n:href="Group:, gid => $group->id">zpět</a>
+		{/if}
+	</p>
+</article>

@@ -42,7 +42,7 @@
 <article>
 	<h2 class="main-headline">Student {$profile->name}</h2>
 	<h3>Úkoly</h3>
-	<p><a n:href="addTask!">Zadat úkol</a></p>
+	<p><a n:href="Task:add, pid => $profile->id">Zadat úkol</a></p>
 	<p>
 		{cache $group ? $group->id : 0, tags => ["coach/{$user->id}/profile/{$profile->id}"]}
 			{if !$profile->hasTasksFromCoach($user->entity)}
