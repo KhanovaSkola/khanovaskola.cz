@@ -75,6 +75,7 @@ a.subtitles-edit {float: right; font-size: 10pt;}
 #subtitles .time {color: rgb(150, 150, 150); font-family: sans-serif; font-size: 80%;}
 #subtitles .row {height: 23px;}
 #subtitles td.narrow {width: 50px;}
+#subtitles-overlay {position: absolute; font-size: 14pt; color: white; padding: 0 200px; width: 400px; text-align: center; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; pointer-events: none;}
 
 .practice.simple-button {margin-left: 1em;}
 #welcome a.call-to-action {font-size: 20px; line-height: 35px; display: inline-block; width: 20%;}

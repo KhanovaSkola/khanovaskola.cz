@@ -3,6 +3,10 @@ var center = null;
 var $high = null;
 
 $(function() {
+	var coords = $("#player").offset();
+	coords.top += 480 - 2 * $("#subtitles-overlay").height() - 50;
+	$("#subtitles-overlay").offset(coords);
+
 	$('.time').click(function(e) {
 		player.seekTo($(this).parent().data('start'));
 		e.stopPropagation();
@@ -15,6 +19,7 @@ onPlayerStateChangeCallbacks.push(function(code) {
 		if ($high == null) {
 			$high = $("#subtitles div:first");
 			$high.addClass("highlight");
+			updateOverlay();
 		}
 
 		sub_ticker = setInterval(function() {
@@ -43,5 +48,10 @@ function moveSubtitles(time) {
 		$high = $high.next();
 	}
 	$high.addClass("highlight");
+	updateOverlay();
 	$("#subtitles").scrollTop($high.data('scroll-to') - center);
+}
+
+function updateOverlay() {
+	$("#subtitles-overlay").text($high.text());
 }
