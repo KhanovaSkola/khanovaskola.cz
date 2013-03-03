@@ -629,7 +629,6 @@ function Divider(divisor, dividend, deciDivisor, deciDividend) {
             var diff = value - (quotient * divisor);
             remainder = diff * 10;
             var left = paddedDivisor.length + paddedDividend.length + index;
-            console.log("LEFT:", left);
             var quotientLabel = drawDigits([quotient], left, 0);
             if (quotient === 0 && fOnlyZeros && digitsDividend.length - deciDividend + deciDivisor > index + 1) {
                 leadingZeros = leadingZeros.concat(quotientLabel);
