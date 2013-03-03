@@ -604,7 +604,6 @@ function Divider(divisor, dividend, deciDivisor, deciDividend) {
             //var totalDigits = KhanUtil.integerToDigits(total);
             //highlights = highlights.concat(drawDigits(totalDigits, index - totalDigits.length + 1, -2 * index, KhanUtil.BLUE));
 
-            console.log(index);
             graph.label([digitsDividend.length + 0.5, -2 * index - 0.6],
                 "\\text{Kolikrát se }"
                 + divisor
@@ -623,6 +622,7 @@ function Divider(divisor, dividend, deciDivisor, deciDividend) {
             if (deciDividend !== 0) {
                 paddedDividend = (KhanUtil.padDigitsToNum(digitsDividend.reverse(), deciDividend + 1)).reverse();
             }
+            console.log(paddedDivisor, paddedDividend);
 
             value += remainder;
             var quotient = Math.floor(value / divisor);
@@ -669,9 +669,9 @@ function Divider(divisor, dividend, deciDivisor, deciDividend) {
         deciDiff = deciDivisor - deciDividend;
 
         this.addDecimal();
-        this.show();
+        //this.show();
         graph.label([digitsDividend.length, 1],
-                "\\text{Napište zbytek a nulu a pokračujte v dělení.}", "right");
+            "\\text{Napište zbytek a nulu a pokračujte v dělení.}", "right");
     };
 
     this.getNumHints = function() {
@@ -688,8 +688,9 @@ function Divider(divisor, dividend, deciDivisor, deciDividend) {
         graph.style({
                 fill: "#000"
             }, function() {
-                graph.ellipse([digitsDividend.length + deciDiff - 0.5, -0.2], [0.09, 0.06]);
-                graph.ellipse([digitsDividend.length + deciDiff - 0.5, 0.8], [0.09, 0.06]);
+                graph.label([digitsDividend.length + digitsDivisor.length + deciDiff - 0.5 + 2, -0.1], "\\LARGE{,}");
+                //graph.ellipse([digitsDividend.length + deciDiff - 0.5, -0.2], [0.09, 0.06]);
+                //graph.ellipse([digitsDividend.length + deciDiff - 0.5, 0.8], [0.09, 0.06]);
             });
     }
 
