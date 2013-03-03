@@ -3,32 +3,44 @@
 
 {include ../_navigation.latte}
 <article id="press">
-	<div>
+	<div class="col1 fifty-fifty">
+		<h2 class="main-headline">Název</h2>
+		<p>
+			<em>Khanova škola</em> pište prosím zásadně s velkým&nbsp;&bdquo;K&ldquo; a s malým&nbsp;&bdquo;š&ldquo;.
+		</p>
+		<p>
+			<code>http://khanovaskola.cz</code> prosím sázajte pouze malými písmeny, vždy bez úvodního&nbsp;<code>www</code>.
+			Volitelně můžete použít verzi bez počátečního&nbsp;<code>http://</code>.
+		</p>
+	</div>
+	<div class="col2 fifty-fifty">
+		<h2 class="main-headline">Logo, barvy</h2>
 		<p>
 			Typeface: Museo Sans (<a href="http://www.fontsquirrel.com/fonts/Museo-Sans">MuseoSans500</a>)<br>
 			Barevné schéma:<br>
 				<span class="color" style="background-color: rgb(157, 182, 59)">&nbsp;</span><code>rgb(157, 182, 59)</code>, nebo <code>#9db63b</code><br>
 				<span class="color" style="background-color: rgb(43, 130, 161)">&nbsp;</span><code>rgb(43, 130, 161)</code>, nebo <code>#2b82a1</code>
 		</p>
+		
+		<div>
+			<a href="{$cdnUrl}/images/logo_khanovaskola.svg" target="_blank">
+				<img src="{$cdnUrl}/images/logo_khanovaskola.svg" width="256px" alt="Kompletní logo Khanovy školy obsahující strom i logotyp ve vektorové variantě (formát SVG)"><br>
+				Kompletní logo
+			</a>
+		</div>
+		<div>
+			<a href="{$cdnUrl}/images/hand-tree.svg" target="_blank">
+				<img src="{$cdnUrl}/images/hand-tree.svg" height="64px" alt="Logo Khanovy školy - barevné listy rostoucí kolem ruky ve vektorové variantě (formát SVG)"><br>
+				Logo &ndash; strom
+			</a>
+		</div>
+		<div>
+			<a href="{$cdnUrl}/images/logotyp.svg" target="_blank">
+				<img src="{$cdnUrl}/images/logotyp.svg" width="256px" alt="Logotyp Khanovy školy ve vektorové variantě (formát SVG)"><br>
+				Logo &ndash; text
+			</a>
+		</div>
 	</div>
-
-	<hr class="thin"/>
-
-	<div>
-		<a href="{$cdnUrl}/images/logo_khanovaskola.svg" target="_blank">
-			<img src="{$cdnUrl}/images/logo_khanovaskola.svg" width="256px" alt="Kompletní logo Khanovy školy obsahující strom i logotyp ve vektorové variantě (formát SVG)"><br>
-			Kompletní logo
-		</a>
-		<hr class="thin">
-		<a href="{$cdnUrl}/images/hand-tree.svg" target="_blank">
-			<img src="{$cdnUrl}/images/hand-tree.svg" height="64px" alt="Logo Khanovy školy - barevné listy rostoucí kolem ruky ve vektorové variantě (formát SVG)"><br>
-			Logo &ndash; strom
-		</a>
-		<hr class="thin">
-		<a href="{$cdnUrl}/images/logotyp.svg" target="_blank">
-			<img src="{$cdnUrl}/images/logotyp.svg" width="256px" alt="Logotyp Khanovy školy ve vektorové variantě (formát SVG)"><br>
-			Logo &ndash; text
-		</a>
-	</div>
+	<div class="clear"></div>
 
 </article>
