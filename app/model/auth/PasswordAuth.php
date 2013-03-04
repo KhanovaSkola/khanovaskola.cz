@@ -50,7 +50,7 @@ class Password extends \Nette\Object implements NS\IAuthenticator
 			throw new NS\AuthenticationException("Nemáte nastavené heslo. Můžete se přihlásit přes " . implode(' nebo ', $services) . ".", self::INVALID_CREDENTIAL);
 		}
 
-		$hash = (new \Password())->calculateHash($password, $user->salt);
+		$hash = (new \Model\Password())->calculateHash($password, $user->salt);
 		if ($user->password !== $hash) {
 			throw new NS\AuthenticationException("Nesprávné heslo.", self::INVALID_CREDENTIAL);
 		}
