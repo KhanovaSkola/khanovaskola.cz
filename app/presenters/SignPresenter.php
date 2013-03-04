@@ -3,6 +3,7 @@
 use Nette\Application\UI;
 use Nette\Security as NS;
 use Nette\Caching\Cache;
+use Model\NetteUser as ROLE;
 
 
 class SignPresenter extends BasePresenter
@@ -165,7 +166,7 @@ class SignPresenter extends BasePresenter
 		try {
 			$token = $g->getToken($code, $this->link('//googleAuth'));
 
-		} catch (\GoogleException $e) {
+		} catch (\Model\GoogleException $e) {
 			$this->flashMessage('Při přihlášení nastala prazvláštní chyba, zkuste se prosím přihlásit znovu.');
 			$this->redirect('in');
 		}
@@ -187,7 +188,7 @@ class SignPresenter extends BasePresenter
 		}
 
 		if (!$this->backlink) {
-			if ($this->user->isInrole(\NetteUser::ROLE_EDITOR)) {
+			if ($this->user->isInrole(ROLE::EDITOR)) {
 				$this->redirect(':Moderator:Dashboard:');
 			} else {
 				$this->redirect(':Front:Homepage:');

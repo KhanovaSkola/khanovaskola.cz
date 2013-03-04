@@ -201,7 +201,7 @@ class Video extends \ORM\EntityUrl
 				'tag_id' => $tag_id,
 				'video_id' => $this->id,
 			]);
-		} catch (PDOException $e) {
+		} catch (\PDOException $e) {
 			if ($e->getCode() == 23000) {
 				// duplicate
 				return FALSE;
@@ -415,7 +415,7 @@ class Video extends \ORM\EntityUrl
 		try {
 			$this->context->database->query('INSERT INTO url (type, entity_id, slug) VALUES (?, ?, ?)', 'video_ad', $this->id, $slug);
 
-		} catch (PDOException $e) {
+		} catch (\PDOException $e) {
 			if ($e->getCode() != 23000) {
 				throw $e;
 			}
