@@ -20,4 +20,12 @@ abstract class Entity extends \Nette\Database\Table\ActiveRow
 		$this->context = $context;
 	}
 
+
+
+	protected function getTableName()
+	{
+		$cls = explode('\\', strToLower(get_class($this)));
+		return end($cls);
+	}
+
 }

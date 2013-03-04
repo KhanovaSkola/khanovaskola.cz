@@ -95,9 +95,8 @@ class Table extends \Nette\Object
 
 	public function findBySlug($slug)
 	{
-		$class = explode('\\', strToLower(get_class($this)));
-
-		switch(end($class)) {
+		$cls = explode('\\', strToLower(get_class($this)));
+		switch(end($cls)) {
 			case 'articles':
 				$type = 'article';
 				break;

@@ -33,27 +33,27 @@ nette:
 
 services:
 	facebook: Facebook([appId: %facebook.appId%, secret: %facebook.secret%])
-	google: \Model\Google([id: %google.id%, secret: %google.secret%])
+	google: Model\Google([id: %google.id%, secret: %google.secret%])
 
-	amara: \Model\Amara()
+	amara: Model\Amara()
 
-	user: \Model\NetteUser
-	authenticator_facebook: \Authenticator\Facebook
-	authenticator_google: \Authenticator\Google
-	authenticator_password: \Authenticator\Password
+	user: Model\NetteUser
+	authenticator_facebook: Authenticator\Facebook
+	authenticator_google: Authenticator\Google
+	authenticator_password: Authenticator\Password
 
-	articles: \Selector\Articles('article')
-	authors: \Selector\Authors('author')
-	categories: \Selector\Categories('category')
-	videos: \Selector\Videos('video')
-	users: \Selector\Users('user')
-	exercises: \Selector\Exercises('exercise')
-	tags: \Selector\Tags('tag')
-	progress: \ORM\Table('progress')
-	groups: \ORM\Table('group')
-	tasks: \Selector\Tasks('task')
-	volunteers: \Selector\Volunteers('volunteer')
-	documents: \Selector\Documents('document')
-	autocomplete: \Selector\Autocomplete('_autocomplete')
+	articles: Selector\Articles('article')
+	authors: Selector\Authors('author')
+	categories: Selector\Categories('category')
+	videos: Selector\Videos('video')
+	users: Selector\Users('user')
+	exercises: Selector\Exercises('exercise')
+	tags: Selector\Tags('tag')
+	progress: ORM\Table('progress')
+	groups: ORM\Table('group')
+	tasks: Selector\Tasks('task')
+	volunteers: Selector\Volunteers('volunteer')
+	documents: Selector\Documents('document')
+	autocomplete: Selector\Autocomplete('_autocomplete')
 
 factories:
