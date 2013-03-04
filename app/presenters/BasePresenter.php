@@ -147,7 +147,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 
 	public function createComponentSubtitles()
 	{
-		return new Subtitles();
+		return new \Control\Subtitles();
 	}
 
 
