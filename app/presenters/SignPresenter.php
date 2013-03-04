@@ -162,12 +162,17 @@ class SignPresenter extends BasePresenter
 		}
 
 		$g = $this->context->google;
-		$token = $g->getToken($code, $this->link('//googleAuth'));
+		try {
+			$token = $g->getToken($code, $this->link('//googleAuth'));
+
+		} catch (\GoogleException $e) {
+			$this->flashMessage('Při přihlášení nastala prazvláštní chyba, zkuste se prosím přihlásit znovu.');
+			$this->redirect('in');
+		}
 
 		$this->user->googleLogin($g->getInfo($token));
 
 		$this->backlink = $state;
-
 		$this->inRedirect();
 	}
 
