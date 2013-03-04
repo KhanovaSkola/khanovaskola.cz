@@ -2,6 +2,7 @@
 
 namespace Model;
 
+use Entity\Video;
 use Nette\Object;
 use Nette\Utils\Json;
 use Nette\Caching\Cache;
