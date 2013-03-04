@@ -188,7 +188,7 @@ class BlogPresenter extends BaseFrontPresenter
 
 	protected function createComponentRss()
 	{
-		return new \RssControl;
+		return new \Control\RssControl;
 	}
 
 }
