@@ -1,6 +1,9 @@
 <?php
 
-class Helpers
+namespace Helper;
+
+
+class Time
 {
 
 	private static function getTime($time)

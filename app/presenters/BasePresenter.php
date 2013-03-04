@@ -62,7 +62,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 			'hash' => substr(Git::getCommit(), 0, 7),
 		];
 
-		\Helpers::register($this->template);
+		\Helper\Time::register($this->template);
 		$this['search']['query']->setValue($this->getParameter('q'));
 
 		$this->template->ROLE = "\Model\NetteUser";
