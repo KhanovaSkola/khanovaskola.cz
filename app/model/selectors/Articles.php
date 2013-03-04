@@ -1,6 +1,9 @@
 <?php
 
-class Articles extends Table
+namespace Selector;
+
+
+class Articles extends \ORM\Table
 {
 
 	public function findPublished($published = TRUE)

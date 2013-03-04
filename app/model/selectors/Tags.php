@@ -1,6 +1,11 @@
 <?php
 
-class Tags extends Table
+namespace Selector;
+
+use Entity\Video;
+
+
+class Tags extends \ORM\Table
 {
 
 	/**

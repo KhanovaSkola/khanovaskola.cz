@@ -1,6 +1,9 @@
 <?php
 
-class GoogleAuth extends Nette\Object implements \Nette\Security\IAuthenticator
+namespace Authenticator;
+
+
+class Google extends \Nette\Object implements \Nette\Security\IAuthenticator
 {
 
 	/** @var Table\Users */
@@ -8,7 +11,7 @@ class GoogleAuth extends Nette\Object implements \Nette\Security\IAuthenticator
 
 
 
-	public function __construct(Users $users)
+	public function __construct(\Selector\Users $users)
 	{
 		$this->users = $users;
 	}

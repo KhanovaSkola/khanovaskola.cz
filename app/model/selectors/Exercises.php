@@ -1,6 +1,11 @@
 <?php
 
-class Exercises extends Table
+namespace Selector;
+
+use \Entity\Category;
+
+
+class Exercises extends \ORM\Table
 {
 
 	/**

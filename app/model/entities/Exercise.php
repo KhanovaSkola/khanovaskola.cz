@@ -1,10 +1,13 @@
 <?php
 
+namespace Entity;
+
+
 /**
  * @property string	$label
  * @property string	$file
  */
-class Exercise extends EntityUrl
+class Exercise extends \ORM\EntityUrl
 {
 
 	const STARTED = 'started';

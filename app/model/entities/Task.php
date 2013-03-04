@@ -1,5 +1,8 @@
 <?php
 
+namespace Entity;
+
+
 /**
  * @property int	$coach_id
  * @property int	$user_id		$user_id XOR $group_id IS NULL
@@ -10,7 +13,7 @@
  * @property string	$deadline		mysql date
  * @property string	$timestamp		last update
  */
-class Task extends Entity
+class Task extends \ORM\Entity
 {
 
 	/**

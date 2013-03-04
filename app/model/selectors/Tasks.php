@@ -1,6 +1,12 @@
 <?php
 
-class Tasks extends Table
+namespace Selector;
+
+use Entity\User;
+use Entity\Group;
+
+
+class Tasks extends \ORM\Table
 {
 
 	/**

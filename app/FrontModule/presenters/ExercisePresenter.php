@@ -5,6 +5,7 @@ namespace FrontModule;
 use Nette\Application\UI\Form;
 use Nette\Caching\Cache;
 use Sunra\PhpSimple\HtmlDomParser;
+use Model\NetteUser as ROLE;
 
 
 class ExercisePresenter extends BaseFrontPresenter
@@ -29,7 +30,7 @@ class ExercisePresenter extends BaseFrontPresenter
 		parent::startup();
 
 		$this->exercise = $this->context->exercises->find($this->eid);
-		if (!$this->exercise && $this->debug_file && $this->user->isInRole(\NetteUser::ROLE_ADMIN)) {
+		if (!$this->exercise && $this->debug_file && $this->user->isInRole(ROLE::ADMIN)) {
 			$this->exercise = new \ExerciseDebug($this->debug_file);
 		}
 	}
@@ -89,7 +90,7 @@ class ExercisePresenter extends BaseFrontPresenter
 
 	public function renderEdit()
 	{
-		if (!$this->user->isInrole(\NetteUser::ROLE_EDITOR)) {
+		if (!$this->user->isInrole(ROLE::EDITOR)) {
 			throw new \Nette\Application\ForbiddenRequestException;
 		}
 
@@ -126,7 +127,7 @@ class ExercisePresenter extends BaseFrontPresenter
 
 	public function onSuccessEditForm(Form $form)
 	{
-		if (!$this->user->isInrole(\NetteUser::ROLE_EDITOR)) {
+		if (!$this->user->isInrole(ROLE::EDITOR)) {
 			throw new \Nette\Application\ForbiddenRequestException;
 		}
 

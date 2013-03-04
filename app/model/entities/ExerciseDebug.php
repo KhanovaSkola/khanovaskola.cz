@@ -1,5 +1,8 @@
 <?php
 
+namespace Entity;
+
+
 class ExerciseDebug extends \Nette\Object
 {
 

@@ -4,6 +4,7 @@ namespace FrontModule;
 
 use Nette\Application\UI\Form;
 use Nette\Caching\Cache;
+use Model\NetteUser as ROLE;
 
 
 class BrowsePresenter extends BaseFrontPresenter
@@ -42,7 +43,7 @@ class BrowsePresenter extends BaseFrontPresenter
 		if ($this->category->isLeaf()) {
 			$this->template->category = $this->category->getParent();
 			$this->template->leaf = $this->category;
-			$this->template->show_video_order = $this->user->isInrole(\NetteUser::ROLE_EDITOR);
+			$this->template->show_video_order = $this->user->isInrole(ROLE::EDITOR);
 
 		} else { // isSubcategory
 			$this->template->show_video_order = FALSE;
@@ -54,7 +55,7 @@ class BrowsePresenter extends BaseFrontPresenter
 
 	public function renderEdit()
 	{
-		if (!$this->user->isInrole(\NetteUser::ROLE_EDITOR)) {
+		if (!$this->user->isInrole(ROLE::EDITOR)) {
 			throw new \Nette\Application\ForbiddenRequestException;
 		}
 
@@ -81,7 +82,7 @@ class BrowsePresenter extends BaseFrontPresenter
 
 	public function onSuccessEditForm(Form $form)
 	{
-		if (!$this->user->isInrole(\NetteUser::ROLE_EDITOR)) {
+		if (!$this->user->isInrole(ROLE::EDITOR)) {
 			throw new \Nette\Application\ForbiddenRequestException;
 		}
 
@@ -106,7 +107,7 @@ class BrowsePresenter extends BaseFrontPresenter
 
 	public function handleUpdatePositions($videos)
 	{
-		if (!$this->user->isInrole(\NetteUser::ROLE_EDITOR)) {
+		if (!$this->user->isInrole(ROLE::EDITOR)) {
 			throw new \Nette\Application\ForbiddenRequestException;
 		}
 

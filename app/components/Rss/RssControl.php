@@ -1,5 +1,10 @@
 <?php
 
+namespace Control;
+
+use Nette\ComponentModel\IContainer;
+
+
 /**
  * RSS control
  *
@@ -32,7 +37,7 @@ class RssControl extends BaseControl
 	 * @param IComponentContainer $parent
 	 * @param string $name
 	 */
-	public function __construct(/*Nette\*/IComponentContainer $parent = NULL, $name = NULL)
+	public function __construct(IContainer $parent = NULL, $name = NULL)
 	{
 		parent::__construct($parent, $name);
 
@@ -51,7 +56,7 @@ class RssControl extends BaseControl
 		$this->onPrepareProperties($properties);
 		// check
 		if (empty($properties["title"]) || empty($properties["description"]) || empty($properties["link"])) {
-			throw new InvalidStateException("At least one of mandatory properties title, description or link was not set.");
+			throw new \Nette\InvalidStateException("At least one of mandatory properties title, description or link was not set.");
 		}
 
 		// items
@@ -61,7 +66,7 @@ class RssControl extends BaseControl
 
 			// check
 			if (empty($item["title"]) && empty($item["description"])) {
-				throw new InvalidStateException("One of title or description has to be set.");
+				throw new \Nette\InvalidStateException("One of title or description has to be set.");
 			}
 		}
 

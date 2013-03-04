@@ -1,10 +1,13 @@
 <?php
 
+namespace Entity;
+
+
 /**
  * @property int	$user_id
  * @property string	$label
  */
-class Group extends Entity
+class Group extends \ORM\Entity
 {
 
 	/**

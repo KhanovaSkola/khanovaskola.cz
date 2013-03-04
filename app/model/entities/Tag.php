@@ -1,11 +1,14 @@
 <?php
 
+namespace Entity;
+
+
 /**
  * @property string	$label
  * @property string	$description
  * @property bool 	$display
  */
-class Tag extends EntityUrl
+class Tag extends \ORM\EntityUrl
 {
 
 	/**

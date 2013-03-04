@@ -1,5 +1,7 @@
 <?php
 
+namespace Model;
+
 
 class Github extends \Nette\Object
 {

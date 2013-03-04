@@ -26,7 +26,7 @@ Nette\Diagnostics\Debugger::$logger->mailer = callback('CustomMailer', 'mailer')
 
 Kdyby\Replicator\Container::register();
 
-$routes = new Routes();
+$routes = new \Config\Routes();
 $routes->setup($container);
 
 // Configure and run the application!

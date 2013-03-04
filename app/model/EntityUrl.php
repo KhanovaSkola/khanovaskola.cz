@@ -1,5 +1,10 @@
 <?php
 
+namespace ORM;
+
+use Nette\Utils\Strings;
+
+
 abstract class EntityUrl extends Entity
 {
 
@@ -35,11 +40,11 @@ abstract class EntityUrl extends Entity
 
 	public function addSlug($name)
 	{
-		$slug = \Nette\Utils\Strings::webalize($name);
+		$slug = Strings::webalize($name);
 		try {
 			$this->context->database->query('INSERT INTO url (type, entity_id, slug) VALUES (?, ?, ?)', get_class($this), $this->id, $slug);
 
-		} catch (PDOException $e) {
+		} catch (\PDOException $e) {
 			if ($e->getCode() != 23000) {
 				throw $e;
 			}

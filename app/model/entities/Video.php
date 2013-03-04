@@ -1,5 +1,7 @@
 <?php
 
+namespace Entity;
+
 use Nette\Caching\Cache;
 
 
@@ -14,7 +16,7 @@ use Nette\Caching\Cache;
  * @property int	$author_id
  * @property string $external_exercise_url
  */
-class Video extends EntityUrl
+class Video extends \ORM\EntityUrl
 {
 
 	/**

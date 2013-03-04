@@ -1,6 +1,9 @@
 <?php
 
-class Authors extends Table
+namespace Selector;
+
+
+class Authors extends \ORM\Table
 {
 
 	/**

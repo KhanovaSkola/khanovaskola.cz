@@ -1,5 +1,8 @@
 <?php
 
+namespace Control;
+
+
 class Subtitles extends BaseControl
 {
 

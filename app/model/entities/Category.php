@@ -1,5 +1,8 @@
 <?php
 
+namespace Entity;
+
+
 /**
  * @property int	$parent_id
  * @property bool	$is_leaf
@@ -8,7 +11,7 @@
  * @property int	$position		Unique between siblings
  * @property string $playlist_en
  */
-class Category extends EntityUrl
+class Category extends \ORM\EntityUrl
 {
 
 	/**

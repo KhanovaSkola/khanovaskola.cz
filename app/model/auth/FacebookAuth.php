@@ -1,6 +1,9 @@
 <?php
 
-class FacebookAuth extends Nette\Object implements \Nette\Security\IAuthenticator
+namespace Authenticator;
+
+
+class Facebook extends \Nette\Object implements \Nette\Security\IAuthenticator
 {
 
 	/** @var Table\Users */
@@ -8,7 +11,7 @@ class FacebookAuth extends Nette\Object implements \Nette\Security\IAuthenticato
 
 
 
-	public function __construct(Users $users)
+	public function __construct(\Selector\Users $users)
 	{
 		$this->users = $users;
 	}

@@ -4,7 +4,7 @@
 <article>
 	<h2 class="main-headline">Dokumenty</h2>
 
-	<div n:if="$user->isInRole(\NetteUser::ROLE_ADDER)">
+	<div n:if="$user->isInRole($ROLE::ADDER)">
 		<a class="simple-button blue" n:href="add">Nahrát nový dokument</a>
 		<hr class="thin"/>
 	</div>

@@ -1,12 +1,14 @@
 <?php
 
+namespace Authenticator;
+
 use Nette\Security as NS;
 
 
 /**
  * Users authenticator.
  */
-class PasswordAuth extends Nette\Object implements NS\IAuthenticator
+class Password extends \Nette\Object implements NS\IAuthenticator
 {
 
 	/** @var Users */
@@ -14,7 +16,7 @@ class PasswordAuth extends Nette\Object implements NS\IAuthenticator
 
 
 
-	public function __construct(Users $users)
+	public function __construct(\Selector\Users $users)
 	{
 		$this->users = $users;
 	}

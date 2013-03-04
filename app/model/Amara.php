@@ -1,10 +1,14 @@
 <?php
 
+namespace Model;
+
+use Nette\Object;
 use Nette\Utils\Json;
 use Nette\Caching\Cache;
+use Nette\Caching\IStorage;
 
 
-class Amara extends Nette\Object
+class Amara extends Object
 {
 
 	const ENDPOINT = 'http://www.universalsubtitles.org';
@@ -16,7 +20,7 @@ class Amara extends Nette\Object
 
 
 
-	public function __construct(\Nette\Caching\IStorage $cacheStorage)
+	public function __construct(IStorage $cacheStorage)
 	{
 		$this->cacheStorage = $cacheStorage;
 	}
@@ -91,7 +95,7 @@ class Amara extends Nette\Object
 			$data = Json::decode(substr($res, 1, -2));
 
 			$cache->save("amara/$video->id", $data, [
-				\Nette\Caching\Cache::TAGS => ["video/$video->id"],
+				Cache::TAGS => ["video/$video->id"],
 			]);
 			return $data;
 		}

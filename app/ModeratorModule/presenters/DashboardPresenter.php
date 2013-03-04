@@ -3,6 +3,7 @@
 namespace ModeratorModule;
 
 use Nette\Caching\Cache;
+use Model\NetteUser as ROLE;
 
 
 class DashboardPresenter extends BaseModeratorPresenter
@@ -36,7 +37,7 @@ class DashboardPresenter extends BaseModeratorPresenter
 
 	public function renderVideos()
 	{
-		if (!$this->user->isInrole(\NetteUser::ROLE_VERIFIER)) {
+		if (!$this->user->isInrole(ROLE::VERIFIER)) {
 			throw new \Nette\Application\ForbiddenRequestException;
 		}
 		$this->template->notVerified = $this->context->videos->findNotVerified();
@@ -63,7 +64,7 @@ class DashboardPresenter extends BaseModeratorPresenter
 
 	public function handlePopulateDb($file = NULL)
 	{
-		if (!$this->user->isInrole(\NetteUser::ROLE_ADMIN)) {
+		if (!$this->user->isInrole(ROLE::ADMIN)) {
 			$this->redirect(':Moderator:Dashboard:');
 		}
 
@@ -118,7 +119,7 @@ class DashboardPresenter extends BaseModeratorPresenter
 
 	public function handleAttachToGithub()
 	{
-		if (!$this->user->isInrole(\NetteUser::ROLE_ADMIN)) {
+		if (!$this->user->isInrole(ROLE::ADMIN)) {
 			$this->redirect(':Moderator:Dashboard:');
 		}
 
@@ -130,7 +131,7 @@ class DashboardPresenter extends BaseModeratorPresenter
 
 	public function handleClearCache()
 	{
-		if (!$this->user->isInrole(\NetteUser::ROLE_ADMIN)) {
+		if (!$this->user->isInrole(ROLE::ADMIN)) {
 			$this->redirect(':Moderator:Dashboard:');
 		}
 
@@ -156,7 +157,7 @@ class DashboardPresenter extends BaseModeratorPresenter
 
 	public function handleTrimYoutubeIds()
 	{
-		if (!$this->user->isInrole(\NetteUser::ROLE_ADMIN)) {
+		if (!$this->user->isInrole(ROLE::ADMIN)) {
 			$this->redirect(':Moderator:Dashboard:');
 		}
 
@@ -170,7 +171,7 @@ class DashboardPresenter extends BaseModeratorPresenter
 
 	public function handleAddDubbedTagToVideos()
 	{
-		if (!$this->user->isInrole(\NetteUser::ROLE_ADMIN)) {
+		if (!$this->user->isInrole(ROLE::ADMIN)) {
 			$this->redirect(':Moderator:Dashboard:');
 		}
 

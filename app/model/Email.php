@@ -1,9 +1,11 @@
 <?php
 
-use Nette\Mail\Message;
+namespace Model;
+
+use Nette\Object;
 
 
-class Email extends Nette\Object
+class Email extends Object
 {
 
 	/** @var User */
@@ -23,7 +25,7 @@ class Email extends Nette\Object
 		$template = $this->getTemplate('passReset');
 		$template->link = $link;
 
-		$mail = new Message();
+		$mail = new \Nette\Mail\Message();
 		$mail->setFrom('Khanova škola <heslo@khanovaskola.cz>')
 			->addTo("{$this->user->name} <{$this->user->mail}>")
 			->setSubject('Ztracené heslo')

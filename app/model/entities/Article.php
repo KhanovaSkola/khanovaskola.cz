@@ -1,12 +1,15 @@
 <?php
 
+namespace Entity;
+
+
 /**
  * @property string	$label
  * @property string	$text
  * @property string	$datetime
  * @property bool $is_published
  */
-class Article extends EntityUrl
+class Article extends \ORM\EntityUrl
 {
 
 	public function getSplitText()

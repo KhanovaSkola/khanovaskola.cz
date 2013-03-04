@@ -3,7 +3,7 @@
 namespace Control;
 
 
-class Github extends \BaseControl
+class Github extends BaseControl
 {
 
 	public function renderIssues($issues)

@@ -1,6 +1,9 @@
 <?php
 
-class Volunteers extends Table
+namespace Selector;
+
+
+class Volunteers extends \ORM\Table
 {
 
 }

@@ -1,5 +1,8 @@
 <?php
 
+namespace Entity;
+
+
 /**
  * @property string	$role		Semicolon separated roles
  * @property string $mail
@@ -11,7 +14,7 @@
  * @property int $registartion	unix timestamp
  * @property int $last_login	unix timestamp
  */
-class User extends Entity
+class User extends \ORM\Entity
 {
 
 	/**
