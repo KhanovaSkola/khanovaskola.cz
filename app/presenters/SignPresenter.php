@@ -228,7 +228,7 @@ class SignPresenter extends BasePresenter
 			return FALSE;
 		}
 
-		$email = new Email($user);
+		$email = new \Model\Email($user);
 		$email->sendPasswordReset($link = $this->link('//:Sign:reset', [
 			'id' => $user->id,
 			'code' => $user->getSecurityCode(),
@@ -300,7 +300,7 @@ class SignPresenter extends BasePresenter
 		$user = $this->context->users->find($v['user_id']);
 		$this->checkCode($user, $v['code']);
 
-		$p = new \Password();
+		$p = new \Model\Password();
 		$salt = $p->getRandomSalt();
 		$hash = $p->calculateHash($v->password, $salt);
 

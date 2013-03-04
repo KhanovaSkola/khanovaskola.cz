@@ -82,7 +82,7 @@ class HomepagePresenter extends BaseFrontPresenter
 			throw new \Nette\Application\ForbiddenRequestException;
 		}
 
-		$github = new \Github($this->context);
+		$github = new \Model\Github($this->context);
 		if ($code) {
 			$auth = $github->tradeCodeForAuth($code);
 			var_dump($auth);

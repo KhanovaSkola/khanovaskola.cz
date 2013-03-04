@@ -28,7 +28,7 @@ class DashboardPresenter extends BaseModeratorPresenter
 		$this->template->limit = 10;
 		$this->template->to_publish = $this->context->articles->findPublished(FALSE);
 		$this->template->vid = $vid;
-		$this->template->github = new \Github($this->context);
+		$this->template->github = new \Model\Github($this->context);
 
 		$this->template->wanted_cats = $this->context->categories->findByVotes();
 	}
@@ -123,7 +123,7 @@ class DashboardPresenter extends BaseModeratorPresenter
 			$this->redirect(':Moderator:Dashboard:');
 		}
 
-		$github = new \Github($this->context);
+		$github = new \Model\Github($this->context);
 		$github->redirectAuth($this);
 	}
 
