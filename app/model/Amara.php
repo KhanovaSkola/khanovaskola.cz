@@ -67,10 +67,11 @@ class Amara extends Object
 		$langs = $this->getData($video)->drop_down_contents;
 		foreach ($langs as $node) {
 			if ($node->language === 'cs') {
-				if (!property_exists($node, 'standard_pk')) {
-					break;
+				if (property_exists($node, 'standard_pk')) {
+					return [$node->standard_pk, $node->pk];
 				}
-				return [$node->standard_pk, $node->pk];
+
+				return ['null', $node->pk];
 			}
 		}
 
