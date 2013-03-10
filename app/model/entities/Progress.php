@@ -5,6 +5,7 @@ namespace Entity;
 
 /**
  * @property int	$video_id
+ * @property int	$category_id
  * @property int	$user_id
  * @property double	$percent
  * @property string	$timestamp
