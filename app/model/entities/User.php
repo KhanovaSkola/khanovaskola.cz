@@ -113,10 +113,11 @@ class User extends \ORM\Entity
 	 * @param type $onWatchedCallback
 	 * @return type
 	 */
-	public function setProgress(Video $video, $seconds, $onWatchedCallback = NULL)
+	public function setProgress(Video $video, Category $category, $seconds, $onWatchedCallback = NULL)
 	{
 		$data = [
 			'video_id' => $video->id,
+			'category_id' => $category->id,
 			'user_id' => $this->id,
 		];
 

@@ -82,7 +82,7 @@ class WatchPresenter extends BaseFrontPresenter
 	public function handleUpdateProgress($seconds)
 	{
 		if ($this->ajax && $this->user->loggedIn) {
-			$this->user->entity->setProgress($this->video, $seconds, function() {
+			$this->user->entity->setProgress($this->video, $this->category, $seconds, function() {
 				// onVideoWatched
 				$task = $this->user->entity->getTaskForVideo($this->video);
 				if ($task && !$task->completed) {
