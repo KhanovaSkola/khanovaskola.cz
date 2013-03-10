@@ -26,12 +26,14 @@ class Email extends Object
 		$template = $this->getTemplate('passReset');
 		$template->link = $link;
 
-		$mail = new \Nette\Mail\Message();
-		$mail->setFrom('Khanova škola <heslo@khanovaskola.cz>')
+		$mailer = new \Nette\Mail\SendmailMailer();
+
+		$msg = new \Nette\Mail\Message();
+		$msg->setFrom('Khanova škola <heslo@khanovaskola.cz>')
 			->addTo("{$this->user->name} <{$this->user->mail}>")
 			->setSubject('Ztracené heslo')
-			->setHtmlBody($template)
-			->send();
+			->setHtmlBody($template);
+		$mailer->send($msg);
 	}
 
 
@@ -40,8 +42,8 @@ class Email extends Object
 	{
 		$file = APP_DIR . "/templates/_emails/$name.latte";
 
-		$template = new Nette\Templating\FileTemplate($file);
-		$template->registerFilter(new Nette\Latte\Engine);
+		$template = new \Nette\Templating\FileTemplate($file);
+		$template->registerFilter(new \Nette\Latte\Engine);
 
 		return $template;
 	}
