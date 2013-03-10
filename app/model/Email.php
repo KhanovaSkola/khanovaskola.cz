@@ -3,6 +3,7 @@
 namespace Model;
 
 use Nette\Object;
+use Entity\User;
 
 
 class Email extends Object
