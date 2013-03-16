@@ -8,7 +8,9 @@
 			<h2 class="main-headline">Cvičení</h2>
 
 			<div n:if="$user->loggedIn">
-				<a n:href="Translate:list" class="simple-button green">Přeložit cvičení</a>
+				<p>
+					<a n:href="Volunteer:howToTranslateExercises" class="simple-button green">Přeložit cvičení</a>
+				</p>
 			</div>
 
 			{var $linked = []}
