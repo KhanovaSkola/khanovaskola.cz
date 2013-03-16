@@ -15,7 +15,7 @@ class TranslatePresenter extends BaseFrontPresenter
 		parent::startup();
 
 		if (!$this->user->loggedIn) {
-			throw new \Nette\Application\ForbiddenRequestException();
+			$this->redirect(':Sign:in', ['backlink' => $this->link('this')]);
 		}
 	}
 
