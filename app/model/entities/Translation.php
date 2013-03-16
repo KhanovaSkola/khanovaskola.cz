@@ -41,4 +41,14 @@ class Translation extends \ORM\EntityUrl
 		$this->update();
 	}
 
+
+
+	public function getLabel()
+	{
+		$match = [];
+		preg_match('~(?<=<title>).*?(?=</title>)~', $this->template, $match);
+
+		return $match[0];
+	}
+
 }

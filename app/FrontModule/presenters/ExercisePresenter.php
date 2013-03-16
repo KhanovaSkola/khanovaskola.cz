@@ -125,7 +125,7 @@ class ExercisePresenter extends BaseFrontPresenter
 		//$form->addMultiSelect('related', 'Videa k tématu', $this->context->videos->getFill());
 		//$form->addText('file', 'Soubor');
 
-		$form->addSubmit('send', 'Uložit');
+		$form->addSubmit('send', 'Uložit')->getControlPrototype()->class = "simple-button green";
 		return $form;
 	}
 
@@ -145,6 +145,9 @@ class ExercisePresenter extends BaseFrontPresenter
 
 		$ex->updateCategories($v->categories);
 		$ex->addSlug($ex->label);
+
+		$cache = new Cache($this->context->cacheStorage);
+		$cache->clean([Cache::TAGS => ["exercises"]]);
 
 		$this->redirect(':Front:Exercise:');
 	}

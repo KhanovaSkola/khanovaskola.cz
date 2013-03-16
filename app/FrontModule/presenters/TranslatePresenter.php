@@ -4,6 +4,7 @@ namespace FrontModule;
 
 use Nette\Application\UI\Form;
 use Nette\Forms\Container;
+use Model\NetteUser as ROLE;
 
 
 class TranslatePresenter extends BaseFrontPresenter
@@ -135,6 +136,24 @@ class TranslatePresenter extends BaseFrontPresenter
 		$this->template->translate = array_diff($translate, $czech, $completed_files);
 		$this->template->working_on = $czech;
 		$this->template->completed = $completed;
+	}
+
+
+
+	public function handlePublishExercise($file)
+	{
+		if (!$this->user->isInRole(ROLE::ADMIN)) {
+			throw new \Nette\Application\ForbiddenRequestException();
+		}
+
+		$translation = $this->context->translations->findLatestFor($file);
+		$label = $translation->getLabel();
+		$ex = $this->context->exercises->insert([
+			'file' => $file,
+			'label' => $label,
+		]);
+		$ex->addSlug($label);
+		$this->redirect(':Front:Exercise:edit', ['eid' => $ex->id]);
 	}
 
 }
