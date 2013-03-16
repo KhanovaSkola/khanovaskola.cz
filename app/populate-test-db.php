@@ -36,7 +36,8 @@ $faker = Faker\Factory::create('cs_CZ');
 $coach = $container->users->find(1);
 //$count = $coach->getStudents()->count();
 foreach ($coach->getStudents() as $student) {
-	$student->delete();
+	if ($student->id !== $coach->id)
+		$student->delete();
 }
 $groups = [];
 foreach ($coach->getGroups() as $group) {
@@ -63,7 +64,7 @@ foreach ($coach->getStudents() as $student) {
 	// add watched videos
 	for ($i = 0; $i < mt_rand(4, 6); ++$i) {
 		$video = $container->videos->findRandom();
-		$student->setProgress($video, mt_rand(10, 10 * 60));
+		$student->setProgress($video, $video->getOneCategory(), mt_rand(10, 10 * 60));
 	}
 
 	// add answers

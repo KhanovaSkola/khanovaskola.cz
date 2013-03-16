@@ -63,7 +63,7 @@ class RegistrationPresenter extends BaseFrontPresenter
 	{
 		$v = $form->values;
 
-		$p = new \Password();
+		$p = new \Model\Password();
 		$salt = $p->getRandomSalt();
 		$hash = $p->calculateHash($v->password, $salt);
 

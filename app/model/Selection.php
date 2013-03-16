@@ -1,6 +1,9 @@
 <?php
 
-class Selection extends Nette\Database\Table\Selection
+namespace ORM;
+
+
+class Selection extends \Nette\Database\Table\Selection
 {
 
 	/** @var Nette\DI\Container */
@@ -8,9 +11,9 @@ class Selection extends Nette\Database\Table\Selection
 
 
 
-	public function __construct($table, Nette\Database\Connection $connection, Nette\DI\Container $context)
+	public function __construct($table, \Nette\Database\Connection $connection, \Nette\DI\Container $context)
 	{
-		parent::__construct($connection, $table, new Nette\Database\Reflection\ConventionalReflection);
+		parent::__construct($connection, $table, new \Nette\Database\Reflection\ConventionalReflection);
 		$this->context = $context;
 	}
 
@@ -18,7 +21,7 @@ class Selection extends Nette\Database\Table\Selection
 
 	protected function createRow(array $row)
 	{
-		$class = ucfirst($this->name);
+		$class = "\\Entity\\" . ucfirst($this->name);
 		if (class_exists($class)) {
 			return new $class($row, $this, $this->context);
 		}

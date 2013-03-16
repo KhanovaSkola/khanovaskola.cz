@@ -1,9 +1,12 @@
 <?php
 
-use Nette\Mail\Message;
+namespace Model;
+
+use Nette\Object;
+use Entity\User;
 
 
-class Email extends Nette\Object
+class Email extends Object
 {
 
 	/** @var User */
@@ -23,12 +26,14 @@ class Email extends Nette\Object
 		$template = $this->getTemplate('passReset');
 		$template->link = $link;
 
-		$mail = new Message();
-		$mail->setFrom('Khanova škola <heslo@khanovaskola.cz>')
+		$mailer = new \Nette\Mail\SendmailMailer();
+
+		$msg = new \Nette\Mail\Message();
+		$msg->setFrom('Khanova škola <heslo@khanovaskola.cz>')
 			->addTo("{$this->user->name} <{$this->user->mail}>")
 			->setSubject('Ztracené heslo')
-			->setHtmlBody($template)
-			->send();
+			->setHtmlBody($template);
+		$mailer->send($msg);
 	}
 
 
@@ -37,8 +42,8 @@ class Email extends Nette\Object
 	{
 		$file = APP_DIR . "/templates/_emails/$name.latte";
 
-		$template = new Nette\Templating\FileTemplate($file);
-		$template->registerFilter(new Nette\Latte\Engine);
+		$template = new \Nette\Templating\FileTemplate($file);
+		$template->registerFilter(new \Nette\Latte\Engine);
 
 		return $template;
 	}

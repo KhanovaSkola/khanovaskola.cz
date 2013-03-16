@@ -1,9 +1,11 @@
 <?php
 
+namespace Selector;
+
 use Nette\Utils\Strings;
 
 
-class Autocomplete extends Table
+class Autocomplete extends \ORM\Table
 {
 
 	public function insert($data)

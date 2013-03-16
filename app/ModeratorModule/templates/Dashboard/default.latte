@@ -3,7 +3,7 @@
 
 <article>
 	<div id="pin-columns">
-		<div class="pin" n:if="$user->isInrole(\NetteUser::ROLE_ADMIN)">
+		<div class="pin" n:if="$user->isInrole($ROLE::ADMIN)">
 			<div class="role">admin</div>
 			<h2>Administrátor</h2>
 			<ol>
@@ -18,7 +18,7 @@
 			</ol>
 		</div>
 
-		<div class="pin" n:if="$user->isInrole(\NetteUser::ROLE_ADMIN)">
+		<div class="pin" n:if="$user->isInrole($ROLE::ADMIN)">
 			<div class="role">admin</div>
 			<h2>3rd Party</h2>
 			<ol>
@@ -45,26 +45,26 @@
 			</ol>
 		</div>
 
-		<div class="pin" n:if="$user->isInrole(\NetteUser::ROLE_ADDER) || $user->isInrole(\NetteUser::ROLE_VERIFIER)">
+		<div class="pin" n:if="$user->isInrole($ROLE::ADDER) || $user->isInrole($ROLE::VERIFIER)">
 			<div class="role">adder</div>
 			<h2>Videa</h2>
 			<ol>
-				<li><a n:if="$user->isInrole(\NetteUser::ROLE_ADDER)" n:href=":Front:Watch:add">Přidat nové video</a></li>
-				<li><a n:if="$user->isInrole(\NetteUser::ROLE_VERIFIER)" n:href="videos">Korekce videí</a></li>
-				<li><a n:if="$user->isInrole(\NetteUser::ROLE_VERIFIER)" n:href="subtitles">Najít chyby v titulkách</a></li>
+				<li><a n:if="$user->isInrole($ROLE::ADDER)" n:href=":Front:Watch:add">Přidat nové video</a></li>
+				<li><a n:if="$user->isInrole($ROLE::VERIFIER)" n:href="videos">Korekce videí</a></li>
+				<li><a n:if="$user->isInrole($ROLE::VERIFIER)" n:href="subtitles">Najít chyby v titulkách</a></li>
 			</ol>
 		</div>
 
-		<div class="pin" n:if="$user->isInRole(\NetteUser::ROLE_ADMINER)">
+		<div class="pin" n:if="$user->isInRole($ROLE::ADMINER)">
 			<div class="role">adminer</div>
 			<h2>Databáze</h2>
 			<ol>
-				<li n:if="$user->isInrole(\NetteUser::ROLE_ADMIN)"><a href="/adminer/">Adminer</a></li>
+				<li n:if="$user->isInrole($ROLE::ADMIN)"><a href="/adminer/">Adminer</a></li>
 				<li><a href="/adminer/editor.php">Adminer Editor</a></li>
 			</ol>
 		</div>
 
-		<div class="pin" n:if="$user->isInRole(\NetteUser::ROLE_BLOG)">
+		<div class="pin" n:if="$user->isInRole($ROLE::BLOG)">
 			<div class="role">blog</div>
 			<h2><a n:href=":Front:Blog:">Blog</a></h2>
 			<ol>
@@ -76,7 +76,7 @@
 			</ul>
 		</div>
 
-		<div class="pin" n:if="$user->isInRole(\NetteUser::ROLE_EDITOR)">
+		<div class="pin" n:if="$user->isInRole($ROLE::EDITOR)">
 			<div class="role">editor</div>
 			<h2>Překlad</h2>
 			<ol>
@@ -84,9 +84,9 @@
 					<a n:href="Translate:">přeložit cvičení</a>
 					<span>&ndash; Cvičení se neukládá jako veřejné, je k němu potřeba nechat vygenerovat příslušné soubory. Kontrolu a zveřejnění udělá Mikuláš.</span>
 				</li>
-				{if $user->isInRole(\NetteUser::ROLE_ADMIN)}
+				{if $user->isInRole($ROLE::ADMIN)}
 					<li><a n:href="detachedExercises">cvičení mimo databázi</a></li>
-					<li n:if="$user->isInrole(\NetteUser::ROLE_ADMIN)"><a n:href="addExercise!">přidat cvičení do databáze</a></li>
+					<li n:if="$user->isInrole($ROLE::ADMIN)"><a n:href="addExercise!">přidat cvičení do databáze</a></li>
 				{/if}
 			</ol>
 		</div>

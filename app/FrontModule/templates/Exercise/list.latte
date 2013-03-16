@@ -21,7 +21,7 @@
 						</td>
 						<td>
 							<a n:href=":Front:Exercise:, id => $category->id, eid => $ex->id">{$ex->label}</a>
-							<a n:if="$user->isInRole(\NetteUser::ROLE_EDITOR)" n:href=":Front:Exercise:edit, id => $category->id, eid => $ex->id">[edit]</a>
+							<a n:if="$user->isInRole($ROLE::EDITOR)" n:href=":Front:Exercise:edit, id => $category->id, eid => $ex->id">[edit]</a>
 						</td>
 					</tr>
 				</table>

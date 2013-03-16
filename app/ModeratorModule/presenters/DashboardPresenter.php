@@ -3,6 +3,7 @@
 namespace ModeratorModule;
 
 use Nette\Caching\Cache;
+use Model\NetteUser as ROLE;
 
 
 class DashboardPresenter extends BaseModeratorPresenter
@@ -27,7 +28,7 @@ class DashboardPresenter extends BaseModeratorPresenter
 		$this->template->limit = 10;
 		$this->template->to_publish = $this->context->articles->findPublished(FALSE);
 		$this->template->vid = $vid;
-		$this->template->github = new \Github($this->context);
+		$this->template->github = new \Model\Github($this->context);
 
 		$this->template->wanted_cats = $this->context->categories->findByVotes();
 	}
@@ -36,7 +37,7 @@ class DashboardPresenter extends BaseModeratorPresenter
 
 	public function renderVideos()
 	{
-		if (!$this->user->isInrole(\NetteUser::ROLE_VERIFIER)) {
+		if (!$this->user->isInrole(ROLE::VERIFIER)) {
 			throw new \Nette\Application\ForbiddenRequestException;
 		}
 		$this->template->notVerified = $this->context->videos->findNotVerified();
@@ -81,7 +82,7 @@ class DashboardPresenter extends BaseModeratorPresenter
 
 	public function handlePopulateDb($file = NULL)
 	{
-		if (!$this->user->isInrole(\NetteUser::ROLE_ADMIN)) {
+		if (!$this->user->isInrole(ROLE::ADMIN)) {
 			$this->redirect(':Moderator:Dashboard:');
 		}
 
@@ -136,11 +137,11 @@ class DashboardPresenter extends BaseModeratorPresenter
 
 	public function handleAttachToGithub()
 	{
-		if (!$this->user->isInrole(\NetteUser::ROLE_ADMIN)) {
+		if (!$this->user->isInrole(ROLE::ADMIN)) {
 			$this->redirect(':Moderator:Dashboard:');
 		}
 
-		$github = new \Github($this->context);
+		$github = new \Model\Github($this->context);
 		$github->redirectAuth($this);
 	}
 
@@ -148,7 +149,7 @@ class DashboardPresenter extends BaseModeratorPresenter
 
 	public function handleClearCache()
 	{
-		if (!$this->user->isInrole(\NetteUser::ROLE_ADMIN)) {
+		if (!$this->user->isInrole(ROLE::ADMIN)) {
 			$this->redirect(':Moderator:Dashboard:');
 		}
 
@@ -174,7 +175,7 @@ class DashboardPresenter extends BaseModeratorPresenter
 
 	public function handleTrimYoutubeIds()
 	{
-		if (!$this->user->isInrole(\NetteUser::ROLE_ADMIN)) {
+		if (!$this->user->isInrole(ROLE::ADMIN)) {
 			$this->redirect(':Moderator:Dashboard:');
 		}
 
@@ -188,7 +189,7 @@ class DashboardPresenter extends BaseModeratorPresenter
 
 	public function handleAddDubbedTagToVideos()
 	{
-		if (!$this->user->isInrole(\NetteUser::ROLE_ADMIN)) {
+		if (!$this->user->isInrole(ROLE::ADMIN)) {
 			$this->redirect(':Moderator:Dashboard:');
 		}
 

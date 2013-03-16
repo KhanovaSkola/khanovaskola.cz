@@ -23,18 +23,18 @@
 				{var $translate_url = $leaf->getTranslateUrl()}
 				<a n:if="$translate_url" href="{$translate_url}" class="call-to-action simple-button green" target="_blank" onclick="_gaq.push(['_trackEvent', 'Click', 'Volunteer-Translate', 'Category-{$leaf->id}']);">Přeložit</a>
 			</div>
-			<div n:if="$user->isInrole(\NetteUser::ROLE_EDITOR)">
+			<div n:if="$user->isInrole($ROLE::EDITOR)">
 				<a n:href="edit" class="call-to-action simple-button blue">Upravit</a>
 				<a n:href=":Front:Watch:add, categories => [$leaf->id]" class="call-to-action simple-button blue">Přidat video</a>
 			</div>
 		{/if}
 	</div>
 	<div class="clear"></div>
-	<div n:if="$user->isInrole(\NetteUser::ROLE_ADMIN) && count($selected->getSlugs()) > 1" class=" aliases">
+	<div n:if="$user->isInrole($ROLE::ADMIN) && count($selected->getSlugs()) > 1" class=" aliases">
 		<p><b>Aliasy:</b> {foreach $selected->getSlugs() as $slug}<a n:href="this, id => $slug">{$slug}</a>{sep}, {/sep}{/foreach}</p>
 	</div>
 </div>
-{cache $selected->id . "_" . $user->isInrole(\NetteUser::ROLE_EDITOR), tags => ["category/$selected->id", "category/$category->id"]}
+{cache $selected->id . "_" . $user->isInrole($ROLE::EDITOR), tags => ["category/$selected->id", "category/$category->id"]}
 	<div class="videos-list">
 		<div class="videos-header">Videa</div>
 		<div class="videos-table">

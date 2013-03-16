@@ -3,6 +3,7 @@
 use Nette\Application\UI;
 use Nette\Security as NS;
 use Nette\Caching\Cache;
+use Model\NetteUser as ROLE;
 
 
 class SignPresenter extends BasePresenter
@@ -162,12 +163,17 @@ class SignPresenter extends BasePresenter
 		}
 
 		$g = $this->context->google;
-		$token = $g->getToken($code, $this->link('//googleAuth'));
+		try {
+			$token = $g->getToken($code, $this->link('//googleAuth'));
+
+		} catch (\Model\GoogleException $e) {
+			$this->flashMessage('Při přihlášení nastala prazvláštní chyba, zkuste se prosím přihlásit znovu.');
+			$this->redirect('in');
+		}
 
 		$this->user->googleLogin($g->getInfo($token));
 
 		$this->backlink = $state;
-
 		$this->inRedirect();
 	}
 
@@ -182,7 +188,7 @@ class SignPresenter extends BasePresenter
 		}
 
 		if (!$this->backlink) {
-			if ($this->user->isInrole(\NetteUser::ROLE_EDITOR)) {
+			if ($this->user->isInrole(ROLE::EDITOR)) {
 				$this->redirect(':Moderator:Dashboard:');
 			} else {
 				$this->redirect(':Front:Homepage:');
@@ -222,7 +228,7 @@ class SignPresenter extends BasePresenter
 			return FALSE;
 		}
 
-		$email = new Email($user);
+		$email = new \Model\Email($user);
 		$email->sendPasswordReset($link = $this->link('//:Sign:reset', [
 			'id' => $user->id,
 			'code' => $user->getSecurityCode(),
@@ -294,7 +300,7 @@ class SignPresenter extends BasePresenter
 		$user = $this->context->users->find($v['user_id']);
 		$this->checkCode($user, $v['code']);
 
-		$p = new \Password();
+		$p = new \Model\Password();
 		$salt = $p->getRandomSalt();
 		$hash = $p->calculateHash($v->password, $salt);
 

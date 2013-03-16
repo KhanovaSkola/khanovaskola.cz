@@ -1,35 +1,40 @@
 <?php
 
+namespace Model;
+
+use Selector\Users;
+
+
 /**
  * @property User $entity
  */
 class NetteUser extends \Nette\Security\User
 {
 
-	const ROLE_ADMIN = 'admin';
-	const ROLE_ADMINER = 'adminer';
-	const ROLE_ADDER = 'adder';
-	const ROLE_EDITOR = 'editor';
-	const ROLE_BLOG = 'blog';
-	const ROLE_VERIFIER = 'verifier';
+	const ADMIN = 'admin';
+	const ADMINER = 'adminer';
+	const ADDER = 'adder';
+	const EDITOR = 'editor';
+	const BLOG = 'blog';
+	const VERIFIER = 'verifier';
 
 
 
 	/** @var Users */
 	protected $users;
 
-	/** @var FacebookAuth */
+	/** @var \Authenticator\Facebook */
 	protected $facebookAuth;
 
-	/** @var GoogleAuth */
+	/** @var \Authenticator\Google */
 	protected $googleAuth;
 
-	/** @var PasswordAuth */
+	/** @var \Authenticator\Password */
 	protected $passwordAuth;
 
 
 
-	public function __construct(\Nette\Security\IUserStorage $storage, \Nette\DI\Container $context, Users $users, FacebookAuth $facebookAuth, GoogleAuth $googleAuth, PasswordAuth $passwordAuth)
+	public function __construct(\Nette\Security\IUserStorage $storage, \Nette\DI\Container $context, Users $users, \Authenticator\Facebook $facebookAuth, \Authenticator\Google $googleAuth, \Authenticator\Password $passwordAuth)
 	{
 		parent::__construct($storage, $context);
 

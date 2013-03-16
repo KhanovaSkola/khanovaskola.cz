@@ -1,5 +1,8 @@
 <?php
 
+namespace Entity;
+
+
 /**
  * @property string	$role		Semicolon separated roles
  * @property string $mail
@@ -11,7 +14,7 @@
  * @property int $registartion	unix timestamp
  * @property int $last_login	unix timestamp
  */
-class User extends Entity
+class User extends \ORM\Entity
 {
 
 	/**
@@ -110,10 +113,11 @@ class User extends Entity
 	 * @param type $onWatchedCallback
 	 * @return type
 	 */
-	public function setProgress(Video $video, $seconds, $onWatchedCallback = NULL)
+	public function setProgress(Video $video, Category $category, $seconds, $onWatchedCallback = NULL)
 	{
 		$data = [
 			'video_id' => $video->id,
+			'category_id' => $category->id,
 			'user_id' => $this->id,
 		];
 

@@ -1,6 +1,9 @@
 <?php
 
-class Documents extends Table
+namespace Selector;
+
+
+class Documents extends \ORM\Table
 {
 
 }

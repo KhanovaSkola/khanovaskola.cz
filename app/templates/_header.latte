@@ -6,8 +6,8 @@
 				<span n:if="$user->loggedIn" id="user-info" class="badge-target">
 					<span class="dropdown">
 						<span class="username_and_notification dropdown-toggle">
-							<a n:tag-if="!$presenter->mobile" href="{if $user->isInrole(\NetteUser::ROLE_EDITOR)}{plink :Moderator:Dashboard:}{else}{plink :Front:Profile:}{/if}">
-								<img class="user-avatar" src="{$cdnUrl}/images/avatars/leaf-{if $user->isInrole(\NetteUser::ROLE_ADMIN)}red{elseif $user->isInrole(\NetteUser::ROLE_EDITOR)}blue{else}green{/if}.png" alt="List Khanovy školy">
+							<a n:tag-if="!$presenter->mobile" href="{if $user->isInrole($ROLE::EDITOR)}{plink :Moderator:Dashboard:}{else}{plink :Front:Profile:}{/if}">
+								<img class="user-avatar" src="{$cdnUrl}/images/avatars/leaf-{if $user->isInrole($ROLE::ADMIN)}red{elseif $user->isInrole($ROLE::EDITOR)}blue{else}green{/if}.png" alt="List Khanovy školy">
 								<span class="user-name">
 									{=trim($user->entity->name) ?: $user->entity->mail}
 								</span>
@@ -15,8 +15,8 @@
 							</a>
 						</span>
 						<ul class="dropdown-menu no-submenus">
-							<li n:if="$user->isInrole(\NetteUser::ROLE_EDITOR)"><a class="dropdown-link" n:href=":Moderator:Dashboard:">Moderátoři</a></li>
-							<li n:if="$user->isInrole(\NetteUser::ROLE_VERIFIER)"><a n:href=":Moderator:Dashboard:videos">Korekce videí</a></li>
+							<li n:if="$user->isInrole($ROLE::EDITOR)"><a class="dropdown-link" n:href=":Moderator:Dashboard:">Moderátoři</a></li>
+							<li n:if="$user->isInrole($ROLE::VERIFIER)"><a n:href=":Moderator:Dashboard:videos">Korekce videí</a></li>
 							<li><a class="dropdown-link" n:href=":Front:Profile:, pid => NULL">Profil</a></li>
 							<li><a class="dropdown-link" n:href=":Front:Profile:addCoach">Přidat učitele</a></li>
 							<li><a n:href=":Sign:out">Odhlásit se</a></li>

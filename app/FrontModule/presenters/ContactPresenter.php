@@ -43,7 +43,7 @@ class ContactPresenter extends BaseFrontPresenter
 
 	public function onSuccessIssueForm(Form $form)
 	{
-		$gh = new \Github($this->context);
+		$gh = new \Model\Github($this->context);
 
 		$data = $form->values;
 

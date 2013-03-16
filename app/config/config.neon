@@ -33,28 +33,29 @@ nette:
 
 services:
 	facebook: Facebook([appId: %facebook.appId%, secret: %facebook.secret%])
-	google: Google([id: %google.id%, secret: %google.secret%])
 
-	amara: Amara()
+	google: Model\Google([id: %google.id%, secret: %google.secret%])
+
+	amara: Model\Amara()
 	subsChecker: SubtitleChecker()
 
-	user: NetteUser
-	authenticator_facebook: FacebookAuth
-	authenticator_google: GoogleAuth
-	authenticator_password: PasswordAuth
+	user: Model\NetteUser
+	authenticator_facebook: Authenticator\Facebook
+	authenticator_google: Authenticator\Google
+	authenticator_password: Authenticator\Password
 
-	articles: Articles('article')
-	authors: Authors('author')
-	categories: Categories('category')
-	videos: Videos('video')
-	users: Users('user')
-	exercises: Exercises('exercise')
-	tags: Tags('tag')
-	progress: Table('progress')
-	groups: Table('group')
-	tasks: Tasks('task')
-	volunteers: Volunteers('volunteer')
-	documents: Documents('document')
-	autocomplete: Autocomplete('_autocomplete')
+	articles: Selector\Articles('article')
+	authors: Selector\Authors('author')
+	categories: Selector\Categories('category')
+	videos: Selector\Videos('video')
+	users: Selector\Users('user')
+	exercises: Selector\Exercises('exercise')
+	tags: Selector\Tags('tag')
+	progress: ORM\Table('progress')
+	groups: ORM\Table('group')
+	tasks: Selector\Tasks('task')
+	volunteers: Selector\Volunteers('volunteer')
+	documents: Selector\Documents('document')
+	autocomplete: Selector\Autocomplete('_autocomplete')
 
 factories:

@@ -1,5 +1,7 @@
 <?php
 
+namespace Config;
+
 use Nette\Application\Routers\Route;
 use Nette\Utils\Strings;
 

@@ -3,6 +3,7 @@
 namespace FrontModule;
 
 use Nette\Caching\Cache;
+use Model\NetteUser as ROLE;
 
 
 class HomepagePresenter extends BaseFrontPresenter
@@ -77,11 +78,11 @@ class HomepagePresenter extends BaseFrontPresenter
 	/** @todo rewrite */
 	public function actionGithubCallback($code)
 	{
-		if (!$this->user->isInrole(\NetteUser::ROLE_ADMIN)) {
+		if (!$this->user->isInrole(ROLE::ADMIN)) {
 			throw new \Nette\Application\ForbiddenRequestException;
 		}
 
-		$github = new \Github($this->context);
+		$github = new \Model\Github($this->context);
 		if ($code) {
 			$auth = $github->tradeCodeForAuth($code);
 			var_dump($auth);

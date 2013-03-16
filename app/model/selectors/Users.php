@@ -1,6 +1,11 @@
 <?php
 
-class Users extends Table
+namespace Selector;
+
+use Entity\Group;
+
+
+class Users extends \ORM\Table
 {
 
 	/**

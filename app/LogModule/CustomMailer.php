@@ -1,5 +1,8 @@
 <?php
 
+namespace Model;
+
+
 class CustomMailer {
 
 	/**
@@ -26,7 +29,7 @@ class CustomMailer {
 
 		$parts = str_replace(
 			array("\r\n", "\n"),
-			array("\n", PHP_EOL),
+			array("\n", \PHP_EOL),
 			array(
 				'headers' => implode("\n", array(
 					"From: noreply@$host",

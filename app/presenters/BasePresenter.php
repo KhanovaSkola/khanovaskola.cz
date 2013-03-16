@@ -62,9 +62,10 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 			'hash' => substr(Git::getCommit(), 0, 7),
 		];
 
-		\Helpers::register($this->template);
+		\Helper\Time::register($this->template);
 		$this['search']['query']->setValue($this->getParameter('q'));
 
+		$this->template->ROLE = "\Model\NetteUser";
 		if ($this->user->loggedIn) {
 			$session = $this->context->session->getSection('dynamic_css');
 			$this->template->dynamic_css_hash = $session->hash;
@@ -146,7 +147,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 
 	public function createComponentSubtitles()
 	{
-		return new Subtitles();
+		return new \Control\Subtitles();
 	}
 
 

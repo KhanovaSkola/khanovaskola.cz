@@ -1,12 +1,15 @@
 <?php
 
+namespace Model;
+
 use \Nette\Utils\Json;
+
 
 /**
  * Minimalistic Google OAuth2 connector
  * @author Mikuláš Dítě
  */
-class Google extends Nette\Object
+class Google extends \Nette\Object
 {
 
 	const URL_AUTH = 'https://accounts.google.com/o/oauth2/auth';
@@ -99,4 +102,4 @@ class Google extends Nette\Object
 
 }
 
-class GoogleException extends RuntimeException {}
+class GoogleException extends \RuntimeException {}

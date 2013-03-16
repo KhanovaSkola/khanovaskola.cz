@@ -6,13 +6,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git://github.com/facebook/facebook-php-sdk.git",
-                "reference": "bf99924386be074da30a8e9d6bbcb49d3333da12"
+                "url": "https://github.com/facebook/facebook-php-sdk.git",
+                "reference": "v3.2.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/facebook/facebook-php-sdk/archive/bf99924386be074da30a8e9d6bbcb49d3333da12.zip",
-                "reference": "bf99924386be074da30a8e9d6bbcb49d3333da12",
+                "url": "https://api.github.com/repos/facebook/facebook-php-sdk/zipball/v3.2.2",
+                "reference": "v3.2.2",
                 "shasum": ""
             },
             "require": {
@@ -49,13 +49,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Kdyby/Replicator",
-                "reference": "b95e37fff58ab43908605b79b0d030647852b5a2"
+                "url": "https://github.com/Kdyby/Replicator.git",
+                "reference": "e8679cbe463c3230df77db30193484005b365af3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Kdyby/Replicator/zipball/b95e37fff58ab43908605b79b0d030647852b5a2",
-                "reference": "b95e37fff58ab43908605b79b0d030647852b5a2",
+                "url": "https://api.github.com/repos/Kdyby/Replicator/zipball/e8679cbe463c3230df77db30193484005b365af3",
+                "reference": "e8679cbe463c3230df77db30193484005b365af3",
                 "shasum": ""
             },
             "require": {
@@ -64,7 +64,7 @@
             "require-dev": {
                 "nette/tester": "@dev"
             },
-            "time": "2013-01-22 16:52:45",
+            "time": "2013-03-07 15:58:37",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -99,12 +99,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kriswallsmith/Buzz.git",
-                "reference": "e22555003e0cce08be1c2f4659fd410d7d9f3cc0"
+                "reference": "e4310004bced0598b690fd648df9c0e97fa8f984"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kriswallsmith/Buzz/zipball/e22555003e0cce08be1c2f4659fd410d7d9f3cc0",
-                "reference": "e22555003e0cce08be1c2f4659fd410d7d9f3cc0",
+                "url": "https://api.github.com/repos/kriswallsmith/Buzz/zipball/e4310004bced0598b690fd648df9c0e97fa8f984",
+                "reference": "e4310004bced0598b690fd648df9c0e97fa8f984",
                 "shasum": ""
             },
             "require": {
@@ -116,7 +116,7 @@
             "suggest": {
                 "ext-curl": "*"
             },
-            "time": "2013-02-19 13:52:29",
+            "time": "2013-03-06 06:11:47",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -276,12 +276,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/nette.git",
-                "reference": "0622617df91e648e7a0d948b21b33afb7ae08793"
+                "reference": "97a37f7be3af70f8693f0609c7be1505bd2cafe1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/nette/zipball/0622617df91e648e7a0d948b21b33afb7ae08793",
-                "reference": "0622617df91e648e7a0d948b21b33afb7ae08793",
+                "url": "https://api.github.com/repos/nette/nette/zipball/97a37f7be3af70f8693f0609c7be1505bd2cafe1",
+                "reference": "97a37f7be3af70f8693f0609c7be1505bd2cafe1",
                 "shasum": ""
             },
             "require": {
@@ -299,7 +299,7 @@
                 "ext-memcache": "*",
                 "ext-pdo": "*"
             },
-            "time": "2013-02-19 19:28:21",
+            "time": "2013-03-08 13:44:14",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -388,104 +388,7 @@
             ]
         }
     ],
-    "packages-dev": [
-        {
-            "name": "fzaninotto/faker",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "e1df66d0903ffcbd4a305ab214e02d4536dcd123"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/e1df66d0903ffcbd4a305ab214e02d4536dcd123",
-                "reference": "e1df66d0903ffcbd4a305ab214e02d4536dcd123",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "time": "2013-02-18 19:20:26",
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Faker": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "François Zaninotto"
-                }
-            ],
-            "description": "Faker is a PHP library that generates fake data for you.",
-            "keywords": [
-                "data",
-                "faker",
-                "fixtures"
-            ]
-        },
-        {
-            "name": "nette/tester",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nette/tester",
-                "reference": "e4a5558feeccbe992ff65fb2544b88d966833197"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nette/tester/zipball/e4a5558feeccbe992ff65fb2544b88d966833197",
-                "reference": "e4a5558feeccbe992ff65fb2544b88d966833197",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "time": "2013-02-14 01:18:01",
-            "bin": [
-                "Tester/tester"
-            ],
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "Tester/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause",
-                "GPL-2.0",
-                "GPL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "David Grudl",
-                    "homepage": "http://davidgrudl.com"
-                },
-                {
-                    "name": "Nette Community",
-                    "homepage": "http://nette.org/contributors"
-                }
-            ],
-            "description": "An easy-to-use PHP Unit Testing framework.",
-            "homepage": "http://nette.org",
-            "keywords": [
-                "nette",
-                "testing",
-                "unit"
-            ]
-        }
-    ],
+    "packages-dev": null,
     "aliases": [
 
     ],

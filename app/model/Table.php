@@ -1,6 +1,9 @@
 <?php
 
-class Table extends Nette\Object
+namespace ORM;
+
+
+class Table extends \Nette\Object
 {
 
 	/** @var Nette\Database\Connection */
@@ -17,7 +20,7 @@ class Table extends Nette\Object
 	 * @param $tableName
 	 * @param Nette\Database\Connection $db
 	 */
-	public function __construct($tableName, Nette\Database\Connection $db, Nette\DI\Container $context)
+	public function __construct($tableName, \Nette\Database\Connection $db, \Nette\DI\Container $context)
 	{
 		$this->tableName = $tableName;
 		$this->connection = $db;
@@ -31,7 +34,7 @@ class Table extends Nette\Object
 	 */
 	protected function getTable()
 	{
-		return new \Selection($this->tableName, $this->connection, $this->context);
+		return new Selection($this->tableName, $this->connection, $this->context);
 	}
 
 
@@ -92,7 +95,8 @@ class Table extends Nette\Object
 
 	public function findBySlug($slug)
 	{
-		switch(strToLower(get_class($this))) {
+		$cls = explode('\\', strToLower(get_class($this)));
+		switch(end($cls)) {
 			case 'articles':
 				$type = 'article';
 				break;
@@ -109,7 +113,7 @@ class Table extends Nette\Object
 				$type = 'video';
 				break;
 			default:
-				throw new InvalidArgumentException("Class " . get_class($this) . " does not support slugs.");
+				throw new \Nette\InvalidArgumentException("Class " . get_class($this) . " does not support slugs.");
 		}
 		foreach ($this->context->database->query('SELECT * FROM url WHERE slug=? AND type=?', $slug, $type) as $row) {
 			return $this->find($row['entity_id']);

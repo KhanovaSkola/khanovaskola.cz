@@ -4,6 +4,7 @@ namespace FrontModule;
 
 use Nette\Application\UI\Form;
 use Nette\Caching\Cache;
+use Model\NetteUser as ROLE;
 
 
 class WatchPresenter extends BaseFrontPresenter
@@ -81,7 +82,7 @@ class WatchPresenter extends BaseFrontPresenter
 	public function handleUpdateProgress($seconds)
 	{
 		if ($this->ajax && $this->user->loggedIn) {
-			$this->user->entity->setProgress($this->video, $seconds, function() {
+			$this->user->entity->setProgress($this->video, $this->category, $seconds, function() {
 				// onVideoWatched
 				$task = $this->user->entity->getTaskForVideo($this->video);
 				if ($task && !$task->completed) {
@@ -158,7 +159,7 @@ class WatchPresenter extends BaseFrontPresenter
 		$author_id = $v->author_id != 0 ? $v->author_id : NULL;
 
 		if ($this->action === 'add') {
-			if (!$this->user->isInrole(\NetteUser::ROLE_ADDER)) {
+			if (!$this->user->isInrole(ROLE::ADDER)) {
 				throw new \Nette\Application\ForbiddenRequestException;
 			}
 
@@ -191,7 +192,7 @@ class WatchPresenter extends BaseFrontPresenter
 			}
 
 		} else { // edit
-			if (!$this->user->isInrole(\NetteUser::ROLE_EDITOR)) {
+			if (!$this->user->isInrole(ROLE::EDITOR)) {
 				throw new \Nette\Application\ForbiddenRequestException;
 			}
 
@@ -232,7 +233,7 @@ class WatchPresenter extends BaseFrontPresenter
 
 	public function renderEdit()
 	{
-		if (!$this->user->isInrole(\NetteUser::ROLE_EDITOR)) {
+		if (!$this->user->isInrole(ROLE::EDITOR)) {
 			throw new \Nette\Application\ForbiddenRequestException;
 		}
 
@@ -262,7 +263,7 @@ class WatchPresenter extends BaseFrontPresenter
 
 	public function handleVerify()
 	{
-		if (!$this->user->isInrole(\NetteUser::ROLE_VERIFIER)) {
+		if (!$this->user->isInrole(ROLE::VERIFIER)) {
 			throw new \Nette\Application\ForbiddenRequestException;
 		}
 
@@ -274,7 +275,7 @@ class WatchPresenter extends BaseFrontPresenter
 
 	public function handleUndoVerify()
 	{
-		if (!$this->user->isInrole(\NetteUser::ROLE_VERIFIER)) {
+		if (!$this->user->isInrole(ROLE::VERIFIER)) {
 			throw new \Nette\Application\ForbiddenRequestException;
 		}
 
@@ -286,7 +287,7 @@ class WatchPresenter extends BaseFrontPresenter
 
 	public function handleReloadSubtitles()
 	{
-		if (!$this->user->isInrole(\NetteUser::ROLE_EDITOR)) {
+		if (!$this->user->isInrole(ROLE::EDITOR)) {
 			throw new \Nette\Application\ForbiddenRequestException;
 		}
 

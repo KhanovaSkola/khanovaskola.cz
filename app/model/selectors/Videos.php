@@ -1,9 +1,14 @@
 <?php
 
+namespace Selector;
+
+use Entity\Tag;
+use Entity\Exercise;
+use Entity\Category;
 use Nette\Caching\Cache;
 
 
-class Videos extends Table
+class Videos extends \ORM\Table
 {
 
 	/**

@@ -1,6 +1,12 @@
 <?php
 
-class VideoAdRoute extends \Nette\Application\Routers\Route
+namespace Config;
+
+use Nette\Application\Routers\Route;
+use Nette\Http\IRequest;
+
+
+class VideoAdRoute extends Route
 {
 
 	protected $context;
@@ -20,7 +26,7 @@ class VideoAdRoute extends \Nette\Application\Routers\Route
 
 
 
-	public function match(\Nette\Http\IRequest $request) {
+	public function match(IRequest $request) {
 		/** @var $appRequest \Nette\Application\Request */
 		$appRequest = parent::match($request);
 

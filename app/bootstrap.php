@@ -22,11 +22,11 @@ $configurator->addConfig(__DIR__ . '/config/config.db.neon');
 $configurator->addConfig(__DIR__ . '/config/config.local.neon');
 $container = $configurator->createContainer();
 
-Nette\Diagnostics\Debugger::$logger->mailer = callback('CustomMailer', 'mailer');
+Nette\Diagnostics\Debugger::$logger->mailer = callback('\Model\CustomMailer', 'mailer');
 
 Kdyby\Replicator\Container::register();
 
-$routes = new Routes();
+$routes = new \Config\Routes();
 $routes->setup($container);
 
 // Configure and run the application!

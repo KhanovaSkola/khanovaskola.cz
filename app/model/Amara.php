@@ -1,10 +1,15 @@
 <?php
 
+namespace Model;
+
+use Entity\Video;
+use Nette\Object;
 use Nette\Utils\Json;
 use Nette\Caching\Cache;
+use Nette\Caching\IStorage;
 
 
-class Amara extends Nette\Object
+class Amara extends Object
 {
 
 	const ENDPOINT = 'http://www.universalsubtitles.org';
@@ -16,7 +21,7 @@ class Amara extends Nette\Object
 
 
 
-	public function __construct(\Nette\Caching\IStorage $cacheStorage)
+	public function __construct(IStorage $cacheStorage)
 	{
 		$this->cacheStorage = $cacheStorage;
 	}
@@ -62,10 +67,11 @@ class Amara extends Nette\Object
 		$langs = $this->getData($video)->drop_down_contents;
 		foreach ($langs as $node) {
 			if ($node->language === 'cs') {
-				if (!property_exists($node, 'standard_pk')) {
-					break;
+				if (property_exists($node, 'standard_pk')) {
+					return [$node->standard_pk, $node->pk];
 				}
-				return [$node->standard_pk, $node->pk];
+
+				return ['null', $node->pk];
 			}
 		}
 
@@ -91,7 +97,7 @@ class Amara extends Nette\Object
 			$data = Json::decode(substr($res, 1, -2));
 
 			$cache->save("amara/$video->id", $data, [
-				\Nette\Caching\Cache::TAGS => ["video/$video->id"],
+				Cache::TAGS => ["video/$video->id"],
 			]);
 			return $data;
 		}

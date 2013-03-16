@@ -1,6 +1,12 @@
 <?php
 
-class Categories extends Table
+namespace Selector;
+
+use \Entity\Video;
+use \Entity\Exercise;
+
+
+class Categories extends \ORM\Table
 {
 
 	/**
