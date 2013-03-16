@@ -53,6 +53,7 @@ services:
 	videos: Selector\Videos('video')
 	users: Selector\Users('user')
 	exercises: Selector\Exercises('exercise')
+	translations: Selector\Translations('exercise_translation')
 	tags: Selector\Tags('tag')
 	progress: ORM\Table('progress')
 	groups: ORM\Table('group')

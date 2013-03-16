@@ -121,4 +121,23 @@ class Exercise extends \ORM\EntityUrl
 		$db->commit();
 	}
 
+
+
+	public function getTranslation()
+	{
+		return $this->context->translations->findLatestFor($this->file);
+	}
+
+
+
+	public function getHtmlTemplate()
+	{
+		$t = $this->getTranslation();
+		if ($t) {
+			return $t->template;
+		}
+
+		return file_get_contents(WWW_DIR . "/exercise/translated/{$this->file}.html");
+	}
+
 }

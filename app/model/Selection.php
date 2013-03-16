@@ -22,6 +22,10 @@ class Selection extends \Nette\Database\Table\Selection
 	protected function createRow(array $row)
 	{
 		$class = "\\Entity\\" . ucfirst($this->name);
+		if ($class === "\Entity\Exercise_translation") {
+			$class = "\\Entity\\Translation";
+		}
+
 		if (class_exists($class)) {
 			return new $class($row, $this, $this->context);
 		}

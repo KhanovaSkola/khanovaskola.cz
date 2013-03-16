@@ -15,7 +15,16 @@ class TranslatePresenter extends BaseModeratorPresenter
 			$this->redirect('list');
 		}
 
-		$translate = $this->parseTranslationFile(file_exists(WWW_DIR . "/exercise/czech/$file.txt") ? 'czech' : 'translate', $file);
+		$translation = $this->context->translations->findLatestFor($file);
+		if ($translation) {
+			$this->template->translation = $translation;
+			$content = $translation->text;
+
+		} else {
+			$folder = file_exists(WWW_DIR . "/exercise/czech/$file.txt") ? 'czech' : 'translate';
+			$content = file_get_contents(WWW_DIR . "/exercise/$folder/$file.txt");
+		}
+		$translate = $this->parseTranslation($content);
 
 		foreach ($translate['tid'] as $i => $tid) {
 			if (!isset($this['translateForm']['translations'][$tid]))
@@ -29,14 +38,14 @@ class TranslatePresenter extends BaseModeratorPresenter
 
 
 
-	private function parseTranslationFile($folder, $file)
+	private function parseTranslation($content)
 	{
-		$content = file_get_contents(WWW_DIR . "/exercise/$folder/$file.txt");
 		$matches = [];
 		preg_match_all('~(?P<tid>\d+\.\d+)\s+(?P<text>.*?)\n$~ims', $content, $matches);
 		foreach ($matches['tid'] as &$tid) {
 			$tid = str_replace('.', '_', $tid);
 		}
+
 		return $matches;
 	}
 
@@ -59,6 +68,7 @@ class TranslatePresenter extends BaseModeratorPresenter
 	public function onSuccessTranslateForm(Form $form)
 	{
 		$v = $form->values;
+		$file = $this->getParam('file');
 
 		$data = "";
 		foreach ($v['translations'] as $tid => $c) {
@@ -66,8 +76,20 @@ class TranslatePresenter extends BaseModeratorPresenter
 			$tid = str_replace('_', '.', $tid);
 			$data .= "$tid	 $text\n\n";
 		}
-		file_put_contents(WWW_DIR . '/exercise/czech/' . $this->getParam('file') . '.txt', $data);
-		exec('php ' . escapeshellarg(WWW_DIR . '/exercise/generate_translated.php') . ' ' . escapeshellarg($this->getParam('file') . '.html'));
+
+		$translation = $this->context->translations->findLatestFor($file);
+		if ($translation) {
+			// only keep one row of single users changes
+			$translation->delete();
+		}
+
+		$translation = $this->context->translations->insert([
+			'user_id' => $this->user->id,
+			'text' => $data,
+			'file' => $file,
+		]);
+		$translation = $this->context->translations->find($translation->id); // fix insert not returning Entity
+		$translation->buildTemplate();
 
 		$this->redirect('this');
 	}

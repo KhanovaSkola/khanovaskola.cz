@@ -14,8 +14,13 @@ class ExerciseDebug extends \Nette\Object
 
 
 
-	public function __construct($file)
+	private $context;
+
+
+
+	public function __construct($context, $file)
 	{
+		$this->context = $context;
 		$this->file = $file;
 		$this->label = "DEBUG $file";
 	}
@@ -65,6 +70,25 @@ class ExerciseDebug extends \Nette\Object
 	public function updateCategories(array $cats)
 	{
 		return FALSE;
+	}
+
+
+
+	public function getTranslation()
+	{
+		return $this->context->translations->findLatestFor($this->file);
+	}
+
+
+
+	public function getHtmlTemplate()
+	{
+		$t = $this->getTranslation();
+		if ($t) {
+			return $t->template;
+		}
+
+		return file_get_contents(WWW_DIR . "/exercise/translated/{$this->file}.html");
 	}
 
 }

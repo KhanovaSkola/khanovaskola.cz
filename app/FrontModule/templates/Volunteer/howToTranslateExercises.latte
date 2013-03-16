@@ -1,0 +1,36 @@
+{var $title = "Jak na překlad cvičení"}
+{#content}
+
+<style n:syntax="off">
+	em {font-style: normal; color: blue; font-weight: bold;}
+</style>
+
+<article>
+	<div>
+		<h2 class="main-headline">Jak na překlad cvičení</h2>
+			<div class="col1 sixty-fourty">
+				<p>Překládat cvičení je těžší než videa. Kromě angličtiny budete potřebovat přečíst následující rady.</p>
+				<p>Typický text k přeložení může vypadat nějak takhle:</p>
+				<p>
+					<code n:syntax="off"><em>{</em>On a sunny morning<em>|</em>On a beautiful afternoon<em>}</em>, <em>&lt;var></em>person(1)<em>&lt;/var></em> rode <em>&lt;var></em>his(1)<em>&lt;/var></em> bicycle to a farm that sold bags of <em>&lt;var></em>plural(fruit(1))<em>&lt;/var></em> for $<em>&lt;var></em>fruit_1<em>&lt;/var></em> each and bags of <em>&lt;var></em>plural(fruit(2))<em>&lt;/var></em> for $<em>&lt;var></em>fruit_2<em>&lt;/var></em> each.</code>
+				</p>
+				<p>
+					Když se tento text uloží jako cvičení, studenti nakonec uvidí například tuto větu:
+				</p>
+				<p><code>On a beatiful afternoon, Peter rode his bycicle to a farm that sold bags of apples for $1 each and bags of oranges for $2 each.</code></p>
+				<p>
+					Pojďme si rozebrat, co konkrétně jednotlivé části původního kódu znamenají.
+				</p>
+				<p>
+					<code n:syntax="off"><em>{</em>On a sunny morning<em>|</em>On a beautiful afternoon<em>}</em></code>
+					Text v tomto formátu znamená, že se náhodně vybere mezi frází On a sunny morning a On a beatiful afternoon. Je to jednoduchý způsob jak udělat jinak statické cvičení proměnlivější. Musíme přeložit jednotlivé fráze, ale pozor, závorky i znak(y) <code>|</code> můsíme zachovat.
+				</p>
+				<p>
+					<code n:syntax="off"><em>&lt;var></em>person(1)<em>&lt;/var></em></code>
+					Fráze <code><em>&lt;var></em>x<em>&lt;/var></em></em> vypíše proměnnou <code><em>x</em></code>. V tomto případě nemáme proměnnou, ale funkci <code><em>person(1)</em></code>, která vypíše náhodné jméno. Obecně platí, že pokuď si nejste jistí, co kód v <code><em>&lt;var>&lt;/var></em></code> dělá, přeskočte ho.
+				</p>
+			</div>
+			<div class="clear"></div>
+		</p>
+	</div>
+</article>

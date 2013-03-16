@@ -6,6 +6,7 @@ use Nette\Application\UI\Form;
 use Nette\Caching\Cache;
 use Sunra\PhpSimple\HtmlDomParser;
 use Model\NetteUser as ROLE;
+use Entity\ExerciseDebug;
 
 
 class ExercisePresenter extends BaseFrontPresenter
@@ -31,7 +32,7 @@ class ExercisePresenter extends BaseFrontPresenter
 
 		$this->exercise = $this->context->exercises->find($this->eid);
 		if (!$this->exercise && $this->debug_file && $this->user->isInRole(ROLE::ADMIN)) {
-			$this->exercise = new \ExerciseDebug($this->debug_file);
+			$this->exercise = new ExerciseDebug($this->context, $this->debug_file);
 		}
 	}
 
@@ -50,7 +51,7 @@ class ExercisePresenter extends BaseFrontPresenter
 		}
 
 		$this->template->exercise = $this->exercise;
-		$raw = file_get_contents(WWW_DIR . "/exercise/translated/{$this->exercise->file}.html");
+		$raw = $this->exercise->getHtmlTemplate();
 		$raw = str_replace('src="../khan-exercise.js"', 'src="/exercise/khan-exercise.js"', $raw);
 		$html = HtmlDomParser::str_get_html($raw);
 
@@ -63,6 +64,8 @@ class ExercisePresenter extends BaseFrontPresenter
 		$content['body'] = (string) $html->find('body')[0]->innertext;
 
 		$this->template->content = (object) $content;
+
+		$this->template->is_debug = $this->exercise instanceof ExerciseDebug;
 	}
 
 

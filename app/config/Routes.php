@@ -263,6 +263,7 @@ class Routes
 					'vitejte' => 'welcome',
 					'pridat' => 'add',
 					'preklad' => 'howToTranslate',
+					'preklad-cviceni' => 'howToTranslateExercises',
 				],
 			],
 		]);

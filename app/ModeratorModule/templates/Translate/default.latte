@@ -3,10 +3,13 @@
 
 <article id="backend-form">
 	<h2 class="main-headline">Překlad cvičení</h2>
+	<p n:if="isset($translation)">
+		<a n:href=":Front:Exercise:, id => 1, debug_file => $translation->file" class="simple-button blue" target="_blank">Otestovat cvičení</a>
+	</p>
 	{form translateForm}
 		<table n:inner-foreach="$translate['tid'] as $i => $tid">
 			<tr>
-				<td rowspan="2">{$tid}&nbsp;&mdash;&nbsp;</td>
+				<td rowspan="2">{=str_replace('_', '.', $tid)}&nbsp;&mdash;&nbsp;</td>
 				<td>{$translate['text'][$i]}</td>
 			</tr>
 			<tr>

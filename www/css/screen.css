@@ -65,6 +65,7 @@ a.subtitles-edit {float: right; font-size: 10pt;}
 .breadcrumbs_nav.video-nav, .breadcrumbs_nav.coach-nav {float: left !important; margin-top: 2px;}
 .breadcrumbs_nav.coach-nav a, .breadcrumbs_nav.coach-nav .breadcrumb-separator {margin-left: 9px;}
 .breadcrumbs_nav.coach-nav a {margin-left: 9px !important;}
+.warning-banner {background-color: rgba(211, 87, 4, 1);}
 
 #subtitles {height: 180px; overflow: scroll; padding: 0; padding-left: 1em;}
 #subtitles table {width: 100%;}
