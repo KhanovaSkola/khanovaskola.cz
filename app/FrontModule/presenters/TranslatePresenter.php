@@ -1,13 +1,24 @@
 <?php
 
-namespace ModeratorModule;
+namespace FrontModule;
 
 use Nette\Application\UI\Form;
 use Nette\Forms\Container;
 
 
-class TranslatePresenter extends BaseModeratorPresenter
+class TranslatePresenter extends BaseFrontPresenter
 {
+
+	public function startup()
+	{
+		parent::startup();
+
+		if (!$this->user->loggedIn) {
+			throw new \Nette\Application\ForbiddenRequestException();
+		}
+	}
+
+
 
 	public function renderDefault($file)
 	{
@@ -110,17 +121,14 @@ class TranslatePresenter extends BaseModeratorPresenter
 		$czech = [];
 		$completed = [];
 		$completed_files = [];
-		foreach (scandir(WWW_DIR . '/exercise/czech') as $file) {
-			if (in_array($file, ['.', '..'])) {
-				continue;
-			}
-			$file = substr($file, 0, -4);
-			$exercise = $this->context->exercises->findOneBy(['file' => $file]);
+		foreach ($this->context->translations->findAllLatest() as $translation) {
+			$exercise = $this->context->exercises->findOneBy(['file' => $translation->file]);
 			if ($exercise) {
 				$completed[] = $exercise;
-				$completed_files[] = $file;
+				$completed_files[] = $translation->file;
+
 			} else {
-				$czech[] = $file;
+				$czech[] = $translation->file;
 			}
 		}
 

@@ -7,6 +7,10 @@
 		<div class="col1 forty-sixty">
 			<h2 class="main-headline">Cvičení</h2>
 
+			<div n:if="$user->loggedIn">
+				<a n:href="Translate:list" class="simple-button green">Přeložit cvičení</a>
+			</div>
+
 			{var $linked = []}
 			{foreach $presenter->getSortedCategories() as $category}
 				{var $linked[] = $category->id}

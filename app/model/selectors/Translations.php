@@ -11,4 +11,11 @@ class Translations extends \ORM\Table
 		return $this->findBy(['file' => $file])->order('timestamp DESC')->limit(1)->fetch();
 	}
 
+
+
+	public function findAllLatest()
+	{
+		return $this->findAll()->group('file');
+	}
+
 }

@@ -33,6 +33,9 @@ class ExercisePresenter extends BaseFrontPresenter
 		$this->exercise = $this->context->exercises->find($this->eid);
 		if (!$this->exercise && $this->debug_file && $this->user->isInRole(ROLE::ADMIN)) {
 			$this->exercise = new ExerciseDebug($this->context, $this->debug_file);
+
+		} else if ($this->debug_file) {
+			$this->redirect('this', ['debug_file' => NULL]);
 		}
 	}
 
