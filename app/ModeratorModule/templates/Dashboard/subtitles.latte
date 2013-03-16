@@ -3,6 +3,9 @@
 <style n:syntax="off">
 	span.error {color: red; font-weight: bold; text-decoration: underline;}
 	ol ol {margin-left: 2em;}
+	del, ins {font-weight: bold; text-decoration: none;}
+	del {color: red; text-decoration: underline;}
+	ins {color: green;}
 </style>
 {/#}
 {#content}
@@ -10,12 +13,15 @@
 <article>
 	<h2 class="main-headline">Automatické hledání chyb</h2>
 	<ol>
+		
 		<li n:foreach="$errors as $error">
-			{if count($error->lines)}
-			<p><a n:href=":Front:Watch:editSubtitles, vid => $error->video->id" target="_blank">{$error->video->label}</a></p>
-			<ol>
-				<li n:foreach="$error->lines as $line"><p>{!$line}</p></li>
-			</ol>
+			{if count($error->errors)}
+				<p><a n:href=":Front:Watch:editSubtitles, vid => $error->video->id" target="_blank">{$error->video->label}</a></p>
+				<ol>
+					<li n:foreach="$error->errors as $error">
+						<p>{!$error->diff}</p>
+					</li>
+				</ol>
 			{/if}
 		</li>
 	</ol>

@@ -9,6 +9,9 @@ parameters:
 	github:
 		url: https://api.github.com
 
+	kontrolovac:
+		url: http://kontrolovac.cz/api
+
 	google:
 		scope: ['https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/userinfo.email']
 
@@ -36,8 +39,8 @@ services:
 
 	google: Model\Google([id: %google.id%, secret: %google.secret%])
 
-	amara: Model\Amara()
-	subsChecker: SubtitleChecker()
+	amara: Model\Amara
+	subsChecker: Model\SubtitleChecker(%kontrolovac.url%)
 
 	user: Model\NetteUser
 	authenticator_facebook: Authenticator\Facebook

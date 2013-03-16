@@ -49,14 +49,14 @@ class DashboardPresenter extends BaseModeratorPresenter
 
 	public function renderSubtitles()
 	{
-		if (!$this->user->isInrole(\NetteUser::ROLE_VERIFIER)) {
+		if (!$this->user->isInrole(ROLE::VERIFIER)) {
 			throw new \Nette\Application\ForbiddenRequestException;
 		}
 
 		$errors = [];
 		foreach ($this->context->videos->findAll() as $video) {
 			$errors[] = (object) [
-				'lines' => $this->context->subsChecker->getErrors($video),
+				'errors' => $this->context->subsChecker->getErrors($video),
 				'video' => $video,
 			];
 		}
