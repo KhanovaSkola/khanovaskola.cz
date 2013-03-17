@@ -105,13 +105,13 @@ class BrowsePresenter extends BaseFrontPresenter
 
 
 
-	public function handleUpdatePositions($videos)
+	public function handleUpdatePositions($positions)
 	{
 		if (!$this->user->isInrole(ROLE::EDITOR)) {
 			throw new \Nette\Application\ForbiddenRequestException;
 		}
 
-		$data = explode(',', $videos);
+		$data = explode(',', $positions);
 		$this->category->updatePositions($data);
 
 		$cache = new Cache($this->context->cacheStorage);

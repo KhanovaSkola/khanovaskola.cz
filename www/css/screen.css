@@ -25,6 +25,7 @@ a[href^="error:"] {background: red; color: white;}
 	font-style: normal;
 }
 .icon-dubbed:before {content: "\f028"; color: rgb(72, 113, 201);}
+.icon-exercise:before {content: "\f040"; color: rgb(201, 72, 113);}
 
 /* generic */
 footer .legal {float: right; margin-right: 10px;}
@@ -42,7 +43,7 @@ a:hover .featured_header .label {text-decoration: underline;}
 .color-error {color: rgb(227, 58, 45);}
 code {font-family: "Monaco", "Courier New";}
 .github-tag {text-shadow: 1px 1px 0px rgba(0, 0, 0, .3); display: inline-block; width: 5px;}
-.video-progress {display: inline-block; width: 1em; font-family: "FontAwesome";}
+.video-progress {display: inline-block; width: 1.25em; font-family: "FontAwesome";}
 .search-ipad {margin-left: 1em; margin-top: 0; display: inline; float: none !important;}
 .search-ipad form {display: inline;}
 .search-other input[type="search"] {font-size: large; margin-top: 2px;}
@@ -77,6 +78,9 @@ a.subtitles-edit {float: right; font-size: 10pt;}
 #subtitles .row {height: 23px;}
 #subtitles td.narrow {width: 50px;}
 #subtitles-overlay {position: absolute; font-size: 14pt; color: white; padding: 0 200px; width: 400px; text-align: center; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; pointer-events: none;}
+
+.videos-table ol {-webkit-column-count: 2; -webkit-column-gap: 10px; -moz-column-count: 2; -moz-column-gap: 10px; column-count: 2; column-gap: 10px;}
+.videos-table .exercise-link {line-height: 30px; margin-left: 0; font-size: 10pt;}
 
 .practice.simple-button {margin-left: 1em;}
 #welcome a.call-to-action {font-size: 20px; line-height: 35px; display: inline-block; width: 20%;}

@@ -6,9 +6,8 @@
 			$(function() {
 				var prompt_shown = false;
 
-				$(".videos-table ol.first, .videos-table ol.second").sortable({
+				$(".videos-table ol").sortable({
 					items: 'li',
-					connectWith: ".connected",
 					change: function() {
 						var $that = $(this);
 						$('.videos-header a').show();
@@ -17,13 +16,12 @@
 							$('.videos-header').append($('<a href="#"/>').text(' [Uložit]').click(function() {
 								var data = [];
 
-								var a = $('.videos-table ol.first').sortable('toArray');
-								var b = $('.videos-table ol.second').sortable('toArray');
-								$.each(a.concat(b), function(p, id) {
-									data.push($("#" + id).data('id'));
+								$.each($('.videos-table ol').sortable('toArray'), function(p, id) {
+									$node = $("#" + id);
+									data.push(($node.data('type') === 'video' ? 'v' : 'e') + ":" + $node.data('id'));
 								});
 								$.ajax({plink updatePositions!}, {
-									data: { videos: data.join(',')}
+									data: { positions: data.join(',')}
 								});
 								$('.videos-header a').hide();
 							}));

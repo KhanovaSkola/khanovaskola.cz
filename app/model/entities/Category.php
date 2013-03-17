@@ -42,6 +42,21 @@ class Category extends \ORM\EntityUrl
 
 
 
+	public function getContent()
+	{
+		$list = [];
+		foreach ($this->context->database->query('SELECT video_id, position FROM category_video WHERE category_id=? ORDER BY position ASC', $this->id) as $row) {
+			array_splice($list, $row['position'] - 1, 0, [$this->context->videos->find($row['video_id'])]);
+		}
+		foreach ($this->context->database->query('SELECT exercise_id, position FROM category_exercise WHERE category_id=? ORDER BY position ASC', $this->id) as $row) {
+			array_splice($list, $row['position'] - 1, 0, [$this->context->exercises->find($row['exercise_id'])]);
+		}
+
+		return $list;
+	}
+
+
+
 	/**
 	 * Recursive
 	 * @return bool
@@ -305,13 +320,16 @@ class Category extends \ORM\EntityUrl
 		$db = $this->context->database;
 		$db->beginTransaction();
 		$position = 1;
-		foreach ($data as $vid) {
-			$db->query('UPDATE category_video SET position=? WHERE category_id=? AND video_id=?', $position, $this->id, $vid);
+		foreach ($data as $row) {
+			list($type, $id) = explode(':', $row);
+			if ($type === 'v') {
+				$db->query('UPDATE category_video SET position=? WHERE category_id=? AND video_id=?', $position, $this->id, $id);
+			} else {
+				$db->query('UPDATE category_exercise SET position=? WHERE category_id=? AND exercise_id=?', $position, $this->id, $id);
+			}
 			$position++;
 		}
 		$db->commit();
-
-		// invalidate cache
 	}
 
 
