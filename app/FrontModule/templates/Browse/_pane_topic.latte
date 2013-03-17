@@ -23,7 +23,8 @@
 							<div class="topic-info">
 								<div class="topic-title">{$subcat->label}</div>
 								<div class="topic-description">{$subcat->description|truncate:70}</div>
-								<div class="topic-video-count">Prohlédnout {$subcat->getVideos()->count()} videí</div>
+								{var $c = $subcat->getVideos()->count()}
+								<div class="topic-video-count">{$c} vide{$c == 1 ? 'o' : ($c < 5 ? 'a' : 'í')}{if $subcat->hasExercises()} a {$subcat->getExercises()->count()} cvičení{/if}</div>
 							</div>
 						</a>
 					{/#}
