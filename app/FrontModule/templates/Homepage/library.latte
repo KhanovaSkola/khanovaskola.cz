@@ -6,7 +6,10 @@
 	<h2 class="main-headline">Knihovna všech videí</h2>
 	{cache tags => ['categories', 'videos']}
 		<div>
-			<h3>Máme pro vás přeloženo už {$presenter->context->videos->findAll()->count()} lekcí&hellip;</h3>
+			<h3>Máme pro vás už přeloženo {$presenter->context->videos->findAll()->count()} lekcí&hellip;</h3>
+			<p>
+				<a n:href=":Front:Exercise:list" class="simple-button green">Přejít na seznam cvičení</a>
+			</p>
 		</div>
 
 		<hr id="browse" class="thin wide">
