@@ -59,10 +59,16 @@ class Video extends \ORM\EntityUrl
 			'video_id' => $this->id,
 		])->fetch()['position'];
 
-		$row = $this->context->database->table('category_video')->where([
-			'category_id' => $category->id,
-			'position' => $position + $offset,
-		])->fetch();
+		$where = ['category_id' => $category->id];
+		if ($offset > 0) {
+			$where['position >= ?'] = $position + $offset;
+			$order = 'position ASC';
+		} else {
+			$where['position <= ?'] = $position + $offset;
+			$order = 'position DESC';
+		}
+
+		$row = $this->context->database->table('category_video')->where($where)->order($order)->limit(1)->fetch();
 
 		if (!$row) {
 			return FALSE;
