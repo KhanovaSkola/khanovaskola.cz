@@ -44,7 +44,31 @@ class Routes
 		/**
 		 * SEO Video
 		 */
-		$videoRoute = new VideoRoute('[!v/]<id>/<vid>[/<action>]', [
+		/* OLD VIDEO ROUTE */
+		$videoRoute = new VideoRoute('v/<id>/<vid>[/<action>]', [
+			'id' => [
+				Route::FILTER_OUT => function ($id) use ($container) {
+					return $this->filter($container, 'categories', $id);
+				}
+			],
+			'vid' => [
+				Route::FILTER_OUT => function ($vid) use ($container) {
+					return $this->filter($container, 'videos', $vid);
+				}
+			],
+			'module' => 'Front',
+			'presenter' => 'Watch',
+			'action' => [
+				Route::VALUE => 'default',
+				Route::FILTER_TABLE => [
+					'upravit' => 'edit',
+				]
+			],
+		], Route::ONE_WAY);
+		$videoRoute->init($container, 'id', 'vid');
+		$container->router[] = $videoRoute;
+
+		$videoRoute = new VideoRoute('<id>/<vid>/lekce[/<action>]', [
 			'id' => [
 				Route::FILTER_OUT => function ($id) use ($container) {
 					return $this->filter($container, 'categories', $id);
@@ -91,7 +115,31 @@ class Routes
 		/**
 		 * SEO Cviceni
 		 */
-		$exerciseRoute = new ExerciseRoute('[!cviceni/]<id>/<eid>[/<action>]', [
+		/* OLD EXERCISE ROUTE */
+		$exerciseRoute = new ExerciseRoute('cviceni/<id>/<eid>[/<action>]', [
+			'id' => [
+				Route::FILTER_OUT => function ($id) use ($container) {
+					return $this->filter($container, 'categories', $id);
+				}
+			],
+			'eid' => [
+				Route::FILTER_OUT => function ($eid) use ($container) {
+					return $this->filter($container, 'exercises', $eid);
+				}
+			],
+			'module' => 'Front',
+			'presenter' => 'Exercise',
+			'action' => [
+				Route::VALUE => 'default',
+				Route::FILTER_TABLE => [
+					'upravit' => 'edit',
+				]
+			],
+		], Route::ONE_WAY);
+		$exerciseRoute->init($container, 'id', 'eid');
+		$container->router[] = $exerciseRoute;
+
+		$exerciseRoute = new ExerciseRoute('<id>/<eid>/cviceni[/<action>]', [
 			'id' => [
 				Route::FILTER_OUT => function ($id) use ($container) {
 					return $this->filter($container, 'categories', $id);

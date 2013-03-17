@@ -16,6 +16,12 @@ class ExercisePresenter extends BaseFrontPresenter
 	 * @persistent
 	 * @var int
 	 */
+	public $id;
+
+	/**
+	 * @persistent
+	 * @var int
+	 */
 	public $eid;
 
 	/** @persistent */
