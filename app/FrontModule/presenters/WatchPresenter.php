@@ -138,7 +138,8 @@ class WatchPresenter extends BaseFrontPresenter
 		$form->addMultiSelect('tags', 'Tagy', $this->context->tags->getFill());
 		$form->addMultiSelect('categories', 'Kategorie', $this->context->categories->getFill());
 		$form->addSelect('author_id', 'Dabing', $this->context->authors->getFill());
-		$form->addText('external_exercise_url', 'Externí cvičení');
+		$form->addSelect('exercise_id', 'Cvičení', $this->context->exercises->getFill());
+		$form->addText('external_exercise_url', 'Externí cvičení (url)');
 
 		$form->addSubmit('send', 'Uložit')->controlPrototype->class = "simple-button green";
 		return $form;
@@ -169,6 +170,7 @@ class WatchPresenter extends BaseFrontPresenter
 					'description' => $v->description,
 					'youtube_id' => $v->youtube_id,
 					'author_id' => $author_id,
+					'exercise_id' => $v->exercise_id == 0 ? NULL : $v->exercise_id,
 					'external_exercise_url' => $v->external_exercise_url,
 				]);
 			} catch (\PDOException $e) {
@@ -200,6 +202,7 @@ class WatchPresenter extends BaseFrontPresenter
 			$vid->label = $v->label;
 			$vid->description = $v->description;
 			$vid->author_id = $author_id;
+			$vid->exercise_id = $v->exercise_id == 0 ? NULL : $v->exercise_id;
 			$vid->external_exercise_url = $v->external_exercise_url;
 			$vid->youtube_id = $v->youtube_id;
 			$vid->updateMetaData();
@@ -245,6 +248,7 @@ class WatchPresenter extends BaseFrontPresenter
 		$form['youtube_id']->setValue($vid->youtube_id);
 		$form['tags']->setValue($vid->getTagsIds());
 		$form['categories']->setValue($vid->getCategoryIds());
+		$form['exercise_id']->setValue($vid->exercise_id);
 		$form['author_id']->setValue($vid->author_id);
 	}
 

@@ -50,4 +50,16 @@ class Exercises extends \ORM\Table
 		return $this->findBy(['id NOT' => $ids]);
 	}
 
+
+
+	/**
+	 * @return array
+	 */
+	public function getFill()
+	{
+		$res = [0 => 'bez cvičení'];
+		$res += $this->findAll()->order('label')->fetchPairs('id', 'label');
+		return $res;
+	}
+
 }

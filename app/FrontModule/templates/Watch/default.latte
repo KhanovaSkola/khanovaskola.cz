@@ -37,7 +37,7 @@
 			<div>
 				<div id="description" class="video-description">
 					{var $exercise => $video->getExercise()}
-					<a n:if="$exercise" n:href=":Front:Exercise:, eid => $exercise->id" class="practice simple-button green desktop-only" title="Ověřte si pochopení tématu na cvičeních" target="_blank">
+					<a n:if="$exercise" n:href=":Front:Exercise:, id => $exercise->getOneCategoryId(), eid => $exercise->id" class="practice simple-button green desktop-only" title="Ověřte si pochopení tématu na cvičeních" target="_blank">
 						Procvičit toto téma</a>
 					<a n:if="!$exercise && $video->external_exercise_url" href="{$video->external_exercise_url}" class="practice simple-button blue desktop-only" target="_blank">
 						Externí cvičení</a></a>

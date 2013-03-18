@@ -95,6 +95,16 @@ class Exercise extends \ORM\EntityUrl
 
 
 	/**
+	 * @return int
+	 */
+	public function getOneCategoryId()
+	{
+		return $this->getCategoryIds()[0];
+	}
+
+
+
+	/**
 	 * @param array $cats
 	 * @return bool
 	 */
