@@ -13,7 +13,7 @@
 		<div class="videos-list">
 			<div class="videos-header">Videa</div>
 			<div class="videos-table">
-				<ol class="first" n:inner-foreach="$tag->getVideosHalf() as $video">
+				<ol n:inner-foreach="$tag->getVideos() as $video">
 					<li n:block="video_link" class="video-link" id="video-{$video->id}" data-id="{$video->id}">
 						<a n:href=":Front:Watch:, id => $video->getOneCategoryId(), vid => $video->id">
 							<span class="indent">
@@ -22,9 +22,6 @@
 							</span>
 						</a>
 					</li>
-				</ol>
-				<ol class="second" n:inner-foreach="$tag->getVideosHalf($second = TRUE) as $video">
-					{include #video_link, video => $video}
 				</ol>
 			</div>
 		</div>
