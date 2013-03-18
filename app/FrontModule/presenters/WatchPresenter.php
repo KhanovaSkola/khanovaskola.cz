@@ -250,6 +250,7 @@ class WatchPresenter extends BaseFrontPresenter
 		$form['categories']->setValue($vid->getCategoryIds());
 		$form['exercise_id']->setValue($vid->exercise_id);
 		$form['author_id']->setValue($vid->author_id);
+		$form['external_exercise_url']->setValue($vid->external_exercise_url);
 	}
 
 
