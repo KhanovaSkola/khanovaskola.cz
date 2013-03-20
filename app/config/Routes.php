@@ -92,29 +92,27 @@ class Routes
 		$container->router[] = $videoRoute;
 
 		/**
-		 * SEO Category
+		 * SEO Cviceni
 		 */
-		$categoryRoute = new SlugRoute('<id>[/<action>]', [
-			'id' => [
-				Route::FILTER_OUT => function ($id) use ($container) {
-					return $this->filter($container, 'categories', $id);
+		/* OLD EXERCISE ROUTE */
+		$exerciseRoute = new ExerciseRoute('cviceni/<eid>[/<action>]', [
+			'eid' => [
+				Route::FILTER_OUT => function ($eid) use ($container) {
+					return $this->filter($container, 'exercises', $eid);
 				}
 			],
 			'module' => 'Front',
-			'presenter' => 'Browse',
+			'presenter' => 'Exercise',
 			'action' => [
 				Route::VALUE => 'default',
 				Route::FILTER_TABLE => [
 					'upravit' => 'edit',
 				]
 			],
-		]);
-		$categoryRoute->init($container, 'id', 'categories');
-		$container->router[] = $categoryRoute;
+		], Route::ONE_WAY);
+		$exerciseRoute->init($container, NULL, 'eid');
+		$container->router[] = $exerciseRoute;
 
-		/**
-		 * SEO Cviceni
-		 */
 		/* OLD EXERCISE ROUTE */
 		$exerciseRoute = new ExerciseRoute('cviceni/<id>/<eid>[/<action>]', [
 			'id' => [
@@ -161,6 +159,51 @@ class Routes
 		]);
 		$exerciseRoute->init($container, 'id', 'eid');
 		$container->router[] = $exerciseRoute;
+
+		/** OLD VIDEO ROUTE */
+		$videoRoute = new VideoRoute('<id>/<vid>[/<action>]', [
+			'id' => [
+				Route::FILTER_OUT => function ($id) use ($container) {
+					return $this->filter($container, 'categories', $id);
+				}
+			],
+			'vid' => [
+				Route::FILTER_OUT => function ($vid) use ($container) {
+					return $this->filter($container, 'videos', $vid);
+				}
+			],
+			'module' => 'Front',
+			'presenter' => 'Watch',
+			'action' => [
+				Route::VALUE => 'default',
+				Route::FILTER_TABLE => [
+					'upravit' => 'edit',
+				]
+			],
+		]);
+		$videoRoute->init($container, 'id', 'vid');
+		$container->router[] = $videoRoute;
+
+		/**
+		 * SEO Category
+		 */
+		$categoryRoute = new SlugRoute('<id>[/<action>]', [
+			'id' => [
+				Route::FILTER_OUT => function ($id) use ($container) {
+					return $this->filter($container, 'categories', $id);
+				}
+			],
+			'module' => 'Front',
+			'presenter' => 'Browse',
+			'action' => [
+				Route::VALUE => 'default',
+				Route::FILTER_TABLE => [
+					'upravit' => 'edit',
+				]
+			],
+		]);
+		$categoryRoute->init($container, 'id', 'categories');
+		$container->router[] = $categoryRoute;
 
 		/**
 		 * SEO Tag
