@@ -34,7 +34,7 @@ class ExerciseRoute extends Route
 			return NULL;
 		}
 
-		if (!is_numeric($appRequest->parameters[$this->args->category])) {
+		if ($this->args->category && !is_numeric($appRequest->parameters[$this->args->category])) {
 			$slug = $appRequest->parameters[$this->args->category];
 			$category = $this->context->categories->findBySlug($slug);
 			if ($category == NULL) {
