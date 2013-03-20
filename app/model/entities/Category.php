@@ -19,7 +19,7 @@ class Category extends \ORM\EntityUrl
 	 */
 	public function getSubCategories()
 	{
-		return $this->context->categories->findBy(['parent_id' => $this->id]);
+		return $this->context->categories->findBy(['parent_id' => $this->id])->order('position ASC');
 	}
 
 
