@@ -29,7 +29,7 @@ class User extends \ORM\Entity
 				'coach_id' => $coach->id,
 				'user_id' => $this->id,
 			]);
-		} catch (PDOException $e) {
+		} catch (\PDOException $e) {
 			if ($e->getCode() != 23000) { // not duplicate
 				throw $e;
 			} else {
@@ -63,6 +63,14 @@ class User extends \ORM\Entity
 
 		return $this->context->users->findBy(['id' => $ids]);
 	}
+
+
+
+	public function isCoachedBy($coach_id)
+	{
+		return $this->context->database->table('coach')->where(['user_id' => $this->id, 'coach_id' => $coach_id])->count() !== 0;
+	}
+
 
 
 	/**

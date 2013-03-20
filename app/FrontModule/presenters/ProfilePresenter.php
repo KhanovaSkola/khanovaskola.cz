@@ -56,6 +56,9 @@ class ProfilePresenter extends BaseFrontPresenter
 		if ($this->user->id == $coach_id) {
 			$this->flashMessage('Tento odkaz slouží vašim studentům k tomu, aby si vás přidali jako učitele.');
 			$this->redirect('default');
+		} else if ($this->user->entity->isCoachedBy($coach_id)) {
+			$this->flashMessage('Tohoto učitele už máte zaregistrovaného.');
+			$this->redirect('default');
 		}
 
 		$this->template->coach = $this->context->users->find($coach_id);
