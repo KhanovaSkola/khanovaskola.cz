@@ -8,10 +8,10 @@
 		<p>
 			<a n:href="add, aid => NULL">Přidat článek</a>
 		</p>
-		<ul n:if="$to_publish->count()">
+		<ul n:if="$to_publish->count() !== 0">
 			<li><p><b>Nezveřejněné články:</b></p></li>
 			<li n:foreach="$to_publish as $article">
-				<a n:href="detail, aid => $article->id">{$article->label}</a>
+				<a n:href="detail, aid => $article->id">{$article->label ?: "Nezveřejněný článek"}</a>
 			</li>
 		</ul>
 	</div>
