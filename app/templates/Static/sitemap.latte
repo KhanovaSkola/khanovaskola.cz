@@ -27,11 +27,13 @@
 		{/foreach}
 	{/cache}
 	{cache tags => ['exercises']}
-		<url n:foreach="$presenter->context->exercises->findAll() as $exercise">
-			<loc>{plink //:Front:Exercise:, eid => $exercise->id}</loc>
-			<changefreq>monthly</changefreq>
-			<priority>0.4</priority>
-		</url>
+		{foreach $presenter->context->exercises->findAll() as $exercise}
+			<url n:foreach="$exercise->getCategories() as $cat">
+				<loc>{plink //:Front:Exercise:, id => $cat->id, eid => $exercise->id}</loc>
+				<changefreq>monthly</changefreq>
+				<priority>0.4</priority>
+			</url>
+		{/foreach}
 	{/cache}
 	{cache tags => ['tags']}
 		<url n:foreach="$presenter->context->tags->findAll() as $tag">
