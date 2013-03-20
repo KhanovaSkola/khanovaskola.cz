@@ -28,6 +28,7 @@ a[href^="error:"] {background: red; color: white;}
 .icon-exercise:before {content: "\f040"; color: rgb(201, 72, 113);}
 
 /* generic */
+h2, div.topic-title, #blog p, #blog-detail p, #subtitles, #subtitles-overlay {text-rendering: optimizeLegibility;}
 footer .legal {float: right; margin-right: 10px;}
 .sortable-arrow {font-size: 120%; font-weight: bold; background-color: rgba(120, 160, 240, .5); padding: .1em .5em .2em .5em; border-radius: .3em; color: black;}
 .featured_video {display: block; max-width: 694px; height: 395px; background-color: black; background-repeat: no-repeat; background-position: center center;}
