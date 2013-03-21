@@ -3,6 +3,8 @@
 namespace CoachModule;
 
 use \Nette\Caching\Cache;
+use \Entity\Video;
+use \Entity\Exercise;
 
 
 class TaskPresenter extends BaseCoachPresenter
@@ -121,30 +123,24 @@ class TaskPresenter extends BaseCoachPresenter
 	protected function getFill()
 	{
 		$data = [];
+		$keys = [];
 
-		$unique = [];
-
-		$data['——————— Lekce ———————'] = [];
 		foreach ($this->context->categories->findLeaves() as $category) {
 			$node = [];
-			foreach ($category->getVideos() as $video) {
-				$key = "video_{$video->id}";
-				if (!in_array($key, $unique)) {
-					$unique[] = $key;
-					$node[$key] = $video->label;
+			foreach ($category->getContent() as $entity) {
+				$base = ($entity instanceof Video ? "video" : "exercise") . "_{$entity->id}";
+				$key = $base;
+				$i = 2;
+				while (in_array($key, $keys)) {
+					$key = $base . '_' . $i;
+					$i++;
 				}
+				$keys[] = $key;
+				$node[$key] = $entity->label . ' (' . ($entity instanceof Video ? 'lekce' : 'cvičení') .')';
 			}
 
 			$data[$category->label] = $node;
 		}
-
-		$data[''] = []; // splitter
-
-		$exs = [];
-		foreach ($this->context->exercises->findAll() as $exercise) {
-			$exs["exercise_{$exercise->id}"] = $exercise->label;
-		}
-		$data['——————— Cvičení ———————'] = $exs;
 
 		return $data;
 	}
