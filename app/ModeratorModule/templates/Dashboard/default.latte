@@ -76,19 +76,14 @@
 			</ul>
 		</div>
 
-		<div class="pin" n:if="$user->isInRole($ROLE::EDITOR)">
-			<div class="role">editor</div>
-			<h2>Překlad</h2>
+		<div class="pin">
+			<h2>Překlad cvičení</h2>
 			<ol>
 				<li>
-					<a n:href="Translate:">přeložit cvičení</a>
-					<span>&ndash; Cvičení se neukládá jako veřejné, je k němu potřeba nechat vygenerovat příslušné soubory. Kontrolu a zveřejnění udělá Mikuláš.</span>
+					<a n:href=":Front:Translate:">přeložit cvičení</a>
 				</li>
-				{if $user->isInRole($ROLE::ADMIN)}
-					<li><a n:href="detachedExercises">cvičení mimo databázi</a></li>
-					<li n:if="$user->isInrole($ROLE::ADMIN)"><a n:href="addExercise!">přidat cvičení do databáze</a></li>
-				{/if}
 			</ol>
+			<div>Překlad cvičení je veřejný. Kontrolu a zveřejnění udělá Mikuláš.</div>
 		</div>
 
 		{cache tags => ['issues']}
