@@ -2,13 +2,14 @@
 	{if $profile->hasTasks()}
 		<h3>Učitelé a úkoly</h3>
 		<p n:foreach="$profile->getCoaches() as $coach">
-			<strong>{$coach->name}</strong>&nbsp;<a n:href="removeCoach!, $coach->id">&times;</a>
+			<strong>{$coach->name}</strong>
+			{*&nbsp;<a n:href="removeCoach!, $coach->id">&times;</a>*}
 			{continueIf !$profile->hasTasksFromCoach($coach)}
 			<ol>
-				<li n:foreach="$profile->getTasksFromCoach($coach)->order('completed, Isnull(deadline), deadline') as $task">
+				<li n:foreach="$profile->getTasksFromCoach($coach)->order('completed, Isnull(deadline), deadline') as $task" n:if="$task->isVideo() || $task->exercise_id">
 					&bull;
 					<a n:tag-if="$task->isVideo()" n:href="Watch:, id => $task->getVideo()->getOneCategoryId(), vid => $task->video_id">
-					<a n:tag-if="!$task->isVideo()" n:href="Exercise:, eid => $task->exercise_id">
+					<a n:tag-if="!$task->isVideo()" n:href="Exercise:, id => $task->getExercise()->getOneCategoryId(), eid => $task->exercise_id">
 						<span n:class="task, $task->completed ? task-completed">
 							{$task->getText()}
 						</span>
