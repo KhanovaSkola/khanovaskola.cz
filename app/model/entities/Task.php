@@ -119,7 +119,7 @@ class Task extends \ORM\Entity
 			$task = 'Podívat se na lekci ' . lcFirst($this->getVideo()->label);
 
 		} else {
-			$task = 'Vyplnit správně cvičení ' . lcFirst($this->getExercise()->label);
+			$task = 'Zvládnout cvičení ' . lcFirst($this->getExercise()->label);
 		}
 
 		if ($this->deadline && $this->deadline->format('U') > 0) {
