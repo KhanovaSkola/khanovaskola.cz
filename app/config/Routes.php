@@ -13,6 +13,13 @@ class Routes
 	{
 		$container->router[] = new Route('index.php', 'Front:Homepage:default', Route::ONE_WAY);
 
+		/** OLD GONE ROUTE */
+		$container->router[] = new Route('vsechny-problemy', [
+			'module' => 'Front',
+			'presenter' => 'Homepage',
+			'action' => 'gone',
+		]);
+
 		$container->router[] = new Route('css/dynamic.dcss', [
 			'module' => 'Front',
 			'presenter' => 'DynamicCss',
