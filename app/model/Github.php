@@ -51,13 +51,15 @@ class Github extends \Nette\Object
 
 	public function createIssue($data)
 	{
+		$user_url = 'http://db.deploybot.eu/?username=root&db=khanovaskola&select=user&where%5B0%5D%5Bcol%5D=id&where%5B0%5D%5Bop%5D=%3D&where%5B0%5D%5Bval%5D=' . $data['user_id'];
 		$query = [
 			'title' => $data['label'],
 			'body' => "<table>
-					<tr><td>user_id</td><td>$data[user_id]</td></tr>
-					<tr><td>url</td><td>$data[url]</td></tr>
-					<tr><td>time</td><td>" . date('c', $data['time']) . "</td></tr>
-					<tr><td>version</td><td>$data[branch] $data[commit]</td></tr>
+					<tr><th>url</th><td><a href=\"$data[url]\">$data[url]</a></td></tr>
+					<tr><th>time</th><td>" . date('c', $data['time']) . "</td></tr>
+					<tr><th>version</th><td>$data[branch] $data[commit]</td></tr>
+					<tr><th>user_id</th><td><a href=\"$user_url\">$data[user_id]</a></td></tr>
+					<tr><th>browser/OS</th><td>$data[browser] on $data[os]</td></tr>
 				</table>\n$data[description]\n\n*This issue has been automatically generated from user report on the website.*",
 			'labels' => ['user-report']
 		];

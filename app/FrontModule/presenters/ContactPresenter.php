@@ -32,6 +32,8 @@ class ContactPresenter extends BaseFrontPresenter
 
 		$form->addHidden('url');
 		$form->addHidden('time');
+		$form->addHidden('browser');
+		$form->addHidden('os');
 		$form->addHidden('user_id');
 		$form->addHidden('antispam');
 

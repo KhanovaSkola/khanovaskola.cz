@@ -1,8 +1,11 @@
 {var $title = Problém}
 {var $robots = noindex}
 {#scripts}
+<script src="{$cdnUrl}/js/browser.js"></script>
 <script>
 	$("#frm-issueForm-antispam").val("hash-{$user->id}");
+	$("#frm-issueForm-browser").val(BrowserDetect.browser + " " + BrowserDetect.version);
+	$("#frm-issueForm-os").val(BrowserDetect.OS);
 </script>
 {/#}
 {#content}
