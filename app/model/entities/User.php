@@ -514,4 +514,10 @@ class User extends \ORM\Entity
 		return end($split);
 	}
 
+
+
+	public function getSecretHash()
+	{
+		return substr(md5($this->salt), 0, 7);
+	}
 }

@@ -3,7 +3,7 @@
 	<div class="col1 fifty-fifty">
 		<h3>Postup I</h3>
 		<p>Nechte své studenty jít na tuto adresu:</p>
-		<strong><code>{plink //:Front:Profile:confirmCoach, $user->id}</code></strong>
+		<strong><code>{plink //:Front:Profile:confirmCoach, $user->id, $user->entity->getSecretHash()}</code></strong>
 		<p>Zobrazí se jim dialog, ve kterém vás na jedno kliknutí potvrdí jako učitele.</p>
 	</div>
 	<div class="col2 fifty-fifty">

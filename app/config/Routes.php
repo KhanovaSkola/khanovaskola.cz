@@ -240,7 +240,13 @@ class Routes
 		/**
 		 * Shortest add teacher url possible
 		 */
+		/** OLD TEACHER ROUTE */
 		$container->router[] = new Route('u/<coach_id \d+>', [
+			'module' => 'Front',
+			'presenter' => 'Homepage',
+			'action' => 'gone',
+		], Route::ONE_WAY);
+		$container->router[] = new Route('u/<coach_id \d+>-<hash>', [
 			'module' => 'Front',
 			'presenter' => 'Profile',
 			'action' => 'confirmCoach',
