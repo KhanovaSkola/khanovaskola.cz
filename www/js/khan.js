@@ -18,6 +18,15 @@ Nette.addError = function(elem, message) {
 	}
 };
 
+if (typeof console == "undefined") {
+    window.console = {
+        log: function() {},
+        info: function() {},
+        error: function() {},
+        warn: function() {},
+    };
+}
+
 $(function() {
 	/** highlight anchor if in correct format */
 	if (location.hash.indexOf('#hl-') === 0) {
