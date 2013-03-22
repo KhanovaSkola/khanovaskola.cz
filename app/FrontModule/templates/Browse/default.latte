@@ -49,6 +49,7 @@
 						<li class="subheading"><span>Témata</span></li>
 						<li n:foreach="$category->getSubcategories() as $subcat" n:class="$subcat->id == $selected->id ? 'selected'">
 							<a class="subtopic-link" n:href=":Front:Browse:, id => $subcat->id"{if $subcat->id == $selected->id} itemprop="isPartOf"{/if}>
+								<i n:class="$subcat->containsDubbedVideos() ? 'icon-dubbed'"></i>
 								{$subcat->label}
 								<div class="right-arrow"></div>
 							</a>
