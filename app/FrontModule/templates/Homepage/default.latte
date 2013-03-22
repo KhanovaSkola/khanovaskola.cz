@@ -63,6 +63,9 @@
 		</div>
 	</div>
 	<div class="homepage-pull">
+		<div class="full-note" n:if="in_array(date('Y-m-d'), ['2013-03-22', '2013-03-23'])">
+			<p>{if date('Y-m-d') === '2013-03-22'}Zítra{else}Dnes{/if} se koná <a href="http://srazy.info/khanova-skola-1-prekladatelsky-maraton/3223" target="_blank">překladatelský maraton</a>. Jestli nestihnete dorazit, zkuste <a n:href=":Front:Volunteer:howToTranslate">překlad z domova</a>.</p>
+		</div>
 		<div id="main-video">
 			{cache tags => ['categories', 'videos']}
 				{foreach $subjects as $subject}

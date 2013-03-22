@@ -85,6 +85,9 @@ a.subtitles-edit {float: right; font-size: 10pt;}
 #subtitles td.narrow {width: 50px;}
 #subtitles-overlay {position: absolute; font-size: 14pt; color: white; padding: 0 200px; width: 400px; text-align: center; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; pointer-events: none;}
 
+#homepage .full-note {width: 100%; background-color: rgb(238, 238, 238); margin-left: -20px; padding-right: 20px; padding-left: 20px; margin-top: -8px; border: 1px solid #CCC;}
+#homepage .full-note p {margin: 0; padding: 0; margin: 5pt 0;}
+
 .nav-pane .subtopic-link i {width: 1.25em; display: inline-block;}
 
 .videos-table ol {-webkit-column-count: 2; -webkit-column-gap: 10px; -moz-column-count: 2; -moz-column-gap: 10px; column-count: 2; column-gap: 10px; -webkit-column-rule: 1px solid rgb(221, 221, 212);  -moz-column-rule: 1px solid rgb(221, 221, 212); column-rule: 1px solid rgb(221, 221, 212);}
