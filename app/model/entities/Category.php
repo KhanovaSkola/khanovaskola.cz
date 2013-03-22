@@ -441,4 +441,27 @@ class Category extends \ORM\EntityUrl
 		return $res;
 	}
 
+
+
+	public function containsDubbedVideos()
+	{
+		if ($this->isLeaf()) {
+			$dubbed = 0;
+			foreach ($this->getVideos() as $video) {
+				if ($video->isDubbed()) {
+					$dubbed++;
+				}
+			}
+
+			return $dubbed >= 2;
+		}
+
+		foreach ($this->getSubCategories() as $subcat) {
+			if ($subcat->containsDubbedVideos()) {
+				return TRUE;
+			}
+		}
+		return FALSE;
+	}
+
 }

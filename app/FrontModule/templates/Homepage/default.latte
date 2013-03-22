@@ -72,11 +72,11 @@
 			</a>
 		</div>*}
 		<div id="main-video">
-			{cache tags => ['categories']}
+			{cache tags => ['categories', 'videos']}
 				{foreach $subjects as $subject}
 					<h4>{$subject->label}</h4>
 					<div>
-						{foreach $subject->getSubCategories() as $category}<a n:href=":Front:Browse:, id => $category->id" class="video-block">{$category->label}</a>{/foreach}
+						{foreach $subject->getSubCategories() as $category}<a n:href=":Front:Browse:, id => $category->id" class="video-block">{if $category->containsDubbedVideos()}<i class="icon-dubbed"></i>&nbsp;{/if}{$category->label}</a>{/foreach}
 					</div>
 				{/foreach}
 			{/cache}
