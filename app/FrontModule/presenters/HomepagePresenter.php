@@ -44,6 +44,8 @@ class HomepagePresenter extends BaseFrontPresenter
 
 		$this->template->search_examples = implode(', ', $words);
 
+		$this->template->subjects = $this->context->categories->findRoot();
+
 		$cache = new Cache($this->context->cacheStorage, 'homepage');
 		if (isset($cache['counts'])) {
 			$this->template->count = (object) $cache['counts'];

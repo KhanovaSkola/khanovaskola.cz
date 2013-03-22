@@ -69,6 +69,11 @@ a.subtitles-edit {float: right; font-size: 10pt;}
 .breadcrumbs_nav.coach-nav a {margin-left: 9px !important;}
 .warning-banner {background-color: rgba(211, 87, 4, 1);}
 
+#main-video h4 {margin-top: 13pt; margin-bottom: 0; padding: 0;}
+#main-video h4:first-of-type {margin-top: 0;}
+.video-block {display: inline-block; padding: 3pt 4pt; width: 150px; background-color: #f7f7f7; margin: none; border: 1px solid #DDD; margin: -1px /* fix border collapse */;}
+.video-block:hover {background-color: rgb(211, 221, 182);}
+
 #subtitles {height: 180px; overflow: scroll; padding: 0; padding-left: 1em;}
 #subtitles table {width: 100%;}
 #subtitles div {padding: 0 0 4px 5px; font-size: 140%; font-family: serif;}
