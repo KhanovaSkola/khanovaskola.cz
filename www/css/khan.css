@@ -45,9 +45,9 @@ margin-right: 1em;
 }
 .page-ribbon input[type=submit] {
 	width: 12%;
-	max-width: 70px;
-	height: 26px;
-	font-size: 11pt;
+	max-width: 75px;
+	height: 30px;
+	font-size: 12pt;
 }
 .page-ribbon .icon-search {left: 25px; top: 2px; position: relative; font-size: 140%; opacity: .7;}
 .page-ribbon .span4 {width: 33%; white-space: nowrap; display: inline-block;/* top: -33px; position: relative;*/}
