@@ -5,7 +5,7 @@
 	<h2 class="main-headline">Překlad cvičení</h2>
 	<p n:if="isset($translation)">
 		<a n:href=":Front:Exercise:, id => 1, debug_file => $translation->file" class="simple-button blue" target="_blank">Otestovat cvičení</a>
-		<a n:if="$ROLE::ADMIN" n:href="publishExercise!, file => $translation->file" class="simple-button green">Publikovat cvičení</a>
+		<a n:if="$user->isInRole($ROLE::ADMIN)" n:href="publishExercise!, file => $translation->file" class="simple-button green">Publikovat cvičení</a>
 	</p>
 	{form translateForm}
 		<table n:inner-foreach="$translate['tid'] as $i => $tid">
