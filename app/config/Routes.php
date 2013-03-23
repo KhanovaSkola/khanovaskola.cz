@@ -13,6 +13,8 @@ class Routes
 	{
 		$container->router[] = new Route('index.php', 'Front:Homepage:default', Route::ONE_WAY);
 
+		$container->router[] = new Route('p', 'Front:Homepage:preklad', Route::ONE_WAY);
+		
 		/** OLD GONE ROUTE */
 		$container->router[] = new Route('vsechny-problemy', [
 			'module' => 'Front',
