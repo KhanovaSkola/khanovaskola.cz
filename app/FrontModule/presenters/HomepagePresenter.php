@@ -8,9 +8,6 @@ use Model\NetteUser as ROLE;
 
 class HomepagePresenter extends BaseFrontPresenter
 {
-public function actionPreklad()
-{$this->redirectUrl("https://docs.google.com/a/khanovaskola.cz/spreadsheet/viewform?formkey=dHU5NHNRTjVpWHFNTnFucElNRGN3SGc6MQ
-");}
 
 	public function renderDefault()
 	{
