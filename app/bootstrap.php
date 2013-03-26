@@ -1,7 +1,11 @@
 <?php
 
+use Nette\Diagnostics\Debugger;
+
+
 // Load Nette Framework
 require __DIR__ . '/../vendor/autoload.php';
+
 
 // Configure application
 $configurator = new Nette\Config\Configurator;
@@ -22,12 +26,51 @@ $configurator->addConfig(__DIR__ . '/config/config.db.neon');
 $configurator->addConfig(__DIR__ . '/config/config.local.neon');
 $container = $configurator->createContainer();
 
-Nette\Diagnostics\Debugger::$logger->mailer = callback('\Model\CustomMailer', 'mailer');
+Debugger::$logger->mailer = callback('\Model\CustomMailer', 'mailer');
 
 Kdyby\Replicator\Container::register();
 
 $routes = new \Config\Routes();
 $routes->setup($container);
+
+$container->application->onStartup[] = function($app) {
+	if (!extension_loaded('newrelic')) {
+		return;
+	}
+	
+	Debugger::$logger = new \NewRelic\Logger;
+	Debugger::$logger->directory =& Debugger::$logDirectory;
+	Debugger::$logger->email =& Debugger::$email;
+};
+
+$container->application->onRequest[] = function($app, $request) {
+	if (!extension_loaded('newrelic')) {
+		return;
+	}
+
+	if (PHP_SAPI === 'cli') {
+		newrelic_name_transaction('$ ' . basename($_SERVER['argv'][0]) . ' ' . implode(' ', array_slice($_SERVER['argv'], 1)));
+		newrelic_background_job(TRUE);
+		return;
+	}
+
+	// NewRelic proper naming
+	$params = $request->getParameters();
+	newrelic_name_transaction($request->getPresenterName() . (isset($params['action']) ? ':' . $params['action'] : ''));
+};
+
+$container->application->onError[] = function($app, $e) {
+	if (!extension_loaded('newrelic')) {
+		return;
+	}
+
+	if ($e instanceof Nette\Application\BadRequestException) {
+		return; // skip
+	}
+
+	// e500 log
+	newrelic_notice_error($e->getMessage(), $e);
+};
 
 // Configure and run the application!
 $container->application->run();
