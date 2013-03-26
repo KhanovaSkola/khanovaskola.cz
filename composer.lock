@@ -20,7 +20,6 @@
                 "ext-json": "*",
                 "php": ">=5.2.0"
             },
-            "time": "2013-01-15 21:37:15",
             "type": "library",
             "autoload": {
                 "classmap": [
@@ -42,7 +41,8 @@
             "keywords": [
                 "facebook",
                 "sdk"
-            ]
+            ],
+            "time": "2013-01-15 21:37:15"
         },
         {
             "name": "kdyby/forms-replicator",
@@ -50,12 +50,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Kdyby/Replicator.git",
-                "reference": "e8679cbe463c3230df77db30193484005b365af3"
+                "reference": "f697603803b47b154b8a99ebe2a9a4274e9f4ed8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Kdyby/Replicator/zipball/e8679cbe463c3230df77db30193484005b365af3",
-                "reference": "e8679cbe463c3230df77db30193484005b365af3",
+                "url": "https://api.github.com/repos/Kdyby/Replicator/zipball/f697603803b47b154b8a99ebe2a9a4274e9f4ed8",
+                "reference": "f697603803b47b154b8a99ebe2a9a4274e9f4ed8",
                 "shasum": ""
             },
             "require": {
@@ -64,7 +64,6 @@
             "require-dev": {
                 "nette/tester": "@dev"
             },
-            "time": "2013-03-07 15:58:37",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -91,7 +90,8 @@
                 "kdyby",
                 "nette",
                 "replicator"
-            ]
+            ],
+            "time": "2013-03-24 15:02:25"
         },
         {
             "name": "kriswallsmith/buzz",
@@ -116,7 +116,6 @@
             "suggest": {
                 "ext-curl": "*"
             },
-            "time": "2013-03-06 06:11:47",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -139,7 +138,8 @@
             "keywords": [
                 "curl",
                 "http client"
-            ]
+            ],
+            "time": "2013-03-06 06:11:47"
         },
         {
             "name": "michelf/php-markdown",
@@ -158,7 +158,6 @@
             "require": {
                 "php": ">=5.3.0"
             },
-            "time": "2013-02-03 21:14:12",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -190,7 +189,8 @@
             "homepage": "http://michelf.ca/projects/php-markdown/",
             "keywords": [
                 "markdown"
-            ]
+            ],
+            "time": "2013-02-03 21:14:12"
         },
         {
             "name": "mikulas/gitcommit",
@@ -209,7 +209,6 @@
             "require": {
                 "php": ">=5.2.0"
             },
-            "time": "2013-01-25 14:43:55",
             "type": "library",
             "autoload": {
                 "files": [
@@ -225,7 +224,8 @@
                     "name": "Mikulas Dite"
                 }
             ],
-            "description": "git commit grabber"
+            "description": "git commit grabber",
+            "time": "2013-01-25 14:43:55"
         },
         {
             "name": "nesQuick/Metrics",
@@ -245,7 +245,6 @@
                 "kriswallsmith/buzz": "dev-master",
                 "php": ">=5.3"
             },
-            "time": "2012-05-15 08:35:21",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -268,7 +267,8 @@
                 "Metrics",
                 "api",
                 "client"
-            ]
+            ],
+            "time": "2012-05-15 08:35:21"
         },
         {
             "name": "nette/nette",
@@ -276,12 +276,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/nette.git",
-                "reference": "97a37f7be3af70f8693f0609c7be1505bd2cafe1"
+                "reference": "c5c59834df0e8554b3cc1e1d2db98b55ee3aff71"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/nette/zipball/97a37f7be3af70f8693f0609c7be1505bd2cafe1",
-                "reference": "97a37f7be3af70f8693f0609c7be1505bd2cafe1",
+                "url": "https://api.github.com/repos/nette/nette/zipball/c5c59834df0e8554b3cc1e1d2db98b55ee3aff71",
+                "reference": "c5c59834df0e8554b3cc1e1d2db98b55ee3aff71",
                 "shasum": ""
             },
             "require": {
@@ -299,7 +299,6 @@
                 "ext-memcache": "*",
                 "ext-pdo": "*"
             },
-            "time": "2013-03-08 13:44:14",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -342,7 +341,8 @@
                 "mvc",
                 "neon",
                 "templating"
-            ]
+            ],
+            "time": "2013-03-26 12:53:53"
         },
         {
             "name": "sunra/php-simple-html-dom-parser",
@@ -361,7 +361,6 @@
             "require": {
                 "php": ">=5.3.2"
             },
-            "time": "2013-01-08 03:33:40",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -385,10 +384,108 @@
                 "dom",
                 "html",
                 "parser"
-            ]
+            ],
+            "time": "2013-01-08 03:33:40"
         }
     ],
-    "packages-dev": null,
+    "packages-dev": [
+        {
+            "name": "fzaninotto/faker",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fzaninotto/Faker.git",
+                "reference": "a1fd779b525c6a7669c136d23ca9c8130e4441b8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/a1fd779b525c6a7669c136d23ca9c8130e4441b8",
+                "reference": "a1fd779b525c6a7669c136d23ca9c8130e4441b8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Faker": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "time": "2013-03-04 17:05:06"
+        },
+        {
+            "name": "nette/tester",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/tester.git",
+                "reference": "95d1d6cc18c812b7df2f8d73ae6026cffffe188e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/tester/zipball/95d1d6cc18c812b7df2f8d73ae6026cffffe188e",
+                "reference": "95d1d6cc18c812b7df2f8d73ae6026cffffe188e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "bin": [
+                "Tester/tester"
+            ],
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "Tester/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "http://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "http://nette.org/contributors"
+                }
+            ],
+            "description": "An easy-to-use PHP Unit Testing framework.",
+            "homepage": "http://nette.org",
+            "keywords": [
+                "nette",
+                "testing",
+                "unit"
+            ],
+            "time": "2013-03-26 12:17:43"
+        }
+    ],
     "aliases": [
 
     ],
@@ -403,5 +500,11 @@
         "kdyby/forms-replicator": 20,
         "nette/tester": 20,
         "fzaninotto/faker": 20
-    }
+    },
+    "platform": {
+        "php": ">=5.4.0"
+    },
+    "platform-dev": [
+
+    ]
 }
