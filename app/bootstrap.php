@@ -38,6 +38,12 @@ $container->application->onStartup[] = function($app) {
 		return;
 	}
 	
+	if (PHP_SAPI === 'cli') {
+		newrelic_set_appname('khanovaskola.cz-cli');
+	} else {
+		newrelic_set_appname('khanovaskola.cz');
+	}
+
 	Debugger::$logger = new \NewRelic\Logger;
 	Debugger::$logger->directory =& Debugger::$logDirectory;
 	Debugger::$logger->email =& Debugger::$email;
