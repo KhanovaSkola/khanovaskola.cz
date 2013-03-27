@@ -16,7 +16,7 @@ class RouteList extends Nette\Application\Routers\RouteList
 		$elapsed = Nette\Diagnostics\Debugger::timer($t) * 1000;
 
 		if (extension_loaded('newrelic')) {
-			newrelic_custom_metric('Nette routing', $elapsed);
+			newrelic_custom_metric('Nette/Routing', $elapsed);
 		}
 
 		return $match;
