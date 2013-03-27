@@ -3,12 +3,13 @@
 namespace NewRelic;
 
 use Nette;
+use Nette\Diagnostics\Debugger;
 
 
 class NewRelic extends Nette\Object
 {
 
-	public static function register(\Nette\DI\Container $container)
+	public static function register(Nette\DI\Container $container)
 	{
 		if (!extension_loaded('newrelic')) {
 			return;
