@@ -22,6 +22,7 @@ $configurator->createRobotLoader()
 
 // Create Dependency Injection container from config.neon file
 $configurator->addConfig(__DIR__ . '/config/config.neon');
+$configurator->addConfig(__DIR__ . '/config/config.newrelic.neon');
 $configurator->addConfig(__DIR__ . '/config/config.db.neon');
 $configurator->addConfig(__DIR__ . '/config/config.local.neon');
 $container = $configurator->createContainer();
@@ -33,7 +34,7 @@ Kdyby\Replicator\Container::register();
 $routes = new \Config\Routes();
 $routes->setup($container);
 
-$container->application->onStartup[] = function($app) {
+$container->application->onStartup[] = function($app) use ($container) {
 	if (!extension_loaded('newrelic')) {
 		return;
 	}
@@ -42,6 +43,7 @@ $container->application->onStartup[] = function($app) {
 		newrelic_set_appname('khanovaskola.cz-cli');
 	} else {
 		newrelic_set_appname('khanovaskola.cz');
+		newrelic_add_custom_parameter('user_id', $container->user->id);
 	}
 
 	Debugger::$logger = new \NewRelic\Logger;
