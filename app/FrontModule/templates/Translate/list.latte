@@ -3,6 +3,14 @@
 
 <article>
 	<div class="col1 fifty-fifty">
+		<h2 class="main-headline">Překlady ke kontrole</h2>
+		<ul>
+			<li n:foreach="$to_control as $file">
+				<a n:href="Translate:, file => $file">{$file}</a>
+				<a n:href=":Front:Exercise:, id => 1, debug_file => $file">[test]</a>
+			</li>
+		</ul>
+
 		<h2 class="main-headline">Rozpracované překlady</h2>
 		<ul>
 			<li n:foreach="$working_on as $file">
@@ -12,7 +20,7 @@
 		</ul>
 
 		<br>
-		<h2>Nová cvičení</h2>
+		<h2>Cvičení k překladu</h2>
 		<ul>
 			<li n:foreach="$translate as $file">
 				<a n:href="Translate:, file => $file">{$file}</a>

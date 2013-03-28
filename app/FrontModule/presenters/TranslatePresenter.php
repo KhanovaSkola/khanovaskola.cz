@@ -36,16 +36,44 @@ class TranslatePresenter extends BaseFrontPresenter
 			$folder = file_exists(WWW_DIR . "/exercise/czech/$file.txt") ? 'czech' : 'translate';
 			$content = file_get_contents(WWW_DIR . "/exercise/$folder/$file.txt");
 		}
-		$translate = $this->parseTranslation($content);
+		$translate = $this->parseTranslation(file_get_contents(WWW_DIR . "/exercise/translate/$file.txt"));
+		$czech = $this->parseTranslation($content);
 
-		foreach ($translate['tid'] as $i => $tid) {
+		foreach ($czech['tid'] as $i => $tid) {
 			if (!isset($this['translateForm']['translations'][$tid]))
 				$this['translateForm']['translations']->createOne($tid);
 
-			$this['translateForm']['translations'][$tid][$tid]->setValue($translate['text'][$i]);
+			$this['translateForm']['translations'][$tid][$tid]->setValue($czech['text'][$i]);
 		}
 
 		$this->template->translate = $translate;
+		$this->template->czech = $czech;
+
+		$this->template->is_translated = $this->isTranslated($file);
+	}
+
+
+
+	protected function isTranslated($file)
+	{
+		$translation = $this->context->translations->findLatestFor($file);
+		if ($translation) {
+			$content = $translation->text;
+
+		} else {
+			$folder = file_exists(WWW_DIR . "/exercise/czech/$file.txt") ? 'czech' : 'translate';
+			$content = file_get_contents(WWW_DIR . "/exercise/$folder/$file.txt");
+		}
+		$translate = $this->parseTranslation(file_get_contents(WWW_DIR . "/exercise/translate/$file.txt"));
+		$czech = $this->parseTranslation($content);
+
+		foreach ($czech['tid'] as $i => $tid) {
+			if ($czech['text'][$i] === $translate['text'][$i]) {
+				return FALSE;
+			}
+		}
+
+		return TRUE;
 	}
 
 
@@ -120,6 +148,7 @@ class TranslatePresenter extends BaseFrontPresenter
 		}
 
 		$czech = [];
+		$to_control = [];
 		$completed = [];
 		$completed_files = [];
 		foreach ($this->context->translations->findAllLatest() as $translation) {
@@ -129,12 +158,17 @@ class TranslatePresenter extends BaseFrontPresenter
 				$completed_files[] = $translation->file;
 
 			} else {
-				$czech[] = $translation->file;
+				if ($this->isTranslated($translation->file)) {
+					$to_control[] = $translation->file;
+				} else {
+					$czech[] = $translation->file;
+				}
 			}
 		}
 
-		$this->template->translate = array_diff($translate, $czech, $completed_files);
+		$this->template->translate = array_diff($translate, $to_control, $czech, $completed_files);
 		$this->template->working_on = $czech;
+		$this->template->to_control = $to_control;
 		$this->template->completed = $completed;
 	}
 
