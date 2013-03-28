@@ -111,6 +111,8 @@ a.subtitles-edit {float: right; font-size: 10pt;}
 #backend-form select {width: 306px;}
 #backend-form legend {font-size: 120%; margin-left: .9em; padding-top: 1ex;}
 
+.pw-login {height: auto;}
+
 #frm-articleForm input[type=text] {width: 640px;}
 #frm-articleForm textarea {width: 640px; height: 320px;}
 

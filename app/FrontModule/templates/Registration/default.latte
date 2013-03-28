@@ -9,7 +9,6 @@
 				<h3>Registrace do Khanovy školy</h3>
 
 				<div class="pw-login-contents">
-
 					{form registrationForm, data-errors => "#error-text"}
 						<div class="field-error color-error" id="error-text">{control registrationForm errors}</div>
 
@@ -30,7 +29,9 @@
 							{input password, class => "simple-input ui-corner-all"}
 						</div>
 
-						{input send, value => "Přihlásit", class => "simple-button green"}
+						{input newsletter}{label newsletter}Chci jednou za čas dostat emailem důležité novinky z Khanovy školy.{/label}
+						
+						<p>{input send, value => "Přihlásit", class => "simple-button green"}</p>
 					{/form}
 				</div>
 			</div>

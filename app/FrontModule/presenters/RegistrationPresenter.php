@@ -53,6 +53,8 @@ class RegistrationPresenter extends BaseFrontPresenter
 		$form->addPassword('password', 'Heslo')
 			->setRequired('Vyplňte vaše heslo.');
 
+		$form->addCheckbox('newsletter')->setDefaultValue(TRUE);
+
 		$form->addSubmit('send');
 		return $form;
 	}
@@ -75,6 +77,7 @@ class RegistrationPresenter extends BaseFrontPresenter
 				'salt' => $salt,
 				'registration' => time(),
 				'role' => '',
+				'newsletter' => $v->newsletter ? 'yes' : 'no',
 			]);
 
 		} catch (\PDOException $e) {
