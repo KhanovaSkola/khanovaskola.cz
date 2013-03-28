@@ -43,21 +43,6 @@
                     &= <var>SIDES * 180</var>^{\circ} - 360^{\circ} \\
                     &= <var>ANSWER</var>^{\circ}\end{align*}</code></p>
 
-                <div>
-                    <p data-tid="35.8">An alternative approach is shown below.</p>
-                    <p data-tid="35.9">We can use four of the <var>cardinal( SIDES )</var> sides to make 2 triangles, as shown in orange.</p>
-                    <div class="graphie" data-id="other">
-                        init({
-                             range: [ [ -5, 5 ], [ -1, 5 ] ]
-                        });
-                        graph.polygon = CLONE;
-                        graph.polygon.draw();
-                        graph.polygon.drawDiagonals( randRange( 0, SIDES - 1 ) );
-                    </div>
-                </div>
-                <p data-tid="35.10">There <var>plural( "is", SIDES - 4 )</var> <var>plural( SIDES - 4, "side" )</var> between the orange triangles, to make <var>SIDES - 4</var> additional <var>plural( "triangle", SIDES - 4 )</var>.</p>
-                <p data-tid="35.11">We chopped this polygon into <var>SIDES - 2</var> triangles, and each triangle's angles sum to 180 degrees.</p>
-                <p><code><var>SIDES - 2</var> \times 180^{\circ} = <var>ANSWER</var>^{\circ}</code></p>
                 <p data-tid="35.13">The sum of the polygon's interior angles is <var>ANSWER</var> degrees.</p>
             </div>
         </div>
