@@ -97,6 +97,11 @@ class RegistrationPresenter extends BaseFrontPresenter
 
 		$sesion = $this->context->session->getSection('registration');
 		$sesion->showWelcome = TRUE;
+
+		if ($v->newsletter) {
+			$this->context->mailChimp->subscribeEmail($this->context->parameters['mailChimp']['list'], $v->mail);
+		}
+
 		$this->redirect('welcome');
 	}
 

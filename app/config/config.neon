@@ -39,6 +39,7 @@ services:
 
 	google: Model\Google([id: %google.id%, secret: %google.secret%])
 
+	mailChimp: Model\MailChimp(%mailChimp.key%)
 	amara: Model\Amara
 	subsChecker: Model\SubtitleChecker(%kontrolovac.url%)
 
