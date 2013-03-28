@@ -32,6 +32,7 @@
 		<ul>
 			<li n:foreach="$completed as $exercise">
 				<a n:href=":Front:Exercise:, eid => $exercise->id">{$exercise->label}</a>
+				<a n:if="$user->isInRole($ROLE::ADMIN)" n:href="Translate:, file => $exercise->file">[edit]</a>
 			</li>
 		</ul>
 		<hr class="thin">

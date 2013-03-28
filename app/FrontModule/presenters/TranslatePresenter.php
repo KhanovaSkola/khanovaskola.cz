@@ -27,6 +27,11 @@ class TranslatePresenter extends BaseFrontPresenter
 			$this->redirect('list');
 		}
 
+		$exercise = $this->context->exercises->findOneBy(['file' => $file]);
+		if ($exercise && !$this->user->isInRole(ROLE::ADMIN)) {
+			throw new \Nette\Application\ForbiddenRequestException();
+		}
+
 		$translation = $this->context->translations->findLatestFor($file);
 		if ($translation) {
 			$this->template->translation = $translation;

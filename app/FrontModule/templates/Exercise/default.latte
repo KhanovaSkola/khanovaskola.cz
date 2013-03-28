@@ -53,7 +53,8 @@
 		</div>
 		<div n:if="$user->isInRole($ROLE::EDITOR)">
 			<span class="info-box-header">Administrace</span>
-			<a n:href="edit">Editovat</a>
+			<a n:href="edit">Editovat metadata</a>
+			<a n:if="$user->isInRole($ROLE::ADMIN)" n:href="Translate:, file => $exercise->file">Editovat překlad</a>
 		</div>
 	</div>
 </div>
