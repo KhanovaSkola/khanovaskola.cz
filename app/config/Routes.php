@@ -297,6 +297,11 @@ class Routes
 			'presenter' => 'Homepage',
 			'action' => 'library',
 		]);
+		$container->router[] = new Route('newsletter', [
+			'module' => 'Front',
+			'presenter' => 'Homepage',
+			'action' => 'newsletter',
+		]);
 		$container->router[] = new Route('newsletter-podekovani', [
 			'module' => 'Front',
 			'presenter' => 'Homepage',
