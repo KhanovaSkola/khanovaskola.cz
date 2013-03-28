@@ -68,7 +68,7 @@ class ExercisePresenter extends BaseFrontPresenter
 		foreach ($html->find('head script') as $node) {
 			$content['scripts'][] = (string) $node;
 		}
-		$content['require'] = $html->find('html')[0]->attr['data-require'];
+		$content['require'] = @$html->find('html')[0]->attr['data-require']; // intentionally @ if data-require is not set
 		$content['title'] = (string) $html->find('title')[0]->innertext;
 		$content['body'] = (string) $html->find('body')[0]->innertext;
 
