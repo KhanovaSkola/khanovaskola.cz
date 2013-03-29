@@ -66,14 +66,14 @@
 	<header>
 		<div class="container">
 			<ul class="float-left">
-				<li><a n:href=":Front:Homepage:library">NAUČIT SE</a></li>
+				<li class="dropdown-trigger"><a n:href=":Front:Homepage:library">NAUČIT SE <i class="icon-arrow-down"></i></a></li>
 				<li n:if="$user->loggedIn"><a n:href=":Coach:Dashboard:">PRO UČITELE</a></li>
 				<li n:if="!$user->loggedIn"><a n:href=":Front:About:coach">PRO UČITELE</a></li>
 				<li><a n:href=":Front:Volunteer:">DOBROVOLNÍCI</a></li>
 				<li><a n:href=":Front:About:">O ŠKOLE</a></li>
 
 				<ul class="dropdown">
-					<li n:foreach="$presenter->context->categories->findRoot() as $subject" {first}class="hover"{/first}>
+					<li n:foreach="$presenter->context->categories->findRoot() as $subject">
 						{var $count = $subject->getSubCategories()->count()}
 						{if $count === 1}
 							{foreach $subject->getSubCategories() as $subcat}
@@ -101,7 +101,9 @@
 			</ul>
 
 			<div class="logo">
-				<img src="{$cdnUrl}/images/header_white.svg" width="215px" height="38px">
+				<a n:href=":Front:Homepage:">
+					<img src="{$cdnUrl}/images/header_white.svg" width="215px" height="38px">
+				</a>
 			</div>
 			<ul class="float-right">
 				<li><a n:href=":Sign:in">PŘIHLÁŠENÍ</a></li>

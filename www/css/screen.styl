@@ -1,5 +1,8 @@
 @import reset
+@import 'fontello/fontello'
+@import 'fontello/animation'
 @import dev
+
 
 /* Colors */
 
@@ -80,12 +83,15 @@ header
 			height 100%
 
 	ul.dropdown
+		display none
 		position absolute
 		top $headerHeight
 		width $dropdownWidth = 176px
 		height auto
 		border 1px solid $blue
 		font-size 14px
+		&.open
+			display block
 		li
 			display block
 			height 14px

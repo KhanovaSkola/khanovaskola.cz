@@ -1,0 +1,155 @@
+{
+  "name": "",
+  "glyphs": [
+    {
+      "search": [
+        "check"
+      ],
+      "code": 9745,
+      "from": 9745,
+      "uid": "dd6c6b221a1088ff8a9b9cd32d0b3dd5",
+      "css": "check",
+      "orig_css": "check",
+      "orig_code": 9745,
+      "src": "fontawesome"
+    },
+    {
+      "search": [
+        "pencil",
+        "write",
+        "reply",
+        "edit"
+      ],
+      "code": 9998,
+      "uid": "c77fd2fd065b5fe16d6f2b41e190b266",
+      "css": "exercise",
+      "orig_css": "pencil",
+      "orig_code": 9998,
+      "src": "entypo",
+      "from": 9998
+    },
+    {
+      "search": [
+        "social",
+        "logo",
+        "github"
+      ],
+      "code": 57526,
+      "uid": "aa18911cd641967c899c575aeb80cd7e",
+      "css": "github",
+      "orig_css": "github",
+      "orig_code": 57526,
+      "src": "elusive",
+      "from": 57526
+    },
+    {
+      "search": [
+        "chat",
+        "talk"
+      ],
+      "code": 59168,
+      "uid": "2c0b53280f82068f6bab4e2200025d9f",
+      "css": "chat",
+      "orig_css": "chat",
+      "orig_code": 59168,
+      "src": "entypo",
+      "from": 59168
+    },
+    {
+      "search": [
+        "arrow",
+        "down"
+      ],
+      "code": 59228,
+      "uid": "8704cd847a47b64265b8bb110c8b4d62",
+      "css": "arrow-down",
+      "orig_css": "down-open",
+      "orig_code": 59228,
+      "src": "entypo",
+      "from": 59228
+    },
+    {
+      "search": [
+        "arrow",
+        "left"
+      ],
+      "code": 59229,
+      "uid": "c311c48d79488965b0fab7f9cd12b6b5",
+      "css": "arrow-left",
+      "orig_css": "left-open",
+      "orig_code": 59229,
+      "src": "entypo",
+      "from": 59229
+    },
+    {
+      "search": [
+        "arrow",
+        "right"
+      ],
+      "code": 59230,
+      "uid": "749e7d90a9182938180f1d2d8c33584e",
+      "css": "arrow-right",
+      "orig_css": "right-open",
+      "orig_code": 59230,
+      "src": "entypo",
+      "from": 59230
+    },
+    {
+      "search": [
+        "ajust",
+        "contrast"
+      ],
+      "code": 59283,
+      "from": 59283,
+      "uid": "ca90da02d2c6a3183f2458e4dc416285",
+      "css": "progress",
+      "orig_css": "ajust",
+      "orig_code": 59283,
+      "src": "fontawesome"
+    },
+    {
+      "search": [
+        "load",
+        "progress",
+        "wait"
+      ],
+      "code": 59441,
+      "meta": {
+        "email": "berbentseva_angela@yahoo.com",
+        "author": "Angela Berbentseva, specially for fontello"
+      },
+      "uid": "f0c301ac841dafc38d8eb1b933fc73e5",
+      "css-ext": "animate-spin",
+      "css": "spinner",
+      "orig_css": "spin2",
+      "orig_code": 59441,
+      "src": "fontelico",
+      "from": 59441
+    },
+    {
+      "search": [
+        "leaf"
+      ],
+      "code": 127810,
+      "from": 127810,
+      "uid": "19e7b342a5e6bd0cd86de6d6208486a4",
+      "css": "leaf",
+      "orig_css": "leaf",
+      "orig_code": 127810,
+      "src": "fontawesome"
+    },
+    {
+      "search": [
+        "volume",
+        "sound"
+      ],
+      "code": 128266,
+      "from": 128266,
+      "uid": "76857a03fbaa6857fe063b6c25aa98ed",
+      "css": "dubbed",
+      "orig_css": "volume-up",
+      "orig_code": 128266,
+      "src": "fontawesome"
+    }
+  ]
+}

@@ -33,7 +33,24 @@ $(function() {
 		$(location.hash).addClass("anchor-highlight");
 	}
 
-	console.log('menuAim init');
+	var isMouseOver = false;
+	$("header .dropdown-trigger").hover(function() {
+		isMouseOver = true;
+		setTimeout(function() {
+			if (isMouseOver) {
+				$("header .dropdown").addClass('open');
+			}
+		}, 800);
+	}, function() {
+		isMouseOver = false;
+	});
+
+	$("body").click(function(e) {
+		$("header .dropdown").removeClass('open');
+	});
+	$("header .dropdown").click(function(e) {
+		e.stopPropagation();
+	});
 	$("header .dropdown").menuAim({
 	     activate: function(row) {
 	     	$(row).addClass('hover');
