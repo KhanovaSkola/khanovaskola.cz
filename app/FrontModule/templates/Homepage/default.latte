@@ -1,15 +1,7 @@
 {var $description = "Jsme překlad Khan Academy. Máme $count->video lekcí z matematiky, fyziky i humanitních věd a dalších. Přes $count->dubbed videí je nadabováno."}
-{#head}
-	{if $presenter->getParam('ref')}
-		<link rel="canonical" n:href="//this, ref => NULL">
-	{/if}
-	<link rel="prefetch" n:href=":Front:Watch:, id => $featured_video->getOneCategoryId(), vid => $featured_video->id">
-{/#}
 {#scripts}
-<div id="fb-root"></div>
 <script>
 	$(function() {
-		$("#facebook-like").append($('<iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FKhanovaSkola&amp;send=false&amp;layout=box_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=90&amp;appId=273608052753035" scrolling="no" frameborder="0" allowTransparency="true"></iframe>'));
 		$("#large-search-input").autocomplete({
 			source: function(req, res) {
 				$.ajax({
@@ -91,8 +83,6 @@
 			<p>
 				Naším hlavním <a n:href=":Front:About:sponsors">partnerem</a> je společnost <a href="http://scio.cz/" target="_blank">Scio</a>.
 			</p>
-			<div id="facebook-like">
-			</div>
 			<div id="logo-scio">
 				<img src="{$cdnUrl}/images/logo_scio.svg" height="38px" alt="Logo Scio">
 			</div>
