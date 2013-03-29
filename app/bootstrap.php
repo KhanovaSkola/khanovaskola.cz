@@ -33,6 +33,12 @@ $configurator->onCompile[] = function ($configurator, $compiler) {
 
 $container = $configurator->createContainer();
 
+if (Debugger::isEnabled()) {
+	function d($args) {
+		call_user_func_array(['ChromePhp', 'log'], func_get_args());
+	}
+}
+
 Debugger::$logger->mailer = callback('\Model\CustomMailer', 'mailer');
 
 NewRelic\NewRelic::register($container);
