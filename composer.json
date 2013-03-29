@@ -17,6 +17,7 @@
 	},
     "require-dev": {
         "nette/tester": "@dev",
-        "fzaninotto/faker": "@dev"
+        "fzaninotto/faker": "@dev",
+        "ccampbell/chromephp": "@dev"
     }
 }

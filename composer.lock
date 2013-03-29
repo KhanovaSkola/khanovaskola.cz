@@ -1,5 +1,5 @@
 {
-    "hash": "ffaf0459e5e7714d4680b1107ee8e500",
+    "hash": "070a321081580f47da56916036ae9c79",
     "packages": [
         {
             "name": "facebook/php-sdk",
@@ -276,12 +276,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/nette.git",
-                "reference": "f766615a1c91e5245e9ed468467e101755790e56"
+                "reference": "11bc3797ba357429a8c9bfcdd6bc2caf7db94055"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/nette/zipball/f766615a1c91e5245e9ed468467e101755790e56",
-                "reference": "f766615a1c91e5245e9ed468467e101755790e56",
+                "url": "https://api.github.com/repos/nette/nette/zipball/11bc3797ba357429a8c9bfcdd6bc2caf7db94055",
+                "reference": "11bc3797ba357429a8c9bfcdd6bc2caf7db94055",
                 "shasum": ""
             },
             "require": {
@@ -342,7 +342,7 @@
                 "neon",
                 "templating"
             ],
-            "time": "2013-03-29 16:23:13"
+            "time": "2013-03-29 17:22:48"
         },
         {
             "name": "sunra/php-simple-html-dom-parser",
@@ -389,6 +389,49 @@
         }
     ],
     "packages-dev": [
+        {
+            "name": "ccampbell/chromephp",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ccampbell/chromephp.git",
+                "reference": "1886dcc61ee03bcdff60247efac9b06576a249d5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ccampbell/chromephp/zipball/1886dcc61ee03bcdff60247efac9b06576a249d5",
+                "reference": "1886dcc61ee03bcdff60247efac9b06576a249d5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ChromePhp": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Craig Campbell",
+                    "email": "iamcraigcampbell@gmail.com",
+                    "homepage": "http://craig.is",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Log variables to the Chrome console (via ChromePhp Google Chrome extension).",
+            "homepage": "http://chromephp.com/",
+            "keywords": [
+                "log",
+                "logging"
+            ],
+            "time": "2013-01-22 00:46:26"
+        },
         {
             "name": "fzaninotto/faker",
             "version": "dev-master",
@@ -499,7 +542,8 @@
         "nesquick/metrics": 20,
         "kdyby/forms-replicator": 20,
         "nette/tester": 20,
-        "fzaninotto/faker": 20
+        "fzaninotto/faker": 20,
+        "ccampbell/chromephp": 20
     },
     "platform": {
         "php": ">=5.4.0"
