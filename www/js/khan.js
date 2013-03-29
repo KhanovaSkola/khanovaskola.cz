@@ -43,16 +43,21 @@ function closeDropdown() {
 
 $(function() {
 	$.nette.init();
-	console.log('registered');
 	$.nette.ext('spinner', {
 	    before: function () {
-	    	console.log('show spinner');
 	    	$("#spinner").removeClass('hidden');
 	    },
 	    complete: function() {
-	    	console.log('hide spinner');
 			$("#spinner").addClass('hidden');
 	    }
+	});
+	$.nette.ext('ga', {
+		success: function (payload) {
+			var url = window.location.href;
+			if (url && !$.nette.ext('redirect')) {
+				_gaq.push(['_trackPageview', url]);
+			}
+		}
 	});
 
 	/** highlight anchor if in correct format */

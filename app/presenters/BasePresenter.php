@@ -19,16 +19,13 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 	{
 		parent::startup();
 		$this->context->session->start();
-
-		if ($this->isAjax()) {
-			sleep(2);
-		}
 	}
 
 
 
 	protected function invalidateControls()
 	{
+		$this->invalidateControl('title');
 		$this->invalidateControl('content');
 	}
 
