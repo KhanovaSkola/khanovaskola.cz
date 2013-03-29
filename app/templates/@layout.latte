@@ -62,10 +62,10 @@
 	</script>
 </head>
 <body>
-	<header class="ajax">
+	<header>
 		<div class="container">
 			<ul class="float-left">
-				<li class="dropdown-trigger"><a n:href=":Front:Homepage:library">Naučit se <i class="icon-arrow-down"></i></a></li>
+				<li class="dropdown-trigger"><a href="#" class="no-ajax">Naučit se <i class="icon-arrow-down"></i></a></li>
 				<li n:if="$user->loggedIn"><a n:href=":Coach:Dashboard:">Pro učitele</a></li>
 				<li n:if="!$user->loggedIn"><a n:href=":Front:About:coach">Pro učitele</a></li>
 				<li><a n:href=":Front:Volunteer:">Dobrovolníci</a></li>
@@ -108,8 +108,8 @@
 				</div>
 			</div>
 			<ul class="float-right">
-				<li><a n:href=":Sign:in" class="ajax">Přihlášení</a></li>
-				<li><a n:href=":Front:Registration:" class="ajax">Registrace</a></li>
+				<li><a n:href=":Sign:in">Přihlášení</a></li>
+				<li><a n:href=":Front:Registration:">Registrace</a></li>
 			</ul>
 		</div>
 	</header>
@@ -123,31 +123,31 @@
 	<footer>
 		<div class="container">
 			<div class="col1">
-				<ul class="ajax">
+				<ul>
 					<li><a n:href=":Front:Contact:">Kontakt</a></li>
 					<li><a n:href=":Front:Contact:report, url => $presenter->url, time => time()" rel="nofollow">Nahlásit problém</a></li>
 				</ul>
-				<ul class="ajax">
+				<ul>
 					<li><a n:href=":Front:Contact:tos" title="Podmínky použití">Podmínky použití</a></li>
 					<li><a n:href="//:Front:Blog:rss" title="Blog Khanovy školy">RSS feed</a></li>
 					<li><a n:href=":Front:About:press" title="Materiály pro tisk">Pro média</a></li>
 				</ul>
-				<ul class="ajax">
+				<ul>
 					<li><a n:href=":Front:About:" id="faq-link">O škole</a></li>
 				</ul>
 				<ul>
 					<li>Sociální sítě</li>
 					<li>
-						<a onclick="_gaq.push(['_trackEvent', 'Click', 'Youtube-Subscribe-Header']);" href="http://www.youtube.com/khanacademyczech" title="Youtube" target="_blank">
+						<a class="no-ajax" onclick="_gaq.push(['_trackEvent', 'Click', 'Youtube-Subscribe-Header']);" href="http://www.youtube.com/khanacademyczech" title="Youtube" target="_blank">
 							<img src="{$cdnUrl}/images/icon_youtube.svg" height="24" alt="Náš youtube kanál, na který nahráváme všechna dabovaná videa">
 						</a>
-						<a onclick="_gaq.push(['_trackEvent', 'Click', 'Gplus-Follow-Header']);" href="https://plus.google.com/117423506408066949300/posts" title="Google Plus" target="_blank">
+						<a class="no-ajax" onclick="_gaq.push(['_trackEvent', 'Click', 'Gplus-Follow-Header']);" href="https://plus.google.com/117423506408066949300/posts" title="Google Plus" target="_blank">
 							<img src="{$cdnUrl}/images/icon_gplus.svg" height="24" alt="Google Plus stránka Khanovy školy">
 						</a>
-						<a onclick="_gaq.push(['_trackEvent', 'Click', 'Facebook-Join-Header']);" href="http://www.facebook.com/khanovaskola" title="Facebook" target="_blank">
+						<a class="no-ajax" onclick="_gaq.push(['_trackEvent', 'Click', 'Facebook-Join-Header']);" href="http://www.facebook.com/khanovaskola" title="Facebook" target="_blank">
 							<img src="{$cdnUrl}/images/icon_facebook.svg" height="24" alt="Facebook stránka Khanovy školy">
 						</a>
-						<a onclick="_gaq.push(['_trackEvent', 'Click', 'Twitter-Follow-Header']);" href="https://twitter.com/khanovaskola" title="Twitter" target="_blank">
+						<a class="no-ajax" onclick="_gaq.push(['_trackEvent', 'Click', 'Twitter-Follow-Header']);" href="https://twitter.com/khanovaskola" title="Twitter" target="_blank">
 							<img src="{$cdnUrl}/images/icon_twitter.svg" height="24" alt="Twitter účet Khanovy školy obsahující nejdůležitější novinky">
 						</a>
 					</li>
@@ -156,7 +156,7 @@
 			<div class="col2">
 				<span itemprop="version">{$git_deploy->branch}: {$git_deploy->hash}<br>{$git_deploy->time|date:'Y-n-j H:i'}</span>
 				<div class="legal">
-					<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cz/">
+					<a class="no-ajax" rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cz/">
 						<img src="{$cdnUrl}/images/creative_commons.svg" height="15" alt="Uveďte autora-Nevyužívejte dílo komerčně-Zachovejte licenci 3.0 Česko (CC BY-NC-SA 3.0 CZ)">
 					</a>
 					<div>&copy; <span itemprop="copyrightHolder">Mikuláš Dítě</span> <span itemprop="copyrightYear">{date('Y')}</span></div>

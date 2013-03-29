@@ -474,7 +474,7 @@ $.nette.ext('init', {
 			.off('click.nette', this.buttonSelector, rh).on('click.nette', this.buttonSelector, rh);
 	}
 }, {
-	linkSelector: 'a.ajax',
+	linkSelector: 'a:not(.no-ajax)',
 	formSelector: 'form.ajax',
 	buttonSelector: 'input.ajax[type="submit"], button.ajax[type="submit"], input.ajax[type="image"]'
 });
