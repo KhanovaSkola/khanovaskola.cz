@@ -111,8 +111,6 @@
 		</div>
 	</header>
 	
-
-	{include '_header.latte'}
 	{ifset #breadcrumbs}{include #breadcrumbs}{/ifset}
 	<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
 	{include #content}
