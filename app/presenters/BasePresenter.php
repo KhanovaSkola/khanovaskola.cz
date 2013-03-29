@@ -60,6 +60,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 			'branch' => Git::getBranch(),
 			'commit' => Git::getCommit(),
 			'hash' => substr(Git::getCommit(), 0, 7),
+			'time' => Git::getTime(),
 		];
 
 		\Helper\Time::register($this->template);

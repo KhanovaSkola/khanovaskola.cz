@@ -8,6 +8,8 @@
 
 $blue = rgb(44, 55, 71)
 $lightBlue = $blue + #444
+$link = #005987
+$green = #678d00
 
 
 /* Mixins */
@@ -45,6 +47,8 @@ a
 .float-right
 	float right
 
+.clear
+	clear both
 
 /* Styles */
 
@@ -74,7 +78,6 @@ header
 		display inline-block
 		height 100%
 		padding 15px .5em 0 .5em
-
 		&:hover, &.hover
 			background-color white
 			color $blue
@@ -127,3 +130,51 @@ header
 				li
 					margin 4px 1em
 
+footer
+	display block
+	background-color #f7f7f7
+	border-top 1px solid #ddd
+	color rgb(44, 55, 71)
+
+	.col1, .col2, .col3
+		display inline-block
+		margin 0
+		padding 0
+		vertical-align top
+
+	.col1
+		width 50% - 1px
+		margin-top 20px
+		> ul
+			display inline-block
+			width 25% - 1px
+			height 100%
+			vertical-align top
+			li
+				list-style-type none
+				margin 1ex 0
+
+	.col2
+		width 40%
+		margin-top 34px
+		text-align right
+	.col3
+		width 10%
+		text-align right
+
+	.logo
+		margin 20px 0 40px 0
+
+	.legal
+		color rgb(153, 153, 153)
+		text-align right
+		font-size 12px
+		margin-top 2ex
+
+	a
+		color $link
+		&:visited, &:link, &:visited
+			color $link
+		&:hover
+			color $green
+			text-decoration underline
