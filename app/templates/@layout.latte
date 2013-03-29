@@ -114,11 +114,11 @@
 		</div>
 	</header>
 	
-	{snippet content}
+	<div n:snippet="content" class="content container">
 		{ifset #breadcrumbs}{include #breadcrumbs}{/ifset}
 		<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
 		{include #content}
-	{/snippet}
+	</div>
 
 	<footer>
 		<div class="container">

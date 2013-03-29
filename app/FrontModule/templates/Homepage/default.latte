@@ -38,38 +38,32 @@
 {/#}
 {#content}
 
-<article id="homepage">
-	<div class="page-ribbon">
-		<div class="span4 tagline">
+<article>
+	<div class="main-search">
+		<div>
 			<label for="large-search-input">
 				<h1>Naučte se něco nového</h1>
 			</label>
 		</div>
-		<div class="span8 main-search">
-			{form search, class => "page-search"}
-				<i class="icon-search"></i>
-				<input id="large-search-input" name="query" class="placeholder simple-input search-input blur-on-esc large-search-bar ui-corner-all ui-autocomplete-input" autocomplete="off" placeholder="Příklady: {$search_examples}" role="textbox" aria-autocomplete="list" aria-haspopup="true" autofocus="true">
-				<input type="submit" class="call-to-action green simple-button" value="Hledat">
-				<div class="throbber"></div>
-			{/form}
-		</div>
+		{form search, class => "page-search"}
+			<i class="icon-search"></i>
+			<input id="large-search-input" name="query" class="placeholder simple-input search-input blur-on-esc large-search-bar ui-corner-all ui-autocomplete-input" autocomplete="off" placeholder="Příklady: {$search_examples}" role="textbox" aria-autocomplete="list" aria-haspopup="true" autofocus="true">
+			<input type="submit" class="call-to-action green simple-button" value="Hledat">
+		{/form}
 	</div>
-	<div class="homepage-pull">
-		<div class="full-note" n:if="in_array(date('Y-m-d'), ['2013-03-22', '2013-03-23'])">
-			<p>{if date('Y-m-d') === '2013-03-22'}Zítra{else}Dnes{/if} se koná <a href="http://srazy.info/khanova-skola-1-prekladatelsky-maraton/3223" target="_blank">překladatelský maraton</a>. Jestli nestihnete dorazit, zkuste <a n:href=":Front:Volunteer:howToTranslate">překlad z domova</a>.</p>
-		</div>
-		<div id="main-video">
+	<div>
+		<div class="category-blocks">
 			{cache tags => ['categories', 'videos']}
 				{foreach $subjects as $subject}
 					<h4>{$subject->label}</h4>
 					<div>
-						{foreach $subject->getSubCategories() as $category}<a n:href=":Front:Browse:, id => $category->id" class="video-block">{if $category->containsDubbedVideos()}<i class="icon-dubbed"></i>&nbsp;{/if}{$category->label}</a>{/foreach}
+						{foreach $subject->getSubCategories() as $category}<a n:href=":Front:Browse:, id => $category->id" class="block">{if $category->containsDubbedVideos()}<i class="icon-dubbed"></i>&nbsp;{/if}{$category->label}</a>{/foreach}
 					</div>
 				{/foreach}
 			{/cache}
 		</div>
-		<div id="homepage-text" class="visited-no-recolor">
-			<h1 class="section-headline pulls"><a n:href=":Front:Watch:, id => $featured_video->getOneCategoryId(), vid => $featured_video->id">Nauč se</a> zdarma skoro cokoliv.</h1>
+		<div>
+			<h1><a n:href=":Front:Watch:, id => $featured_video->getOneCategoryId(), vid => $featured_video->id">Nauč se</a> zdarma skoro cokoliv.</h1>
 			<p>
 				Jsme překlad Khan Academy. Máme pro vás víc než <a n:href=":Front:Homepage:library">{$count->video} videi</a> z matematiky, fyziky a třeba i dějepisu a medicíny. Matematiku si navíc můžete prozkoušet na cvičeních, které najdete vedle samotných lekcí. Pro učitele máme <a n:href=":Coach:Dashboard:">nástroje</a> pro zadávání úkolů a sledování výsledků.
 			</p>
@@ -77,13 +71,12 @@
 				<a n:href=":Front:About:">Snažíme se</a> učit to, co vás zajímá.
 			</p>
 			<div>
-				{*<a n:href=":Front:Homepage:library" class="call-to-action simple-button green watch-a-video">Zhlédnout video</a>*}
-				<a n:href=":Front:Registration:" n:if="!$user->loggedIn" class="call-to-action simple-button blue">Registrace</a>
+				<a n:href=":Front:Registration:" n:if="!$user->loggedIn" class="button blue">Registrace</a>
 			</div>
 			<p>
 				Naším hlavním <a n:href=":Front:About:sponsors">partnerem</a> je společnost <a href="http://scio.cz/" target="_blank">Scio</a>.
 			</p>
-			<div id="logo-scio">
+			<div>
 				<img src="{$cdnUrl}/images/logo_scio.svg" height="38px" alt="Logo Scio">
 			</div>
 		</div>
