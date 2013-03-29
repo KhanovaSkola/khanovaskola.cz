@@ -73,7 +73,13 @@
 				<li><a n:href=":Front:About:">O ŠKOLE</a></li>
 
 				<ul class="dropdown">
-					<li n:foreach="$presenter->context->categories->findRoot() as $subject">
+					<li>
+						<a n:href=":Front:Homepage:library">Všechna videa</a>
+					</li>
+					<li>
+						<a n:href=":Front:Exercise:list">Všechna cvičení</a>
+					</li>
+					<li n:foreach="$presenter->context->categories->findRoot() as $subject" class="expandable{first} has-divider{/first}">
 						{var $count = $subject->getSubCategories()->count()}
 						{if $count === 1}
 							{foreach $subject->getSubCategories() as $subcat}
@@ -90,12 +96,6 @@
 					</li>
 					<li n:foreach="$presenter->context->tags->findBy(['display' => TRUE]) as $tag"{first} class="has-divider"{/first}>
 						<a n:href=":Front:Tag:, tid => $tag->id">{$tag->label}</a>
-					</li>
-					<li class="has-divider">
-						<a n:href=":Front:Homepage:library">Projít všechna videa</a>
-					</li>
-					<li>
-						<a n:href=":Front:Exercise:list">Projít všechna cvičení</a>
 					</li>
 				</ul>
 			</ul>

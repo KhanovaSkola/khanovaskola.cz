@@ -55,9 +55,9 @@ header{display:block;height:45px;width:100%;background-color:#2c3747;}
 header .logo{position:absolute;padding-top:3px;margin-left:-108px;left:50%}
 header ul{display:inline-block;height:100%}
 header li{color:#fff;display:inline-block;height:100%;padding:15px .5em 0 .5em;}
-header li:hover{background-color:#fff;color:#2c3747}
+header li:hover,header li.hover{background-color:#fff;color:#2c3747}
 header li a{display:block;height:100%}
-header ul.dropdown{display:none;position:absolute;top:45px;width:176px;height:auto;border:1px solid #2c3747;font-size:14px;}
+header ul.dropdown{display:none;position:absolute;top:45px;width:176px;height:auto;margin-left:-1px;border:1px solid #2c3747;border-top:0;font-size:14px;}
 header ul.dropdown.open{display:block}
 header ul.dropdown li{display:block;height:14px;color:#2c3747;}
 header ul.dropdown li.has-divider{border-top:1px solid #707b8b}

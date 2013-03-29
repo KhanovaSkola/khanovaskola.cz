@@ -75,7 +75,7 @@ header
 		height 100%
 		padding 15px .5em 0 .5em
 
-		&:hover
+		&:hover, &.hover
 			background-color white
 			color $blue
 		a
@@ -88,7 +88,9 @@ header
 		top $headerHeight
 		width $dropdownWidth = 176px
 		height auto
+		margin-left -1px
 		border 1px solid $blue
+		border-top 0px
 		font-size 14px
 		&.open
 			display block
