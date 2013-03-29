@@ -28,6 +28,13 @@ multi-column(n, gap, width)
 	column-fill balance
 	column-width width
 
+transform-origin(x, y)
+	-webkit-transform-origin x y
+	-moz-transform-origin x y
+	-ms-transform-origin x y
+	-o-transform-origin x y
+	transform-origin x y
+
 
 /* Generics */
 
@@ -68,6 +75,23 @@ header
 		padding-top 3px
 		margin-left -108px
 		left 50%
+
+		#spinner
+			display inline-block
+			position relative
+			top -9px
+			left 10px
+			height $size = 24px
+			width $size
+			color white
+
+			&.hidden
+				display none
+			.icon-spinner
+				margin-left -1 * $size * 0.2
+				font-size $size
+				transform-origin($size/2, $size/2)
+
 
 	ul
 		display inline-block

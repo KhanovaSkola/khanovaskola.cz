@@ -42,6 +42,19 @@ function closeDropdown() {
 }
 
 $(function() {
+	$.nette.init();
+	console.log('registered');
+	$.nette.ext('spinner', {
+	    before: function () {
+	    	console.log('show spinner');
+	    	$("#spinner").removeClass('hidden');
+	    },
+	    complete: function() {
+	    	console.log('hide spinner');
+			$("#spinner").addClass('hidden');
+	    }
+	});
+
 	/** highlight anchor if in correct format */
 	if (location.hash.indexOf('#hl-') === 0) {
 		$(location.hash).addClass("anchor-highlight");

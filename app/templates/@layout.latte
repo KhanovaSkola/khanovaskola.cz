@@ -62,7 +62,7 @@
 	</script>
 </head>
 <body>
-	<header>
+	<header class="ajax">
 		<div class="container">
 			<ul class="float-left">
 				<li class="dropdown-trigger"><a n:href=":Front:Homepage:library">Naučit se <i class="icon-arrow-down"></i></a></li>
@@ -103,31 +103,36 @@
 				<a n:href=":Front:Homepage:">
 					<img src="{$cdnUrl}/images/header_white.svg" width="215px" height="38px">
 				</a>
+				<div id="spinner" class="animate-spin hidden">
+					<i class="icon-spinner"></i>
+				</div>
 			</div>
 			<ul class="float-right">
-				<li><a n:href=":Sign:in">Přihlášení</a></li>
-				<li><a n:href=":Front:Register:">Registrace</a></li>
+				<li><a n:href=":Sign:in" class="ajax">Přihlášení</a></li>
+				<li><a n:href=":Front:Registration:" class="ajax">Registrace</a></li>
 			</ul>
 		</div>
 	</header>
 	
-	{ifset #breadcrumbs}{include #breadcrumbs}{/ifset}
-	<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
-	{include #content}
+	{snippet content}
+		{ifset #breadcrumbs}{include #breadcrumbs}{/ifset}
+		<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+		{include #content}
+	{/snippet}
 
 	<footer>
 		<div class="container">
 			<div class="col1">
-				<ul>
+				<ul class="ajax">
 					<li><a n:href=":Front:Contact:">Kontakt</a></li>
 					<li><a n:href=":Front:Contact:report, url => $presenter->url, time => time()" rel="nofollow">Nahlásit problém</a></li>
 				</ul>
-				<ul>
+				<ul class="ajax">
 					<li><a n:href=":Front:Contact:tos" title="Podmínky použití">Podmínky použití</a></li>
 					<li><a n:href="//:Front:Blog:rss" title="Blog Khanovy školy">RSS feed</a></li>
-					<li><a n:href="//:Front:About:press" title="Materiály pro tisk">Pro média</a></li>
+					<li><a n:href=":Front:About:press" title="Materiály pro tisk">Pro média</a></li>
 				</ul>
-				<ul>
+				<ul class="ajax">
 					<li><a n:href=":Front:About:" id="faq-link">O škole</a></li>
 				</ul>
 				<ul>
@@ -197,6 +202,8 @@
 	<script>window.jQuery.ui || document.write('<script src="{$cdnUrl}/js/vendor/jquery-ui-1.10.2.min.js"><\/script>')</script>
 	<script src="{$cdnUrl}/js/jquery.menu-aim.js"></script>
 	<script type="text/javascript" src="{$cdnUrl}/js/netteForms.js"></script>
+	<script type="text/javascript" src="{$cdnUrl}/js/nette.ajax.js"></script>
+	<script type="text/javascript" src="{$cdnUrl}/js/history.ajax.js"></script>
 	<script type="text/javascript" src="{$cdnUrl}/js/khan.v-{=md5_file(WWW_DIR . '/js/khan.js')}.js"></script>
 	{#scripts}{/#}
 </body>

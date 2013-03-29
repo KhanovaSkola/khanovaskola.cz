@@ -27,6 +27,10 @@ if (extension_loaded('newrelic')) {
 $configurator->addConfig(__DIR__ . '/config/config.db.neon');
 $configurator->addConfig(__DIR__ . '/config/config.local.neon');
 
+$configurator->onCompile[] = function ($configurator, $compiler) {
+	$compiler->addExtension('ajax', new VojtechDobes\NetteAjax\Extension);
+};
+
 $container = $configurator->createContainer();
 
 Debugger::$logger->mailer = callback('\Model\CustomMailer', 'mailer');

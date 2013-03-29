@@ -19,6 +19,17 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 	{
 		parent::startup();
 		$this->context->session->start();
+
+		if ($this->isAjax()) {
+			sleep(2);
+		}
+	}
+
+
+
+	protected function invalidateControls()
+	{
+		$this->invalidateControl('content');
 	}
 
 
@@ -70,6 +81,10 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 		if ($this->user->loggedIn) {
 			$session = $this->context->session->getSection('dynamic_css');
 			$this->template->dynamic_css_hash = $session->hash;
+		}
+
+		if ($this->isAjax()) {
+			$this->invalidateControls();
 		}
 	}
 

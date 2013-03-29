@@ -53,7 +53,10 @@ a:visited,a:link,a:visited{color:inherit}
 .clear{clear:both}
 .container{width:1200px;height:100%;margin:auto}
 header{display:block;height:45px;width:100%;background-color:#2c3747;}
-header .logo{position:absolute;padding-top:3px;margin-left:-108px;left:50%}
+header .logo{position:absolute;padding-top:3px;margin-left:-108px;left:50%;}
+header .logo #spinner{display:inline-block;position:relative;top:-9px;left:10px;height:24px;width:24px;color:#fff;}
+header .logo #spinner.hidden{display:none}
+header .logo #spinner .icon-spinner{margin-left:-4.800000000000001px;font-size:24px;-webkit-transform-origin:12px 12px;-moz-transform-origin:12px 12px;-ms-transform-origin:12px 12px;-o-transform-origin:12px 12px;transform-origin:12px 12px}
 header ul{display:inline-block;height:100%}
 header li{color:#fff;display:inline-block;height:100%;padding:15px .5em 0 .5em;}
 header li:hover,header li.hover{background-color:#fff;color:#2c3747}
