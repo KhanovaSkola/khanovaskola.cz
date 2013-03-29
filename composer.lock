@@ -99,12 +99,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kriswallsmith/Buzz.git",
-                "reference": "e4310004bced0598b690fd648df9c0e97fa8f984"
+                "reference": "309e674e87bca0850bd0ec17226ff9beb86d7651"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kriswallsmith/Buzz/zipball/e4310004bced0598b690fd648df9c0e97fa8f984",
-                "reference": "e4310004bced0598b690fd648df9c0e97fa8f984",
+                "url": "https://api.github.com/repos/kriswallsmith/Buzz/zipball/309e674e87bca0850bd0ec17226ff9beb86d7651",
+                "reference": "309e674e87bca0850bd0ec17226ff9beb86d7651",
                 "shasum": ""
             },
             "require": {
@@ -139,7 +139,7 @@
                 "curl",
                 "http client"
             ],
-            "time": "2013-03-06 06:11:47"
+            "time": "2013-03-29 13:04:03"
         },
         {
             "name": "michelf/php-markdown",
@@ -197,13 +197,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Mikulas/php-git-grabber",
-                "reference": "eac9eb80dd9052fcfdd82ef741b35219b2bc29cd"
+                "url": "https://github.com/Mikulas/php-git-grabber.git",
+                "reference": "ded23578b8d206b2cc184b1be8405b037a3763ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Mikulas/php-git-grabber/archive/eac9eb80dd9052fcfdd82ef741b35219b2bc29cd.zip",
-                "reference": "eac9eb80dd9052fcfdd82ef741b35219b2bc29cd",
+                "url": "https://api.github.com/repos/Mikulas/php-git-grabber/zipball/ded23578b8d206b2cc184b1be8405b037a3763ab",
+                "reference": "ded23578b8d206b2cc184b1be8405b037a3763ab",
                 "shasum": ""
             },
             "require": {
@@ -225,7 +225,7 @@
                 }
             ],
             "description": "git commit grabber",
-            "time": "2013-01-25 14:43:55"
+            "time": "2013-03-29 16:04:38"
         },
         {
             "name": "nesQuick/Metrics",
@@ -276,12 +276,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/nette.git",
-                "reference": "c5c59834df0e8554b3cc1e1d2db98b55ee3aff71"
+                "reference": "f766615a1c91e5245e9ed468467e101755790e56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/nette/zipball/c5c59834df0e8554b3cc1e1d2db98b55ee3aff71",
-                "reference": "c5c59834df0e8554b3cc1e1d2db98b55ee3aff71",
+                "url": "https://api.github.com/repos/nette/nette/zipball/f766615a1c91e5245e9ed468467e101755790e56",
+                "reference": "f766615a1c91e5245e9ed468467e101755790e56",
                 "shasum": ""
             },
             "require": {
@@ -342,7 +342,7 @@
                 "neon",
                 "templating"
             ],
-            "time": "2013-03-26 12:53:53"
+            "time": "2013-03-29 16:23:13"
         },
         {
             "name": "sunra/php-simple-html-dom-parser",
@@ -440,12 +440,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/tester.git",
-                "reference": "95d1d6cc18c812b7df2f8d73ae6026cffffe188e"
+                "reference": "9f56ab9a1831273b9d5f66d0304d2daaf2622450"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/tester/zipball/95d1d6cc18c812b7df2f8d73ae6026cffffe188e",
-                "reference": "95d1d6cc18c812b7df2f8d73ae6026cffffe188e",
+                "url": "https://api.github.com/repos/nette/tester/zipball/9f56ab9a1831273b9d5f66d0304d2daaf2622450",
+                "reference": "9f56ab9a1831273b9d5f66d0304d2daaf2622450",
                 "shasum": ""
             },
             "require": {
@@ -483,7 +483,7 @@
                 "testing",
                 "unit"
             ],
-            "time": "2013-03-26 12:17:43"
+            "time": "2013-03-29 13:18:49"
         }
     ],
     "aliases": [
