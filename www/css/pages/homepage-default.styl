@@ -1,0 +1,67 @@
+.main-search
+	text-align center
+	background-color $gray
+	border 1px solid $darkGray
+	margin 3ex 0
+	//padding 1ex 0
+	label, h1, form
+		display inline-block
+	h1
+		font-size 22pt
+		margin 0 1em 0 0
+	label
+		height 100%
+		vertical-align middle
+	.icon-search
+		position absolute
+		margin 12px 0 0 2px
+		color $darkGray - #444
+	.search-input
+		display inline
+		font-size 12pt
+		padding 1ex .5em 1ex 1.5em
+		width 600px
+		border 0
+		border-radius 2px
+		border 1px solid $darkGray
+		&:focus
+			outline(5px, 1px, $green)
+
+	input[type=submit]
+		display inline
+	form div
+		display none
+
+.category-blocks
+	width 600px
+	h4
+		padding 2ex 0 1ex 0
+		&:first-of-type
+			padding-top 0
+	a
+		color $link
+		&:hover
+			color $green
+			text-decoration underline
+	.block
+		display inline-block
+		padding 5pt 4pt
+		width 170px
+		font-size 14px
+		background-color $gray
+		margin none
+		border 1px solid $darkGray
+		margin -1px 0 0 -1px
+		&:hover
+			background-color rgb(211, 221, 182)
+		i[class^=icon]
+			font-size 12px
+
+p
+	width 90%
+
+.call-to-action
+	margin 2ex 0
+
+.sponsors
+	margin 1ex 0
