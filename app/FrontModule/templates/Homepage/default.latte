@@ -50,7 +50,7 @@
 		{/form}
 	</div>
 	<div>
-		<div class="category-blocks">
+		<div class="category-blocks col1 fifty-fifty">
 			{cache tags => ['categories', 'videos']}
 				{foreach $subjects as $subject}
 					<h4>{$subject->label}</h4>
@@ -60,7 +60,7 @@
 				{/foreach}
 			{/cache}
 		</div>
-		<div>
+		<div class="col2 fifty-fifty">
 			<h1><a n:href=":Front:Watch:, id => $featured_video->getOneCategoryId(), vid => $featured_video->id">Nauč se</a> zdarma skoro cokoliv.</h1>
 			<p>
 				Jsme překlad Khan Academy. Máme pro vás víc než <a n:href=":Front:Homepage:library">{$count->video} videi</a> z matematiky, fyziky a třeba i dějepisu a medicíny. Matematiku si navíc můžete prozkoušet na cvičeních, které najdete vedle samotných lekcí. Pro učitele máme <a n:href=":Coach:Dashboard:">nástroje</a> pro zadávání úkolů a sledování výsledků.

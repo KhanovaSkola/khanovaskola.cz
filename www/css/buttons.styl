@@ -12,15 +12,8 @@
 	-moz-box-shadow inset 0 1px 0 rgba(255,255,255,.3)
 	box-shadow inset 0 1px 0 rgba(255,255,255,.3)
 	background-color #f8f8f8
-	background-image -moz-linear-gradient(top,#fff,#eee)
-	background-image -ms-linear-gradient(top,#fff,#eee)
-	background-image -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#eee))
-	background-image -webkit-linear-gradient(top,#fff,#eee)
-	background-image -o-linear-gradient(top,#fff,#eee)
-	background-image linear-gradient(top,#fff,#eee)
+	updown-gradient(#fff, #eee)
 	background-repeat repeat-x
-	//filter progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff',endColorstr='#eeeeee',GradientType=0)
-	//filter progid:DXImageTransform.Microsoft.gradient(enabled = false)
 	color #595959
 	cursor pointer
 	font-family inherit
@@ -34,7 +27,7 @@
 
 	&:hover
 		border-color #aaa
-		-webkit-box-shadow inset 0 1px 0 rgba(255,255,255,.4),inset 0 0 50px 5px rgba(255,255,255,.2)
+		-webkit-box-shadow inset 0 1px 0 
 		-moz-box-shadow inset 0 1px 0 rgba(255,255,255,.4),inset 0 0 50px 5px rgba(255,255,255,.2)
 		box-shadow inset 0 1px 0 rgba(255,255,255,.4),inset 0 0 50px 5px rgba(255,255,255,.2)
 
@@ -47,29 +40,15 @@
 		border-color #76a005
 		border-bottom-color #526f03
 		background-color #7fac05
-		background-image -moz-linear-gradient(top,#8aba08,#6e9700)
-		background-image -ms-linear-gradient(top,#8aba08,#6e9700)
-		background-image -webkit-gradient(linear,0 0,0 100%,from(#8aba08),to(#6e9700))
-		background-image -webkit-linear-gradient(top,#8aba08,#6e9700)
-		background-image -o-linear-gradient(top,#8aba08,#6e9700)
-		background-image linear-gradient(top,#8aba08,#6e9700)
+		updown-gradient(#8aba08, #6e9700)
 		background-repeat repeat-x
-		//filter progid:DXImageTransform.Microsoft.gradient(startColorstr='#8aba08',endColorstr='#6e9700',GradientType=0)
-		//filter progid:DXImageTransform.Microsoft.gradient(enabled = false)
 		color #fff
 		text-shadow 0 -1px 0 #526f03
 	&.blue
 		border-color #2c3747
 		border-bottom-color #000
 		background-color #364253
-		background-image -moz-linear-gradient(top,#3a4759,#303b4a)
-		background-image -ms-linear-gradient(top,#3a4759,#303b4a)
-		background-image -webkit-gradient(linear,0 0,0 100%,from(#3a4759),to(#303b4a))
-		background-image -webkit-linear-gradient(top,#3a4759,#303b4a)
-		background-image -o-linear-gradient(top,#3a4759,#303b4a)
-		background-image linear-gradient(top,#3a4759,#303b4a)
+		updown-gradient(#3a4759, #303b4a)
 		background-repeat repeat-x
-		//filter progid:DXImageTransform.Microsoft.gradient(startColorstr='#3a4759',endColorstr='#303b4a',GradientType=0)
-		//filter progid:DXImageTransform.Microsoft.gradient(enabled = false)
 		color #fff
 		text-shadow 0 -1px 0 #050608

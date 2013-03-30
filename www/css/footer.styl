@@ -1,0 +1,48 @@
+footer
+	display block
+	background-color $gray
+	border-top 1px solid $darkGray
+	color rgb(44, 55, 71)
+
+	.col1, .col2, .col3
+		display inline-block
+		margin 0
+		padding 0
+		vertical-align top
+
+	.col1
+		width 50% - 1px
+		margin-top 20px
+		> ul
+			display inline-block
+			width 25% - 1px
+			height 100%
+			vertical-align top
+			li
+				list-style-type none
+				margin 1ex 0
+
+	.col2
+		width 40%
+		margin-top 34px
+		text-align right
+	.col3
+		width 10%
+		text-align right
+
+	.logo
+		margin 20px 0 40px 0
+
+	.legal
+		color rgb(153, 153, 153)
+		text-align right
+		font-size 12px
+		margin-top 2ex
+
+	a
+		color $link
+		&:visited, &:link, &:visited
+			color $link
+		&:hover
+			color $green
+			text-decoration underline

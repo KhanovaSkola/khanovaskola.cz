@@ -1,12 +1,3 @@
-@import reset
-@import 'fontello/fontello'
-@import 'fontello/animation'
-@import buttons
-@import dev
-
-
-/* Colors */
-
 $blue = rgb(44, 55, 71)
 $lightBlue = $blue + #444
 $link = #005987
@@ -14,184 +5,74 @@ $green = #678d00
 $gray = #f7f7f7
 $darkGray = #ddd
 
-/* Mixins */
 
-multi-column(n, gap, width)
-	-webkit-column-count n
-	-webkit-column-gap gap
-	-webkit-column-fill balance
-	-webkit-column-width width
-	-moz-column-count n
-	-moz-column-gap gap
-	-moz-column-fill balance
-	-moz-column-width width
-	column-count n
-	column-gap gap
-	column-fill balance
-	column-width width
+@import reset
+@import mixins
+@import 'fontello/fontello'
+@import 'fontello/animation'
+@import buttons
+@import header
+@import footer
+@import generic
+@import dev
 
-transform-origin(x, y)
-	-webkit-transform-origin x y
-	-moz-transform-origin x y
-	-ms-transform-origin x y
-	-o-transform-origin x y
-	transform-origin x y
-
-
-/* Generics */
-
-body
-	font-family "Museo Sans 300", Arial, "Helvetica Neue", Helvetica, sans-serif
-	font-weight 300
-	font-style normal
-	text-rendering optimizeLegibility
-
-a
-	text-decoration none
-	&:visited, &:link, &:visited
-		color inherit
-
-.float-left
-	float left
-
-.float-right
-	float right
-
-.clear
-	clear both
-
-.icon-dubbed
-	color rgb(72, 113, 201)
-
-/* Styles */
 
 .container
 	width 1200px
 	height 100%
 	margin auto
 
-header
-	display block
-	height $headerHeight = 45px
-	width 100%
-	background-color $blue
+.fifty-fifty
+	display inline-block
+	vertical-align top
+	&.col1, &.col2
+		width 50% - 1px
 
-	.logo
-		position absolute
-		padding-top 3px
-		margin-left -108px
-		left 50%
+.sixty-fourty
+	display inline-block
+	vertical-align top
+	&.col1
+		width 60% - 1px
+	&.col2
+		width 40% - 1px
 
-		#spinner
-			display inline-block
-			position relative
-			top -9px
-			left 10px
-			height $size = 24px
-			width $size
-			color white
+.fourty-sixty
+	display inline-block
+	vertical-align top
+	&.col1
+		width 40% - 1px
+	&.col2
+		width 60% - 1px
 
-			&.hidden
-				display none
-			.icon-spinner
-				margin-left -1 * $size * 0.2
-				font-size $size
-				transform-origin($size/2, $size/2)
-
-
-	ul
-		display inline-block
-		height $headerHeight
-
-	li
-		color white
-		display inline-block
-		height $headerHeight - 15px
-		padding 15px .5em 0 .5em
-		&:hover, &.hover
-			background-color white
-			color $blue
-		a
-			display block
-			$offset = 15px
-			height $headerHeight - $offset
-			margin -1*$offset 0 0 0
-			padding $offset 0 0 0
-
-	ul.dropdown
-		display none
-		position absolute
-		top $headerHeight
-		width $dropdownWidth = 176px
-		height auto
-		margin-left -1px
-		border 1px solid $blue
-		border-top 0px
-		font-size 14px
-		background-color white
-		&.open
-			display block
-		li
-			display block
-			height 14px
-			color $blue
-			&.has-divider
-				border-top 1px solid $lightBlue
-			&:hover
-				color white
-				background-color $lightBlue
-			&.hover
-				color white
-				background-color $blue
-				ul
-					display block
-			a
-				margin -16px -7px 0 -7px
-				padding 10px 7px 0 7px
-				display block
-				width 100%
-				height 29px
-
-			ul
-				display none
-				position absolute
-				top -1px
-				left $dropdownWidth
-				width $subDropdownWidth = 450px
-				height 100%
-				border 1px solid $blue
-				background-color white
-				$gap = 10px
-				multi-column(2, $gap, ($subDropdownWidth - $gap) / 2)
-				li
-					margin 4px 1em
 
 .main-search
 	text-align center
 	background-color $gray
 	border 1px solid $darkGray
+	margin 3ex 0
+	padding 1ex 0
 	label, h1, form
 		display inline-block
 	h1
 		font-size 22pt
+		margin-right 1em
 	label
 		height 100%
 		vertical-align middle
+	.icon-search
+		position absolute
+		margin 12px 0 0 2px
+		color $darkGray - #444
 	.search-input
 		display inline
 		font-size 12pt
-		padding 1ex .5em
+		padding 1ex .5em 1ex 1.5em
 		width 600px
 		border 0
 		border-radius 2px
 		border 1px solid $darkGray
 		&:focus
-			 -webkit-outline-style none
-			 -moz-outline-style none
-			 outline 0
-			 -webkit-box-shadow 0 0 5px 1px $green
-			 -moz-box-shadow 0 0 5px 1px $green
-			 box-shadow 0 0 5px 1px $green
+			outline(5px, 1px, $green)
 
 	input[type=submit]
 		display inline
@@ -202,6 +83,8 @@ header
 	width 600px
 	h4
 		padding 2ex 0 1ex 0
+		&:first-of-type
+			padding-top 0
 	a
 		color $link
 		&:hover
@@ -220,52 +103,3 @@ header
 			background-color rgb(211, 221, 182)
 		i[class^=icon]
 			font-size 12px
-
-footer
-	display block
-	background-color $gray
-	border-top 1px solid $darkGray
-	color rgb(44, 55, 71)
-
-	.col1, .col2, .col3
-		display inline-block
-		margin 0
-		padding 0
-		vertical-align top
-
-	.col1
-		width 50% - 1px
-		margin-top 20px
-		> ul
-			display inline-block
-			width 25% - 1px
-			height 100%
-			vertical-align top
-			li
-				list-style-type none
-				margin 1ex 0
-
-	.col2
-		width 40%
-		margin-top 34px
-		text-align right
-	.col3
-		width 10%
-		text-align right
-
-	.logo
-		margin 20px 0 40px 0
-
-	.legal
-		color rgb(153, 153, 153)
-		text-align right
-		font-size 12px
-		margin-top 2ex
-
-	a
-		color $link
-		&:visited, &:link, &:visited
-			color $link
-		&:hover
-			color $green
-			text-decoration underline

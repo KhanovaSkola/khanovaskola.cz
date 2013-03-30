@@ -1,0 +1,36 @@
+multi-column($n, $gap, $width)
+	-webkit-column-count $n
+	-webkit-column-gap $gap
+	-webkit-column-fill balance
+	-webkit-column-width $width
+	-moz-column-count $n
+	-moz-column-gap $gap
+	-moz-column-fill balance
+	-moz-column-width $width
+	column-count $n
+	column-gap $gap
+	column-fill balance
+	column-width $width
+
+transform-origin($x, $y)
+	-webkit-transform-origin $x $y
+	-moz-transform-origin $x $y
+	-ms-transform-origin $x $y
+	-o-transform-origin $x $y
+	transform-origin $x $y
+
+outline($size, $spread, $color)
+	-webkit-outline-style none
+	-moz-outline-style none
+	outline 0
+	-webkit-box-shadow 0 0 $size $spread $color
+	-moz-box-shadow 0 0 $size $spread $color
+	box-shadow 0 0 $size $spread $color
+
+updown-gradient($from, $to)
+	background-image -moz-linear-gradient(top, $from, $to)
+	background-image -ms-linear-gradient(top, $from, $to)
+	background-image -webkit-gradient(linear, 0 0, 0 100%, from($from), to($to))
+	background-image -webkit-linear-gradient(top, $from, $to)
+	background-image -o-linear-gradient(top, $from, $to)
+	background-image linear-gradient(top, $from, $to)
