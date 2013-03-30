@@ -34,3 +34,23 @@ updown-gradient($from, $to)
 	background-image -webkit-linear-gradient(top, $from, $to)
 	background-image -o-linear-gradient(top, $from, $to)
 	background-image linear-gradient(top, $from, $to)
+
+border-radius($size)
+	-webkit-border-radius $size
+	-moz-border-radius $size
+	border-radius $size
+
+background-clip($val)
+	-webkit-background-clip $val
+	-moz-background-clip $val
+	border-background-clip $val
+
+shadow($x, $y, $spread, $color)
+	-webkit-box-shadow $x $y $spread $color
+	-moz-box-shadow $x $y $spread $color
+	box-shadow $x $y $spread $color
+
+no-shadow()
+	-webkit-box-shadow none
+	-moz-box-shadow none
+	box-shadow none

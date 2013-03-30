@@ -1,7 +1,7 @@
 
-.button
-	border 1px solid #ccc
-	border-bottom 1px solid #bbb
+.button, input[type=submit]
+	border 1px solid #76a005
+	border-bottom 1px solid #526f03
 	-webkit-border-radius 5px
 	-moz-border-radius 5px
 	border-radius 5px
@@ -11,10 +11,10 @@
 	-webkit-box-shadow inset 0 1px 0 rgba(255,255,255,.3)
 	-moz-box-shadow inset 0 1px 0 rgba(255,255,255,.3)
 	box-shadow inset 0 1px 0 rgba(255,255,255,.3)
-	background-color #f8f8f8
-	updown-gradient(#fff, #eee)
+	background-color #7fac05
+	updown-gradient(#8aba08, #6e9700)
 	background-repeat repeat-x
-	color #595959
+	color #fff
 	cursor pointer
 	font-family inherit
 	line-height 22px
@@ -22,7 +22,7 @@
 	padding 5px 10px
 	position relative
 	text-decoration none
-	text-shadow 0 -1px 0 #fff
+	text-shadow 0 -1px 0 #526f03
 	font-size 11pt
 
 	&:hover
@@ -36,19 +36,17 @@
 		-moz-box-shadow inset 0 0 30px rgba(0,0,0,0.3),inset 0 2px 4px rgba(0,0,0,0.4)
 		box-shadow inset 0 0 30px rgba(0,0,0,0.3),inset 0 2px 4px rgba(0,0,0,0.4)
 
-	&.green
-		border-color #76a005
-		border-bottom-color #526f03
-		background-color #7fac05
-		updown-gradient(#8aba08, #6e9700)
-		background-repeat repeat-x
-		color #fff
-		text-shadow 0 -1px 0 #526f03
+	&.gray
+		border-color #ccc
+		border-bottom-color #bbb
+		background-color #f8f8f8
+		updown-gradient(#fff, #eee)
+		color #595959
+		text-shadow 0 -1px 0 #fff
 	&.blue
 		border-color #2c3747
 		border-bottom-color #000
 		background-color #364253
 		updown-gradient(#3a4759, #303b4a)
-		background-repeat repeat-x
 		color #fff
 		text-shadow 0 -1px 0 #050608
