@@ -26,6 +26,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 	protected function invalidateControls()
 	{
 		$this->invalidateControl('title');
+		$this->invalidateControl('header');
 		$this->invalidateControl('content');
 	}
 

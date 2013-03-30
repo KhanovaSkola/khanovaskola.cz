@@ -26,6 +26,9 @@ class SignPresenter extends BasePresenter
 	public function renderIn($mail = NULL)
 	{
 		$this['signInForm']['username']->setDefaultValue($mail);
+
+		/** @TODO REMOVE BEFORE DEPLOY */
+		$this['signInForm']['username']->setDefaultValue('mikulas@dite.cz');
 	}
 
 
@@ -135,9 +138,6 @@ class SignPresenter extends BasePresenter
 
 		$this->flashMessage('Byli jste odhlášeni.');
 
-		if ($this->isAjax()) {
-			$this->invalidateControl('header');
-		}
 		$this->redirect('in');
 	}
 
@@ -199,9 +199,6 @@ class SignPresenter extends BasePresenter
 			}
 		}
 
-		if ($this->isAjax()) {
-			$this->invalidateControl('header');
-		}
 		$this->redirectUrl($this->backlink);
 	}
 

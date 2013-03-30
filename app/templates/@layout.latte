@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width">
 
-	{snippet title}<title>{ifset $title}{$title} &ndash; {/ifset}Khanova škola</title>{/snippet}
+	<title n:inner-snippet="title">{ifset $title}{$title} &ndash; {/ifset}Khanova škola</title>
 
 	<meta name="description" content="{$description}" n:ifset="$description">
 	<meta name="robots" content="{$robots}" n:ifset="$robots">
