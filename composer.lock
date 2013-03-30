@@ -276,12 +276,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/nette.git",
-                "reference": "11bc3797ba357429a8c9bfcdd6bc2caf7db94055"
+                "reference": "9211661d2b46361b0e267cf159f7476d84c78826"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/nette/zipball/11bc3797ba357429a8c9bfcdd6bc2caf7db94055",
-                "reference": "11bc3797ba357429a8c9bfcdd6bc2caf7db94055",
+                "url": "https://api.github.com/repos/nette/nette/zipball/9211661d2b46361b0e267cf159f7476d84c78826",
+                "reference": "9211661d2b46361b0e267cf159f7476d84c78826",
                 "shasum": ""
             },
             "require": {
@@ -342,7 +342,7 @@
                 "neon",
                 "templating"
             ],
-            "time": "2013-03-29 17:22:48"
+            "time": "2013-03-30 13:19:09"
         },
         {
             "name": "sunra/php-simple-html-dom-parser",

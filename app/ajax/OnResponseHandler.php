@@ -77,6 +77,7 @@ class OnResponseHandler
 					exit;
 				}
 			} elseif ($this->forwardHasHappened && !isset($payload->redirect)) {
+				d('redirect?');
 				$payload->redirect = $application->getPresenter()->link('this');
 			}
 			$this->httpResponse->addHeader('Vary', 'X-Requested-With');

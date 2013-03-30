@@ -22,7 +22,7 @@ class DashboardPresenter extends BaseModeratorPresenter
 		foreach ($this->context->videos->findBy(['exercise_id IS NOT NULL']) as $video) {
 			$ids[] = $video['exercise_id'];
 		}
-		$vid['exercise'] = $this->context->exercises->findBy(['id NOT' => $ids]);
+		$vid['exercise'] = $this->context->exercises->findBy(['id NOT IN ?' => $ids]);
 		$vid['nogroupex'] = $this->context->exercises->findWithoutCategory();
 
 		$this->template->limit = 10;

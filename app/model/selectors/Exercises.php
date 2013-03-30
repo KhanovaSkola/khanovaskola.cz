@@ -47,7 +47,7 @@ class Exercises extends \ORM\Table
 		foreach ($this->context->database->query('SELECT DISTINCT exercise_id FROM category_exercise') as $row) {
 			$ids[] = (int) $row['exercise_id'];
 		}
-		return $this->findBy(['id NOT' => $ids]);
+		return $this->findBy(['id NOT IN ?' => $ids]);
 	}
 
 

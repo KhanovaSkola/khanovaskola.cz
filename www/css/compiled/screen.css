@@ -88,6 +88,8 @@ a:visited,a:link,a:visited{color:inherit}
 .float-right{float:right}
 .clear{clear:both}
 .icon-dubbed{color:#4871c9}
+.error{color:#f00;margin-bottom:1ex}
+ul.error{list-style:none}
 p{line-height:2.7ex;}
 p a{color:#005987;text-decoration:none;}
 p a:visited,p a:link,p a:visited{color:#005987}
