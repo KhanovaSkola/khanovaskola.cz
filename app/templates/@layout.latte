@@ -107,9 +107,15 @@
 					<i class="icon-spinner"></i>
 				</div>
 			</div>
-			<ul class="float-right">
-				<li><a n:href=":Sign:in">Přihlášení</a></li>
-				<li><a n:href=":Front:Registration:">Registrace</a></li>
+			<ul n:snippet="header" class="float-right">
+				{if $user->isLoggedIn()}
+					<li><a n:href=":Front:Profile:, pid => NULL">{$user->entity->name}</a></li>
+					<li n:if="$user->isInRole($ROLE::EDITOR)"><a n:href=":Moderator:Dashboard:">Moderátoři</a></li>
+					<li><a n:href=":Sign:out">Odhlásit se</a></li>
+				{else}
+					<li><a n:href=":Sign:in">Přihlášení</a></li>
+					<li><a n:href=":Front:Registration:">Registrace</a></li>
+				{/if}
 			</ul>
 		</div>
 	</header>

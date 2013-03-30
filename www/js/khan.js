@@ -43,6 +43,9 @@ function closeDropdown() {
 
 $(function() {
 	$.nette.init();
+	$.nette.ext('dropdown', {
+		complete: closeDropdown
+	});
 	$.nette.ext('spinner', {
 	    before: function () {
 	    	$("#spinner").removeClass('hidden');
@@ -77,10 +80,10 @@ $(function() {
 		return false;
 	});
 
-	$("body").click(function(e) {
+	$("body").on('click', function(e) {
 		closeDropdown();
 	});
-	$("header .dropdown").click(function(e) {
+	$("header .dropdown>li").on('click', function(e) {
 		e.stopPropagation();
 	});
 	$("header .dropdown").menuAim({
