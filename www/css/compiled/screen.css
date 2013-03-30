@@ -119,15 +119,24 @@ p{width:90%}
 .credentials{-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;-webkit-background-clip:padding-box;-moz-background-clip:padding-box;border-background-clip:padding-box;background-color:#eee;border:1px solid #ccc;border-bottom:1px solid #aaa;-webkit-box-shadow:0 1px 3px #ccc;-moz-box-shadow:0 1px 3px #ccc;box-shadow:0 1px 3px #ccc;width:59%;margin:auto;padding:1em;}
 .credentials>div{display:inline-block;vertical-align:top}
 .credentials h3{margin-bottom:2ex}
-.providers{text-align:center;width:270px}
+.providers{text-align:center;width:270px;}
+.providers.inline{width:100%;}
+.providers.inline .provider:first-of-type{margin-right:1em}
 .provider{display:inline-block;position:relative;border:1px solid #ccc;width:200px;height:78px;border-bottom-color:#aaa;border-right-color:#bbb;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;-webkit-box-shadow:2px 2px 5px #ccc;-moz-box-shadow:2px 2px 5px #ccc;box-shadow:2px 2px 5px #ccc;cursor:pointer;text-align:center;margin-bottom:1ex;}
 .provider:hover{border-color:#aaa;left:2px;top:2px;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none}
 .provider img{margin-top:5px}
 .vertical-separator{display:inline-block;position:relative;width:1px;height:250px;margin:0 2em;border-left:1px solid #ccc;text-align:center;vertical-align:baseline;}
 .vertical-separator span{position:relative;top:50%;margin-top:-.5em;margin-left:-1.5em;background-color:#eee;padding:1ex 0}
+.horizontal-separator{height:1px;margin:2em auto;width:100%;border-top:1px solid #ccc;text-align:center;position:relative;display:inline-block;}
+.horizontal-separator span{position:relative;display:inline-block;padding:0 .5em;top:-.7em;background-color:#eee}
 .password{text-align:left;}
 .password label{display:inline-block;text-align:right;width:3em}
 .password p{text-align:left;padding:1ex 0 0 52px}
+.registration label:not(.checkbox){display:inline-block;text-align:right;width:3em}
+.registration .col1{text-align:right;padding-top:10px;}
+.registration .col1 img{padding-right:1em}
+.registration .col2 form{margin-left:2em;}
+.registration .col2 form .checkbox-container{margin:2ex 0}
 a[href^=error]{color:#f00 !important}
 .container{width:1200px;height:100%;margin:auto}
 .fifty-fifty{display:inline-block;vertical-align:top;}
@@ -138,3 +147,6 @@ a[href^=error]{color:#f00 !important}
 .fourty-sixty{display:inline-block;vertical-align:top;}
 .fourty-sixty.col1{width:39%}
 .fourty-sixty.col2{width:59%}
+.thirty-seventy{display:inline-block;vertical-align:top;}
+.thirty-seventy.col1{width:29%}
+.thirty-seventy.col2{width:69%}

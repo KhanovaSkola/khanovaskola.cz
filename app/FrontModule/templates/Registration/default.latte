@@ -2,60 +2,56 @@
 {var $description = "Po registraci uvidite váš postup: hotové lekce a úspěšnost cvičení. Máte-li tu učitele, budete od něj moct dostávat úkoly."}
 {#content}
 
-<article id="page-root">
-	<div class="signup-container card-case vertical-shadow">
-		<div class="pw-signup container">
-			<div class="pw-login">
-				<h3>Registrace do Khanovy školy</h3>
-
-				<div class="pw-login-contents">
-					{form registrationForm, data-errors => "#error-text"}
-						<div class="field-error color-error" id="error-text">{control registrationForm errors}</div>
-
-						<div class="field-error" id="error-text">&nbsp;</div>
-
-						<img src="/images/hand-tree.svg" width="120" class="tree" alt="Logo Khanovy školy - barevné listy rostoucí okolo ruky">
-
-						<div class="field-container">
-							{label name, class => "field-label"}Jméno{/label}
-							{input name, class => "simple-input ui-corner-all"}
-						</div>
-						<div class="field-container">
-							{label mail, class => "field-label"}Email{/label}
-							{input mail, class => "simple-input ui-corner-all"}
-						</div>
-						<div class="field-container">
-							{label password, class => "field-label"}Heslo{/label}
-							{input password, class => "simple-input ui-corner-all"}
-						</div>
-
-						{input newsletter}{label newsletter}Chci jednou za čas dostat emailem důležité novinky z Khanovy školy.{/label}
-						
-						<p>{input send, value => "Registrovat", class => "simple-button green"}</p>
-					{/form}
-				</div>
+<article>
+	<div class="credentials">
+		<h3>Máte Google nebo Facebook účet? Můžete se rovnou přihlásit:</h3>
+		<div class="providers inline">
+			<div class="provider">
+				<a n:href=":Sign:inGoogle">
+					<img width="180" alt="Přihlaste se bez registrace přes váš Google účet" src="{$cdnUrl}/images/logo_google.svg">
+				</a>
 			</div>
-
-			<div class="horizontal-separator">
-				<span class="separator-text">NEBO</span>
+			<div class="provider">
+				<a n:href=":Sign:inFacebook">
+					<img width="180" alt="Přihlaste se bez registrace přes váš Facebook účet" src="{$cdnUrl}/images/logo_facebook.svg">
+				</a>
 			</div>
+		</div>
 
-			<h3>Máte Google nebo Facebook účet? Můžete se rovnou přihlásit:</h3>
-			<div class="providers container center">
-				<div id="login-google" class="action-gradient provider">
-					<div class="img-container">
-						<a n:href=":Sign:inGoogle">
-							<img width="180" alt="Přihlaste se bez registrace přes váš Google účet" src="{$cdnUrl}/images/logo_google.svg">
-						</a>
+		<div class="horizontal-separator">
+			<span>NEBO</span>
+		</div>
+
+		<div class="registration">
+			<h3>Registrace do Khanovy školy</h3>
+			<div class="col1 thirty-seventy">
+				<img src="/images/hand-tree.svg" width="120" class="tree" alt="Logo Khanovy školy - barevné listy rostoucí okolo ruky">
+			</div>
+			<div class="col2 thirty-seventy">
+				{form registrationForm, data-errors => "#error-text"}
+					<div class="field-error color-error" id="error-text">{control registrationForm errors}</div>
+
+					<div class="field-error" id="error-text">&nbsp;</div>
+
+					<div>
+						{label name, class => "field-label"}Jméno{/label}
+						{input name, class => "simple-input ui-corner-all"}
 					</div>
-				</div>
-				<div id="login-facebook" class="action-gradient provider">
-					<div class="img-container">
-						<a n:href=":Sign:inFacebook">
-							<img width="180" alt="Přihlaste se bez registrace přes váš Facebook účet" src="{$cdnUrl}/images/logo_facebook.svg">
-						</a>
+					<div>
+						{label mail, class => "field-label"}Email{/label}
+						{input mail, class => "simple-input ui-corner-all"}
 					</div>
-				</div>
+					<div>
+						{label password, class => "field-label"}Heslo{/label}
+						{input password, class => "simple-input ui-corner-all"}
+					</div>
+
+					<div class="checkbox-container">
+						{input newsletter}{label newsletter, class => "checkbox"}Chci jednou za čas dostat emailem důležité novinky z Khanovy školy.{/label}
+					</div>
+					
+					<p>{input send, value => "Registrovat", class => "simple-button green"}</p>
+				{/form}
 			</div>
 		</div>
 	</div>
