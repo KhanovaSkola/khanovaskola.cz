@@ -35,17 +35,16 @@ header
 	li
 		color white
 		display inline-block
-		height $headerHeight - 15px
-		padding 15px .5em 0 .5em
+		height $headerHeight
+		
 		&:hover, &.hover
 			background-color white
 			color $blue
 		a
 			display block
 			$offset = 15px
+			padding $offset .5em 0 .5em
 			height $headerHeight - $offset
-			margin -1*$offset 0 0 0
-			padding $offset 0 0 0
 
 	ul.dropdown
 		display none
@@ -62,8 +61,8 @@ header
 			display block
 		li
 			display block
-			height 14px
 			color $blue
+			height auto
 			&.has-divider
 				border-top 1px solid $lightBlue
 			&:hover
@@ -75,11 +74,10 @@ header
 				ul
 					display block
 			a
-				margin -16px -7px 0 -7px
-				padding 10px 7px 0 7px
 				display block
 				width 100%
-				height 29px
+				height auto
+				padding 1.4ex 0 1ex 1em
 
 			ul
 				display none

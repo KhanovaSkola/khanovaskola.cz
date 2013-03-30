@@ -56,17 +56,17 @@ header .logo #spinner{display:inline-block;position:relative;top:-9px;left:10px;
 header .logo #spinner.hidden{display:none}
 header .logo #spinner .icon-spinner{margin-left:-4.800000000000001px;font-size:24px;-webkit-transform-origin:12px 12px;-moz-transform-origin:12px 12px;-ms-transform-origin:12px 12px;-o-transform-origin:12px 12px;transform-origin:12px 12px}
 header ul{display:inline-block;height:45px}
-header li{color:#fff;display:inline-block;height:30px;padding:15px .5em 0 .5em;}
+header li{color:#fff;display:inline-block;height:45px;}
 header li:hover,header li.hover{background-color:#fff;color:#2c3747}
-header li a{display:block;height:30px;margin:-15px 0 0 0;padding:15px 0 0 0}
+header li a{display:block;padding:15px .5em 0 .5em;height:30px}
 header ul.dropdown{display:none;position:absolute;top:45px;width:176px;height:auto;margin-left:-1px;border:1px solid #2c3747;border-top:0;font-size:14px;background-color:#fff;}
 header ul.dropdown.open{display:block}
-header ul.dropdown li{display:block;height:14px;color:#2c3747;}
+header ul.dropdown li{display:block;color:#2c3747;height:auto;}
 header ul.dropdown li.has-divider{border-top:1px solid #707b8b}
 header ul.dropdown li:hover{color:#fff;background-color:#707b8b}
 header ul.dropdown li.hover{color:#fff;background-color:#2c3747;}
 header ul.dropdown li.hover ul{display:block}
-header ul.dropdown li a{margin:-16px -7px 0 -7px;padding:10px 7px 0 7px;display:block;width:100%;height:29px}
+header ul.dropdown li a{display:block;width:100%;height:auto;padding:1.4ex 0 1ex 1em}
 header ul.dropdown li ul{display:none;position:absolute;top:-1px;left:176px;width:450px;height:100%;border:1px solid #2c3747;background-color:#fff;-webkit-column-count:2;-webkit-column-gap:10px;-webkit-column-fill:balance;-webkit-column-width:220px;-moz-column-count:2;-moz-column-gap:10px;-moz-column-fill:balance;-moz-column-width:220px;column-count:2;column-gap:10px;column-fill:balance;column-width:220px;}
 header ul.dropdown li ul li{margin:4px 1em}
 footer{display:block;margin-top:10ex;background-color:#f7f7f7;border-top:1px solid #ddd;color:#2c3747;}
