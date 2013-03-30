@@ -311,7 +311,7 @@ class Routes
 		/**
 		 * Moderator module without tanslations
 		 */
-		$container->router[] = new Route('moderator/<presenter>/<action>[/<id>]', [
+		$container->router[] = new Route('moderator[/<presenter>[/<action>[/<id>]]]', [
 			'module' => 'Moderator',
 			'presenter' => 'Dashboard',
 			'action' => 'default',
@@ -320,7 +320,7 @@ class Routes
 		/**
 		 * Coach module
 		 */
-		$container->router[] = new Route('ucit/<presenter>/<action>', [
+		$container->router[] = new Route('ucit[/<presenter>[/<action>]]', [
 			'module' => 'Coach',
 			'presenter' => [
 				Route::VALUE => 'Dashboard',
@@ -350,7 +350,7 @@ class Routes
 		/**
 		 * Other presenters
 		 */
-		$container->router[] = new Route('<presenter>/<action>[/<id>]', [
+		$container->router[] = new Route('<presenter>[/<action>[/<id>]]', [
 			'module' => 'Front',
 			'presenter' => [
 				Route::VALUE => 'Homepage',
