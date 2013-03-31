@@ -161,7 +161,7 @@ p{width:90%}
 .categories .tree-container .tree-left ul{text-align:left}
 .categories .tree-container .tree-right{display:inline-block;width:280px;}
 .categories .tree-container .tree-right ul{width:100%}
-.entities{display:inline-block;vertical-align:top;height:100%;width:379px;margin-right:20px;border-left:1px solid #707b8b;}
+.entities{display:inline-block;vertical-align:top;height:100%;width:229px;margin-right:20px;border-left:1px solid #707b8b;}
 .entities ol{list-style:none}
 .entities .parents a{color:#fff}
 .entities .parents li:nth-of-type(1){background-color:#2c3747}
@@ -169,6 +169,9 @@ p{width:90%}
 .entities .parents li:nth-of-type(3){background-color:#929dad}
 .entities .parents li:nth-of-type(4){background-color:#c5d0e0}
 .entity{display:inline-block;width:800px}
+#inject-exercise,#problem-and-answer{display:inline-block;}
+#inject-exercise #problemarea,#problem-and-answer #problemarea{display:inline-block;width:730px}
+#inject-exercise #answer_area_wrap,#problem-and-answer #answer_area_wrap{display:inline-block;width:200px}
 a[href^=error]{color:#f00 !important}
 .container{width:1200px;height:100%;margin:auto}
 .fifty-fifty{display:inline-block;vertical-align:top;}

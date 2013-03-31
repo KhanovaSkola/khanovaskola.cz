@@ -69,7 +69,6 @@ class ExercisePresenter extends BaseFrontPresenter
 			$this->redirect('this', ['id' => $cat->id]);
 		}
 
-		$this->template->setFile(__DIR__ . '/../templates/entity.latte');
 		$this->template->category = $this->category;
 
 		$this->template->exercise = $this->exercise;

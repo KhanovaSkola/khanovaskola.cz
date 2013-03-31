@@ -4,7 +4,7 @@
 {if $is_debug}
 	{var $robots = 'noindex, noarchive'}
 {/if}
-{#scripts}
+{#scripts-ajax}
 	<script>
 		var khanovaskola_user_logged_in = {!=$user->loggedIn ? 'true' : 'false'};
 		var khanovaskola_exercise_id = {!$exercise->id};
@@ -13,9 +13,10 @@
 	{foreach $content->scripts as $script}
 		{!$script}
 	{/foreach}
-{/#scripts}
+{/#}
 {#content}
 
+{include ../_entity.latte}
 {if $is_debug}
 	<article class="warning-banner">
 		<h2 class="main-headline">Neveřejné cvičení: testovací mód</h2>

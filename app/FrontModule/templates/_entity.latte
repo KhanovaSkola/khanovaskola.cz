@@ -1,0 +1,29 @@
+{cache $category->id, tags => ["category/$category->id"]}
+	<div class="categories entities">
+		<ol class="parents">
+			{var $parent = $category->getParent()}
+			{var $parent2 = $parent->getParent()}
+			{var $parent3 = $parent2 ? $parent2->getParent()}
+			<li n:if="$parent3"><a n:href=":Front:Browse:, id => $parent3->id">{$parent3->label}</a></li>
+			<li n:if="$parent2"><a n:href=":Front:Browse:, id => $parent2->id">{$parent2->label}</a></li>
+			<li><a n:href=":Front:Browse:, id => $parent->id">{$parent->label}</a></li>
+			<li><a n:href=":Front:Browse:, id => $category->id">{$category->label}</a></li>
+		</ol>
+		<ol n:inner-foreach="$category->getContent() as $entity">
+			{if $entity instanceof \Entity\Video}
+				<li id="video-{$entity->id}" data-type="video" data-id="{$entity->id}">
+					<a n:href=":Front:Watch:, id => $category->id, vid => $entity->id">
+						<span n:class="'video-progress', 'v-'.$entity->id, $entity->isDubbed() ? 'icon-dubbed'"></span>
+						{$entity->label}
+					</a>
+				</li>
+			{else}
+				<li id="exercise-{$entity->id}" data-type="exercise" data-id="{$entity->id}">
+					<a n:href=":Front:Exercise:, id => $category->id, eid => $entity->id" class="no-ajax">
+						<i class="icon-exercise"></i>
+						{$entity->label}
+					</a>
+				</li>
+			{/if}
+		</ol>
+	</div>{/cache}{* !no space *}
