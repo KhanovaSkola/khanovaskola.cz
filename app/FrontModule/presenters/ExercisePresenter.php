@@ -18,6 +18,9 @@ class ExercisePresenter extends BaseFrontPresenter
 	 */
 	public $id;
 
+	/** @var \Entity\Category */
+	protected $category;
+
 	/**
 	 * @persistent
 	 * @var int
@@ -27,7 +30,7 @@ class ExercisePresenter extends BaseFrontPresenter
 	/** @persistent */
 	public $debug_file;
 
-	/** @var \Exercise */
+	/** @var \Entity\Exercise */
 	protected $exercise;
 
 
@@ -42,6 +45,13 @@ class ExercisePresenter extends BaseFrontPresenter
 
 		} else if ($this->debug_file) {
 			$this->redirect('this', ['debug_file' => NULL]);
+		}
+
+		if ($this->id) {
+			$this->category = $this->context->categories->find($this->id);
+			if (!$this->category) {
+				throw new \Nette\Application\BadRequestException();
+			}
 		}
 	}
 
@@ -58,6 +68,9 @@ class ExercisePresenter extends BaseFrontPresenter
 			$cat = $this->exercise->getCategories()->fetch();
 			$this->redirect('this', ['id' => $cat->id]);
 		}
+
+		$this->template->setFile(__DIR__ . '/../templates/entity.latte');
+		$this->template->category = $this->category;
 
 		$this->template->exercise = $this->exercise;
 		$raw = $this->exercise->getHtmlTemplate();

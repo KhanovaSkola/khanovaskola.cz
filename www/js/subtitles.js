@@ -2,7 +2,10 @@ var sub_ticker = null;
 var center = null;
 var $high = null;
 
-$(function() {
+onLoadQueuePersistent.push(function() {
+	if (!$("#player").length)
+		return false;
+
 	var coords = $("#player").offset();
 	coords.top += 480 - 2 * $("#subtitles-overlay").height() - 70;
 	$("#subtitles-overlay").offset(coords);
@@ -11,8 +14,8 @@ $(function() {
 		player.seekTo($(this).parent().data('start'));
 		e.stopPropagation();
 		return false;
-	})
-})
+	});
+});
 
 onPlayerStateChangeCallbacks.push(function(code) {
 	if (code == 1) { // playing

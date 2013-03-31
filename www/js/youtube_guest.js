@@ -6,25 +6,6 @@ tag.src = "//www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-function onYouTubeIframeAPIReady() {
-	var height = 480;
-	var width = 800;
-
-	player = new YT.Player('player', {
-		height: height,
-		width: width,
-		playerVars: {
-			autoplay: youtube_autoplay,
-			showinfo: 0
-		},
-		videoId: youtube_video_id,
-		events: {
-			//'onReady': onPlayerReady,
-			'onStateChange': onPlayerStateChange
-		}
-	});
-}
-
 var done = false;
 var onPlayerStateChangeCallbacks = [];
 function onPlayerStateChange(event) {

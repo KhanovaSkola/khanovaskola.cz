@@ -46,8 +46,8 @@ class DynamicCssPresenter extends \BasePresenter
 			$partial[] = ".v-{$progress->video_id}:before";
 		}
 
-		$style = implode(',', $watched) . ' {content: "\f058"; color: rgb(43, 157, 0);}' . "\n";
-		$style .= implode(',', $partial) . ' {content: "\f042"; color: rgb(72, 113, 201);}';
+		$style = implode(',', $watched) . ' {content: "\2611"; color: rgb(43, 157, 0);}' . "\n";
+		$style .= implode(',', $partial) . ' {content: "\e793"; color: rgb(72, 113, 201);}';
 
 		return $style;
 	}

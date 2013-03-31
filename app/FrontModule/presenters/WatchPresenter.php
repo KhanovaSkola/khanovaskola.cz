@@ -67,6 +67,7 @@ class WatchPresenter extends BaseFrontPresenter
 		$this->template->video = $this->video;
 		$this->template->category = $this->category;
 
+		$this->template->setFile(__DIR__ . '/../templates/entity.latte');
 		$this->template->subtitles = $this->context->amara->getSubtitles($this->video);
 	}
 

@@ -3,7 +3,7 @@
 {#scripts}
 	{if $show_video_order}
 		<script>
-			$(function() {
+			onLoadQueue.push(function() {
 				var prompt_shown = false;
 
 				$(".videos-table ol").sortable({
@@ -34,39 +34,76 @@
 {/#}
 {#content}
 
-<article id="topic-page" itemscope="" itemtype="http://schema.org/{ifset $leaf}VideoGallery{else}CollectionPage{/ifset}">
-	<div class="topic-page-content">
-		<div class="container">
-			{cache $selected->id, tags => ["category/$selected->id", "category/$category->id"]}
-				<div class="nav-pane">
-					<ul>
-						<li n:class="$category->id == $selected->id ? 'selected'">
-							<a class="subtopic-link" n:href=":Front:Browse:, id => $category->id" itemprop="isPartOf">
-								<h2 class="topic-heading">{$category->label}</h2>
-								<div class="right-arrow"></div>
-							</a>
-						</li>
-						<li class="subheading"><span>Témata</span></li>
-						<li n:foreach="$category->getSubcategories() as $subcat" n:class="$subcat->id == $selected->id ? 'selected'">
-							<a class="subtopic-link" n:href=":Front:Browse:, id => $subcat->id"{if $subcat->id == $selected->id} itemprop="isPartOf"{/if}>
-								<i n:class="$subcat->containsDubbedVideos() ? 'icon-dubbed'"></i>
-								{$subcat->label}
-								<div class="right-arrow"></div>
-							</a>
-						</li>
-					</ul>
+<article class="categories" itemscope="" itemtype="http://schema.org/{ifset $leaf}VideoGallery{else}CollectionPage{/ifset}">
+	{define #list}
+		<ul>
+			<li n:foreach="$parent->getSubCategories() as $category"
+				n:class="$category->isEqualTo($selected) || $category->containsCategory($selected) ? selected">
+				<a n:href=":Front:Browse:, id => $category->id">
+					{$category->label}
+				</a>
+			</li>
+		</ul>&nbsp;
+	{/define}
+	{cache $selected->id, tags => ["category/$selected->id"]}
+		<div class="tree-container">
+			<div class="tree-left-container">
+				<div class="tree-left">
+					{if $selected->isSubject()}
+						<ul>
+							<li class="selected">
+								<a n:href=":Front:Browse:, id => $selected->id">{$selected->label}</a>
+							</li>
+						</ul>
+					{else}
+						{var $parent => $selected->getParent()}
+						{block #cats}
+							{if !$parent->isSubject()}
+								{include #cats, parent => $parent->getParent()}
+							{else}
+								<ul>
+									<li class="selected">
+										<a n:href=":Front:Browse:, id => $parent->id">{$parent->label}</a>
+									</li>
+								</ul>
+							{/if}
+							{if !$selected->isLeaf() || ($selected->isLeaf() && !$parent->isEqualTo($selected->getParent()))}
+								{include #list, parent => $parent}
+							{/if}
+						{/block}
+					{/if}
 				</div>
-			{/cache}
-			<div class="content-pane indent">
-				{ifset $leaf}
-					{include '_pane_leaf.latte'}
+			</div>
+			<div class="tree-right">
+				{if $selected->isLeaf()}
+					{include #list, parent => $selected->getParent()}
 				{else}
-					{cache $selected->id, tags => ["category/$selected->id", "category/$category->id"]}
-						{include '_pane_topic.latte'}
-					{/cache}
-				{/ifset}
+					{include #list, parent => $selected}
+				{/if}
 			</div>
 		</div>
-	</div>
-
+		<div class="entities">
+			{if $selected->isLeaf()}
+				<ol n:inner-foreach="$selected->getContent() as $entity">
+					{if $entity instanceof \Entity\Video}
+						<li id="video-{$entity->id}" data-type="video" data-id="{$entity->id}">
+							<a n:href=":Front:Watch:, id => $selected->id, vid => $entity->id" itemprop="significantLink">
+								{*if $show_video_order}<span class="sortable-arrow">↕</span>{/if*}
+								<span n:class="'video-progress', 'v-'.$entity->id, $entity->isDubbed() ? 'icon-dubbed'"></span>
+								{$entity->label}
+							</a>
+						</li>
+					{else}
+						<li id="exercise-{$entity->id}" data-type="exercise" data-id="{$entity->id}">
+							<a n:href=":Front:Exercise:, id => $selected->id, eid => $entity->id" itemprop="significantLink">
+								{*if $show_video_order}<span class="sortable-arrow">↕</span>{/if*}
+								<i class="icon-exercise"></i>
+								{$entity->label}
+							</a>
+						</li>
+					{/if}
+				</ol>
+			{/if}
+		</div>
+	{/cache}
 </article>

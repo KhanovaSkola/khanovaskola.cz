@@ -464,4 +464,19 @@ class Category extends \ORM\EntityUrl
 		return FALSE;
 	}
 
+
+
+	public function containsCategory(Category $category)
+	{
+		foreach ($this->getSubCategories() as $subcat) {
+			if ($subcat->isEqualTo($category)) {
+				return TRUE;
+
+			} elseif ($subcat->containsCategory($category)) {
+				return TRUE;
+			}
+		}
+		return FALSE;
+	}
+
 }

@@ -28,4 +28,18 @@ abstract class Entity extends \Nette\Database\Table\ActiveRow
 		return end($cls);
 	}
 
+
+
+	/**
+	 * @return bool
+	 */
+	public function isEqualTo(Entity $entity)
+	{
+		if (get_class($entity) !== get_class($this)) {
+			return FALSE;
+		}
+
+		return $this->id === $entity->id;
+	}
+
 }

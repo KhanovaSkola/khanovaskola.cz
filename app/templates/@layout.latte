@@ -48,6 +48,8 @@
 	{#head}{/#}
 
 	<script>
+		var onLoadQueue = [];
+		var onLoadQueuePersistent = [];
 		/** error logging */
 		window.onerror = function(errorMessage, url, line) {
 			var parameters = "?description=" + escape(errorMessage)
@@ -212,6 +214,90 @@
 	<script type="text/javascript" src="{$cdnUrl}/js/nette.ajax.js"></script>
 	<script type="text/javascript" src="{$cdnUrl}/js/history.ajax.js"></script>
 	<script type="text/javascript" src="{$cdnUrl}/js/khan.v-{=md5_file(WWW_DIR . '/js/khan.js')}.js"></script>
+
+	{* video scripts *}
+		<script>
+			var youtubeReady = false;
+			function onYouTubeIframeAPIReady() {
+				youtubeReady = true;
+				if (typeof video_id === "undefined")
+					return false;
+
+				showVideo();
+			}
+			function showVideo() {
+				var height = 480;
+				var width = 800;
+
+				player = new YT.Player('player', {
+					height: height,
+					width: width,
+					playerVars: {
+						autoplay: youtube_autoplay,
+						showinfo: 0
+					},
+					videoId: youtube_video_id,
+					events: {
+						'onStateChange': onPlayerStateChange
+					}
+				});
+			}
+
+			var player = null;
+			var ticker = null;
+
+			var tag = document.createElement('script');
+			tag.src = "//www.youtube.com/iframe_api";
+			var firstScriptTag = document.getElementsByTagName('script')[0];
+			firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+			var done = false;
+			var onPlayerStateChangeCallbacks = [];
+			function onPlayerStateChange(event) {
+				for (i = 0; i < onPlayerStateChangeCallbacks.length; ++i) {
+					onPlayerStateChangeCallbacks[i](event.data);
+				}
+			}
+
+			onPlayerStateChangeCallbacks.push(fireGAEvent);
+			function fireGAEvent(code) {
+				if (code == 0) {
+					_gaq.push(['_trackEvent', 'Video', 'Video-Watched', video_id]);
+				}
+			}
+
+			onPlayerStateChangeCallbacks.push(saveState);
+			function saveState(code) {
+				if (code == 1) {
+					ticker = setInterval(function() {
+						updateProgress(player.getCurrentTime());
+					}, 5000);
+				} else {
+					clearInterval(ticker);
+				}
+
+				if (code == 0) { // save only if video ended
+					updateProgress(-1);
+				}
+			}
+
+			function updateProgress(progress) {
+				$.ajax(youtube_progress_url, {
+					data: { seconds: progress},
+					success: function(response) {
+						if (response.status !== 'success') {
+							console.error("Error while saving progress: ", response);
+						}
+					}
+				});
+			}
+		</script>
+		<script type="text/javascript" src="{$cdnUrl}/js/subtitles.js"></script>
+	{* end video scripts *}
+
 	{#scripts}{/#}
+	{snippet scripts}
+		{#scripts-ajax}{/#}
+	{/snippet}
 </body>
 </html>

@@ -29,8 +29,7 @@ class BrowsePresenter extends BaseFrontPresenter
 			throw new \Nette\Application\BadRequestException;
 		}
 
-		if (!$this->category || $this->category->isSubject()) {
-			// those are not rendered
+		if (!$this->category) {
 			$this->redirect(':Front:Homepage:');
 		}
 	}
@@ -40,15 +39,7 @@ class BrowsePresenter extends BaseFrontPresenter
 	public function renderDefault()
 	{
 		$this->template->selected = $this->category;
-		if ($this->category->isLeaf()) {
-			$this->template->category = $this->category->getParent();
-			$this->template->leaf = $this->category;
-			$this->template->show_video_order = $this->user->isInrole(ROLE::EDITOR);
-
-		} else { // isSubcategory
-			$this->template->show_video_order = FALSE;
-			$this->template->category = $this->category;
-		}
+		$this->template->show_video_order = $this->user->isInrole(ROLE::EDITOR);
 	}
 
 

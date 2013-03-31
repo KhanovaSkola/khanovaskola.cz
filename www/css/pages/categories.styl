@@ -1,0 +1,55 @@
+.categories
+	$width = auto
+	height 600px
+	.tree-container
+		display inline-block
+		ul
+			display inline-block
+			width $width
+			vertical-align top
+			list-style none
+			border-left 1px solid $lightBlue
+			line-height 130%
+
+			li
+				margin 0 1em 0 .5em
+			li.selected
+				background-color $lightBlue
+				margin 0
+				padding 0 1em 0 .5em
+				a
+					color white
+		.tree-left-container
+			position absolute
+		.tree-left
+			position absolute
+			width 1000px
+			right 0
+			text-align right
+			ul
+				text-align left
+		.tree-right
+			display inline-block
+			width 280px
+			ul
+				width 100%
+.entities
+	display inline-block
+	vertical-align top
+	height 100%
+	width 400px - 1px - 20px
+	margin-right 20px
+	border-left 1px solid $lightBlue
+	ol
+		list-style none
+	.parents
+		a
+			color white
+		li:nth-of-type(1)
+			background-color $blue
+		li:nth-of-type(2)
+			background-color $blue + #333
+		li:nth-of-type(3)
+			background-color $blue + 2*#333
+		li:nth-of-type(4)
+			background-color $blue + 3*#333

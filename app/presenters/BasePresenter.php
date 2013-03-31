@@ -28,6 +28,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 		$this->invalidateControl('title');
 		$this->invalidateControl('header');
 		$this->invalidateControl('content');
+		$this->invalidateControl('scripts');
 	}
 
 
