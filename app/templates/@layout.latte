@@ -108,6 +108,7 @@
 				</div>
 			</div>
 			<ul n:snippet="header" class="float-right">
+				<li>{=mt_rand(1e6, 1e7-1)}</li>
 				{if $user->isLoggedIn()}
 					<li><a n:href=":Front:Profile:, pid => NULL">{$user->entity->name}</a></li>
 					<li n:if="$user->isInRole($ROLE::EDITOR)"><a n:href=":Moderator:Dashboard:">Moderátoři</a></li>

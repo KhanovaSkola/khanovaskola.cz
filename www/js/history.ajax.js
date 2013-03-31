@@ -49,10 +49,10 @@ $.nette.ext('history', {
 				handleState(this, 'UI', [state.ui]);
 				handleState(this, 'title', [state.title]);
 			} else {
-				$.nette.ajax({
+				/*$.nette.ajax({
 					url: state.href,
 					off: ['history']
-				});
+				});*/
 			}
 		}, this));
 	},
