@@ -1,0 +1,39 @@
+#subtitles
+	height 180px
+	width 800px
+	overflow scroll
+	padding 0
+
+	table
+		width 100%
+	div
+		padding 0 0 4px 5px
+		font-size 12pt
+
+		&:first-child
+			margin-top 60px
+
+		&:last-child
+			margin-bottom 140px
+
+	.highlight
+		background-color rgba(157, 182, 59, 0.3)
+	.time
+		color rgb(150, 150, 150)
+		font-family sans-serif
+		font-size 80%
+	.row
+		height 23px
+	td.narrow
+		width 50px
+
+#subtitles-overlay
+	position absolute
+	width 450px
+	font-size 14pt
+	color white
+	padding 0 200px
+	text-align center
+	text-shadow -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000
+	pointer-events none
+	line-height 20pt

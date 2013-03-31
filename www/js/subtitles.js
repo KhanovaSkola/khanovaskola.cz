@@ -4,7 +4,7 @@ var $high = null;
 
 $(function() {
 	var coords = $("#player").offset();
-	coords.top += 480 - 2 * $("#subtitles-overlay").height() - 50;
+	coords.top += 480 - 2 * $("#subtitles-overlay").height() - 70;
 	$("#subtitles-overlay").offset(coords);
 
 	$('.time').click(function(e) {

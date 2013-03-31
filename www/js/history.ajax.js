@@ -42,19 +42,19 @@ $.nette.ext('history', {
 			ui: findSnippets()
 		}, document.title, window.location.href);
 
-		$(window).on('popstate.nette', $.proxy(function (e) {
+		/*$(window).on('popstate.nette', $.proxy(function (e) {
 			var state = e.originalEvent.state || this.initialState;
 			if (window.history.ready || !state || !state.nette) return;
 			if (this.cache && state.ui) {
 				handleState(this, 'UI', [state.ui]);
 				handleState(this, 'title', [state.title]);
 			} else {
-				/*$.nette.ajax({
+				$.nette.ajax({
 					url: state.href,
 					off: ['history']
-				});*/
+				});
 			}
-		}, this));
+		}, this));*/
 	},
 	before: function (xhr, settings) {
 		if (!settings.nette) {

@@ -139,6 +139,16 @@ p{width:90%}
 .registration .col1 img{padding-right:1em}
 .registration .col2 form{margin-left:2em;}
 .registration .col2 form .checkbox-container{margin:2ex 0}
+#subtitles{height:180px;width:800px;overflow:scroll;padding:0;}
+#subtitles table{width:100%}
+#subtitles div{padding:0 0 4px 5px;font-size:12pt;}
+#subtitles div:first-child{margin-top:60px}
+#subtitles div:last-child{margin-bottom:140px}
+#subtitles .highlight{background-color:rgba(157,182,59,0.3)}
+#subtitles .time{color:#969696;font-family:sans-serif;font-size:80%}
+#subtitles .row{height:23px}
+#subtitles td.narrow{width:50px}
+#subtitles-overlay{position:absolute;width:450px;font-size:14pt;color:#fff;padding:0 200px;text-align:center;text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;pointer-events:none;line-height:20pt}
 a[href^=error]{color:#f00 !important}
 .container{width:1200px;height:100%;margin:auto}
 .fifty-fifty{display:inline-block;vertical-align:top;}
