@@ -3,21 +3,20 @@ body
 	font-weight 300
 	font-style normal
 	text-rendering optimizeLegibility
-
-a
+a:not(.button)
 	text-decoration none
+	color $link
 	&:visited, &:link, &:visited
-		color inherit
-
+		color $link
+	&:hover
+		color $green
+		text-decoration underline
 .float-left
 	float left
-
 .float-right
 	float right
-
 .clear
 	clear both
-
 .icon-dubbed
 	color rgb(72, 113, 201)
 .error

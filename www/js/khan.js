@@ -69,9 +69,12 @@ $(function() {
 	}
 
 	var isMouseOver = false;
-	$("header .dropdown-trigger")/*.hover(function() {
-		setTimeout(openDropdown, 100);
-	})*/.click(function() {
+	$("header .dropdown .expandable").on('click', function(e) {
+		var $row = $(e.target).parent();
+		$row.parent().find('li').removeClass('hover');
+		$row.addClass('hover');
+	});
+	$("header .dropdown-trigger").on('click', function() {
 		if (dropdownIsOpened) {
 			closeDropdown();
 		} else {

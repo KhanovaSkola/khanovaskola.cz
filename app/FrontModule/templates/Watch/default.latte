@@ -31,68 +31,70 @@
 	<script n:if="$subtitles" type="text/javascript" src="{$cdnUrl}/js/subtitles.js"></script>
 {/#}
 {#content}
-<article id="video-page">
-	<div n:class="video, $video->isDubbed() ? video-dubbed">
-		<div itemscope="" itemtype="http://schema.org/VideoObject">
+<article>
+	<div itemscope="" itemtype="http://schema.org/VideoObject" class="center">
+		<div>
+			{var $exercise => $video->getExercise()}
+			<a n:if="$exercise" n:href=":Front:Exercise:, id => $exercise->getOneCategoryId(), eid => $exercise->id" class="button" title="Ověřte si pochopení tématu na cvičeních" target="_blank">
+				Procvičit toto téma
+			</a>
+			<a n:if="!$exercise && $video->external_exercise_url" href="{$video->external_exercise_url}" class="button blue" target="_blank">
+				Externí cvičení
+			</a>
+			<h1 class="title-header">
+				<span itemprop="name caption" class="title desktop-only">{$video->label}</span><span n:if="$video->description">: <span itemprop="description">{$video->description}</span>{if $video->hasAuthor()} Dabing {!$video->getAuthor()->getNbName()}.{/if}</span>
+			</h1>
+			<p>
+				<a n:if="!$video->isDubbed()" n:href="editSubtitles" rel="nofollow" target="_blank">upravit titulky</a>
+			</p>
 			<div>
-				<div id="description" class="video-description">
-					{var $exercise => $video->getExercise()}
-					<a n:if="$exercise" n:href=":Front:Exercise:, id => $exercise->getOneCategoryId(), eid => $exercise->id" class="practice simple-button green desktop-only" title="Ověřte si pochopení tématu na cvičeních" target="_blank">
-						Procvičit toto téma</a>
-					<a n:if="!$exercise && $video->external_exercise_url" href="{$video->external_exercise_url}" class="practice simple-button blue desktop-only" target="_blank">
-						Externí cvičení</a></a>
-					<h1 class="title-header">
-						<span itemprop="name caption" class="title desktop-only">{$video->label}</span><span n:if="$video->description" class="long-description">: <span itemprop="description">{$video->description}</span>{if $video->hasAuthor()} Dabing {!$video->getAuthor()->getNbName()}.{/if}</span>
-						<a n:if="!$video->isDubbed()" n:href="editSubtitles" class="subtitles-edit" rel="nofollow" target="_blank">upravit titulky</a>
-					</h1>
-					<div>
-						{if $user->isInrole($ROLE::ADMIN) && count($video->getSlugs()) > 1 || count($video->getAdSlugs())}
-							<b>Aliasy:</b>
-							{foreach $video->getSlugs() as $slug}<a n:href="this, vid => $slug">{plink this, vid => $slug}</a>{sep}, {/sep}{/foreach}, 
-							{foreach $video->getAdSlugs() as $slug}<a n:href="alias, vid => $slug, id => NULL">{plink alias, vid => $slug, id => NULL}</a>{sep}, {/sep}{/foreach}
-						{/if}
-					</div>
-					<a n:if="$user->isInrole($ROLE::EDITOR)" n:href="edit" class="call-to-action simple-button blue">Upravit</a>
-					<a n:if="$user->isInrole($ROLE::EDITOR)" n:href="reloadSubtitles!" class="call-to-action simple-button blue">Znovu načíst titulky</a>
-					{if $user->isInrole($ROLE::VERIFIER) && !$video->isDubbed()}
-						{if $video->hasUserVerified($user)}
-							Děkujeme za ověření překladu. <a n:href="undoVerify!">Zrušit</a>.
-						{else}
-							<a n:href="verify!" class="call-to-action simple-button blue">Ověřil jsem překlad</a>
-						{/if}
-						{foreach $video->getVerifications() as $ver}
-							{first}<p>Ověřil: {/first}
-							{$ver->user->name}{sep},{/sep}
-							{last}</p>{/last}
-						{/foreach}
-					{/if}
-				</div>
-				<div class="video-header">
-					<nav class="prev_next_nav desktop-only">
-						{var $prev => $video->getPreviousVideo($category)}
-						<label id="prev_video">
-							<a n:if="$prev" rel="prev" class="previous-video" n:href="this, vid => $prev->id">
-								<b>Předchozí video:</b> {$prev->label}
-							</a>
-							<a n:if="!$prev" class="previous-video"></a>
-						</label>
-						{var $next => $video->getNextVideo($category)}
-						<label id="next_video" n:if="$next">
-							<a rel="next" class="next-video" n:href="this, vid => $next->id"><b>Další video:</b> {$next->label}</a>
-						</label>
-						<div class="clear"></div>
-					</nav>
-				</div>
+				{if $user->isInrole($ROLE::ADMIN) && count($video->getSlugs()) > 1 || count($video->getAdSlugs())}
+					<b>Aliasy:</b>
+					{foreach $video->getSlugs() as $slug}<a n:href="this, vid => $slug">{plink this, vid => $slug}</a>{sep}, {/sep}{/foreach}, 
+					{foreach $video->getAdSlugs() as $slug}<a n:href="alias, vid => $slug, id => NULL">{plink alias, vid => $slug, id => NULL}</a>{sep}, {/sep}{/foreach}
+				{/if}
 			</div>
-			<div class="video-container">
-				<div id="player"></div>
-			</div>
-			{if $subtitles}
-				{control subtitles, $subtitles}
+			<a n:if="$user->isInrole($ROLE::EDITOR)" n:href="edit" class="button blue">Upravit</a>
+			<a n:if="$user->isInrole($ROLE::EDITOR)" n:href="reloadSubtitles!" class="button blue">Znovu načíst titulky</a>
+			{if $user->isInrole($ROLE::VERIFIER) && !$video->isDubbed()}
+				{if $video->hasUserVerified($user)}
+					Děkujeme za ověření překladu. <a n:href="undoVerify!">Zrušit</a>.
+				{else}
+					<a n:href="verify!" class="button blue">Ověřil jsem překlad</a>
+				{/if}
+				{foreach $video->getVerifications() as $ver}
+					{first}<p>Ověřil: {/first}
+					{$ver->user->name}{sep},{/sep}
+					{last}</p>{/last}
+				{/foreach}
 			{/if}
 		</div>
-		<p class="center">
-			<a n:href=":Front:Browse:, id => $category->id" class="call-to-action blue simple-button">Další videa z {$category->label}</a>
-		</p>
+		<div>
+			<nav>
+				{var $prev => $video->getPreviousVideo($category)}
+				<label n:if="$prev">
+					<a n:href="this, vid => $prev->id">
+						<i class="icon-arrow-left"></i>
+						<b>Předchozí video:</b> {$prev->label}
+					</a>
+				</label>
+				{var $next => $video->getNextVideo($category)}
+				<label n:if="$next">
+					<a n:href="this, vid => $next->id">
+						<i class="icon-arrow-right"></i>
+						<b>Další video:</b> {$next->label}
+					</a>
+				</label>
+				<div class="clear"></div>
+			</nav>
+		</div>
+		<div class="video-container">
+			<div id="player"></div>
+		</div>
+		{if $subtitles}
+			{control subtitles, $subtitles}
+		{else}
+			<a n:href=":Front:Browse:, id => $category->id" class="button blue">Další videa z {$category->label}</a>
+		{/if}
 	</div>
 </article>

@@ -85,7 +85,7 @@
 								<a n:href=":Front:Browse:, id => $subcat->id">{$subject->label}</a>
 							{/foreach}
 						{elseif $count > 1}
-							<a>{$subject->label}</a>
+							<a href="#">{$subject->label}</a>
 							<ul>
 								<li n:foreach="$subject->getSubCategories() as $subcat">
 									<a n:href=":Front:Browse:, id => $subcat->id">{$subcat->label}</a>

@@ -5,6 +5,12 @@ header
 	background-color $blue
 	margin-bottom 3ex
 
+	a:not(.button)
+		color white
+		&:visited, &:link, &:visited
+			text-decoration none
+			color inherit
+
 	.logo
 		position absolute
 		padding-top 3px
@@ -49,6 +55,7 @@ header
 	ul.dropdown
 		display none
 		position absolute
+		z-index 100
 		top $headerHeight
 		width $dropdownWidth = 176px
 		height auto
