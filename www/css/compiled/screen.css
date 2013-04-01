@@ -158,17 +158,12 @@ cite{color:#707b8b}
 #subtitles td.narrow{width:50px}
 #subtitles-overlay{position:absolute;width:450px;font-size:14pt;color:#fff;padding:0 200px;text-align:center;text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;pointer-events:none;line-height:20pt}
 .center{margin:auto;width:800px}
-.categories{height:600px;}
-.categories .tree-container{display:inline-block;}
-.categories .tree-container ul{display:inline-block;width:auto;vertical-align:top;list-style:none;border-left:1px solid #707b8b;line-height:130%;}
-.categories .tree-container ul li{margin:0 1em 0 .5em}
-.categories .tree-container ul li.selected{background-color:#707b8b;margin:0;padding:0 1em 0 .5em;}
-.categories .tree-container ul li.selected a{color:#fff}
-.categories .tree-container .tree-left-container{position:absolute}
-.categories .tree-container .tree-left{position:absolute;width:1000px;right:0;text-align:right;}
-.categories .tree-container .tree-left ul{text-align:left}
-.categories .tree-container .tree-right{display:inline-block;width:280px;}
-.categories .tree-container .tree-right ul{width:100%}
+.categories .tree{display:inline-block;}
+.categories .tree ul{display:inline-block;width:auto;vertical-align:top;list-style:none;border-left:1px solid #707b8b;line-height:130%;}
+.categories .tree ul li{margin:0 1em 0 .5em}
+.categories .tree ul li.selected{background-color:#707b8b;margin:0;padding:0 1em 0 .5em;}
+.categories .tree ul li.selected a{color:#fff}
+.categories .tree ul ul{text-align:left}
 .entities{display:inline-block;vertical-align:top;height:100%;width:229px;margin-right:20px;border-left:1px solid #707b8b;}
 .entities ol{list-style:none}
 .entities .parents a{color:#fff}

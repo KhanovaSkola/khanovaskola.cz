@@ -46,63 +46,33 @@
 		</ul>&nbsp;
 	{/define}
 	{cache $selected->id, tags => ["category/$selected->id"]}
-		<div class="tree-container">
-			<div class="tree-left-container">
-				<div class="tree-left">
-					{if $selected->isSubject()}
+		<div class="tree">
+			{if $selected->isSubject()}
+				<ul>
+					<li class="selected">
+						<a n:href=":Front:Browse:, id => $selected->id">{$selected->label}</a>
+					</li>
+				</ul>
+			{else}
+				{var $parent => $selected->getParent()}
+				{block #cats}
+					{if !$parent->isSubject()}
+						{include #cats, parent => $parent->getParent()}
+					{else}
 						<ul>
 							<li class="selected">
-								<a n:href=":Front:Browse:, id => $selected->id">{$selected->label}</a>
+								<a n:href=":Front:Browse:, id => $parent->id">{$parent->label}</a>
 							</li>
 						</ul>
-					{else}
-						{var $parent => $selected->getParent()}
-						{block #cats}
-							{if !$parent->isSubject()}
-								{include #cats, parent => $parent->getParent()}
-							{else}
-								<ul>
-									<li class="selected">
-										<a n:href=":Front:Browse:, id => $parent->id">{$parent->label}</a>
-									</li>
-								</ul>
-							{/if}
-							{if !$selected->isLeaf() || ($selected->isLeaf() && !$parent->isEqualTo($selected->getParent()))}
-								{include #list, parent => $parent}
-							{/if}
-						{/block}
 					{/if}
-				</div>
-			</div>
-			<div class="tree-right">
-				{if $selected->isLeaf()}
-					{include #list, parent => $selected->getParent()}
-				{else}
-					{include #list, parent => $selected}
-				{/if}
-			</div>
+					{include #list, parent => $parent}
+				{/block}
+			{/if}
+			{include #list, parent => $selected}
 		</div>
 		<div class="entities">
 			{if $selected->isLeaf()}
-				<ol n:inner-foreach="$selected->getContent() as $entity">
-					{if $entity instanceof \Entity\Video}
-						<li id="video-{$entity->id}" data-type="video" data-id="{$entity->id}">
-							<a n:href=":Front:Watch:, id => $selected->id, vid => $entity->id" itemprop="significantLink">
-								{*if $show_video_order}<span class="sortable-arrow">↕</span>{/if*}
-								<span n:class="'video-progress', 'v-'.$entity->id, $entity->isDubbed() ? 'icon-dubbed'"></span>
-								{$entity->label}
-							</a>
-						</li>
-					{else}
-						<li id="exercise-{$entity->id}" data-type="exercise" data-id="{$entity->id}">
-							<a n:href=":Front:Exercise:, id => $selected->id, eid => $entity->id" itemprop="significantLink">
-								{*if $show_video_order}<span class="sortable-arrow">↕</span>{/if*}
-								<i class="icon-exercise"></i>
-								{$entity->label}
-							</a>
-						</li>
-					{/if}
-				</ol>
+				{include ../_leaf.latte, category => $selected}
 			{/if}
 		</div>
 	{/cache}
