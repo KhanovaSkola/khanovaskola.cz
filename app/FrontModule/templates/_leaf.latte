@@ -1,3 +1,11 @@
+<style>
+	{ifset $video}{var $node = "#video-$video->id"}{/ifset}
+	{ifset $exercise}{var $node = "#exercise-$exercise->id"}{/ifset}
+	{if $node}
+		{!$node} { background-color: #707b8b}
+		{!$node} a { color: white}
+	{/if}
+</style>
 {cache $category->id, tags => ["category/$category->id"]}
 	<div class="categories entities">
 		<ol class="parents">
@@ -9,11 +17,11 @@
 			<li><a n:href=":Front:Browse:, id => $parent->id">{$parent->label}</a></li>
 			<li><a n:href=":Front:Browse:, id => $category->id">{$category->label}</a></li>
 		</ol>
-		<ol n:inner-foreach="$category->getContent() as $entity">
+		<ol n:inner-foreach="$category->getContent() as $entity" class="path">
 			{if $entity instanceof \Entity\Video}
 				<li id="video-{$entity->id}" data-type="video" data-id="{$entity->id}">
 					<a n:href=":Front:Watch:, id => $category->id, vid => $entity->id">
-						<span n:class="'video-progress', 'v-'.$entity->id, $entity->isDubbed() ? 'icon-dubbed'"></span>
+						<i n:class="'icon-video', 'v-'.$entity->id, $entity->isDubbed() ? 'icon-dubbed'"></i>
 						{$entity->label}
 					</a>
 				</li>

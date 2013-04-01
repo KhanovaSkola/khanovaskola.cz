@@ -28,6 +28,30 @@
 	border-left 1px solid $lightBlue
 	ol
 		list-style none
+		&.path
+			font-size 11pt
+			li
+				background-color $gray
+				border-bottom 1px solid $darkGray
+				&:hover
+					background-color white
+				a
+					display block
+					padding 1ex 1em .5ex 34px
+					&:hover
+						text-decoration none
+				i
+					display inline-block
+					font-size 14pt
+					width $size = 28px
+					$offset = 5px
+					height $size - $offset
+					padding-top $offset
+					border-radius($size / 2)
+					margin-left -30px
+					background-color $darkGray
+					color $blue
+
 	.parents
 		a
 			color white
