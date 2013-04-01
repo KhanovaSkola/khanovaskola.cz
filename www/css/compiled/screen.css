@@ -122,7 +122,7 @@ cite{color:#707b8b}
 .category-blocks .block{display:inline-block;padding:5pt 4pt;width:170px;font-size:14px;background-color:#f7f7f7;margin:none;border:1px solid #ddd;margin:-1px 0 0 -1px;}
 .category-blocks .block:hover{background-color:#d3ddb6}
 .category-blocks .block i[class^=icon]{font-size:12px}
-p{width:90%}
+.main-text p{width:90%}
 .call-to-action{margin:2ex 0}
 .sponsors{margin:1ex 0}
 .credentials{-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;-webkit-background-clip:padding-box;-moz-background-clip:padding-box;border-background-clip:padding-box;background-color:#eee;border:1px solid #ccc;border-bottom:1px solid #aaa;-webkit-box-shadow:0 1px 3px #ccc;-moz-box-shadow:0 1px 3px #ccc;box-shadow:0 1px 3px #ccc;width:59%;margin:auto;padding:1em;}
@@ -183,6 +183,20 @@ p{width:90%}
 .volunteer ul li{margin:2ex 0 1ex 2em}
 .volunteer h2{margin:3ex 0 1ex 0}
 .volunteer .buttons{margin:2ex 0 3ex 0}
+.blog h2{margin-bottom:0;float:left}
+.blog-detail .holder{margin:auto;margin-top:32px}
+.blog-detail h2{margin:0;padding:0;float:left}
+.blog-detail p{padding-top:1.5ex;}
+.blog-detail p:last-of-type{font-style:italic}
+.blog-detail img{display:block;width:640px;margin:2ex 0}
+.blog div p,.blog-detail div p{margin-top:0;text-align:justify}
+.blog-time{float:right}
+.blog-edit{margin-left:1em}
+.blog-form{float:left;width:50%}
+.blog-help{float:right;width:28%;margin-top:4ex;}
+.blog-help .code{background-color:#f2f2f2;padding:1ex}
+.blog-strip{width:640px;margin:auto;margin-bottom:2em}
+.articles,.blog-detail{width:640px;margin:auto}
 a[href^=error]{color:#f00 !important}
 .container{width:1200px;height:100%;margin:auto}
 .fifty-fifty{display:inline-block;vertical-align:top;}
