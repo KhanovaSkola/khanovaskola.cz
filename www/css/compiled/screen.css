@@ -91,13 +91,14 @@ a:not(.button):hover{color:#678d00;text-decoration:underline}
 .error{color:#f00;margin-bottom:1ex}
 ul.error{list-style:none}
 p{line-height:2.7ex;}
-p a{color:#005987;text-decoration:none;}
-p a:visited,p a:link,p a:visited{color:#005987}
-p a:hover{color:#678d00;text-decoration:underline}
+p a:not(.button){color:#005987;text-decoration:none;}
+p a:not(.button):visited,p a:not(.button):link,p a:not(.button):visited{color:#005987}
+p a:not(.button):hover{color:#678d00;text-decoration:underline}
 h1{font-size:16pt;margin-bottom:1ex}
 h3{font-size:14pt}
 h4{font-size:12pt}
 input[type=text],input[type=email],input[type=password]{background-color:#fafafa;border:1px solid #c6d1ad;font-size:10pt;padding:0 0 0 .5em;margin-bottom:.5ex;height:24px;width:160px;-webkit-outline-style:none;-moz-outline-style:none;outline:0;-webkit-box-shadow:0 0 0 0 #678d00;-moz-box-shadow:0 0 0 0 #678d00;box-shadow:0 0 0 0 #678d00;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px}
+cite{color:#707b8b}
 .main-search{text-align:center;background-color:#f7f7f7;border:1px solid #ddd;margin:0 0 3ex 0;}
 .main-search label,.main-search h1,.main-search form{display:inline-block}
 .main-search h1{font-size:22pt;margin:0 1em 0 0}
@@ -172,16 +173,20 @@ p{width:90%}
 #inject-exercise,#problem-and-answer{display:inline-block;}
 #inject-exercise #problemarea,#problem-and-answer #problemarea{display:inline-block;width:730px}
 #inject-exercise #answer_area_wrap,#problem-and-answer #answer_area_wrap{display:inline-block;width:200px}
+.volunteer .enum{font-size:10pt}
+.volunteer ul li{margin:2ex 0 1ex 2em}
+.volunteer h2{margin:3ex 0 1ex 0}
+.volunteer .buttons{margin:2ex 0 3ex 0}
 a[href^=error]{color:#f00 !important}
 .container{width:1200px;height:100%;margin:auto}
 .fifty-fifty{display:inline-block;vertical-align:top;}
 .fifty-fifty.col1,.fifty-fifty.col2{width:49%}
-.sixty-fourty{display:inline-block;vertical-align:top;}
-.sixty-fourty.col1{width:59%}
-.sixty-fourty.col2{width:39%}
-.fourty-sixty{display:inline-block;vertical-align:top;}
-.fourty-sixty.col1{width:39%}
-.fourty-sixty.col2{width:59%}
+.sixty-forty{display:inline-block;vertical-align:top;}
+.sixty-forty.col1{width:59%}
+.sixty-forty.col2{width:39%}
+.forty-sixty{display:inline-block;vertical-align:top;}
+.forty-sixty.col1{width:39%}
+.forty-sixty.col2{width:59%}
 .thirty-seventy{display:inline-block;vertical-align:top;}
 .thirty-seventy.col1{width:29%}
 .thirty-seventy.col2{width:69%}

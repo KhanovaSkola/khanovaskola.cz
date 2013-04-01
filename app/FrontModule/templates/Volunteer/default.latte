@@ -27,22 +27,24 @@
 	{/cache}
 {/#}
 {#content}
-<article>
+<article class="volunteer">
 	<div>
-		<h2 class="main-headline">Zapojte se</h2>
+		<h1>Zapojte se</h1>
 		<p>
 			<cite><em>
 				„Dělte se o svou zkušenost. Je to cesta jak dosáhnout nesmrtelnosti.“ —Dalajláma
 			</em></cite>
 		</p>
 	</div>
+
 	<div class="col1 sixty-forty">
 		<p>Koho potřebujeme?</p>
-		<ol>
-			<li><p><b>Překladatele</b> &ndash; Dobrovolníky s ucházející znalostí angličtiny, kteří nám pomohou překládat výukové materiály do češtiny.</p></li>
-			<li><p><b>Učitele</b> &ndash; Hledáme zkušené a zapálené učitele, ochotné předat své vědomosti ne 30 dětem, ale tisícům.</p></li>
-			<li><p><b>Garanty</b> &ndash; Máte dobrou angličtinu a jste vzdělaní v technickém oboru? Pomozte nám opravit překlady od technických nedostatků a zlepšit terminologii.</p></li>
-			<li><p><b>Vývojáře</b> &ndash; Umíte s počítačem zázraky? Pomožte nám s vývojem webových aplikací. Můžete získat praxi v oboru, kterou Vám rádi potvrdíme. A hlavně budete pracovat na smysluplném projektu.</p></li>
+		<ul>
+			<li><em>Překladatele</em> &ndash; Dobrovolníky s ucházející znalostí angličtiny, kteří nám pomohou překládat výukové materiály do češtiny.</li>
+			<li><em>Učitele</em> &ndash; Hledáme zkušené a zapálené učitele, ochotné předat své vědomosti ne 30 dětem, ale tisícům.</li>
+			<li><em>Garanty</em> &ndash; Máte dobrou angličtinu a jste vzdělaní v technickém oboru? Pomozte nám opravit překlady od technických nedostatků a zlepšit terminologii.</li>
+			<li><em>Vývojáře</em> &ndash; Umíte s počítačem zázraky? Pomožte nám s vývojem webových aplikací. Můžete získat praxi v oboru, kterou Vám rádi potvrdíme. A hlavně budete pracovat na smysluplném projektu.</li>
+		</ul>
 	</div>
 	<div class="col2 sixty-forty">
 		<div id="chart_div"></div>
@@ -50,12 +52,12 @@
 	<div class="clear"></div>
 
 	<div>
-		<h2 class="main-headline">Chcete hned začít překládat?</h2>
-		<p class="justify">Khanova škola je skupina dobrovolníků &ndash; překladatelů a příznivců <a href="http://www.khanacademy.org/">www.khanacademy.org</a>. Spolupracujeme s KhanAcademy Inc. USA a naším společným cílem je kvalitní dabing kompletního obsahu knihovny Khan Academy. Rádi vás ve svých řadách uvítáme, chcete-li nám pomoci s překladem i dabingem. Také hledáme dobrovolníky, kteří nám překlady zvládnou zkontrolovat po odborné stránce. Přidáte se k nám? Těšíme se na vás :-)</p>
-		<p>
-			<a n:href="howToTranslateExercises" class="call-to-action simple-button blue" onclick="_gaq.push(['_trackEvent', 'Click', 'Volunteer-Translate-Exercise']);">Překládat cvičení</a>
-			<a n:href="howToTranslate" class="call-to-action simple-button green" onclick="_gaq.push(['_trackEvent', 'Click', 'Volunteer-Translate']);">Překládat videa</a>
-		</p>
+		<h2>Chcete hned začít překládat?</h2>
+		<p>Khanova škola je skupina dobrovolníků &ndash; překladatelů a příznivců <a href="http://www.khanacademy.org/">www.khanacademy.org</a>. Spolupracujeme s KhanAcademy Inc. USA a naším společným cílem je kvalitní dabing kompletního obsahu knihovny Khan Academy. Rádi vás ve svých řadách uvítáme, chcete-li nám pomoci s překladem i dabingem. Také hledáme dobrovolníky, kteří nám překlady zvládnou zkontrolovat po odborné stránce. Přidáte se k nám? Těšíme se na vás :-)</p>
+		<div class="buttons">
+			<a n:href="howToTranslateExercises" class="button blue" onclick="_gaq.push(['_trackEvent', 'Click', 'Volunteer-Translate-Exercise']);">Překládat cvičení</a>
+			<a n:href="howToTranslate" class="button green" onclick="_gaq.push(['_trackEvent', 'Click', 'Volunteer-Translate']);">Překládat videa</a>
+		</div>
 		{cache expire => '+2 hours'}
 			<b>Nejvíc žádané překlady:</b>
 			<span n:foreach="$wanted_cats as $category"><a n:href=":Front:Browse:, id => $category->id">{$category->label}</a>{sep}, {/sep}</span>
@@ -63,16 +65,17 @@
 	</div>
 
 	<div id="hl-praxe">
-		<h2 class="main-headline">Školní praxe v Khanově škole</h2>
+		<h2>Školní praxe v Khanově škole</h2>
 		<p>Hledáte neziskovku, které v rámci školní praxe chcete pomoct? Rádi vás vezmeme. Můžete z domova překládat, programovat nová cvičení nebo spravovat online marketing. Za dobře odvedenou práci dostanete navíc oficiální certifikát.</p>
 	</div>
 
-	<hr class="thin"/>
 	<div>
-		<h2 class="main-headline">Poděkování</h2>
+		<h2>Poděkování</h2>
 		<p>
 			Děkujeme všem dobrovolníkům, kteří věnovali svůj čas, energii a znalosti překladům videí či cvičení Khan Academy &ndash; abecedně:<br>
-			{foreach $volunteers as $volunteer}{$volunteer->name}{sep}, {/sep}{/foreach}
+			<span class="enum">
+				{foreach $volunteers as $volunteer}{$volunteer->name}{sep}, {/sep}{/foreach}
+			</span>
 		</p>
 		<p>
 			Pokud jste nám v nedávné době pomohli a my jsme Vás omylem vynechali, napište nám na <a href="mailto:info@khanovaskola.cz">info@khanovaskola.cz</a>, napravíme to :)
