@@ -101,6 +101,7 @@ p a:not(.button){color:#005987;text-decoration:none;}
 p a:not(.button):visited,p a:not(.button):link,p a:not(.button):visited{color:#005987}
 p a:not(.button):hover{color:#678d00;text-decoration:underline}
 h1{font-size:16pt;margin-bottom:1ex}
+h2{font-size:15pt}
 h3{font-size:14pt}
 h4{font-size:12pt}
 input[type=text],input[type=email],input[type=password]{background-color:#fafafa;border:1px solid #c6d1ad;font-size:10pt;padding:0 0 0 .5em;margin-bottom:.5ex;height:24px;width:160px;-webkit-outline-style:none;-moz-outline-style:none;outline:0;-webkit-box-shadow:0 0 0 0 #678d00;-moz-box-shadow:0 0 0 0 #678d00;box-shadow:0 0 0 0 #678d00;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px}
@@ -197,6 +198,11 @@ cite{color:#707b8b}
 .blog-help .code{background-color:#f2f2f2;padding:1ex}
 .blog-strip{width:640px;margin:auto;margin-bottom:2em}
 .articles,.blog-detail{width:640px;margin:auto}
+.team h2{margin:2ex 0}
+.team .team-card{display:inline-block;vertical-align:top;margin-right:1em;}
+.team .team-card .card-photo{vertical-align:top;display:inline-block;}
+.team .team-card .card-photo img{height:267px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px}
+.team .team-card .card-info{display:inline-block;width:300px;margin-bottom:4ex;font-size:11pt}
 a[href^=error]{color:#f00 !important}
 .container{width:1200px;height:100%;margin:auto}
 .fifty-fifty{display:inline-block;vertical-align:top;}
