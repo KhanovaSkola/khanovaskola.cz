@@ -1,12 +1,11 @@
 {var $title = "O Khanově škole"}
 {var $description = "Khanova škola je oficiálně schválený překlad Khan Academy. Nabízíme vzdělání světové kvality zdarma a pro všechny."}
+{#navigation}
+	{include ../_navigation.latte}
+{/#}
 {#content}
 
 <div itemscope="" itemtype="http://schema.org/AboutPage">
-	<div itemprop="breadcrumb">
-		{include ../_navigation.latte}
-	</div>
-
 	<article id="about-us" itemprop="mainContentOfPage">
 		<div class="col1 forty-sixty logo">
 			<img id="about-vertical-logo" src="{$cdnUrl}/images/hand-tree.svg" height="200" itemprop="primaryImageOfPage" alt="Logo Khanovy školy - barevné listy rostoucí okolo ruky">

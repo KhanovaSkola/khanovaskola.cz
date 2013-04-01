@@ -71,6 +71,11 @@ header ul.dropdown li.hover ul{display:block}
 header ul.dropdown li a{display:block;width:100%;height:auto;padding:1.4ex 0 1ex 1em}
 header ul.dropdown li ul{display:none;position:absolute;top:-1px;left:176px;width:450px;height:100%;border:1px solid #2c3747;background-color:#fff;-webkit-column-count:2;-webkit-column-gap:10px;-webkit-column-fill:balance;-webkit-column-width:220px;-moz-column-count:2;-moz-column-gap:10px;-moz-column-fill:balance;-moz-column-width:220px;column-count:2;column-gap:10px;column-fill:balance;column-width:220px;}
 header ul.dropdown li ul li{margin:4px 1em}
+nav.subnav{border-bottom:1px solid #707b8b;margin-top:-3ex;margin-bottom:3ex;}
+nav.subnav li{display:inline-block;line-height:35px;}
+nav.subnav li a{padding:1ex .5em;}
+nav.subnav li a:link,nav.subnav li a:visited,nav.subnav li a:active{color:#2c3747}
+nav.subnav li a:hover{text-decoration:none;background-color:#f7f7f7;border-bottom:2px solid #707b8b}
 footer{display:block;margin-top:10ex;background-color:#f7f7f7;border-top:1px solid #ddd;color:#2c3747;}
 footer .col1,footer .col2,footer .col3{display:inline-block;margin:0;padding:0;vertical-align:top}
 footer .col1{width:49%;margin-top:20px;}

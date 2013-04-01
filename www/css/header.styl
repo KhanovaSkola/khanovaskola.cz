@@ -1,9 +1,10 @@
+$marginBottom = 3ex
 header
 	display block
 	height $headerHeight = 45px
 	width 100%
 	background-color $blue
-	margin-bottom 3ex
+	margin-bottom $marginBottom
 
 	a:not(.button)
 		color white
@@ -99,3 +100,19 @@ header
 				multi-column(2, $gap, ($subDropdownWidth - $gap) / 2)
 				li
 					margin 4px 1em
+
+nav.subnav
+	border-bottom 1px solid $lightBlue
+	margin-top -1*$marginBottom
+	margin-bottom $marginBottom
+	li
+		display inline-block
+		line-height 35px
+		a
+			padding 1ex .5em
+			&:link, &:visited, &:active
+				color $blue
+			&:hover
+				text-decoration none
+				background-color $gray
+				border-bottom 2px solid $lightBlue

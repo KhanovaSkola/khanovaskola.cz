@@ -1,8 +1,9 @@
 {var $title = "Blog"}
 {var $description = "Novinky z Khanovy školy a články o vzdělávání."}
+{#navigation}
+	{include ../_navigation.latte}
+{/#}
 {#content}
-
-{include ../_navigation.latte}
 <article id="blog">
 	<div n:if="$user->isInrole($ROLE::BLOG)" class="blog-strip">
 		<p>
