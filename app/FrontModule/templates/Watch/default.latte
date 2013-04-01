@@ -22,10 +22,7 @@
 		<div *}<div class="entity">
 			<div>
 				{var $exercise => $video->getExercise()}
-				<a n:if="$exercise" n:href=":Front:Exercise:, id => $exercise->getOneCategoryId(), eid => $exercise->id" class="button" title="Ověřte si pochopení tématu na cvičeních" target="_blank">
-					Procvičit toto téma
-				</a>
-				<a n:if="!$exercise && $video->external_exercise_url" href="{$video->external_exercise_url}" class="button blue" target="_blank">
+				<a n:if="!$exercise && $video->external_exercise_url" href="{$video->external_exercise_url}" class="button blue float-right" target="_blank">
 					Externí cvičení
 				</a>
 				<h1 class="title-header">
