@@ -122,10 +122,9 @@
 			</ul>
 		</div>
 	</header>
-	{ifset #navigation}{include #navigation}{/ifset}
-	
+
 	<div n:snippet="content" class="content container">
-		{ifset #breadcrumbs}{include #breadcrumbs}{/ifset}
+		{ifset #navigation}{include #navigation}{/ifset}
 		<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
 		{include #content}
 	</div>
