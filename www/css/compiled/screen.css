@@ -147,6 +147,12 @@ cite{color:#707b8b}
 .registration .col1 img{padding-right:1em}
 .registration .col2 form{margin-left:2em;}
 .registration .col2 form .checkbox-container{margin:2ex 0}
+.aliases{font-size:10pt}
+.buttons{margin:2ex 0}
+nav i.icon-arrow-left{margin-right:-.5em}
+nav i.icon-arrow-right{margin-left:-.5em}
+nav label:first-of-type{float:left}
+nav label:last-of-type{float:right}
 #subtitles{height:180px;width:800px;overflow:scroll;padding:0;}
 #subtitles table{width:100%}
 #subtitles div{padding:0 0 4px 5px;font-size:12pt;}

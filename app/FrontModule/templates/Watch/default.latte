@@ -31,30 +31,29 @@
 				<h1 class="title-header">
 					<span itemprop="name caption" class="title desktop-only">{$video->label}</span><span n:if="$video->description">: <span itemprop="description">{$video->description}</span>{if $video->hasAuthor()} Dabing {!$video->getAuthor()->getNbName()}.{/if}</span>
 				</h1>
-				<p>
-					<a n:if="!$video->isDubbed()" n:href="editSubtitles" rel="nofollow" target="_blank">upravit titulky</a>
-				</p>
-				<div>
-					{if $user->isInrole($ROLE::ADMIN) && count($video->getSlugs()) > 1 || count($video->getAdSlugs())}
+				{if $user->isInrole($ROLE::ADMIN) && count($video->getSlugs()) > 1 || count($video->getAdSlugs())}
+					<div class="aliases">
 						<b>Aliasy:</b>
 						{foreach $video->getSlugs() as $slug}<a n:href="this, vid => $slug">{plink this, vid => $slug}</a>{sep}, {/sep}{/foreach}, 
 						{foreach $video->getAdSlugs() as $slug}<a n:href="alias, vid => $slug, id => NULL">{plink alias, vid => $slug, id => NULL}</a>{sep}, {/sep}{/foreach}
+					</div>
+				{/if}
+				<div class="buttons">
+					<a n:if="$user->isInrole($ROLE::EDITOR)" n:href="edit" class="button blue">Upravit</a>
+					<a n:if="$user->isInrole($ROLE::EDITOR)" n:href="reloadSubtitles!" class="button blue">Znovu načíst titulky</a>
+					{if $user->isInrole($ROLE::VERIFIER) && !$video->isDubbed()}
+						{if $video->hasUserVerified($user)}
+							Děkujeme za ověření překladu. <a n:href="undoVerify!">Zrušit</a>.
+						{else}
+							<a n:href="verify!" class="button blue">Ověřil jsem překlad</a>
+						{/if}
+						{foreach $video->getVerifications() as $ver}
+							{first}<p>Ověřil: {/first}
+							{$ver->user->name}{sep},{/sep}
+							{last}</p>{/last}
+						{/foreach}
 					{/if}
 				</div>
-				<a n:if="$user->isInrole($ROLE::EDITOR)" n:href="edit" class="button blue">Upravit</a>
-				<a n:if="$user->isInrole($ROLE::EDITOR)" n:href="reloadSubtitles!" class="button blue">Znovu načíst titulky</a>
-				{if $user->isInrole($ROLE::VERIFIER) && !$video->isDubbed()}
-					{if $video->hasUserVerified($user)}
-						Děkujeme za ověření překladu. <a n:href="undoVerify!">Zrušit</a>.
-					{else}
-						<a n:href="verify!" class="button blue">Ověřil jsem překlad</a>
-					{/if}
-					{foreach $video->getVerifications() as $ver}
-						{first}<p>Ověřil: {/first}
-						{$ver->user->name}{sep},{/sep}
-						{last}</p>{/last}
-					{/foreach}
-				{/if}
 			</div>
 			<div>
 				<nav>
@@ -68,8 +67,8 @@
 					{var $next => $video->getNextVideo($category)}
 					<label n:if="$next">
 						<a n:href="this, vid => $next->id">
-							<i class="icon-arrow-right"></i>
 							<b>Další video:</b> {$next->label}
+							<i class="icon-arrow-right"></i>
 						</a>
 					</label>
 					<div class="clear"></div>
@@ -80,6 +79,9 @@
 			</div>
 			{if $subtitles}
 				{control subtitles, $subtitles}
+				<p class="float-right">
+					<a n:href="editSubtitles" rel="nofollow" target="_blank">upravit titulky</a>
+				</p>
 			{else}
 				<a n:href=":Front:Browse:, id => $category->id" class="button blue">Další videa z {$category->label}</a>
 			{/if}
