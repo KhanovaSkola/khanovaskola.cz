@@ -212,7 +212,7 @@ nav label:last-of-type{float:right}
 .team .team-card .card-photo img{height:267px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px}
 .team .team-card .card-info{display:inline-block;width:300px;margin-bottom:4ex;font-size:11pt}
 a[href^=error]{color:#f00 !important}
-.container{width:1200px;height:100%;margin:auto}
+.container{width:1200px;margin:auto}
 .fifty-fifty{display:inline-block;vertical-align:top;}
 .fifty-fifty.col1,.fifty-fifty.col2{width:49%}
 .sixty-forty{display:inline-block;vertical-align:top;}
