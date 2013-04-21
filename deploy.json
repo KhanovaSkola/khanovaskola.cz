@@ -3,5 +3,13 @@
         "staging": "/srv/sites/staging.khanovaskola.cz",
         "production": "/srv/sites/khanovaskola.cz"
     },
-    "post-update": ["composer install", "php db/migrate.php local", "rm -rf temp/cache/_Nette.*"]
+    "pre-update": [
+    	"cp www/.maintenance.php www/maintenance.php"
+    ],
+    "post-update": [
+    	"composer install",
+    	"php db/migrate.php local",
+    	"rm -rf temp/cache/_Nette.*",
+    	"rm www/maintenance.php"
+    ]
 }
