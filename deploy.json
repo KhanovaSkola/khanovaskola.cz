@@ -7,6 +7,7 @@
     	"[ -f www/.maintenance.php ] && cp www/.maintenance.php www/maintenance.php"
     ],
     "post-update": [
+    	"sudo chown -R www-data:web-mikulas . && sudo chmod -R ug+rwx . && sudo chmod -R o-rwx ."
     	"composer install",
     	"[ -f app/config.local.neon ] && php db/migrate.php local",
     	"rm -rf temp/cache/_Nette.*",
