@@ -1,0 +1,8 @@
+{
+    "targets": {
+        "staging": "/srv/sites/test_staging.khanovaskola.cz",
+        "production": "/srv/sites/test_khanovaskola.cz"
+    },
+    "pre-update": ["echo \"before deploy\""],
+    "post-update": ["echo \"after deploy\""]
+}
