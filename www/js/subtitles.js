@@ -11,7 +11,8 @@ onLoadQueuePersistent.push(function() {
 	$("#subtitles-overlay").offset(coords);
 
 	$('.time').click(function(e) {
-		player.seekTo($(this).parent().data('start'));
+		var time = $(this).parent().data('start');
+		player.seekTo(time);
 		e.stopPropagation();
 		return false;
 	});
@@ -38,17 +39,17 @@ onPlayerStateChangeCallbacks.push(function(code) {
 
 	} else {
 		clearInterval(sub_ticker);
-		$high.removeClass("highlight");
-		$high = null;
+		if ($high) {
+			$high.removeClass("highlight");
+			$high = null;
+		}
 	}
 });
 
 function moveSubtitles(time) {
-	if ($high.data('end') >= time) {
-		return false;
+	if ($high) {
+		$high.removeClass("highlight");
 	}
-
-	$high.removeClass("highlight");
 	while ($high.data('end') < time) {
 		$high = $high.next();
 	}
