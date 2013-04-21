@@ -1,7 +1,6 @@
 {
 	"targets": {
-		"staging": "/srv/sites/staging.khanovaskola.cz",
-		"production": "/srv/sites/khanovaskola.cz"
+		"new": "/srv/sites/new.khanovaskola.cz"
 	},
 	"pre-update": [
 		"[ -f www/.maintenance.php ] && cp www/.maintenance.php www/maintenance.php"
