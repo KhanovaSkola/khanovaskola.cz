@@ -1,10 +1,10 @@
 <style>
 	{ifset $video}{var $node = "#video-$video->id"}{/ifset}
 	{ifset $exercise}{var $node = "#exercise-$exercise->id"}{/ifset}
-	{if $node}
+	{ifset $node}
 		{!$node} { background-color: #707b8b}
 		{!$node} a { color: white}
-	{/if}
+	{/ifset}
 </style>
 {cache $category->id, tags => ["category/$category->id"]}
 	<div class="categories entities">
