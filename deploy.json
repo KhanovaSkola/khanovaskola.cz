@@ -4,13 +4,12 @@
         "production": "/srv/sites/khanovaskola.cz"
     },
     "pre-update": [
-    	"cp www/.maintenance.php www/maintenance.php"
+    	"[ -f www/.maintenance.php ] && cp www/.maintenance.php www/maintenance.php"
     ],
     "post-update": [
-    	"echo $GIT_DIR",
-    	"echo $GIT_DIR && composer install",
-    	"php db/migrate.php local",
+    	"composer install",
+    	"[ -f app/config.local.neon ] && php db/migrate.php local",
     	"rm -rf temp/cache/_Nette.*",
-    	"rm www/maintenance.php"
+    	"[ -f www/maintenance.php ] && rm www/maintenance.php"
     ]
 }
