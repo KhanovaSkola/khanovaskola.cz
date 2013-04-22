@@ -391,30 +391,6 @@ class Video extends \ORM\EntityUrl
 
 
 
-	/**
-	 * @return string[]
-	 */
-	public function getAdSlugs()
-	{
-		$slugs = [];
-		foreach ($this->context->database->query('SELECT slug FROM url WHERE type=? AND entity_id=? ORDER BY timestamp DESC', 'video_ad', $this->id) as $row) {
-			$slugs[] = $row['slug'];
-		}
-		return $slugs;
-	}
-
-
-
-	public function getAdSlug()
-	{
-		$slugs = $this->getAdSlugs();
-		if ($slugs)
-			return $slugs[0];
-		return NULL;
-	}
-
-
-
 	public function addAlias($alias)
 	{
 		$slug = \Nette\Utils\Strings::webalize($alias);

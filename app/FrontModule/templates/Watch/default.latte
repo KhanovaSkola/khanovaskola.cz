@@ -29,11 +29,10 @@
 					<span itemprop="name caption" class="title">{$video->label}</span>
 				</h1>
 				<span n:if="$video->description"><span itemprop="description">{$video->description}</span>{if $video->hasAuthor()} Dabing {!$video->getAuthor()->getNbName()}.{/if}</span>
-				{if $user->isInrole($ROLE::ADMIN) && count($video->getSlugs()) > 1 || count($video->getAdSlugs())}
+				{if $user->isInrole($ROLE::ADMIN) && count($video->getSlugs()) > 1}
 					<div class="aliases">
 						<b>Aliasy:</b>
-						{foreach $video->getSlugs() as $slug}<a n:href="this, vid => $slug">{plink this, vid => $slug}</a>{sep}, {/sep}{/foreach}, 
-						{foreach $video->getAdSlugs() as $slug}<a n:href="alias, vid => $slug, id => NULL">{plink alias, vid => $slug, id => NULL}</a>{sep}, {/sep}{/foreach}
+						{foreach $video->getSlugs() as $slug}<a n:href="this, vid => $slug">{plink this, vid => $slug}</a>{sep}, {/sep}{/foreach}
 					</div>
 				{/if}
 				<div class="buttons">

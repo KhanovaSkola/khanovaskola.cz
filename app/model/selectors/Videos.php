@@ -171,15 +171,6 @@ class Videos extends \ORM\Table
 
 
 
-	public function findByAdSlug($slug)
-	{
-		foreach ($this->context->database->query('SELECT * FROM url WHERE slug=? AND type=?', $slug, 'video_ad') as $row) {
-			return $this->find($row['entity_id']);
-		}
-	}
-
-
-
 	public function findNotVerified()
 	{
 		return $this->findBy(['id NOT IN (SELECT video_id FROM video_verification)']);
