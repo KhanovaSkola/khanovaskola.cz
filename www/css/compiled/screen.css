@@ -177,7 +177,7 @@ nav label:last-of-type{float:right}
 .entities ol.path li{background-color:#f7f7f7;border-bottom:1px solid #ddd;}
 .entities ol.path li:hover{background-color:#fff}
 .entities ol.path li .path-route{display:block;position:absolute;margin-left:14px;width:7px;height:70px;background-color:#ddd;z-index:1}
-.entities ol.path li:first-of-type .path-route{margin-top:20px}
+.entities ol.path li:first-of-type .path-route{margin-top:20px;height:40px}
 .entities ol.path li:last-of-type .path-route{height:20px}
 .entities ol.path li a{display:block;padding:1ex 1em .5ex 34px;}
 .entities ol.path li a:hover{text-decoration:none}
