@@ -170,20 +170,22 @@ nav label:last-of-type{float:right}
 .categories .tree ul li.selected{background-color:#707b8b;margin:0;padding:0 1em 0 .5em;}
 .categories .tree ul li.selected a{color:#fff}
 .categories .tree ul ul{text-align:left}
-.entities{display:inline-block;vertical-align:top;height:100%;width:229px;margin-right:20px;border-left:1px solid #707b8b;}
+.entities{display:inline-block;vertical-align:top;height:100%;width:229px;margin-right:20px;border-left:1px solid #707b8b;border-right:1px solid #707b8b;}
 .entities ol{list-style:none;}
 .entities ol.path{font-size:11pt;}
 .entities ol.path li{background-color:#f7f7f7;border-bottom:1px solid #ddd;}
 .entities ol.path li:hover{background-color:#fff}
+.entities ol.path li .path-route{display:block;position:absolute;margin-left:14px;width:7px;height:70px;background-color:#ddd;z-index:1}
+.entities ol.path li:first-of-type .path-route{margin-top:20px}
+.entities ol.path li:last-of-type .path-route{height:20px}
 .entities ol.path li a{display:block;padding:1ex 1em .5ex 34px;}
 .entities ol.path li a:hover{text-decoration:none}
-.entities ol.path li i{display:inline-block;font-size:14pt;width:28px;height:23px;padding-top:5px;-webkit-border-radius:14px;-moz-border-radius:14px;border-radius:14px;margin-left:-30px;background-color:#ddd;color:#2c3747}
+.entities ol.path li i{display:inline-block;position:relative;z-index:2;font-size:14pt;width:28px;height:23px;padding-top:5px;-webkit-border-radius:14px;-moz-border-radius:14px;border-radius:14px;margin-left:-30px;background-color:#ddd;color:#2c3747}
 .entities .parents a{color:#fff;display:block;padding:1ex 1em}
 .entities .parents li:nth-of-type(1){background-color:#2c3747}
 .entities .parents li:nth-of-type(2){background-color:#5f6a7a}
 .entities .parents li:nth-of-type(3){background-color:#929dad}
 .entities .parents li:nth-of-type(4){background-color:#c5d0e0}
-.entities .parents li:last-of-type{margin-bottom:1ex}
 .entity{display:inline-block;width:800px}
 #inject-exercise,#problem-and-answer{display:inline-block;}
 #inject-exercise #problemarea,#problem-and-answer #problemarea{display:inline-block;width:730px}

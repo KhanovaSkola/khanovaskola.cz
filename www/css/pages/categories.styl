@@ -26,6 +26,7 @@
 	width 250px - 1px - 20px
 	margin-right 20px
 	border-left 1px solid $lightBlue
+	border-right 1px solid $lightBlue
 	ol
 		list-style none
 		&.path
@@ -35,6 +36,19 @@
 				border-bottom 1px solid $darkGray
 				&:hover
 					background-color white
+				.path-route
+					display block
+					position absolute
+					//top 0
+					margin-left 14px
+					width 7px
+					height 70px
+					background-color $darkGray
+					z-index 1
+				&:first-of-type .path-route
+					margin-top 20px
+				&:last-of-type .path-route
+					height 20px
 				a
 					display block
 					padding 1ex 1em .5ex 34px
@@ -42,6 +56,8 @@
 						text-decoration none
 				i
 					display inline-block
+					position relative
+					z-index 2
 					font-size 14pt
 					width $size = 28px
 					$offset = 5px
@@ -65,5 +81,4 @@
 			background-color $blue + 2*#333
 		li:nth-of-type(4)
 			background-color $blue + 3*#333
-		li:last-of-type
-			margin-bottom 1ex
+		// li:last-of-type

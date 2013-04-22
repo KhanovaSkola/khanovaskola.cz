@@ -20,6 +20,7 @@
 		<ol n:inner-foreach="$category->getContent() as $entity" class="path">
 			{if $entity instanceof \Entity\Video}
 				<li id="video-{$entity->id}" data-type="video" data-id="{$entity->id}">
+					<span class="path-route"></span>
 					<a n:href=":Front:Watch:, id => $category->id, vid => $entity->id">
 						<i n:class="'icon-video', 'v-'.$entity->id, $entity->isDubbed() ? 'icon-dubbed'"></i>
 						{$entity->label}
@@ -27,6 +28,7 @@
 				</li>
 			{else}
 				<li id="exercise-{$entity->id}" data-type="exercise" data-id="{$entity->id}">
+					<span class="path-route"></span>
 					<a n:href=":Front:Exercise:, id => $category->id, eid => $entity->id" class="no-ajax">
 						<i class="icon-exercise"></i>
 						{$entity->label}
