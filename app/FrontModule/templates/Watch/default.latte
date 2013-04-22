@@ -26,8 +26,9 @@
 					Externí cvičení
 				</a>
 				<h1 class="title-header">
-					<span itemprop="name caption" class="title desktop-only">{$video->label}</span><span n:if="$video->description">: <span itemprop="description">{$video->description}</span>{if $video->hasAuthor()} Dabing {!$video->getAuthor()->getNbName()}.{/if}</span>
+					<span itemprop="name caption" class="title">{$video->label}</span>
 				</h1>
+				<span n:if="$video->description"><span itemprop="description">{$video->description}</span>{if $video->hasAuthor()} Dabing {!$video->getAuthor()->getNbName()}.{/if}</span>
 				{if $user->isInrole($ROLE::ADMIN) && count($video->getSlugs()) > 1 || count($video->getAdSlugs())}
 					<div class="aliases">
 						<b>Aliasy:</b>
@@ -79,8 +80,6 @@
 				<p class="float-right">
 					<a n:href="editSubtitles" rel="nofollow" target="_blank">upravit titulky</a>
 				</p>
-			{else}
-				<a n:href=":Front:Browse:, id => $category->id" class="button blue">Další videa z {$category->label}</a>
 			{/if}
 		</div>
 	</div>
