@@ -43,7 +43,7 @@ header
 		color white
 		display inline-block
 		height $headerHeight
-		
+
 		&:hover, &.hover
 			background-color white
 			color $blue
@@ -86,7 +86,12 @@ header
 				width 100%
 				height auto
 				padding 1.4ex 0 1ex 1em
-
+				&.has-submenu:after
+					position relative
+					left -20px
+					font-family 'fontello'
+					content "\e75e" // fontello arrow-right
+					float right
 			ul
 				display none
 				position absolute

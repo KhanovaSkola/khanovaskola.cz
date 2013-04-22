@@ -1,80 +1,55 @@
-<div id="top-header">
-	<div class="top-header-links">
-		<span class="page_links" id="page_auth">
-			<span id="goals-container"></span>
-			<span id="user-info" class="badge-target">
-				<span n:if="$user->loggedIn" id="user-info" class="badge-target">
-					<span class="dropdown">
-						<span class="username_and_notification dropdown-toggle">
-							<a n:tag-if="!$presenter->mobile" href="{if $user->isInrole($ROLE::EDITOR)}{plink :Moderator:Dashboard:}{else}{plink :Front:Profile:}{/if}">
-								<img class="user-avatar" src="{$cdnUrl}/images/avatars/leaf-{if $user->isInrole($ROLE::ADMIN)}red{elseif $user->isInrole($ROLE::EDITOR)}blue{else}green{/if}.png" alt="List Khanovy školy">
-								<span class="user-name">
-									{=trim($user->entity->name) ?: $user->entity->mail}
-								</span>
-								<span class="caret"></span>
-							</a>
-						</span>
-						<ul class="dropdown-menu no-submenus">
-							<li n:if="$user->isInrole($ROLE::EDITOR)"><a class="dropdown-link" n:href=":Moderator:Dashboard:">Moderátoři</a></li>
-							<li n:if="$user->isInrole($ROLE::VERIFIER)"><a n:href=":Moderator:Dashboard:videos">Korekce videí</a></li>
-							<li><a class="dropdown-link" n:href=":Front:Profile:, pid => NULL">Profil</a></li>
-							<li><a class="dropdown-link" n:href=":Front:Profile:addCoach">Přidat učitele</a></li>
-							<li><a n:href=":Sign:out">Odhlásit se</a></li>
-						</ul>
-					</span>
-				</span>
-			</span>
-			{if !$user->loggedIn}
-				<span class="separator"></span>
-				<span><a n:href=":Sign:in, backlink => $presenter->getBacklink()">Přihlášení</a></span>
-				<span class="separator"></span>
-				<span><a n:href=":Front:Registration:">Registrace</a></span>
-			{/if}
-			{if $presenter->mobile === 'ipad' && !isset($hide_search)}
-				<span id="search-box" class="search-ipad">
-					{form search, class => "page-search"}
-						{input query, class => "ui-corner-all simple-input search-input blur-on-esc", placeholder => "Vyhledávání"}
-						{input send, class => "search-submit"}
-					{/form}
-				</span>
-			{/if}
-		</span>
-		<div class="clear"></div>
-		<div id="nav-and-search" itemscope="" itemtype="http://schema.org/SiteNavigationElement">
-			{cache $user->loggedIn, tags => ['categories']}
-				<div class="sitewide-navigation">
-					<nav>
-						<span class="links nav-subheader">
-							<span class="dropdown topic-browser-dropdown">
-								<a n:href=":Front:Homepage:library" class="watch-link dropdown-toggle">Naučit se <span class="caret"></span></a>
-								{if $user->loggedIn}
-									<a n:href=":Coach:Dashboard:" class=" coach-link">Pro učitele</a>
-								{else}
-									<a n:href=":Front:About:coach" class=" coach-link">Pro učitele</a>
-								{/if}
-								<a n:href=":Front:Volunteer:" class=" contribute-link">Dobrovolníci</a>
-								<a n:href=":Front:About:" class=" about-link">O Škole</a>
-								<div class="clear"></div>
-								{include _dropdown.latte}
-							</span>
-						</span>
-					</nav>
-				</div>
-			{/cache}
-			{if $presenter->mobile !== 'ipad' && !isset($hide_search)}
-				<span id="search-box" class="search-other">
-					{form search, class => "page-search"}
-						{input query, class => "ui-corner-all simple-input search-input blur-on-esc", placeholder => "Vyhledávání"}
-						{input send, class => "search-submit"}
-					{/form}
-				</span>
-			{/if}
+<div class="container">
+	<ul class="float-left">
+		<li class="dropdown-trigger"><a href="#" class="no-ajax">Naučit se <i class="icon-arrow-down"></i></a></li>
+		<li n:if="$user->loggedIn"><a n:href=":Coach:Dashboard:">Pro učitele</a></li>
+		<li n:if="!$user->loggedIn"><a n:href=":Front:About:coach">Pro učitele</a></li>
+		<li><a n:href=":Front:Volunteer:">Dobrovolníci</a></li>
+		<li><a n:href=":Front:About:">O škole</a></li>
+
+		<ul class="dropdown">
+			<li>
+				<a n:href=":Front:Homepage:library">Všechna videa</a>
+			</li>
+			<li>
+				<a n:href=":Front:Exercise:list">Všechna cvičení</a>
+			</li>
+			<li n:foreach="$presenter->context->categories->findRoot() as $subject" class="expandable{first} has-divider{/first}">
+				{var $count = $subject->getSubCategories()->count()}
+				{if $count === 1}
+					{foreach $subject->getSubCategories() as $subcat}
+						<a n:href=":Front:Browse:, id => $subcat->id">{$subject->label}</a>
+					{/foreach}
+				{elseif $count > 1}
+					<a href="#" class="has-submenu">{$subject->label}</a>
+					<ul>
+						<li n:foreach="$subject->getSubCategories() as $subcat">
+							<a n:href=":Front:Browse:, id => $subcat->id">{$subcat->label}</a>
+						</li>
+					</ul>
+				{/if}
+			</li>
+			<li n:foreach="$presenter->context->tags->findBy(['display' => TRUE]) as $tag"{first} class="has-divider"{/first}>
+				<a n:href=":Front:Tag:, tid => $tag->id">{$tag->label}</a>
+			</li>
+		</ul>
+	</ul>
+
+	<div class="logo">
+		<a n:href=":Front:Homepage:">
+			<img src="{$cdnUrl}/images/header_white.svg" width="215px" height="38px">
+		</a>
+		<div id="spinner" class="animate-spin hidden">
+			<i class="icon-spinner"></i>
 		</div>
 	</div>
-	<div id="logo">
-		<a id="logo-image" href="/" title="Zpět na titulku">
-			<img src="{$cdnUrl}/images/logo_khanovaskola.svg" width="280" alt="Logo Khanovy školy">
-		</a>
-	</div>
-	<div class="clear"></div>
+	<ul n:snippet="header" class="float-right">
+		{if $user->isLoggedIn()}
+			<li><a n:href=":Front:Profile:, pid => NULL">{$user->entity->name}</a></li>
+			<li n:if="$user->isInRole($ROLE::EDITOR)"><a n:href=":Moderator:Dashboard:">Moderátoři</a></li>
+			<li><a n:href=":Sign:out">Odhlásit se</a></li>
+		{else}
+			<li><a n:href=":Sign:in">Přihlášení</a></li>
+			<li><a n:href=":Front:Registration:">Registrace</a></li>
+		{/if}
+	</ul>
 </div>
