@@ -3,6 +3,19 @@
   "glyphs": [
     {
       "search": [
+        "play",
+        "player"
+      ],
+      "code": 9654,
+      "uid": "cb13afd4722a849d48056540bb74c47e",
+      "css": "video",
+      "orig_css": "play",
+      "orig_code": 9654,
+      "src": "entypo",
+      "from": 9654
+    },
+    {
+      "search": [
         "check"
       ],
       "code": 9745,
@@ -27,20 +40,6 @@
       "orig_code": 9998,
       "src": "entypo",
       "from": 9998
-    },
-    {
-      "search": [
-        "social",
-        "logo",
-        "github"
-      ],
-      "code": 57526,
-      "uid": "aa18911cd641967c899c575aeb80cd7e",
-      "css": "github",
-      "orig_css": "github",
-      "orig_code": 57526,
-      "src": "elusive",
-      "from": 57526
     },
     {
       "search": [
