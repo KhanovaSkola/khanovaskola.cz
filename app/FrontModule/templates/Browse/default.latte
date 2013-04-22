@@ -34,14 +34,23 @@
 {/#}
 {#content}
 
+{define #category_link}
+	{if $category->isLeaf() && $entity = $category->getFirstContent()}
+		{if $entity instanceof \Model\Video}
+			<a n:href=":Front:Exercise:, id => $category->id, eid => $entity->id">{$category->label}</a>
+		{else}
+			<a n:href=":Front:Watch:, id => $category->id, vid => $entity->id">{$category->label}</a>
+		{/if}
+	{else}
+		<a n:href=":Front:Browse:, id => $category->id">{$category->label}</a>
+	{/if}
+{/define}
 <article class="categories" itemscope="" itemtype="http://schema.org/{ifset $leaf}VideoGallery{else}CollectionPage{/ifset}">
 	{define #list}
 		<ul>
 			<li n:foreach="$parent->getSubCategories() as $category"
 				n:class="$category->isEqualTo($selected) || $category->containsCategory($selected) ? selected">
-				<a n:href=":Front:Browse:, id => $category->id">
-					{$category->label}
-				</a>
+				{include #category_link, category => $category}
 			</li>
 		</ul>&nbsp;
 	{/define}

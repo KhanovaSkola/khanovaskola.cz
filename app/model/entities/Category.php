@@ -57,6 +57,17 @@ class Category extends \ORM\EntityUrl
 
 
 
+	public function getFirstContent()
+	{
+		foreach ($this->getContent() as $entity) {
+			return $entity; // return first entity
+		}
+
+		return NULL;
+	}
+
+
+
 	/**
 	 * Recursive
 	 * @return bool

@@ -1,3 +1,14 @@
+{define #category_link}
+	{if $category->isLeaf() && $entity = $category->getFirstContent()}
+		{if $entity instanceof \Model\Video}
+			<a n:href=":Front:Exercise:, id => $category->id, eid => $entity->id">{$subject->label}</a>
+		{else}
+			<a n:href=":Front:Watch:, id => $category->id, vid => $entity->id">{$subject->label}</a>
+		{/if}
+	{else}
+		<a n:href=":Front:Browse:, id => $category->id">{$subject->label}</a>
+	{/if}
+{/define}
 <div class="container">
 	<ul class="float-left">
 		<li class="dropdown-trigger"><a href="#" class="no-ajax">Naučit se <i class="icon-arrow-down"></i></a></li>
@@ -17,13 +28,13 @@
 				{var $count = $subject->getSubCategories()->count()}
 				{if $count === 1}
 					{foreach $subject->getSubCategories() as $subcat}
-						<a n:href=":Front:Browse:, id => $subcat->id">{$subject->label}</a>
+						{include #category_link, category => $subcat, subject => $subject}
 					{/foreach}
 				{elseif $count > 1}
 					<a href="#" class="has-submenu">{$subject->label}</a>
 					<ul>
 						<li n:foreach="$subject->getSubCategories() as $subcat">
-							<a n:href=":Front:Browse:, id => $subcat->id">{$subcat->label}</a>
+							{include #category_link, category => $subcat, subject => $subcat}
 						</li>
 					</ul>
 				{/if}

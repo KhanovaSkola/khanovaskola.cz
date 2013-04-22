@@ -116,10 +116,10 @@ cite{color:#707b8b}
 .main-search .search-input:focus{-webkit-outline-style:none;-moz-outline-style:none;outline:0;-webkit-box-shadow:0 0 5px 1px #678d00;-moz-box-shadow:0 0 5px 1px #678d00;box-shadow:0 0 5px 1px #678d00}
 .main-search input[type=submit]{display:inline}
 .main-search form div{display:none}
-.category-blocks{width:600px;}
+.category-blocks{width:600px;font-size:0;}
 .category-blocks h4{padding:2ex 0 1ex 0;}
 .category-blocks h4:first-of-type{padding-top:0}
-.category-blocks a{color:#005987;}
+.category-blocks a{font-size:inherit;color:#005987;}
 .category-blocks a:hover{color:#678d00;text-decoration:underline}
 .category-blocks .block{display:inline-block;padding:5pt 4pt;width:170px;font-size:14px;background-color:#f7f7f7;margin:none;border:1px solid #ddd;margin:-1px 0 0 -1px;}
 .category-blocks .block:hover{background-color:#d3ddb6}

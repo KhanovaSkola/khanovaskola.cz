@@ -52,10 +52,27 @@
 	<div>
 		<div class="category-blocks col1 fifty-fifty">
 			{cache tags => ['categories', 'videos']}
+				{define #category_link}
+					{if $category->isLeaf() && $entity = $category->getFirstContent()}
+						{if $entity instanceof \Model\Video}
+							<a n:href=":Front:Exercise:, id => $category->id, eid => $entity->id" class="block">
+								{if $category->containsDubbedVideos()}<i class="icon-dubbed"></i>&nbsp;{/if}{$category->label}
+							</a>
+						{else}
+							<a n:href=":Front:Watch:, id => $category->id, vid => $entity->id" class="block">
+								{if $category->containsDubbedVideos()}<i class="icon-dubbed"></i>&nbsp;{/if}{$category->label}
+							</a>
+						{/if}
+					{else}
+						<a n:href=":Front:Browse:, id => $category->id" class="block">
+							{if $category->containsDubbedVideos()}<i class="icon-dubbed"></i>&nbsp;{/if}{$category->label}
+						</a>
+					{/if}
+				{/define}
 				{foreach $subjects as $subject}
 					<h4>{$subject->label}</h4>
 					<div>
-						{foreach $subject->getSubCategories() as $category}<a n:href=":Front:Browse:, id => $category->id" class="block">{if $category->containsDubbedVideos()}<i class="icon-dubbed"></i>&nbsp;{/if}{$category->label}</a>{/foreach}
+						{foreach $subject->getSubCategories() as $category}{include #category_link, category => $category}{/foreach}
 					</div>
 				{/foreach}
 			{/cache}
