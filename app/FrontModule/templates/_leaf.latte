@@ -15,7 +15,7 @@
 			<li n:if="$parent3"><a n:href=":Front:Browse:, id => $parent3->id">{$parent3->label}</a></li>
 			<li n:if="$parent2"><a n:href=":Front:Browse:, id => $parent2->id">{$parent2->label}</a></li>
 			<li><a n:href=":Front:Browse:, id => $parent->id">{$parent->label}</a></li>
-			<li><a n:href=":Front:Browse:, id => $category->id">{$category->label}</a></li>
+			<li><span>{$category->label}:</span></li>
 		</ol>
 		<ol n:inner-foreach="$category->getContent() as $entity" class="path">
 			{if $entity instanceof \Entity\Video}

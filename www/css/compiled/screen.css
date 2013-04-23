@@ -185,11 +185,13 @@ nav label:last-of-type{float:right}
 .entities ol.path li a{display:block;padding:1ex 1em .5ex 34px;}
 .entities ol.path li a:hover{text-decoration:none}
 .entities ol.path li i{display:inline-block;position:relative;z-index:2;font-size:14pt;width:28px;height:23px;padding-top:5px;-webkit-border-radius:14px;-moz-border-radius:14px;border-radius:14px;margin-left:-30px;background-color:#ddd;color:#2c3747}
-.entities .parents a{color:#fff;display:block;padding:1ex 1em}
+.entities .parents a,.entities .parents span{color:#fff;display:block;padding:1ex 1em}
 .entities .parents li:nth-of-type(1){background-color:#2c3747}
 .entities .parents li:nth-of-type(2){background-color:#5f6a7a}
 .entities .parents li:nth-of-type(3){background-color:#929dad}
 .entities .parents li:nth-of-type(4){background-color:#c5d0e0}
+.entities .parents li:last-of-type{background-color:#f7f7f7;}
+.entities .parents li:last-of-type span{color:#000}
 .entity{display:inline-block;width:800px}
 #inject-exercise,#problem-and-answer{display:inline-block;}
 #inject-exercise #problemarea,#problem-and-answer #problemarea{display:inline-block;width:730px}
