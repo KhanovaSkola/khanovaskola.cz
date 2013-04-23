@@ -30,7 +30,7 @@
 		<div class="password">
 			<h3>Přihlášení s vaším účtem</h3>
 			<div>
-				{form signInForm, data-errors => "#error-text"}
+				{form signInForm, data-errors => "#error-text", class => "no-ajax"}
 					<div>{control signInForm errors}</div>
 					<div>
 						{label username}Email{/label}

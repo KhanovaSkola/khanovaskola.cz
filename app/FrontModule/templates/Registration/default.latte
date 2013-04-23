@@ -28,7 +28,7 @@
 				<img src="/images/hand-tree.svg" width="120" class="tree" alt="Logo Khanovy školy - barevné listy rostoucí okolo ruky">
 			</div>
 			<div class="col2 thirty-seventy">
-				{form registrationForm, data-errors => "#error-text"}
+				{form registrationForm, data-errors => "#error-text", class => "no-ajax"}
 					<div class="field-error color-error" id="error-text">{control registrationForm errors}</div>
 
 					<div class="field-error" id="error-text">&nbsp;</div>

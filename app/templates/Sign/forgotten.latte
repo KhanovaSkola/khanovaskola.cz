@@ -1,47 +1,40 @@
 {#content}
-
-<article id="page-root">
-	<div class="login-container card-case vertical-shadow">
-		<div class="providers providers-rows">
+<article>
+	<div class="credentials">
+		<div class="providers">
 			<h3>Přihlášení do Khanovy školy</h3>
-			<div id="login-google" class="action-gradient provider">
-				<div class="img-container">
-					<a n:href="inGoogle">
-						<img width="180" alt="Přihlaste se bez registrace přes váš Google účet" src="{$cdnUrl}/images/logo_google.svg">
-					</a>
-				</div>
+			<div class="provider">
+				<a n:href="inGoogle" class="no-ajax">
+					<img width="180" alt="Přihlaste se přes váš Google účet" src="{$cdnUrl}/images/logo_google.svg">
+				</a>
 			</div>
-			<br>
-			<div id="login-facebook" class="action-gradient provider">
-				<div class="img-container">
-					<a n:href="inFacebook">
-						<img width="180" alt="Přihlaste se bez registrace přes váš Facebook účet" src="{$cdnUrl}/images/logo_facebook.svg">
-					</a>
-				</div>
+			<div class="provider">
+				<a n:href="inFacebook" class="no-ajax">
+					<img width="180" alt="Přihlaste se přes váš Facebook účet" src="{$cdnUrl}/images/logo_facebook.svg">
+				</a>
 			</div>
 		</div>
 
 		<div class="vertical-separator">
-			<span class="separator-text">NEBO</span>
+			<span>NEBO</span>
 		</div>
 
-		<div class="pw-login">
+		<div class="password">
 			<h3>Zapomenuté heslo</h3>
-			<div class="pw-login-contents">
-				{form passResetForm}
-					<img src="{$cdnUrl}/images/hand-tree.svg" width="120" class="tree" alt="Logo Khanovy školy - barevné listy rostoucí okolo ruky">
+			<div>
+				{form passResetForm, data-errors => "#error-text"}
+					<div>{control passResetForm errors}</div>
 					<p>Zašleme vám na email odkaz na stránku,<br>kde si budete moct nastavit nové heslo.</p>
-					<div class="field-error color-error" id="error-text">{control passResetForm errors}</div>
-					<div class="field-container">
-						{label username, class => "field-label"}Email{/label}
-						{input username, class => "simple-input ui-corner-all"}
+					<div>
+						{label username}Email{/label}
+						{input username}
 					</div>
-
-					{input send, class => "simple-button green"}
-					<div class="signup-prompt-container">
-						<span class="signup-prompt">Nemáte ještě účet?</span>
-						<a class="signup-link" target="_top" n:href=":Front:Registration:">Registrace</a>
-					</div>
+					<p>
+						{input send}
+					<p>
+					<p>
+						Nemáte ještě účet? <a n:href=":Front:Registration:">Registrace</a>
+					</p>
 				{/form}
 			</div>
 		</div>
