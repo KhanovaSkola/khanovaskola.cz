@@ -152,10 +152,12 @@ cite{color:#707b8b}
 .registration .col2 form .checkbox-container{margin:2ex 0}
 .aliases{font-size:10pt}
 .buttons{margin:2ex 0}
+nav{margin-bottom:1ex;}
 nav i.icon-arrow-left{margin-right:-.5em}
 nav i.icon-arrow-right{margin-left:-.5em}
+nav label{min-width:300px;}
 nav label:first-of-type{float:left}
-nav label:last-of-type{float:right}
+nav label:last-of-type{float:right;text-align:right}
 #subtitles{height:180px;width:800px;overflow:scroll;padding:0;}
 #subtitles table{width:100%}
 #subtitles div{padding:0 0 4px 5px;font-size:12pt;}
@@ -178,7 +180,7 @@ nav label:last-of-type{float:right}
 .entities ol.path{font-size:11pt;}
 .entities ol.path li{background-color:#f7f7f7;border-bottom:1px solid #ddd;}
 .entities ol.path li:hover{background-color:#fff}
-.entities ol.path li .path-route{display:block;position:absolute;margin-left:14px;width:7px;height:70px;background-color:#ddd;z-index:1}
+.entities ol.path li .path-route{display:block;position:absolute;margin-left:14px;width:7px;height:75px;background-color:#ddd;z-index:1}
 .entities ol.path li:first-of-type .path-route{margin-top:20px;height:40px}
 .entities ol.path li:last-of-type .path-route{height:20px}
 .entities ol.path li:first-of-type:last-of-type .path-route{height:0}

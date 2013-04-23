@@ -3,15 +3,19 @@
 .buttons
 	margin 2ex 0
 nav
+	margin-bottom 1ex
 	i
 		&.icon-arrow-left
 			margin-right -.5em
 		&.icon-arrow-right
 			margin-left -.5em
-	label:first-of-type
-		float left
-	label:last-of-type
-		float right
+	label
+		min-width 300px
+		&:first-of-type
+			float left
+		&:last-of-type
+			float right
+			text-align right
 #subtitles
 	height 180px
 	width 800px
