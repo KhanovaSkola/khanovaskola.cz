@@ -1,27 +1,24 @@
 {var $description = "Jsme překlad Khan Academy. Máme $count->video lekcí z matematiky, fyziky i humanitních věd a dalších. Přes $count->dubbed videí je nadabováno."}
-{#scripts}
+{#scripts-ajax}
 <script>
-	$(function() {
-		$("#large-search-input").autocomplete({
-			source: function(req, res) {
-				$.ajax({
-					url: {plink :Front:Search:autocomplete},
-					dataType: "json",
-					data: {
-						startsWith: req.term
-					},
-					success: function(data) {
-						res($.map(data.results, function(item) {
-							return {
-								label: item,
-								value: item
-							}
-						}));
-					}
-				});
-			},
+	onLoadQueue.push(function() {
+		// on first request of Homepage load dictionary
+		if (typeof autocomplete_dictionary === 'undefined') {
+			autocomplete_dictionary = ['empty']; // set it up so autocomplete initiates
+			$.ajax({plink :Static:autocomplete}, {
+				cache: true,
+				success: function(res) {
+					autocomplete_dictionary = res;
+					// refresh the dictionary
+					$("#frm-search [name=query]").autocomplete({ source: autocomplete_dictionary});
+				}
+			});
+		}
+
+		$("#frm-search [name=query]").autocomplete({
+			source: autocomplete_dictionary,
 			minLength: 2,
-			delay: 200,
+			delay: 0,
 			select: function(event, ui) {
 				$("#frm-search").submit();
 			},

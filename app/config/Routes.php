@@ -253,6 +253,10 @@ class Routes
 			'presenter' => 'Static',
 			'action' => 'robots',
 		]);
+		$container->router[] = new Route('autocomplete_dictionary.json', [
+			'presenter' => 'Static',
+			'action' => 'autocomplete',
+		]);
 
 		/**
 		 * Direct actions of sign presenter

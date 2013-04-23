@@ -9,12 +9,6 @@ require __DIR__ . '/../vendor/autoload.php';
 // Configure application
 $configurator = new Nette\Config\Configurator;
 
-if (!isset($_COOKIE['staging_access']) || $_COOKIE['staging_access'] !== 'allowed') {
-	header("HTTP/1.0 403 Forbidden");
-	echo "HTTP/1.0 403 Forbidden\n";
-	die();
-}
-
 // Enable Nette Debugger for error visualisation & logging
 $configurator->setDebugMode(isset($_COOKIE['debug']) && $_COOKIE['debug'] === '9&(@QqxENEEb3Q4T');
 $configurator->enableDebugger(__DIR__ . '/../log');
@@ -44,6 +38,12 @@ $configurator->onCompile[] = function ($configurator, $compiler) {
 };
 
 $container = $configurator->createContainer();
+
+if (!isset($container->parameters['development']) && (!isset($_COOKIE['staging_access']) || $_COOKIE['staging_access'] !== 'allowed')) {
+	header("HTTP/1.0 403 Forbidden");
+	echo "HTTP/1.0 403 Forbidden\n";
+	die();
+}
 
 Debugger::$logger->mailer = callback('\Model\CustomMailer', 'mailer');
 

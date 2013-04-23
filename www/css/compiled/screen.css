@@ -116,6 +116,9 @@ cite{color:#707b8b}
 .main-search .search-input:focus{-webkit-outline-style:none;-moz-outline-style:none;outline:0;-webkit-box-shadow:0 0 5px 1px #678d00;-moz-box-shadow:0 0 5px 1px #678d00;box-shadow:0 0 5px 1px #678d00}
 .main-search input[type=submit]{display:inline}
 .main-search form div{display:none}
+.ui-autocomplete{list-style:none;background-color:#fff;width:575px;border:1px solid #2c3747;border-top:none;}
+.ui-autocomplete .ui-menu-item a{display:inline-block;width:608px;cursor:pointer;font-size:12pt !important;padding-left:24px !important;}
+.ui-autocomplete .ui-menu-item a.ui-state-focus{background-color:#f2f2f2 !important}
 .category-blocks{width:600px;font-size:0;}
 .category-blocks h4{padding:2ex 0 1ex 0;}
 .category-blocks h4:first-of-type{padding-top:0}
