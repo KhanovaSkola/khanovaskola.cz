@@ -47,7 +47,20 @@ class DynamicCssPresenter extends \BasePresenter
 		}
 
 		$style = implode(',', $watched) . ' {content: "\2611"; color: rgb(43, 157, 0);}' . "\n";
-		$style .= implode(',', $partial) . ' {content: "\e793"; color: rgb(72, 113, 201);}';
+		$style .= implode(',', $partial) . ' {content: "\e793"; color: rgb(72, 113, 201);}' . "\n";
+
+		$started = [];
+		$completed = [];
+		foreach ($this->user->entity->getExerciseStatuses() as $status) {
+			if ($status->status === 'started' || $status->status === 'struggling') {
+				$started[] = "e-{$status->exercise_id}:before";
+			} else  {
+				$completed[] = "e-{$status->exercise_id}:before";
+			}
+		}
+
+		$style .= implode(',', $completed) . ' {content: "\2611"; color: rgb(72, 113, 201);}' . "\n";
+		$style .= implode(',', $started) . ' {color: rgb(43, 157, 0);}' . "\n";
 
 		return $style;
 	}

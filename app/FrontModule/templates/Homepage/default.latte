@@ -54,12 +54,12 @@
 			{cache tags => ['categories', 'videos']}
 				{define #category_link}
 					{if $category->isLeaf() && $entity = $category->getFirstContent()}
-						{if $entity instanceof \Model\Video}
-							<a n:href=":Front:Exercise:, id => $category->id, eid => $entity->id" class="block">
+						{if $entity instanceof \Entity\Video}
+							<a n:href=":Front:Watch:, id => $category->id, vid => $entity->id" class="block">
 								{if $category->containsDubbedVideos()}<i class="icon-dubbed"></i>&nbsp;{/if}{$category->label}
 							</a>
 						{else}
-							<a n:href=":Front:Watch:, id => $category->id, vid => $entity->id" class="block">
+							<a n:href=":Front:Exercise:, id => $category->id, eid => $entity->id" class="block">
 								{if $category->containsDubbedVideos()}<i class="icon-dubbed"></i>&nbsp;{/if}{$category->label}
 							</a>
 						{/if}

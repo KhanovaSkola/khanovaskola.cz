@@ -215,6 +215,9 @@ nav label:last-of-type{float:right}
 .team .team-card .card-photo{vertical-align:top;display:inline-block;}
 .team .team-card .card-photo img{height:267px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px}
 .team .team-card .card-info{display:inline-block;width:300px;margin-bottom:4ex;font-size:11pt}
+#library h2{margin:3ex 0 1ex 0;text-align:center}
+#library .library-category i{font-size:14px;display:inline-block;width:1.25em}
+#library .library-category .list{list-style:none;-webkit-column-count:4;-webkit-column-gap:20px;-webkit-column-fill:balance;-webkit-column-width:285px;-moz-column-count:4;-moz-column-gap:20px;-moz-column-fill:balance;-moz-column-width:285px;column-count:4;column-gap:20px;column-fill:balance;column-width:285px}
 a[href^=error]{color:#f00 !important}
 .container{width:1200px;margin:auto}
 .fifty-fifty{display:inline-block;vertical-align:top;}

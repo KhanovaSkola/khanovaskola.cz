@@ -365,7 +365,7 @@ class User extends \ORM\Entity
 
 	public function getExerciseStatuses()
 	{
-		return $this->context->database->query('SELECT status, Date(timestamp) as date FROM exercise_status
+		return $this->context->database->query('SELECT exercise_id, status, Date(timestamp) as date FROM exercise_status
 			WHERE user_id=? ORDER BY timestamp ASC, id ASC', $this->id);
 	}
 

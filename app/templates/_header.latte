@@ -1,9 +1,9 @@
 {define #category_link}
 	{if $category->isLeaf() && $entity = $category->getFirstContent()}
-		{if $entity instanceof \Model\Video}
-			<a n:href=":Front:Exercise:, id => $category->id, eid => $entity->id">{$subject->label}</a>
-		{else}
+		{if $entity instanceof \Entity\Video}
 			<a n:href=":Front:Watch:, id => $category->id, vid => $entity->id">{$subject->label}</a>
+		{else}
+			<a n:href=":Front:Exercise:, id => $category->id, eid => $entity->id">{$subject->label}</a>
 		{/if}
 	{else}
 		<a n:href=":Front:Browse:, id => $category->id">{$subject->label}</a>
