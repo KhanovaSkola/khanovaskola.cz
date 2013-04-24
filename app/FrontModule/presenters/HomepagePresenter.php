@@ -11,7 +11,7 @@ class HomepagePresenter extends BaseFrontPresenter
 
 	public function renderDefault()
 	{
-		$this->redirectUrl("http://new.khanovaskola.cz/create_cookie.php?auth=8gG[]TzwR(9rXw");
+		//$this->redirectUrl("http://new.khanovaskola.cz/create_cookie.php?auth=8gG[]TzwR(9rXw");
 
 		$this->template->featured_video = $this->context->videos->findRandomDubbed();
 		$this->template->hide_search = TRUE;
