@@ -11,8 +11,8 @@ class Routes
 
 	public function setup($container)
 	{
-		if (isset($container->parameters['routerFlags'])) {
-			Route::$defaultFlags = $container->parameters['routerFlags'];
+		if (isset($container->parameters['https']) && $container->parameters['https']) {
+			Route::$defaultFlags += Route::SECURED;
 		}
 
 		$container->router[] = new Route('index.php', 'Front:Homepage:default', Route::ONE_WAY);
