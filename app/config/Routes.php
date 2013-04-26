@@ -11,6 +11,10 @@ class Routes
 
 	public function setup($container)
 	{
+		if (isset($container->parameters['routerFlags'])) {
+			Route::$defaultFlags = $container->parameters['routerFlags'];
+		}
+
 		$container->router[] = new Route('index.php', 'Front:Homepage:default', Route::ONE_WAY);
 
 		/** OLD GONE ROUTES */
