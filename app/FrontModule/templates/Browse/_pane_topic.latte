@@ -19,7 +19,7 @@
 					{#topic_preview}
 						<a class="subtopic-link-and-scroll" n:href=":Front:Browse:, id => $subcat->id" itemprop="significantLink">
 							{var $thumbnail => $subcat->getVideos()->limit(1)->fetch()}
-							<div class="thumb" style="background-image:url('http://img.youtube.com/vi/{$thumbnail ? $thumbnail->youtube_id : '0'}/hqdefault.jpg')"></div>
+							<div class="thumb" style="background-image:url('https://img.youtube.com/vi/{$thumbnail ? $thumbnail->youtube_id : '0'}/hqdefault.jpg')"></div>
 							<div class="topic-info">
 								<div class="topic-title">{$subcat->label}</div>
 								<div class="topic-description">{$subcat->description|truncate:70}</div>
