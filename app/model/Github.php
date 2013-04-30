@@ -22,9 +22,9 @@ class Github extends \Nette\Object
 
 	public function getIssues()
 	{
-		$res = file_get_contents($this->config->url . '/repos/khanovaskola/khanovaskola.cz/issues?state=open&sort=updated&direction=desc');
-		$data = \Nette\Utils\Json::decode($res);
-		return $data;
+		$url = $this->config->url . '/repos/khanovaskola/khanovaskola.cz/issues?state=open&sort=updated&direction=desc';
+
+		return $this->makeQuery($url, []);
 	}
 
 
@@ -77,6 +77,7 @@ class Github extends \Nette\Object
 			'ignore_errors' => TRUE, // want to retrieve API errors
 			'header' => "Content-type: application/x-www-form-urlencoded\r\n" .
 				"Content-lenght: " . strLen($content) . "\r\n" .
+				"User-Agent: KhanovaSkola.cz Github queuer\r\n",
 				"Accept: application/json",
 			'content' => $content,
 		]]);
