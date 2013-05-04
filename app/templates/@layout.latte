@@ -228,6 +228,10 @@
 			}
 
 			function updateProgress(progress) {
+				if (typeof youtube_progress_url === 'undefined') {
+					return false;
+				}
+
 				$.ajax(youtube_progress_url, {
 					data: { seconds: progress},
 					success: function(response) {
