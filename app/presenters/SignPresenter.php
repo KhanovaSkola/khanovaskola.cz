@@ -26,9 +26,6 @@ class SignPresenter extends BasePresenter
 	public function renderIn($mail = NULL)
 	{
 		$this['signInForm']['username']->setDefaultValue($mail);
-
-		/** @TODO REMOVE BEFORE DEPLOY */
-		$this['signInForm']['username']->setDefaultValue('mikulas@dite.cz');
 	}
 
 
