@@ -39,12 +39,6 @@ $configurator->onCompile[] = function ($configurator, $compiler) {
 
 $container = $configurator->createContainer();
 
-if (!isset($container->parameters['development']) && (!isset($_COOKIE['staging_access']) || $_COOKIE['staging_access'] !== 'allowed')) {
-	header("HTTP/1.0 403 Forbidden");
-	echo "HTTP/1.0 403 Forbidden\n";
-	die();
-}
-
 Debugger::$logger->mailer = callback('\Model\CustomMailer', 'mailer');
 
 NewRelic\NewRelic::register($container);
