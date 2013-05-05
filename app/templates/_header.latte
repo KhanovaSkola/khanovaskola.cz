@@ -9,58 +9,60 @@
 		<a n:href=":Front:Browse:, id => $category->id">{$subject->label}</a>
 	{/if}
 {/define}
-<div class="container">
-	<ul class="float-left">
-		<li class="dropdown-trigger"><a href="#" class="no-ajax">Naučit se <i class="icon-arrow-down"></i></a></li>
-		<li n:if="$user->loggedIn"><a n:href=":Coach:Dashboard:">Pro učitele</a></li>
-		<li n:if="!$user->loggedIn"><a n:href=":Front:About:coach">Pro učitele</a></li>
-		<li><a n:href=":Front:Volunteer:">Dobrovolníci</a></li>
-		<li><a n:href=":Front:About:">O nás</a></li>
+{cache $user->loggedIn ? $user->id : 0, tags => ['categories', 'videos']}
+	<div class="container">
+		<ul class="float-left">
+			<li class="dropdown-trigger"><a href="#" class="no-ajax">Naučit se <i class="icon-arrow-down"></i></a></li>
+			<li n:if="$user->loggedIn"><a n:href=":Coach:Dashboard:">Pro učitele</a></li>
+			<li n:if="!$user->loggedIn"><a n:href=":Front:About:coach">Pro učitele</a></li>
+			<li><a n:href=":Front:Volunteer:">Dobrovolníci</a></li>
+			<li><a n:href=":Front:About:">O nás</a></li>
 
-		<ul class="dropdown">
-			<li>
-				<a n:href=":Front:Homepage:library">Všechna videa</a>
-			</li>
-			<li>
-				<a n:href=":Front:Exercise:list">Všechna cvičení</a>
-			</li>
-			<li n:foreach="$presenter->context->categories->findRoot() as $subject" class="expandable{first} has-divider{/first}">
-				{var $count = $subject->getSubCategories()->count()}
-				{if $count === 1}
-					{foreach $subject->getSubCategories() as $subcat}
-						{include #category_link, category => $subcat, subject => $subject}
-					{/foreach}
-				{elseif $count > 1}
-					<a href="#" class="has-submenu">{$subject->label}</a>
-					<ul>
-						<li n:foreach="$subject->getSubCategories() as $subcat">
-							{include #category_link, category => $subcat, subject => $subcat}
-						</li>
-					</ul>
-				{/if}
-			</li>
-			<li n:foreach="$presenter->context->tags->findBy(['display' => TRUE]) as $tag"{first} class="has-divider"{/first}>
-				<a n:href=":Front:Tag:, tid => $tag->id">{$tag->label}</a>
-			</li>
+			<ul class="dropdown">
+				<li>
+					<a n:href=":Front:Homepage:library">Všechna videa</a>
+				</li>
+				<li>
+					<a n:href=":Front:Exercise:list">Všechna cvičení</a>
+				</li>
+				<li n:foreach="$presenter->context->categories->findRoot() as $subject" class="expandable{first} has-divider{/first}">
+					{var $count = $subject->getSubCategories()->count()}
+					{if $count === 1}
+						{foreach $subject->getSubCategories() as $subcat}
+							{include #category_link, category => $subcat, subject => $subject}
+						{/foreach}
+					{elseif $count > 1}
+						<a href="#" class="has-submenu">{$subject->label}</a>
+						<ul>
+							<li n:foreach="$subject->getSubCategories() as $subcat">
+								{include #category_link, category => $subcat, subject => $subcat}
+							</li>
+						</ul>
+					{/if}
+				</li>
+				<li n:foreach="$presenter->context->tags->findBy(['display' => TRUE]) as $tag"{first} class="has-divider"{/first}>
+					<a n:href=":Front:Tag:, tid => $tag->id">{$tag->label}</a>
+				</li>
+			</ul>
 		</ul>
-	</ul>
 
-	<div class="logo">
-		<a n:href=":Front:Homepage:">
-			<img src="{$cdnUrl}/images/header_white.svg" width="215px" height="38px">
-		</a>
-		<div id="spinner" class="animate-spin hidden">
-			<i class="icon-spinner"></i>
+		<div class="logo">
+			<a n:href=":Front:Homepage:">
+				<img src="{$cdnUrl}/images/header_white.svg" width="215px" height="38px">
+			</a>
+			<div id="spinner" class="animate-spin hidden">
+				<i class="icon-spinner"></i>
+			</div>
 		</div>
+		<ul n:snippet="header" class="float-right">
+			{if $user->isLoggedIn()}
+				<li><a n:href=":Front:Profile:, pid => NULL">{$user->entity->name}</a></li>
+				<li n:if="$user->isInRole($ROLE::EDITOR)"><a n:href=":Moderator:Dashboard:">Moderátoři</a></li>
+				<li><a n:href=":Sign:out" class="no-ajax">Odhlásit se</a></li>
+			{else}
+				<li><a n:href=":Sign:in">Přihlášení</a></li>
+				<li><a n:href=":Front:Registration:">Registrace</a></li>
+			{/if}
+		</ul>
 	</div>
-	<ul n:snippet="header" class="float-right">
-		{if $user->isLoggedIn()}
-			<li><a n:href=":Front:Profile:, pid => NULL">{$user->entity->name}</a></li>
-			<li n:if="$user->isInRole($ROLE::EDITOR)"><a n:href=":Moderator:Dashboard:">Moderátoři</a></li>
-			<li><a n:href=":Sign:out" class="no-ajax">Odhlásit se</a></li>
-		{else}
-			<li><a n:href=":Sign:in">Přihlášení</a></li>
-			<li><a n:href=":Front:Registration:">Registrace</a></li>
-		{/if}
-	</ul>
-</div>
+{/cache}
