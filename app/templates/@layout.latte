@@ -51,7 +51,12 @@
 		var onLoadQueue = [];
 		var onLoadQueuePersistent = [];
 		/** error logging */
+		var errorSent = false;
 		window.onerror = function(errorMessage, url, line) {
+			if (errorSent) {
+				return false;
+			}
+			errorSent = true;
 			var parameters = "?description=" + escape(errorMessage)
 				+ "&url=" + escape(url)
 				+ "&line=" + escape(line)
