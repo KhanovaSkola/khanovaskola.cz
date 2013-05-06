@@ -66,6 +66,14 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 			$this->template->cdnUrl = $this->template->baseUrl;
 		}
 
+		$this->template->newrelic = (object) ['header' => NULL, 'footer' => NULL];
+		if (extension_loaded('newrelic')) {
+			$this->template->newrelic = (object) [
+				'header' => newrelic_get_browser_timing_header(),
+				'footer' => newrelic_get_browser_timing_header(),
+			];
+		}
+
 		$this->template->git_deploy = (object) [
 			'branch' => Git::getBranch(),
 			'commit' => Git::getCommit(),
