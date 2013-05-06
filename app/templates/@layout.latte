@@ -114,7 +114,7 @@
 			</div>
 			<div class="col2">
 				<ul itemprop="version">
-					<li>{$git_deploy->branch}: {$git_deploy->hash}</li>
+					<li>{$git_deploy->branch}: <a href="https://github.com/KhanovaSkola/khanovaskola.cz/commit/{$git_deploy->hash}" target="_blank" rel="nofollow">{$git_deploy->hash}</a></li>
 					<li>{$git_deploy->time|date:'Y-n-j H:i'}</li>
 				</ul>
 				<div class="legal">
