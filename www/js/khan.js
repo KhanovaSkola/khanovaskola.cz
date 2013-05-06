@@ -54,7 +54,7 @@ function closeDropdown() {
 
 onLoadQueue.push(function() {
 	$.nette.init();
-	$.nette.ext('mics', {
+    $.nette.ext('mics', {
 		complete: function() {
 			closeDropdown();
 			window.scrollTo(0, 0);
