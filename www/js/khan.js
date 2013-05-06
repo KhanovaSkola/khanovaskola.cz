@@ -56,6 +56,7 @@ onLoadQueue.push(function() {
 	$.nette.init();
     $.nette.ext('mics', {
 		complete: function() {
+            clearInterval(ticker);
 			closeDropdown();
 			window.scrollTo(0, 0);
 			executeLoadQueue();

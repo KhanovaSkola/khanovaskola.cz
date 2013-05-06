@@ -7,9 +7,7 @@
 			{if $user->loggedIn}var youtube_progress_url = {plink updateProgress!, autoplay => NULL};{/if}
 
 			onLoadQueue.push(function() {
-				console.log('snippet queue', youtubeReady);
 				if (youtubeReady) {
-					console.log('show video from queue');
 					showVideo();
 				}
 			});

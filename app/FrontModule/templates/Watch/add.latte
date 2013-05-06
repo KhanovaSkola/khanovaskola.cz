@@ -12,7 +12,6 @@
 			var target = e.target;
 			setTimeout(function() {
 				$.get('http://gdata.youtube.com/feeds/api/videos/' + target.value + '?v=2&alt=jsonc&prettyprint=false', function(data) {
-					console.log(data);
 					$("#youtube-name").text(data.data.title);
 					$("#frm-videoForm-label").attr('placeholder', data.data.title);
 					$("#frm-videoForm-description").attr('placeholder', data.data.description);

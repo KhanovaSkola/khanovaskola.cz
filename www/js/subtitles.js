@@ -3,9 +3,10 @@ var center = null;
 var $high = null;
 
 onLoadQueuePersistent.push(function() {
-	if (!$("#player").length)
+	if (!$("#player").length || !$("#subtitles").length)
 		return false;
 
+    console.log('subtitles init');
 	var coords = $("#player").offset();
 	coords.top += 480 - 2 * $("#subtitles-overlay").height() - 70;
 	$("#subtitles-overlay").offset(coords);
@@ -19,6 +20,9 @@ onLoadQueuePersistent.push(function() {
 });
 
 onPlayerStateChangeCallbacks.push(function(code) {
+    if (!$("#player").length || !$("#subtitles").length)
+        return false;
+
 	if (code == 1) { // playing
 		if ($high == null) {
 			$high = $("#subtitles div:first");
