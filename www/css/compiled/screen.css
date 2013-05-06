@@ -79,11 +79,12 @@ nav.subnav li a:link,nav.subnav li a:visited,nav.subnav li a:active{color:#2c374
 nav.subnav li a:hover,nav.subnav li a.selected{text-decoration:none;border-bottom:2px solid #707b8b}
 nav.subnav li a:hover{background-color:#f7f7f7}
 footer{display:block;margin-top:10ex;background-color:#f7f7f7;border-top:1px solid #ddd;color:#2c3747;}
-footer .col1,footer .col2,footer .col3{display:inline-block;margin:0;padding:0;vertical-align:top}
-footer .col1{width:49%;margin-top:20px;}
-footer .col1 > ul{display:inline-block;width:24%;height:100%;vertical-align:top;}
-footer .col1 > ul li{list-style-type:none;margin:1ex 0}
-footer .col2{width:40%;margin-top:34px;text-align:right}
+footer .col1,footer .col2,footer .col3{display:inline-block;margin:0;padding:0;vertical-align:top;}
+footer .col1 > ul,footer .col2 > ul,footer .col3 > ul{display:inline-block;width:24%;height:100%;vertical-align:top;}
+footer .col1 > ul li,footer .col2 > ul li,footer .col3 > ul li{list-style-type:none;margin:1ex 0}
+footer .col1{width:49%;margin-top:26px}
+footer .col2{width:40%;margin-top:26px;text-align:right;}
+footer .col2 ul{width:100%}
 footer .col3{width:10%;text-align:right}
 footer .logo{margin:20px 0 40px 0}
 footer .legal{color:#999;text-align:right;font-size:12px;margin-top:2ex}
@@ -119,7 +120,7 @@ cite{color:#707b8b}
 .ui-autocomplete{list-style:none;background-color:#fff;width:575px;border:1px solid #2c3747;border-top:none;}
 .ui-autocomplete .ui-menu-item a{display:inline-block;width:608px;cursor:pointer;font-size:12pt !important;padding-left:24px !important;}
 .ui-autocomplete .ui-menu-item a.ui-state-focus{background-color:#f2f2f2 !important}
-.category-blocks{width:600px;font-size:0;}
+.category-blocks{width:600px;font-size:0;margin-top:5px;}
 .category-blocks h4{padding:2ex 0 1ex 0;}
 .category-blocks h4:first-of-type{padding-top:0}
 .category-blocks a{font-size:inherit;color:#005987;}

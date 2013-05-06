@@ -113,7 +113,10 @@
 				</ul>
 			</div>
 			<div class="col2">
-				<span itemprop="version">{$git_deploy->branch}: {$git_deploy->hash}<br>{$git_deploy->time|date:'Y-n-j H:i'}</span>
+				<ul itemprop="version">
+					<li>{$git_deploy->branch}: {$git_deploy->hash}</li>
+					<li>{$git_deploy->time|date:'Y-n-j H:i'}</li>
+				</ul>
 				<div class="legal">
 					<a class="no-ajax" rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cz/">
 						<img src="{$cdnUrl}/images/creative_commons.svg" height="15" alt="Uveďte autora-Nevyužívejte dílo komerčně-Zachovejte licenci 3.0 Česko (CC BY-NC-SA 3.0 CZ)">
