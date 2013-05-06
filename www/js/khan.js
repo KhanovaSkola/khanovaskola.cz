@@ -62,14 +62,35 @@ onLoadQueue.push(function() {
 			executeLoadQueue();
 		}
 	});
+
+	if (typeof NREUMQ !== 'undefined') {
+	    $.nette.ext('newrelic', {
+	        start: function() {
+		        NREUMQ = [];
+		        NREUMQ.push(["mark", "firstbyte", new Date().getTime()]);
+	        },
+			complete: function() {
+				/* TODO: move this so it properly computes load time and DOM time */
+				NREUMQ.push(["nrfj", "beacon-3.newrelic.com", "518208ceaf", "1993103", "MVZTNkdWWkFVUUFdWwgcchdGQ1tfG3RHW1oSCXkNWFJEU1NXD1BRAFJEDkE=", 0, 10, new Date().getTime(), "", "", "", "", ""]);
+				NREUMQ.push(["load", new Date().getTime()]);
+
+				var e = document.createElement("script");
+				e.type = "text/javascript";
+				e.src = (("http:" === document.location.protocol) ? "http:" : "https:") + "//" + "d1ros97qkrwjf5.cloudfront.net/42/eum/rum.js";
+				document.body.appendChild(e);
+	        }
+	    });
+	}
+
 	$.nette.ext('spinner', {
-	    before: function () {
+	    start: function () {
 	    	$("#spinner").removeClass('hidden');
 	    },
 	    complete: function() {
 			$("#spinner").addClass('hidden');
 	    }
 	});
+
 	$.nette.ext('ga', {
 		success: function (payload) {
 			var url = window.location.href;
@@ -78,6 +99,7 @@ onLoadQueue.push(function() {
 			}
 		}
 	});
+
 
 	/** highlight anchor if in correct format */
 	if (location.hash.indexOf('#hl-') === 0) {
