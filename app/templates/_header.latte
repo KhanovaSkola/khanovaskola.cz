@@ -20,10 +20,7 @@
 
 			<ul class="dropdown">
 				<li>
-					<a n:href=":Front:Homepage:library">Všechna videa</a>
-				</li>
-				<li>
-					<a n:href=":Front:Exercise:list">Všechna cvičení</a>
+					<a n:href=":Front:Homepage:library">Všechen obsah</a>
 				</li>
 				<li n:foreach="$presenter->context->categories->findRoot() as $subject" class="expandable{first} has-divider{/first}">
 					{var $count = $subject->getSubCategories()->count()}
