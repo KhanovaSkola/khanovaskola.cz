@@ -254,7 +254,8 @@
 				});
 			}
 		</script>
-		<script type="text/javascript" src="{$cdnUrl}/js/subtitles.js"></script>
+		<script type="text/javascript" src="{$cdnUrl}/js/subtitles.v-{=md5_file(WWW_DIR . '/js/subtitles.js')}.js"></script>
+
 	{* end video scripts *}
 
 	{#scripts}{/#}
