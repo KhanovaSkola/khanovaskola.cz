@@ -9,8 +9,8 @@
 		<a n:href=":Front:Browse:, id => $category->id">{$subject->label}</a>
 	{/if}
 {/define}
-{cache $user->loggedIn ? $user->id : 0, tags => ['categories', 'videos']}
-	<div class="container">
+<div class="container">
+	{cache tags => ['categories', 'videos']}
 		<ul class="float-left">
 			<li class="dropdown-trigger"><a href="#" class="no-ajax">Naučit se <i class="icon-arrow-down"></i></a></li>
 			<li n:if="$user->loggedIn"><a n:href=":Coach:Dashboard:">Pro učitele</a></li>
@@ -42,24 +42,25 @@
 				</li>
 			</ul>
 		</ul>
+	{/cache}
 
-		<div class="logo">
-			<a n:href=":Front:Homepage:">
-				<img src="{$cdnUrl}/images/header_white.svg" width="215px" height="38px">
-			</a>
-			<div id="spinner" class="animate-spin hidden">
-				<i class="icon-spinner"></i>
-			</div>
+	<div class="logo">
+		<a n:href=":Front:Homepage:">
+			<img src="{$cdnUrl}/images/header_white.svg" width="215px" height="38px">
+		</a>
+		<div id="spinner" class="animate-spin hidden">
+			<i class="icon-spinner"></i>
 		</div>
-		<ul n:snippet="header" class="float-right">
-			{if $user->isLoggedIn()}
-				<li><a n:href=":Front:Profile:, pid => NULL">{$user->entity->name}</a></li>
-				<li n:if="$user->isInRole($ROLE::EDITOR)"><a n:href=":Moderator:Dashboard:">Moderátoři</a></li>
-				<li><a n:href=":Sign:out" class="no-ajax">Odhlásit se</a></li>
-			{else}
-				<li><a n:href=":Sign:in">Přihlášení</a></li>
-				<li><a n:href=":Front:Registration:">Registrace</a></li>
-			{/if}
-		</ul>
 	</div>
-{/cache}
+	<ul n:snippet="header" class="float-right">
+		{if $user->isLoggedIn()}
+			<li><a n:href=":Front:Profile:, pid => NULL">{$user->entity->name}</a></li>
+			<li n:if="$user->isInRole($ROLE::EDITOR)"><a n:href=":Moderator:Dashboard:">Moderátoři</a></li>
+			<li><a n:href=":Sign:out" class="no-ajax">Odhlásit se</a></li>
+		{else}
+			<li><a n:href=":Sign:in, backlink => $presenter->getBacklink()">Přihlášení</a></li>
+			<li><a n:href=":Front:Registration:">Registrace</a></li>
+		{/if}
+	</ul>
+</div>
+
