@@ -35,6 +35,9 @@ class Exercises extends \ORM\Table
 	public function findByCategory(Category $category)
 	{
 		$ids = $category->getExerciseIds();
+		if (!$ids)
+			return $this->findBy(['id' => -1]); // return empty set
+
 		return $this->findBy(['id' => $ids])
 			->order('FIELD(id,' . implode(',', $ids) . '), id');
 	}

@@ -175,10 +175,11 @@ nav label:last-of-type{float:right;text-align:right}
 .center{margin:auto;width:800px}
 .categories .tree{display:inline-block;}
 .categories .tree ul{display:inline-block;width:auto;vertical-align:top;list-style:none;border-left:1px solid #707b8b;line-height:130%;}
-.categories .tree ul li{margin:0 1em 0 .5em}
-.categories .tree ul li.selected{background-color:#707b8b;margin:0;padding:0 1em 0 .5em;}
+.categories .tree ul li{padding:1ex 1em 1ex .5em}
+.categories .tree ul li.selected{background-color:#707b8b;}
 .categories .tree ul li.selected a{color:#fff}
 .categories .tree ul ul{text-align:left}
+.categories .tree ul .content-count{color:#707b8b}
 .entities{display:inline-block;vertical-align:top;height:100%;width:229px;margin-right:20px;border-left:1px solid #707b8b;border-right:1px solid #707b8b;}
 .entities ol{list-style:none;}
 .entities ol.path{font-size:11pt;}

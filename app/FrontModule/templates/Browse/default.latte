@@ -34,23 +34,32 @@
 {/#}
 {#content}
 
-{define #category_link}
-	{if $category->isLeaf() && $entity = $category->getFirstContent()}
-		{if $entity instanceof \Entity\Video}
-			<a n:href=":Front:Watch:, id => $category->id, vid => $entity->id">{$category->label}</a>
-		{else}
-			<a n:href=":Front:Exercise:, id => $category->id, eid => $entity->id">{$category->label}</a>
-		{/if}
-	{else}
-		<a n:href=":Front:Browse:, id => $category->id">{$category->label}</a>
-	{/if}
-{/define}
 <article class="categories" itemscope="" itemtype="http://schema.org/{ifset $leaf}VideoGallery{else}CollectionPage{/ifset}">
 	{define #list}
 		<ul>
 			<li n:foreach="$parent->getSubCategories() as $category"
 				n:class="$category->isEqualTo($selected) || $category->containsCategory($selected) ? selected">
-				{include #category_link, category => $category}
+				{if $category->isLeaf() && $entity = $category->getFirstContent()}
+					{var $count_v = $category->getVideos()->count()}
+					{var $count_ex = $category->getExercises()->count()}
+					{if $entity instanceof \Entity\Video}
+						<a n:href=":Front:Watch:, id => $category->id, vid => $entity->id">
+					{else}
+						<a n:href=":Front:Exercise:, id => $category->id, eid => $entity->id">
+					{/if}
+						{$category->label}
+						<span class="content-count">
+							{if $count_v}
+								<i class="icon-video"></i><span style="margin-left: -3px">{$count_v}</span>
+							{/if}
+							{if $count_ex}
+								<i class="icon-exercise"></i>{$count_ex}
+							{/if}
+						</span>
+					</a>
+				{else}
+					<a n:href=":Front:Browse:, id => $category->id">{$category->label}</a>
+				{/if}
 			</li>
 		</ul>&nbsp;
 	{/define}
