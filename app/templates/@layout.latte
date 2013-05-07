@@ -168,8 +168,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.1.1/jquery-migrate.min.js"></script>
 	<script src="{$cdnUrl}/js/jquery.menu-aim.js"></script>
 	<script type="text/javascript" src="{$cdnUrl}/js/netteForms.js"></script>
-	<script type="text/javascript" src="{$cdnUrl}/js/nette.ajax.js"></script>
-	<script type="text/javascript" src="{$cdnUrl}/js/history.ajax.js"></script>
+	<script type="text/javascript" src="{$cdnUrl}/js/nette.ajax.v-{=md5_file(WWW_DIR . '/js/nette.ajax.js')}.js"></script>
+	<script type="text/javascript" src="{$cdnUrl}/js/history.ajax.v-{=md5_file(WWW_DIR . '/js/history.ajax.js')}.js"></script>
 	<script type="text/javascript" src="{$cdnUrl}/js/khan.v-{=md5_file(WWW_DIR . '/js/khan.js')}.js"></script>
 	<script type="text/javascript" src="{$cdnUrl}/js/chosen.jquery.min.js"></script>
 
