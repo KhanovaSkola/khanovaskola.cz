@@ -6,6 +6,11 @@ onLoadQueuePersistent.push(function() {
 	if (!$("#player").length || !$("#subtitles").length)
 		return false;
 
+	if ($(".entity").data('format') === 'dubbed') {
+		$("#subtitles-overlay").hide();
+		return false;
+	}
+
     console.log('subtitles init');
 	var coords = $("#player").offset();
 	coords.top += 480 - 2 * $("#subtitles-overlay").height() - 70;

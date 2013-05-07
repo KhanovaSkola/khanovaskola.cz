@@ -17,7 +17,7 @@
 {#content}
 <article>
 	{include ../_leaf.latte}{* !no space
-		<div *}<div class="entity">
+		<div *}<div class="entity" data-format="{if $video->isDubbed()}dubbed{else}original{/if}">
 			<div>
 				{var $exercise => $video->getExercise()}
 				<a n:if="!$exercise && $video->external_exercise_url" href="{$video->external_exercise_url}" class="button blue float-right" target="_blank">

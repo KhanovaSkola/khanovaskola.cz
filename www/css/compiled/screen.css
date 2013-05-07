@@ -171,6 +171,7 @@ nav label:last-of-type{float:right;text-align:right}
 #subtitles .time{color:#969696;font-family:sans-serif;font-size:80%}
 #subtitles .row{height:23px}
 #subtitles td.narrow{width:50px}
+[data-format=dubbed] #subtitles .highlight{background-color:inherit}
 #subtitles-overlay{position:absolute;width:450px;font-size:14pt;color:#fff;padding:0 200px;text-align:center;text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;pointer-events:none;line-height:20pt}
 .center{margin:auto;width:800px}
 .categories .tree{display:inline-block;}
