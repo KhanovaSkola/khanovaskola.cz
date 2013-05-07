@@ -74,7 +74,7 @@ class WatchPresenter extends BaseFrontPresenter
 
 	public function renderAdd()
 	{
-		$this['videoForm']['categories']->setDefaultValue($this->getParam('categories'));
+		$this['videoForm']['categories']->setDefaultValue([$this->id]);
 	}
 
 

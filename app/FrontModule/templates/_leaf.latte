@@ -6,6 +6,9 @@
 		{!$node} a { color: white}
 	{/ifset}
 </style>
+<div n:if="$user->isInRole($ROLE::ADDER)" style="margin-bottom: 2ex">
+	<a n:href="add" class="button blue">přidat video</a>
+</div>
 {cache $category->id, tags => ["category/$category->id"]}
 	<div class="categories entities">
 		<ol class="parents">

@@ -106,7 +106,10 @@ h1{font-size:16pt;margin-bottom:1ex}
 h2{font-size:15pt}
 h3{font-size:14pt}
 h4{font-size:12pt}
-input[type=text],input[type=email],input[type=password]{background-color:#fafafa;border:1px solid #c6d1ad;font-size:10pt;padding:0 0 0 .5em;margin-bottom:.5ex;height:24px;width:160px;-webkit-outline-style:none;-moz-outline-style:none;outline:0;-webkit-box-shadow:0 0 0 0 #678d00;-moz-box-shadow:0 0 0 0 #678d00;box-shadow:0 0 0 0 #678d00;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px}
+select{width:304px}
+.chzn-container{margin-bottom:.8ex}
+a.chzn-single span{color:#000 !important}
+input[type=text],input[type=email],input[type=password]{background-color:#fafafa;border:1px solid #c6d1ad;font-size:10pt;padding:0 0 0 .5em;margin-bottom:.5ex;height:24px;width:295px;-webkit-outline-style:none;-moz-outline-style:none;outline:0;-webkit-box-shadow:0 0 0 0 #678d00;-moz-box-shadow:0 0 0 0 #678d00;box-shadow:0 0 0 0 #678d00;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px}
 cite{color:#707b8b}
 .main-search{text-align:center;background-color:#f7f7f7;border:1px solid #ddd;margin:0 0 3ex 0;}
 .main-search label,.main-search h1,.main-search form{display:inline-block}
