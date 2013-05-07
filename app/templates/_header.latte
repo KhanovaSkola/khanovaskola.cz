@@ -10,7 +10,7 @@
 	{/if}
 {/define}
 <div class="container">
-	{cache tags => ['categories', 'videos']}
+	{cache $user->loggedIn, tags => ['categories', 'videos']}
 		<ul class="float-left">
 			<li class="dropdown-trigger"><a href="#" class="no-ajax">Naučit se <i class="icon-arrow-down"></i></a></li>
 			<li n:if="$user->loggedIn"><a n:href=":Coach:Dashboard:">Pro učitele</a></li>
