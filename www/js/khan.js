@@ -63,14 +63,14 @@ onLoadQueue.push(function() {
 		}
 	});
 
-	if (typeof NREUMQ !== 'undefined') {
+	/*if (typeof NREUMQ !== 'undefined') {
 	    $.nette.ext('newrelic', {
 	        start: function() {
 		        NREUMQ = [];
 		        NREUMQ.push(["mark", "firstbyte", new Date().getTime()]);
 	        },
 			complete: function() {
-				/* TODO: move this so it properly computes load time and DOM time */
+				// TODO: move this so it properly computes load time and DOM time
 				NREUMQ.push(["nrfj", "beacon-3.newrelic.com", "518208ceaf", "1993103", "MVZTNkdWWkFVUUFdWwgcchdGQ1tfG3RHW1oSCXkNWFJEU1NXD1BRAFJEDkE=", 0, 10, new Date().getTime(), "", "", "", "", ""]);
 				NREUMQ.push(["load", new Date().getTime()]);
 
@@ -80,7 +80,7 @@ onLoadQueue.push(function() {
 				document.body.appendChild(e);
 	        }
 	    });
-	}
+	}*/
 
 	$.nette.ext('spinner', {
 	    start: function () {
