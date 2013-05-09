@@ -236,6 +236,8 @@ a[href^=error]{color:#f00 !important}
 .container{width:1200px;margin:auto}
 .fifty-fifty{display:inline-block;vertical-align:top;}
 .fifty-fifty.col1,.fifty-fifty.col2{width:49%}
+.thirds{display:inline-block;vertical-align:top;}
+.thirds.col1,.thirds.col2,.thirds.col3{width:32%}
 .sixty-forty{display:inline-block;vertical-align:top;}
 .sixty-forty.col1{width:59%}
 .sixty-forty.col2{width:39%}
