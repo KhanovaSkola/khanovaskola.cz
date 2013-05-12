@@ -265,7 +265,7 @@ class Routes
 		/**
 		 * youtube/KA like route to videos based on youtube_id
 		 */
-		$container->router[] = new Route('video/?v=<youtube_id>', [
+		$container->router[] = new Route('video/<youtube_id [A-Za-z0-9_-]{11}>', [
 			'module' => 'Front',
 			'presenter' => 'Watch',
 			'action' => 'redirect',
