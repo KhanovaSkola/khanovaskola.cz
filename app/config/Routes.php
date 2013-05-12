@@ -263,6 +263,15 @@ class Routes
 		]);
 
 		/**
+		 * youtube/KA like route to videos based on youtube_id
+		 */
+		$container->router[] = new Route('video/?v=<youtube_id>', [
+			'module' => 'Front',
+			'presenter' => 'Watch',
+			'action' => 'redirect',
+		]);
+
+		/**
 		 * Direct actions of sign presenter
 		 */
 		$container->router[] = new Route('<action (prihlaseni|odhlaseni|fb-auth|google-auth)>', [

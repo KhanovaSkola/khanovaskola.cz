@@ -36,7 +36,7 @@ class WatchPresenter extends BaseFrontPresenter
 
 		$this->video = $this->context->videos->find($this->vid);
 
-		if ($this->action === 'add') {
+		if (in_array($this->action, ['add', 'redirect'])) {
 			return;
 		}
 
@@ -50,6 +50,21 @@ class WatchPresenter extends BaseFrontPresenter
 		if (!$this->category || !$this->video || !$this->category->containsVideo($this->video)) {
 			throw new \Nette\Application\BadRequestException;
 		}
+	}
+
+
+
+	public function actionRedirect($youtube_id)
+	{
+		$video = $this->context->videos->findOneBy(['youtube_id' => $youtube_id]);
+		if (!$video) {
+			throw new \Nette\Application\BadRequestException;
+		}
+		$this->redirect('default', [
+			'id' => $video->getOneCategoryId(),
+			'vid' => $video->id,
+			'youtube_id' => NULL,
+		]);
 	}
 
 
