@@ -313,6 +313,15 @@ class Routes
 		]);
 
 		/**
+		 * HR
+		 */
+		$container->router[] = new Route('hr/<name>', [
+			'module' => 'Front',
+			'presenter' => 'Hr',
+			'action' => 'default',
+		]);
+
+		/**
 		 * Coach module
 		 */
 		$container->router[] = new Route('ucit[/<presenter>[/<action>]]', [
