@@ -8,6 +8,7 @@
 </style>
 <div n:if="$user->isInRole($ROLE::ADDER)" style="margin-bottom: 2ex">
 	<a n:href="add" class="button blue">přidat video</a>
+	<a n:href=":Front:Browse:sort, id => $category->id" class="button blue">upravit pořadí</a>
 </div>
 {cache $category->id, tags => ["category/$category->id"]}
 	<div class="categories entities">

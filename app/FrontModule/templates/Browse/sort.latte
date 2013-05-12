@@ -1,0 +1,29 @@
+{var $title = "Pořadí obsahu v kategorii $category->label"}
+
+{#scripts}
+<script n:syntax="off">
+	$(function() {
+		var list = $("#sortable").sortable({
+			placeholder: "sortable-placeholder",
+			update: function(event, ui) {
+				$("#frm-sortForm-order").val(list.sortable('toArray', {attribute: 'data-id'}));
+			},
+		});
+		$("#sortable").disableSelection();
+	});
+</script>
+{/#}
+{#content}
+
+<article>
+	<div>
+		<h2>Pořadí v kategorii {$category->label}</h2>
+	</div>
+	<ul id="sortable">
+		<li n:foreach="$category->getContent() as $content" data-id="{if $content instanceof \Entity\Video}v:{else}e:{/if}{$content->id}">
+			{$content->label}
+		</li>
+
+		{control sortForm}
+	</ul>
+</article>

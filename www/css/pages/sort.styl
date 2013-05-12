@@ -1,0 +1,13 @@
+#sortable
+	list-style none
+	width 300px
+	li
+		background $darkGray
+		margin 1ex 0
+		padding 1ex 1em
+		cursor row-resize
+		&:before
+			content "↕"
+		&.sortable-placeholder
+			color white
+			background $lightBlue

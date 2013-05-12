@@ -36,6 +36,17 @@ class BrowsePresenter extends BaseFrontPresenter
 
 
 
+	public function renderSort()
+	{
+		if (!$this->user->isInrole(ROLE::EDITOR)) {
+			throw new \Nette\Application\ForbiddenRequestException;
+		}
+
+		$this->template->category = $this->category;
+	}
+
+
+
 	public function renderDefault()
 	{
 		$this->template->selected = $this->category;
@@ -54,6 +65,47 @@ class BrowsePresenter extends BaseFrontPresenter
 
 		$this['editForm']['label']->setValue($this->category->label);
 		$this['editForm']['description']->setValue($this->category->description);
+	}
+
+
+
+	public function createComponentSortForm($name)
+	{
+		$form = $this->createForm($name);
+
+		$form->addHidden('order');
+
+		$form->addSubmit('send', 'Uložit')->controlPrototype->class = "simple-button green";
+		return $form;
+	}
+
+
+
+	public function onSuccessSortForm(Form $form)
+	{
+		if (!$this->user->isInrole(ROLE::EDITOR)) {
+			throw new \Nette\Application\ForbiddenRequestException;
+		}
+
+		$v = $form->values['order'];
+		if (!$v) {
+			$this->flashMessage('Pořadí nebylo změněno.');
+			$this->redirect('default');
+		}
+
+		$rows = explode(',', $v);
+		foreach ($rows as $i => $row) {
+			if (!$row) {
+				unset($rows[$i]);
+			}
+		}
+		$this->category->updatePositions($rows);
+
+		$cache = new Cache($this->context->cacheStorage);
+		$cache->clean([Cache::TAGS => "category/{$this->category->id}"]);
+
+		$this->flashMessage('Pořadí bylo uloženo.');
+		$this->redirect('default');
 	}
 
 

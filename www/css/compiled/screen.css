@@ -232,6 +232,10 @@ nav label:last-of-type{float:right;text-align:right}
 #library .library-category .list{list-style:none;-webkit-column-count:4;-webkit-column-gap:20px;-webkit-column-fill:balance;-webkit-column-width:285px;-moz-column-count:4;-moz-column-gap:20px;-moz-column-fill:balance;-moz-column-width:285px;column-count:4;column-gap:20px;column-fill:balance;column-width:285px}
 .tag-content i{font-size:14px;display:inline-block;width:1.25em}
 .tag-content ol{margin-top:1ex;list-style:none;-webkit-column-count:4;-webkit-column-gap:20px;-webkit-column-fill:balance;-webkit-column-width:285px;-moz-column-count:4;-moz-column-gap:20px;-moz-column-fill:balance;-moz-column-width:285px;column-count:4;column-gap:20px;column-fill:balance;column-width:285px}
+#sortable{list-style:none;width:300px;}
+#sortable li{background:#ddd;margin:1ex 0;padding:1ex 1em;cursor:row-resize;}
+#sortable li:before{content:"↕"}
+#sortable li.sortable-placeholder{color:#fff;background:#707b8b}
 a[href^=error]{color:#f00 !important}
 .container{width:1200px;margin:auto}
 .fifty-fifty{display:inline-block;vertical-align:top;}
