@@ -151,11 +151,14 @@ class WatchPresenter extends BaseFrontPresenter
 	{
 		$form = $this->createForm($name);
 
-		$form->addText('youtube_id', 'Youtube ID', NULL, 11); // every youtube_id has 11 chars
-		$form->addText('label', 'Název');
+		$form->addText('youtube_id', 'Youtube ID', NULL, 11) // every youtube_id has 11 chars
+			->setRequired('Vyplňte Youtube ID');
+		$form->addText('label', 'Název')
+			->setRequired('Vyplňte název videa');
 		$form->addTextArea('description', 'Popis');
 		$form->addMultiSelect('tags', 'Tagy', $this->context->tags->getFill());
-		$form->addMultiSelect('categories', 'Kategorie', $this->context->categories->getFill());
+		$form->addMultiSelect('categories', 'Kategorie', $this->context->categories->getFill())
+			->setRequired('Vyberte alespoň jednu kategorii');
 		$form->addSelect('author_id', 'Dabing', $this->context->authors->getFill());
 		$form->addSelect('exercise_id', 'Cvičení', $this->context->exercises->getFill());
 		$form->addText('external_exercise_url', 'Externí cvičení (url)');
@@ -173,6 +176,11 @@ class WatchPresenter extends BaseFrontPresenter
 		if (($this->action === 'add' || $this->video->youtube_id !== $v->youtube_id)
 		 && $this->context->videos->findBy(['youtube_id' => $v->youtube_id])->count()) {
 			$form->addError('Tohle video (id) už v databázi máme.');
+			return FALSE;
+		}
+
+		if (!count($v->categories)) {
+			$form->addError('Vyberte prosím alespoň jednu kategorii.');
 			return FALSE;
 		}
 
