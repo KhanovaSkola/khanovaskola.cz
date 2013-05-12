@@ -191,6 +191,11 @@ class WatchPresenter extends BaseFrontPresenter
 				throw new \Nette\Application\ForbiddenRequestException;
 			}
 
+			if ($old_vid = $this->context->videos->slugExistsForLabel($v->label)) {
+				$form->addError('Video s tímto názvem už v databázi existuje, ale youtube_id se neshoduje. Máme-li dabing, možná přidáváte originální verzi.');
+				return FALSE;
+			}
+
 			try {
 				$vid = $this->context->videos->insert([
 					'label' => $v->label,
@@ -255,8 +260,7 @@ class WatchPresenter extends BaseFrontPresenter
 		$cache = new Cache($this->context->cacheStorage);
 		$cache->clean([Cache::TAGS => $invalid]);
 
-
-		$this->redirect('default', ['vid' => $vid->id]);
+		$this->redirect('default', ['vid' => $vid->id, 'id' => $vid->getOneCategoryId()]);
 	}
 
 

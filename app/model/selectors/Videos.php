@@ -190,4 +190,12 @@ class Videos extends \ORM\Table
 		return $this->findWithVerification(2)->where('id NOT IN (SELECT video_id FROM tag_video WHERE tag_id=?)', $this->context->tags->findDubTag()->id);
 	}
 
+
+
+	public function slugExistsForLabel($label)
+	{
+		$slug = \Nette\Utils\Strings::webalize($label);
+		return $this->findBySlug($slug);
+	}
+
 }
