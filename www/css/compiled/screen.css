@@ -133,6 +133,7 @@ cite{color:#707b8b}
 .category-blocks .block i[class^=icon]{font-size:12px}
 .main-text p{width:90%}
 .call-to-action{margin:2ex 0}
+.notification{text-align:left;background-color:#f7f7f7;border:1px solid #ddd;padding:1ex 1em;padding-left:62px;margin-top:-2ex;margin-bottom:2ex}
 .credentials{-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;-webkit-background-clip:padding-box;-moz-background-clip:padding-box;border-background-clip:padding-box;background-color:#eee;border:1px solid #ccc;border-bottom:1px solid #aaa;-webkit-box-shadow:0 1px 3px #ccc;-moz-box-shadow:0 1px 3px #ccc;box-shadow:0 1px 3px #ccc;width:59%;margin:auto;padding:1em;}
 .credentials>div{display:inline-block;vertical-align:top}
 .credentials h3{margin-bottom:2ex}
