@@ -323,7 +323,7 @@ class WatchPresenter extends BaseFrontPresenter
 
 	public function handleReloadSubtitles()
 	{
-		if (!$this->user->isInrole(ROLE::EDITOR)) {
+		if ( !($this->user->isInrole(ROLE::EDITOR) || $this->user->isInrole(ROLE::VERIFIER))) {
 			throw new \Nette\Application\ForbiddenRequestException;
 		}
 
