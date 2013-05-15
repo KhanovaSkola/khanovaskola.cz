@@ -71,9 +71,14 @@ foreach (Finder::findFiles('*.sql')->from(__DIR__) as $file => $i)
 ksort($shards);
 
 $res = $db->query('SELECT version FROM _version');
-$row = $res->fetch_object();
-$version = (int) ($row ? $row->version : 0);
-$res->free();
+if ($res) {
+	$row = $res->fetch_object();
+	$version = (int) ($row ? $row->version : 0);
+	$res->free();
+} else {
+	$version = 0;
+}
+
 
 if ($version === array_reverse(array_keys($shards))[0]) {
 	echo "\033[1;34mDatabase already on the most recent version\033[0m\n";

@@ -1,0 +1,34 @@
+#
+# SECURITY WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
+#
+# If you don't protect this directory from direct web access, anybody will be able to see your passwords.
+# http://nette.org/security-warning
+#
+parameters:
+	https: false
+	development: true
+	github:
+		id:
+		secret:
+		token:
+	facebook:
+		appId:
+		secret:
+	google:
+		id:
+		secret:
+	metrics:
+		user:
+		key:
+	database:
+		host: localhost
+		dbname: khanovaskola
+		user: root
+		password: root
+	mailChimp:
+		key:
+		list:
+
+services:
+	# Uncomment to disable caching
+	#cacheStorage: Nette\Caching\Storages\DevNullStorage

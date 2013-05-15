@@ -10,11 +10,12 @@ require __DIR__ . '/../vendor/autoload.php';
 $configurator = new Nette\Config\Configurator;
 
 // Enable Nette Debugger for error visualisation & logging
+
 $configurator->setDebugMode(php_sapi_name() === "cli" || isset($_COOKIE['debug']) && $_COOKIE['debug'] === '9&(@QqxENEEb3Q4T');
 $configurator->enableDebugger(__DIR__ . '/../log');
 
 // Enable RobotLoader - this will load all classes automatically
-$configurator->setTempDirectory(__DIR__ . '/../temp');
+$configurator->setTempDirectory('/tmp/khanovaskola.cz');
 $configurator->createRobotLoader()
 	->addDirectory(APP_DIR)
 	->register();
