@@ -24,12 +24,12 @@ then
 	echo "listen = /var/run/php5-fpm.sock" | sudo tee -a /etc/php5/fpm/php-fpm.conf > /dev/null
 
 	# install OhMyZSH
-	sudo su vagrant
-		curl --silent -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
-		cat /vagrant/vagrant/shell.sh >> ~/.zshrc
-	exit
-
+	sudo su vagrant -c "curl --silent -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh"
+	cat /vagrant/vagrant/shell.sh >> /home/vagrant/.zshrc
 	sudo chsh -s /bin/zsh vagrant
+
+	# remove login banner
+	sudo rm -rf /etc/motd
 
 	if [ ! -f /srv/sites/khanovaskola.cz/app/config/config.local.neon ]
 	then
