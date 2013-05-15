@@ -4,5 +4,19 @@ runtime: php
 api_version: 1
 
 handlers:
+- url: /css
+  static_dir: www/css
+- url: /js
+  static_dir: www/js
+- url: /images
+  static_dir: www/images
+- url: /fonts
+  static_dir: www/fonts
+- url: /documents
+  static_dir: www/documents
+- url: /adminer/
+  script: www/adminer/index.php
+- url: /adminer/editor
+  script: www/adminer/editor.php
 - url: /.*
   script: www/index.php
