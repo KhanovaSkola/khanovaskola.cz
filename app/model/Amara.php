@@ -12,7 +12,7 @@ use Nette\Caching\IStorage;
 class Amara extends Object
 {
 
-	const ENDPOINT = 'http://www.universalsubtitles.org';
+	const ENDPOINT = 'https://staging.universalsubtitles.org';
 
 
 
