@@ -8,7 +8,7 @@ then
 
 	# add php54 source
 	sudo cp /vagrant/vagrant/sources.list /etc/apt/sources.list.d/php54.list
-	wget http://www.dotdeb.org/dotdeb.gpg
+	wget http://www.dotdeb.org/dotdeb.gpg 2> /dev/null
 	cat dotdeb.gpg | sudo apt-key add -
 	sudo rm -rf dotdeb.gpg
 
@@ -25,7 +25,7 @@ then
 
 	# install OhMyZSH
 	sudo su vagrant
-		curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+		curl --silent -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 		cat /vagrant/vagrant/shell.sh >> ~/.zshrc
 	exit
 
