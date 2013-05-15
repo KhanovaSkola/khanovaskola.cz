@@ -7,7 +7,6 @@ Vagrant.configure("2") do |config|
 	# Make this VM reachable on the host network as well, so that other
 	# VM's running other browsers can access our dev server.
 	config.vm.network :private_network, ip: "192.168.13.37"
-	config.vm.network :forwarded_port, host: 7080, guest: 80
 
 	config.vm.provision :shell, :path => "vagrant/provision.sh"
 
