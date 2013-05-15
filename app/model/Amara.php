@@ -35,7 +35,7 @@ class Amara extends Object
 			$data = $this->getData($video);
 			if ($data->subtitles !== NULL) {
 				$subs = $data->subtitles->subtitles;
-				if (is_object($subs))
+				if (is_array($subs))
 					return $subs;
 
 				$html = Html::str_get_html($subs);
