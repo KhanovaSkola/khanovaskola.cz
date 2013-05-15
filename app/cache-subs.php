@@ -23,6 +23,8 @@ $configurator->addConfig(__DIR__ . '/config/config.local.neon');
 $container = $configurator->createContainer();
 
 foreach ($container->videos->findAll() as $video) {
+	if ($video->isDubbed())
+		continue;
 	echo "$video->label";
 	$subs = $container->amara->getSubtitles($video);
 	if (!$subs) {
