@@ -21,4 +21,12 @@ Start the machine
 vagrant up
 ```
 
-View the application at `local.khanovaskola.cz` (see Setup 2.). Database can be managed at `http://local.khanovaskola.cz/adminer/index.php`.
+View the application at `local.khanovaskola.cz` (see Setup 2.).
+
+Database can be managed at `http://local.khanovaskola.cz/adminer/index.php`.
+
+Stylus stylesheets are compiled as (in the Vagrant shell):
+```
+cd /srv/sites/khanovaskola.cz
+./compile_styles.sh
+```

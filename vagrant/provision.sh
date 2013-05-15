@@ -6,6 +6,8 @@ then
 	echo 'mysql-server-5.5 mysql-server/root_password password root' | sudo debconf-set-selections
 	echo 'mysql-server-5.5 mysql-server/root_password_again password root' | sudo debconf-set-selections
 
+	echo deb http://ftp.us.debian.org/debian/ sid main | sudo tee /etc/apt/sources.list.d/sid.list
+
 	# add php54 source
 	sudo cp /vagrant/vagrant/sources.list /etc/apt/sources.list.d/php54.list
 	wget http://www.dotdeb.org/dotdeb.gpg 2> /dev/null
@@ -19,6 +21,8 @@ then
 		nginx \
 		git \
 		zsh \
+		python g++ curl libssl-dev \
+		nodejs npm \
 		--quiet --assume-yes
 
 	echo "listen = /var/run/php5-fpm.sock" | sudo tee -a /etc/php5/fpm/php-fpm.conf > /dev/null
@@ -30,6 +34,9 @@ then
 
 	# remove login banner
 	sudo rm -rf /etc/motd
+
+	sudo ln -s /usr/bin/nodejs /usr/bin/node
+	sudo npm install --global stylus
 
 	if [ ! -f /srv/sites/khanovaskola.cz/app/config/config.local.neon ]
 	then

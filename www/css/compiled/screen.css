@@ -22,10 +22,10 @@ input,select{vertical-align:middle}
 .icon-arrow-right:before{content:'\e75e'}
 .icon-progress:before{content:'\e793'}
 .icon-spinner:before{content:'\e831'}
-.icon-leaf:before{content:'🍂'}
-.icon-dubbed:before{content:'🔊'}
-.icon-search:before{content:'🔍'}
-.icon-notification:before{content:'🔔'}
+.icon-leaf:before{content:'�'}
+.icon-dubbed:before{content:'�'}
+.icon-search:before{content:'�'}
+.icon-notification:before{content:'�'}
 .animate-spin{-moz-animation:spin 2s infinite linear;-o-animation:spin 2s infinite linear;-webkit-animation:spin 2s infinite linear;animation:spin 2s infinite linear;display:inline-block}
 @-moz-keyframes spin{0%{-moz-transform:rotate(0);-o-transform:rotate(0);-webkit-transform:rotate(0);transform:rotate(0)}
 100%{-moz-transform:rotate(359deg);-o-transform:rotate(359deg);-webkit-transform:rotate(359deg);transform:rotate(359deg)}
