@@ -89,6 +89,7 @@ footer .col3{width:10%;text-align:right}
 footer .logo{margin:20px 0 40px 0}
 footer .legal{color:#999;text-align:right;font-size:12px;margin-top:2ex}
 body{font-family:"Museo Sans 300",Arial,"Helvetica Neue",Helvetica,sans-serif;font-weight:300;font-style:normal;text-rendering:optimizeLegibility}
+strong,b{font-family:"Museo Sans 700",Arial,'Helvetica Neue',Helvetica,sans-serif;font-weight:700;font-style:normal}
 a:not(.button){text-decoration:none;color:#005987;}
 a:not(.button):visited,a:not(.button):link,a:not(.button):visited{color:#005987}
 a:not(.button):hover{color:#678d00;text-decoration:underline}
