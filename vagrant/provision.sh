@@ -24,10 +24,12 @@ then
 	echo "listen = /var/run/php5-fpm.sock" | sudo tee -a /etc/php5/fpm/php-fpm.conf > /dev/null
 
 	# install OhMyZSH
-	curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
-	sudo chsh -s /bin/zsh vagrant
+	sudo su vagrant
+		curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+		echo "PROMPT='Vagrant %{$fg_bold[red]%}➜ %{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'" > ~/.zshrc
+	exit
 
-	echo "PROMPT='Vagrant %{$fg_bold[red]%}➜ %{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'" > ~/.zshrc
+	sudo chsh -s /bin/zsh vagrant
 
 	if [ ! -f /srv/sites/khanovaskola.cz/app/config/config.local.neon ]
 	then
@@ -35,13 +37,13 @@ then
 		echo "Don't forget to edit /app/config/config.local.neon"
 	fi
 
-	sudo touch /var/provisioned
-
 else
 	echo Already provisioned
 fi
 
 sudo mkdir -p /tmp/khanovaskola.cz
+sudo chown -R www-data:vagrant /tmp/khanovaskola.cz
+sudo chmod -R ug+rwx /tmp/khanovaskola.cz
 
 sudo rm -rf /etc/nginx/nginx.conf
 sudo ln -s /vagrant/vagrant/nginx.conf /etc/nginx/nginx.conf
@@ -49,3 +51,8 @@ sudo /etc/init.d/php5-fpm restart
 sudo /etc/init.d/nginx restart
 
 sudo php /srv/sites/khanovaskola.cz/db/migrate.php local
+if [ ! -f /var/provisioned ]
+then
+	mysql -u root -proot -h localhost khanovaskola < /vagrant/vagrant/dummy.sql
+	sudo touch /var/provisioned
+fi
