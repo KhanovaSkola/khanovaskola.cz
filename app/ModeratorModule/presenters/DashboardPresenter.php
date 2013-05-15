@@ -257,7 +257,11 @@ class DashboardPresenter extends BaseModeratorPresenter
 		$videos = $this->context->videos->findAll();
 
 		foreach ($videos as $video) {
-			$this->context->amara->getSubtitles($video);
+			$subs = $this->context->amara->getSubtitles($video);
+			if (!$subs) {
+				$this->context->amara->clearCache($video);
+				$this->context->amara->getSubtitles($video);
+			}
 		}
 
 		$this->flashMessage("Cache titulků byla obnovena.");
