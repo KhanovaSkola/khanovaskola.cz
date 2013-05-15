@@ -7,6 +7,7 @@ use Nette\Object;
 use Nette\Utils\Json;
 use Nette\Caching\Cache;
 use Nette\Caching\IStorage;
+use Sunra\PhpSimple\HtmlDomParser as Html;
 
 
 class Amara extends Object
@@ -33,13 +34,35 @@ class Amara extends Object
 		try {
 			$data = $this->getData($video);
 			if ($data->subtitles !== NULL) {
-				return $data->subtitles->subtitles;
+				$subs = $data->subtitles->subtitles;
+				if (is_object($subs))
+					return $subs;
+
+				$html = Html::str_get_html($subs);
+				$data = [];
+				foreach ($html->find('body div p') as $row) {
+					$data[] = (object) [
+						'text' => html_entity_decode($row->innertext),
+						'start_time' => $this->normalizeTime($row->begin),
+						'end_time' => $this->normalizeTime($row->end),
+					];
+				}
+				return $data;
 			}
 		} catch (\Nette\Utils\JsonException $e) {
 			return FALSE;
 		}
 
 		return [];
+	}
+
+
+
+	private function normalizeTime($time)
+	{
+		// 00:00:00.464
+		list($h, $m, $s) = explode(':', $time);
+		return (int) (($h * 3600 + $m * 60 + $s) * 1000);
 	}
 
 
