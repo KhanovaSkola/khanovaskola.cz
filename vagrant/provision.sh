@@ -26,7 +26,7 @@ then
 	# install OhMyZSH
 	sudo su vagrant
 		curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
-		echo "PROMPT='Vagrant %{$fg_bold[red]%}➜ %{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'" > ~/.zshrc
+		cat /vagrant/vagrant/shell.sh >> ~/.zshrc
 	exit
 
 	sudo chsh -s /bin/zsh vagrant
