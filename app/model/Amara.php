@@ -41,6 +41,8 @@ class Amara extends Object
 				$html = Html::str_get_html($subs);
 				$data = [];
 				foreach ($html->find('body div p') as $row) {
+					if (!$row->end)
+						continue;
 					$data[] = (object) [
 						'text' => html_entity_decode($row->innertext),
 						'start_time' => $this->normalizeTime($row->begin),
