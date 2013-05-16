@@ -31,7 +31,7 @@
 					{elseif $count > 1}
 						<a href="#" class="has-submenu">{$subject->label}</a>
 						<ul>
-							<li n:foreach="$subject->getSubCategories() as $subcat">
+							<li n:foreach="$subject->getSubCategories() as $subcat" n:if="$subcat->hasContent()">
 								{include #category_link, category => $subcat, subject => $subcat}
 							</li>
 						</ul>

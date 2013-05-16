@@ -53,7 +53,8 @@
 		<div class="category-blocks col1 fifty-fifty">
 			{cache tags => ['categories', 'videos']}
 				{define #category_link}
-					{if $category->isLeaf() && $entity = $category->getFirstContent()}
+					{if $category->isLeaf() && !$category->hasContent()}
+					{elseif $category->isLeaf() && $entity = $category->getFirstContent()}
 						{if $entity instanceof \Entity\Video}
 							<a n:href=":Front:Watch:, id => $category->id, vid => $entity->id" class="block">
 								{if $category->containsDubbedVideos()}<i class="icon-dubbed"></i>&nbsp;{/if}{$category->label}

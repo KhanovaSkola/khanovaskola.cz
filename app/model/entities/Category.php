@@ -305,6 +305,17 @@ class Category extends \ORM\EntityUrl
 
 
 	/**
+	 * Recursive
+	 * @return bool
+	 */
+	public function hasContent()
+	{
+		return $this->hasExercises() || $this->hasVideos();
+	}
+
+
+
+	/**
 	 * @return Exercise[]
 	 */
 	public function getExercises()

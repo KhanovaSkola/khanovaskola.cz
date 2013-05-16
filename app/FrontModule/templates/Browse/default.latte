@@ -36,9 +36,11 @@
 
 <article class="categories" itemscope="" itemtype="http://schema.org/{ifset $leaf}VideoGallery{else}CollectionPage{/ifset}">
 	{define #list}
-		<ul>
-			<li n:foreach="$parent->getSubCategories() as $category"
-				n:class="$category->isEqualTo($selected) || $category->containsCategory($selected) ? selected">
+		<ul n:inner-foreach="$parent->getSubCategories() as $category">
+			{if !$category->hasContent()}
+				{?continue}
+			{/if}
+			<li n:class="$category->isEqualTo($selected) || $category->containsCategory($selected) ? selected">
 				{if $category->isLeaf() && $entity = $category->getFirstContent()}
 					{var $count_v = $category->getVideos()->count()}
 					{var $count_ex = $category->getExercises()->count()}
