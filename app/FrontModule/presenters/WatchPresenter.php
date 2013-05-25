@@ -82,7 +82,7 @@ class WatchPresenter extends BaseFrontPresenter
 		$this->template->video = $this->video;
 		$this->template->category = $this->category;
 
-		$this->template->subtitles = $this->context->amara->getSubtitles($this->video);
+		$this->template->subtitles = $this->video->getSubtitles();
 	}
 
 
@@ -289,9 +289,17 @@ class WatchPresenter extends BaseFrontPresenter
 	public function actionEditSubtitles()
 	{
 		$url = urlencode("http://www.youtube.com/watch?v=" . $this->video->youtube_id);
-		$video_id = $this->context->amara->getId($this->video);
+		$video_id = $this->context->report->getAmaraId($this->video);
 		list($basePK, $subPK) = $this->context->amara->getLanguagePk($this->video);
-		$target = "http://www.universalsubtitles.org/en/onsite_widget/?config=%7B%22videoID%22%3A%22$video_id%22%2C%22videoURL%22%3A%22$url%22%2C%22effectiveVideoURL%22%3A%22$url%22%2C%22languageCode%22%3A%22cs%22%2C%22originalLanguageCode%22%3Anull%2C%22subLanguagePK%22%3A$subPK%2C%22baseLanguagePK%22%3A$basePK%7D";
+		$target = "http://www.amara.org/cs/onsite_widget/?config=" . urlencode(json_encode([
+			"videoID" => "7vU9I2JQqxsp",
+			"videoURL" => "http://www.youtube.com/watch?v=Lvr2YsxG10o",
+			"effectiveVideoURL" => "http://www.youtube.com/watch?v=Lvr2YsxG10o",
+			"languageCode" => "cs",
+			"originalLanguageCode" => "en",
+			"subLanguagePK" => NULL,
+			"baseLanguagePK" => NULL,
+		]));
 		$this->redirectUrl($target);
 	}
 
@@ -327,8 +335,8 @@ class WatchPresenter extends BaseFrontPresenter
 			throw new \Nette\Application\ForbiddenRequestException;
 		}
 
-		$this->context->amara->clearCache($this->video);
-		$this->flashMessage('Cache titulků byla obnovena.');
+		$this->context->report->reloadSubtitles($this->video);
+		$this->flashMessage('Titulky byly obnoveny.');
 		$this->redirect('this');
 	}
 

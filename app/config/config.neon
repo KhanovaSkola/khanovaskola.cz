@@ -41,6 +41,7 @@ services:
 
 	mailChimp: Model\MailChimp(%mailChimp.key%)
 	amara: Model\Amara
+	report: Model\Report(khan_report, %database.user%, %database.password%)
 	subsChecker: Model\SubtitleChecker(%kontrolovac.url%)
 
 	user: Model\NetteUser

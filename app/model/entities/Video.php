@@ -276,7 +276,7 @@ class Video extends \ORM\EntityUrl
 
 	public function getSubtitles()
 	{
-		return $this->context->amara->getSubtitles($this);
+		return $this->context->report->getSubtitles($this);
 	}
 
 
