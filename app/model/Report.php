@@ -34,7 +34,7 @@ class Report extends Object
 
 	public function getSubtitles(Video $video)
 	{
-		$json = $this->getDatabase()->table('subtitles_full')->select('subs')->where('youtube_id = ?', $video->youtube_id)->fetch()['subs'];
+		$json = $this->getDatabase()->table('subtitles_full')->select('subs')->where('youtube_id = ? OR youtube_id = ?', $video->youtube_id, $video->youtube_id_original)->fetch()['subs'];
 		return json_decode($json);
 	}
 
