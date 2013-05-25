@@ -40,6 +40,13 @@ class Report extends Object
 
 
 
+	public function getLangPk(Video $video)
+	{
+		return $this->getDatabase()->table('subtitles_full')->select('subLangPk, baseLangPk')->where('youtube_id = ?', $video->youtube_id)->fetch();
+	}
+
+
+
 	public function getAmaraId(Video $video)
 	{
 		return $this->getDatabase()->table('amara_map')->select('amara_id')->where('youtube_id = ?', $video->youtube_id)->fetch()['amara_id'];

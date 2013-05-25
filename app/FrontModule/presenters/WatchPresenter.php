@@ -290,15 +290,15 @@ class WatchPresenter extends BaseFrontPresenter
 	{
 		$url = urlencode("http://www.youtube.com/watch?v=" . $this->video->youtube_id);
 		$video_id = $this->context->report->getAmaraId($this->video);
-		list($basePK, $subPK) = $this->context->amara->getLanguagePk($this->video);
+		$pk = $this->context->report->getLangPk($this->video);
 		$target = "http://www.amara.org/cs/onsite_widget/?config=" . urlencode(json_encode([
 			"videoID" => $video_id,
 			"videoURL" => "http://www.youtube.com/watch?v={$this->video->youtube_id}",
 			"effectiveVideoURL" => "http://www.youtube.com/watch?v={$this->video->youtube_id}",
 			"languageCode" => "cs",
 			"originalLanguageCode" => "en",
-			"subLanguagePK" => NULL,
-			"baseLanguagePK" => NULL,
+			"subLanguagePK" => $pk->subLangPK,
+			"baseLanguagePK" =>  $pk->baseLangPK,
 		]));
 		$this->redirectUrl($target);
 	}
