@@ -39,6 +39,9 @@ class Report extends Object
 		$subs = json_decode($subs);
 
 		$html = Html::str_get_html($subs);
+		if (!$html) {
+			return FALSE;
+		}
 		$data = [];
 		foreach ($html->find('body div p') as $row) {
 			if (!$row->end)
