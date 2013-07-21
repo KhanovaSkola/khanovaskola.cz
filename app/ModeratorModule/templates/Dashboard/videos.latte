@@ -1,17 +1,9 @@
 {var $title = "Korektury videí"}
-{var $limit = 30}
+{var $limit = 3000}
 {#content}
 
 <article>
 	<div id="pin-columns">
-		<div class="pin pin-tall">
-			{var $count = $notVerified->count()}
-			<h2>Ke zkontrolování ({$count})</h2>
-			<ol>
-				<li n:foreach="$notVerified->limit($limit) as $video"><a n:href=":Front:Watch:, vid => $video->id">{$video->label}</a></li>
-				<li n:if="$count > $limit">a další&hellip;</li>
-			</ol>
-		</div>
 		<div class="pin pin-tall">
 			{var $count = $oneVerification->count()}
 			<h2>S jednou kontrolou ({$count})</h2>
@@ -35,6 +27,14 @@
 						{$ver->user->name} <span class="verification-time">{$ver->timestamp|timeAgo}</span>{sep}, {/sep}
 					{/foreach}
 				</li>
+				<li n:if="$count > $limit">a další&hellip;</li>
+			</ol>
+		</div>
+		<div class="pin pin-tall">
+			{var $count = $notVerified->count()}
+			<h2>Ke zkontrolování ({$count})</h2>
+			<ol>
+				<li n:foreach="$notVerified->limit($limit) as $video"><a n:href=":Front:Watch:, vid => $video->id">{$video->label}</a></li>
 				<li n:if="$count > $limit">a další&hellip;</li>
 			</ol>
 		</div>

@@ -180,7 +180,10 @@ class Videos extends \ORM\Table
 
 	public function findWithVerification($count = 1)
 	{
-		return $this->findBy(['id IN (SELECT video_id FROM video_verification GROUP BY video_id HAVING Count(*) = ?)' => $count]);
+		$order = $this->context->database->table('video_verification')->select('video_id')->order('timestamp DESC')->fetchPairs('video_id', 'video_id');
+		$order = implode(',', $order);
+		return $this->findBy(['id IN (SELECT video_id FROM video_verification GROUP BY video_id HAVING Count(*) = ?)' => $count])
+			->order("FIELD(id, $order)");
 	}
 
 

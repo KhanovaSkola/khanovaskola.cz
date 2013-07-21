@@ -40,9 +40,11 @@ class DashboardPresenter extends BaseModeratorPresenter
 		if (!$this->user->isInrole(ROLE::VERIFIER)) {
 			throw new \Nette\Application\ForbiddenRequestException;
 		}
-		$this->template->notVerified = $this->context->videos->findNotVerified();
-		$this->template->oneVerification = $this->context->videos->findWithVerification(1);
-		$this->template->forDubbing = $this->context->videos->findReadyForDubbing();
+
+		$dubbed = "khanacademyczech";
+		$this->template->notVerified = $this->context->videos->findNotVerified()->where('uploader <> ?', $dubbed);
+		$this->template->oneVerification = $this->context->videos->findWithVerification(1)->where('uploader <> ?', $dubbed);
+		$this->template->forDubbing = $this->context->videos->findReadyForDubbing()->where('uploader <> ?', $dubbed);
 	}
 
 

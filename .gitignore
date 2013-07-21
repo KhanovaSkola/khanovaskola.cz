@@ -2,3 +2,5 @@ nbproject/*
 .idea/*
 .DS_Store
 vendor/*
+.vagrant
+app/config/config.local.neon

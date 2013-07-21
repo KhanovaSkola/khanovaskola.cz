@@ -193,9 +193,12 @@
 				player = new YT.Player('player', {
 					height: height,
 					width: width,
+					html5: true,
+					wmode: "transparent",
 					playerVars: {
 						autoplay: youtube_autoplay,
-						showinfo: 0
+						showinfo: 0,
+						wmode: "transparent"
 					},
 					videoId: youtube_video_id,
 					events: {

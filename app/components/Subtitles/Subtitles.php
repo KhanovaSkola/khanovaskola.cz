@@ -10,10 +10,11 @@ class Subtitles extends BaseControl
 
 
 
-	public function render($subtitles)
+	public function render($subtitles, $isDubbed = TRUE)
 	{
 		$this->template->setFile(__DIR__ . '/template.latte');
 		$this->template->subtitles = $subtitles;
+		$this->template->dubbed = $isDubbed;
 		$this->template->render();
 	}
 
