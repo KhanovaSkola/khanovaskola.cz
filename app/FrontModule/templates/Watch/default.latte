@@ -50,34 +50,36 @@
 					{/if}
 				</div>
 			</div>
-			<div>
-				<nav>
-					{var $prev => $video->getPreviousVideo($category)}
-					<label n:if="$prev">
-						<a n:href="this, vid => $prev->id">
-							<i class="icon-arrow-left"></i>
-							<b>Předchozí video:</b> {$prev->label}
-						</a>
-					</label>
-					{var $next => $video->getNextVideo($category)}
-					<label n:if="$next">
-						<a n:href="this, vid => $next->id">
-							<b>Další video:</b> {$next->label}
-							<i class="icon-arrow-right"></i>
-						</a>
-					</label>
-					<div class="clear"></div>
-				</nav>
-			</div>
-			<div class="video-container">
-				<div id="player"></div>
-			</div>
-			{control subtitles, $subtitles, $video->isDubbed()}
-			{if $subtitles}
-				<p class="float-right">
-					<a n:href="editSubtitles" rel="nofollow" target="_blank">upravit titulky</a>
-				</p>
-			{/if}
+			{cache tags => ['videos', "video/{$video->id}"]}
+				<div>
+					<nav>
+						{var $prev => $video->getPreviousVideo($category)}
+						<label n:if="$prev">
+							<a n:href="this, vid => $prev->id">
+								<i class="icon-arrow-left"></i>
+								<b>Předchozí video:</b> {$prev->label}
+							</a>
+						</label>
+						{var $next => $video->getNextVideo($category)}
+						<label n:if="$next">
+							<a n:href="this, vid => $next->id">
+								<b>Další video:</b> {$next->label}
+								<i class="icon-arrow-right"></i>
+							</a>
+						</label>
+						<div class="clear"></div>
+					</nav>
+				</div>
+				<div class="video-container">
+					<div id="player"></div>
+				</div>
+				{control subtitles, $subtitles, $video->isDubbed()}
+				{if $subtitles}
+					<p class="float-right">
+						<a n:href="editSubtitles" rel="nofollow" target="_blank">upravit titulky</a>
+					</p>
+				{/if}
+			{/cache}
 		</div>
 	</div>
 </article>

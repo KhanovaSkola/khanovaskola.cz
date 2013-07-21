@@ -4,6 +4,7 @@ namespace Model;
 
 use Entity\Video;
 use Nette\Object;
+use Sunra\PhpSimple\HtmlDomParser as Html;
 
 
 class Report extends Object
@@ -34,8 +35,30 @@ class Report extends Object
 
 	public function getSubtitles(Video $video)
 	{
-		$json = $this->getDatabase()->table('subtitles_full')->select('subs')->where('youtube_id = ? OR youtube_id = ?', $video->youtube_id, $video->youtube_id_original)->fetch()['subs'];
-		return json_decode($json);
+		$subs = $this->getDatabase()->table('subtitles_full')->select('subs')->where('youtube_id = ? OR youtube_id = ?', $video->youtube_id, $video->youtube_id_original)->fetch()['subs'];
+		$subs = json_decode($subs);
+
+		$html = Html::str_get_html($subs);
+		$data = [];
+		foreach ($html->find('body div p') as $row) {
+			if (!$row->end)
+				continue;
+			$data[] = (object) [
+				'text' => html_entity_decode($row->innertext),
+				'start_time' => $this->normalizeTime($row->begin),
+				'end_time' => $this->normalizeTime($row->end),
+			];
+		}
+		return $data;
+	}
+
+
+
+	private function normalizeTime($time)
+	{
+		// 00:00:00.464
+		list($h, $m, $s) = explode(':', $time);
+		return (int) (($h * 3600 + $m * 60 + $s) * 1000);
 	}
 
 
