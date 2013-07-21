@@ -83,7 +83,7 @@ class WatchPresenter extends BaseFrontPresenter
 		$this->template->category = $this->category;
 
 		$cache = new Cache($this->context->cacheStorage, 'subtitles');
-		$key = $this->video->id;
+		$key = $this->video->youtube_id;
 		if (!$cache->load($key)) {
 			$subs = $this->video->getSubtitles();
 			$cache->save($key, $subs);
