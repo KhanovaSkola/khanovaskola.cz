@@ -1,4 +1,7 @@
 {var $description = "Jsme překlad Khan Academy. Máme $count->video lekcí z matematiky, fyziky i humanitních věd a dalších. Přes $count->dubbed videí je nadabováno."}
+{#head}
+<style>.smaller { font-size: 9pt !important; }</style>
+{/#head}
 {#scripts-ajax}
 <script>
 	onLoadQueue.push(function() {
@@ -65,7 +68,7 @@
 							</a>
 						{/if}
 					{else}
-						<a n:href=":Front:Browse:, id => $category->id" class="block">
+						<a n:href=":Front:Browse:, id => $category->id" n:class="'block', $category->id == 11 ? 'smaller'">
 							{if $category->containsDubbedVideos()}<i class="icon-dubbed"></i>&nbsp;{/if}{$category->label}
 						</a>
 					{/if}
