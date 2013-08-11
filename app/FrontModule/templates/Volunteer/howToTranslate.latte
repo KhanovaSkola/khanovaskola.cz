@@ -1,42 +1,76 @@
 {var $title = "Jak na překlad"}
 {#content}
-
+<style n:syntax="off">
+	article h2 {margin-bottom: 1ex;}
+	article ul {list-style-type: square;}
+	article ul li {margin-left: 2em; margin-bottom: 1ex;}
+	article p + p, ul {margin-bottom: 2ex;}
+	article img:first-of-type {margin-bottom: 5ex;}
+</style>
 <article>
 	<div>
 		<h2 class="main-headline">Jak na překlad</h2>
-			<div class="col1 sixty-forty">
-				<p>Překládejte Khan Academy s námi &ndash; je to snazší, než si myslíte.</p>
-				<p>Na <a href="https://www.khanacademy.org/" target="_blank">www.khanacademy.org</a> najděte video, které máte chuť překládat.</p>
-				<p>
-					Pokud neuvidíte ovládání titulků rovnou, klikněte na <em>Options</em> pod videem a zaškrtněte <em>Translated subtitles</em>,
-					pak v levo pod videem klikněte na <em>Select language</em>. Nezobrazí-li se v roletce <em>Czech</em>, pak klikněte na <em>Add new Translation</em>.
-				</p>
-				<p>
-					Do pole <em>Subtitle into</em> zadejte <em>Czech</em>, do pole <em>Translate from</em> zadejte <em>English</em>.
-					Klikněte na <em>Continue</em> a budete přesměrování na web Amara.org.
-				</p>
-				<p>
-					Zbývá jen přeložit titulkové řádky a když jste hotovi práci uložit buď kliknutím na <em>Save and Exit</em>, pokud ještě titulky nejsou úplně kompletní, nebo na <em>Done? Next Step: Title and Description</em> jestli už jsou titulky hotové.
-				</p>
-				<p>
-					Budete vyzváni k přihlášení do Amara. Můžete založit svůj nový účet, nebo využít některý ze svých stávajících účtů, třeba ten na Facebooku nebo Google.
-				</p>
-				<p>
-					A to je opravdu vše. Od této chvíle budou Vaše titulky dostupné všem a navíc se stanou podkladem pro dabing.
-				</p>
-				<p>Děkujeme!</p>
-				<p>
-					Dotazy a zprávy o hotových videích prosím posílejte na: <a href="mailto:marketa@khanovaskola.cz">marketa@khanovaskola.cz</a>
-				</p>
-				<p style="margin-top: 1ex">
-					<a n:href="rules" class="button blue" onclick="_gaq.push(['_trackEvent', 'Click', 'Volunteer-Manual']);">Stylistická pravidla pro překlad</a>
-				</p>
-			</div>
-			<div class="col2 sixty-forty">
-				<img class="rounded-background pull-down" src="{$cdnUrl}/images/how_to_translate_1.png" alt="Z nabídky Options pod videem vyberte možnost Translated subtitles">
-				<img class="rounded-background pull-down" src="{$cdnUrl}/images/how_to_translate_2.png" alt="Ve výběru titulků vyberte Czech. Pokud ještě neexistují, vyberte možnost Add New Translation.">
-			</div>
-			<div class="clear"></div>
-		</p>
+		<div class="col1 sixty-forty">
+			<p>Překládejte Khan Academy s námi &ndash; je to snazší, než si myslíte.</p>
+			<p>Video k překladu si vyberte:
+				<ul>
+					<li>na <a href="http://www.khanacademy.org">khanacademy.org</a></li>
+					<li>nebo ze <a href="http://report.khanovaskola.cz/not-translated/?lang=cs">seznamu nepřeložených videí</a> (beta verze, omluvte možné nedostatky)</li>
+				</ul>
+			</p>
+			<p>
+				Pokud neuvidíte ovládání titulků rovnou:
+				<ul>
+					<li>klikněte na <em>Options</em> pod videem a zaškrtněte <em>Translated subtitles</em>,</li>
+					<li>vlevo pod videem klikněte na <em>Select language</em>.</li>
+				</ul>
+			</p>
+			<p>
+				Nezobrazí-li se v roletce <em>Czech</em>, pak
+				<ul>
+					<li>klikněte na <em>Subtitle Homepage</em>. Budete přesměrování na Amara.org.</li>
+					<li>Klikněte na třetí řádek pod videem <em>Create a new translation</em>,</li>
+					<li>do pole <em>Subtitle into</em> zadejte <code>Czech</code>, do pole <em>Translate from</em> zadejte <code>English</code>,</li>
+					<li>klikněte na Continue.</li>
+				</ul>
+			</p>
+			<p>
+				Zbývá jen přeložit titulkové řádky a když jste hotovi práci uložit buď kliknutím na <em>Save</em>
+				and <em>Exit</em>, pokud ještě titulky nejsou úplně kompletní, nebo na <em>Done? Next Step: Title
+				and Description</em> jestli už jsou titulky hotové.
+			</p>
+			<p>
+				Budete vyzváni k přihlášení do Amara. Můžete založit svůj nový účet, nebo využít
+				některý ze svých stávajících účtů, třeba ten na Facebooku nebo Google.
+			</p>
+			<p>
+				A to je opravdu vše. Od této chvíle budou Vaše titulky dostupné všem a navíc se stanou podkladem pro dabing.
+			</p>
+			<p>
+				Na závěr, doporučujeme ukládat titulky postupně a předejít tak ztrátě překladu.
+				A nebojte se, ve chvíli, kdy pracujete na určitém videu v Amaře, nikdo další jej překládat nemůže.
+			</p>
+			<p>
+				Děkujeme!
+			</p>
+			<p>
+				Přestože za překlady finanční odměnu nenabízíme, za přeložená videa v délce
+				minimálně 25 minut vám vystavíme certifikát Khanovy školy, a jestli zvládnete více
+				než 50 minut, oficiální certifikát americké Khan Academy vás nemine, a to už se
+				v životopisu vyjímá.
+			</p>
+			<p>
+				Dotazy, zprávy o hotových videích i žádosti o vystavení certifikátů prosím posílejte 
+				na: <a href="mailto:marketa@khanovaskola.cz">marketa@khanovaskola.cz</a>
+			</p>
+			<p style="margin-top: 1ex">
+				<a n:href="rules" class="button blue" onclick="_gaq.push(['_trackEvent', 'Click', 'Volunteer-Manual']);">Stylistická pravidla pro překlad</a>
+			</p>
+		</div>
+		<div class="col2 sixty-forty">
+			<img class="rounded-background pull-down" src="{$cdnUrl}/images/how_to_translate_3.png" alt="Z nabídky Options pod videem vyberte možnost Translated subtitles">
+			<img class="rounded-background pull-down" src="{$cdnUrl}/images/how_to_translate_4.png" alt="Ve výběru titulků vyberte Czech. Pokud ještě neexistují, vyberte možnost Add New Translation.">
+		</div>
+		<div class="clear"></div>
 	</div>
 </article>
