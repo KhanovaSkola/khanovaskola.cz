@@ -82,6 +82,9 @@
 			{/cache}
 		</div>
 		<div class="col2 fifty-fifty main-text">
+			<h1>Právě probíhá soutěž <a href="http://umis-ucit.khanovaskola.cz/">Umíš učit</a>.</h1>
+			<p>Nahraj výukové video, buď mezi 10 nejoblíbenějšími a vyhraj cenu za 10 tisíc. <a href="http://umis-ucit.khanovaskola.cz/">Naučíme tě to</a>.</p>
+			<hr>
 			<h1><a n:href=":Front:Watch:, id => $featured_video->getOneCategoryId(), vid => $featured_video->id">Nauč se</a> zdarma skoro cokoliv.</h1>
 			<p>
 				Jsme překlad Khan Academy. Máme pro vás víc než <a n:href=":Front:Homepage:library">{$count->video} videí</a> z matematiky, fyziky a třeba i dějepisu a medicíny. Matematiku si navíc můžete prozkoušet na cvičeních, které najdete vedle samotných lekcí. Pro učitele máme <a n:href=":Coach:Dashboard:">nástroje</a> pro zadávání úkolů a sledování výsledků.
@@ -95,10 +98,8 @@
 			<p>
 				Naším hlavním <a n:href=":Front:About:sponsors">partnerem</a> je společnost <a href="http://scio.cz/" target="_blank">Scio</a>.
 			</p>
-			<iframe
-			    style="width:330px; height:250px; overflow: hidden; border: 1px solid #ddd; margin-top: 2ex;"
-			    src="https://www.darujme.cz/dar/widgets/widget.php?widget=102">
-			</iframe>
+
+			{include '_darujme.latte'}
 		</div>
 	</div>
 </article>

@@ -6,11 +6,13 @@
 		{!$node} a { color: white}
 	{/ifset}
 </style>
-<div n:if="$user->isInRole($ROLE::ADDER)" style="margin-bottom: 2ex">
-	<a n:href="add" class="button blue">přidat video</a>
-	<a n:href=":Front:Browse:sort, id => $category->id" class="button blue">upravit pořadí</a>
+<div n:if="$user->isInRole($ROLE::ADDER) || $user->isInRole($ROLE::EDITOR)" style="margin-bottom: 2ex">
+	<a n:if="$user->isInRole($ROLE::ADDER)" n:href="add" class="button blue">přidat video</a>
+	<a n:if="$user->isInRole($ROLE::EDITOR)" n:href=":Front:Browse:sort, id => $category->id" class="button blue">upravit pořadí</a>
 </div>
-{cache $category->id, tags => ["category/$category->id"]}
+
+{var $verifier = $user->isInRole($ROLE::VERIFIER) ? 1 : 0}
+{cache "$category->id|$verifier", tags => ["category/$category->id"]}
 	<div class="categories entities">
 		<ol class="parents">
 			{var $parent = $category->getParent()}
@@ -23,7 +25,8 @@
 		</ol>
 		<ol n:inner-foreach="$category->getContent() as $entity" class="path">
 			{if $entity instanceof \Entity\Video}
-				<li id="video-{$entity->id}" data-type="video" data-id="{$entity->id}">
+				{var $vs = count($entity->getVerifications())}
+				<li id="video-{$entity->id}" data-type="video" data-id="{$entity->id}" {if $verifier}class="video-verifications-{$vs >= 2 ? 2 : $vs == 1 ? 1 : 0}"{/if}>
 					<span class="path-route"></span>
 					<a n:href=":Front:Watch:, id => $category->id, vid => $entity->id">
 						<i n:class="'icon-video', 'v-'.$entity->id, $entity->isDubbed() ? 'icon-dubbed'"></i>

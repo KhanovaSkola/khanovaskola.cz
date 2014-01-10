@@ -82,7 +82,11 @@ class Report extends Object
 
 	public function reloadSubtitles(Video $video)
 	{
-		return file_get_contents("http://khan-report.khanovaskola.cz/reload_subtitles.php?id={$video->youtube_id}&password=65aw344tsz16254sdF4@-13265");
+		throw new Nette\NotImplementedException('tohle se vola? Ma se volat amara::purgeDataCache');
+		// dump("http://khan-report.khanovaskola.cz/reload_subtitles.php?id={$video->youtube_id}&password=65aw344tsz16254sdF4@-13265");
+		// $x = file_get_contents("http://khan-report.khanovaskola.cz/reload_subtitles.php?id={$video->youtube_id}&password=65aw344tsz16254sdF4@-13265");
+		// dump($x);
+		// die;
 	}
 
 }
