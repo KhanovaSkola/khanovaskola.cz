@@ -117,6 +117,42 @@ class SignPresenter extends BasePresenter
 
 
 
+	public function actionRemoteAuth($mail, $password)
+	{
+		if (!$mail || !$password)
+		{
+			$this->sendJson(['status' => 'failure']);
+		}
+		if ($this->user->loggedIn && $this->user->entity->mail === $mail)
+		{
+			$this->sendSuccess($this->user->entity);
+		}
+
+		$user = $this->users->findOneBy(['mail' => $mail]);
+		if (!$user)
+		{
+			$this->sendJson(['status' => 'failure']);
+		}
+		$hash = (new \Model\Password())->calculateHash($password, $user->salt);
+		if ($user->password === $hash) {
+			$this->sendSuccess($user);
+		}
+		$this->sendJson(['status' => 'failure']);
+	}
+
+	private function sendSuccess($user)
+	{
+		$this->sendJson([
+			'status' => 'success',
+			'grps' => explode(';', $user->roles),
+			'name' => $user->name,
+			'mail' => $user->mail,
+			'uid' => $user->id,
+		]);
+	}
+
+
+
 	public function actionOut()
 	{
 		$withFb = $this->user->isLoggedInWithFacebook();
@@ -149,6 +185,7 @@ class SignPresenter extends BasePresenter
 		$info = $this->context->facebook->api('/me');
 		if ($info) {
 			$this->user->facebookLogin($info);
+			$this->user->setExpiration('+ 7 days', TRUE);
 		}
 
 		$this->inRedirect();
@@ -173,6 +210,7 @@ class SignPresenter extends BasePresenter
 		}
 
 		$this->user->googleLogin($g->getInfo($token));
+		$this->user->setExpiration('+ 7 days', TRUE);
 
 		$this->backlink = $state;
 		$this->inRedirect();

@@ -17,8 +17,13 @@ class Routes
 
 		$container->router[] = new Route('index.php', 'Front:Homepage:default', Route::ONE_WAY);
 
+		$container->router[] = new Route('p', 'Front:Homepage:redirectToForm');
+		$container->router[] = new Route('pridat', 'Front:Homepage:redirectToForm');
+		$container->router[] = new Route('pridat-video', 'Front:Homepage:redirectToForm');
+		$container->router[] = new Route('pridatvideo', 'Front:Homepage:redirectToForm');
+
 		/** OLD GONE ROUTES */
-		$container->router[] = new Route('p', 'Front:Homepage:gone');
+		// $container->router[] = new Route('p', 'Front:Homepage:gone');
 		$container->router[] = new Route('vsechny-problemy', [
 			'module' => 'Front',
 			'presenter' => 'Homepage',
@@ -274,7 +279,7 @@ class Routes
 		/**
 		 * Direct actions of sign presenter
 		 */
-		$container->router[] = new Route('<action (prihlaseni|odhlaseni|fb-auth|google-auth)>', [
+		$container->router[] = new Route('<action (prihlaseni|odhlaseni|fb-auth|google-auth|remote-auth)>', [
 			'presenter' => 'Sign',
 			'action' => [
 				Route::FILTER_TABLE => [

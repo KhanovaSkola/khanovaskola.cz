@@ -101,4 +101,9 @@ class HomepagePresenter extends BaseFrontPresenter
 		return NULL;
 	}
 
+	public function actionRedirectToForm()
+	{
+		$this->redirectUrl('https://docs.google.com/forms/d/1pA6mQ48by27by_aAycdi2iMh8hXQqFXB4VgP2azT2xY/viewform');
+	}
+
 }

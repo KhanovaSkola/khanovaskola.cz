@@ -274,8 +274,18 @@ class Video extends \ORM\EntityUrl
 
 
 
+	public function getAmaraId()
+	{
+		$raw = file_get_contents('http://amara.org/api2/partners/videos/?format=json&video_url=http://www.youtube.com/watch?v=' . $this->youtube_id);
+		$json = json_decode($raw);
+		return $json->objects[0]->id;
+	}
+
+
+
 	public function getSubtitles()
 	{
+		return $this->context->amara->getSubtitles($this);
 		return $this->context->report->getSubtitles($this);
 	}
 

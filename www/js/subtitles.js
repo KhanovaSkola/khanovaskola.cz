@@ -59,7 +59,7 @@ function moveSubtitles(time) {
 	if ($high) {
 		$high.removeClass("highlight");
 	}
-	while ($high.data('end') < time) {
+	while ($high.length && $high.data('end') < time) {
 		$high = $high.next();
 	}
 	$high.addClass("highlight");

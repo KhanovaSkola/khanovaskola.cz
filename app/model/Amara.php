@@ -13,10 +13,6 @@ use Sunra\PhpSimple\HtmlDomParser as Html;
 class Amara extends Object
 {
 
-	const ENDPOINT = 'https://staging.universalsubtitles.org';
-
-
-
 	/** @var \Nette\Caching\IStorage */
 	protected $cacheStorage;
 
@@ -43,12 +39,15 @@ class Amara extends Object
 				foreach ($html->find('body div p') as $row) {
 					if (!$row->end)
 						continue;
+					$text = html_entity_decode($row->innertext);
+					$text = str_replace('<br/>', ' ', $text);
 					$data[] = (object) [
-						'text' => html_entity_decode($row->innertext),
+						'text' => $text,
 						'start_time' => $this->normalizeTime($row->begin),
 						'end_time' => $this->normalizeTime($row->end),
 					];
 				}
+				// dump($data);
 				return $data;
 			}
 		} catch (\Nette\Utils\JsonException $e) {
@@ -117,10 +116,12 @@ class Amara extends Object
 	{
 		$cache = new Cache($this->cacheStorage);
 		if (!isset($cache["amara/$video->id"])) {
-			$url = self::ENDPOINT . '/widget/rpc/jsonp/show_widget?video_url=' . urlencode("\"http://www.youtube.com/watch?v={$video->youtube_id}\"") . '&is_remote=true&base_state=%7B%22language%22%3A%22cs%22%7D&callback=';
+			// $url = 'https://www.amara.org/widget/rpc/jsonp/fetch_subtitles?video_id="' . $video->getAmaraId() .  '"&language_pk=595607';
+			$url = 'https://www.amara.org/widget/rpc/jsonp/show_widget?video_url=%22http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D' . $video->youtube_id . '%22&is_remote=true&base_state=%7B%22language%22%3A%22cs%22%7D&callback=';
+			// echo $url;
 			$res = file_get_contents($url);
-			$data = Json::decode(substr($res, 1, -2));
-
+			$data = Json::decode(substr($res, strlen('('), -2)); // throws catched exception
+			// dump($data);die;
 			$cache->save("amara/$video->id", $data, [
 				Cache::TAGS => ["video/$video->id"],
 			]);
@@ -128,6 +129,14 @@ class Amara extends Object
 		}
 
 		return $cache["amara/$video->id"];
+	}
+
+
+
+	public function purgeDataCache(Video $video)
+	{
+		$cache = new Cache($this->cacheStorage);
+		$cache->remove("amara/$video->id");
 	}
 
 }
