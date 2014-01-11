@@ -290,7 +290,7 @@ class DashboardPresenter extends BaseModeratorPresenter
 	{
 		$form = $this->createForm($name);
 
-		$form->addSelect('parent', 'Vytvořit podkategorii v', $this->context->categories->getFill())
+		$form->addSelect('parent', 'Vytvořit podkategorii v', $this->context->categories->getFillAll())
 			->setRequired('Vyberte nadřazenou kategorii');
 
 		$form->addSubmit('send', 'Pokračovat')->controlPrototype->class = "simple-button green";

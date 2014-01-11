@@ -61,6 +61,16 @@ class Categories extends \ORM\Table
 
 
 
+	/**
+	 * @return array
+	 */
+	public function getFillAll()
+	{
+		return $this->findAll()->order('label')->fetchPairs('id', 'label');
+	}
+
+
+
 	public function findWithExercises()
 	{
 		$ids = [];
