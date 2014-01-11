@@ -12,7 +12,7 @@
 </div>
 
 {var $verifier = $user->isInRole($ROLE::VERIFIER) ? 1 : 0}
-{cache "$category->id|$verifier", tags => ["category/$category->id"]}
+{cache "$category->id|$verifier", tags => ["category/$category->id", $verifier ? "verifier/category/$category->id" : "hackystring"]}
 	<div class="categories entities">
 		<ol class="parents">
 			{var $parent = $category->getParent()}

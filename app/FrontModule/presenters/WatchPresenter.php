@@ -321,6 +321,7 @@ class WatchPresenter extends BaseFrontPresenter
 		}
 
 		$this->video->verify($this->user);
+		$this->invalidateAfterVerify();
 		$this->redirect('this');
 	}
 
@@ -333,9 +334,22 @@ class WatchPresenter extends BaseFrontPresenter
 		}
 
 		$this->video->undoVerify($this->user);
+		$this->invalidateAfterVerify();
 		$this->redirect('this');
 	}
 
+
+
+	private function invalidateAfterVerify()
+	{
+		$cache = new Cache($this->context->cacheStorage);
+		$invalid = [];
+		foreach ($this->video->getCategories() as $cat)
+		{
+			$invalid[] = "verifier/category/$cat->id";
+		}
+		$cache->clean([Cache::TAGS => $invalid]);
+	}
 
 
 	public function handleReloadSubtitles()

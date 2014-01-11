@@ -11,11 +11,11 @@ $configurator = new Nette\Config\Configurator;
 
 // Enable Nette Debugger for error visualisation & logging
 
-$configurator->setDebugMode(php_sapi_name() === "cli" || isset($_COOKIE['debug']) && $_COOKIE['debug'] === '9&(@QqxENEEb3Q4T');
+$configurator->setDebugMode(TRUE);
 $configurator->enableDebugger(__DIR__ . '/../log');
 
 // Enable RobotLoader - this will load all classes automatically
-$configurator->setTempDirectory('/tmp/khanovaskola.cz');
+$configurator->setTempDirectory(__DIR__ . '/../temp');
 $configurator->createRobotLoader()
 	->addDirectory(APP_DIR)
 	->register();
