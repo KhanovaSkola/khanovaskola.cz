@@ -372,6 +372,15 @@ class DashboardPresenter extends BaseModeratorPresenter
 			return FALSE;
 		}
 
+
+		// invalidate cache
+		$invalid = ["videos", "category/{$this->category->id}"];
+		foreach ($v['videos'] as $vid) {
+			$invalid[] = "video/$vid";
+		}
+		$cache = new Cache($this->context->cacheStorage);
+		$cache->clean([Cache::TAGS => $invalid]);
+
 		$this->flashMessage('Kategorie byla přidána.');
 		$this->redirect('this');
 	}
