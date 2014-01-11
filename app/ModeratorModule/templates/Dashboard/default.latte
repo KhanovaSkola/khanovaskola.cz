@@ -72,6 +72,7 @@
 				<h2>Videa</h2>
 				<ol>
 					<li><a n:if="$user->isInrole($ROLE::ADDER)" n:href=":Front:Watch:add">Přidat nové video</a></li>
+					<li><a n:if="$user->isInrole($ROLE::ADDER)" n:href="newCategory">Přidat novou kategorii</a></li>
 					<li><a n:if="$user->isInrole($ROLE::VERIFIER)" n:href="videos">Korekce videí</a></li>
 					<li><a n:if="$user->isInrole($ROLE::VERIFIER)" n:href="subtitles">Najít chyby v titulkách</a></li>
 				</ol>

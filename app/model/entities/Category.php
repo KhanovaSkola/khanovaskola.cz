@@ -337,6 +337,13 @@ class Category extends \ORM\EntityUrl
 
 
 
+	public function removeVideo(Video $video)
+	{
+		$this->context->database->query('DELETE FROM category_video WHERE category_id=? AND video_id=?', $this->id, $video->id);
+	}
+
+
+
 	public function updatePositions(array $data)
 	{
 		$db = $this->context->database;

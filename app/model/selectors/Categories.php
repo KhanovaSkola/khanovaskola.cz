@@ -103,4 +103,12 @@ class Categories extends \ORM\Table
 		return $this->findBy(['id' => $ids])->order('FIELD(id,' . implode(',', $ids) . ')')->limit(2);
 	}
 
+
+
+	public function slugExistsForLabel($label)
+	{
+		$slug = \Nette\Utils\Strings::webalize($label);
+		return $this->findBySlug($slug);
+	}
+
 }

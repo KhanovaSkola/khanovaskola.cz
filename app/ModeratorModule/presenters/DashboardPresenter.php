@@ -9,6 +9,9 @@ use Model\NetteUser as ROLE;
 class DashboardPresenter extends BaseModeratorPresenter
 {
 
+	/** parent, for adding new categories */
+	private $category = NULL;
+
 	public function renderDefault()
 	{
 		$cat = [];
@@ -267,6 +270,109 @@ class DashboardPresenter extends BaseModeratorPresenter
 		}
 
 		$this->flashMessage("Cache titulků byla obnovena.");
+		$this->redirect('this');
+	}
+
+
+
+	public function actionNewCategory($parent = NULL)
+	{
+		if ($parent) {
+			$this->category = $this->context->categories->find($parent);
+		}
+		
+		$this->template->category = $this->category;
+	}
+
+
+
+	public function createComponentPickParentForm($name)
+	{
+		$form = $this->createForm($name);
+
+		$form->addSelect('parent', 'Vytvořit podkategorii v', $this->context->categories->getFill())
+			->setRequired('Vyberte nadřazenou kategorii');
+
+		$form->addSubmit('send', 'Pokračovat')->controlPrototype->class = "simple-button green";
+		return $form;
+	}
+
+
+
+	public function onSuccessPickParentForm($form)
+	{
+		$this->redirect('this', ['parent' => $form['parent']->value]);
+	}
+
+
+
+	public function createComponentNewCategoryForm($name)
+	{
+		$form = $this->createForm($name);
+		$form->addText('label', 'Název')
+			->setRequired('Vyplňte název nové kategorie');
+		$form->addTextArea('description', 'Popis');
+		$form->addHidden('parent')->setDefaultValue($this->category->id);
+
+		$videos = $form->addContainer('videos');
+		foreach ($this->category->getVideos() as $video)
+		{
+			$videos->addCheckbox($video->id, $video->label);
+		}
+
+		$form->addSubmit('send', 'Vytvořit kategorii')->controlPrototype->class = "simple-button green";
+		return $form;
+	}
+
+
+
+	public function onSuccessNewCategoryForm($form)
+	{
+		if (!$this->user->isInrole(ROLE::ADDER)) {
+			throw new \Nette\Application\ForbiddenRequestException;
+		}
+
+		$v = $form->values;
+		if ($cat = $this->context->categories->slugExistsForLabel($v->label)) {
+			$form->addError('Kategorie s tímto názvem už v databázi existuje.');
+			return FALSE;
+		}
+
+		try {
+			$cat = $this->context->categories->insert([
+				'label' => $v->label,
+				'description' => $v->description,
+				'parent_id' => $v->parent,
+				'is_leaf' => TRUE,
+				'position' => 0, // TODO
+				'playlist_en' => '',
+			]);
+			$cat->addSlug($cat->label);
+
+			foreach ($v->videos as $vid => $move)
+			{
+				if (!$move)
+					continue;
+
+				$video = $this->context->videos->find($vid);
+				$this->category->removeVideo($video);
+				$cat->addVideo($video);
+			}
+
+			$this->category->is_leaf = FALSE;
+			$this->category->update();
+
+		} catch (\PDOException $e) {
+			if ($e->getCode() == 23000)
+			{
+				$form->addError('Kategorie s tímto názvem už v databázi existuje.');
+				return FALSE;
+			}
+			$form->addError($e->getMessage());
+			return FALSE;
+		}
+
+		$this->flashMessage('Kategorie byla přidána.');
 		$this->redirect('this');
 	}
 
