@@ -1,0 +1,21 @@
+{var $title = "Přidat kategorii"}
+{#head}
+	<link rel="stylesheet" media="screen,projection,tv" href="{$cdnUrl}/css/chosen.css" type="text/css">
+{/#}
+{#scripts}
+	<script type="text/javascript" src="{$cdnUrl}/js/chosen.jquery.min.js"></script>
+	<script>
+		$(function() {
+			$("#frm-editRolesForm-user").chosen();
+			$("#frm-editRolesForm-user").change(function() {
+				window.location.href = {plink //editRoles} + "?userId=" + $(this).val();
+			});
+		});
+	</script>
+{/#}
+{#content}
+
+<article id="backend-form">
+	<h2>Změnit oprávnění</h2>
+	{control editRolesForm}
+</article>

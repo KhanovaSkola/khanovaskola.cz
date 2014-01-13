@@ -78,6 +78,14 @@
 				</ol>
 			</div>
 
+			<div class="pin" n:if="$user->isInrole($ROLE::ADMINER)">
+				<div class="role">adminer</div>
+				<h2>Uživatelé</h2>
+				<ol>
+					<li><a n:href="editRoles">Změnit oprávnění</a></li>
+				</ol>
+			</div>
+
 			<div class="pin" n:if="$user->isInRole($ROLE::ADMINER)">
 				<div class="role">adminer</div>
 				<h2>Databáze</h2>

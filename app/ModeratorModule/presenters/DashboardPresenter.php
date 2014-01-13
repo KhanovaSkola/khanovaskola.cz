@@ -385,4 +385,66 @@ class DashboardPresenter extends BaseModeratorPresenter
 		$this->redirect('this');
 	}
 
+	public function createComponentEditRolesForm($name)
+	{
+		$form = $this->createForm($name);
+
+		$fill = $this->context->users->findAll()
+			->select('id, Concat(name, " (", mail, ")") AS label')->fetchPairs('id', 'label');
+
+		$form->addSelect('user', 'Vytvořit podkategorii v', $fill)
+			->setRequired('Vyberte uživatele');
+
+		$roles = $form->addContainer('roles');
+		$roles->addCheckbox('editor', 'Editovat videa');
+		$roles->addCheckbox('adder', 'Přidávat videa');
+		$roles->addCheckbox('verifier', 'Korektor');
+		$roles->addCheckbox('blog', 'Přispívat na blog');
+
+		$form->addSubmit('send', 'Uložit')->controlPrototype->class = "simple-button green";
+		return $form;
+	}
+
+	public function actionEditRoles($userId = NULL)
+	{
+		if ($userId)
+		{
+			$this['editRolesForm']['user']->setDefaultValue($userId);
+
+			$user = $this->context->users->find($userId);
+			foreach ($this['editRolesForm']['roles']->getControls() as $key => $box)
+			{
+				// dump($key, $user->inRole($key));
+				if ($user->inRole($key))
+				{
+					$this['editRolesForm']['roles'][$key]->setDefaultValue(TRUE);
+				}
+			}
+		}
+	}
+
+	public function onSuccessEditRolesForm($form)
+	{
+		if (!$this->user->isInrole(ROLE::ADMINER)) {
+			throw new \Nette\Application\ForbiddenRequestException;
+		}
+
+		$v = $form->values;
+		$user = $this->context->users->find($v->user);
+
+		$roles = [];
+		foreach ($v->roles as $role => $checked)
+		{
+			if ($checked)
+			{
+				$roles[] = $role;
+			}
+		}
+		$user->role = implode(';', $roles);
+		$user->update();
+
+		$this->flashMessage('Práva nastavena. Změna se projeví po dalším přihlášení.');
+		$this->redirect('this');
+	}
+
 }

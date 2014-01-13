@@ -520,4 +520,12 @@ class User extends \ORM\Entity
 	{
 		return substr(md5($this->salt), 0, 7);
 	}
+
+
+
+	public function inRole($role)
+	{
+		return preg_match('~\b' . $role . '\b~i', $this->role);
+	}
+
 }
