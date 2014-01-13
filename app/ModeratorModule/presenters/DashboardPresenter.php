@@ -390,7 +390,7 @@ class DashboardPresenter extends BaseModeratorPresenter
 		$form = $this->createForm($name);
 
 		$fill = $this->context->users->findAll()
-			->select('id, Concat(name, " (", mail, ")") AS label')->fetchPairs('id', 'label');
+			->select('id, Concat(name, " – ", mail) AS label')->fetchPairs('id', 'label');
 
 		$form->addSelect('user', 'Vytvořit podkategorii v', $fill)
 			->setRequired('Vyberte uživatele');
