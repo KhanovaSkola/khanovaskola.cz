@@ -84,7 +84,7 @@ class WatchPresenter extends BaseFrontPresenter
 
 		$cache = new Cache($this->context->cacheStorage, 'subtitles');
 		$key = $this->video->youtube_id;
-		if (TRUE || !$cache->load($key)) {
+		if (!$cache->load($key)) {
 dump('reloading subtitles');
 			$subs = $this->video->getSubtitles();
 			$cache->save($key, $subs);
