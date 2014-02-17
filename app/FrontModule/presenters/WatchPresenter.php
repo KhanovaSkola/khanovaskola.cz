@@ -351,4 +351,22 @@ dump('reloading subtitles');
 		$cache->clean([Cache::TAGS => $invalid]);
 	}
 
+
+
+	public function actionSetRevision($revision, $code)
+	{
+		if ($code !== crypt($this->vid, '$2y$10$' . substr(md5($this->vid), 0, 22)))
+		{
+			$this->error();
+		}
+
+		$cache = new Cache($this->context->cacheStorage, 'subtitles');
+		$key = $this->video->youtube_id;
+		$cache->remove($key);
+
+		$this->video->revision = $revision;
+		$this->video->update();
+		$this->sendJson(['result' => 'success']);
+	}
+
 }
