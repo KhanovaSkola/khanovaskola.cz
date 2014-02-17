@@ -1,10 +1,10 @@
-<?php //netteCache[01]000414a:2:{s:4:"time";s:21:"0.69506300 1392483783";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:94:"/Users/mikulas/Box Sync/Projects/khanovaskola.cz/app/FrontModule/templates/Watch/default.latte";i:2;i:1392295177;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:28:"$WCREV$ released on $WCDATE$";}}}?><?php
+<?php //netteCache[01]000414a:2:{s:4:"time";s:21:"0.08927800 1392671022";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:94:"/Users/mikulas/Box Sync/Projects/khanovaskola.cz/app/FrontModule/templates/Watch/default.latte";i:2;i:1392670939;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:28:"$WCREV$ released on $WCDATE$";}}}?><?php
 
 // source file: /Users/mikulas/Box Sync/Projects/khanovaskola.cz/app/FrontModule/templates/Watch/default.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'klrv9lnn1o')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, '63naetd2x9')
 ;
 // prolog Nette\Latte\Macros\CacheMacro
 Nette\Latte\Macros\CacheMacro::initRuntime($template, $_g);
@@ -13,7 +13,7 @@ Nette\Latte\Macros\CacheMacro::initRuntime($template, $_g);
 //
 // block scripts-ajax
 //
-if (!function_exists($_l->blocks['scripts-ajax'][] = '_lbd27814e6a6_scripts_ajax')) { function _lbd27814e6a6_scripts_ajax($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['scripts-ajax'][] = '_lb9b56813b29_scripts_ajax')) { function _lb9b56813b29_scripts_ajax($_l, $_args) { extract($_args)
 ;if (isset($video)): ?>
 		<script>
 			var video_id = <?php echo Nette\Templating\Helpers::escapeJs($video->id) ?>;
@@ -35,9 +35,9 @@ if (!function_exists($_l->blocks['scripts-ajax'][] = '_lbd27814e6a6_scripts_ajax
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lb65997f38b7_content')) { function _lb65997f38b7_content($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['content'][] = '_lb1392319d9a_content')) { function _lb1392319d9a_content($_l, $_args) { extract($_args)
 ?><article>
-	<?php Nette\Latte\Macros\CoreMacros::includeTemplate("../_leaf.latte", $template->getParameters(), $_l->templates['klrv9lnn1o'])->render() ?>
+	<?php Nette\Latte\Macros\CoreMacros::includeTemplate("../_leaf.latte", $template->getParameters(), $_l->templates['63naetd2x9'])->render() ?>
 <div class="entity" data-format="<?php if ($video->isDubbed()): ?>dubbed<?php else: ?>
 original<?php endif ?>">
 			<div>
@@ -65,9 +65,6 @@ original<?php endif ?>">
 				<div class="buttons">
 <?php if ($user->isInrole($ROLE::EDITOR)): ?>					<a class="button blue" href="<?php echo htmlSpecialChars($_control->link("edit")) ?>
 ">Upravit</a>
-<?php endif ;if ($user->isInrole($ROLE::EDITOR) || $user->isInrole($ROLE::VERIFIER)): ?>
-					<a class="button blue" href="<?php echo htmlSpecialChars($_control->link("reloadSubtitles!")) ?>
-">Znovu načíst titulky</a>
 <?php endif ;if ($user->isInrole($ROLE::VERIFIER) && !$video->isDubbed()): if ($video->hasUserVerified($user)): ?>
 							Děkujeme za ověření překladu. <a href="<?php echo htmlSpecialChars($_control->link("undoVerify!")) ?>
 ">Zrušit</a>.
@@ -85,7 +82,7 @@ original<?php endif ?>">
 <?php $iterations++; endforeach; array_pop($_l->its); $iterator = end($_l->its) ;endif ?>
 				</div>
 			</div>
-<?php if (Nette\Latte\Macros\CacheMacro::createCache($netteCacheStorage, 'kwb3s72vef', $_g->caches, array($video->id, 'tags' => array('videos', "video/{$video->id}")))) { ?>
+<?php if (Nette\Latte\Macros\CacheMacro::createCache($netteCacheStorage, 'uc8xwvsefz', $_g->caches, array($video->id, 'tags' => array('videos', "video/{$video->id}")))) { ?>
 				<div>
 					<nav>
 <?php $prev = $video->getPreviousVideo($category) ;if ($prev): ?>						<label>

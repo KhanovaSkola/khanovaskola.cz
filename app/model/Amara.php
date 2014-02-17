@@ -24,7 +24,7 @@ class Amara extends Object
 	}
 
 
-
+	/** @deprecated */
 	public function getSubtitles(Video $video)
 	{
 		try {

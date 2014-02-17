@@ -84,8 +84,8 @@ class WatchPresenter extends BaseFrontPresenter
 
 		$cache = new Cache($this->context->cacheStorage, 'subtitles');
 		$key = $this->video->youtube_id;
-		if (!$cache->load($key)) {
-			dump('presenter reload subs');
+		if (TRUE || !$cache->load($key)) {
+dump('reloading subtitles');
 			$subs = $this->video->getSubtitles();
 			$cache->save($key, $subs);
 			$this->template->subtitles = $subs;
@@ -349,26 +349,6 @@ class WatchPresenter extends BaseFrontPresenter
 			$invalid[] = "verifier/category/$cat->id";
 		}
 		$cache->clean([Cache::TAGS => $invalid]);
-	}
-
-
-	public function handleReloadSubtitles()
-	{
-		if ( !($this->user->isInrole(ROLE::EDITOR) || $this->user->isInrole(ROLE::VERIFIER))) {
-			throw new \Nette\Application\ForbiddenRequestException;
-		}
-
-		$this->context->amara->purgeDataCache($this->video);
-		$cache = new Cache($this->context->cacheStorage, 'subtitles');
-		$cache->remove($this->video->youtube_id);
-
-		// purge template cache
-		$cache = new Cache($this->context->cacheStorage);
-		$cache->clean([Cache::TAGS => ["video/{$this->video->id}"]]);
-
-		// $this->context->report->reloadSubtitles($this->video);
-		$this->flashMessage('Titulky byly obnoveny.');
-		$this->redirect('this');
 	}
 
 }

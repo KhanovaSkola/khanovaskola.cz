@@ -11,6 +11,7 @@ use Nette\Caching\Cache;
  * @property string	$label
  * @property string	$description
  * @property string	$youtube_id
+ * @property int	$revision 		approved revision number
  * @property int	$duration		seconds
  * @property string	$uploader		youtube username
  * @property int	$author_id
@@ -285,8 +286,7 @@ class Video extends \ORM\EntityUrl
 
 	public function getSubtitles()
 	{
-		return $this->context->amara->getSubtitles($this);
-		return $this->context->report->getSubtitles($this);
+		return $this->context->subtitles->get($this);
 	}
 
 

@@ -6,7 +6,7 @@ use Entity\Video;
 use Nette\Object;
 use Sunra\PhpSimple\HtmlDomParser as Html;
 
-
+/** @deprecated */
 class Report extends Object
 {
 

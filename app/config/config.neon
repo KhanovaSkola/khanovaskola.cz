@@ -41,6 +41,7 @@ services:
 
 	mailChimp: Model\MailChimp(%mailChimp.key%)
 	amara: Model\Amara
+	subtitles: Model\Subtitles
 	report: Model\Report(%database_subs.dbname%, %database.user%, %database.password%)
 	subsChecker: Model\SubtitleChecker(%kontrolovac.url%)
 
