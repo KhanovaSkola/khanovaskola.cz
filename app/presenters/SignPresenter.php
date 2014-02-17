@@ -12,6 +12,9 @@ class SignPresenter extends BasePresenter
 	/** @persistent */
 	public $backlink;
 
+	/** @persistent */
+	public $request;
+
 
 
 	public function actionIn()
@@ -224,6 +227,11 @@ class SignPresenter extends BasePresenter
 			$sesion = $this->context->session->getSection('registration');
 			$sesion->showWelcome = TRUE;
 			$this->redirect(':Front:Registration:welcome');
+		}
+
+		if ($this->request)
+		{
+			return $this->restoreRequest($this->request);
 		}
 
 		if (!$this->backlink) {

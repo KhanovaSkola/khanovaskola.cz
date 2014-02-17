@@ -96,13 +96,29 @@ dump('reloading subtitles');
 
 
 
-	public function renderAdd($youtube_id = NULL, $label = NULL, $desc = NULL)
+	public function actionAdd()
 	{
+		if (!$this->user->isInrole(ROLE::ADDER)) {
+			$this->redirect(':Sign:in', ['request' => $this->storeRequest()]);
+		}
+	}
+
+
+	public function renderAdd($youtube_id = NULL, $label = NULL, $desc = NULL, $revision = NULL, $callback = NULL)
+	{
+		if (!$revision || !$callback)
+		{
+			$this->sendJson(['Omlouvam se, takhle rovnou uz to nejde, pridavejte prosim videa pouze z reportu. Pokud to z nejakeho duvodu nejde, napiste mi prosim na mikulas@khanovaskola.cz, dekuji.']);
+		}
+
 		$this['videoForm']['categories']->setDefaultValue([$this->id]);
 
 		$this['videoForm']['youtube_id']->setDefaultValue($youtube_id);
 		$this['videoForm']['label']->setDefaultValue($label);
 		$this['videoForm']['description']->setDefaultValue($desc);
+
+		$this['videoForm']['revision']->setDefaultValue($revision);
+		$this['videoForm']['callback']->setDefaultValue($callback);
 	}
 
 
@@ -171,6 +187,8 @@ dump('reloading subtitles');
 		$form->addSelect('author_id', 'Dabing', $this->context->authors->getFill());
 		$form->addSelect('exercise_id', 'Cvičení', $this->context->exercises->getFill());
 		$form->addText('external_exercise_url', 'Externí cvičení (url)');
+		$form->addHidden('callback');
+		$form->addHidden('revision');
 
 		$form->addSubmit('send', 'Uložit')->controlPrototype->class = "simple-button green";
 		return $form;
@@ -212,6 +230,7 @@ dump('reloading subtitles');
 					'youtube_id' => $v->youtube_id,
 					'author_id' => $author_id,
 					'exercise_id' => $v->exercise_id == 0 ? NULL : $v->exercise_id,
+					'revision' => $v->revision,
 					'external_exercise_url' => $v->external_exercise_url,
 				]);
 			} catch (\PDOException $e) {
@@ -226,6 +245,11 @@ dump('reloading subtitles');
 			$video->addSlug($video->label);
 			$video->updateMetaData();
 			$video->update();
+
+			if ($v->callback)
+			{
+				file_get_contents($v->callback);
+			}
 
 			foreach ($v->categories as $cid) {
 				$this->context->categories->find($cid)->addVideo($video);
