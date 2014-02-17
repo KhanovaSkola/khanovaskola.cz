@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	width="{$widthSum}px" height="18px" viewBox="0 0 {$widthSum} 18" enable-background="new 0 0 {$widthSum} 18" xml:space="preserve">
+	<defs>
+		<style type="text/css">
+		<![CDATA[
+			@font-face {
+				font-family: "Open Sans";
+				src: local("Open Sans"), /* IE */
+					local("OpenSans"),
+					url("data:application/vnd.ms-fontobject;charset=utf-8;base64,{$fontEot}") format('embedded-opentype'),
+					url('https://khancdn.eu/badges/OpenSans-Regular.woff') format('woff'),
+					url('https://khancdn.eu/badges/OpenSans-Regular.ttf') format('truetype');
+			}
+		]]>
+		</style>
+		
+	</defs>
+
+	<linearGradient id="gl" gradientUnits="userSpaceOnUse" x1="0" y1="-18" x2="0" y2="0" gradientTransform="matrix(1 0 0 -1 0 0)">
+		<stop offset="0" style="stop-color:#2E2E2E"/>
+		<stop offset="0.1" style="stop-color:#3F3F3F" />
+		<stop offset="0.96" style="stop-color:#5A5A5A"/>
+		<stop offset="1" style="stop-color:#AAAAAA"/>
+	</linearGradient>
+	<path fill="url(#gl)" d="M{$center},18H3c-1.657,0-3-1.343-3-3V3c0-1.657,1.343-3,3-3h{$width->left - 3}V18z"/>
+
+	<linearGradient id="gr" gradientUnits="userSpaceOnUse" x1="0" y1="-18" x2="0" y2="0" gradientTransform="matrix(1 0 0 -1 -54.9 0)">
+		<stop offset="0" style="stop-color:{!$color[3]}"/>
+		<stop offset="0.1" style="stop-color:{!$color[2]}"/>
+		<stop offset="0.96" style="stop-color:{!$color[1]}"/>
+		<stop offset="1" style="stop-color:{!$color[0]}"/>
+	</linearGradient>
+	<path fill="url(#gr)" d="M{$center},18h{$width->right - 3}c1.657,0,3-1.343,3-3V3c0-1.657-1.343-3-3-3H{$center}V18z"/>
+
+	<g opacity="0.3">
+		<text transform="matrix(1 0 0 1 {$pos->key} 13.5693)" font-family="'Open Sans'" font-size="10">{$key}</text>
+	</g>
+	<text transform="matrix(1 0 0 1 {$pos->key} 12.5693)" fill="#FFFFFF" font-family="'Open Sans'" font-size="10">{$key}</text>
+	<g opacity="0.3">
+		<text transform="matrix(1 0 0 1 {$pos->value} 13.5693)" font-family="'Open Sans'" font-size="10">{$value}</text>
+	</g>
+	<text transform="matrix(1 0 0 1 {$pos->value} 12.5693)" fill="#FFFFFF" font-family="'Open Sans'" font-size="10">{$value}</text>
+</svg>

@@ -135,6 +135,7 @@ cite{color:#707b8b}
 .category-blocks .block{display:inline-block;padding:5pt 4pt;width:170px;font-size:14px;background-color:#f7f7f7;margin:none;border:1px solid #ddd;margin:-1px 0 0 -1px;}
 .category-blocks .block:hover{background-color:#d3ddb6}
 .category-blocks .block i[class^=icon]{font-size:12px}
+.category-blocks .block.category-11,.category-blocks .block.category-154{font-size:13px}
 .main-text p{width:90%}
 .call-to-action{margin:2ex 0}
 .notification{text-align:left;background-color:#f7f7f7;border:1px solid #ddd;padding:1ex 1em;padding-left:62px;margin-top:-2ex;margin-bottom:2ex}

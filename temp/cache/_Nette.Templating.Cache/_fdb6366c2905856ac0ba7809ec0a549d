@@ -1,0 +1,16 @@
+<?php //netteCache[01]000074a:2:{s:4:"time";s:21:"0.07176600 1392483784";s:6:"expire";i:1393088584;}?>				<div>
+					<nav>
+						<label>
+							<a href="/scitani-a-odcitani/scitani-2/lekce">
+								<b>Další video:</b> Sčítání 2
+								<i class="icon-arrow-right"></i>
+							</a>
+						</label>
+						<div class="clear"></div>
+					</nav>
+				</div>
+				<div class="video-container">
+					<div id="player"></div>
+				</div>
+<div id="subtitles-overlay">&nbsp; 
+</div>

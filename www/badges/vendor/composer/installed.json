@@ -1,0 +1,78 @@
+[
+    {
+        "name": "nette/nette",
+        "version": "v2.0.13",
+        "version_normalized": "2.0.13.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/nette/nette.git",
+            "reference": "695f643c26c2326f08424fee138515fa286a0e07"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/nette/nette/zipball/695f643c26c2326f08424fee138515fa286a0e07",
+            "reference": "695f643c26c2326f08424fee138515fa286a0e07",
+            "shasum": ""
+        },
+        "require": {
+            "ext-iconv": "*",
+            "ext-tokenizer": "*",
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "nette/tester": "0.9.*"
+        },
+        "suggest": {
+            "ext-fileinfo": "*",
+            "ext-gd": "*",
+            "ext-mbstring": "*",
+            "ext-memcache": "*",
+            "ext-pdo": "*"
+        },
+        "time": "2013-11-05 18:47:49",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "Nette/loader.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause",
+            "GPL-2.0",
+            "GPL-3.0"
+        ],
+        "authors": [
+            {
+                "name": "David Grudl",
+                "homepage": "http://davidgrudl.com"
+            },
+            {
+                "name": "Nette Community",
+                "homepage": "http://nette.org/contributors"
+            }
+        ],
+        "description": "Nette Framework - innovative framework for fast and easy development of secured web applications in PHP. Write less, have cleaner code and your work will bring you joy.",
+        "homepage": "http://nette.org",
+        "keywords": [
+            "Forms",
+            "database",
+            "dbal",
+            "debugging",
+            "framework",
+            "images",
+            "latte",
+            "mailing",
+            "micro",
+            "mvc",
+            "neon",
+            "templating"
+        ]
+    }
+]

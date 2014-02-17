@@ -59,16 +59,16 @@
 					{if $category->isLeaf() && !$category->hasContent()}
 					{elseif $category->isLeaf() && $entity = $category->getFirstContent()}
 						{if $entity instanceof \Entity\Video}
-							<a n:href=":Front:Watch:, id => $category->id, vid => $entity->id" class="block">
+							<a n:href=":Front:Watch:, id => $category->id, vid => $entity->id" class="block category-{$category->id}">
 								{if $category->containsDubbedVideos()}<i class="icon-dubbed"></i>&nbsp;{/if}{$category->label}
 							</a>
 						{else}
-							<a n:href=":Front:Exercise:, id => $category->id, eid => $entity->id" class="block">
+							<a n:href=":Front:Exercise:, id => $category->id, eid => $entity->id" class="block category-{$category->id}">
 								{if $category->containsDubbedVideos()}<i class="icon-dubbed"></i>&nbsp;{/if}{$category->label}
 							</a>
 						{/if}
 					{else}
-						<a n:href=":Front:Browse:, id => $category->id" n:class="'block', $category->id == 11 ? 'smaller'">
+						<a n:href=":Front:Browse:, id => $category->id" class="block category-{$category->id}">
 							{if $category->containsDubbedVideos()}<i class="icon-dubbed"></i>&nbsp;{/if}{$category->label}
 						</a>
 					{/if}
@@ -82,8 +82,8 @@
 			{/cache}
 		</div>
 		<div class="col2 fifty-fifty main-text">
-			<h1>Právě probíhá soutěž <a href="http://umis-ucit.khanovaskola.cz/">Umíš učit</a>.</h1>
-			<p>Nahraj výukové video, buď mezi 10 nejoblíbenějšími a vyhraj cenu za 10 tisíc. <a href="http://umis-ucit.khanovaskola.cz/">Naučíme tě to</a>.</p>
+			<h1>Soutěž <a href="http://umis-ucit.khanovaskola.cz/">Umíš učit</a> otevřena k hlasování.</h1>
+			<p>Přijďte vybrat nejlepší česká výuková videa ze soutěže <a href="http://umis-ucit.khanovaskola.cz/">Umíš učit</a>.</p>
 			<hr>
 			<h1><a n:href=":Front:Watch:, id => $featured_video->getOneCategoryId(), vid => $featured_video->id">Nauč se</a> zdarma skoro cokoliv.</h1>
 			<p>
