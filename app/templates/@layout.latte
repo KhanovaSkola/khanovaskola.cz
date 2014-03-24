@@ -8,7 +8,7 @@
 
 	{!$newrelic->header}
 
-	{snippet title}<title>{ifset $title}{$title} &ndash; {/ifset}Khanova škola</title>{/snippet}
+	<title>{ifset $title}{$title} &ndash; {/ifset}Khanova škola</title>
 
 	<meta name="description" content="{$description}" n:ifset="$description">
 	<meta name="robots" content="{$robots}" n:ifset="$robots">
@@ -90,7 +90,9 @@
 			<div class="col1">
 				<ul>
 					<li><a n:href=":Front:Contact:">Kontakt</a></li>
-					<li><a n:href=":Front:Contact:report, url => $presenter->url, time => time()" rel="nofollow">Nahlásit problém</a></li>
+					<li><a href="https://forum.khanovaskola.cz/">Fórum</a></li>
+					<li><a href="https://wiki.khanovaskola.cz/">Wiki</a></li>
+					{*<li><a n:href=":Front:Contact:report, url => $presenter->url, time => time()" rel="nofollow">Nahlásit problém</a></li>*}
 				</ul>
 				<ul>
 					<li><a n:href=":Front:Contact:tos" title="Podmínky použití">Podmínky použití</a></li>

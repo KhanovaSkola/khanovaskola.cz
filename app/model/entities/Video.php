@@ -12,6 +12,8 @@ use Nette\Caching\Cache;
  * @property string	$description
  * @property string	$youtube_id
  * @property int	$revision 		approved revision number
+ * @property int	$revision_id
+ * @property int	$original_id
  * @property int	$duration		seconds
  * @property string	$uploader		youtube username
  * @property int	$author_id
@@ -86,6 +88,17 @@ class Video extends \ORM\EntityUrl
 	{
 		return $this->context->exercises->find($this->exercise_id);
 	}
+
+
+
+	/**
+	 * @return Advert
+	 */
+	public function getAdvert()
+	{
+		return $this->context->adverts->findByVideo($this)->order('created_at DESC')->fetch();
+	}
+
 
 
 

@@ -27,28 +27,45 @@
 					<span itemprop="name caption" class="title">{$video->label}</span>
 				</h1>
 				<span n:if="$video->description"><span itemprop="description">{$video->description}</span>{if $video->hasAuthor()} Dabing {!$video->getAuthor()->getNbName()}.{/if}</span>
+			</div>
+			<div>
 				{if $user->isInrole($ROLE::ADMIN) && count($video->getSlugs()) > 1}
 					<div class="aliases">
 						<b>Aliasy:</b>
 						{foreach $video->getSlugs() as $slug}<a n:href="this, vid => $slug">{plink this, vid => $slug}</a>{sep}, {/sep}{/foreach}
 					</div>
 				{/if}
-				<div class="buttons">
+				<div class="buttons" style="float: left;">
 					<a n:if="$user->isInrole($ROLE::EDITOR)" n:href="edit" class="button blue">Upravit</a>
-					{if $user->isInrole($ROLE::VERIFIER) && !$video->isDubbed()}
+					{var $verify = $user->isInrole($ROLE::VERIFIER) && !$video->isDubbed()}
+					{if $verify}
 						{if $video->hasUserVerified($user)}
 							Děkujeme za ověření překladu. <a n:href="undoVerify!">Zrušit</a>.
 						{else}
 							<a n:href="verify!" class="button blue">Ověřil jsem překlad</a>
 						{/if}
-						{foreach $video->getVerifications() as $ver}
-							{first}<p>Ověřil: {/first}
-							{$ver->user->name}{sep},{/sep}
-							{last}</p>{/last}
-						{/foreach}
+					{/if}
+					<a n:if="$user->isInrole($ROLE::EDITOR) && $video->revision_id" href="https://report.khanovaskola.cz/diff/{$video->revision_id}">Revize titulků #{$video->revision_id}</a>
+					{if $verify}
+						<div style="margin-top: 1ex">
+							{foreach $video->getVerifications() as $ver}
+								{first}Správnost překladu ověřil: {/first}
+								{$ver->user->name}{sep},{/sep}
+							{/foreach}
+						</div>
+					{/if}
+				</div>
+				<div n:if="$user->isInrole($ROLE::EDITOR)" style="float: right">
+					{var $ad => $video->getAdvert()}
+					{if $ad}
+						<a n:href="adEditor" class="button blue">Upravit reklamu</a>
+						{include _advert.latte, advert => $ad}
+					{else}
+						<a n:href="adEditor" class="button blue">Přidat reklamu</a>
 					{/if}
 				</div>
 			</div>
+			<div style="clear: both"/>
 			{cache $video->id, tags => ['videos', "video/{$video->id}"]}
 				<div>
 					<nav>
@@ -72,8 +89,8 @@
 				<div class="video-container">
 					<div id="player"></div>
 				</div>
-				{control subtitles, $subtitles, $video->isDubbed()}
-				{if $subtitles}
+				{if $subtitles && count($subtitles) > 1}
+					{control subtitles, $subtitles, $video->isDubbed()}
 					<p class="float-right">
 						<a n:href="editSubtitles" rel="nofollow" target="_blank">upravit titulky</a>
 					</p>

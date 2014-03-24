@@ -1,0 +1,49 @@
+{block #content}
+
+<nav class="subnav" n:if="$wikiLinks">
+	<ul>
+		{foreach $wikiLinks as $link => $label}
+			<li><a n:href="$link" n:class="$presenter->isLinkCurrent($link) ? 'selected'">{$label}</a></li>
+		{/foreach}
+	</ul>
+</nav>
+
+{!$wikiPageContent}
+
+<style n:syntax="off">
+	.urlextern {background-image: none !important; padding: 0 !important;}
+	img[src*="/smileys/"] {opacity: .5}
+
+	div.dokuwiki {
+		line-height: 150%;
+		width: 900px;
+	}
+	div.dokuwiki ul, div.dokuwiki ol {
+		margin-left: 2em;
+	}
+	h2 {
+		font-size: 150%;
+	}
+	h2, h3, h4 {
+		margin-top: 2ex;
+	}
+	#dw__toc {
+		background: white;
+		padding: 10px;
+		border: 1px solid #eee;
+		width: 270px;
+	}
+	#dw__toc .toggle strong {
+		display: none;
+	}
+	#dw__toc h3 {
+		margin-top: 0;
+	}
+	p+p {
+		margin-top: 1.5ex;
+	}
+</style>
+
+{if $user->loggedIn}
+	<a style="margin-top: 10px; float: right;" href="{$wikiEdit}">Editovat</a>
+{/if}

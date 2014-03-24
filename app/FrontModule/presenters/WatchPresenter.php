@@ -104,11 +104,16 @@ dump('reloading subtitles');
 	}
 
 
-	public function renderAdd($youtube_id = NULL, $label = NULL, $desc = NULL, $revision = NULL, $callback = NULL)
+	public function renderAdd($youtube_id = NULL, $label = NULL, $desc = NULL,
+		$revision = NULL, $revisionId = NULL, $originalId = NULL, $callback = NULL, $hash = NULL)
 	{
-		if (!$revision || !$callback)
+		if (!$revision || !$callback || !$revisionId || !$originalId || !$hash)
 		{
 			$this->sendJson(['Omlouvam se, takhle rovnou uz to nejde, pridavejte prosim videa pouze z reportu. Pokud to z nejakeho duvodu nejde, napiste mi prosim na mikulas@khanovaskola.cz, dekuji.']);
+		}
+		if (md5("$revision|$callback|$revisionId|$originalId") !== $hash)
+		{
+			$this->error();
 		}
 
 		$this['videoForm']['categories']->setDefaultValue([$this->id]);
@@ -119,6 +124,8 @@ dump('reloading subtitles');
 
 		$this['videoForm']['revision']->setDefaultValue($revision);
 		$this['videoForm']['callback']->setDefaultValue($callback);
+		$this['videoForm']['revisionId']->setDefaultValue($revisionId);
+		$this['videoForm']['originalId']->setDefaultValue($originalId);
 	}
 
 
@@ -189,6 +196,8 @@ dump('reloading subtitles');
 		$form->addText('external_exercise_url', 'Externí cvičení (url)');
 		$form->addHidden('callback');
 		$form->addHidden('revision');
+		$form->addHidden('revisionId');
+		$form->addHidden('originalId');
 
 		$form->addSubmit('send', 'Uložit')->controlPrototype->class = "simple-button green";
 		return $form;
@@ -231,6 +240,8 @@ dump('reloading subtitles');
 					'author_id' => $author_id,
 					'exercise_id' => $v->exercise_id == 0 ? NULL : $v->exercise_id,
 					'revision' => $v->revision,
+					'revision_id' => $v->revisionId,
+					'original_id' => $v->originalId,
 					'external_exercise_url' => $v->external_exercise_url,
 				]);
 			} catch (\PDOException $e) {
@@ -248,7 +259,12 @@ dump('reloading subtitles');
 
 			if ($v->callback)
 			{
-				file_get_contents($v->callback);
+				$res = file_get_contents($v->callback);
+				\Nette\Diagnostics\Debugger::log("Video add callback responded with: '$res'");
+			}
+			else
+			{
+				\Nette\Diagnostics\Debugger::log("Video added without callback, this should not happen!");
 			}
 
 			foreach ($v->categories as $cid) {
@@ -321,19 +337,22 @@ dump('reloading subtitles');
 
 	public function actionEditSubtitles()
 	{
-		$url = urlencode("http://www.youtube.com/watch?v=" . $this->video->youtube_id);
-		$video_id = $this->context->report->getAmaraId($this->video);
-		$pk = $this->context->report->getLangPk($this->video);
-		$target = "http://www.amara.org/cs/onsite_widget/?config=" . urlencode(json_encode([
-			"videoID" => $video_id,
-			"videoURL" => "http://www.youtube.com/watch?v={$this->video->youtube_id}",
-			"effectiveVideoURL" => "http://www.youtube.com/watch?v={$this->video->youtube_id}",
-			"languageCode" => "cs",
-			"originalLanguageCode" => "en",
-			"subLanguagePK" => $pk->subLangPK,
-			"baseLanguagePK" =>  $pk->baseLangPK,
-		]));
-		$this->redirectUrl($target);
+		$language = 'cs';
+		$youtube = 'http://www.youtube.com/watch?v=' . $this->video->youtube_id;
+		$amaraId = $this->context->report->getAmaraId($this->video);
+		$url = 'http://www.amara.org/en/onsite_widget/?' .
+			http_build_query([
+				'config' => json_encode([
+					'videoID' => $amaraId,
+					'videoURL' => $youtube,
+					'effectiveVideoURL' => $youtube,
+					'languageCode' => $language,
+					'originalLanguageCode' => null,
+					'subLanguagePK' => null,
+					'baseLanguageCode' => 'en'
+				]),
+			]);
+		$this->redirectUrl($url);
 	}
 
 
@@ -377,9 +396,9 @@ dump('reloading subtitles');
 
 
 
-	public function actionSetRevision($revision, $code)
+	public function actionSetRevision($revision, $revisionId, $code)
 	{
-		if ($code !== crypt($this->vid, '$2y$10$' . substr(md5($this->vid), 0, 22)))
+		if ($code !== crypt($this->vid . $revisionId, '$2y$10$' . substr(md5($this->vid), 0, 22)))
 		{
 			$this->error();
 		}
@@ -389,8 +408,75 @@ dump('reloading subtitles');
 		$cache->remove($key);
 
 		$this->video->revision = $revision;
+		$this->video->revision_id = $revisionId;
 		$this->video->update();
 		$this->sendJson(['result' => 'success']);
+	}
+
+
+	public function actionAdEditor()
+	{
+		if (!$this->user->loggedIn || !$this->user->isInRole('editor'))
+		{
+			$this->error();
+		}
+	}
+
+	public function createComponentAdvertForm($name)
+	{
+		$form = $this->createForm($name);
+
+		$v = $this->video;
+		$ad = $v->getAdvert();
+
+		$form->addText('title', 'Titulek')
+			->setRequired()
+			->setDefaultValue($ad ? $ad->title : trim($v->label, '.?!:'))
+			->controlPrototype->{"data-max"}(25);
+			
+		$form->addText('text1', 'Text 1')
+			->setRequired()
+			->setDefaultValue($ad ? $ad->text1 : 'První řádek')
+			->controlPrototype->{"data-max"}(35);
+			
+		$form->addText('text2', 'Text 2')
+			->setRequired()
+			->setDefaultValue($ad ? $ad->text2 : 'Druhý řádek')
+			->controlPrototype->{"data-max"}(35);
+			
+		$form->addText('url', 'Url')
+			->setRequired()
+			->setDefaultValue($ad ? $ad->url : 'khanovaskola.cz/' . $v->getSlug())
+			->controlPrototype->{"data-max"}(35);
+
+		$form->addTextArea('keywords', 'Klíčová slova')
+			->setDefaultValue($ad ? $ad->keywords : '')
+			->setRequired();
+
+		$form->addSubmit('send', 'Uložit')->controlPrototype->class = "simple-button green";
+		return $form;
+	}
+
+	public function onSuccessAdvertForm($form)
+	{
+		if (!$this->user->isInRole('editor'))
+		{
+			$this->error();
+		}
+
+		$v = $form->values;
+		$vid = $this->context->adverts->insert([
+			'video_id' => $this->video->id,
+			'title' => $v->title,
+			'text1' => $v->text1,
+			'text2' => $v->text2,
+			'keywords' => $v->keywords,
+			'url' => $v->url,
+			'created_at' => new \DateTime,
+			'user_id' => $this->user->id,
+		]);
+
+		$this->redirect('default');
 	}
 
 }

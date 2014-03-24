@@ -41,8 +41,10 @@ services:
 
 	mailChimp: Model\MailChimp(%mailChimp.key%)
 	amara: Model\Amara
+	discourse: Model\Discourse(%discourse.sso_secret%, %discourse.redirect%)
+	wiki: Model\Wiki(%wiki.sso_secret%)
 	subtitles: Model\Subtitles
-	report: Model\Report(%database_subs.dbname%, %database.user%, %database.password%)
+	#report: Model\Report(%database_subs.dbname%, %database.user%, %database.password%)
 	subsChecker: Model\SubtitleChecker(%kontrolovac.url%)
 
 	user: Model\NetteUser
@@ -50,6 +52,7 @@ services:
 	authenticator_google: Authenticator\Google
 	authenticator_password: Authenticator\Password
 
+	adverts: Selector\Adverts('advert')
 	articles: Selector\Articles('article')
 	authors: Selector\Authors('author')
 	categories: Selector\Categories('category')

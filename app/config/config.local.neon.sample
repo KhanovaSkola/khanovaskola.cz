@@ -11,6 +11,9 @@ parameters:
 		id:
 		secret:
 		token:
+	discourse:
+		sso_secret: 
+		redirect: http://yourdomain/session/sso_login
 	facebook:
 		appId:
 		secret:

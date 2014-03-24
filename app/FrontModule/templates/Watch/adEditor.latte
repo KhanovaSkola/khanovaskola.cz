@@ -1,0 +1,67 @@
+{var $title = "Úprava reklamy"}
+{#breadcrumbs}
+{/#}
+{#scripts}
+	<script>
+		$(function() {
+			$('#frm-advertForm label').each(function() {
+				$(this).data('text', $(this).text());
+			});
+			$('#frm-advertForm input').on('change paste keyup', function() {
+				var val = $(this).val().substr(0, $(this).data('max'));
+				if (val !== $(this).val())
+				{
+					$(this).addClass('has-error');
+				}
+				else
+				{
+					$(this).removeClass('has-error');
+				}
+				var $label = $('label[for="' + $(this).attr('id') + '"]');
+				var max = $(this).data('max');
+				var left = max - val.length;
+				$label.text($label.data('text') + ' (' + left + '/' + max + ')');
+
+				$('#target-' + $(this).attr('name')).text(val);
+			});
+			$('#frm-advertForm input').change();
+		});
+	</script>
+{/#}
+{#content}
+<style n:syntax="off">
+	.ad {background: #fff; border: 1px solid #ccc; padding: 7px 5px !important; display: inline-block;}
+	.ad div {font-size: 13px; font-family: arial, helvetica, sans-serif;}
+	.ad .title a {color: #00c !important; text-decoration: underline !important}
+	.ad div.url {color: #0e8f0e}
+	.ad .text {color: #333}
+
+	input.has-error {
+		background-color: #FF9999;
+		border: 1px solid red;
+		-webkit-box-shadow: 0 0 0 0 red;
+		-moz-box-shadow: 0 0 0 0 red;
+		box-shadow: 0 0 0 0 red;
+	}
+</style>
+<article id="backend-form">
+	<div>
+		<h2 class="main-headline">Úprava reklamy</h2>
+		<div class="col1 fifty-fifty">
+			
+			{control advertForm}
+			<a n:href="default">zpět</a>
+		</div>
+		<div class="col2 fifty-fifty">
+			<div class="ad">
+			    <div class="title">
+			        <a href="#" id="target-title">Video: Aritmetický průměr</a>
+			    </div>
+			    <div class="url" id="target-url">khanovaskola.cz/Prumer</div>
+			    <div class="text text1" id="target-text1">Ukázkové úlohy řešené přes rovnice.</div>
+			    <div class="text text2" id="target-text2">Názorné video s vysvětlením.</div>
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>
+</article>

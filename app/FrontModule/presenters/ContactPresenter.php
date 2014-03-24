@@ -11,6 +11,11 @@ use Mikulas\Git;
 class ContactPresenter extends BaseFrontPresenter
 {
 
+	public function renderDefault()
+	{
+		$this->renderFromWikiPage('tym');
+	}
+
 	public function renderReport($url, $time, $title = NULL)
 	{
 		$this['issueForm']['label']->setValue($title); // optional

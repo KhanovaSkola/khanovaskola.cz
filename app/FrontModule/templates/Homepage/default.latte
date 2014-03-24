@@ -82,13 +82,25 @@
 			{/cache}
 		</div>
 		<div class="col2 fifty-fifty main-text">
-			<h1>Soutěž <a href="http://umis-ucit.khanovaskola.cz/">Umíš učit</a> otevřena k hlasování.</h1>
-			<p>Přijďte vybrat nejlepší česká výuková videa ze soutěže <a href="http://umis-ucit.khanovaskola.cz/">Umíš učit</a>.</p>
-			<hr>
+			<div style="background-color: #f7f7f7; border: 1px solid #ddd; padding: 12px; margin-left: -12px; margin-bottom: 2ex">
+				<h2>
+					<a href="http://srazy.info/khanova-skola-prekladatelsky-maraton/4387">
+						Překladatelský maraton na VŠCHT Praha
+					</a>
+				</h2>
+				<p><strong>12. dubna 2014</strong></p>
+				<p>Pomozte nám zpřístupnit videa Khan Academy českým dětem – hledáme dobrovolníky pro překladatelský maraton. Naším cílem je během jediného dne přeložit co nejvíce videí.</p>
+				<p style="margin: 2ex 0">
+					<a class="button" href="http://srazy.info/khanova-skola-prekladatelsky-maraton/4387">Stránka události</a>
+				</p>
+				<img src="https://www.vscht.cz/ext/haimg/6/sablona/wide/logo_cz.gif" width="337" height="60">
+			</div>
+
 			<h1><a n:href=":Front:Watch:, id => $featured_video->getOneCategoryId(), vid => $featured_video->id">Nauč se</a> zdarma skoro cokoliv.</h1>
 			<p>
 				Jsme překlad Khan Academy. Máme pro vás víc než <a n:href=":Front:Homepage:library">{$count->video} videí</a> z matematiky, fyziky a třeba i dějepisu a medicíny. Matematiku si navíc můžete prozkoušet na cvičeních, které najdete vedle samotných lekcí. Pro učitele máme <a n:href=":Coach:Dashboard:">nástroje</a> pro zadávání úkolů a sledování výsledků.
 			</p>
+
 			<p>
 				<a n:href=":Front:About:">Snažíme se</a> učit to, co vás zajímá.
 			</p>
@@ -99,7 +111,9 @@
 				Naším hlavním <a n:href=":Front:About:sponsors">partnerem</a> je společnost <a href="http://scio.cz/" target="_blank">Scio</a>.
 			</p>
 
-			{include '_darujme.latte'}
+			{*<div style="margin-top: 239px">
+				{include '_darujme.latte'}
+			</div>*}
 		</div>
 	</div>
 </article>

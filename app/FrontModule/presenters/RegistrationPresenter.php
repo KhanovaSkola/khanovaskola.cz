@@ -102,6 +102,21 @@ class RegistrationPresenter extends BaseFrontPresenter
 			$this->context->mailChimp->subscribeEmail($this->context->parameters['mailChimp']['list'], $v->mail);
 		}
 
+		$discourse = $this->context->session->getSection('discourse');
+		if ($payload = $discourse->sso)
+		{
+			unset($discourse->sso);
+			$url = $this->context->discourse->getLoginUrl($payload, $this->user->entity);
+			$this->redirectUrl($url);
+		}
+
+		$wiki = $this->context->session->getSection('wiki');
+		if ($payload = $wiki->sso)
+		{
+			unset($wiki->sso);
+			$url = $this->context->wiki->getLoginUrl($payload, $this->user->entity);
+			$this->redirectUrl($url);
+		}
 		$this->redirect('welcome');
 	}
 

@@ -9,6 +9,9 @@ use Model\NetteUser as ROLE;
 class SignPresenter extends BasePresenter
 {
 
+	const DISCOURSE_SSO = 'discourse-sso-redirect';
+	const WIKI_SSO = 'wiki-sso-redirect';
+
 	/** @persistent */
 	public $backlink;
 
@@ -29,6 +32,48 @@ class SignPresenter extends BasePresenter
 	public function renderIn($mail = NULL)
 	{
 		$this['signInForm']['username']->setDefaultValue($mail);
+	}
+
+
+
+	public function actionSso($sso, $sig)
+	{
+		$discourse = $this->context->discourse;
+		if ($discourse->getSignature($sso) !== $sig)
+		{
+			$this->error();
+		}
+
+		if ($this->user->loggedIn)
+		{
+			$url = $discourse->getLoginUrl($sso, $this->user->entity);
+			$this->redirectUrl($url);
+		}
+
+		$session = $this->context->session->getSection('discourse');
+		$session->sso = $sso;
+		$session->setExpiration('8 minutes'); // discourse expires after 10
+		$this->redirect('in', ['backlink' => self::DISCOURSE_SSO]);
+	}
+
+	public function actionSsoWiki($sso, $sig)
+	{
+		$wiki = $this->context->wiki;
+		if ($wiki->getSignature($sso) !== $sig)
+		{
+			$this->error();
+		}
+
+		if ($this->user->loggedIn)
+		{
+			$url = $wiki->getLoginUrl($sso, $this->user->entity);
+			$this->redirectUrl($url);
+		}
+
+		$session = $this->context->session->getSection('wiki');
+		$session->sso = $sso;
+		$session->setExpiration('8 minutes');
+		$this->redirect('in', ['backlink' => self::WIKI_SSO]);
 	}
 
 
@@ -223,6 +268,22 @@ class SignPresenter extends BasePresenter
 
 	protected function inRedirect()
 	{
+		$discourse = $this->context->session->getSection('discourse');
+		if ($payload = $discourse->sso)
+		{
+			unset($discourse->sso);
+			$url = $this->context->discourse->getLoginUrl($payload, $this->user->entity);
+			$this->redirectUrl($url);
+		}
+
+		$wiki = $this->context->session->getSection('wiki');
+		if ($payload = $wiki->sso)
+		{
+			unset($wiki->sso);
+			$url = $this->context->wiki->getLoginUrl($payload, $this->user->entity);
+			$this->redirectUrl($url);
+		}
+
 		if ($this->user->isInRole('new-user')) {
 			$sesion = $this->context->session->getSection('registration');
 			$sesion->showWelcome = TRUE;

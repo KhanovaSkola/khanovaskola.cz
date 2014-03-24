@@ -13,8 +13,11 @@
 	{cache $user->loggedIn, tags => ['categories', 'videos']}
 		<ul class="float-left">
 			<li class="dropdown-trigger"><a href="#" class="no-ajax">Naučit se <i class="icon-arrow-down"></i></a></li>
+			<li><a href="https://forum.khanovaskola.cz/">Fórum</a></li>
+			{*
 			<li n:if="$user->loggedIn"><a n:href=":Coach:Dashboard:">Pro učitele</a></li>
 			<li n:if="!$user->loggedIn"><a n:href=":Front:About:coach">Pro učitele</a></li>
+			*}
 			<li><a n:href=":Front:Volunteer:">Dobrovolníci</a></li>
 			<li><a n:href=":Front:About:">O nás</a></li>
 
