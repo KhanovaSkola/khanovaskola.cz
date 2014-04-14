@@ -4,4 +4,4 @@ nbproject/*
 vendor/*
 .vagrant
 app/config/config.local.neon
-/temp/cache/*
+temp/*

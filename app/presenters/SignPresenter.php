@@ -376,7 +376,6 @@ class SignPresenter extends BasePresenter
 	}
 
 
-
 	/**
 	 * Sign in form component factory.
 	 * @return Nette\Application\UI\Form

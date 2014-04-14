@@ -23,8 +23,8 @@ class Subtitles extends Object
 	{
 		$srt = $this->db->queryArgs('
 				SELECT data FROM subtitles
-				WHERE youtube_id = ? AND revision = ?',
-				[$video->youtube_id, $video->revision]
+				WHERE revision_id = ?',
+				[$video->revision_id]
 			)->fetch()['data'];
 
 		$data = [];
@@ -38,8 +38,11 @@ class Subtitles extends Object
 			$matches = [];
 			preg_match('~^\s*(?P<start>\d+:\d+:\d+,\d+)\s*.*?\s*(?P<end>\d+:\d+:\d+,\d+)\s+(?P<text>.*)~s', $node, $matches);
 
+			$text = trim($matches['text']);
+			$text = preg_replace('~\s*<br\s*/?>\s*~i', ' ', $text);
+
 			$data[] = (object) [
-				'text' => trim($matches['text']),
+				'text' => $text,
 				'start_time' => $this->normalizeTime($matches['start']),
 				'end_time' => $this->normalizeTime($matches['end']),
 			];

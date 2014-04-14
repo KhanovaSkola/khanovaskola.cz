@@ -75,7 +75,8 @@ class Report extends Object
 
 	public function getAmaraId(Video $video)
 	{
-		return $this->getDatabase()->table('amara_map')->select('amara_id')->where('youtube_id = ?', $video->youtube_id)->fetch()['amara_id'];
+		return $this->getDatabase()->table('map')->select('amara_id')->where('youtube_id = ?', $video->youtube_id)->fetch()['amara_id'];
+		// return $this->getDatabase()->table('amara_map')->select('amara_id')->where('youtube_id = ?', $video->youtube_id)->fetch()['amara_id'];
 	}
 
 

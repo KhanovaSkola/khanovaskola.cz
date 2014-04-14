@@ -1,0 +1,76 @@
+<html>
+<head>
+	<meta name="robots" content="noindex, nofollow">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Ad Preview</title>
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+	<style type="text/css">
+		body {background: #eee !important; margin-top: 50px;}
+		.ad {background: #fff; border: 1px solid #ccc; padding: 7px 5px !important; display: inline-block;}
+		div {font-size: 13px; font-family: arial, helvetica, sans-serif;}
+		.title a {color: #00c !important; text-decoration: underline !important}
+		div.url {color: #0e8f0e}
+		.text {color: #333}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="col-md-3">
+			<form role="form" action="https://docs.google.com/forms/d/1nkQgv-ueYLmP3Lo68JyoGaRGeHKTXVr5x3ASevMsIe8/formResponse" method="POST" target="_blank">
+			  <div class="form-group">
+			    <label class="control-label" for="title">Kategorie (neovlivní reklamu)</label>
+			    <input name="entry.1390988356" class="form-control" placeholder="Aritmetika">
+			  </div>
+	  		  <div class="form-group">
+			    <label class="control-label" for="title">Titulek (<span id="counter-title">25</span>)</label>
+			    <input name="entry.2110764720" data-name="title" data-max="25" class="form-control" placeholder="Aritmetický průměr">
+			  </div>
+			  <div class="form-group">
+			    <label class="control-label" for="text1">Popis 1 (<span id="counter-text1">35</span>)</label>
+			    <input name="entry.1268659" data-name="text1" data-max="35" class="form-control" placeholder="Video obsahující to a to.">
+			  </div>
+			  <div class="form-group">
+			    <label class="control-label" for="text2">Popis 2 (<span id="counter-text2">35</span>)</label>
+			    <input name="entry.1780555295" data-name="text2" data-max="35" class="form-control" placeholder="Druhý řádek popisku.">
+			  </div>
+			  <div class="form-group">
+			    <label class="control-label" for="text2">Klíčová slova</label>
+			    <p class="help-block">Jedna fráze na řádek. Příklad: "naučit se statistiku", "video statistika", "statistika lekce", ... Čím víc, tím líp! Ideálně všechny termínky, která jsou ve videu a někdo je může hledat.</p>
+			    <textarea name="entry.79629708" class="form-control" rows="15"></textarea>
+			  </div>
+			  <button type="submit" class="btn btn-default">Uložit</button>
+			  <p class="help-block">Tento formulář pouze uloží návrh do Google Docs a před publikováním bude reklama zkontrolována.</p>
+			</form>
+		</div>
+		<div class="col-md-3">
+			<div class="ad">
+			    <div class="title">
+			        <a href="#" id="target-title">Video: Aritmetický průměr</a>
+			    </div>
+			    <div class="url">khanovaskola.cz/Prumer</div>
+			    <div class="text text1" id="target-text1">Ukázkové úlohy řešené přes rovnice.</div>
+			    <div class="text text2" id="target-text2">Názorné video s vysvětlením.</div>
+			</div>
+		</div>
+	</div>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script>
+		$(function() {
+			$('input').on('change paste keyup', function() {
+				var val = $(this).val().substr(0, $(this).data('max'));
+				if (val !== $(this).val())
+				{
+					$(this).parents('.form-group').addClass('has-error');
+				}
+				else
+				{
+					$(this).parents('.form-group').removeClass('has-error');
+				}
+				$('#counter-' + $(this).data('name')).text($(this).data('max') - val.length);
+				$('#target-' + $(this).data('name')).text(val);
+			});
+		});
+	</script>
+</body>
+</html>
+

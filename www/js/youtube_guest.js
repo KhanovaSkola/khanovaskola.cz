@@ -13,10 +13,3 @@ function onPlayerStateChange(event) {
 		onPlayerStateChangeCallbacks[i](event.data);
 	}
 }
-
-onPlayerStateChangeCallbacks.push(fireGAEvent);
-function fireGAEvent(code) {
-	if (code == 0) {
-		_gaq.push(['_trackEvent', 'Video', 'Video-Watched', video_id]);
-	}
-}

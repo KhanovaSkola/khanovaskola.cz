@@ -26,7 +26,7 @@
 		<ol n:inner-foreach="$category->getContent() as $entity" class="path">
 			{if $entity instanceof \Entity\Video}
 				{var $vs = count($entity->getVerifications())}
-				<li id="video-{$entity->id}" data-type="video" data-id="{$entity->id}" {if $verifier}class="video-verifications-{$vs >= 2 ? 2 : $vs == 1 ? 1 : 0}"{/if}>
+				<li id="video-{$entity->id}" data-type="video" data-id="{$entity->id}" {if $verifier}class="video-verifications-{$vs >= 2 ? 2 : $vs}"{/if}>
 					<span class="path-route"></span>
 					<a n:href=":Front:Watch:, id => $category->id, vid => $entity->id">
 						<i n:class="'icon-video', 'v-'.$entity->id, $entity->isDubbed() ? 'icon-dubbed'"></i>

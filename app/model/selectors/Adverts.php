@@ -9,6 +9,15 @@ use Nette\Caching\Cache;
 class Adverts extends \ORM\Table
 {
 
+	public function markResolved($vid)
+	{
+		return $this->connection->query('
+			UPDATE `advert`
+			SET `online` = 1
+			WHERE `video_id` = ?
+		', $vid);
+	}
+
 	/**
 	 * @param Video $video
 	 * @return Video[]

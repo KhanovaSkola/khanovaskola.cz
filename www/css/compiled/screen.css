@@ -168,12 +168,12 @@ nav i.icon-arrow-right{margin-left:-.5em}
 nav label{min-width:300px;}
 nav label:first-of-type{float:left}
 nav label:last-of-type{float:right;text-align:right}
-#subtitles{height:180px;width:800px;overflow:scroll;padding:0;}
+#subtitles{height:380px;width:800px;overflow:hidden;overflow-y:scroll;padding:0;}
 #subtitles table{width:100%}
 #subtitles div{padding:0 0 4px 5px;font-size:12pt;}
-#subtitles div:first-child{margin-top:60px}
+#subtitles div:first-child{margin-top:5px}
 #subtitles div:last-child{margin-bottom:140px}
-#subtitles .highlight{background-color:rgba(157,182,59,0.3)}
+#subtitles .highlight{background-color:rgba(157,182,59,0.3); margin: 0 0 10px 5px; padding: 2px; height: 15px !important;}
 #subtitles .time{color:#969696;font-family:sans-serif;font-size:80%}
 #subtitles .row{height:23px}
 #subtitles td.narrow{width:50px}

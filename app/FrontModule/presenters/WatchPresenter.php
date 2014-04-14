@@ -107,13 +107,18 @@ dump('reloading subtitles');
 	public function renderAdd($youtube_id = NULL, $label = NULL, $desc = NULL,
 		$revision = NULL, $revisionId = NULL, $originalId = NULL, $callback = NULL, $hash = NULL)
 	{
-		if (!$revision || !$callback || !$revisionId || !$originalId || !$hash)
+
+		if (!$this['videoForm']->submitted)
 		{
-			$this->sendJson(['Omlouvam se, takhle rovnou uz to nejde, pridavejte prosim videa pouze z reportu. Pokud to z nejakeho duvodu nejde, napiste mi prosim na mikulas@khanovaskola.cz, dekuji.']);
-		}
-		if (md5("$revision|$callback|$revisionId|$originalId") !== $hash)
-		{
-			$this->error();
+			if ($revision === NULL || $callback === NULL || $revisionId === NULL
+				|| $originalId === NULL || $hash === NULL)
+			{
+				$this->sendJson(['Omlouvam se, takhle rovnou uz to nejde, pridavejte prosim videa pouze z reportu. Pokud to z nejakeho duvodu nejde, napiste mi prosim na mikulas@khanovaskola.cz, dekuji.']);
+			}
+			if (md5("$revision|$callback|$revisionId|$originalId") !== $hash)
+			{
+				$this->error();
+			}
 		}
 
 		$this['videoForm']['categories']->setDefaultValue([$this->id]);

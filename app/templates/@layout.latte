@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="cs"{ifset $data_require} data-require={$data_require}{/ifset}>
 <head>
+	{* so high to fight FOUT *}
+	<script type="text/javascript">
+		WebFontConfig = { fontdeck: { id: '31422' } };
+		(function() {
+			var wf = document.createElement('script');
+			wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+			'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+			wf.type = 'text/javascript';
+			wf.async = 'true';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(wf, s);
+		})();
+	</script>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -50,6 +63,17 @@
 	<meta name="msapplication-TileImage" content="{$cdnUrl}/images/apple/apple-touch-icon-144.png">
 	{#head}{/#}
 
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-33892654-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 	<script>
 		var onLoadQueue = [];
 		var onLoadQueuePersistent = [];
@@ -105,16 +129,16 @@
 				<ul>
 					<li>Sociální sítě</li>
 					<li>
-						<a class="no-ajax" onclick="_gaq.push(['_trackEvent', 'Click', 'Youtube-Subscribe-Header']);" href="http://www.youtube.com/khanacademyczech" title="Youtube" target="_blank">
+						<a class="no-ajax" href="http://www.youtube.com/khanacademyczech" title="Youtube" target="_blank">
 							<img src="{$cdnUrl}/images/icon_youtube.svg" height="24" alt="Náš youtube kanál, na který nahráváme všechna dabovaná videa">
 						</a>
-						<a class="no-ajax" onclick="_gaq.push(['_trackEvent', 'Click', 'Gplus-Follow-Header']);" href="https://plus.google.com/117423506408066949300/posts" title="Google Plus" target="_blank">
+						<a class="no-ajax" href="https://plus.google.com/117423506408066949300/posts" title="Google Plus" target="_blank">
 							<img src="{$cdnUrl}/images/icon_gplus.svg" height="24" alt="Google Plus stránka Khanovy školy">
 						</a>
-						<a class="no-ajax" onclick="_gaq.push(['_trackEvent', 'Click', 'Facebook-Join-Header']);" href="http://www.facebook.com/khanovaskola" title="Facebook" target="_blank">
+						<a class="no-ajax" href="http://www.facebook.com/khanovaskola" title="Facebook" target="_blank">
 							<img src="{$cdnUrl}/images/icon_facebook.svg" height="24" alt="Facebook stránka Khanovy školy">
 						</a>
-						<a class="no-ajax" onclick="_gaq.push(['_trackEvent', 'Click', 'Twitter-Follow-Header']);" href="https://twitter.com/khanovaskola" title="Twitter" target="_blank">
+						<a class="no-ajax" href="https://twitter.com/khanovaskola" title="Twitter" target="_blank">
 							<img src="{$cdnUrl}/images/icon_twitter.svg" height="24" alt="Twitter účet Khanovy školy obsahující nejdůležitější novinky">
 						</a>
 					</li>
@@ -140,32 +164,6 @@
 			</div>
 		</div>
 	</footer>
-
-	<script type="text/javascript">
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-33892654-1']);
-		_gaq.push(['_trackPageview']);
-		_gaq.push(['_setCustomVar', 1, 'Logged in', {$user->loggedIn ? 'Yes' : 'No'}, 2]);
-		_gaq.push(['_setCustomVar', 1, 'Device pixel ratio', ""+window.devicePixelRatio, 1]);
-		{if $user->loggedIn}_gaq.push(['_setCustomVar', 1, 'User ID', '{$user->id}', 1]);{/if}
-		(function() {
-			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		})();
-	</script>
-	<script type="text/javascript">
-		WebFontConfig = { fontdeck: { id: '31422' } };
-		(function() {
-			var wf = document.createElement('script');
-			wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-			'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-			wf.type = 'text/javascript';
-			wf.async = 'true';
-			var s = document.getElementsByTagName('script')[0];
-			s.parentNode.insertBefore(wf, s);
-		})();
-	</script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="{$cdnUrl}/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
@@ -211,6 +209,27 @@
 
 			var player = null;
 			var ticker = null;
+			var watched = 0;
+			var events = {
+				0.00: false,
+				0.02: false,
+				0.05: false,
+				0.10: false,
+				0.15: false,
+				0.20: false,
+				0.30: false,
+				0.40: false,
+				0.50: false,
+				0.60: false,
+				0.70: false,
+				0.80: false,
+				0.90: false,
+				0.95: false,
+				0.98: false,
+				1.00: false,
+			};
+			// var startedEventTriggered = false;
+			// var watchEventTriggered = false;
 
 			var tag = document.createElement('script');
 			tag.src = "https://www.youtube.com/iframe_api";
@@ -225,48 +244,68 @@
 				}
 			}
 
-			onPlayerStateChangeCallbacks.push(fireGAEvent);
-			function fireGAEvent(code) {
-				if (code == 0) {
-					_gaq.push(['_trackEvent', 'Video', 'Video-Watched', video_id]);
-				}
-			}
+			onPlayerStateChangeCallbacks.push(function(code)
+			{
+				if (!$("#player").length)
+			        return false;
 
-			onPlayerStateChangeCallbacks.push(saveState);
-			function saveState(code) {
-				if (code == 1) {
-					ticker = setInterval(function() {
-						updateProgress(player.getCurrentTime());
-					}, 10000);
-				} else {
-					clearInterval(ticker);
-				}
+				if (code == 1) { // playing
+					$("#fb-overlay").hide();
+					var delta = 500;
+					watch_ticker = setInterval(function() {
+						watched += delta;
+						var percent = (watched / 1000) / player.getDuration();
+						$.each(events, function(threshold, skip) {
+							if (!skip && percent > threshold)
+							{
+								console.log("threshold", percent, threshold);
+								_gaq.push(['_trackEvent', 'video', 'progress-' + threshold, '', watched / 1000]);
+								events[threshold] = true;
+								if (threshold == 0.10)
+								{
+									console.log("+started");
+									_gaq.push(['_trackEvent', 'video', 'started']);
+								}
+								else if (threshold == 0.90)
+								{
+									console.log("+watched");
+									_gaq.push(['_trackEvent', 'video', 'watched', '', watched / 1000]);
+								}
+							}
+						});
 
-				if (code == 0) { // save only if video ended
-					updateProgress(-1);
-				}
-			}
+					}, delta);
 
-			function updateProgress(progress) {
-				if (typeof youtube_progress_url === 'undefined') {
-					return false;
-				}
+				} else if (code == -1) { // created
+					// todo no longer called :(
 
-				$.ajax(youtube_progress_url, {
-					data: { seconds: progress},
-					success: function(response) {
-						if (response.status !== 'success') {
-							console.error("Error while saving progress: ", response);
-						}
+				} else { // stopped
+					$("#fb-overlay").show();
+					clearInterval(watch_ticker);
+
+					if (player.getCurrentTime() == player.getDuration())
+					{
+						$("#fb-overlay").show();
+						$("#next-overlay").show();
 					}
-				});
-			}
+				}
+			});
 		</script>
 		<script type="text/javascript" src="{$cdnUrl}/js/subtitles.v-{=md5_file(WWW_DIR . '/js/subtitles.js')}.js"></script>
 
 	{* end video scripts *}
 
 	{#scripts}{/#}
+	<div id="fb-root"></div>
+	<script>
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/cs_CZ/all.js#xfbml=1&appId=273608052753035";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
 	{snippet scripts}
 		{#scripts-ajax}{/#}
 	{/snippet}

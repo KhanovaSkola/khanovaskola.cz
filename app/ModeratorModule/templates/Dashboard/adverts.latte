@@ -1,0 +1,28 @@
+{var $title = "Reklamy"}
+{#content}
+
+<article>
+	<div n:foreach="$ads as $ad">
+		{foreach $ads as $an}
+			{* only render most up to date *}
+			{if $an->video_id == $ad->video_id && $an->created_at > $ad->created_at}
+				{?continue 2}
+			{/if}
+		{/foreach}
+
+		<input type="text" value="{$ad->title}"><br>
+		<input type="text" value="{$ad->text1}"><br>
+		<input type="text" value="{$ad->text2}"><br>
+		<input type="text" value="{$ad->url}"><br>
+
+		{var $link = $presenter->link('//:Front:Watch:', ['vid' => $ad->video_id])}
+		{? $link = substr($link, 8)}
+		<input type="text" value="{$link}"><br>
+
+		<textarea>{$ad->keywords}</textarea>
+
+		<a n:href="resolve!, video_id => $ad->video_id" class="button green">resolved</a>
+
+		<hr class="thin">
+	</div>
+</article>

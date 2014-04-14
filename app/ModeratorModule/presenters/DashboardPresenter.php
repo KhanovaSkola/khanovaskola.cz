@@ -38,6 +38,22 @@ class DashboardPresenter extends BaseModeratorPresenter
 
 
 
+	public function renderAdverts()
+	{
+		$this->template->ads = $this->context->adverts->findAll()
+			->where('online', FALSE)->fetchAll();
+	}
+
+
+
+	public function handleResolve($video_id)
+	{
+		$this->context->adverts->markResolved($video_id);
+		$this->redirect('this');
+	}
+
+
+
 	public function renderVideos()
 	{
 		if (!$this->user->isInrole(ROLE::VERIFIER)) {

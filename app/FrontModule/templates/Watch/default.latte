@@ -89,6 +89,14 @@
 				<div class="video-container">
 					<div id="player"></div>
 				</div>
+				<div id="fb-overlay" style="display:none; position: absolute; margin-top: -160px; width: 100%; background-color: rgba(255,255,255,.95); padding: 20px; z-index: 9999">
+					<div class="fb-like" data-href="https://www.facebook.com/KhanovaSkola" data-layout="standard" data-action="like" data-show-faces="true" data-share="false"></div>
+				</div>
+				<a n:if="$next" id="next-overlay" style="display: none; position: absolute; z-index: 9998; background-color: rgba(255,255,255,.95); width: 800px; height: 380px; margin-top: -483px; text-align: center; padding-top: 100px; font-size: 200%"
+					n:href="this, vid => $next->id">
+					<h2 style="font-size: 130%; margin-bottom: 20px">Následující video</h2>
+					{$next->label}
+				</a>
 				{if $subtitles && count($subtitles) > 1}
 					{control subtitles, $subtitles, $video->isDubbed()}
 					<p class="float-right">

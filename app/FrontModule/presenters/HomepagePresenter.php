@@ -103,7 +103,7 @@ class HomepagePresenter extends BaseFrontPresenter
 
 	public function actionRedirectToForm()
 	{
-		$this->redirectUrl('https://docs.google.com/forms/d/1pA6mQ48by27by_aAycdi2iMh8hXQqFXB4VgP2azT2xY/viewform');
+		$this->redirectUrl('https://docs.google.com/forms/d/1nKg5f6DEjaKHu9QF8k8Qu4sPfhhOq6Rubq1-phher50/viewform');
 	}
 
 }

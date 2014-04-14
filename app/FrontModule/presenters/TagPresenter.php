@@ -28,6 +28,19 @@ class TagPresenter extends BaseFrontPresenter
 	{
 		$this->template->tags = $this->context->tags->findBy(['display' => TRUE]);
 		$this->template->selected = $this->tag;
+
+		$cats = [];
+		$groups = [];
+
+		foreach ($this->tag->getVideos() as $video)
+		{
+			$cat = $video->getOneCategory();
+			$cats[$cat->id] = $cat;
+			$groups[$cat->id][] = $video;
+		}
+
+		$this->template->cats = $cats;
+		$this->template->groups = $groups;
 	}
 
 }

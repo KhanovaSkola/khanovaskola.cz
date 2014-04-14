@@ -14,6 +14,7 @@ use Nette\Caching\Cache;
  * @property string	$keywords
  * @property DateTime	$created_at
  * @property int	$user_id
+ * @property bool $online
  */
 class Advert extends \ORM\EntityUrl
 {
